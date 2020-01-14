@@ -45,6 +45,18 @@
         {
             "type": "composer",
             "url": "https://drupalwxt.github.io/composer-extdeps/"
+        },
+        {
+            "type": "path",
+            "url": "custom/modules/my-module-1"
+        },
+        {
+            "type": "path",
+            "url": "custom/modules/my-module-2"
+        },
+        {
+            "type": "path",
+            "url": "custom/themes/my-theme"
         }
     ],
     "scripts": {
@@ -70,7 +82,9 @@
     "extra": {
         "installer-types": [
            "bower-asset",
-           "npm-asset"
+           "npm-asset",
+           "custom-module",
+           "custom-theme"
         ],
         "installer-paths": {
             "html/core": [
@@ -83,7 +97,8 @@
                 "type:drupal-console-library"
             ],
             "html/modules/custom/{$name}": [
-                "drupal/wxt_library"
+                "drupal/wxt_library",
+                "type:drupal-custom-module"
             ],
             "html/modules/contrib/{$name}": [
                 "type:drupal-module"
@@ -92,7 +107,8 @@
                 "type:drupal-profile"
             ],
             "html/themes/custom/{$name}": [
-                "drupal/wxt_bootstrap"
+                "drupal/wxt_bootstrap",
+                "type:drupal-custom-theme"
             ],
             "html/themes/contrib/{$name}": [
                 "type:drupal-theme"
@@ -126,7 +142,10 @@
         "drupal-composer/drupal-scaffold": "^2.0.0",
         "drush/drush": "^9.0",
         "drupalwxt/wxt": "3.0.6",
-        "acquia/lightning": "4.1.1"
+        "acquia/lightning": "4.1.1",
+        "smulvih2/my-module-1": "*",
+        "smulvih2/my-module-2": "*",
+        "smulvih2/my-theme": "*"
     },
     "autoload": {
         "classmap": [
