@@ -48,15 +48,11 @@
         },
         {
             "type": "path",
-            "url": "custom/modules/my-module-1"
+            "url": "custom/modules/grsadmin"
         },
         {
             "type": "path",
-            "url": "custom/modules/my-module-2"
-        },
-        {
-            "type": "path",
-            "url": "custom/themes/my-theme"
+            "url": "custom/themes/grstheme"
         }
     ],
     "scripts": {
@@ -143,9 +139,8 @@
         "drush/drush": "^9.0",
         "drupalwxt/wxt": "3.0.6",
         "acquia/lightning": "4.1.1",
-        "smulvih2/my-module-1": "*",
-        "smulvih2/my-module-2": "*",
-        "smulvih2/my-theme": "*"
+        "entreprise7pro/grsadmin": "*",
+        "entreprise7pro/grstheme": "*"
     },
     "autoload": {
         "classmap": [
