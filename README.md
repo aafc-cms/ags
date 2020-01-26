@@ -27,6 +27,11 @@ composer install
 # No need to run this: composer create-project drupalwxt/wxt-project:8.x-dev site-name
 ```
 
+## POST INSTALLATION
+# add this line to your settings.php after installation.
+$config_directories['sync'] = 'config/sync';
+# now the config will be grabbed from the config folder in the root of your drupal installation.
+
 ## Maintenance
 
 List of common commands are as follows:
