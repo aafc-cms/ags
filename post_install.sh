@@ -9,6 +9,7 @@ if [ ! -f html/sites/default/settings.php ]; then
   sudo chmod 664 html/sites/default/settings.php
   sudo chown --reference=. html/sites/default/settings.php
   sudo mkdir html/sites/default/files
+  sudo chown --reference=. html/sites/default/files
   sudo chmod 775 html/sites/default/files
 fi
 
