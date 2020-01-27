@@ -1,0 +1,22 @@
+uuid: 9197a03a-e515-4004-87ac-442bfa8a75f0
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - wxt_bootstrap
+_core:
+  default_config_hash: bhu62DFASk1snGjvMt7JVIX30x2uQWxObJ83FtQNBd4
+id: wxt_bootstrap_messages
+theme: wxt_bootstrap
+region: highlighted
+weight: -8
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

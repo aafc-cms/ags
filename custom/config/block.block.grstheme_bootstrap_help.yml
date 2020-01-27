@@ -1,0 +1,22 @@
+uuid: a7cd53dc-9839-4bea-b4e9-81cf49aaa3f5
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - grstheme_bootstrap
+_core:
+  default_config_hash: 4eMiBJNSNMAbB-qQ8aoD-BtvjkUpZ7YUN9uBZty2724
+id: grstheme_bootstrap_help
+theme: grstheme_bootstrap
+region: help
+weight: -8
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

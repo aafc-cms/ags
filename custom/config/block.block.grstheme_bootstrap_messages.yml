@@ -1,0 +1,22 @@
+uuid: 2da4e9f4-3067-4d68-abd1-441c6bcc191b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - grstheme_bootstrap
+_core:
+  default_config_hash: bhu62DFASk1snGjvMt7JVIX30x2uQWxObJ83FtQNBd4
+id: grstheme_bootstrap_messages
+theme: grstheme_bootstrap
+region: highlighted
+weight: -8
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

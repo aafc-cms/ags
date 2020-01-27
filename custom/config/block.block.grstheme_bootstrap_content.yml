@@ -1,0 +1,22 @@
+uuid: f3d48266-016e-4bc9-8dc1-3616bab2ac6e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - grstheme_bootstrap
+_core:
+  default_config_hash: tKnxXzEgiZt4P1kSKifNzbrryhog9XteiDVXbdjt0rc
+id: grstheme_bootstrap_content
+theme: grstheme_bootstrap
+region: content
+weight: -7
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

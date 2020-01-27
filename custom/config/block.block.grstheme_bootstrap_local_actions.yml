@@ -1,0 +1,20 @@
+uuid: 718725d3-55b4-4b49-a97e-a845e5d2444d
+langcode: en
+status: true
+dependencies:
+  theme:
+    - grstheme_bootstrap
+_core:
+  default_config_hash: JxXlQS3R8D6zfE1vBzGrCGFktAtNi6J6Qr_cjcp-fiU
+id: grstheme_bootstrap_local_actions
+theme: grstheme_bootstrap
+region: header
+weight: -10
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

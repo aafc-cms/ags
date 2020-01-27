@@ -1,0 +1,27 @@
+uuid: 6b1db6a9-37cb-43c5-b288-cd8806393b57
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.brand
+  module:
+    - system
+  theme:
+    - grstheme_bootstrap
+_core:
+  default_config_hash: yA2ceTKyWYK9PAZQ8NriHRNrt6TpcuCuWbo4nI-EKCk
+id: grstheme_bootstrap_brand
+theme: grstheme_bootstrap
+region: branding
+weight: 0
+provider: null
+plugin: 'system_menu_block:brand'
+settings:
+  id: 'system_menu_block:brand'
+  label: Brand
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

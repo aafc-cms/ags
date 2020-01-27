@@ -1,0 +1,27 @@
+uuid: 8c377a2f-0e99-4c7d-9a5c-f519eb00e141
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - grstheme_bootstrap
+_core:
+  default_config_hash: seIUTJxFp2GDUSD1zSJEjubHoY9au6WXIHR0ZVhUU4g
+id: grstheme_bootstrap_account_menu
+theme: grstheme_bootstrap
+region: navigation_collapsible
+weight: -7
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 2
+  expand_all_items: false
+visibility: {  }

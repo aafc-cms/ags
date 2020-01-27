@@ -1,0 +1,18 @@
+uuid: 5667c95e-9d77-4b2b-824a-f1708db06357
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.basic
+id: block_content.basic.langcode
+field_name: langcode
+entity_type: block_content
+bundle: basic
+label: Language
+description: 'The custom block language code.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: language

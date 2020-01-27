@@ -1,0 +1,36 @@
+uuid: 13e27690-cf6b-4d57-9d0e-b4e081e3fc2b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - user
+    - wxt_library
+  theme:
+    - grstheme_bootstrap
+_core:
+  default_config_hash: 8GCJO4MuQrCj0KIZ5iPdCU5Z5YaZskWJVAAA_oDzv_I
+id: grstheme_bootstrap_user_account_block
+theme: grstheme_bootstrap
+region: header
+weight: -6
+provider: null
+plugin: user_account_block
+settings:
+  id: user_account_block
+  label: 'User Account'
+  provider: wxt_library
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: true
+    context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

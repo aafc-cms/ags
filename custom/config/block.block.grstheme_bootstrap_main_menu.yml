@@ -1,0 +1,27 @@
+uuid: f354ee4e-c9ea-4576-9180-b1348911742b
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - grstheme_bootstrap
+_core:
+  default_config_hash: I4uZb4MsSTE13ag2UXqeYlR2ohUTh4LWyLbMvoj2TNc
+id: grstheme_bootstrap_main_menu
+theme: grstheme_bootstrap
+region: navigation
+weight: -8
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 2
+  expand_all_items: false
+visibility: {  }

@@ -1,0 +1,22 @@
+uuid: 51cbef54-01dd-4913-a364-74c558420440
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - grstheme_bootstrap
+_core:
+  default_config_hash: Jx3NwD_ieAzJWK8hQ-N23eqTllZrvEbm_slIFl0jf1g
+id: grstheme_bootstrap_breadcrumbs
+theme: grstheme_bootstrap
+region: breadcrumb
+weight: -7
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

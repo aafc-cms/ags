@@ -1,0 +1,27 @@
+uuid: c5289e4f-8739-41bf-b7d1-b50de2eb0992
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - grstheme_bootstrap
+_core:
+  default_config_hash: _4IB0gMqOCSV5tNCp1rR94KUtiXDqokh-30vZMi6s0M
+id: grstheme_bootstrap_footer
+theme: grstheme_bootstrap
+region: footer
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: 'Footer menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

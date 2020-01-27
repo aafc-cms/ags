@@ -1,0 +1,25 @@
+uuid: bd4a893e-0d87-4992-af5d-28cabbf48705
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - grstheme_bootstrap
+_core:
+  default_config_hash: Ay7JxVDkyzI58DHuuz5I5ZzGsktewzwPp8AorHybNkQ
+id: grstheme_bootstrap_sitebranding
+theme: grstheme_bootstrap
+region: banner
+weight: -7
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }
