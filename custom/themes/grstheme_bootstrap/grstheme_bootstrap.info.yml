@@ -1,4 +1,4 @@
-name: 'WxT Sub-Theme'
+name: 'GRS Bootstrap Sub-Theme of wxt_bootstrap'
 description: 'WxT sub-theme(s) support leveraging WxT Bootstrap. Source files for Bootstrap are defined as part of the WxT Library module.'
 type: theme
 core: 8.x
@@ -24,6 +24,9 @@ regions:
   page_top: 'Page top'
   page_bottom: 'Page bottom'
 
+libraries:
+  - 'grstheme_bootstrap/global-styling'
+
 libraries-extend:
   bootstrap/framework:
-    - 'THEMENAME/framework'
+    - 'grstheme_bootstrap/framework'

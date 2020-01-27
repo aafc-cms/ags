@@ -1,0 +1,30 @@
+/**
+ * If using a CSS pre-processor, tell it to overwrite this file. If not, place
+ * your custom CSS modifications here.
+ */
+/* line 7, ../sass/styles.scss */
+.region-banner a.name.navbar-brand {
+  color: white;
+}
+/* line 11, ../sass/styles.scss */
+.region-banner p.navbar-text {
+  color: white;
+}
+
+@media screen and (min-width: 992px) {
+  /* line 17, ../sass/styles.scss */
+  #wb-bar + .container {
+    background: -webkit-gradient(linear, right top, left top, from(#298019), color-stop(#31821d), to(#278019));
+    background: -webkit-linear-gradient(right, #278019, #31821d, #278019);
+    background: linear-gradient(to left, #278019, #31821d, #278019);
+    position: relative;
+  }
+}
+@media screen and (min-width: 992px) {
+  /* line 26, ../sass/styles.scss */
+  #wb-bnr {
+    background: #31821d !important;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
