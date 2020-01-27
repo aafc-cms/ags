@@ -72,11 +72,13 @@
       ],
       "post-install-cmd": [
           "@composer drupal-scaffold",
-          "DrupalWxT\\WxT\\ScriptHandler::deployLibraries"
+          "DrupalWxT\\WxT\\ScriptHandler::deployLibraries",
+          "sh post_install.sh"
       ],
       "post-update-cmd": [
           "@composer drupal-scaffold",
-          "DrupalWxT\\WxT\\ScriptHandler::deployLibraries"
+          "DrupalWxT\\WxT\\ScriptHandler::deployLibraries",
+          "sh post_install.sh"
       ]
     },
     "extra": {
