@@ -2,7 +2,20 @@
  * If using a CSS pre-processor, tell it to overwrite this file. If not, place
  * your custom CSS modifications here.
  */
+$agrisource-menu-main-light: #a8b7c5 !default;
+$agrisource-menu-main-med: #96999c !default;
+$agrisource-menu-main-dark: #939394 !default;
+$agrisource-menu-main-bright: #939394 !default;
 
+#wb-sm .nvbar {
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#939394),to($agrisource-menu-main-med));
+  background-image: -webkit-linear-gradient(#959a9e,#8f9cab);
+  background-image: linear-gradient(#a8b7c5,#5f6061);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr="#FF2A79C5", endColorstr="#FF1B5A9F");
+  background-color: #878b8e;
+  border-bottom: 4px solid #ccc;
+  border-top: 1px solid #686868;
+}
 .region-banner {
   a.name.navbar-brand {
     color: white;
