@@ -10,12 +10,13 @@ $agrisource-menu-main-bright: #939394 !default;
 #wb-sm .nvbar {
   background-image: -webkit-gradient(linear,left top,left bottom,from(#939394),to($agrisource-menu-main-med));
   background-image: -webkit-linear-gradient(#959a9e,#8f9cab);
-  background-image: linear-gradient(#a8b7c5,#5f6061);
+  background-image: linear-gradient(#b9b09d,#59595b);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr="#FF2A79C5", endColorstr="#FF1B5A9F");
   background-color: #878b8e;
   border-bottom: 4px solid #ccc;
-  border-top: 1px solid #686868;
+  border-top: 1px solid #59595b;
 }
+
 .region-banner {
   a.name.navbar-brand {
     color: white;
@@ -30,13 +31,13 @@ $agrisource-menu-main-bright: #939394 !default;
   #wb-bar+.container {
     background: -webkit-gradient(linear,right top,left top,from(#298019),color-stop(#31821d),to(#278019));
     background: -webkit-linear-gradient(right,#278019,#31821d,#278019);
-    background: linear-gradient(to left,#278019,#31821d,#278019);
+    background: linear-gradient(to left,#007852,#77bc1f,#007852);
     position: relative;
   }
 }
 
 @media screen and (min-width: 992px) {
   #wb-bnr {
-    background: #31821d !important;
+    background: #007852 !important;
   }
 }
