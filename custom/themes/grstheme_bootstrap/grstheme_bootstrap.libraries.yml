@@ -8,4 +8,12 @@ global-styling:
     theme:
        css/styles.css: {}
 
+drupal.grstheme_bootstrap:
+  js:
+    js/drupal.grstheme_bootstrap.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - grstheme_bootstrap/framework
 
