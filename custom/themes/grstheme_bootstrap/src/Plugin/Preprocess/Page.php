@@ -22,6 +22,7 @@ class Page extends BootstrapPage {
     $wxt = \Drupal::service('wxt_library.service_wxt');
     $wxt_active = $wxt->getLibraryName();
     $agrisource_theme_path = '/' . \Drupal::theme()->getActiveTheme()->getPath();
+
     $library_path = $wxt->getLibraryPath();
 
     // Language Handling.
@@ -78,6 +79,7 @@ class Page extends BootstrapPage {
     }
     elseif ($wxt_active == 'gc_intranet') {
       $variables['logo_svg'] = $agrisource_theme_path . '/images/sig-' . $language . '.gif';
+      $variables['logo_canada_svg'] = $agrisource_theme_path . '/images/logo-canada.svg';
     }
 
     parent::preprocess($variables, $hook, $info);
