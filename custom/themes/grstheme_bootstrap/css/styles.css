@@ -27,8 +27,17 @@
   height: 43.344px;
 }
 
+/* Target french only css */
 @media screen and (min-width: 992px) {
-  /* line 37, ../sass/styles.scss */
+  /* line 38, ../sass/styles.scss */
+  body.i18n-fr section.wxt-search-block-form.col-md-4 {
+    padding-right: 0 !important;
+  }
+}
+
+/* End of target french only css */
+@media screen and (min-width: 992px) {
+  /* line 46, ../sass/styles.scss */
   #wb-bar + .container {
     background: -webkit-gradient(linear, right top, left top, from(#298019), color-stop(#31821d), to(#278019));
     background: -webkit-linear-gradient(right, #278019, #31821d, #278019);
@@ -37,19 +46,19 @@
   }
 }
 @media screen and (min-width: 992px) {
-  /* line 46, ../sass/styles.scss */
+  /* line 55, ../sass/styles.scss */
   #wb-bnr {
     background: #007852 !important;
   }
 }
-/* line 51, ../sass/styles.scss */
+/* line 60, ../sass/styles.scss */
 #wb-info {
   height: 430 px;
   background-color: #999;
 }
 
 @media screen and (min-width: 992px) {
-  /* line 57, ../sass/styles.scss */
+  /* line 66, ../sass/styles.scss */
   #agrisource-wmms {
     height: 1.9em;
     position: absolute;
