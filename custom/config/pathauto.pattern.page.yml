@@ -9,16 +9,16 @@ _core:
 id: page
 label: 'Basic page'
 type: 'canonical_entities:node'
-pattern: '[node:title]'
+pattern: '[node:content-type]/[current-date:html_year]/[node:title]'
 selection_criteria:
-  00e43b31-d51e-4793-bd28-952604955d73:
+  42ddee43-93cf-4812-85a0-1d47d9349264:
     id: node_type
     bundles:
       page: page
     negate: false
     context_mapping:
       node: node
-    uuid: 00e43b31-d51e-4793-bd28-952604955d73
+    uuid: 42ddee43-93cf-4812-85a0-1d47d9349264
 selection_logic: and
 weight: -5
 relationships: {  }

@@ -1,3 +1,7 @@
+schemas:
+  bootstrap: 8000
+  wxt_bootstrap: 8000
+  grstheme_bootstrap: 8000
 favicon:
   mimetype: image/vnd.microsoft.icon
   path: profiles/wxt/favicon.ico
@@ -11,8 +15,30 @@ features:
 logo:
   path: profiles/wxt/wxt.svg
   url: ''
-  use_default: false
-schemas:
-  bootstrap: 8000
-  wxt_bootstrap: 8000
-  grstheme_bootstrap: 8000
+  use_default: true
+wxt_skip_link_primary_text: 'Skip to main content'
+wxt_skip_link_secondary_text: 'Skip to "About this site"'
+table_responsive: '-1'
+region_wells:
+  branding: ''
+  breadcrumb: ''
+  language_toggle: ''
+  banner: ''
+  search: ''
+  navigation: ''
+  navigation_collapsible: ''
+  header: ''
+  highlighted: ''
+  help: ''
+  content: ''
+  content_footer: ''
+  sidebar_first: ''
+  sidebar_second: well
+  footer: ''
+cdn_theme: ''
+cdn_cache_ttl_versions: 0
+cdn_cache_ttl_themes: 0
+cdn_cache_ttl_assets: 0
+cdn_cache_ttl_library: 0
+reset_http_request_cache: ''
+table: ''
