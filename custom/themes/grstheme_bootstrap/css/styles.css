@@ -15,28 +15,36 @@
 
 /* Canada Government Logo Size */
 /* line 21, ../sass/styles.scss */
-#wmms {
-  height: 30px;
-  width: 127px;
+#agrisource-wmms {
+  height: 2.35em;
+  left: 15px;
+  margin-top: -8px;
+  position: absolute;
+  top: 0.8em;
 }
 
-/* line 27, ../sass/styles.scss */
+/* line 30, ../sass/styles.scss */
 .region-banner a.name.navbar-brand {
   color: white;
 }
-/* line 31, ../sass/styles.scss */
+/* line 34, ../sass/styles.scss */
 .region-banner p.navbar-text {
   color: white;
 }
 
-/* line 36, ../sass/styles.scss */
+/* line 39, ../sass/styles.scss */
 #wb-menu.visible-md.visible-lg.wb-init.wb-menu-inited.wb-navcurr-inite {
   height: 43.344px;
 }
 
+/* line 45, ../sass/styles.scss */
+#wb-info ul.hide-this, #wb-info a[data-drupal-link-system-path~="contact"] {
+  display: none;
+}
+
 /* Target french only css */
 @media screen and (min-width: 992px) {
-  /* line 44, ../sass/styles.scss */
+  /* line 53, ../sass/styles.scss */
   body.i18n-fr section.wxt-search-block-form.col-md-4 {
     padding-right: 0 !important;
   }
@@ -44,33 +52,28 @@
 
 /* End of target french only css */
 @media screen and (min-width: 992px) {
-  /* line 52, ../sass/styles.scss */
+  /* line 61, ../sass/styles.scss */
   #wb-bar + .container {
     background: -webkit-gradient(linear, right top, left top, from(#298019), color-stop(#31821d), to(#278019));
     background: -webkit-linear-gradient(right, #278019, #31821d, #278019);
     background: linear-gradient(to left, #007852, #77bc1f, #007852);
     position: relative;
   }
-}
-@media screen and (min-width: 992px) {
-  /* line 61, ../sass/styles.scss */
-  #wb-bnr {
-    background: #007852 !important;
-  }
-}
-/* line 67, ../sass/styles.scss */
-#wb-info ul.hide-this, #wb-info a[data-drupal-link-system-path~="contact"] {
-  display: none;
-}
 
-@media screen and (min-width: 992px) {
-  /* line 73, ../sass/styles.scss */
+  /* line 68, ../sass/styles.scss */
   #agrisource-wmms {
+    left: unset;
+    margin-top: unset;
     height: 1.9em;
     position: absolute;
     right: 15px;
     top: 36px;
     z-index: 2;
+  }
+
+  /* line 78, ../sass/styles.scss */
+  #wb-bnr {
+    background: #007852 !important;
   }
 }
 

@@ -18,9 +18,12 @@ $agrisource-menu-main-bright: #939394 !default;
 }
 
 /* Canada Government Logo Size */
-#wmms {
-  height: 30px ;
-  width:  127px;
+#agrisource-wmms {
+  height: 2.35em;
+  left: 15px;
+  margin-top: -8px;
+  position: absolute;
+  top: 0.8em;
 }
 
 .region-banner {
@@ -36,6 +39,12 @@ $agrisource-menu-main-bright: #939394 !default;
 #wb-menu.visible-md.visible-lg.wb-init.wb-menu-inited.wb-navcurr-inite
 {
  height: 43.344px ;
+}
+
+#wb-info {
+  ul.hide-this, a[data-drupal-link-system-path~="contact"] {
+    display:none;
+  }
 }
 
 /* Target french only css */
@@ -55,26 +64,21 @@ body.i18n-fr {
     background: linear-gradient(to left,#007852,#77bc1f,#007852);
     position: relative;
   }
-}
 
-@media screen and (min-width: 992px) {
-  #wb-bnr {
-    background: #007852 !important;
-  }
-}
-
-#wb-info {
-  ul.hide-this, a[data-drupal-link-system-path~="contact"] {
-    display:none;
-  }
-}
-
-@media screen and (min-width: 992px) {
   #agrisource-wmms {
+    left: unset;
+    margin-top: unset;
     height: 1.9em;
     position: absolute;
     right: 15px;
     top: 36px;
     z-index: 2;
   }
+
+  #wb-bnr {
+    background: #007852 !important;
+  }
 }
+
+
+
