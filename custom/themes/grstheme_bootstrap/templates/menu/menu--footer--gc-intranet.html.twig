@@ -1,0 +1,136 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a menu.
+ *
+ * Available variables:
+ * - menu_name: The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *
+ * @ingroup templates
+ */
+#}
+
+{% import _self as menus %}
+
+{#
+  We call a macro which calls itself to render the full tree.
+  @see http://twig.sensiolabs.org/doc/tags/macro.html
+#}
+{{ menus.menu_links(items, attributes, 0, menu_name|clean_class) }}
+
+{% macro menu_links(items, attributes, menu_level, menu_name) %}
+  {% import _self as menus %}
+  {% if items %}
+    {% if menu_level != 0 %}
+      <ul{{ attributes.addClass('list-unstyled') }}>
+    {% endif %}
+    {% for item in items %}
+      {% if menu_level == 0 and item.is_expanded %}
+        <section{{ item.attributes.addClass('col-sm-3') }}>
+        <h3>{{ item.title }}</h3>
+      {% else %}
+        <li{{ item.attributes }}>
+        {{ link(item.title, item.url) }}
+      {% endif %}
+      {% if item.below %}
+        {{ menus.menu_links(item.below, attributes.removeClass('nav'), menu_level + 1, menu_name) }}
+      {% endif %}
+      {% if menu_level == 0 and item.is_expanded %}
+        </section>
+      {% else %}
+        </li>
+      {% endif %}
+    {% endfor %}
+    {% if menu_level != 0 %}
+      </ul>
+    {% endif %}
+  {% endif %}
+{% endmacro %}
+
+{% if language_prefix == 'en' %}
+<div class="row">
+  <section class="col-sm-3">
+  <h3>Collaborate</h3>
+  <ul class="list-unstyled">
+    <li><a href="http://intranet.agr.gc.ca/agrisource/eng/the-department/social-media-tools-and-resources?id=1393612540378">Knowledge Workspace</a></li>
+    <li><a href="http://intranet.agr.gc.ca/agrisource/eng/the-department/social-media-tools-and-resources?id=1445270936396#W">Social Media at Work</a></li>
+    <li><a href="http://intranet.agr.gc.ca/agrisource/eng/branches-and-offices/information-systems-branch/services/instant-messaging-and-desktop-sharing-service?id=1335471244103">Instant Messaging</a></li>
+    <li><a href="http://www.gcpedia.gc.ca/wiki/Government_Teleconferencing_Service/Web_conferencing_GTS_webex">WebEx</a></li>
+    <li><a href="http://intranet.agr.gc.ca/agrisource/eng/branches-and-offices/information-systems-branch/services/agridoc?id=1325880502838">AgriDOC</a></li>
+    <li><a href="https://gcconnex.gc.ca/login">GCconnex</a></li>
+    <li><a href="http://www.gcpedia.gc.ca/gcwiki/index.php?title=Main%20Page&amp;setlang=en">GCpedia</a></li>
+  </ul>
+  </section>
+  <section class="col-sm-3">
+  <h3>Browse</h3>
+  <ul class="list-unstyled">
+    <li><a href="http://intranet.agr.gc.ca/agrisource/eng/tools-and-services?id=1287491849464">Tools and services</a></li>
+    <li><a href="http://intranet.agr.gc.ca/agrisource/eng/a-z-index?id=1287491611968">A-Z Index</a></li>
+  </ul>
+  </section>
+  <section class="col-sm-3">
+  <h3>News</h3>
+  <ul class="list-unstyled">
+    <li><a href="http://intranet.agr.gc.ca/agrisource/eng/agriculture-magazine/newswork?id=1311865754938">news@work</a></li>
+    <li><a href="http://v02.densan.ca/Agcan/browseclips.asp?Lang=E">News Clippings</a></li>
+    <li><a href="https://collab.agr.gc.ca/apps/harvest-moisson">The Harvest</a></li>
+  </ul>
+  </section>
+  <section class="col-sm-3">
+  <h3>Related sites</h3>
+  <ul class="list-unstyled">
+    <li><a href="http://www.agr.gc.ca/eng/home/?id=1395690825741">AAFC Internet site</a></li>
+    <li><a href="https://www.canada.ca/en/agriculture-agri-food.html">AAFC on Canada.ca </a></li>
+    <li><a href="https://www.canada.ca/en/public-service-commission/jobs/services/gc-jobs.html">jobs.gc.ca</a></li>
+    <li><a href="http://intranet.canada.ca/index-eng.asp">GCintranet</a></li>
+    <li><a href="http://geds20-sage20.ssc-spc.gc.ca/en/GEDS20/?pgid=002">GCdirectory</a></li>
+  </ul>
+  </section>
+</div>
+{% else %}
+<div class="row">
+  <section class="col-sm-3">
+  <h3>Collaborer</h3>
+    <ul class="list-unstyled">
+      <li><a href="http://intranet.agr.gc.ca/agrisource/fra?id=1393612540378">Espace de travail du savoir</a></li>
+      <li><a href="http://intranet.agr.gc.ca/agrisource/fra?id=1445270936396#W">Médias sociaux au travail</a></li>
+      <li><a href="http://intranet.agr.gc.ca/agrisource/fra?id=1335471244103">Messagerie instantanée</a></li>
+      <li><a href="https://www.gcpedia.gc.ca/wiki/Service_gouvernemental_de_t%C3%A9l%C3%A9conf%C3%A9rence/Cyberconf%C3%A9rences_WebEx_du_SGT">WebEx</a></li>
+      <li><a href="http://intranet.agr.gc.ca/agrisource/fra/branches-and-offices/information-systems-branch/services/agridoc?id=1325880502838">AgriDOC</a></li>
+      <li><a href="https://gcconnex.gc.ca/login">GCconnex</a></li>
+      <li><a href="http://www.gcpedia.gc.ca/gcwiki/index.php?setlang=fr">GCpédia</a></li>
+    </ul>
+  </section>
+  <section class="col-sm-3">
+    <h3>Parcourir</h3>
+    <ul class="list-unstyled">
+      <li><a href="http://intranet.agr.gc.ca/agrisource/fra?id=1287491849464">Outils et services</a></li>
+      <li><a href="http://intranet.agr.gc.ca/agrisource/fra?id=1287491611968">Index A-Z</a></li>
+    </ul>
+  </section>
+  <section class="col-sm-3">
+    <h3>Nouvelles</h3>
+    <ul class="list-unstyled">
+      <li><a href="http://intranet.agr.gc.ca/agrisource/fra?id=1311865754938">nouvelles@l'ouvrage</a></li>
+      <li><a href="http://v02.densan.ca/Agcan/browseclips.asp?Lang=F">Coupures de presse</a></li>
+      <li><a href="https://collab.agr.gc.ca/apps/harvest-moisson">La Moisson</a></li>
+    </ul>
+  </section>
+  <section class="col-sm-3">
+    <h3>Sites connexes</h3>
+      <ul class="list-unstyled">
+      <li><a href="http://www.agr.gc.ca/fra/accueil/?id=1395690825741">Site Web d'AAC</a></li>
+      <li><a href="https://www.canada.ca/fr/agriculture-agroalimentaire.html">AAC sur Canada.ca </a></li>
+      <li><a href="https://www.canada.ca/fr/commission-fonction-publique/emplois/services/emplois-gc.html">emplois.gc.ca</a></li>
+      <li><a href="http://intranet.canada.ca/index-fra.asp">GCintranet</a></li>
+      <li><a href="http://geds20-sage20.ssc-spc.gc.ca/fr/GCA/?pgid=002">GCannuaire</a></li>
+    </ul>
+  </section>
+</div>
+{% endif %}
