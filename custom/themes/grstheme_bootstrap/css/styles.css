@@ -58,14 +58,13 @@
     background: #007852 !important;
   }
 }
-/* line 66, ../sass/styles.scss */
-#wb-info {
-  height: 430 px;
-  background-color: #999;
+/* line 67, ../sass/styles.scss */
+#wb-info ul.hide-this, #wb-info a[data-drupal-link-system-path~="contact"] {
+  display: none;
 }
 
 @media screen and (min-width: 992px) {
-  /* line 72, ../sass/styles.scss */
+  /* line 73, ../sass/styles.scss */
   #agrisource-wmms {
     height: 1.9em;
     position: absolute;
