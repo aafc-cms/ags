@@ -22,7 +22,9 @@
   We call a macro which calls itself to render the full tree.
   @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
+<ul class="hide-this">
 {{ menus.menu_links(items, attributes, 0, menu_name|clean_class) }}
+</ul>
 
 {% macro menu_links(items, attributes, menu_level, menu_name) %}
   {% import _self as menus %}

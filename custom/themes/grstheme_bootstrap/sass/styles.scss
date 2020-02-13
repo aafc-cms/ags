@@ -58,8 +58,9 @@ body.i18n-fr {
 }
 
 #wb-info {
-  height: 430 px ;
-  background-color: #999;
+  ul.hide-this, a[data-drupal-link-system-path~="contact"] {
+    display:none;
+  }
 }
 
 @media screen and (min-width: 992px) {
