@@ -32,6 +32,15 @@ $agrisource-menu-main-bright: #939394 !default;
  height: 43.344px ;
 }
 
+/* Target french only css */
+body.i18n-fr {
+  @media screen and (min-width: 992px) {
+     section.wxt-search-block-form.col-md-4 {
+       padding-right: 0 !important;
+     }
+  }
+}
+/* End of target french only css */
 
 @media screen and (min-width: 992px) {
   #wb-bar+.container {
