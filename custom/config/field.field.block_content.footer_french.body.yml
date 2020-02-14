@@ -1,0 +1,23 @@
+uuid: 77edc543-f817-4921-b50b-f44a1febc5f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.footer_french
+    - field.storage.block_content.body
+  module:
+    - text
+id: block_content.footer_french.body
+field_name: body
+entity_type: block_content
+bundle: footer_french
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

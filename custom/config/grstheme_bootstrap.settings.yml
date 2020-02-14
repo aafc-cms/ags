@@ -2,16 +2,6 @@ schemas:
   bootstrap: 8000
   wxt_bootstrap: 8000
   grstheme_bootstrap: 8000
-favicon:
-  mimetype: image/vnd.microsoft.icon
-  path: profiles/wxt/favicon.ico
-  url: 'http://simon3.local/profiles/wxt/favicon.ico'
-  use_default: false
-features:
-  comment_user_picture: true
-  comment_user_verification: true
-  favicon: true
-  node_user_picture: true
 logo:
   path: profiles/wxt/wxt.svg
   url: ''
@@ -33,7 +23,7 @@ region_wells:
   content: ''
   content_footer: ''
   sidebar_first: ''
-  sidebar_second: well
+  sidebar_second: ''
   footer: ''
 cdn_theme: ''
 cdn_cache_ttl_versions: 0
@@ -42,3 +32,13 @@ cdn_cache_ttl_assets: 0
 cdn_cache_ttl_library: 0
 reset_http_request_cache: ''
 table: ''
+favicon:
+  mimetype: image/vnd.microsoft.icon
+  path: 'public://favicon.ico'
+  url: 'https://agriculture-dev.9pro.ca/sites/default/files/favicon.ico'
+  use_default: false
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: true
+  node_user_picture: true
