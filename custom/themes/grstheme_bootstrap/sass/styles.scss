@@ -56,6 +56,9 @@ body.i18n-fr {
   @media screen and (min-width: 992px) {
      section.wxt-search-block-form.col-md-4 {
        padding-right: 0 !important;
+       .form-type-search {
+	  max-width: 67%;
+       }
      }
   }
 }
