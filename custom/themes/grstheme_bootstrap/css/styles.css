@@ -37,14 +37,19 @@
   height: 43.344px;
 }
 
-/* line 45, ../sass/styles.scss */
+/* line 44, ../sass/styles.scss */
+.navbar-brand {
+  text-decoration: none;
+}
+
+/* line 49, ../sass/styles.scss */
 #wb-info ul.hide-this, #wb-info a[data-drupal-link-system-path~="contact"] {
   display: none;
 }
 
 /* Target french only css */
 @media screen and (min-width: 992px) {
-  /* line 53, ../sass/styles.scss */
+  /* line 57, ../sass/styles.scss */
   body.i18n-fr section.wxt-search-block-form.col-md-4 {
     padding-right: 0 !important;
   }
@@ -52,7 +57,7 @@
 
 /* End of target french only css */
 @media screen and (min-width: 992px) {
-  /* line 61, ../sass/styles.scss */
+  /* line 65, ../sass/styles.scss */
   #wb-bar + .container {
     background: -webkit-gradient(linear, right top, left top, from(#298019), color-stop(#31821d), to(#278019));
     background: -webkit-linear-gradient(right, #278019, #31821d, #278019);
@@ -60,7 +65,7 @@
     position: relative;
   }
 
-  /* line 68, ../sass/styles.scss */
+  /* line 72, ../sass/styles.scss */
   #agrisource-wmms {
     left: unset;
     margin-top: unset;
@@ -71,7 +76,7 @@
     z-index: 2;
   }
 
-  /* line 78, ../sass/styles.scss */
+  /* line 82, ../sass/styles.scss */
   #wb-bnr {
     background: #007852 !important;
   }

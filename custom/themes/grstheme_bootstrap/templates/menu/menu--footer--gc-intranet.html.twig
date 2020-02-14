@@ -22,9 +22,15 @@
   We call a macro which calls itself to render the full tree.
   @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
+{% if language_prefix == 'en' %}
 <ul class="show-this">
-{{ menus.menu_links(items, attributes, 0, menu_name|clean_class) }}
+  {{ menus.menu_links(items, attributes, 0, menu_name|clean_class) }}
 </ul>
+<ul id="gc-tctr" class="col-sm-12 list-inline">
+  <li><a rel="license" href="http://intranet.agr.gc.ca/agrisource/eng?id=1288036234895">Important Notices</a></li>
+  <li><a href="http://intranet.agr.gc.ca/agrisource/eng?id=1287493740588">Contact Us</a></li>
+</ul>
+{% endif %}
 
 {% macro menu_links(items, attributes, menu_level, menu_name) %}
   {% import _self as menus %}
@@ -99,7 +105,7 @@
   <li><a rel="license" href="http://intranet.agr.gc.ca/agrisource/eng?id=1288036234895">Important Notices</a></li>
   <li><a href="http://intranet.agr.gc.ca/agrisource/eng?id=1287493740588">Contact Us</a></li>
 </ul>
-{% elseif language_prefix == 'frDISABLED' %}
+{% elseif language_prefix == 'fr' %}
 <div class="row">
   <section class="col-sm-3">
   <h3>Collaborer</h3>
