@@ -22,7 +22,7 @@
   We call a macro which calls itself to render the full tree.
   @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
-<ul class="hide-this">
+<ul class="show-this">
 {{ menus.menu_links(items, attributes, 0, menu_name|clean_class) }}
 </ul>
 
@@ -55,7 +55,7 @@
   {% endif %}
 {% endmacro %}
 
-{% if language_prefix == 'en' %}
+{% if language_prefix == 'enDISABLED' %}
 <div class="row">
   <section class="col-sm-3">
   <h3>Collaborate</h3>
@@ -99,7 +99,7 @@
   <li><a rel="license" href="http://intranet.agr.gc.ca/agrisource/eng?id=1288036234895">Important Notices</a></li>
   <li><a href="http://intranet.agr.gc.ca/agrisource/eng?id=1287493740588">Contact Us</a></li>
 </ul>
-{% else %}
+{% elseif language_prefix == 'frDISABLED' %}
 <div class="row">
   <section class="col-sm-3">
   <h3>Collaborer</h3>
