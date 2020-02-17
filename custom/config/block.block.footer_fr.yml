@@ -1,0 +1,50 @@
+uuid: 6534145c-4dcb-41d2-b9d7-046e88d754b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-fr
+  module:
+    - block_class
+    - language
+    - menu_block
+    - wxt_library
+  theme:
+    - grstheme_bootstrap
+third_party_settings:
+  block_class:
+    classes: footer-francais
+id: footer_fr
+theme: grstheme_bootstrap
+region: footer
+weight: -9
+provider: null
+plugin: 'menu_block:footer-fr'
+settings:
+  id: 'menu_block:footer-fr'
+  label: 'Pied de page'
+  provider: menu_block
+  label_display: visible
+  level: 1
+  custom_level: '1'
+  hide_children: 0
+  depth: 0
+  expand: 1
+  expand_only_active_trails: 0
+  parent: 'footer-fr:'
+  render_parent: false
+  follow: 0
+  suggestion: footer_fr
+visibility:
+  panels_title:
+    id: panels_title
+    enabled: 0
+    negate: false
+    context_mapping: {  }
+  language:
+    id: language
+    langcodes:
+      fr: fr
+    negate: false
+    context_mapping:
+      language: '@language.current_language_context:language_interface'
