@@ -47,6 +47,18 @@
             "url": "https://drupalwxt.github.io/composer-extdeps/"
         },
         {
+          "type": "package",
+          "package": {
+            "name": "matthiasott/a11y-accordion-tabs",
+            "version": "0.4.1",
+            "dist": {
+                "url": "https://github.com/matthiasott/a11y-accordion-tabs/archive/v0.4.1.zip",
+                "type": "zip"
+            },
+            "type": "drupal-library"
+          }
+        },
+        {
             "type": "path",
             "url": "custom/modules/grsadmin"
         },
@@ -121,6 +133,28 @@
         },
         "enable-patching": true,
         "patches": {
+            "drupal/core": {
+                "remove hreflang attribute from language switcher li element":
+                "https://www.drupal.org/files/issues/2019-06-05/2454289-82.patch",
+                "Language negotiation core fix, needed by access_unpublished and content moderation for forward draft revisions in non default language.":
+                "https://www.drupal.org/files/issues/2019-05-30/drupal-2951294-21-fix-fallback.patch"
+            },
+            "drupal/access_unpublished": {
+                "Adds a twig extension for access unpublished hash key link, patch 9.":
+                "https://www.drupal.org/files/issues/2019-11-21/access_unpublished-3054536-9.patch",
+                "Fix token-create while editing a French node":
+                "https://www.drupal.org/files/issues/2019-03-20/access_unpublished-create_per_language_tokens-2958800-3.patch",
+                "Edge case can result in null route - hasPendingRevision() validate for null.":
+                "https://www.drupal.org/files/issues/2019-12-09/access_unpublished-TypeError_hasPendingRevision_null_fix-3099663-2.patch"
+            },
+            "drupal/entity_translation_unified_form": {
+                "Fix a warning about a missing const definition.":
+                "https://www.drupal.org/files/issues/2019-12-02/entity_translation_unified_form-warning-3095038-5.patch",
+                "Support content moderation latest revision in other language AND fix a glitch with the image field type.":
+                "https://www.drupal.org/files/issues/2020-01-11/etuf-support_content_moderation-3098533-26.patch",
+		"Support side-by-side interface and sync of moderation state with jquery":
+		"https://www.drupal.org/files/issues/2020-02-17/etuf-sbs-3113998-08.patch"
+            },
             "deployer/recipes": {
                 "Enter deployer/recipes patch #80 description here":
                 "https://patch-diff.githubusercontent.com/raw/deployphp/recipes/pull/80.patch"
@@ -143,11 +177,14 @@
         "oomphinc/composer-installers-extender": "^1.1",
         "drupal-composer/drupal-scaffold": "^2.0.0",
         "drush/drush": "^9.0",
-        "drupalwxt/wxt": "3.0.6",
-        "acquia/lightning": "4.1.1",
+        "drupalwxt/wxt": "3.0.7",
+        "acquia/lightning": "4.1.2",
         "entreprise7pro/grsadmin": "*",
         "entreprise7pro/grstheme_bootstrap": "*",
         "entreprise7pro/config": "*",
+        "drupal/access_unpublished": "^1.0",
+        "drupal/entity_translation_unified_form": "1.x-dev",
+        "drupal/moderated_content_bulk_publish": "^1.0",
         "drupal/easy_breadcrumb": "^1.12"
     },
     "autoload": {
