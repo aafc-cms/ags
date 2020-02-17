@@ -1,0 +1,20 @@
+uuid: a854f565-0e02-40e8-bbce-7fc9d7c6a648
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.text
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      entity_translation_unified_form_theme: EntityTranslationUnifiedFormInlineMode
+      entity_translation_unified_form_enable: '0'
+      untranslatable_fields_hide: '0'
+id: block_content.text
+target_entity_type_id: block_content
+target_bundle: text
+default_langcode: site_default
+language_alterable: false

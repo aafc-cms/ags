@@ -1,0 +1,18 @@
+uuid: 119f604c-a706-47f3-be56-d33fc649c33f
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.audio_file
+id: media.audio_file.changed
+field_name: changed
+entity_type: media
+bundle: audio_file
+label: Changed
+description: 'The time the media item was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

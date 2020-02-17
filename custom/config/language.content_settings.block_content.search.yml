@@ -9,6 +9,10 @@ dependencies:
 third_party_settings:
   content_translation:
     enabled: true
+    bundle_settings:
+      entity_translation_unified_form_theme: EntityTranslationUnifiedFormInlineMode
+      entity_translation_unified_form_enable: '0'
+      untranslatable_fields_hide: '0'
 _core:
   default_config_hash: O5Xp5Aog5hduyROCGipsZvB_zLNQRr3cUTPEQ7Lxt7c
 id: block_content.search

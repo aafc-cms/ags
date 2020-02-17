@@ -8,6 +8,10 @@ dependencies:
 third_party_settings:
   content_translation:
     enabled: true
+    bundle_settings:
+      entity_translation_unified_form_theme: EntityTranslationUnifiedFormInlineMode
+      entity_translation_unified_form_enable: '0'
+      untranslatable_fields_hide: '0'
 id: menu_link_content.menu_link_content
 target_entity_type_id: menu_link_content
 target_bundle: menu_link_content

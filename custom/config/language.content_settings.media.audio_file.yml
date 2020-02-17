@@ -1,0 +1,20 @@
+uuid: ff352453-73a0-4d2b-aef1-33c20d5b2995
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.audio_file
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      entity_translation_unified_form_theme: EntityTranslationUnifiedFormInlineMode
+      entity_translation_unified_form_enable: '0'
+      untranslatable_fields_hide: '0'
+id: media.audio_file
+target_entity_type_id: media
+target_bundle: audio_file
+default_langcode: site_default
+language_alterable: false

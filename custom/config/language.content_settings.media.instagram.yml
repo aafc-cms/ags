@@ -1,0 +1,20 @@
+uuid: 8a5e7732-0cfc-4964-9f8c-ccf90c5d17ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.instagram
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      entity_translation_unified_form_theme: EntityTranslationUnifiedFormInlineMode
+      entity_translation_unified_form_enable: '0'
+      untranslatable_fields_hide: '0'
+id: media.instagram
+target_entity_type_id: media
+target_bundle: instagram
+default_langcode: site_default
+language_alterable: false

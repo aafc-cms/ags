@@ -1,0 +1,20 @@
+uuid: 8f10a5b3-5ece-4a64-8138-1a5ce0805ddf
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.media_slideshow
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      entity_translation_unified_form_theme: EntityTranslationUnifiedFormInlineMode
+      entity_translation_unified_form_enable: '0'
+      untranslatable_fields_hide: '0'
+id: block_content.media_slideshow
+target_entity_type_id: block_content
+target_bundle: media_slideshow
+default_langcode: site_default
+language_alterable: false

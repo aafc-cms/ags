@@ -1,0 +1,22 @@
+uuid: 42463c3e-2e55-4e90-867c-19201c5ef24b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.footer_french
+id: block_content.footer_french.status
+field_name: status
+entity_type: block_content
+bundle: footer_french
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

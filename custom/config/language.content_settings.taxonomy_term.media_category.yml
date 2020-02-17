@@ -4,6 +4,15 @@ status: true
 dependencies:
   config:
     - taxonomy.vocabulary.media_category
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      entity_translation_unified_form_theme: EntityTranslationUnifiedFormInlineMode
+      entity_translation_unified_form_enable: '0'
+      untranslatable_fields_hide: '0'
 id: taxonomy_term.media_category
 target_entity_type_id: taxonomy_term
 target_bundle: media_category
