@@ -10,24 +10,24 @@ _core:
 id: page
 label: 'Basic page'
 type: 'canonical_entities:node'
-pattern: '[node:menu-link:parent]/[node:title]/[current-date:html_year]'
+pattern: '[node:menu-link:parent]/[node:title]'
 selection_criteria:
-  b63f2db0-472d-45c4-b463-da9e4bdf2a94:
+  331c0930-7d1f-42d7-a293-bc76796807e9:
     id: node_type
     bundles:
       page: page
     negate: false
     context_mapping:
       node: node
-    uuid: b63f2db0-472d-45c4-b463-da9e4bdf2a94
-  a04c00c0-f65c-4aa3-a4a4-55ed679021af:
+    uuid: 331c0930-7d1f-42d7-a293-bc76796807e9
+  7812aaea-de2a-4dd5-b9c7-6e989cbb5d6b:
     id: language
     langcodes:
       en: en
     negate: false
     context_mapping:
       language: 'node:langcode:language'
-    uuid: a04c00c0-f65c-4aa3-a4a4-55ed679021af
+    uuid: 7812aaea-de2a-4dd5-b9c7-6e989cbb5d6b
 selection_logic: and
 weight: -5
 relationships:

@@ -1,36 +1,41 @@
-uuid: f354ee4e-c9ea-4576-9180-b1348911742b
+uuid: 77ae6f91-187d-477c-a495-6651689e8a00
 langcode: en
 status: true
 dependencies:
   config:
-    - system.menu.main
+    - system.menu.main-fr
   module:
     - language
-    - system
+    - menu_block
     - wxt_library
   theme:
     - grstheme_bootstrap
-_core:
-  default_config_hash: I4uZb4MsSTE13ag2UXqeYlR2ohUTh4LWyLbMvoj2TNc
-id: grstheme_bootstrap_main_menu
+id: menuprincipal
 theme: grstheme_bootstrap
 region: navigation
-weight: -8
+weight: 0
 provider: null
-plugin: 'system_menu_block:main'
+plugin: 'menu_block:main-fr'
 settings:
-  id: 'system_menu_block:main'
-  label: 'Main navigation'
-  provider: system
+  id: 'menu_block:main-fr'
+  label: 'Menu principal'
+  provider: menu_block
   label_display: '0'
   level: 1
+  custom_level: '1'
+  hide_children: 0
   depth: 2
-  expand_all_items: false
+  expand: 1
+  expand_only_active_trails: 0
+  parent: 'main-fr:'
+  render_parent: false
+  follow: 0
+  suggestion: main_fr
 visibility:
   language:
     id: language
     langcodes:
-      en: en
+      fr: fr
     negate: false
     context_mapping:
       language: '@language.current_language_context:language_interface'
