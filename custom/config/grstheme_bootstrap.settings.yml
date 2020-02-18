@@ -2,10 +2,6 @@ schemas:
   bootstrap: 8000
   wxt_bootstrap: 8000
   grstheme_bootstrap: 8000
-logo:
-  path: profiles/wxt/wxt.svg
-  url: ''
-  use_default: true
 wxt_skip_link_primary_text: 'Skip to main content'
 wxt_skip_link_secondary_text: 'Skip to "About this site"'
 table_responsive: '-1'
@@ -42,3 +38,7 @@ features:
   comment_user_verification: true
   favicon: true
   node_user_picture: true
+logo:
+  path: ''
+  url: ''
+  use_default: false
