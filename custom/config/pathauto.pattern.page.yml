@@ -10,24 +10,24 @@ _core:
 id: page
 label: 'Basic page'
 type: 'canonical_entities:node'
-pattern: '[node:menu-link:parent]/[node:title]'
+pattern: '/[node:menu-link:parents:first]/[node:menu-link:parent]/[node:title]'
 selection_criteria:
-  331c0930-7d1f-42d7-a293-bc76796807e9:
+  ca8b63b2-3264-47d6-8940-9e0ab066e822:
     id: node_type
     bundles:
       page: page
     negate: false
     context_mapping:
       node: node
-    uuid: 331c0930-7d1f-42d7-a293-bc76796807e9
-  7812aaea-de2a-4dd5-b9c7-6e989cbb5d6b:
+    uuid: ca8b63b2-3264-47d6-8940-9e0ab066e822
+  fb2925c2-111d-4195-8e3f-2a4da465ef3f:
     id: language
     langcodes:
       en: en
     negate: false
     context_mapping:
       language: 'node:langcode:language'
-    uuid: 7812aaea-de2a-4dd5-b9c7-6e989cbb5d6b
+    uuid: fb2925c2-111d-4195-8e3f-2a4da465ef3f
 selection_logic: and
 weight: -5
 relationships:

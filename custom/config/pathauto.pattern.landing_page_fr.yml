@@ -1,35 +1,33 @@
-uuid: bc0b1a43-94d3-425c-8a3b-42127b54c421
+uuid: b0c4a9c8-21e7-4928-9d4c-8fee7c0c05ec
 langcode: en
 status: true
 dependencies:
   module:
     - language
     - node
-_core:
-  default_config_hash: 8aTzJfhfIZ2Twd4_TsRkj1OcwgrlV-GtbGmNGRqAv_s
-id: landing_page
-label: 'Landing page'
+id: landing_page_fr
+label: 'Landing Page Fr'
 type: 'canonical_entities:node'
-pattern: '[node:menu-link:parent]/[node:title]'
+pattern: '[node:title]'
 selection_criteria:
-  18be89a0-77fb-4282-b088-2ba011bbff7d:
+  399a446f-1c9d-4a4a-a8d4-4a4cc02a3513:
     id: node_type
     bundles:
       landing_page: landing_page
     negate: false
     context_mapping:
       node: node
-    uuid: 18be89a0-77fb-4282-b088-2ba011bbff7d
-  d9ade445-606f-43a9-8e76-f0ee4860cded:
+    uuid: 399a446f-1c9d-4a4a-a8d4-4a4cc02a3513
+  8bf9d595-ec27-44d0-8d18-2be5d0eea0a9:
     id: language
     langcodes:
-      en: en
+      fr: fr
     negate: false
     context_mapping:
       language: 'node:langcode:language'
-    uuid: d9ade445-606f-43a9-8e76-f0ee4860cded
+    uuid: 8bf9d595-ec27-44d0-8d18-2be5d0eea0a9
 selection_logic: and
-weight: -5
+weight: -10
 relationships:
   'node:langcode:language':
     label: Language

@@ -1,0 +1,46 @@
+uuid: 7cf3242e-e967-49f3-a91a-6a5d3623a4b7
+langcode: fr
+status: true
+dependencies:
+  config:
+    - system.menu.sidebar-fr
+  module:
+    - language
+    - menu_block
+    - wxt_library
+  theme:
+    - grstheme_bootstrap
+id: barrelaterale
+theme: grstheme_bootstrap
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'menu_block:sidebar-fr'
+settings:
+  id: 'menu_block:sidebar-fr'
+  label: 'Barre latérale'
+  provider: menu_block
+  label_display: '0'
+  level: 1
+  custom_level: '1'
+  hide_children: 0
+  depth: 0
+  expand: 0
+  expand_only_active_trails: 0
+  parent: 'sidebar-fr:'
+  render_parent: true
+  follow: 1
+  suggestion: sidebar_fr
+visibility:
+  language:
+    id: language
+    langcodes:
+      fr: fr
+    negate: false
+    context_mapping:
+      language: '@language.current_language_context:language_interface'
+  panels_title:
+    id: panels_title
+    enabled: 0
+    negate: false
+    context_mapping: {  }

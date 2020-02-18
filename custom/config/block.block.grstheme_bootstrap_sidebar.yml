@@ -5,6 +5,7 @@ dependencies:
   config:
     - system.menu.sidebar
   module:
+    - language
     - node
     - system
     - wxt_library
@@ -30,7 +31,6 @@ visibility:
   node_type:
     id: node_type
     bundles:
-      basic_page_deeper: basic_page_deeper
       page: page
     negate: false
     context_mapping:
@@ -40,3 +40,10 @@ visibility:
     enabled: 0
     negate: false
     context_mapping: {  }
+  language:
+    id: language
+    langcodes:
+      en: en
+    negate: false
+    context_mapping:
+      language: '@language.current_language_context:language_interface'
