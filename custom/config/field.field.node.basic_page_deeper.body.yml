@@ -1,0 +1,23 @@
+uuid: 8114e5df-0524-421d-8301-5d132e590e20
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.basic_page_deeper
+  module:
+    - text
+id: node.basic_page_deeper.body
+field_name: body
+entity_type: node
+bundle: basic_page_deeper
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

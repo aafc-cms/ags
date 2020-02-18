@@ -1,0 +1,103 @@
+uuid: 66b3fdc3-7e28-4779-ad6d-835b4b8a1f5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+  module:
+    - ckeditor
+format: full_html
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formatting
+          items:
+            - Bold
+            - Italic
+            - Superscript
+            - Underline
+            - JustifyLeft
+            - JustifyCenter
+            - JustifyBlock
+            - JustifyRight
+            - Strike
+            - RemoveFormat
+            - Subscript
+            - Format
+            - Styles
+            - Outdent
+            - Indent
+            - HorizontalRule
+            - Table
+        -
+          name: Links
+          items:
+            - DrupalLink
+            - DrupalUnlink
+        -
+          name: Lists
+          items:
+            - BulletedList
+            - NumberedList
+        -
+          name: Media
+          items:
+            - Blockquote
+            - DrupalImage
+            - node
+            - media_browser
+            - DrupalMediaLibrary
+        -
+          name: Tools
+          items:
+            - Source
+            - ShowBlocks
+        -
+          name: Editing
+          items:
+            - Maximize
+            - Copy
+            - Cut
+            - Paste
+            - PasteFromWord
+            - PasteText
+            - Undo
+            - Redo
+  plugins:
+    stylescombo:
+      styles: ''
+    drupallink:
+      linkit_enabled: true
+      linkit_profile: default
+    language:
+      language_list: un
+    codemirror:
+      enable: false
+      startupMode: wysiwyg
+      mode: htmlmixed
+      theme: default
+      options:
+        lineNumbers: true
+        lineWrapping: true
+        matchBrackets: true
+        autoCloseTags: true
+        autoCloseBrackets: true
+        enableSearchTools: true
+        enableCodeFolding: true
+        enableCodeFormatting: true
+        autoFormatOnStart: true
+        autoFormatOnModeChange: true
+        autoFormatOnUncomment: true
+    tokenbrowser:
+      token_types: {  }
+image_upload:
+  status: false
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null
