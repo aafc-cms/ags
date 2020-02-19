@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   module:
-    - language
     - node
 _core:
   default_config_hash: 8aTzJfhfIZ2Twd4_TsRkj1OcwgrlV-GtbGmNGRqAv_s
@@ -12,22 +11,14 @@ label: 'Landing page'
 type: 'canonical_entities:node'
 pattern: '[node:menu-link:parent]/[node:title]'
 selection_criteria:
-  18be89a0-77fb-4282-b088-2ba011bbff7d:
+  82092e63-ac32-4a2a-85a2-b35ede342878:
     id: node_type
     bundles:
       landing_page: landing_page
     negate: false
     context_mapping:
       node: node
-    uuid: 18be89a0-77fb-4282-b088-2ba011bbff7d
-  d9ade445-606f-43a9-8e76-f0ee4860cded:
-    id: language
-    langcodes:
-      en: en
-    negate: false
-    context_mapping:
-      language: 'node:langcode:language'
-    uuid: d9ade445-606f-43a9-8e76-f0ee4860cded
+    uuid: 82092e63-ac32-4a2a-85a2-b35ede342878
 selection_logic: and
 weight: -5
 relationships:

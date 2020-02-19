@@ -31,6 +31,11 @@ settings:
   depth: 0
   expand_all_items: false
 visibility:
+  panels_title:
+    id: panels_title
+    enabled: 0
+    negate: false
+    context_mapping: {  }
   language:
     id: language
     langcodes:
@@ -38,8 +43,3 @@ visibility:
     negate: false
     context_mapping:
       language: '@language.current_language_context:language_interface'
-  panels_title:
-    id: panels_title
-    enabled: 0
-    negate: false
-    context_mapping: {  }
