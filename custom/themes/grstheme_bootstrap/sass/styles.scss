@@ -51,6 +51,15 @@ $agrisource-menu-main-bright: #939394 !default;
   }
 }
 
+@media screen and (max-width: 992px) {
+  #wb-bnr .container .row.agri-banner-row {
+    background: -webkit-gradient(linear,right top,left top,from(#298019),color-stop(#31821d),to(#278019));
+    background: -webkit-linear-gradient(right,#278019,#31821d,#278019);
+    background: linear-gradient(to left,#007852,#77bc1f,#007852);
+    position: relative;
+  }
+}
+
 /* Target french only css */
 body.i18n-fr {
   @media screen and (min-width: 992px) {
@@ -62,9 +71,10 @@ body.i18n-fr {
      }
   }
 }
-/* End of target french only css */
 
+/* End of target french only css */
 @media screen and (min-width: 992px) {
+
   #wb-bar+.container {
     background: -webkit-gradient(linear,right top,left top,from(#298019),color-stop(#31821d),to(#278019));
     background: -webkit-linear-gradient(right,#278019,#31821d,#278019);
