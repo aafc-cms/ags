@@ -51,8 +51,9 @@
   /* line 55, ../sass/styles.scss */
   #wb-bnr {
     background-color: #007852;
+    background-image: none;
   }
-  /* line 57, ../sass/styles.scss */
+  /* line 58, ../sass/styles.scss */
   #wb-bnr .container .row.agri-banner-row {
     background: -webkit-gradient(linear, right top, left top, from(#298019), color-stop(#31821d), to(#278019));
     background: -webkit-linear-gradient(right, #278019, #31821d, #278019);
@@ -62,11 +63,11 @@
 }
 /* Target french only css */
 @media screen and (min-width: 992px) {
-  /* line 69, ../sass/styles.scss */
+  /* line 70, ../sass/styles.scss */
   body.i18n-fr section.wxt-search-block-form.col-md-4 {
     padding-right: 0 !important;
   }
-  /* line 71, ../sass/styles.scss */
+  /* line 72, ../sass/styles.scss */
   body.i18n-fr section.wxt-search-block-form.col-md-4 .form-type-search {
     max-width: 67%;
   }
@@ -74,7 +75,7 @@
 
 /* End of target french only css */
 @media screen and (min-width: 992px) {
-  /* line 81, ../sass/styles.scss */
+  /* line 82, ../sass/styles.scss */
   #wb-bar + .container {
     background: -webkit-gradient(linear, right top, left top, from(#298019), color-stop(#31821d), to(#278019));
     background: -webkit-linear-gradient(right, #278019, #31821d, #278019);
@@ -82,7 +83,7 @@
     position: relative;
   }
 
-  /* line 88, ../sass/styles.scss */
+  /* line 89, ../sass/styles.scss */
   #agrisource-wmms {
     left: unset;
     margin-top: unset;
@@ -93,7 +94,7 @@
     z-index: 2;
   }
 
-  /* line 98, ../sass/styles.scss */
+  /* line 99, ../sass/styles.scss */
   #wb-bnr {
     background: #007852 !important;
   }
