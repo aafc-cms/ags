@@ -1,0 +1,54 @@
+uuid: 169da3f9-4a7d-4669-bd8e-426346a6badf
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.agrisource_slideshow_view_mode
+    - field.field.media.image.field_image_link
+    - field.field.media.image.field_media_in_library
+    - field.field.media.image.image
+    - image.style.agrisource_slideshow_style
+    - media.type.image
+  module:
+    - image
+    - layout_builder
+    - link
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+_core:
+  default_config_hash: VLDxfMVPTkd2xvOjFMCh3kWmaOYnd03zggFXuUXQVEY
+id: media.image.agrisource_slideshow_view_mode
+targetEntityType: media
+bundle: image
+mode: agrisource_slideshow_view_mode
+content:
+  field_image_link:
+    type: link
+    weight: 1
+    region: content
+    label: above
+    settings:
+      trim_length: null
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+  image:
+    type: image
+    weight: 0
+    label: hidden
+    settings:
+      image_style: agrisource_slideshow_style
+      image_link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  field_media_in_library: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

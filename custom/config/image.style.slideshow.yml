@@ -7,10 +7,11 @@ _core:
 name: slideshow
 label: 'Slideshow (555x134)'
 effects:
-  7ec6e2fd-ea19-4b45-ab70-911b7f156857:
-    uuid: 7ec6e2fd-ea19-4b45-ab70-911b7f156857
-    id: image_resize
-    weight: 1
+  9eb4bfbd-a03e-44a1-8fc3-c616cbcf01c6:
+    uuid: 9eb4bfbd-a03e-44a1-8fc3-c616cbcf01c6
+    id: image_scale_and_crop
+    weight: -10
     data:
       width: 555
       height: 134
+      anchor: center-center
