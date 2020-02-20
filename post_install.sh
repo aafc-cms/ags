@@ -20,3 +20,9 @@ if ! grep -q "wxt config_sync_directory" html/sites/default/settings.php; then
   echo "\$settings['config_sync_directory'] = 'modules/custom/config';" >> html/sites/default/settings.php
 fi
 
+cp custom/splash/.htaccess html/.htaccess
+ln -s custom/splash/splash.php html/splash.php
+ln -s custom/splash/sites/default/splash.js html/sites/default/splash.js
+ln -s custom/splash/sites/default/splash.css html/sites/default/splash.css
+cp custom/splash/sites/default/*.png html/sites/default/.
+
