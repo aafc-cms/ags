@@ -5,6 +5,7 @@ dependencies:
   config:
     - page_manager.page.welcome
   module:
+    - entity_block
     - panels
     - system
 _core:
@@ -20,9 +21,31 @@ variant_settings:
       provider: system
       label_display: visible
       region: content
-      weight: 1
+      weight: 3
       uuid: cdfce282-a241-498f-acb6-c2c815d5f742
       context_mapping: {  }
+    f133bb72-6170-419c-adbd-36684c7837f6:
+      id: 'entity_block:node'
+      label: Content
+      provider: entity_block
+      label_display: ''
+      entity: '21'
+      view_mode: full
+      context_mapping: {  }
+      region: content
+      uuid: f133bb72-6170-419c-adbd-36684c7837f6
+      weight: 2
+    0527e505-fc52-47f5-afa3-485c3a232d48:
+      id: 'entity_block:media'
+      label: Media
+      provider: entity_block
+      label_display: ''
+      entity: '7'
+      view_mode: default
+      context_mapping: {  }
+      region: content
+      uuid: 0527e505-fc52-47f5-afa3-485c3a232d48
+      weight: 1
   id: panels_variant
   uuid: cb078fed-a5ed-4a6b-b400-afe60d2b1533
   label: null
