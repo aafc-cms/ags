@@ -60,12 +60,12 @@ section.col-sm-3 ul.list-unstyled {
 }
 
 @media screen and (max-width: 992px) {
-  /* line 65, ../sass/styles.scss */
+  /* line 66, ../sass/styles.scss */
   #wb-bnr {
     background-color: #007852;
     background-image: none;
   }
-  /* line 68, ../sass/styles.scss */
+  /* line 69, ../sass/styles.scss */
   #wb-bnr .container .row.agri-banner-row {
     background: -webkit-gradient(linear, right top, left top, from(#298019), color-stop(#31821d), to(#278019));
     background: -webkit-linear-gradient(right, #278019, #31821d, #278019);
@@ -75,11 +75,11 @@ section.col-sm-3 ul.list-unstyled {
 }
 /* Target french only css */
 @media screen and (min-width: 992px) {
-  /* line 80, ../sass/styles.scss */
+  /* line 81, ../sass/styles.scss */
   body.i18n-fr section.wxt-search-block-form.col-md-4 {
     padding-right: 0 !important;
   }
-  /* line 82, ../sass/styles.scss */
+  /* line 83, ../sass/styles.scss */
   body.i18n-fr section.wxt-search-block-form.col-md-4 .form-type-search {
     max-width: 67%;
   }
@@ -87,7 +87,7 @@ section.col-sm-3 ul.list-unstyled {
 
 /* End of target french only css */
 @media screen and (min-width: 992px) {
-  /* line 92, ../sass/styles.scss */
+  /* line 93, ../sass/styles.scss */
   #wb-bar + .container {
     background: -webkit-gradient(linear, right top, left top, from(#298019), color-stop(#31821d), to(#278019));
     background: -webkit-linear-gradient(right, #278019, #31821d, #278019);
@@ -95,7 +95,7 @@ section.col-sm-3 ul.list-unstyled {
     position: relative;
   }
 
-  /* line 99, ../sass/styles.scss */
+  /* line 100, ../sass/styles.scss */
   #agrisource-wmms {
     left: unset;
     margin-top: unset;
@@ -106,10 +106,15 @@ section.col-sm-3 ul.list-unstyled {
     z-index: 2;
   }
 
-  /* line 109, ../sass/styles.scss */
+  /* line 110, ../sass/styles.scss */
   #wb-bnr {
     background: #007852 !important;
   }
+}
+/* correct search input box length */
+/* line 118, ../sass/styles.scss */
+#wb-srch-q.form-search form-control {
+  width: 253px  !important;
 }
 
 /*# sourceMappingURL=styles.css.map */
