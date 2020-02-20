@@ -87,7 +87,18 @@ section.col-sm-3 ul.list-unstyled {
 
 /* End of target french only css */
 @media screen and (min-width: 992px) {
-  /* line 93, ../sass/styles.scss */
+  /* line 92, ../sass/styles.scss */
+  footer .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* line 96, ../sass/styles.scss */
+  .show-this section:first-child {
+    padding-left: 5px;
+  }
+
+  /* line 100, ../sass/styles.scss */
   #wb-bar + .container {
     background: -webkit-gradient(linear, right top, left top, from(#298019), color-stop(#31821d), to(#278019));
     background: -webkit-linear-gradient(right, #278019, #31821d, #278019);
@@ -95,7 +106,7 @@ section.col-sm-3 ul.list-unstyled {
     position: relative;
   }
 
-  /* line 100, ../sass/styles.scss */
+  /* line 107, ../sass/styles.scss */
   #agrisource-wmms {
     left: unset;
     margin-top: unset;
@@ -106,7 +117,7 @@ section.col-sm-3 ul.list-unstyled {
     z-index: 2;
   }
 
-  /* line 110, ../sass/styles.scss */
+  /* line 117, ../sass/styles.scss */
   #wb-bnr {
     background: #007852 !important;
   }

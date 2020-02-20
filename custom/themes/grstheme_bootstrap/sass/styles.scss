@@ -89,6 +89,13 @@ body.i18n-fr {
 
 /* End of target french only css */
 @media screen and (min-width: 992px) {
+  footer .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .show-this section:first-child {
+    padding-left: 5px;
+  }
 
   #wb-bar+.container {
     background: -webkit-gradient(linear,right top,left top,from(#298019),color-stop(#31821d),to(#278019));
