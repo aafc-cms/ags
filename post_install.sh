@@ -24,5 +24,6 @@ cp custom/splash/.htaccess html/.htaccess
 ln -s custom/splash/splash.php html/splash.php
 ln -s custom/splash/sites/default/splash.js html/sites/default/splash.js
 ln -s custom/splash/sites/default/splash.css html/sites/default/splash.css
+ln -s custom/splash/sites/default/files/splashimages html/sites/default/files/splashimages
 cp custom/splash/sites/default/*.png html/sites/default/.
 
