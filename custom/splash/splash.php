@@ -91,7 +91,7 @@ var img_cy = <?php echo isset($img_cy) ? $img_cy : 0 ?>;
               <div class="fr"><span lang="fr">Agrisource (français)</span></div>
             </div>
           </div>
-          <h1 class="css-mapw" data-attr="font-size" data-map="280,1200,32,100">Chrystia Freeland</h1>
+          <h1 class="css-mapw" data-attr="font-size" data-map="280,1200,32,100">Welcome - Bienvenue</h1>
         </div>
       </div>
     </div>
