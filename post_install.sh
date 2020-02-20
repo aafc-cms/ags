@@ -22,16 +22,24 @@ fi
 
 cp custom/splash/.htaccess html/.htaccess
 if [ ! -L html/splash.php ]; then
-  ln -s custom/splash/splash.php html/splash.php
+  cd html
+  ln -s ../custom/splash/splash.php splash.php
+  cd ..;
 fi
 if [ ! -L html/sites/default/splash.js ]; then
-  ln -s custom/splash/sites/default/splash.js html/sites/default/splash.js
+  pushd html/sites/default;
+  ln -s ../../../custom/splash/sites/default/splash.js splash.js
+  popd;
 fi
 if [ ! -L html/sites/default/splash.css ]; then
-  ln -s custom/splash/sites/default/splash.css html/sites/default/splash.css
+  pushd html/sites/default;
+  ln -s ../../../custom/splash/sites/default/splash.css splash.css
+  popd;
 fi
 if [ ! -L html/sites/default/files/splashimages ]; then
-  ln -s custom/splash/sites/default/files/splashimages html/sites/default/files/splashimages
+  pushd html/sites/default/files;
+  ln -s ../../../../custom/splash/sites/default/files/splashimages splashimages
+  popd;
 fi
 cp custom/splash/sites/default/*.png html/sites/default/.
 
