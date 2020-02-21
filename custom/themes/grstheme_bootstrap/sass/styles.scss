@@ -7,6 +7,10 @@ $agrisource-menu-main-med: #96999c !default;
 $agrisource-menu-main-dark: #939394 !default;
 $agrisource-menu-main-bright: #939394 !default;
 
+.contextual-region .contextual .contextual-links a {
+  color: #333 !important;
+}
+
 #wb-sm .nvbar {
   background-image: -webkit-gradient(linear,left top,left bottom,from(#939394),to($agrisource-menu-main-med));
   background-image: -webkit-linear-gradient(#959a9e,#8f9cab);
