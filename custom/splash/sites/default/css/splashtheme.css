@@ -1,0 +1,90 @@
+/* AgriSource WET4 Custom Theme Styles */
+
+/* Print URL override */
+@media print {
+	a[href]:after {
+        content: none
+    }
+}
+
+@media screen {
+
+	/* Megamenu */
+	#wb-sm .nvbar {
+	    background-image: -webkit-gradient(linear, left top, left bottom, from(#b9b09d), to(#59595b));
+	    background-image: -webkit-linear-gradient(#b9b09d, #59595b);
+	    background-image: linear-gradient(#b9b09d, #59595b);
+	    filter: progid: DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr="#FFB9B09D", endColorstr="#FF59595B");
+	    background-color: #59595b;
+	}
+
+	/* Banner */
+	#wb-bnr {
+        background: #abd268
+    }	
+
+}
+
+@media screen and (max-width: 991px) {
+
+	#wb-bnr {
+	    background-image: -webkit-gradient(linear, left top, left bottom, from(#77bc1f), color-stop(#77bc1f), to(#007852));
+	    background-image: -webkit-linear-gradient(#77bc1f, #77bc1f, #007852);
+	    background-image: linear-gradient(#77bc1f, #77bc1f, #007852);
+	    filter: progid: DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr="#FF71BC1F", endColorstr="#FF007852")
+	}
+
+}
+
+@media screen and (min-width: 992px) {
+
+	#wb-bnr {
+        background: #007852
+    }
+
+    #wb-bar+.container {
+        background: -webkit-gradient(linear, right top, left top, from(#007852), color-stop(#77bc1f), to(#007852));
+        background: -webkit-linear-gradient(right, #007852, #77bc1f, #007852);
+        background: linear-gradient(to left, #007852, #77bc1f, #007852);
+    }
+
+}
+
+.wb-tabs.carousel-s1 figure,
+.wb-tabs.carousel-s2 figure {
+    background: #007852;
+}
+
+#wb-sm .nvbar ul.menu > li > a.wb-navcurr, #wb-sm .sm .slflnk a.wb-navcurr, #wb-sm .sm a.wb-navcurr, #wb-sm .sm summary.wb-navcurr {
+	background: #58585a none repeat scroll 0 0;
+	color: #fff;
+}
+
+.btn-primary {
+	background-color:#007852;
+	border-color:#007852;
+    color: #fff;
+}
+
+.btn-primary.active, .btn-primary.focus, .btn-primary:active, .btn-primary:focus, .btn-primary:hover, .open > .btn-primary.dropdown-toggle {
+	background-color:#004d34;
+	border-color:#004d34;
+    color: #fff;
+}
+
+/* Green Primary Panel Heading to match theme (4a7333) - GY */
+.panel-primary> .panel-heading {
+	background-color:#007852;
+	border-color:#007852;
+}
+
+.panel-primary {
+	border-color:#007852;
+}
+
+/* Breadcrumb Background */
+/* 
+.breadcrumb {
+	background-color: rgba(255,241,0,0.10);
+} 
+*/
