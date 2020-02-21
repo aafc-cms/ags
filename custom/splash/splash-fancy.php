@@ -22,9 +22,9 @@ header('Cache-Control: no-cache');
 <meta name="twitter:image:src" content="https://pm.gc.ca/sites/pm/files/inline-images/wordmark_0.png">
 <title>Agrisource</title>
 <link href="https://fonts.googleapis.com/css?family=Hind" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="/sites/default/splash.css">
+<link rel="stylesheet" type="text/css" href="/sites/default/splash-fancy/splash.css">
 <script src="/core/assets/vendor/jquery/jquery.min.js?v=3.2.1"></script>
-<script src="/sites/default/splash.js"></script>
+<script src="/sites/default/splash-fancy/splash.js"></script>
 <script>var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-10314923-1"]);_gaq.push(["_gat._anonymizeIp"]);_gaq.push(["_trackPageview"]);(function() {var ga = document.createElement("script");ga.type = "text/javascript";ga.async = true;ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga, s);})();</script>
 <?php
 $bk_image = '';
@@ -98,8 +98,8 @@ var img_cy = <?php echo isset($img_cy) ? $img_cy : 0 ?>;
 
     <div id="lang-sect" class="css-maph" data-attr="margin-top" data-map="300,1000,0,50" style="display: table; width: 100%">
       <div class="row" style="display: table-row">
-        <div class="button en" style="display: table-cell; width: 50%; text-align: right; padding: 0 15px;"><a href="/en"><img class="css-mapw" src="/sites/default/splash-button-en.png" data-attr="height" data-map="280,1200,20,40" alt="English website" /></a></div>
-        <div class="button fr" style="display: table-cell; width: 50%; text-align: left; padding: 0 15px;"><a href="/fr"><img class="css-mapw" src="/sites/default/splash-button-fr.png" data-attr="height" data-map="280,1200,20,40" alt="Site web en français" /></a></div>
+        <div class="button en" style="display: table-cell; width: 50%; text-align: right; padding: 0 15px;"><a href="/en"><img class="css-mapw" src="/sites/default/splash-fancy/splash-button-en.png" data-attr="height" data-map="280,1200,20,40" alt="English website" /></a></div>
+        <div class="button fr" style="display: table-cell; width: 50%; text-align: left; padding: 0 15px;"><a href="/fr"><img class="css-mapw" src="/sites/default/splash-fancy/splash-button-fr.png" data-attr="height" data-map="280,1200,20,40" alt="Site web en français" /></a></div>
       </div>
     </div>
   </div>

@@ -26,14 +26,19 @@ if [ ! -L html/splash.php ]; then
   ln -s ../custom/splash/splash.php splash.php
   cd ..;
 fi
-if [ ! -L html/sites/default/splash.js ]; then
+if [ ! -L html/splash-fancy.php ]; then
+  cd html
+  ln -s ../custom/splash/splash-fancy.php splash-fancy.php
+  cd ..;
+fi
+if [ ! -L html/sites/default/splash ]; then
   pushd html/sites/default;
-  ln -s ../../../custom/splash/sites/default/splash.js splash.js
+  ln -s ../../../custom/splash/sites/default/splash splash
   popd;
 fi
-if [ ! -L html/sites/default/splash.css ]; then
+if [ ! -L html/sites/default/splash-fancy ]; then
   pushd html/sites/default;
-  ln -s ../../../custom/splash/sites/default/splash.css splash.css
+  ln -s ../../../custom/splash/sites/default/splash-fancy splash-fancy
   popd;
 fi
 if [ ! -L html/sites/default/files/splashimages ]; then
@@ -41,5 +46,4 @@ if [ ! -L html/sites/default/files/splashimages ]; then
   ln -s ../../../../custom/splash/sites/default/files/splashimages splashimages
   popd;
 fi
-cp custom/splash/sites/default/*.png html/sites/default/.
 
