@@ -3,6 +3,11 @@
  * your custom CSS modifications here.
  */
 /* line 10, ../sass/styles.scss */
+.contextual-region .contextual .contextual-links a {
+  color: #333 !important;
+}
+
+/* line 14, ../sass/styles.scss */
 #wb-sm .nvbar {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#939394), to(#96999c));
   background-image: -webkit-linear-gradient(#959a9e, #8f9cab);
@@ -14,7 +19,7 @@
 }
 
 /* Canada Government Logo Size */
-/* line 21, ../sass/styles.scss */
+/* line 25, ../sass/styles.scss */
 #agrisource-wmms {
   height: 2.35em;
   left: 15px;
@@ -23,49 +28,49 @@
   top: 0.8em;
 }
 
-/* line 30, ../sass/styles.scss */
+/* line 34, ../sass/styles.scss */
 .region-banner a.name.navbar-brand {
   color: white;
 }
-/* line 34, ../sass/styles.scss */
+/* line 38, ../sass/styles.scss */
 .region-banner p.navbar-text {
   color: white;
 }
 
-/* line 39, ../sass/styles.scss */
+/* line 43, ../sass/styles.scss */
 #wb-menu.visible-md.visible-lg.wb-init.wb-menu-inited.wb-navcurr-inite {
   height: 43.344px;
 }
 
-/* line 44, ../sass/styles.scss */
+/* line 48, ../sass/styles.scss */
 .navbar-brand {
   text-decoration: none;
 }
 
-/* line 49, ../sass/styles.scss */
+/* line 53, ../sass/styles.scss */
 #wb-info ul.hide-this, #wb-info a[data-drupal-link-system-path~="contact"] {
   display: none;
 }
 
 /* incresed the padding-left: from 15px to 35px; */
-/* line 55, ../sass/styles.scss */
+/* line 59, ../sass/styles.scss */
 #gc-tctr {
   padding-left: 29px;
   font-weight: 500;
 }
 
-/* line 60, ../sass/styles.scss */
+/* line 64, ../sass/styles.scss */
 section.col-sm-3 ul.list-unstyled {
   font-weight: 500;
 }
 
 @media screen and (max-width: 992px) {
-  /* line 66, ../sass/styles.scss */
+  /* line 70, ../sass/styles.scss */
   #wb-bnr {
     background-color: #007852;
     background-image: none;
   }
-  /* line 69, ../sass/styles.scss */
+  /* line 73, ../sass/styles.scss */
   #wb-bnr .container .row.agri-banner-row {
     background: -webkit-gradient(linear, right top, left top, from(#298019), color-stop(#31821d), to(#278019));
     background: -webkit-linear-gradient(right, #278019, #31821d, #278019);
@@ -75,11 +80,11 @@ section.col-sm-3 ul.list-unstyled {
 }
 /* Target french only css */
 @media screen and (min-width: 992px) {
-  /* line 81, ../sass/styles.scss */
+  /* line 85, ../sass/styles.scss */
   body.i18n-fr section.wxt-search-block-form.col-md-4 {
     padding-right: 0 !important;
   }
-  /* line 83, ../sass/styles.scss */
+  /* line 87, ../sass/styles.scss */
   body.i18n-fr section.wxt-search-block-form.col-md-4 .form-type-search {
     max-width: 67%;
   }
@@ -87,18 +92,18 @@ section.col-sm-3 ul.list-unstyled {
 
 /* End of target french only css */
 @media screen and (min-width: 992px) {
-  /* line 92, ../sass/styles.scss */
+  /* line 96, ../sass/styles.scss */
   footer .container {
     padding-left: 0;
     padding-right: 0;
   }
 
-  /* line 96, ../sass/styles.scss */
+  /* line 100, ../sass/styles.scss */
   .show-this section:first-child {
     padding-left: 5px;
   }
 
-  /* line 100, ../sass/styles.scss */
+  /* line 104, ../sass/styles.scss */
   #wb-bar + .container {
     background: -webkit-gradient(linear, right top, left top, from(#298019), color-stop(#31821d), to(#278019));
     background: -webkit-linear-gradient(right, #278019, #31821d, #278019);
@@ -106,7 +111,7 @@ section.col-sm-3 ul.list-unstyled {
     position: relative;
   }
 
-  /* line 107, ../sass/styles.scss */
+  /* line 111, ../sass/styles.scss */
   #agrisource-wmms {
     left: unset;
     margin-top: unset;
@@ -117,7 +122,7 @@ section.col-sm-3 ul.list-unstyled {
     z-index: 2;
   }
 
-  /* line 117, ../sass/styles.scss */
+  /* line 121, ../sass/styles.scss */
   #wb-bnr {
     background: #007852 !important;
   }
