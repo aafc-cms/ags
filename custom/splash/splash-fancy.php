@@ -79,7 +79,8 @@ var img_cy = <?php echo isset($img_cy) ? $img_cy : 0 ?>;
 <div id="outer-main">
   <div id="main">
     <div id="head-sect" class="css-mapw" data-attr="height" data-map="280,1200,64,100">
-      <img src="/sites/default/splash-fancy/Canada-wordmark-white.png" alt="Agrisource" />
+     <!-- <img src="/sites/default/splash-fancy/Canada-wordmark-white.png" alt="Agrisource" /> -->
+      <img src="/sites/default/splash-fancy/Agriculture-and-Agri-Food-Canada.svg" alt="Agrisource" />
     </div>
 
     <div id="agrisource-sect">
