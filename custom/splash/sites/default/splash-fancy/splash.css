@@ -22,38 +22,39 @@ a:hover {
 }
 
 #head-sect img {
-  height: 100%;
+  margin-top: 5%;
+  max-height: 75px;
 }
 
-#pm-sect {
+#agrisource-sect {
   text-shadow: 0px 0px 10px #000;
   text-transform: uppercase;
 }
 
-#pm-sect .row {
+#agrisource-sect .row {
   text-align: center;
 }
 
-#pm-sect .pm-block {
+#agrisource-sect .agrisource-block {
   display: inline-block;
 }
 
-#pm-sect h1 {
+#agrisource-sect h1 {
   line-height: 1em;
   margin: 0;
 }
 
-.pm-block .pm-top {
+.agrisource-block .agrisource-top {
   font-size: 2vw;
   overflow: hidden;
   letter-spacing: 0.014em;
 }
 
-.pm-block .pm-top .en {
+.agrisource-block .agrisource-top .en {
   float: left;
 }
 
-.pm-block .pm-top .fr {
+.agrisource-block .agrisource-top .fr {
   float: right;
 }
 

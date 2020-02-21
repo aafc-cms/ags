@@ -48,18 +48,18 @@ function set_sizes() {
   // Determine the current auto-height of the footer section
   var footer_ht = $('#footer-sect').css({height: 'auto'}).height();
 
-  // We want to prevent scrolling, so check the available height. If not enough, then reduce the top-margin in #pm-sect.
-  // Otherwise increase the top-margin in #pm-sect up to 400px, then if more space is available, increase the height of the footer.
-  $('#pm-sect').css({'margin-top': 0});
+  // We want to prevent scrolling, so check the available height. If not enough, then reduce the top-margin in #agrisource-sect.
+  // Otherwise increase the top-margin in #agrisource-sect up to 400px, then if more space is available, increase the height of the footer.
+  $('#agrisource-sect').css({'margin-top': 0});
   var main_ht = $('#main').height();
   var free_ht = wh - main_ht - footer_ht;
   
   if (free_ht > 0) {
     if (free_ht > 400) {
-      $('#pm-sect').css({'margin-top': '400px'});
+      $('#agrisource-sect').css({'margin-top': '400px'});
       footer_ht += free_ht - 400;
     } else {
-      $('#pm-sect').css({'margin-top': free_ht+'px'});
+      $('#agrisource-sect').css({'margin-top': free_ht+'px'});
     }
   }
   

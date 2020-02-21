@@ -79,14 +79,14 @@ var img_cy = <?php echo isset($img_cy) ? $img_cy : 0 ?>;
 <div id="outer-main">
   <div id="main">
     <div id="head-sect" class="css-mapw" data-attr="height" data-map="280,1200,64,100">
-      
+      <img src="/sites/default/splash-fancy/Canada-wordmark-white.png" alt="Agrisource" />
     </div>
 
-    <div id="pm-sect">
+    <div id="agrisource-sect">
       <div class="row">
-        <div class="pm-block">
-          <div class="pm-top css-mapw" data-attr="font-size" data-map="280,1200,14,40">
-            <div class="pm-hd">
+        <div class="agrisource-block">
+          <div class="agrisource-top css-mapw" data-attr="font-size" data-map="280,1200,14,40">
+            <div class="agrisource-hd">
               <div class="en">Agrisource (English)</div>
               <div class="fr"><span lang="fr">Agrisource (français)</span></div>
             </div>
