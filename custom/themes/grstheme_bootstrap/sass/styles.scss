@@ -6,6 +6,18 @@ $agrisource-menu-main-light: #a8b7c5 !default;
 $agrisource-menu-main-med: #96999c !default;
 $agrisource-menu-main-dark: #939394 !default;
 $agrisource-menu-main-bright: #939394 !default;
+$agrisource-border: #99999b !default;
+$agrisource-border-top: #59595b !default;
+
+body > div > div.container {
+  border-right: 1px solid $agrisource-border;
+  border-left: 1px solid $agrisource-border;
+}
+
+#wb-sm .container.nvbar {
+  border-right: 1px solid $agrisource-border-top;
+  border-left: 1px solid $agrisource-border-top;
+}
 
 .contextual-region .contextual .contextual-links a {
   color: #333 !important;

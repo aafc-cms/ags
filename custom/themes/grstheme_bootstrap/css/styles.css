@@ -2,12 +2,24 @@
  * If using a CSS pre-processor, tell it to overwrite this file. If not, place
  * your custom CSS modifications here.
  */
-/* line 10, ../sass/styles.scss */
+/* line 12, ../sass/styles.scss */
+body > div > div.container {
+  border-right: 1px solid #99999b;
+  border-left: 1px solid #99999b;
+}
+
+/* line 17, ../sass/styles.scss */
+#wb-sm .container.nvbar {
+  border-right: 1px solid #59595b;
+  border-left: 1px solid #59595b;
+}
+
+/* line 22, ../sass/styles.scss */
 .contextual-region .contextual .contextual-links a {
   color: #333 !important;
 }
 
-/* line 14, ../sass/styles.scss */
+/* line 26, ../sass/styles.scss */
 #wb-sm .nvbar {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#939394), to(#96999c));
   background-image: -webkit-linear-gradient(#959a9e, #8f9cab);
@@ -19,7 +31,7 @@
 }
 
 /* Canada Government Logo Size */
-/* line 25, ../sass/styles.scss */
+/* line 37, ../sass/styles.scss */
 #agrisource-wmms {
   height: 2.35em;
   left: 15px;
@@ -28,49 +40,49 @@
   top: 0.8em;
 }
 
-/* line 34, ../sass/styles.scss */
+/* line 46, ../sass/styles.scss */
 .region-banner a.name.navbar-brand {
   color: white;
 }
-/* line 38, ../sass/styles.scss */
+/* line 50, ../sass/styles.scss */
 .region-banner p.navbar-text {
   color: white;
 }
 
-/* line 43, ../sass/styles.scss */
+/* line 55, ../sass/styles.scss */
 #wb-menu.visible-md.visible-lg.wb-init.wb-menu-inited.wb-navcurr-inite {
   height: 43.344px;
 }
 
-/* line 48, ../sass/styles.scss */
+/* line 60, ../sass/styles.scss */
 .navbar-brand {
   text-decoration: none;
 }
 
-/* line 53, ../sass/styles.scss */
+/* line 65, ../sass/styles.scss */
 #wb-info ul.hide-this, #wb-info a[data-drupal-link-system-path~="contact"] {
   display: none;
 }
 
 /* incresed the padding-left: from 15px to 35px; */
-/* line 59, ../sass/styles.scss */
+/* line 71, ../sass/styles.scss */
 #gc-tctr {
   padding-left: 29px;
   font-weight: 500;
 }
 
-/* line 64, ../sass/styles.scss */
+/* line 76, ../sass/styles.scss */
 section.col-sm-3 ul.list-unstyled {
   font-weight: 500;
 }
 
 @media screen and (max-width: 992px) {
-  /* line 70, ../sass/styles.scss */
+  /* line 82, ../sass/styles.scss */
   #wb-bnr {
     background-color: #007852;
     background-image: none;
   }
-  /* line 73, ../sass/styles.scss */
+  /* line 85, ../sass/styles.scss */
   #wb-bnr .container .row.agri-banner-row {
     background: -webkit-gradient(linear, right top, left top, from(#298019), color-stop(#31821d), to(#278019));
     background: -webkit-linear-gradient(right, #278019, #31821d, #278019);
@@ -80,11 +92,11 @@ section.col-sm-3 ul.list-unstyled {
 }
 /* Target french only css */
 @media screen and (min-width: 992px) {
-  /* line 85, ../sass/styles.scss */
+  /* line 97, ../sass/styles.scss */
   body.i18n-fr section.wxt-search-block-form.col-md-4 {
     padding-right: 0 !important;
   }
-  /* line 87, ../sass/styles.scss */
+  /* line 99, ../sass/styles.scss */
   body.i18n-fr section.wxt-search-block-form.col-md-4 .form-type-search {
     max-width: 67%;
   }
@@ -92,18 +104,18 @@ section.col-sm-3 ul.list-unstyled {
 
 /* End of target french only css */
 @media screen and (min-width: 992px) {
-  /* line 96, ../sass/styles.scss */
+  /* line 108, ../sass/styles.scss */
   footer .container {
     padding-left: 0;
     padding-right: 0;
   }
 
-  /* line 100, ../sass/styles.scss */
+  /* line 112, ../sass/styles.scss */
   .show-this section:first-child {
     padding-left: 5px;
   }
 
-  /* line 104, ../sass/styles.scss */
+  /* line 116, ../sass/styles.scss */
   #wb-bar + .container {
     background: -webkit-gradient(linear, right top, left top, from(#298019), color-stop(#31821d), to(#278019));
     background: -webkit-linear-gradient(right, #278019, #31821d, #278019);
@@ -111,7 +123,7 @@ section.col-sm-3 ul.list-unstyled {
     position: relative;
   }
 
-  /* line 111, ../sass/styles.scss */
+  /* line 123, ../sass/styles.scss */
   #agrisource-wmms {
     left: unset;
     margin-top: unset;
@@ -122,7 +134,7 @@ section.col-sm-3 ul.list-unstyled {
     z-index: 2;
   }
 
-  /* line 121, ../sass/styles.scss */
+  /* line 133, ../sass/styles.scss */
   #wb-bnr {
     background: #007852 !important;
   }
