@@ -1,0 +1,172 @@
+<?php
+
+use Drupal\Core\Url;
+use Drupal\Core\Link;
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_page_attachments().
+ *
+ * Adds the agri-admin libraries to each page.
+ */
+function agri_admin_page_attachments(array &$page) {
+  $user = \Drupal::currentUser();
+  if ($user->hasPermission('agrisource admin styles')) {
+    $page['#attached']['library'][] = 'agri_admin/agri-admin';
+  }
+  return;
+}
+
+/**
+ * Implements hook_theme()
+ */
+function agri_admin_theme($existing, $type, $theme, $path) {
+  // Example of passing a variable to the theme (twig).
+  return [
+    'agri_admin' => [
+      'variables' => ['test_var' => 'test value'],
+    ],
+  ];
+}
+
+
+function _latest_revision($nid, &$vid) {
+  $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $otherLang = 'fr';
+  if ($lang == 'fr') {
+    $otherLang = 'en';
+  }
+  $latestRevisionResult = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
+    ->latestRevision()
+    ->condition('nid', $nid, '=')
+    ->execute();
+  if (count($latestRevisionResult)) {
+    $node_revision_id = key($latestRevisionResult);
+    if ($node_revision_id == $vid) {
+      // There is no pending revision, the current revision is the latest.
+      return FALSE;
+    }
+    $vid = $node_revision_id;
+    $latestRevision = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($node_revision_id);
+    if ($latestRevision->language()->getId() != $lang) {
+      $latestRevision = $latestRevision->getTranslation($lang);
+    }
+    $moderation_state = $latestRevision->get('moderation_state')->getString();
+    if ($moderation_state == 'draft') {
+      return $latestRevision;
+    }
+  }
+  return FALSE;
+}
+
+/*variables array_keys=Array
+(
+    [0] => view
+    [1] => rows
+    [2] => title
+    [3] => options
+    [4] => context
+    [5] => icon
+    [6] => icon_position
+    [7] => icon_only
+    [8] => theme_hook_original
+    [9] => attributes
+    [10] => title_attributes
+    [11] => content_attributes
+    [12] => title_prefix
+    [13] => title_suffix
+    [14] => db_is_active
+    [15] => is_admin
+    [16] => logged_in
+    [17] => user
+    [18] => directory
+    [19] => default_row_class
+    [20] => #cache
+)*/
+
+
+/**
+ * Implements hook_preprocess_views_view_field() for replacing current
+ * revision field values with latest pending revision field values.
+ * This is so we can have themed (orange as example) pending draft rows.
+ * to complement the hotpink current draft rows.
+ * @TODO: add {{ status }} to a view row.
+ */
+function agri_admin_preprocess_views_view_field(&$variables) {
+  return; // Disable this for now, not yet using this.
+  if ($variables['logged_in']) {
+    $user = \Drupal::currentUser();
+    $hasPermission = $user->hasPermission('agrisource pending drafts');
+    if (!$hasPermission) {
+      return;
+    }
+  } else {
+    return;
+  }
+  $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $otherLang = 'fr';
+  if ($lang == 'fr') {
+    $otherLang = 'en';
+  }
+
+  $view = $variables['view'];
+  if ($view->id() == 'news' || $view->id() == 'agrisource_news' || $view->id() == 'some_view_machine_name_example') {
+    $field = $variables['field'];
+    $row = $variables['row'];
+    $nid = $row->_entity->id();
+    $vid = $row->_entity->getLoadedRevisionId();
+    if ($row->_entity->isPublished() && $latestRevision = _latest_revision($nid, $vid)) {
+      if ($field->field == 'status') {
+        //title
+        //body
+        //field_fieldname
+        //status
+        //nid
+        //field_title
+        $variables['output'] = Drupal\Core\Render\Markup::create(str_replace('yes', 'no pending-draft', $variables['output']));
+      } else if ($field->field == 'nothing') {
+        // There is no fieldable field called 'nothing' this is a views field, so skip it.
+        return;
+      } else if ($field->field == 'machine_name') {
+        // There is no fieldable field called 'machine_name', so skip it.
+        return;
+      } else if ($field->field == 'nid') {
+        // There is no fieldable field called 'nid', so skip it.
+        return;
+      } else if ($field->field == 'tid') {
+        // There is no fieldable field called 'tid', so skip it.
+        return;
+      } else {
+        $valueCurrent = '';
+        if ($lang == 'fr') {
+          $valueCurrent = $row->_entity->getTranslation($lang)->get($field->field)->value;
+        } else {
+          $valueCurrent = $row->_entity->get($field->field)->value;
+        }
+        $valuePending = $latestRevision->get($field->field)->value; // Already in current language.
+        // Replace characters in the field output.
+        $variables['output'] = Drupal\Core\Render\Markup::create(str_replace($valueCurrent, $valuePending, $variables['output']));
+        if ($field->field == 'title' || $field->field == 'field_title') {
+          $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
+          $urlPathToLatest = '/node/' . $nid . '/latest';
+          // Replace path to node in the field output.
+          $variables['output'] = Drupal\Core\Render\Markup::create(str_replace($alias, $urlPathToLatest, $variables['output']));
+        }
+      }
+      // If the above code is crashing, move the debug code higher above and enable it/refactor the debug code.
+      $DEBUG = FALSE;
+      if ($DEBUG && $fp = fopen('debug.txt', 'a'))
+      {
+        fwrite($fp, 'debug=NID=' . $nid . ' ' . print_r(' test', TRUE) . "\n");
+        fwrite($fp, 'debug=test=' . $nid .print_r($field->field, TRUE) . "\n");
+        //fwrite($fp, 'debug=status=' . $nid .print_r(get_object_vars($row->_entity), TRUE));
+        //fwrite($fp, 'debug=object_vars=' . $nid .print_r(get_object_vars($row->_entity), TRUE));
+        //fwrite($fp, 'debug row methods='.print_r(get_class_methods($variables['row']), TRUE));
+        //fwrite($fp, 'debug entity methods='.print_r(get_class_methods($row->_entity), TRUE) . "\n");
+        fclose($fp);
+      }
+    }
+  }
+}
+
+
