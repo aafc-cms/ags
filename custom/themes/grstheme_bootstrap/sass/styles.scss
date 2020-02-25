@@ -110,20 +110,18 @@ section.col-sm-3 ul.list-unstyled {
   }
 }
 
-/* Target french only css */
-body.i18n-fr {
-  @media screen and (min-width: 992px) {
-     section.wxt-search-block-form.col-md-4 {
-       padding-right: 0 !important;
-       .form-type-search {
-	  max-width: 67%;
-       }
-     }
-  }
-}
-
 /* End of target french only css */
 @media screen and (min-width: 992px) {
+  body.i18n-fr {
+    // Target french only css.
+    section.wxt-search-block-form.col-md-4 {
+      padding-right: 0 !important;
+      .form-type-search {
+   max-width: 67%;
+      }
+    }
+  }
+
   #gcwu-sig {
     margin: 2.8em 0 0.5em 15px;
   }
