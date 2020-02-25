@@ -99,15 +99,28 @@ section.col-sm-3 ul.list-unstyled {
   /* Canada Government Logo Size */
   /* line 98, ../sass/styles.scss */
   #agrisource-wmms {
+    height: 2.35em;
     left: 15px;
+    margin-top: -8px;
+    position: absolute;
+    top: -2.2em;
   }
 
-  /* line 101, ../sass/styles.scss */
+  /* line 105, ../sass/styles.scss */
   #wb-bnr {
     background-color: #007852;
     background-image: none;
+    /*
+        #wmms {
+          height: 2.35em;
+          left: 15px;
+          margin-top: -8px;
+          position: absolute;
+          top: -2.2em;
+      }
+      */
   }
-  /* line 104, ../sass/styles.scss */
+  /* line 108, ../sass/styles.scss */
   #wb-bnr .container .row.agri-banner-row {
     background: -webkit-gradient(linear, right top, left top, from(#298019), color-stop(#31821d), to(#278019));
     background: -webkit-linear-gradient(right, #278019, #31821d, #278019);
@@ -117,32 +130,32 @@ section.col-sm-3 ul.list-unstyled {
 }
 /* End of target french only css */
 @media screen and (min-width: 992px) {
-  /* line 117, ../sass/styles.scss */
+  /* line 130, ../sass/styles.scss */
   body.i18n-fr section.wxt-search-block-form.col-md-4 {
     padding-right: 0 !important;
   }
-  /* line 119, ../sass/styles.scss */
+  /* line 132, ../sass/styles.scss */
   body.i18n-fr section.wxt-search-block-form.col-md-4 .form-type-search {
     max-width: 67%;
   }
 
-  /* line 125, ../sass/styles.scss */
+  /* line 138, ../sass/styles.scss */
   #gcwu-sig {
     margin: 2.8em 0 0.5em 15px;
   }
 
-  /* line 128, ../sass/styles.scss */
+  /* line 141, ../sass/styles.scss */
   footer .container {
     padding-left: 0;
     padding-right: 0;
   }
 
-  /* line 132, ../sass/styles.scss */
+  /* line 145, ../sass/styles.scss */
   .show-this section:first-child {
     padding-left: 5px;
   }
 
-  /* line 136, ../sass/styles.scss */
+  /* line 149, ../sass/styles.scss */
   #wb-bar + .container {
     background: -webkit-gradient(linear, right top, left top, from(#298019), color-stop(#31821d), to(#278019));
     background: -webkit-linear-gradient(right, #278019, #31821d, #278019);

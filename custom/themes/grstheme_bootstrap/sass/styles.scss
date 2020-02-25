@@ -96,7 +96,11 @@ section.col-sm-3 ul.list-unstyled {
 @media screen and (max-width: 992px) {
   /* Canada Government Logo Size */
   #agrisource-wmms {
+    height: 2.35em;
     left: 15px;
+    margin-top: -8px;
+    position: absolute;
+    top: -2.2em;
   }
   #wb-bnr {
     background-color: #007852;
@@ -107,6 +111,15 @@ section.col-sm-3 ul.list-unstyled {
       background: linear-gradient(to left,#007852,#77bc1f,#007852);
       position: relative;
     }
+/*
+    #wmms {
+      height: 2.35em;
+      left: 15px;
+      margin-top: -8px;
+      position: absolute;
+      top: -2.2em;
+  }
+  */
   }
 }
 
