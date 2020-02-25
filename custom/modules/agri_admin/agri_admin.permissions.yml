@@ -1,0 +1,12 @@
+agrisource menu helper:
+  title: 'Agrisource menu helper'
+  description: 'When this permission is granted, when a basic page or a landing page is saved and a main navigation parent menu item is selected, the menu link translation is automatically generated and a sidebar entry is automatically created and translated provided that a parent menu item was set in the main navigation.'
+  restrict access: true
+agrisource pending drafts:
+  title: 'Agrisource pending drafts'
+  description: 'When this permission is granted, pending drafts (where configured in agri_admin.module code and corresponding views and css) will be flagged as orange and pending values will replace the current published values but only when "logged in" and has this permission'
+  restrict access: true
+agrisource admin styles:
+  title: 'Agrisource admin styles'
+  description: 'Use the Agrisource admin styles, needed for elevated roles that have editing priviledges'
+  restrict access: true
