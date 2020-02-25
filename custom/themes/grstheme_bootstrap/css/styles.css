@@ -62,7 +62,6 @@ body.path-frontpage #wb-auto-1.carousel-s2 {
 .navbar-brand {
   text-decoration: none;
   font-size: 1.9em;
-  padding: 13.5px 0px;
 }
 
 /* line 69, ../sass/styles.scss */
@@ -97,19 +96,57 @@ section.col-sm-3 ul.list-unstyled {
   z-index: 2;
 }
 
-@media screen and (max-width: 992px) {
-  /* Canada Government Logo Size */
-  /* line 99, ../sass/styles.scss */
-  #agrisource-wmms {
-    left: 15px;
+@media screen and (max-width: 991px) {
+  /* line 98, ../sass/styles.scss */
+  #mb-pnl .srch-pnl .form-group {
+    width: auto;
   }
 
-  /* line 102, ../sass/styles.scss */
+  /* line 101, ../sass/styles.scss */
+  #wb-glb-mn .pnl-btn a {
+    font-size: 1.4em;
+  }
+
+  /* line 104, ../sass/styles.scss */
+  #wb-glb-mn .pnl-btn span .glyphicon-th-list {
+    padding-left: 0;
+  }
+
+  /* line 108, ../sass/styles.scss */
+  #mb-pnl nav a.mb-item[href*="structure"] {
+    display: none;
+  }
+
+  /* line 114, ../sass/styles.scss */
+  section.lng-ofr ul.list-inline a[href*="languageswitcher"] {
+    display: none;
+  }
+
+  /* Canada Government Logo Size */
+  /* line 120, ../sass/styles.scss */
+  #agrisource-wmms {
+    height: 2.35em;
+    left: 15px;
+    margin-top: -8px;
+    position: absolute;
+    top: -2.2em;
+  }
+
+  /* line 127, ../sass/styles.scss */
   #wb-bnr {
     background-color: #007852;
     background-image: none;
+    /*
+        #wmms {
+          height: 2.35em;
+          left: 15px;
+          margin-top: -8px;
+          position: absolute;
+          top: -2.2em;
+      }
+      */
   }
-  /* line 105, ../sass/styles.scss */
+  /* line 130, ../sass/styles.scss */
   #wb-bnr .container .row.agri-banner-row {
     background: -webkit-gradient(linear, right top, left top, from(#298019), color-stop(#31821d), to(#278019));
     background: -webkit-linear-gradient(right, #278019, #31821d, #278019);
@@ -117,37 +154,34 @@ section.col-sm-3 ul.list-unstyled {
     position: relative;
   }
 }
-/* Target french only css */
+/* End of target french only css */
 @media screen and (min-width: 992px) {
-  /* line 117, ../sass/styles.scss */
+  /* line 152, ../sass/styles.scss */
   body.i18n-fr section.wxt-search-block-form.col-md-4 {
     padding-right: 0 !important;
   }
-  /* line 119, ../sass/styles.scss */
+  /* line 154, ../sass/styles.scss */
   body.i18n-fr section.wxt-search-block-form.col-md-4 .form-type-search {
     max-width: 67%;
   }
-}
 
-/* End of target french only css */
-@media screen and (min-width: 992px) {
-  /* line 128, ../sass/styles.scss */
+  /* line 160, ../sass/styles.scss */
   #gcwu-sig {
     margin: 2.8em 0 0.5em 15px;
   }
 
-  /* line 131, ../sass/styles.scss */
+  /* line 163, ../sass/styles.scss */
   footer .container {
     padding-left: 0;
     padding-right: 0;
   }
 
-  /* line 135, ../sass/styles.scss */
+  /* line 167, ../sass/styles.scss */
   .show-this section:first-child {
     padding-left: 5px;
   }
 
-  /* line 139, ../sass/styles.scss */
+  /* line 171, ../sass/styles.scss */
   #wb-bar + .container {
     background: -webkit-gradient(linear, right top, left top, from(#298019), color-stop(#31821d), to(#278019));
     background: -webkit-linear-gradient(right, #278019, #31821d, #278019);

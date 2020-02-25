@@ -53,14 +53,14 @@
 <h2 class="h3 text-center">AgriSource</h2>
 <ul class="list-unstyled">
 <li><a class="btn btn-lg btn-primary btn-block" href="/en/">English</a></li>
-<li><a class="btn btn-lg btn-default btn-block mrgn-tp-sm" href="eng?id=1288036234895" rel="license">Terms and conditions of use</a></li>
+<li><a class="btn btn-lg btn-default btn-block mrgn-tp-sm" href="en/important-notices" rel="license">Terms and conditions of use</a></li>
 </ul>
 </section>
 <section class="col-md-6" lang="fr">
 <h2 class="h3 text-center">AgriSource</h2>
 <ul class="list-unstyled">
 <li><a class="btn btn-lg btn-primary btn-block" href="/fr/">Français</a></li>
-<li><a class="btn btn-lg btn-default btn-block mrgn-tp-sm" href="fra?id=1288036234895" rel="license">Conditions régissant l'utilisation</a></li>
+<li><a class="btn btn-lg btn-default btn-block mrgn-tp-sm" href="fr/avis-importants" rel="license">Conditions régissant l'utilisation</a></li>
 </ul>
 </section>
 </div>  

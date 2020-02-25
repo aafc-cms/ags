@@ -94,10 +94,35 @@ section.col-sm-3 ul.list-unstyled {
   z-index: 2;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 991px) {
+  #mb-pnl .srch-pnl .form-group {
+    width: auto;
+  }
+  #wb-glb-mn .pnl-btn a {
+    font-size: 1.4em;
+  }
+  #wb-glb-mn .pnl-btn span .glyphicon-th-list {
+    padding-left: 0;
+  }
+  #mb-pnl nav {
+    a.mb-item[href *= "structure"] {
+      display: none;
+    }
+  }
+  section.lng-ofr {
+    ul.list-inline {
+      a[href *= "languageswitcher"] {
+        display: none;
+      }
+    }
+  }
   /* Canada Government Logo Size */
   #agrisource-wmms {
+    height: 2.35em;
     left: 15px;
+    margin-top: -8px;
+    position: absolute;
+    top: -2.2em;
   }
   #wb-bnr {
     background-color: #007852;
@@ -108,23 +133,30 @@ section.col-sm-3 ul.list-unstyled {
       background: linear-gradient(to left,#007852,#77bc1f,#007852);
       position: relative;
     }
+/*
+    #wmms {
+      height: 2.35em;
+      left: 15px;
+      margin-top: -8px;
+      position: absolute;
+      top: -2.2em;
   }
-}
-
-/* Target french only css */
-body.i18n-fr {
-  @media screen and (min-width: 992px) {
-     section.wxt-search-block-form.col-md-4 {
-       padding-right: 0 !important;
-       .form-type-search {
-	  max-width: 67%;
-       }
-     }
+  */
   }
 }
 
 /* End of target french only css */
 @media screen and (min-width: 992px) {
+  body.i18n-fr {
+    // Target french only css.
+    section.wxt-search-block-form.col-md-4 {
+      padding-right: 0 !important;
+      .form-type-search {
+   max-width: 67%;
+      }
+    }
+  }
+
   #gcwu-sig {
     margin: 2.8em 0 0.5em 15px;
   }
