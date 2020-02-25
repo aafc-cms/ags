@@ -40,7 +40,6 @@ body.path-frontpage #wb-auto-1.carousel-s2 {
 /* Canada Government Logo Size */
 #agrisource-wmms {
   height: 2.35em;
-  left: 15px;
   margin-top: -8px;
   position: absolute;
   top: 0.8em;
@@ -81,8 +80,24 @@ section.col-sm-3 ul.list-unstyled {
   font-weight:  500;
 }
 
+#wb-bnr {
+  background: #007852 !important;
+}
+
+#agrisource-wmms {
+  margin-top: -2.5em;
+  height: 1.9em;
+  position: absolute;
+  right: 15px;
+  top: 2px;
+  z-index: 2;
+}
 
 @media screen and (max-width: 992px) {
+  /* Canada Government Logo Size */
+  #agrisource-wmms {
+    left: 15px;
+  }
   #wb-bnr {
     background-color: #007852;
     background-image: none;
@@ -109,6 +124,9 @@ body.i18n-fr {
 
 /* End of target french only css */
 @media screen and (min-width: 992px) {
+  #gcwu-sig {
+    margin: 2.8em 0 0.5em 15px;
+  }
   footer .container {
     padding-left: 0;
     padding-right: 0;
@@ -124,19 +142,7 @@ body.i18n-fr {
     position: relative;
   }
 
-  #agrisource-wmms {
-    left: unset;
-    margin-top: unset;
-    height: 1.9em;
-    position: absolute;
-    right: 15px;
-    top: 36px;
-    z-index: 2;
-  }
 
-  #wb-bnr {
-    background: #007852 !important;
-  }
 }
 
 

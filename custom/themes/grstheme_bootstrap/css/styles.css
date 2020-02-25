@@ -39,55 +39,75 @@ body.path-frontpage #wb-auto-1.carousel-s2 {
 /* line 41, ../sass/styles.scss */
 #agrisource-wmms {
   height: 2.35em;
-  left: 15px;
   margin-top: -8px;
   position: absolute;
   top: 0.8em;
 }
 
-/* line 50, ../sass/styles.scss */
+/* line 49, ../sass/styles.scss */
 .region-banner a.name.navbar-brand {
   color: white;
 }
-/* line 54, ../sass/styles.scss */
+/* line 53, ../sass/styles.scss */
 .region-banner p.navbar-text {
   color: white;
 }
 
-/* line 59, ../sass/styles.scss */
+/* line 58, ../sass/styles.scss */
 #wb-menu.visible-md.visible-lg.wb-init.wb-menu-inited.wb-navcurr-inite {
   height: 43.344px;
 }
 
-/* line 64, ../sass/styles.scss */
+/* line 63, ../sass/styles.scss */
 .navbar-brand {
   text-decoration: none;
 }
 
-/* line 69, ../sass/styles.scss */
+/* line 68, ../sass/styles.scss */
 #wb-info ul.hide-this, #wb-info a[data-drupal-link-system-path~="contact"] {
   display: none;
 }
 
 /* incresed the padding-left: from 15px to 35px; */
-/* line 75, ../sass/styles.scss */
+/* line 74, ../sass/styles.scss */
 #gc-tctr {
   padding-left: 29px;
   font-weight: 500;
 }
 
-/* line 80, ../sass/styles.scss */
+/* line 79, ../sass/styles.scss */
 section.col-sm-3 ul.list-unstyled {
   font-weight: 500;
 }
 
+/* line 83, ../sass/styles.scss */
+#wb-bnr {
+  background: #007852 !important;
+}
+
+/* line 87, ../sass/styles.scss */
+#agrisource-wmms {
+  margin-top: -2.5em;
+  height: 1.9em;
+  position: absolute;
+  right: 15px;
+  top: 2px;
+  z-index: 2;
+}
+
 @media screen and (max-width: 992px) {
-  /* line 86, ../sass/styles.scss */
+  /* Canada Government Logo Size */
+  /* line 98, ../sass/styles.scss */
+  #agrisource-wmms {
+    left: 15px;
+  }
+
+  /* line 101, ../sass/styles.scss */
   #wb-bnr {
     background-color: #007852;
     background-image: none;
   }
-  /* line 89, ../sass/styles.scss */
+  /* line 104, ../sass/styles.scss */
   #wb-bnr .container .row.agri-banner-row {
     background: -webkit-gradient(linear, right top, left top, from(#298019), color-stop(#31821d), to(#278019));
     background: -webkit-linear-gradient(right, #278019, #31821d, #278019);
@@ -97,11 +117,11 @@ section.col-sm-3 ul.list-unstyled {
 }
 /* Target french only css */
 @media screen and (min-width: 992px) {
-  /* line 101, ../sass/styles.scss */
+  /* line 116, ../sass/styles.scss */
   body.i18n-fr section.wxt-search-block-form.col-md-4 {
     padding-right: 0 !important;
   }
-  /* line 103, ../sass/styles.scss */
+  /* line 118, ../sass/styles.scss */
   body.i18n-fr section.wxt-search-block-form.col-md-4 .form-type-search {
     max-width: 67%;
   }
@@ -109,39 +129,28 @@ section.col-sm-3 ul.list-unstyled {
 
 /* End of target french only css */
 @media screen and (min-width: 992px) {
-  /* line 112, ../sass/styles.scss */
+  /* line 127, ../sass/styles.scss */
+  #gcwu-sig {
+    margin: 2.8em 0 0.5em 15px;
+  }
+
+  /* line 130, ../sass/styles.scss */
   footer .container {
     padding-left: 0;
     padding-right: 0;
   }
 
-  /* line 116, ../sass/styles.scss */
+  /* line 134, ../sass/styles.scss */
   .show-this section:first-child {
     padding-left: 5px;
   }
 
-  /* line 120, ../sass/styles.scss */
+  /* line 138, ../sass/styles.scss */
   #wb-bar + .container {
     background: -webkit-gradient(linear, right top, left top, from(#298019), color-stop(#31821d), to(#278019));
     background: -webkit-linear-gradient(right, #278019, #31821d, #278019);
     background: linear-gradient(to left, #007852, #77bc1f, #007852);
     position: relative;
-  }
-
-  /* line 127, ../sass/styles.scss */
-  #agrisource-wmms {
-    left: unset;
-    margin-top: unset;
-    height: 1.9em;
-    position: absolute;
-    right: 15px;
-    top: 36px;
-    z-index: 2;
-  }
-
-  /* line 137, ../sass/styles.scss */
-  #wb-bnr {
-    background: #007852 !important;
   }
 }
 
