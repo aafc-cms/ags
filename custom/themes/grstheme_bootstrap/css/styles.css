@@ -95,9 +95,34 @@ section.col-sm-3 ul.list-unstyled {
   z-index: 2;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 991px) {
+  /* line 97, ../sass/styles.scss */
+  #mb-pnl .srch-pnl .form-group {
+    width: auto;
+  }
+
+  /* line 100, ../sass/styles.scss */
+  #wb-glb-mn .pnl-btn a {
+    font-size: 1.4em;
+  }
+
+  /* line 103, ../sass/styles.scss */
+  #wb-glb-mn .pnl-btn span .glyphicon-th-list {
+    padding-left: 0;
+  }
+
+  /* line 107, ../sass/styles.scss */
+  #mb-pnl nav a[href*="structure"] {
+    display: none;
+  }
+
+  /* line 113, ../sass/styles.scss */
+  section.lng-ofr ul.list-inline a[href*="languageswitcher"] {
+    display: none;
+  }
+
   /* Canada Government Logo Size */
-  /* line 98, ../sass/styles.scss */
+  /* line 119, ../sass/styles.scss */
   #agrisource-wmms {
     height: 2.35em;
     left: 15px;
@@ -106,7 +131,7 @@ section.col-sm-3 ul.list-unstyled {
     top: -2.2em;
   }
 
-  /* line 105, ../sass/styles.scss */
+  /* line 126, ../sass/styles.scss */
   #wb-bnr {
     background-color: #007852;
     background-image: none;
@@ -120,7 +145,7 @@ section.col-sm-3 ul.list-unstyled {
       }
       */
   }
-  /* line 108, ../sass/styles.scss */
+  /* line 129, ../sass/styles.scss */
   #wb-bnr .container .row.agri-banner-row {
     background: -webkit-gradient(linear, right top, left top, from(#298019), color-stop(#31821d), to(#278019));
     background: -webkit-linear-gradient(right, #278019, #31821d, #278019);
@@ -130,32 +155,32 @@ section.col-sm-3 ul.list-unstyled {
 }
 /* End of target french only css */
 @media screen and (min-width: 992px) {
-  /* line 130, ../sass/styles.scss */
+  /* line 151, ../sass/styles.scss */
   body.i18n-fr section.wxt-search-block-form.col-md-4 {
     padding-right: 0 !important;
   }
-  /* line 132, ../sass/styles.scss */
+  /* line 153, ../sass/styles.scss */
   body.i18n-fr section.wxt-search-block-form.col-md-4 .form-type-search {
     max-width: 67%;
   }
 
-  /* line 138, ../sass/styles.scss */
+  /* line 159, ../sass/styles.scss */
   #gcwu-sig {
     margin: 2.8em 0 0.5em 15px;
   }
 
-  /* line 141, ../sass/styles.scss */
+  /* line 162, ../sass/styles.scss */
   footer .container {
     padding-left: 0;
     padding-right: 0;
   }
 
-  /* line 145, ../sass/styles.scss */
+  /* line 166, ../sass/styles.scss */
   .show-this section:first-child {
     padding-left: 5px;
   }
 
-  /* line 149, ../sass/styles.scss */
+  /* line 170, ../sass/styles.scss */
   #wb-bar + .container {
     background: -webkit-gradient(linear, right top, left top, from(#298019), color-stop(#31821d), to(#278019));
     background: -webkit-linear-gradient(right, #278019, #31821d, #278019);
