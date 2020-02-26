@@ -27,6 +27,11 @@ body.path-frontpage #wb-auto-1.carousel-s2 {
   color: #333 !important;
 }
 
+#mb-pnl #edit-submit-container-imprt {
+  float: none !important;
+  margin-bottom: 0px !important;
+}
+
 #wb-sm .nvbar {
   background-image: -webkit-gradient(linear,left top,left bottom,from(#939394),to($agrisource-menu-main-med));
   background-image: -webkit-linear-gradient(#959a9e,#8f9cab);
@@ -48,6 +53,7 @@ body.path-frontpage #wb-auto-1.carousel-s2 {
 .region-banner {
   a.name.navbar-brand {
     color: white;
+    text-shadow: 0 1px 1px #044062;
   }
 
   p.navbar-text {
@@ -95,9 +101,7 @@ section.col-sm-3 ul.list-unstyled {
 }
 
 @media screen and (max-width: 991px) {
-  #mb-pnl .srch-pnl .form-group {
-    width: auto;
-  }
+
   #wb-glb-mn .pnl-btn a {
     font-size: 1.4em;
   }
@@ -133,20 +137,33 @@ section.col-sm-3 ul.list-unstyled {
       background: linear-gradient(to left,#007852,#77bc1f,#007852);
       position: relative;
     }
-/*
-    #wmms {
-      height: 2.35em;
-      left: 15px;
-      margin-top: -8px;
-      position: absolute;
-      top: -2.2em;
-  }
-  */
+
   }
 }
 
+@media screen and (max-width: 767px) {
+  body.i18n-fr {
+    #mb-pnl .srch-pnl .form-group {
+      width: 65%;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  body.i18n-fr {
+    #wb-srch-q-imprt {
+      width: 100% !important;
+    }
+  }
+}
+
+
 /* End of target french only css */
 @media screen and (min-width: 992px) {
+
+  a.name.navbar-brand {
+    text-shadow: 1px 1px 1px #333;
+  }
   body.i18n-fr {
     // Target french only css.
     section.wxt-search-block-form.col-md-4 {
