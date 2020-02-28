@@ -68,6 +68,7 @@ body.path-frontpage {
   a.name.navbar-brand {
     color: white;
     text-shadow: 0 1px 1px #044062;
+    margin-left: 0;
   }
 
   p.navbar-text {
@@ -116,7 +117,18 @@ section.col-sm-3 ul.list-unstyled {
 }
 
 @media screen and (max-width: 991px) {
-
+  #wb-bnr {
+    background-image: -webkit-linear-gradient(#77bc1f, #77bc1f, #007852) !important;
+    background-image: linear-gradient(#77bc1f, #77bc1f, #007852) !important;
+  }
+  .region-banner {
+    a.name.navbar-brand {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      font-size: x-large;
+      height: auto;
+    }
+  }
   #wb-glb-mn .pnl-btn a {
     font-size: 1.4em;
   }
@@ -147,9 +159,6 @@ section.col-sm-3 ul.list-unstyled {
     background-color: #007852;
     background-image: none;
    .container .row.agri-banner-row {
-      background: -webkit-gradient(linear,right top,left top,from(#298019),color-stop(#31821d),to(#278019));
-      background: -webkit-linear-gradient(right,#278019,#31821d,#278019);
-      background: linear-gradient(to left,#007852,#77bc1f,#007852);
       position: relative;
     }
 
