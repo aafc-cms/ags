@@ -1,0 +1,38 @@
+uuid: 3166c5fd-ba9c-45ba-9529-bd5b5dfc01fe
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - entity_block
+    - system
+    - wxt_library
+  theme:
+    - grstheme_bootstrap
+third_party_settings:
+  block_class:
+    classes: 'col-md-9 pull-left'
+id: media
+theme: grstheme_bootstrap
+region: help
+weight: -10
+provider: null
+plugin: 'entity_block:media'
+settings:
+  id: 'entity_block:media'
+  label: Media
+  provider: entity_block
+  label_display: ''
+  entity: '7'
+  view_mode: default
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
+  panels_title:
+    id: panels_title
+    enabled: 0
+    negate: false
+    context_mapping: {  }
