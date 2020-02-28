@@ -19,8 +19,21 @@ body > div > div.container {
   border-left: 1px solid $agrisource-border-top;
 }
 
-body.path-frontpage #wb-auto-1.carousel-s2 {
-  margin-left: -15px !important;
+body.path-frontpage {
+  div.region-help {
+    .col-md-4, .col-md-8 {
+      //padding-left: 0;
+    }
+    section.block-entity-blockmedia {
+      padding-right: 0;
+    }
+  }
+  article h2:first-child {
+    display: none;
+  }
+  #wb-auto-1.carousel-s2 {
+    margin-left: -15px !important;
+  }
 }
 
 .contextual-region .contextual .contextual-links a {
