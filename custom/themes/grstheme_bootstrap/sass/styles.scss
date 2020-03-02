@@ -2,12 +2,12 @@
  * If using a CSS pre-processor, tell it to overwrite this file. If not, place
  * your custom CSS modifications here.
  */
-$agrisource-menu-main-light: #a8b7c5 !default;
-$agrisource-menu-main-med: #96999c !default;
-$agrisource-menu-main-dark: #939394 !default;
-$agrisource-menu-main-bright: #939394 !default;
-$agrisource-border: #99999b !default;
-$agrisource-border-top: #59595b !default;
+
+@import 'global/variables';
+
+@import 'layouts/header';
+@import 'layouts/footer';
+@import 'legacy/classes';
 
 body > div > div.container {
   border-right: 1px solid $agrisource-border;
