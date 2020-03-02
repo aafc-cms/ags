@@ -3,6 +3,7 @@
 use Drupal\Core\Url;
 use Drupal\Core\Link;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\agri_admin\AgriAdminHelper;
 
 /**
  * Implements hook_page_attachments().
@@ -170,3 +171,18 @@ function agri_admin_preprocess_views_view_field(&$variables) {
 }
 
 
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ */
+function agri_admin_node_update(Drupal\Core\Entity\EntityInterface $entity) {
+  $entity_id = $entity->id();
+
+  $action = 'update';
+  drupal_register_shutdown_function('_helperUpdateProcess', $action, $entity_id);
+}
+
+
+function _helperUpdateProcess($action, $entity_id) {
+  AgriAdminHelper::postUpdateProcess($action, $entity_id);
+}
