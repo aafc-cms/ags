@@ -1,0 +1,35 @@
+uuid: e28a1d5c-df85-495d-b17e-a2ce1902e917
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:6bc0820b-47eb-4b6c-af2f-0a393a271750'
+  module:
+    - block_class
+    - block_content
+    - wxt_library
+  theme:
+    - grstheme_bootstrap
+third_party_settings:
+  block_class:
+    classes: 'col-md-3 pull-right'
+id: blockdescription
+theme: grstheme_bootstrap
+region: help
+weight: -9
+provider: null
+plugin: 'block_content:6bc0820b-47eb-4b6c-af2f-0a393a271750'
+settings:
+  id: 'block_content:6bc0820b-47eb-4b6c-af2f-0a393a271750'
+  label: 'Block description'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  panels_title:
+    id: panels_title
+    enabled: 0
+    negate: false
+    context_mapping: {  }
