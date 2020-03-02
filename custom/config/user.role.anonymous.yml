@@ -6,13 +6,16 @@ _core:
   default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
 id: anonymous
 label: 'Anonymous user'
-weight: 0
+weight: -10
 is_admin: false
 permissions:
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
   - 'access user profiles'
+  - 'access_unpublished node landing_page'
+  - 'access_unpublished node page'
+  - 'access_unpublished taxonomy_term category'
   - 'search content'
   - 'use search'
   - 'view media'
