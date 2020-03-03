@@ -67,6 +67,7 @@ class AgriAdminHelper {
   }
 
   static public function createChildOfNid($nid, $menu_name = 'sidebar', $parentNid, $parentUuid) {
+    return FALSE; // Disable for now.
     // Load main navigation menu link for nid, find the parent nid, then look up the menu link
     // in the sidebar with that nid, that will be the parent of this new sidebar link.
 
