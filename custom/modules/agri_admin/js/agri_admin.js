@@ -16,7 +16,7 @@
               //$('#edit-field-meta-tags-0').hide(); // Hide the META TAGS tab in the node editor
               //$('#edit-field-meta-tags-etuf-fr-0').hide(); //because now weh have the ETUF (fr and en form)
               //$('#edit-author').hide(); //Hide the Authoring Information.
-              //$('#edit-meta-author').hide();              
+              //$('#edit-meta-author').hide();
               //$('#edit-revision-information').hide();
               //$('#edit-content-translation').hide();
               $('.js-form-item-promote-value.form-item-promote-value').hide();
