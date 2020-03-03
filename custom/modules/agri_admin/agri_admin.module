@@ -179,10 +179,10 @@ function agri_admin_node_update(Drupal\Core\Entity\EntityInterface $entity) {
   $entity_id = $entity->id();
 
   $action = 'update';
-  drupal_register_shutdown_function('_helperUpdateProcess', $action, $entity_id);
+  drupal_register_shutdown_function('_helperUpdateProcess', $action, $entity_id, $entity->bundle());
 }
 
 
-function _helperUpdateProcess($action, $entity_id) {
-  AgriAdminHelper::postUpdateProcess($action, $entity_id);
+function _helperUpdateProcess($action, $entity_id, $bundle) {
+  AgriAdminHelper::postUpdateProcess($action, $entity_id, $bundle);
 }
