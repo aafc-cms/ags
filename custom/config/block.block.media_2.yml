@@ -1,4 +1,4 @@
-uuid: 3166c5fd-ba9c-45ba-9529-bd5b5dfc01fe
+uuid: 5cc40ed6-e854-470a-9ee8-caa508b3c221
 langcode: en
 status: true
 dependencies:
@@ -11,11 +11,11 @@ dependencies:
     - grstheme_bootstrap
 third_party_settings:
   block_class:
-    classes: 'col-md-9 pull-left'
-id: media
+    classes: col-md-9
+id: media_2
 theme: grstheme_bootstrap
-region: help
-weight: -10
+region: content
+weight: 1
 provider: null
 plugin: 'entity_block:media'
 settings:

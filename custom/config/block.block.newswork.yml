@@ -1,0 +1,41 @@
+uuid: 0beb9fb7-c575-48c4-bba0-7e5f4bcc69d0
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:a499786a-3b20-4157-89a6-2d3a0a0edf06'
+  module:
+    - block_class
+    - block_content
+    - system
+    - wxt_library
+  theme:
+    - grstheme_bootstrap
+third_party_settings:
+  block_class:
+    classes: col-md-3
+id: newswork
+theme: grstheme_bootstrap
+region: content
+weight: 5
+provider: null
+plugin: 'block_content:a499786a-3b20-4157-89a6-2d3a0a0edf06'
+settings:
+  id: 'block_content:a499786a-3b20-4157-89a6-2d3a0a0edf06'
+  label: news@work
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
+  panels_title:
+    id: panels_title
+    enabled: 0
+    negate: false
+    context_mapping: {  }

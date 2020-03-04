@@ -1,33 +1,39 @@
-uuid: e28a1d5c-df85-495d-b17e-a2ce1902e917
+uuid: a052f473-ad93-4502-ba0c-24e6625fcae6
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:6bc0820b-47eb-4b6c-af2f-0a393a271750'
+    - 'block_content:basic:78aca85d-3afc-4257-902b-144ae0d874e1'
   module:
     - block_class
     - block_content
+    - system
     - wxt_library
   theme:
     - grstheme_bootstrap
 third_party_settings:
   block_class:
-    classes: 'col-md-3 pull-right'
-id: blockdescription
+    classes: col-md-3
+id: findacolleague
 theme: grstheme_bootstrap
-region: help
-weight: -9
+region: content
+weight: 2
 provider: null
-plugin: 'block_content:6bc0820b-47eb-4b6c-af2f-0a393a271750'
+plugin: 'block_content:78aca85d-3afc-4257-902b-144ae0d874e1'
 settings:
-  id: 'block_content:6bc0820b-47eb-4b6c-af2f-0a393a271750'
-  label: 'Block description'
+  id: 'block_content:78aca85d-3afc-4257-902b-144ae0d874e1'
+  label: 'Find a colleague'
   provider: block_content
   label_display: '0'
   status: true
   info: ''
   view_mode: full
 visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
   panels_title:
     id: panels_title
     enabled: 0
