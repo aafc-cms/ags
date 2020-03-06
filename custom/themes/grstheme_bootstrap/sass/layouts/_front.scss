@@ -1,0 +1,17 @@
+
+/* Move the front page specific scss (sass/css) here.*/ 
+body.path-frontpage {
+  article.landing-page div.content div.row.bs-1col:first-child {
+    display: none !important;
+  }
+  #block-media-2 {
+    margin-left: 0;
+    padding-left: 0;
+  }
+  #block-aafcsocialmedia {
+    margin-left: 0;
+    padding-left: 0;
+    margin-right: 0;
+    padding-right: 0;
+  }
+}
