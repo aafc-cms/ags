@@ -171,6 +171,17 @@ function agri_admin_preprocess_views_view_field(&$variables) {
 }
 
 
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function agri_admin_node_insert(Drupal\Core\Entity\EntityInterface $entity) {
+  $entity_id = $entity->id();
+
+  $action = 'insert';
+  AgriAdminHelper::addToLog(__function__);
+  drupal_register_shutdown_function('_helperUpdateProcess', $action, $entity_id, $entity->bundle());
+}
+
 
 /**
  * Implements hook_ENTITY_TYPE_update().
@@ -179,10 +190,13 @@ function agri_admin_node_update(Drupal\Core\Entity\EntityInterface $entity) {
   $entity_id = $entity->id();
 
   $action = 'update';
+  AgriAdminHelper::addToLog(__function__);
   drupal_register_shutdown_function('_helperUpdateProcess', $action, $entity_id, $entity->bundle());
 }
 
 
 function _helperUpdateProcess($action, $entity_id, $bundle) {
-  AgriAdminHelper::postUpdateProcess($action, $entity_id, $bundle);
+  AgriAdminHelper::addToLog('test action=' . $action . ' : ' . $entity_id . ' : ' . $bundle);
+  AgriAdminHelper::postCreateOrUpdateAutoTranslate($action, $entity_id, $bundle);
+  //AgriAdminHelper::postUpdateProcess($action, $entity_id, $bundle);
 }
