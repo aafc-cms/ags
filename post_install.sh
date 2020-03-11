@@ -53,3 +53,38 @@ if [ ! -L html/sites/default/files/splashimages ]; then
   popd;
 fi
 
+dbSetupTest=0
+
+if grep -q "namespace' => 'Drupal" html/sites/default/settings.php
+then
+  echo "Database settings in html/sites/default/settings.php is already configured.";
+  dbSetupTest=1;
+else
+  echo "Assuming that the mysql database name is the same as the username.\n";
+  echo "\n";
+  read -t 60 -p 'Mysql database Username: default (60 seconds) is: username:' uservar
+  read -t 60 -sp 'Mysql database Password: default (60 seconds) is: password:' passvar
+  settings_file=html/sites/default/settings.php;
+  echo "\n";
+  read -t 2 -p "Confirm username $uservar" confirm
+
+  if [ -z $passvar ]; then
+    echo "\n";
+    read -t 60 -p 'Mysql database Username: default (60 seconds) is: username:' uservar
+  fi
+  if [ -z $uservar ]; then
+    echo "\n";
+    read -t 60 -sp 'Mysql database Password: default (60 seconds) is: password:' passvar
+  fi
+  echo "\$databases['default']['default'] = array (" >> $settings_file 
+  echo "  'database' => '$uservar'," >> $settings_file
+  echo "    'username' => '$uservar'," >> $settings_file
+  echo "    'password' => '$passvar'," >> $settings_file
+  echo "    'prefix' => ''," >> $settings_file
+  echo "    'host' => 'localhost'," >> $settings_file
+  echo "    'port' => '3306'," >> $settings_file
+  echo "    'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql'," >> $settings_file
+  echo "    'driver' => 'mysql'," >> $settings_file
+  echo "  );" >> $settings_file
+fi
+
