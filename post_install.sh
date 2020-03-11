@@ -18,9 +18,12 @@ configureSettingsFile () {
 
   if ! grep -q "wxt config_sync_directory" html/sites/default/settings.php; then
     printf "Setting your config sync folder to modules/custom/config\n";
-    chmod 664 html/sites/default/settings.php
-    echo "//wxt config_sync_directory" >> html/sites/default/settings.php
-    echo "\$settings['config_sync_directory'] = 'modules/custom/config';" >> html/sites/default/settings.php
+    settings_file=html/sites/default/settings.php;
+    chmod 664 $settings_file;
+    echo "//wxt config_sync_directory" >> $settings_file;
+    echo "\$settings['config_sync_directory'] = 'modules/custom/config';" >> $settings_file;
+    hashsalt=`drush php-eval 'echo \Drupal\Component\Utility\Crypt::randomBytesBase64(55)'`;
+    echo "\$settings['hash_salt'] = '$hashsalt';" >> $settings_file;
   fi
 }
 
