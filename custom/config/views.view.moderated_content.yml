@@ -2,10 +2,13 @@ uuid: 5c498478-d430-4eb2-a03f-c0b1a948869c
 langcode: en
 status: true
 dependencies:
+  config:
+    - workflows.workflow.editorial
   enforced:
     module:
       - content_moderation
   module:
+    - content_moderation
     - node
     - user
 _core:
@@ -639,6 +642,7 @@ display:
           operator: in
           value:
             editorial-draft: editorial-draft
+            editorial-review: editorial-review
             editorial-archived: editorial-archived
           group: 1
           exposed: true
@@ -648,6 +652,8 @@ display:
             description: ''
             use_operator: false
             operator: moderation_state_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: moderation_state
             required: false
             remember: false
@@ -656,9 +662,10 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+              creator: '0'
+              editor: '0'
+              reviewer: '0'
             reduce: true
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -811,7 +818,8 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:workflow_list'
   moderated_content:
     display_plugin: page
     id: moderated_content
@@ -830,4 +838,5 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:workflow_list'

@@ -1,0 +1,101 @@
+uuid: e771b24e-197e-4502-8ab6-776ba7d2a917
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.basic
+    - block_content.type.media_slideshow
+    - block_content.type.text
+    - media.type.audio_file
+    - media.type.document
+    - media.type.image
+    - media.type.instagram
+    - media.type.slideshow
+    - media.type.tweet
+    - media.type.video
+    - media.type.video_file
+    - node.type.landing_page
+    - node.type.page
+  module:
+    - content_moderation
+id: publishing
+label: Publishing
+type: content_moderation
+type_settings:
+  states:
+    author_reviewing:
+      published: false
+      default_revision: true
+      label: 'Author reviewing'
+      weight: 0
+    draft:
+      label: Draft
+      published: false
+      default_revision: false
+      weight: -2
+    published:
+      label: Published
+      published: true
+      default_revision: true
+      weight: 1
+    review_by_cctreviewer:
+      published: false
+      default_revision: false
+      label: 'CCT reviewing'
+      weight: -1
+  transitions:
+    publish:
+      label: Publish
+      to: published
+      weight: 2
+      from:
+        - draft
+        - published
+        - review_by_cctreviewer
+    reject:
+      label: 'Send to author'
+      from:
+        - published
+        - review_by_cctreviewer
+      to: author_reviewing
+      weight: -2
+    reviewer_editing:
+      label: Edit
+      from:
+        - author_reviewing
+        - review_by_cctreviewer
+      to: draft
+      weight: 0
+    save_as_a_draft:
+      label: 'Save as a draft'
+      from:
+        - draft
+        - published
+      to: draft
+      weight: -1
+    send_to_reviewer:
+      label: 'Send to reviewer'
+      from:
+        - author_reviewing
+        - draft
+        - published
+      to: review_by_cctreviewer
+      weight: -3
+  entity_types:
+    block_content:
+      - basic
+      - media_slideshow
+      - text
+    media:
+      - audio_file
+      - document
+      - image
+      - instagram
+      - slideshow
+      - tweet
+      - video
+      - video_file
+    node:
+      - landing_page
+      - page
+  default_moderation_state: draft
