@@ -1,0 +1,24 @@
+uuid: 0665ac8b-05e9-441b-947e-4e14f2319a15
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_issued
+    - node.type.landing_page
+  module:
+    - datetime
+id: node.landing_page.field_issued
+field_name: field_issued
+entity_type: node
+bundle: landing_page
+label: issued
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

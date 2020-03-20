@@ -1,0 +1,24 @@
+uuid: b70edf14-4ca4-4740-8095-4223a04faf6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_modified
+    - node.type.landing_page
+  module:
+    - datetime
+id: node.landing_page.field_modified
+field_name: field_modified
+entity_type: node
+bundle: landing_page
+label: modified
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

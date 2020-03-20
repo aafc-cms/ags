@@ -1,0 +1,19 @@
+uuid: 80fe21ae-4cc0-4cc8-ac2c-13cb6e2e3f7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_htype
+    - node.type.landing_page
+id: node.landing_page.field_htype
+field_name: field_htype
+entity_type: node
+bundle: landing_page
+label: 'Hierarchy type'
+description: 'To help with initial import'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
