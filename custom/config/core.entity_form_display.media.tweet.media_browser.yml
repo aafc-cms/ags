@@ -7,7 +7,9 @@ dependencies:
     - field.field.media.tweet.embed_code
     - field.field.media.tweet.field_media_in_library
     - media.type.tweet
+    - workflows.workflow.publishing
   module:
+    - content_moderation
     - path
 _core:
   default_config_hash: 7z9YUmSI9wIGsoEtOxplD8fY7XPhXqImN2bEU9zc5sI
@@ -30,6 +32,12 @@ content:
     settings:
       include_locked: true
     third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
   name:
     type: string_textfield
     weight: 0
@@ -45,7 +53,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   preview:
-    weight: null
+    weight: 101
     settings: {  }
     third_party_settings: {  }
     region: content

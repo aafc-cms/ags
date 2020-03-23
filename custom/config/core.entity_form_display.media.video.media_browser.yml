@@ -7,7 +7,9 @@ dependencies:
     - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_embed_field
     - media.type.video
+    - workflows.workflow.publishing
   module:
+    - content_moderation
     - path
 _core:
   default_config_hash: Wft8ifOMAlgFjAvTyWmpKS_RnTcBkckjM2u90vzd7cM
@@ -30,6 +32,12 @@ content:
     settings:
       include_locked: true
     third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
   name:
     type: string_textfield
     weight: 0
@@ -45,7 +53,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   preview:
-    weight: null
+    weight: 101
     settings: {  }
     third_party_settings: {  }
     region: content

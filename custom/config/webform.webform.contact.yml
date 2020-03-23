@@ -1,12 +1,9 @@
-uuid: 89464713-4c98-475b-9e77-aeefc4ea35ae
 langcode: en
 status: open
 dependencies:
   enforced:
     module:
       - webform
-_core:
-  default_config_hash: z-xqCZwXhZ-pXe52c0MCf7kYjLzvlLDyOusIt5u1C0g
 open: null
 close: null
 weight: 0
@@ -131,6 +128,7 @@ settings:
   purge_days: null
   results_disabled: false
   results_disabled_ignore: false
+  results_customize: false
   token_view: false
   token_update: false
 access:
@@ -254,3 +252,6 @@ handlers:
       sender_mail: ''
       sender_name: ''
 variants: {  }
+uuid: 89464713-4c98-475b-9e77-aeefc4ea35ae
+_core:
+  default_config_hash: z-xqCZwXhZ-pXe52c0MCf7kYjLzvlLDyOusIt5u1C0g

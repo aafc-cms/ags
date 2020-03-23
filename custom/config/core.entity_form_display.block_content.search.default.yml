@@ -8,7 +8,9 @@ dependencies:
     - field.field.block_content.search.field_search_filter
     - field.field.block_content.search.field_search_path
     - field.field.block_content.search.field_search_placeholder
+    - workflows.workflow.publishing
   module:
+    - content_moderation
     - field_group
     - link
     - text
@@ -54,6 +56,7 @@ content:
       rows: 9
       summary_rows: 3
       placeholder: ''
+      show_summary: false
     third_party_settings: {  }
     region: content
   field_search_filter:
@@ -94,6 +97,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
   translation:
     weight: 4
     settings: {  }
