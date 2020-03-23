@@ -12,8 +12,8 @@
         "behat/mink-goutte-driver": "*",
         "behat/mink-selenium2-driver": "*",
         "composer/composer": "^1.4",
-        "drupal/coder": "~8.2.0",
-        "drupal/console": "~1.8.0",
+        "drupal/coder": "^8.3.7",
+        "drupal/console": "~1.9.0",
         "drupal/drupal-extension": "~3.4.0",
         "pdepend/pdepend": "2.1.0",
         "phpmd/phpmd": "@stable",
@@ -22,7 +22,7 @@
         "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
         "mikey179/vfsstream": "~1.2",
         "sebastian/phpcpd": "*",
-        "squizlabs/php_codesniffer": "2.*",
+        "squizlabs/php_codesniffer": "3.*",
         "symfony/css-selector": "~2.8|~3.0",
         "symfony/phpunit-bridge": "^3.4.3"
     },
@@ -47,18 +47,6 @@
             "url": "https://drupalwxt.github.io/composer-extdeps/"
         },
         {
-          "type": "package",
-          "package": {
-            "name": "matthiasott/a11y-accordion-tabs",
-            "version": "0.4.1",
-            "dist": {
-                "url": "https://github.com/matthiasott/a11y-accordion-tabs/archive/v0.4.1.zip",
-                "type": "zip"
-            },
-            "type": "drupal-library"
-          }
-        },
-        {
             "type": "path",
             "url": "custom/modules/agri_admin"
         },
@@ -72,43 +60,40 @@
         }
     ],
     "scripts": {
-      "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
-      "post-root-package-install": [
-          "DrupalWxT\\WxT\\ScriptHandler::postCreateProject"
-      ],
-      "pre-install-cmd": [
-          "DrupalWxT\\WxT\\ScriptHandler::checkComposerVersion"
-      ],
-      "pre-update-cmd": [
-          "DrupalWxT\\WxT\\ScriptHandler::checkComposerVersion"
-      ],
-      "post-install-cmd": [
-          "@composer drupal-scaffold",
-          "DrupalWxT\\WxT\\ScriptHandler::deployLibraries",
-          "bash post_install.sh"
-      ],
-      "post-update-cmd": [
-          "@composer drupal-scaffold",
-          "DrupalWxT\\WxT\\ScriptHandler::deployLibraries",
-          "bash post_install.sh"
-      ]
+        "post-root-package-install": [
+            "DrupalWxT\\WxT\\ScriptHandler::postCreateProject"
+        ],
+        "post-install-cmd": [
+            "bash post_install.sh"
+        ],
+        "post-update-cmd": [
+            "bash post_install.sh"
+        ],
+        "quick-start": [
+            "composer install"
+        ]
     },
     "extra": {
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "html/"
+            }
+        },
         "installer-types": [
-           "bower-asset",
-           "npm-asset",
-           "custom-module",
-           "custom-theme"
+          "bower-asset",
+          "npm-asset",
+          "custom-module",
+          "custom-theme"
         ],
         "installer-paths": {
             "html/core": [
                 "type:drupal-core"
             ],
             "html/libraries/{$name}" : [
+                "type:drupal-console-library",
                 "type:drupal-library",
                 "type:bower-asset",
-                "type:npm-asset",
-                "type:drupal-console-library"
+                "type:npm-asset"
             ],
             "html/modules/custom/{$name}": [
                 "drupal/wxt_library",
@@ -131,7 +116,11 @@
                 "type:drupal-drush"
             ]
         },
+        "composer-exit-on-patch-failure": true,
         "enable-patching": true,
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
         "patches": {
             "drupal/core": {
                 "remove hreflang attribute from language switcher li element":
@@ -154,38 +143,40 @@
                 "https://www.drupal.org/files/issues/2020-01-11/etuf-support_content_moderation-3098533-26.patch",
 		"Support side-by-side interface and sync of moderation state with jquery":
 		"https://www.drupal.org/files/issues/2020-02-17/etuf-sbs-3113998-09.patch"
-            },
-            "deployer/recipes": {
-                "Enter deployer/recipes patch #80 description here":
-                "https://patch-diff.githubusercontent.com/raw/deployphp/recipes/pull/80.patch"
             }
         },
-         "patches-ignore": {
+        "patches-ignore": {
+            "acquia/lightning": {
+                "drupal/core": {
+                    "1356276 - Allow profiles to define a base/parent profile and load them in the correct order":
+                    "https://www.drupal.org/files/issues/2019-11-05/1356276-531-8.8.x-4.patch",
+                    "2914389 - Allow profiles to exclude dependencies of their parent":
+                    "https://www.drupal.org/files/issues/2018-07-09/2914389-8-do-not-test.patch"
+                }
+            },
             "drupal/lightning_core": {
-              "drupal/core": {
-                "1356276 - Allow profiles to define a base/parent profile and load them in the correct order":
-                "https://www.drupal.org/files/issues/2019-11-05/1356276-531-8.8.x-4.patch",
-                "2914389 - Allow profiles to exclude dependencies of their parent":
-                "https://www.drupal.org/files/issues/2018-07-09/2914389-8-do-not-test.patch"
-              }
+                "drupal/core": {
+                    "1356276 - Allow profiles to define a base/parent profile and load them in the correct order":
+                    "https://www.drupal.org/files/issues/2019-11-05/1356276-531-8.8.x-4.patch",
+                    "2914389 - Allow profiles to exclude dependencies of their parent":
+                    "https://www.drupal.org/files/issues/2018-07-09/2914389-8-do-not-test.patch"
+                }
             }
         }
     },
     "require": {
         "composer/installers": "^1.2",
-        "cweagans/composer-patches": "^1.6.0",
+        "cweagans/composer-patches": "^1.6.7",
         "oomphinc/composer-installers-extender": "^1.1",
-        "drupal-composer/drupal-scaffold": "^2.0.0",
+        "drupal/core-composer-scaffold": "*",
         "drush/drush": "^9.0",
-        "drupalwxt/wxt": "3.0.7",
-        "acquia/lightning": "4.1.2",
+        "drupalwxt/wxt": "^3.0.8",
         "entreprise7pro/agri_admin": "*",
         "entreprise7pro/grstheme_bootstrap": "*",
         "entreprise7pro/config": "*",
         "drupal/access_unpublished": "^1.0",
         "drupal/entity_translation_unified_form": "1.x-dev",
-        "drupal/moderated_content_bulk_publish": "^1.0",
-        "drupal/easy_breadcrumb": "^1.12"
+        "drupal/moderated_content_bulk_publish": "^1.0"
     },
     "autoload": {
         "classmap": [
