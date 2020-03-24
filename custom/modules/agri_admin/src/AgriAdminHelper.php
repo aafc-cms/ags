@@ -14,8 +14,8 @@ class AgriAdminHelper {
 
 
   static public function addToLog($message) {
-    $DEBUG = TRUE;
     $DEBUG = FALSE;
+    //$DEBUG = TRUE;
     if ($DEBUG) {
       \Drupal::logger('agri_admin')->notice($message);
     }
@@ -67,9 +67,8 @@ class AgriAdminHelper {
   }
 
 
-  static public function menuExternalLinkExists($title, $external_link, $menu_name = 'main', $ts_nid, $ts_pnid) {
+  static public function legacyMenuLinkExists($menu_name, $ts_nid, $ts_pnid) {
     static::addToLog(__function__);
-
     $database = \Drupal::database();
     $sql = "SELECT uuid FROM menu_link_content WHERE ts_nid = :tsnid and menu_name = :menu_name";
     $result = $database->query($sql, [':tsnid' => $ts_nid, ':menu_name' => $menu_name]);
@@ -81,8 +80,18 @@ class AgriAdminHelper {
         $uuid = $row['uuid'];
         return $uuid;
       }
-    } else {
-      static::addToLog('Menu was not found from ts_nid=' . $ts_nid);
+    }
+    static::addToLog('Menu was not found from ts_nid=' . $ts_nid);
+    return FALSE;
+  }
+
+
+  static public function menuExternalLinkExists($title, $external_link, $menu_name = 'main', $ts_nid, $ts_pnid) {
+    static::addToLog(__function__);
+
+    $uuid = static::legacyMenuLinkExists($menu_name, $ts_nid, $ts_pnid);
+    if (!empty($uuid) && !is_boolean($uuid)) {
+      return $uuid;
     }
 
     if (empty($title) || empty($external_link)) {
