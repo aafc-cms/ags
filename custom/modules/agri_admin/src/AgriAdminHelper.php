@@ -13,7 +13,7 @@ class AgriAdminHelper {
 
   static public function addToLog($message) {
     $DEBUG = FALSE;
-//  $DEBUG = TRUE;
+  //  $DEBUG = TRUE;
     if ($DEBUG) {
       \Drupal::logger('agri_admin')->notice($message);
     }
@@ -65,8 +65,8 @@ class AgriAdminHelper {
   }
 
 
-  static public function legacyMenuLinkExists($menu_name, $ts_nid, $ts_pnid, $lang) {
-    static::addToLog(__function__);
+  static public function legacyMenuLinkExists($menu_name, $ts_nid, $lang) {
+    static::addToLog(__function__ . '(' . $menu_name . ', ' . $ts_nid . ', ' . $lang . ')');
     $database = \Drupal::database();
     $sql = "SELECT uuid FROM menu_link_content WHERE ts_nid = :tsnid and langcode = :lang";
     $result = $database->query($sql, [':tsnid' => $ts_nid, ':lang' => $lang]);
@@ -84,10 +84,10 @@ class AgriAdminHelper {
   }
 
 
-  static public function menuExternalLinkExists($title, $external_link, $menu_name = 'main', $ts_nid, $ts_pnid, $lang) {
+  static public function menuExternalLinkExists($title, $external_link, $menu_name = 'main', $ts_nid, $lang) {
     static::addToLog(__function__);
 
-    $uuid = static::legacyMenuLinkExists($menu_name, $ts_nid, $ts_pnid, $lang);
+    $uuid = static::legacyMenuLinkExists($menu_name, $ts_nid, $lang);
     if (!empty($uuid) && !is_boolean($uuid)) {
       return $uuid;
     }
@@ -174,39 +174,51 @@ class AgriAdminHelper {
     //$lang = static::getLang();
     //$lang = 'en'; // default to 'en' for now.
     if ($lang == 'en') {
-      if (!static::menuExternalLinkExists($title, $external_link, $menu_name, $ts_nid, $ts_pnid, $lang)) {
-
-        $menu_link = \Drupal\menu_link_content\Entity\MenuLinkContent::create([
+      if (!static::menuExternalLinkExists($title, $external_link, $menu_name, $ts_nid, $lang)) {
+        $parentUuid = static::legacyMenuLinkExists($menu_name, $ts_pnid, $lang);
+        $menu_attributes = [
           'title' => $title,
-          'link' => ['uri' => 'entity:node/' . $nid],
+          'link' => ['uri' => $external_link],
           'menu_name' => $menu_name,
           'expanded' => true,
+          'bundle' => 'menu_link_content',
           'langcode' => $lang,
           'status' => TRUE,
           'parent' => 'menu_link_content:' . $parentUuid,
-        ]);
-        $menu_link->save();
+        ];
+        if (!$parentUuid) {
+          unset($menu_attributes['parent']);
+          //unset($menu_attributes['status']);
+          //unset($menu_attributes['langcode']);
+        }
+        $menu_link = \Drupal\menu_link_content\Entity\MenuLinkContent::create($menu_attributes);
+        $returnCode = $menu_link->save();
         if (!$menu_link->hasTranslation('fr') && $external_link == $external_linkFr) {
           $menu_link->addTranslation('fr', ['title' => $titleFr]);
-          static::addToLog('JOSEPH TEST ********************************************* JOSEPH TEST ************');
-          return $menu_link->save();
+          static::addToLog('JOSEPH TEST ********************************************* JOSEPH TEST ************English');
+          $returnCode = $menu_link->save();
         }
+        return $returnCode;
       }
     }
     else if ($lang == 'fr' && ($external_link != $external_linkFr)) {
-      if (!static::menuExternalLinkExists($title, $external_link, $menu_name, $ts_nid, $ts_pnid, $lang)) {
-
-        $menu_link = \Drupal\menu_link_content\Entity\MenuLinkContent::create([
-          'title' => $title,
-          'link' => ['uri' => 'entity:node/' . $nid],
+      if (!static::menuExternalLinkExists($titleFr, $external_linkFr, $menu_name, $ts_nid, $lang)) {
+        $parentUuid = static::legacyMenuLinkExists($menu_name, $ts_pnid, $lang);
+        $menu_attributes = [
+          'title' => $titleFr,
+          'link' => ['uri' => $external_linkFr],
           'menu_name' => $menu_name,
           'expanded' => true,
+          'bundle' => 'menu_link_content',
           'langcode' => $lang,
           'status' => TRUE,
           'parent' => 'menu_link_content:' . $parentUuid,
-        ]);
-        $menu_link->save();
-        static::addToLog('JOSEPH TEST ********************************************* JOSEPH TEST ************');
+        ];
+        if (!$parentUuid) {
+          unset($menu_attributes['parent']);
+        }
+        $menu_link = \Drupal\menu_link_content\Entity\MenuLinkContent::create($menu_attributes);
+        static::addToLog('JOSEPH TEST ********************************************* JOSEPH TEST ************French');
         return $menu_link->save();
       }
     }
