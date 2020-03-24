@@ -168,14 +168,15 @@ class AgriAdminHelper {
   }
 
 
-  static public function createExternalMenuLink($ts_nid, $ts_pnid, $menu_name = 'main', $title, $external_link) {
+  static public function createExternalLegacyMenuLink($title, $external_link, $menu_name = 'main', $ts_nid, $ts_pnid) {
     static::addToLog(__function__);
     // Load main navigation menu link for nid, find the parent nid, then look up the menu link
     // in the sidebar with that nid, that will be the parent of this new sidebar link.
 
     $lang = static::getLang();
+    $lang = 'en'; // default to 'en' for now.
     if ($lang == 'en') {
-      if (!static::menuExternalLinkExists($ts_nid, $ts_pnid)) {
+      if (!static::menuExternalLinkExists($title, $external_link, $menu_name, $ts_nid, $ts_pnid)) {
 
         $menu_link = \Drupal\menu_link_content\Entity\MenuLinkContent::create([
           'title' => $title,
