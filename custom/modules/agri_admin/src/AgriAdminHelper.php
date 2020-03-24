@@ -67,6 +67,43 @@ class AgriAdminHelper {
   }
 
 
+  static public function menuExternalLinkExists($title, $external_link, $menu_name = 'main', $ts_nid, $ts_pnid) {
+    static::addToLog(__function__);
+
+    $database = \Drupal::database();
+    $sql = "SELECT uuid FROM menu_link_content WHERE ts_nid = :tsnid and menu_name = :menu_name";
+    $result = $database->query($sql, [':tsnid' => $ts_nid, ':menu_name' => $menu_name]);
+    $uuid = '';
+    if ($result) {
+      while ($row = $result->fetchAssoc()) {
+        // $row['column']
+        static::addToLog('Found menu uuid=' . $row['uuid']);
+        $uuid = $row['uuid'];
+        return $uuid;
+      }
+    } else {
+      static::addToLog('Menu was not found from ts_nid=' . $ts_nid);
+    }
+
+    if (empty($title) || empty($external_link)) {
+      static::addToLog('Menu Link Exists , title or external_link is empty, cannot process, abort.');
+      return TRUE;
+    }
+    $menuLink = \Drupal::entityTypeManager()->getStorage('menu_link_content')
+      ->loadByProperties([
+        'link.title' => $title,
+        'link.uri' => $external_link,
+        'menu_name' => $menu_name,
+      ]);
+    $menuLink = reset($menuLink);
+    if (isset($menuLink) && !empty($menuLink)) {
+      static::addToLog('Menu Link Exists,<pre>uuid=' . print_r($menuLink->uuid(), TRUE) . '</pre>');
+      return $menuLink->uuid();
+    }
+    static::addToLog($menu_name . ' menu link for ts_nid does not yet exist: ts_nid=<pre>' . print_r($ts_nid, TRUE) . '</pre>');
+    return FALSE;
+  }
+
   static public function menuLinkExists($nid, $menu_name = 'sidebar') {
     static::addToLog(__function__);
     $menuLink = \Drupal::entityTypeManager()->getStorage('menu_link_content')
@@ -121,6 +158,35 @@ class AgriAdminHelper {
     return FALSE;
   }
 
+
+  static public function createExternalMenuLink($ts_nid, $ts_pnid, $menu_name = 'main', $title, $external_link) {
+    static::addToLog(__function__);
+    // Load main navigation menu link for nid, find the parent nid, then look up the menu link
+    // in the sidebar with that nid, that will be the parent of this new sidebar link.
+
+    $lang = static::getLang();
+    if ($lang == 'en') {
+      if (!static::menuExternalLinkExists($ts_nid, $ts_pnid)) {
+
+        $menu_link = \Drupal\menu_link_content\Entity\MenuLinkContent::create([
+          'title' => $title,
+          'link' => ['uri' => 'entity:node/' . $nid],
+          'menu_name' => $menu_name,
+          'expanded' => true,
+          'langcode' => $lang,
+          'status' => TRUE,
+          'parent' => 'menu_link_content:' . $parentUuid,
+        ]);
+        $menu_link->save();
+        if (!$menu_link->hasTranslation('fr')) {
+          $title = $node->getTranslation('fr')->getTitle();
+          $menu_link->addTranslation('fr', ['title' => $title]);
+        }
+        return $menu_link->save();
+      }
+    }
+    return FALSE;
+  }
 
   static public function createChildOfParentNid($nid, $menu_name = 'sidebar', $parentNid, $parentUuid) {
     static::addToLog(__function__);
