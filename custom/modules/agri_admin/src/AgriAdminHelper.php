@@ -1,10 +1,8 @@
 <?php
 
-namespace Drupal\agri_admin;
-
 //use Drupal\something\AgriUtils;
 use Drupal\node\Entity\Node;
-
+namespace Drupal\agri_admin;
 
 class AgriAdminHelper {
 
@@ -168,7 +166,7 @@ class AgriAdminHelper {
   }
 
 
-  static public function createExternalLegacyMenuLink($title, $external_link, $menu_name = 'main', $ts_nid, $ts_pnid) {
+  static public function createExternalLegacyMenuLink($title, $external_link, $menu_name = 'main', $ts_nid, $ts_pnid, $titleFr) {
     static::addToLog(__function__);
     // Load main navigation menu link for nid, find the parent nid, then look up the menu link
     // in the sidebar with that nid, that will be the parent of this new sidebar link.
@@ -189,8 +187,7 @@ class AgriAdminHelper {
         ]);
         $menu_link->save();
         if (!$menu_link->hasTranslation('fr')) {
-          $title = $node->getTranslation('fr')->getTitle();
-          $menu_link->addTranslation('fr', ['title' => $title]);
+          $menu_link->addTranslation('fr', ['title' => $titleFr]);
         }
         return $menu_link->save();
       }
