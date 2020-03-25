@@ -68,8 +68,10 @@ class AgriAdminHelper {
   static public function legacyMenuLinkExists($menu_name, $ts_nid, $lang) {
     static::addToLog(__function__ . '(' . $menu_name . ', ' . $ts_nid . ', ' . $lang . ')');
     $database = \Drupal::database();
-    $sql = "SELECT uuid FROM menu_link_content WHERE menu_name = :menu_name ts_nid = :tsnid and langcode = :lang";
-    $result = $database->query($sql, [':tsnid' => $ts_nid, ':lang' => $lang, ':menu_name' => $menu_name]);
+    $sql = "SELECT ml.uuid as uuid FROM menu_link_content as ml inner join menu_tree as mt on mt.id = concat('menu_link_content:', ml.uuid) " .
+    " WHERE mt.menu_name = :menuname and ml.ts_nid = :tsnid  and ml.langcode = :lang";
+    //$sql = "SELECT uuid FROM menu_link_content WHERE menu_name = :menuname AND ts_nid = :tsnid AND langcode = :lang";
+    $result = $database->query($sql, [':menuname' => $menu_name, ':tsnid' => $ts_nid, ':lang' => $lang]);
     $uuid = '';
     if ($result) {
       while ($row = $result->fetchAssoc()) {
