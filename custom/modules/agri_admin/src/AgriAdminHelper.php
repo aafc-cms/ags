@@ -88,8 +88,9 @@ class AgriAdminHelper {
     static::addToLog(__function__);
 
     $uuid = static::legacyMenuLinkExists($menu_name, $ts_nid, $lang);
-    if (!empty($uuid) && !gettype($uuid) == 'boolean') {
-      return $uuid;
+    if (!empty($uuid) && gettype($uuid) == 'string') {
+      return TRUE;
+      //return $uuid;
     }
 
     if (empty($title) || empty($external_link)) {
@@ -105,7 +106,8 @@ class AgriAdminHelper {
     $menuLink = reset($menuLink);
     if (isset($menuLink) && !empty($menuLink)) {
       static::addToLog('Menu Link Exists,<pre>uuid=' . print_r($menuLink->uuid(), TRUE) . '</pre>');
-      return $menuLink->uuid();
+      return TRUE;
+      //return $menuLink->uuid();
     }
     static::addToLog($menu_name . ' menu link for ts_nid does not yet exist: ts_nid=<pre>' . print_r($ts_nid, TRUE) . '</pre>');
     return FALSE;
@@ -159,7 +161,7 @@ class AgriAdminHelper {
         return $row['uuid'];
       }
     }
-    static::addToLog('Menu was not found from uuid=' . $cleanUuid);
+    static::addToLog('Menu link uuid was not found from id=' . $id);
     return FALSE;
   }
 
