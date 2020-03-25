@@ -179,7 +179,7 @@ class AgriAdminHelper {
   }
 
 
-  static public function updateTsPnid($menuid, $ts_pnid, $lang) {
+  static public function updateTsPnid($menuid, $ts_pnid, $lang = 'en') {
     // For teamsite import organising.
     $database = \Drupal::database();
     $num_updated = $database->update('menu_link_content')
@@ -202,6 +202,23 @@ class AgriAdminHelper {
     ->condition('id', $menuid, '=')
     ->condition('langcode', $lang, '=')
     ->execute();
+  }
+
+  static public function hasTsNid($menuid, $lang = 'en') {
+    static::addToLog(__function__);
+    $database = \Drupal::database();
+    $sql = "SELECT ts_nid FROM menu_link_content WHERE id = :menuid";
+    $result = $database->query($sql, [':menuid' => $menuid]);
+    if ($result) {
+      while ($row = $result->fetchAssoc()) {
+        // $row['column']
+        if (!isset($row['ts_nid']) || is_null($row['ts_nid'])) {
+          return FALSE;
+        }
+        return TRUE;
+      }
+    }
+    return FALSE;
   }
 
 
