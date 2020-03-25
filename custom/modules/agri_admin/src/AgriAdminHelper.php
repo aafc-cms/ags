@@ -13,7 +13,7 @@ class AgriAdminHelper {
 
   static public function addToLog($message) {
     $DEBUG = FALSE;
-   // $DEBUG = TRUE;
+    //$DEBUG = TRUE;
     if ($DEBUG) {
       \Drupal::logger('agri_admin')->notice($message);
     }
@@ -88,7 +88,7 @@ class AgriAdminHelper {
     static::addToLog(__function__);
 
     $uuid = static::legacyMenuLinkExists($menu_name, $ts_nid, $lang);
-    if (!empty($uuid) && !is_boolean($uuid)) {
+    if (!empty($uuid) && !gettype($uuid) == 'boolean') {
       return $uuid;
     }
 
@@ -147,6 +147,62 @@ class AgriAdminHelper {
   }
 
 
+  static public function getUuidFromId($id, $lang) {
+    static::addToLog(__function__ . ' lang=' . $lang);
+    $database = \Drupal::database();
+    $sql = "SELECT uuid FROM menu_link_content WHERE id = :id and langcode = :lang";
+    $result = $database->query($sql, [':id' => $id, 'lang' => $lang]);
+    if ($result) {
+      while ($row = $result->fetchAssoc()) {
+        // $row['column']
+        static::addToLog('Found ' . $lang . ' menu uuid=' . $row['uuid']);
+        return $row['uuid'];
+      }
+    }
+    static::addToLog('Menu was not found from uuid=' . $cleanUuid);
+    return FALSE;
+  }
+
+
+  static public function updateDcrId($menuid, $dcr_id, $lang) {
+    // For teamsite import organising.
+    $database = \Drupal::database();
+    $num_updated = $database->update('menu_link_content')
+    ->fields([
+      'dcr_id' => $dcr_id,
+    ])
+    ->condition('id', $menuid, '=')
+    ->condition('langcode', $lang, '=')
+    ->execute();
+  }
+
+
+  static public function updateTsPnid($menuid, $ts_pnid, $lang) {
+    // For teamsite import organising.
+    $database = \Drupal::database();
+    $num_updated = $database->update('menu_link_content')
+    ->fields([
+      'ts_pnid' => $ts_pnid,
+    ])
+    ->condition('id', $menuid, '=')
+    ->condition('langcode', $lang, '=')
+    ->execute();
+  }
+
+
+  static public function updateTsNid($menuid, $ts_nid, $lang) {
+    // For teamsite import organising.
+    $database = \Drupal::database();
+    $num_updated = $database->update('menu_link_content')
+    ->fields([
+      'ts_nid' => $ts_nid,
+    ])
+    ->condition('id', $menuid, '=')
+    ->condition('langcode', $lang, '=')
+    ->execute();
+  }
+
+
   static public function getMenuIdFromUuid($uuid) {
     static::addToLog(__function__);
     $cleanUuid = str_replace('menu_link_content:', '', $uuid);
@@ -194,12 +250,31 @@ class AgriAdminHelper {
         }
         $menu_link = \Drupal\menu_link_content\Entity\MenuLinkContent::create($menu_attributes);
         $returnCode = $menu_link->save();
+        if ($returnCode) {
+          $id = $menu_link->id();
+          $uuid = static::getUuidFromId($id, $lang);
+          static::updateTsNid($id, $ts_nid, $lang);
+          static::updateTsPnid($id, $ts_pnid, $lang);
+          //static::updateDcrId($id, $dcr_id, $lang); // dcr_id is not numeric for external legacy sitemap menu links
+        }
         if (!$menu_link->hasTranslation('fr') && $external_link == $external_linkFr) {
           $menu_link->addTranslation('fr', ['title' => $titleFr]);
           static::addToLog('JOSEPH TEST ********************************************* JOSEPH TEST ************English');
           $returnCode = $menu_link->save();
+          /*if ($returnCode) {
+            // Not sure if we need to do this here, translated items I don't know if they put a content entry in?
+            //@TODO revisit this .
+            $id = $menu_link->id();
+            $uuid = static::getUuidFromId($id, $lang);
+            static::updateTsNid($id, $ts_nid, $lang);
+            static::updateTsPnid($id, $ts_pnid, $lang);
+          }*/
         }
-        return $returnCode;
+        if ($returnCode) {
+          static::addToLog('JOSEPH TEST ********************************************* JOSEPH TEST ************English new uuid:' . $uuid);
+          return $uuid;
+        }
+        return $returnCode; //@TODO remove this
       }
     }
     else if ($lang == 'fr' && ($external_link != $external_linkFr)) {
@@ -220,7 +295,20 @@ class AgriAdminHelper {
         }
         static::addToLog('JOSEPH TEST ********************************************* JOSEPH TEST ************French');
         $menu_link = \Drupal\menu_link_content\Entity\MenuLinkContent::create($menu_attributes);
-        return $menu_link->save();
+        $returnCode = $menu_link->save();
+        if ($returnCode) {
+          $id = $menu_link->id();
+          $uuid = static::getUuidFromId($id, $lang);
+          static::updateTsNid($id, $ts_nid, $lang);
+          static::updateTsPnid($id, $ts_pnid, $lang);
+          //static::updateDcrId($id, $dcr_id, $lang); // dcr_id is not numeric for external legacy sitemap menu links
+          static::addToLog('JOSEPH TEST ********************************************* JOSEPH TEST ************English new uuid:' . $uuid);
+        }
+        if ($returnCode) {
+          $uuid = static::getUuidFromId($id, $lang);
+          return $uuid;
+        }
+        return $returnCode; //@TODO remove this
       }
     }
     return FALSE;
