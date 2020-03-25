@@ -13,7 +13,7 @@ class AgriAdminHelper {
 
   static public function addToLog($message) {
     $DEBUG = FALSE;
-  //  $DEBUG = TRUE;
+   // $DEBUG = TRUE;
     if ($DEBUG) {
       \Drupal::logger('agri_admin')->notice($message);
     }
@@ -79,7 +79,7 @@ class AgriAdminHelper {
         return $uuid;
       }
     }
-    static::addToLog('Menu was not found from ts_nid=' . $ts_nid);
+    static::addToLog('Menu was not found from ts_nid=' . $ts_nid . ' lang=' . $lang);
     return FALSE;
   }
 
@@ -180,16 +180,17 @@ class AgriAdminHelper {
           'title' => $title,
           'link' => ['uri' => $external_link],
           'menu_name' => $menu_name,
+          'target' => '_blank',
+          'external' => TRUE,
+          'parent' => 'menu_link_content:' . $parentUuid,
           'expanded' => true,
           'bundle' => 'menu_link_content',
-          'langcode' => $lang,
           'status' => TRUE,
-          'parent' => 'menu_link_content:' . $parentUuid,
+          'langcode' => $lang,
         ];
-        if (!$parentUuid) {
+        //static::addToLog('en menu_attributes["parent"]=' . $menu_attributes['parent']);
+        if (gettype($parentUuid) == 'boolean') {
           unset($menu_attributes['parent']);
-          //unset($menu_attributes['status']);
-          //unset($menu_attributes['langcode']);
         }
         $menu_link = \Drupal\menu_link_content\Entity\MenuLinkContent::create($menu_attributes);
         $returnCode = $menu_link->save();
@@ -214,11 +215,11 @@ class AgriAdminHelper {
           'status' => TRUE,
           'parent' => 'menu_link_content:' . $parentUuid,
         ];
-        if (!$parentUuid) {
+        if (gettype($parentUuid) == 'boolean') {
           unset($menu_attributes['parent']);
         }
-        $menu_link = \Drupal\menu_link_content\Entity\MenuLinkContent::create($menu_attributes);
         static::addToLog('JOSEPH TEST ********************************************* JOSEPH TEST ************French');
+        $menu_link = \Drupal\menu_link_content\Entity\MenuLinkContent::create($menu_attributes);
         return $menu_link->save();
       }
     }
