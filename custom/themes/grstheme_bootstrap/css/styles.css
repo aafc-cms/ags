@@ -11,13 +11,29 @@ html[lang=fr] nav#wb-sm li a[href$=Lang\=E] {
 html[lang=fr] nav#wb-sm li a[href*="gc.ca/eng"] {
   display: none;
 }
-
+/* line 10, ../sass/layouts/_header.scss */
+html[lang=fr] nav#wb-sm li a[href*="gc.ca/en/GCD"] {
+  display: none;
+}
 /* line 13, ../sass/layouts/_header.scss */
+html[lang=fr] nav#wb-sm li a[href$="setlang\=en"] {
+  display: none;
+}
+
+/* line 19, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm li a[href$="Lang\=F"] {
   display: none;
 }
-/* line 16, ../sass/layouts/_header.scss */
+/* line 22, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm li a[href*="gc.ca/fra"] {
+  display: none;
+}
+/* line 25, ../sass/layouts/_header.scss */
+html[lang=en] nav#wb-sm li a[href*="gc.ca/fr/GCA"] {
+  display: none;
+}
+/* line 28, ../sass/layouts/_header.scss */
+html[lang=en] nav#wb-sm li a[href$="setlang\=fr"] {
   display: none;
 }
 

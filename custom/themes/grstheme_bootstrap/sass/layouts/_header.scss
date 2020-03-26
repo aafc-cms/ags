@@ -7,6 +7,12 @@ html[lang=fr] nav#wb-sm {
   li a[href*="gc.ca/eng"] {
     display: none;
   }
+  li a[href*="gc.ca/en/GCD"] {
+    display: none;
+  }
+  li a[href$="setlang\=en"] {
+    display: none;
+  }
 }
 
 html[lang=en] nav#wb-sm {
@@ -14,6 +20,12 @@ html[lang=en] nav#wb-sm {
     display: none;
   }
   li a[href*="gc.ca/fra"] {
+    display: none;
+  }
+  li a[href*="gc.ca/fr/GCA"] {
+    display: none;
+  }
+  li a[href$="setlang\=fr"] {
     display: none;
   }
 }
