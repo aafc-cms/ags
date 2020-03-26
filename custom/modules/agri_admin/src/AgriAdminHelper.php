@@ -375,7 +375,6 @@ class AgriAdminHelper {
         if (gettype($parentUuid) == 'boolean') {
           unset($menu_attributes['parent']);
         }
-        echo print_r($menu_attributes, TRUE);
         $menu_link = \Drupal\menu_link_content\Entity\MenuLinkContent::create($menu_attributes);
         $returnCode = $menu_link->save();
         if ($returnCode) {
