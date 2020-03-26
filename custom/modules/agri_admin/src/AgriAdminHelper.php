@@ -131,6 +131,22 @@ class AgriAdminHelper {
     return FALSE;
   }
 
+  static public function menuLinkByLanguageExists($nid, $menu_name = 'sidebar', $lang = 'en') {
+    static::addToLog(__function__);
+    $menuLink = \Drupal::entityTypeManager()->getStorage('menu_link_content')
+      ->loadByProperties([
+        'link.uri' => 'entity:node/' . $nid,
+        'menu_name' => $menu_name,
+        'langcode' => $lang,
+      ]);
+    $menuLink = reset($menuLink);
+    if (isset($menuLink) && !empty($menuLink)) {
+      static::addToLog('Menu Link Exists,<pre>id=' . print_r($menuLink->id(), TRUE) . '</pre>');
+      return TRUE;
+    }
+    static::addToLog('Sidebar menu link for nid does not yet exist: nid=<pre>' . print_r($nid, TRUE) . '</pre>');
+    return FALSE;
+  }
 
   static public function getMenuUuidFromNidAndMenuName($nid, $menu_name) {
     static::addToLog(__function__);
@@ -207,10 +223,10 @@ class AgriAdminHelper {
   }
 
   static public function hasTsNid($menuid, $lang = 'en') {
-    static::addToLog(__function__);
+    //static::addToLog(__function__);
     $database = \Drupal::database();
-    $sql = "SELECT ts_nid FROM menu_link_content WHERE id = :menuid";
-    $result = $database->query($sql, [':menuid' => $menuid]);
+    $sql = "SELECT id, ts_nid FROM menu_link_content WHERE id = :menuid and langcode = :language";
+    $result = $database->query($sql, [':menuid' => $menuid, ':language' => $lang]);
     if ($result) {
       while ($row = $result->fetchAssoc()) {
         // $row['column']
@@ -245,13 +261,12 @@ class AgriAdminHelper {
 
   static public function createExternalLegacyMenuLink($title, $external_link, $menu_name = 'main', $ts_nid, $ts_pnid, $titleFr, $external_linkFr, $lang = 'en') {
     static::addToLog(__function__ . ' : ' . $lang);
-    // Load main navigation menu link for nid, find the parent nid, then look up the menu link
-    // in the sidebar with that nid, that will be the parent of this new sidebar link.
+    // @TODO add description.
 
     //$lang = static::getLang();
     //$lang = 'en'; // default to 'en' for now.
     if ($lang == 'en') {
-      if (!static::menuExternalLinkExists($title, $external_link, $menu_name, $ts_nid, $lang)) {
+      if (!static::menuExternalLinkExists($title, $external_link, $menu_name, $ts_nid, $lang) && gettype(static::legacyMenuLinkExists($menu_name, $ts_pnid, $lang)) == 'string') {
         $parentUuid = static::legacyMenuLinkExists($menu_name, $ts_pnid, $lang);
         $menu_attributes = [
           'title' => $title,
@@ -260,7 +275,7 @@ class AgriAdminHelper {
           'target' => '_blank',
           'external' => TRUE,
           'parent' => 'menu_link_content:' . $parentUuid,
-          'expanded' => true,
+          'expanded' => TRUE,
           'bundle' => 'menu_link_content',
           'status' => TRUE,
           'langcode' => $lang,
@@ -278,9 +293,9 @@ class AgriAdminHelper {
           static::updateTsPnid($id, $ts_pnid, $lang);
           //static::updateDcrId($id, $dcr_id, $lang); // dcr_id is not numeric for external legacy sitemap menu links
         }
-        if (!$menu_link->hasTranslation('fr') && $external_link == $external_linkFr) {
+        if (!$menu_link->hasTranslation('fr') && $external_link == $external_linkFr && $title != $titleFr) {
           $menu_link->addTranslation('fr', ['title' => $titleFr]);
-          static::addToLog('JOSEPH TEST ********************************************* JOSEPH TEST ************English');
+          static::addToLog(__function__ . '** JOSEPH TEST ************added french translation for menu title=' . $titleFr);
           $returnCode = $menu_link->save();
           /*if ($returnCode) {
             // Not sure if we need to do this here, translated items I don't know if they put a content entry in?
@@ -299,13 +314,115 @@ class AgriAdminHelper {
       }
     }
     else if ($lang == 'fr' && ($external_link != $external_linkFr)) {
-      if (!static::menuExternalLinkExists($titleFr, $external_linkFr, $menu_name, $ts_nid, $lang)) {
-        $parentUuid = static::legacyMenuLinkExists($menu_name, $ts_pnid, $lang);
+      if (
+/*        !static::menuExternalLinkExists($titleFr, $external_linkFr, $menu_name, $ts_nid, 'en')
+       &&*/ !static::menuExternalLinkExists($titleFr, $external_linkFr, $menu_name, $ts_nid, $lang)
+       && gettype(static::legacyMenuLinkExists($menu_name, $ts_pnid, $lang)) != 'string'
+     ) {
+        $parentUuid = static::legacyMenuLinkExists($menu_name, $ts_pnid, 'en');
+        if (gettype($parentUuid) == 'boolean') {
+          $parentUuid = static::legacyMenuLinkExists($menu_name, $ts_pnid, $lang);
+        }
         $menu_attributes = [
           'title' => $titleFr,
           'link' => ['uri' => $external_linkFr],
           'menu_name' => $menu_name,
-          'expanded' => true,
+          'target' => '_blank',
+          'expanded' => TRUE,
+          'parent' => 'menu_link_content:' . $parentUuid,
+          'external' => TRUE,
+          'bundle' => 'menu_link_content',
+          'status' => TRUE,
+          'langcode' => $lang,
+        ];
+        if (gettype($parentUuid) == 'boolean') {
+          unset($menu_attributes['parent']);
+        }
+        static::addToLog('********** JOSEPH TEST ************just before create French menu link');
+        $menu_link = \Drupal\menu_link_content\Entity\MenuLinkContent::create($menu_attributes);
+        $returnCode = $menu_link->save();
+        if ($returnCode) {
+          $id = $menu_link->id();
+          $uuid = static::getUuidFromId($id, $lang);
+          static::updateTsNid($id, $ts_nid, $lang);
+          static::updateTsPnid($id, $ts_pnid, $lang);
+          //static::updateDcrId($id, $dcr_id, $lang); // dcr_id is not numeric for external legacy sitemap menu links
+          static::addToLog('******** JOSEPH TEST ************French new menu link with uuid:' . $uuid);
+        }
+        if ($returnCode) {
+          $uuid = static::getUuidFromId($id, $lang);
+          return $uuid;
+        }
+        return $returnCode; //@TODO remove this
+      }
+    }
+    return FALSE;
+  }
+
+
+  static public function createInternalLegacyMenuLink($title, $titleFr, $nid, $ts_nid, $ts_pnid, $dcr_id, $menu_name = 'main', $lang = 'en') {
+    static::addToLog(__function__ . ' : ' . $lang);
+    // @TODO add description.
+
+    //$lang = static::getLang();
+    //$lang = 'en'; // default to 'en' for now.
+    if ($lang == 'en') {
+      if (!static::menuLinkExists($nid, $menu_name) && !static::legacyMenuLinkExists($menu_name, $ts_nid, $lang)) {
+        $parentUuid = static::legacyMenuLinkExists($menu_name, $ts_pnid, $lang);
+        $menu_attributes = [
+          'title' => $title,
+          'link' => ['uri' => 'entity:node/' . $nid],
+          'menu_name' => $menu_name,
+          'parent' => 'menu_link_content:' . $parentUuid,
+          'expanded' => TRUE,
+          'bundle' => 'menu_link_content',
+          'status' => TRUE,
+          'langcode' => $lang,
+        ];
+        //static::addToLog('en menu_attributes["parent"]=' . $menu_attributes['parent']);
+        if (gettype($parentUuid) == 'boolean') {
+          unset($menu_attributes['parent']);
+        }
+        $menu_link = \Drupal\menu_link_content\Entity\MenuLinkContent::create($menu_attributes);
+        $returnCode = $menu_link->save();
+        if ($returnCode) {
+          $id = $menu_link->id();
+          $uuid = static::getUuidFromId($id, $lang);
+          static::updateTsNid($id, $ts_nid, $lang);
+          static::updateTsPnid($id, $ts_pnid, $lang);
+          static::updateDcrId($id, $dcr_id, $lang); // dcr_id is numeric for internal legacy sitemap menu links.
+        }
+        if (!$menu_link->hasTranslation('fr') && !empty($titleFr)) {
+          $menu_link->addTranslation('fr', ['title' => $titleFr]);
+          static::addToLog(__function__ . '** JOSEPH TEST ************added french translation for menu title=' . $titleFr);
+          $returnCode = $menu_link->save();
+          /*if ($returnCode) {
+            // Not sure if we need to do this here, translated items I don't know if they put a content entry in?
+            //@TODO revisit this .
+            $id = $menu_link->id();
+            $uuid = static::getUuidFromId($id, $lang);
+            static::updateTsNid($id, $ts_nid, $lang);
+            static::updateTsPnid($id, $ts_pnid, $lang);
+          }*/
+        }
+        if ($returnCode) {
+          static::addToLog('JOSEPH TEST ********************************************* JOSEPH TEST ************English new uuid:' . $uuid);
+          return $uuid;
+        }
+        return $returnCode; //@TODO remove this
+      }
+      else {
+        static::addToLog(__function__ . ' link for nid=' . $nid . ' or ts_nid=' . $ts_nid . ' already exists ************English');
+      }
+    }
+    else if (0 /*DISABLED DONOT NEED THIS FOR INTERNAL LINKS*/ && $lang == 'fr' && !empty($titleFr)) {
+      if (!static::menuLinkExists($nid, $menu_name) && !static::legacyMenuLinkExists($menu_name, $ts_nid, $lang)) {
+        $parentUuid = static::legacyMenuLinkExists($menu_name, $ts_pnid, $lang);
+        $menu_attributes = [
+          'title' => $titleFr,
+          'link' => ['uri' => 'entity:node/' . $nid],
+          'menu_name' => $menu_name,
+          'expanded' => TRUE,
           'bundle' => 'menu_link_content',
           'langcode' => $lang,
           'status' => TRUE,
@@ -322,14 +439,17 @@ class AgriAdminHelper {
           $uuid = static::getUuidFromId($id, $lang);
           static::updateTsNid($id, $ts_nid, $lang);
           static::updateTsPnid($id, $ts_pnid, $lang);
-          //static::updateDcrId($id, $dcr_id, $lang); // dcr_id is not numeric for external legacy sitemap menu links
-          static::addToLog('JOSEPH TEST ********************************************* JOSEPH TEST ************English new uuid:' . $uuid);
+          static::updateDcrId($id, $dcr_id, $lang); // dcr_id is numeric for internal legacy sitemap links
+          static::addToLog('JOSEPH TEST ********************************************* JOSEPH TEST ************French new uuid:' . $uuid);
         }
         if ($returnCode) {
           $uuid = static::getUuidFromId($id, $lang);
           return $uuid;
         }
         return $returnCode; //@TODO remove this
+      }
+      else {
+        static::addToLog(__function__ . ' link for nid=' . $nid . ' or ts_nid=' . $ts_nid . ' already exists ************French');
       }
     }
     return FALSE;
