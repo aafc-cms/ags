@@ -517,7 +517,7 @@ class AgriAdminHelper {
     // Load main navigation menu link for nid, find the parent nid, then look up the menu link
     // in the sidebar with that nid, that will be the parent of this new sidebar link.
 
-    $node = Node::load($nid);
+    $node =  \Drupal\node\Entity\Node::load($nid);
     $lang = static::getLang();
     if ($lang == 'en') {
       if (!static::menuLinkExists($nid, $menu_name)) {
