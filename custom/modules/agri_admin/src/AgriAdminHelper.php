@@ -373,7 +373,7 @@ class AgriAdminHelper {
           'target' => '_blank',
           'external' => TRUE,
           'parent' => 'menu_link_content:' . $parentUuid,
-          'expanded' => TRUE,
+          'expanded' => FALSE,
           'bundle' => 'menu_link_content',
           'status' => TRUE,
           'langcode' => $lang,
@@ -413,11 +413,8 @@ class AgriAdminHelper {
       }
     }
     else if ($lang == 'fr' && ($external_link != $external_linkFr)) {
-      if (
-/*        !static::menuExternalLinkExists($titleFr, $external_linkFr, $menu_name, $ts_nid, 'en')
-       &&*/ !static::menuExternalLinkExists($titleFr, $external_linkFr, $menu_name, $ts_nid, $lang)
-       && gettype(static::legacyMenuLinkExists($menu_name, $ts_pnid, $lang)) != 'string'
-     ) {
+      if ( !static::menuExternalLinkExists($titleFr, $external_linkFr, $menu_name, $ts_nid, 'fr') &&
+          gettype(static::legacyMenuLinkExists($menu_name, $ts_pnid, $lang)) == 'string' ) {
         $parentUuid = static::legacyMenuLinkExists($menu_name, $ts_pnid, 'en');
         if (gettype($parentUuid) == 'boolean') {
           $parentUuid = static::legacyMenuLinkExists($menu_name, $ts_pnid, $lang);
