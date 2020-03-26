@@ -1,0 +1,19 @@
+uuid: aaf4d592-e3f8-4552-bdc3-fb25ef351c50
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subject
+    - node.type.page
+id: node.page.field_subject
+field_name: field_subject
+entity_type: node
+bundle: page
+label: subject
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

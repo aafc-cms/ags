@@ -1,0 +1,21 @@
+uuid: e0e6f2ab-32b1-469d-a3f8-5b9a810717bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_issued
+    - node.type.page
+  module:
+    - datetime
+id: node.page.field_issued
+field_name: field_issued
+entity_type: node
+bundle: page
+label: issued
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

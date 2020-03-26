@@ -1,0 +1,19 @@
+uuid: 4f4e8bc8-4627-4ba4-b373-e422b70f24c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_keywords
+    - node.type.page
+id: node.page.field_keywords
+field_name: field_keywords
+entity_type: node
+bundle: page
+label: keywords
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

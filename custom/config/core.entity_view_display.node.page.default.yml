@@ -6,13 +6,21 @@ dependencies:
     - field.field.node.page.body
     - field.field.node.page.comment
     - field.field.node.page.field_category
+    - field.field.node.page.field_description
+    - field.field.node.page.field_htype
+    - field.field.node.page.field_issued
+    - field.field.node.page.field_keywords
     - field.field.node.page.field_meta_tags
+    - field.field.node.page.field_meta_type
+    - field.field.node.page.field_modified
+    - field.field.node.page.field_subject
     - field.field.node.page.layout_builder__layout
     - field.field.node.page.layout_builder__translation
     - field.field.node.page.layout_selection
     - node.type.page
   module:
     - bootstrap_layouts
+    - datetime
     - layout_builder
     - layout_library
     - panelizer
@@ -302,6 +310,120 @@ third_party_settings:
                 type: entity_reference_label
             additional: {  }
             weight: 2
+          9c6a097d-5992-4ddc-b87c-a8a0ad847309:
+            uuid: 9c6a097d-5992-4ddc-b87c-a8a0ad847309
+            region: top
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:page:field_htype'
+              formatter:
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+                type: string
+            additional: {  }
+            weight: 3
+          5ed547e5-4794-4f31-b586-eb09ccdfb8b1:
+            uuid: 5ed547e5-4794-4f31-b586-eb09ccdfb8b1
+            region: top
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:page:field_issued'
+              formatter:
+                label: above
+                settings:
+                  format_type: medium
+                  timezone_override: ''
+                third_party_settings: {  }
+                type: datetime_default
+            additional: {  }
+            weight: 4
+          f03ce9eb-333c-4ad3-ae2d-1722fbac68f2:
+            uuid: f03ce9eb-333c-4ad3-ae2d-1722fbac68f2
+            region: top
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:page:field_keywords'
+              formatter:
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+                type: string
+            additional: {  }
+            weight: 5
+          4b0b10bd-9e39-4531-be53-6a221e034196:
+            uuid: 4b0b10bd-9e39-4531-be53-6a221e034196
+            region: top
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:page:field_modified'
+              formatter:
+                label: above
+                settings:
+                  format_type: medium
+                  timezone_override: ''
+                third_party_settings: {  }
+                type: datetime_default
+            additional: {  }
+            weight: 6
+          f03792b0-c980-4929-a413-41016a6b683a:
+            uuid: f03792b0-c980-4929-a413-41016a6b683a
+            region: top
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:page:field_description'
+              formatter:
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+                type: string
+            additional: {  }
+            weight: 7
+          52f6f0df-8fb8-4bba-b318-ca3b9f595239:
+            uuid: 52f6f0df-8fb8-4bba-b318-ca3b9f595239
+            region: top
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:page:field_meta_type'
+              formatter:
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+                type: string
+            additional: {  }
+            weight: 8
+          b351c6bd-eb0a-4839-89c3-cca48b812bed:
+            uuid: b351c6bd-eb0a-4839-89c3-cca48b812bed
+            region: top
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:page:field_subject'
+              formatter:
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+                type: string
+            additional: {  }
+            weight: 9
         third_party_settings: {  }
     allow_custom: true
   layout_library:
@@ -327,6 +449,64 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: top
+  field_description:
+    weight: 7
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: top
+  field_htype:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: top
+  field_issued:
+    weight: 4
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: top
+  field_keywords:
+    weight: 5
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: top
+  field_meta_type:
+    weight: 8
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: top
+  field_modified:
+    weight: 6
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: top
+  field_subject:
+    weight: 9
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: top
   links:
     weight: 1
