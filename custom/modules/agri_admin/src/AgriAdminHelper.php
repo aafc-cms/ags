@@ -66,6 +66,13 @@ class AgriAdminHelper {
         }
       }
     }
+    if ($bundle == 'landing_page') {
+      $parentNid = static::findParentOfNid($entity_id, 'main', $parentUuid, $parentUuidClean);
+      $resultCode = static::createChildOfParentNid($entity_id, 'main', $parentNid, $parentUuid);
+      if ($resultCode) {
+        static::addToLog('Successfully created new main link for nid=id=' . $entity_id);
+      }
+    }
   }
 
 
@@ -375,6 +382,7 @@ class AgriAdminHelper {
         if (gettype($parentUuid) == 'boolean') {
           unset($menu_attributes['parent']);
         }
+        //echo print_r($menu_attributes, TRUE);
         $menu_link = \Drupal\menu_link_content\Entity\MenuLinkContent::create($menu_attributes);
         $returnCode = $menu_link->save();
         if ($returnCode) {
