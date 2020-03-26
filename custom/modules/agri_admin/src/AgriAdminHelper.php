@@ -474,6 +474,7 @@ class AgriAdminHelper {
           'menu_name' => $menu_name,
           'parent' => 'menu_link_content:' . $parentUuid,
           'expanded' => TRUE,
+          'external' => FALSE,
           'bundle' => 'menu_link_content',
           'status' => TRUE,
           'langcode' => $lang,
@@ -512,6 +513,37 @@ class AgriAdminHelper {
     return FALSE;
   }
 
+  static public function createTopLevelInternalMenuItem($nid, $menu_name = 'sidebar') {
+    static::addToLog(__function__);
+    // Load main navigation menu link for nid, find the parent nid, then look up the menu link
+    // in the sidebar with that nid, that will be the parent of this new sidebar link.
+    $node =  \Drupal\node\Entity\Node::load($nid);
+    $lang = static::getLang();
+    if ($lang == 'en') {
+      if (!static::menuLinkExists($nid, $menu_name)) {
+        $title = $node->getTitle();
+        //$parentId = static::getMenuIdFromUuid($parentUuid);
+        $menu_link = \Drupal\menu_link_content\Entity\MenuLinkContent::create([
+          'title' => $title,
+          'link' => ['uri' => 'entity:node/' . $nid],
+          'menu_name' => $menu_name,
+          'expanded' => TRUE,
+          'external' => FALSE,
+          'langcode' => $lang,
+          'status' => TRUE,
+        ]);
+        $menu_link->save();
+        if (!$menu_link->hasTranslation('fr')) {
+          $title = $node->getTranslation('fr')->getTitle();
+          $menu_link->addTranslation('fr', ['title' => $title]);
+        }
+        return $menu_link->save();
+      }
+    }
+    return FALSE;
+  }
+
+
   static public function createChildOfParentNid($nid, $menu_name = 'sidebar', $parentNid, $parentUuid) {
     static::addToLog(__function__);
     // Load main navigation menu link for nid, find the parent nid, then look up the menu link
@@ -529,7 +561,8 @@ class AgriAdminHelper {
           'title' => $title,
           'link' => ['uri' => 'entity:node/' . $nid],
           'menu_name' => $menu_name,
-          'expanded' => true,
+          'expanded' => TRUE,
+          'external' => FALSE,
           'langcode' => $lang,
           'status' => TRUE,
           'parent' => 'menu_link_content:' . $parentUuid,
