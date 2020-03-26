@@ -48,6 +48,27 @@ class AgriAdminHelper {
   }
 
 
+  static public function postImportProcess($action, $entity_id, $bundle) {
+    static::addToLog(__function__);
+    static::addToLog($action . ' entity_id ' . $entity_id);
+    $parentUuid = NULL;
+    $parentUuidClean = NULL;
+    if ($bundle == 'page') {
+      $parentNid = static::findParentOfNid($entity_id, 'main', $parentUuid, $parentUuidClean);
+      if ($parentNid > 0) {
+        $resultCode = static::createChildOfParentNid($entity_id, 'main', $parentNid, $parentUuid);
+        if ($resultCode) {
+          static::addToLog('Successfully created new main link for nid=id=' . $entity_id);
+        }
+        $resultCode = static::createChildOfParentNid($entity_id, 'sidebar', $parentNid, $parentUuid);
+        if ($resultCode) {
+          static::addToLog('Successfully created new sidebar link for nid=id=' . $entity_id);
+        }
+      }
+    }
+  }
+
+
   static public function getLang() {
     static::addToLog(__function__ . '()=' . \Drupal::languageManager()->getCurrentLanguage()->getId());
     return \Drupal::languageManager()->getCurrentLanguage()->getId();
@@ -239,6 +260,7 @@ class AgriAdminHelper {
     return $num_updated;
   }
 
+
   static public function hasTsNid($menuid, $lang = 'en') {
     //static::addToLog(__function__);
     $database = \Drupal::database();
@@ -256,6 +278,40 @@ class AgriAdminHelper {
     return FALSE;
   }
 
+
+  static public function tsNidPreviouslyImported($ts_nid, $lang = 'en') {
+    //static::addToLog(__function__);
+    $database = \Drupal::database();
+    $sql = "SELECT ts_nid FROM node WHERE ts_nid = :tsnid and langcode = :language";
+    $result = $database->query($sql, [':tsnid' => $ts_nid, ':language' => $lang]);
+    if ($result) {
+      while ($row = $result->fetchAssoc()) {
+        // $row['column']
+        if (!isset($row['ts_nid']) || is_null($row['ts_nid'])) {
+          return FALSE;
+        }
+        return TRUE;
+      }
+    }
+    return FALSE;
+  }
+
+  static public function dcrIdPreviouslyImported($dcr_id, $lang = 'en') {
+    //static::addToLog(__function__);
+    $database = \Drupal::database();
+    $sql = "SELECT dcr_id FROM node WHERE dcr_id = :dcrid and langcode = :language";
+    $result = $database->query($sql, [':dcrid' => $dcr_id, ':language' => $lang]);
+    if ($result) {
+      while ($row = $result->fetchAssoc()) {
+        // $row['column']
+        if (!isset($row['dcr_id']) || is_null($row['dcr_id'])) {
+          return FALSE;
+        }
+        return TRUE;
+      }
+    }
+    return FALSE;
+  }
 
   static public function getMenuIdFromUuid($uuid) {
     static::addToLog(__function__);
@@ -319,6 +375,7 @@ class AgriAdminHelper {
         if (gettype($parentUuid) == 'boolean') {
           unset($menu_attributes['parent']);
         }
+        echo print_r($menu_attributes, TRUE);
         $menu_link = \Drupal\menu_link_content\Entity\MenuLinkContent::create($menu_attributes);
         $returnCode = $menu_link->save();
         if ($returnCode) {
