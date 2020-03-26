@@ -1,13 +1,22 @@
 
 /* Move the header specific scss (sass/css) here.*/ 
 html[lang=fr] nav#wb-sm {
-  li a[href$=Lang\=E] {
-    display: none;
-  }
   li a[href*="gc.ca/eng"] {
     display: none;
   }
+  li a[href*="directInfo/eng"] {
+    display: none;
+  }
   li a[href*="gc.ca/en/GCD"] {
+    display: none;
+  }
+  li a[href*="?lang=e"] {
+    display: none;
+  }
+  li a[href$=Lang\=E] {
+    display: none;
+  }
+  li a[href$="Lang\=en"] {
     display: none;
   }
   li a[href$="setlang\=en"] {
@@ -16,13 +25,22 @@ html[lang=fr] nav#wb-sm {
 }
 
 html[lang=en] nav#wb-sm {
-  li a[href$="Lang\=F"] {
-    display: none;
-  }
   li a[href*="gc.ca/fra"] {
     display: none;
   }
+  li a[href*="directInfo/fra"] {
+    display: none;
+  }
   li a[href*="gc.ca/fr/GCA"] {
+    display: none;
+  }
+  li a[href*="?lang=f"] {
+    display: none;
+  }
+  li a[href$="Lang\=F"] {
+    display: none;
+  }
+  li a[href$="Lang\=fr"] {
     display: none;
   }
   li a[href$="setlang\=fr"] {
