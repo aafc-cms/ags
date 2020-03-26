@@ -3,6 +3,24 @@
  * your custom CSS modifications here.
  */
 /* Move the header specific scss (sass/css) here.*/
+/* line 4, ../sass/layouts/_header.scss */
+html[lang=fr] nav#wb-sm li a[href$=Lang\=E] {
+  display: none;
+}
+/* line 7, ../sass/layouts/_header.scss */
+html[lang=fr] nav#wb-sm li a[href*="gc.ca/eng"] {
+  display: none;
+}
+
+/* line 13, ../sass/layouts/_header.scss */
+html[lang=en] nav#wb-sm li a[href$="Lang\=F"] {
+  display: none;
+}
+/* line 16, ../sass/layouts/_header.scss */
+html[lang=en] nav#wb-sm li a[href*="gc.ca/fra"] {
+  display: none;
+}
+
 /* Move the footer specific scss (sass/css) here.*/
 /* Move the front page specific scss (sass/css) here.*/
 /* line 4, ../sass/layouts/_front.scss */
