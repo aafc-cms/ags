@@ -155,7 +155,7 @@ class AgriAdminHelper {
       static::addToLog('Menu Link Exists,<pre>id=' . print_r($menuLink->id(), TRUE) . '</pre>');
       return TRUE;
     }
-    static::addToLog('Sidebar menu link for nid does not yet exist: nid=<pre>' . print_r($nid, TRUE) . '</pre>');
+    static::addToLog($menu_name . ' menu link for nid does not yet exist: nid=<pre>' . print_r($nid, TRUE) . '</pre>');
     return FALSE;
   }
 
@@ -382,12 +382,10 @@ class AgriAdminHelper {
         if (gettype($parentUuid) == 'boolean') {
           unset($menu_attributes['parent']);
         }
-        //echo print_r($menu_attributes, TRUE);
         $menu_link = \Drupal\menu_link_content\Entity\MenuLinkContent::create($menu_attributes);
         $returnCode = $menu_link->save();
         if ($returnCode) {
           $id = $menu_link->id();
-          $uuid = static::getUuidFromId($id, $lang);
           static::updateTsNid($id, $ts_nid, $lang);
           static::updateTsPnid($id, $ts_pnid, $lang);
           //static::updateDcrId($id, $dcr_id, $lang); // dcr_id is not numeric for external legacy sitemap menu links
@@ -456,15 +454,20 @@ class AgriAdminHelper {
   }
 
 
-  static public function createInternalLegacyMenuLink($title, $titleFr, $nid, $ts_nid, $ts_pnid, $dcr_id, $menu_name = 'main', $lang = 'en') {
+  static public function createInternalLegacyMenuLink($nid, $ts_nid, $ts_pnid, $dcr_id, $menu_name = 'main', $lang = 'en') {
     static::addToLog(__function__ . ' : ' . $lang);
     // @TODO add description.
-
     //$lang = static::getLang();
     //$lang = 'en'; // default to 'en' for now.
-    if ($lang == 'en') {
-      if (!static::menuLinkExists($nid, $menu_name) && !static::legacyMenuLinkExists($menu_name, $ts_nid, $lang)) {
+    if ($nid > 0 && $lang == 'en') {
+      if (!static::menuLinkExists($nid, $menu_name)) {
+        $node =  \Drupal\node\Entity\Node::load($nid);
+        $title = $node->getTitle();
         $parentUuid = static::legacyMenuLinkExists($menu_name, $ts_pnid, $lang);
+        if (gettype($parentUuid) != 'string') {
+          // Importing a teamsite content that has no ts_pnid , only a ts_nid.
+          $parentUuid = static::legacyMenuLinkExists($menu_name, $ts_nid, $lang);
+        }
         $menu_attributes = [
           'title' => $title,
           'link' => ['uri' => 'entity:node/' . $nid],
@@ -482,13 +485,7 @@ class AgriAdminHelper {
         }
         $menu_link = \Drupal\menu_link_content\Entity\MenuLinkContent::create($menu_attributes);
         $returnCode = $menu_link->save();
-        if ($returnCode) {
-          $id = $menu_link->id();
-          $uuid = static::getUuidFromId($id, $lang);
-          static::updateTsNid($id, $ts_nid, $lang);
-          static::updateTsPnid($id, $ts_pnid, $lang);
-          static::updateDcrId($id, $dcr_id, $lang); // dcr_id is numeric for internal legacy sitemap menu links.
-        }
+        $titleFr = $node->getTranslation('fr')->getTitle();
         if (!$menu_link->hasTranslation('fr') && !empty($titleFr)) {
           $menu_link->addTranslation('fr', ['title' => $titleFr]);
           static::addToLog(__function__ . '** JOSEPH TEST ************added french translation for menu title=' . $titleFr);
@@ -496,10 +493,13 @@ class AgriAdminHelper {
           // No need to update the ts_nid/ts_pnid/dcr_id for the translation of internal links, the menu link is english even for links that are translated.
         }
         if ($returnCode) {
-          static::addToLog('JOSEPH TEST ********************************************* JOSEPH TEST ************English new uuid:' . $uuid);
-          return $uuid;
+          $id = $menu_link->id();
+          $uuid = static::getUuidFromId($id, $lang);
+          static::updateTsNid($id, $ts_nid, $lang);
+          static::updateTsPnid($id, $ts_pnid, $lang);
+          static::updateDcrId($id, $dcr_id, $lang); // dcr_id is numeric for internal legacy sitemap menu links.
         }
-        return $returnCode; //@TODO remove this
+        return $returnCode;
       }
       else {
         static::addToLog(__function__ . ' link for nid=' . $nid . ' or ts_nid=' . $ts_nid . ' already exists ************English');
@@ -510,7 +510,7 @@ class AgriAdminHelper {
     return FALSE;
   }
 
-  static public function createTopLevelInternalMenuItem($nid, $menu_name = 'sidebar') {
+  static public function createTopLevelInternalMenuItem($nid, $menu_name = 'sidebar', $ts_nid = NULL, $ts_pnid = NULL, $dcr_id = NULL) {
     static::addToLog(__function__);
     // Load main navigation menu link for nid, find the parent nid, then look up the menu link
     // in the sidebar with that nid, that will be the parent of this new sidebar link.
@@ -534,7 +534,15 @@ class AgriAdminHelper {
           $title = $node->getTranslation('fr')->getTitle();
           $menu_link->addTranslation('fr', ['title' => $title]);
         }
-        return $menu_link->save();
+        if ($returnCode && isset($ts_nid) && !empty($ts_nid)) {
+          $id = $menu_link->id();
+          $uuid = static::getUuidFromId($id, $lang);
+          static::updateTsNid($id, $ts_nid, $lang);
+          static::updateTsPnid($id, $ts_pnid, $lang);
+          static::updateDcrId($id, $dcr_id, $lang); // dcr_id is numeric for internal legacy sitemap menu links.
+        }
+        $returnCode = $menu_link->save();
+        return $returnCode;
       }
     }
     return FALSE;
@@ -608,9 +616,8 @@ class AgriAdminHelper {
         }
 
         if ($linkNodeId == $nid) {
-          static::addToLog('<pre>nid=' . print_r($nid, TRUE) . '</pre>');
           $parentMenuLinkId = $item->getParentId();
-          static::addToLog('<pre>parentId=' . print_r($parentMenuLinkId, TRUE) . '</pre>');
+          static::addToLog(__function__ . ' parentId=' . $parentMenuLinkId);
           $storage = \Drupal::entityTypeManager()->getStorage('menu_link_content');
           $newUuid = str_replace('menu_link_content:', '', $parentMenuLinkId);
           $parentLink = $storage->loadByProperties([
