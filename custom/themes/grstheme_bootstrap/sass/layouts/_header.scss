@@ -1,5 +1,24 @@
 
 /* Move the header specific scss (sass/css) here.*/ 
+
+nav#wb-sm.wb-menu { 
+  li:first-child {
+    ul.sm.open {
+      min-width: 17em !important;
+    }
+  }
+  li:nth-child(2), li:nth-child(3), li:nth-child(4) {
+    ul.sm.open {
+      min-width: 18em !important;
+    }
+  }
+  li:nth-child(5) {
+    ul.sm.open {
+      min-width: 17em !important;
+    }
+  }
+}
+
 html[lang=fr] nav#wb-sm {
   li a[href*="gc.ca/eng"] {
     display: none;

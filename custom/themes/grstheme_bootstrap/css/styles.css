@@ -3,60 +3,73 @@
  * your custom CSS modifications here.
  */
 /* Move the header specific scss (sass/css) here.*/
-/* line 4, ../sass/layouts/_header.scss */
+/* line 6, ../sass/layouts/_header.scss */
+nav#wb-sm.wb-menu li:first-child ul.sm.open {
+  min-width: 17em !important;
+}
+/* line 11, ../sass/layouts/_header.scss */
+nav#wb-sm.wb-menu li:nth-child(2) ul.sm.open, nav#wb-sm.wb-menu li:nth-child(3) ul.sm.open, nav#wb-sm.wb-menu li:nth-child(4) ul.sm.open {
+  min-width: 18em !important;
+}
+/* line 16, ../sass/layouts/_header.scss */
+nav#wb-sm.wb-menu li:nth-child(5) ul.sm.open {
+  min-width: 17em !important;
+}
+
+/* line 23, ../sass/layouts/_header.scss */
 html[lang=fr] nav#wb-sm li a[href*="gc.ca/eng"] {
   display: none;
 }
-/* line 7, ../sass/layouts/_header.scss */
+/* line 26, ../sass/layouts/_header.scss */
 html[lang=fr] nav#wb-sm li a[href*="directInfo/eng"] {
   display: none;
 }
-/* line 10, ../sass/layouts/_header.scss */
+/* line 29, ../sass/layouts/_header.scss */
 html[lang=fr] nav#wb-sm li a[href*="gc.ca/en/GCD"] {
   display: none;
 }
-/* line 13, ../sass/layouts/_header.scss */
+/* line 32, ../sass/layouts/_header.scss */
 html[lang=fr] nav#wb-sm li a[href*="?lang=e"] {
   display: none;
 }
-/* line 16, ../sass/layouts/_header.scss */
+/* line 35, ../sass/layouts/_header.scss */
 html[lang=fr] nav#wb-sm li a[href$=Lang\=E] {
   display: none;
 }
-/* line 19, ../sass/layouts/_header.scss */
+/* line 38, ../sass/layouts/_header.scss */
 html[lang=fr] nav#wb-sm li a[href$="Lang\=en"] {
   display: none;
 }
-/* line 22, ../sass/layouts/_header.scss */
+/* line 41, ../sass/layouts/_header.scss */
 html[lang=fr] nav#wb-sm li a[href$="setlang\=en"] {
   display: none;
 }
 
-/* line 28, ../sass/layouts/_header.scss */
+/* line 47, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm li a[href*="gc.ca/fra"] {
   display: none;
 }
-/* line 31, ../sass/layouts/_header.scss */
+/* line 50, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm li a[href*="directInfo/fra"] {
   display: none;
 }
-/* line 34, ../sass/layouts/_header.scss */
+/* line 53, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm li a[href*="gc.ca/fr/GCA"] {
   display: none;
 }
-/* line 37, ../sass/layouts/_header.scss */
+/* line 56, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm li a[href*="?lang=f"] {
   display: none;
 }
-/* line 40, ../sass/layouts/_header.scss */
+/* line 59, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm li a[href$="Lang\=F"] {
   display: none;
 }
-/* line 43, ../sass/layouts/_header.scss */
+/* line 62, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm li a[href$="Lang\=fr"] {
   display: none;
 }
-/* line 46, ../sass/layouts/_header.scss */
+/* line 65, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm li a[href$="setlang\=fr"] {
   display: none;
 }
