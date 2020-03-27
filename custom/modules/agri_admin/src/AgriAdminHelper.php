@@ -1,8 +1,8 @@
 <?php
 
 //use Drupal\something\AgriUtils;
-use Drupal\node\Entity\Node;
 namespace Drupal\agri_admin;
+use Drupal\node\Entity\Node;
 
 class AgriAdminHelper {
 
@@ -77,7 +77,6 @@ class AgriAdminHelper {
 
 
   static public function getLang() {
-    static::addToLog(__function__ . '()=' . \Drupal::languageManager()->getCurrentLanguage()->getId());
     return \Drupal::languageManager()->getCurrentLanguage()->getId();
   }
 
