@@ -1,7 +1,7 @@
 
 /* Move the header specific scss (sass/css) here.*/ 
 
-nav#wb-sm.wb-menu { 
+html[lang=en] nav#wb-sm.wb-menu { 
   li:first-child {
     ul.sm.open {
       min-width: 17em !important;
@@ -15,6 +15,29 @@ nav#wb-sm.wb-menu {
   li:nth-child(5) {
     ul.sm.open {
       min-width: 17em !important;
+    }
+  }
+}
+
+html[lang=fr] nav#wb-sm.wb-menu { 
+  li:first-child {
+    ul.sm.open {
+      min-width: 16em !important;
+    }
+  }
+  li:nth-child(2),li:nth-child(4) {
+    ul.sm.open {
+      min-width: 22em !important;
+    }
+  }
+  li:nth-child(3) {
+    ul.sm.open {
+      min-width: 24em !important;
+    }
+  }
+  li:nth-child(5) {
+    ul.sm.open {
+      min-width: 20em !important;
     }
   }
 }
