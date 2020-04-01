@@ -1,12 +1,10 @@
-uuid: 627f85e4-93d1-47f7-8478-33e8fa29847d
+uuid: 007c6ac3-1c5b-4346-8b6d-59a7b02f7a93
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_locations
     - node.type.empl
-  module:
-    - text
 id: node.empl.field_locations
 field_name: field_locations
 entity_type: node
@@ -18,4 +16,4 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: text
+field_type: string

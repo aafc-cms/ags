@@ -1,0 +1,18 @@
+uuid: 61338743-6ea5-408c-beda-7755b685fd26
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.google_map
+id: block_content.google_map.moderation_state
+field_name: moderation_state
+entity_type: block_content
+bundle: google_map
+label: 'Moderation state'
+description: 'The moderation state of this piece of content.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

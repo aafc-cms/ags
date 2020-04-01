@@ -1,12 +1,10 @@
-uuid: 063a7eda-4338-4767-be36-004c0160270d
+uuid: 9f3ca768-c786-4258-b327-3eb04072c7e6
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_classification
     - node.type.empl
-  module:
-    - text
 id: node.empl.field_classification
 field_name: field_classification
 entity_type: node
@@ -18,4 +16,4 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: text
+field_type: string

@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.empl.field_open_to
     - field.field.node.empl.field_subject
     - field.field.node.empl.field_type
+    - field.field.node.empl.layout_selection
     - node.type.empl
   module:
     - content_moderation
@@ -46,29 +47,29 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_branch:
-    weight: 12
+    weight: 5
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: text_textfield
+    type: string_textfield
     region: content
   field_classification:
-    weight: 11
+    weight: 2
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: text_textfield
+    type: string_textfield
     region: content
   field_date_closing:
-    weight: 2
+    weight: 6
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_description:
-    weight: 9
+    weight: 15
     settings:
       size: 60
       placeholder: ''
@@ -76,7 +77,7 @@ content:
     type: string_textfield
     region: content
   field_email:
-    weight: 16
+    weight: 8
     settings:
       size: 60
       placeholder: ''
@@ -84,13 +85,13 @@ content:
     type: email_default
     region: content
   field_issued:
-    weight: 4
+    weight: 9
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_keywords:
-    weight: 8
+    weight: 14
     settings:
       size: 60
       placeholder: ''
@@ -98,15 +99,15 @@ content:
     type: string_textfield
     region: content
   field_locations:
-    weight: 13
+    weight: 3
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: text_textfield
+    type: string_textfield
     region: content
   field_meta_type:
-    weight: 7
+    weight: 13
     settings:
       size: 60
       placeholder: ''
@@ -114,29 +115,29 @@ content:
     type: string_textfield
     region: content
   field_modified:
-    weight: 5
+    weight: 11
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_name:
-    weight: 15
+    weight: 7
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: text_textfield
+    type: string_textfield
     region: content
   field_open_to:
-    weight: 14
+    weight: 4
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: text_textfield
+    type: string_textfield
     region: content
   field_subject:
-    weight: 6
+    weight: 12
     settings:
       size: 60
       placeholder: ''
@@ -149,30 +150,29 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: text_textfield
+    type: string_textfield
     region: content
+  layout_selection:
+    type: options_select
+    region: content
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 22
+    weight: 21
     settings: {  }
     region: content
     third_party_settings: {  }
   path:
     type: path
-    weight: 21
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 23
-    region: content
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    weight: 19
+    weight: 22
     region: content
     settings:
       display_label: true
@@ -186,7 +186,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 3
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -201,10 +201,11 @@ content:
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 20
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   langcode: true
   promote: true
+  sticky: true

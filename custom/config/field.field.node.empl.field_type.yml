@@ -1,12 +1,10 @@
-uuid: 86479f5b-8554-4059-a422-553463bb8cb8
+uuid: e5e6dfee-2ad6-425b-95af-90c14f93ebf0
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_type
     - node.type.empl
-  module:
-    - text
 id: node.empl.field_type
 field_name: field_type
 entity_type: node
@@ -18,4 +16,4 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: text
+field_type: string

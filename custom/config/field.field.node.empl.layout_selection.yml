@@ -1,0 +1,21 @@
+uuid: 2d51143f-f6b8-45e3-9ee4-a6285e403c31
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.layout_selection
+    - node.type.empl
+id: node.empl.layout_selection
+field_name: layout_selection
+entity_type: node
+bundle: empl
+label: Layout
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: layout_library
+  handler_settings: {  }
+field_type: entity_reference
