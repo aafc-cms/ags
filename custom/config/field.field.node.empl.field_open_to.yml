@@ -1,0 +1,24 @@
+uuid: fed95bec-6d4b-4262-9926-ac0205c5fa05
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_open_to
+    - node.type.empl
+  module:
+    - text
+id: node.empl.field_open_to
+field_name: field_open_to
+entity_type: node
+bundle: empl
+label: 'Open to'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 'All AAFC Employees accross Canada'
+    format: rich_text
+default_value_callback: ''
+settings: {  }
+field_type: text

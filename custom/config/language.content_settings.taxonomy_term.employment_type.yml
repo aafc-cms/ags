@@ -1,0 +1,11 @@
+uuid: a9da4237-3001-4b9d-b10e-2a1e304ab63e
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.employment_type
+id: taxonomy_term.employment_type
+target_entity_type_id: taxonomy_term
+target_bundle: employment_type
+default_langcode: site_default
+language_alterable: false

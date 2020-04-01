@@ -1,0 +1,21 @@
+uuid: 73ded2f8-ebb2-42f5-b225-0e794942ba0d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_posted
+    - node.type.news
+  module:
+    - datetime
+id: node.news.field_posted
+field_name: field_posted
+entity_type: node
+bundle: news
+label: 'Date Posted'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

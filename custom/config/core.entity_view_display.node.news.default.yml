@@ -5,19 +5,24 @@ dependencies:
   config:
     - field.field.node.news.body
     - field.field.node.news.field_description
+    - field.field.node.news.field_from
     - field.field.node.news.field_issued
     - field.field.node.news.field_keywords
     - field.field.node.news.field_meta_type
     - field.field.node.news.field_modified
     - field.field.node.news.field_newstype
+    - field.field.node.news.field_posted
     - field.field.node.news.field_subject
+    - field.field.node.news.field_to
     - field.field.node.news.layout_selection
     - node.type.news
   module:
+    - datetime
     - layout_builder
     - layout_builder_restrictions
     - layout_discovery
     - layout_library
+    - options
     - text
     - user
 third_party_settings:
@@ -55,6 +60,53 @@ third_party_settings:
                 third_party_settings: {  }
             additional: {  }
             weight: 1
+          b55e5f7a-d086-495c-a1d3-7f8c2880d926:
+            uuid: b55e5f7a-d086-495c-a1d3-7f8c2880d926
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:news:field_posted'
+              formatter:
+                label: above
+                settings:
+                  format_type: medium
+                  timezone_override: ''
+                third_party_settings: {  }
+                type: datetime_default
+            additional: {  }
+            weight: 2
+          bf433f92-3206-43ee-a513-a9c2e28f2b74:
+            uuid: bf433f92-3206-43ee-a513-a9c2e28f2b74
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:news:field_to'
+              formatter:
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+                type: list_default
+            additional: {  }
+            weight: 3
+          f5d61c19-b2a7-4eb1-aa5a-086d07861e2b:
+            uuid: f5d61c19-b2a7-4eb1-aa5a-086d07861e2b
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:news:field_from'
+              formatter:
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+                type: text_default
+            additional: {  }
+            weight: 4
         third_party_settings: {  }
   layout_library:
     enable: true
@@ -81,6 +133,29 @@ content:
     weight: 1
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_from:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_posted:
+    weight: 2
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_to:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
     region: content
   links:
     weight: 0

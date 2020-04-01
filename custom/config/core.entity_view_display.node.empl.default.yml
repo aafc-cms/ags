@@ -1,0 +1,92 @@
+uuid: 6969af79-0a9a-4e90-b0e5-b7be4cb46844
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.empl.body
+    - field.field.node.empl.field_date_closing
+    - field.field.node.empl.field_description
+    - field.field.node.empl.field_email
+    - field.field.node.empl.field_issued
+    - field.field.node.empl.field_keywords
+    - field.field.node.empl.field_locations
+    - field.field.node.empl.field_meta_type
+    - field.field.node.empl.field_modified
+    - field.field.node.empl.field_name
+    - field.field.node.empl.field_open_to
+    - field.field.node.empl.field_subject
+    - field.field.node.empl.field_type
+    - node.type.empl
+  module:
+    - datetime
+    - text
+    - user
+id: node.empl.default
+targetEntityType: node
+bundle: empl
+mode: default
+content:
+  body:
+    label: above
+    type: text_default
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_date_closing:
+    weight: 1
+    label: inline
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_email:
+    weight: 6
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_locations:
+    weight: 3
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_name:
+    weight: 5
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_open_to:
+    weight: 4
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_type:
+    weight: 2
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_description: true
+  field_issued: true
+  field_keywords: true
+  field_meta_type: true
+  field_modified: true
+  field_subject: true
+  langcode: true

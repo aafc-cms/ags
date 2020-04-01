@@ -1,0 +1,21 @@
+uuid: 2a1d9087-9808-467f-b3ff-4f266729e058
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date_closing
+    - node.type.empl
+  module:
+    - datetime
+id: node.empl.field_date_closing
+field_name: field_date_closing
+entity_type: node
+bundle: empl
+label: Closing
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

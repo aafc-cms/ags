@@ -1,0 +1,21 @@
+uuid: 627f85e4-93d1-47f7-8478-33e8fa29847d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_locations
+    - node.type.empl
+  module:
+    - text
+id: node.empl.field_locations
+field_name: field_locations
+entity_type: node
+bundle: empl
+label: Locations
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

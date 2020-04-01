@@ -1,0 +1,21 @@
+uuid: deda992c-5387-4cb9-8bda-e0047abfe976
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_from
+    - node.type.news
+  module:
+    - text
+id: node.news.field_from
+field_name: field_from
+entity_type: node
+bundle: news
+label: From
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

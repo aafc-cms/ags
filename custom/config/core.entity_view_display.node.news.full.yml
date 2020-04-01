@@ -6,12 +6,15 @@ dependencies:
     - core.entity_view_mode.node.full
     - field.field.node.news.body
     - field.field.node.news.field_description
+    - field.field.node.news.field_from
     - field.field.node.news.field_issued
     - field.field.node.news.field_keywords
     - field.field.node.news.field_meta_type
     - field.field.node.news.field_modified
     - field.field.node.news.field_newstype
+    - field.field.node.news.field_posted
     - field.field.node.news.field_subject
+    - field.field.node.news.field_to
     - field.field.node.news.layout_selection
     - node.type.news
   module:
@@ -90,11 +93,14 @@ content:
     third_party_settings: {  }
 hidden:
   field_description: true
+  field_from: true
   field_issued: true
   field_keywords: true
   field_meta_type: true
   field_modified: true
   field_newstype: true
+  field_posted: true
   field_subject: true
+  field_to: true
   langcode: true
   layout_selection: true

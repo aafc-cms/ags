@@ -1,24 +1,21 @@
-uuid: e0e6f2ab-32b1-469d-a3f8-5b9a810717bd
+uuid: 6269a62d-7851-4e7f-9641-db53dd06153b
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_issued
-    - node.type.page
+    - node.type.empl
   module:
     - datetime
-id: node.page.field_issued
+id: node.empl.field_issued
 field_name: field_issued
 entity_type: node
-bundle: page
+bundle: empl
 label: issued
 description: ''
 required: false
 translatable: false
-default_value:
-  -
-    default_date_type: now
-    default_date: now
+default_value: {  }
 default_value_callback: ''
 settings: {  }
 field_type: datetime
