@@ -5,6 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.empl.body
+    - field.field.node.empl.field_branch
+    - field.field.node.empl.field_classification
     - field.field.node.empl.field_date_closing
     - field.field.node.empl.field_description
     - field.field.node.empl.field_email
@@ -40,6 +42,8 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_branch: true
+  field_classification: true
   field_date_closing: true
   field_description: true
   field_email: true

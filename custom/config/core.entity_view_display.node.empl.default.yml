@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.node.empl.body
+    - field.field.node.empl.field_branch
+    - field.field.node.empl.field_classification
     - field.field.node.empl.field_date_closing
     - field.field.node.empl.field_description
     - field.field.node.empl.field_email
@@ -29,12 +31,26 @@ content:
   body:
     label: above
     type: text_default
-    weight: 7
+    weight: 9
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_branch:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_classification:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
   field_date_closing:
-    weight: 1
+    weight: 5
     label: inline
     settings:
       format_type: medium
@@ -43,35 +59,35 @@ content:
     type: datetime_default
     region: content
   field_email:
-    weight: 6
+    weight: 8
     label: inline
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_locations:
-    weight: 3
-    label: inline
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
-  field_name:
-    weight: 5
-    label: inline
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
-  field_open_to:
     weight: 4
     label: inline
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
+  field_name:
+    weight: 7
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_open_to:
+    weight: 6
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
   field_type:
-    weight: 2
+    weight: 1
     label: inline
     settings: {  }
     third_party_settings: {  }
