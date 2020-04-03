@@ -1,0 +1,21 @@
+uuid: 81af631c-2f4a-4f80-bc5b-368ef03c4e37
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.layout_selection
+    - node.type.news
+id: node.news.layout_selection
+field_name: layout_selection
+entity_type: node
+bundle: news
+label: Layout
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: layout_library
+  handler_settings: {  }
+field_type: entity_reference

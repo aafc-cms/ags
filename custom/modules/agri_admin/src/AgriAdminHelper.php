@@ -293,6 +293,17 @@ class AgriAdminHelper {
     if ($result) {
       while ($row = $result->fetchAssoc()) {
         // $row['column']
+/*        if (!isset($row['ts_nid']) || is_null($row['ts_nid'])) {
+          return FALSE;
+        }*/
+        return TRUE;
+      }
+    }
+    $sql = "SELECT ts_nid FROM menu_link_content WHERE ts_nid = :tsnid and langcode = :language";
+    $result = $database->query($sql, [':tsnid' => $ts_nid, ':language' => $lang]);
+    if ($result) {
+      while ($row = $result->fetchAssoc()) {
+        // $row['column']
         if (!isset($row['ts_nid']) || is_null($row['ts_nid'])) {
           return FALSE;
         }

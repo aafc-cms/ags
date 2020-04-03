@@ -1,0 +1,18 @@
+uuid: 42483236-e745-44ac-924d-1b92697a5c6f
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.employment_type
+id: taxonomy_term.employment_type.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: employment_type
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

@@ -1,0 +1,19 @@
+uuid: f8184602-2194-4cad-bd4d-cf20a2af07be
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_open_to
+    - node.type.empl
+id: node.empl.field_open_to
+field_name: field_open_to
+entity_type: node
+bundle: empl
+label: 'Open to'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

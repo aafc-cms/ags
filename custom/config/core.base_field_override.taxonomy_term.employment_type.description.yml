@@ -1,0 +1,20 @@
+uuid: 9cc2d547-8942-4819-824c-66085ca6f9c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.employment_type
+  module:
+    - text
+id: taxonomy_term.employment_type.description
+field_name: description
+entity_type: taxonomy_term
+bundle: employment_type
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

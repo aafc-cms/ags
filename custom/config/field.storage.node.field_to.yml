@@ -1,0 +1,27 @@
+uuid: 29eec381-8343-407b-970d-b064fc00da09
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_to
+field_name: field_to
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: all
+      label: 'All Staff'
+    -
+      value: other
+      label: Other
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

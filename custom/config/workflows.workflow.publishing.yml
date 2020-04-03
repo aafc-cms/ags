@@ -58,11 +58,16 @@ type_settings:
       default_revision: false
       label: 'With reviewer'
       weight: 4
+    with_reviewer_for_deletion:
+      published: false
+      default_revision: false
+      label: 'With reviewer for deletion'
+      weight: 5
   transitions:
     delete_content:
       label: 'Approve Deletion'
       from:
-        - to_be_deleted
+        - with_reviewer_for_deletion
       to: archive
       weight: 4
     publish:
@@ -71,6 +76,12 @@ type_settings:
       weight: 2
       from:
         - with_reviewer
+    re_publish_archived:
+      label: 'Publish archived content'
+      from:
+        - archive
+      to: draft
+      weight: 7
     reject:
       label: 'Send to author'
       from:
@@ -81,9 +92,14 @@ type_settings:
       label: 'Save as a draft'
       from:
         - draft
-        - published
       to: draft
       weight: -1
+    save_published_as_a_draft:
+      label: 'Save published as a draft'
+      from:
+        - published
+      to: draft
+      weight: 8
     send_for_deletion:
       label: 'Send for deletion'
       from:
@@ -104,6 +120,12 @@ type_settings:
         - review_by_cctreviewer
       to: with_reviewer
       weight: 6
+    take_for_deletion:
+      label: 'Take for deletion'
+      from:
+        - to_be_deleted
+      to: with_reviewer_for_deletion
+      weight: 9
   entity_types:
     block_content:
       - basic
