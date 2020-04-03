@@ -293,9 +293,9 @@ class AgriAdminHelper {
     if ($result) {
       while ($row = $result->fetchAssoc()) {
         // $row['column']
-        if (!isset($row['ts_nid']) || is_null($row['ts_nid'])) {
+/*        if (!isset($row['ts_nid']) || is_null($row['ts_nid'])) {
           return FALSE;
-        }
+        }*/
         return TRUE;
       }
     }
