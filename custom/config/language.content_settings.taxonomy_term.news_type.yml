@@ -1,0 +1,20 @@
+uuid: e1eb987c-2b0c-41f2-ad58-9224f7bb2e6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.news_type
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      entity_translation_unified_form_theme: EntityTranslationUnifiedFormInlineMode
+      entity_translation_unified_form_enable: '0'
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.news_type
+target_entity_type_id: taxonomy_term
+target_bundle: news_type
+default_langcode: site_default
+language_alterable: false

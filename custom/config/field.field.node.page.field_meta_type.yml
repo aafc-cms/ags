@@ -1,0 +1,19 @@
+uuid: 0c3b5f11-a0a8-42ec-ae5a-eb65b94be22c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_type
+    - node.type.page
+id: node.page.field_meta_type
+field_name: field_meta_type
+entity_type: node
+bundle: page
+label: 'meta type'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

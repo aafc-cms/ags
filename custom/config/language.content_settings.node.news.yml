@@ -1,0 +1,20 @@
+uuid: 1fa5ecff-c0b8-4cf2-9b91-ec11c6dc5f97
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.news
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    bundle_settings:
+      entity_translation_unified_form_enable: '1'
+      entity_translation_unified_form_theme: EntityTranslationUnifiedFormInlineMode
+      untranslatable_fields_hide: '0'
+    enabled: true
+id: node.news
+target_entity_type_id: node
+target_bundle: news
+default_langcode: site_default
+language_alterable: false

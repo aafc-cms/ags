@@ -1,0 +1,19 @@
+uuid: e5e6dfee-2ad6-425b-95af-90c14f93ebf0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_type
+    - node.type.empl
+id: node.empl.field_type
+field_name: field_type
+entity_type: node
+bundle: empl
+label: Type
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

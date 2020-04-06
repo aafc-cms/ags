@@ -1,0 +1,22 @@
+uuid: f342535e-1b39-411c-acad-b9b2bf0247a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.empl
+id: node.empl.status
+field_name: status
+entity_type: node
+bundle: empl
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

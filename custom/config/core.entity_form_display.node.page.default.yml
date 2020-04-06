@@ -6,13 +6,22 @@ dependencies:
     - field.field.node.page.body
     - field.field.node.page.comment
     - field.field.node.page.field_category
+    - field.field.node.page.field_description
+    - field.field.node.page.field_htype
+    - field.field.node.page.field_issued
+    - field.field.node.page.field_keywords
     - field.field.node.page.field_meta_tags
+    - field.field.node.page.field_meta_type
+    - field.field.node.page.field_modified
+    - field.field.node.page.field_subject
     - field.field.node.page.layout_builder__layout
     - field.field.node.page.layout_builder__translation
     - field.field.node.page.layout_selection
     - node.type.page
+    - workflows.workflow.publishing
   module:
     - content_moderation
+    - datetime
     - metatag
     - path
     - text
@@ -49,12 +58,64 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
+  field_description:
+    weight: 108
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_htype:
+    weight: 104
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_issued:
+    weight: 105
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_keywords:
+    weight: 106
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_meta_tags:
     type: metatag_firehose
     region: content
     weight: 101
     settings: {  }
     third_party_settings: {  }
+  field_meta_type:
+    weight: 109
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_modified:
+    weight: 107
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_subject:
+    weight: 110
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   langcode:
     type: language_select
     weight: 2

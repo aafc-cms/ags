@@ -1,0 +1,61 @@
+uuid: 4f3a1eac-1392-4956-8be3-013d28c4bec4
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.empl.body
+    - field.field.node.empl.field_branch
+    - field.field.node.empl.field_classification
+    - field.field.node.empl.field_date_closing
+    - field.field.node.empl.field_description
+    - field.field.node.empl.field_email
+    - field.field.node.empl.field_issued
+    - field.field.node.empl.field_keywords
+    - field.field.node.empl.field_locations
+    - field.field.node.empl.field_meta_type
+    - field.field.node.empl.field_modified
+    - field.field.node.empl.field_name
+    - field.field.node.empl.field_open_to
+    - field.field.node.empl.field_subject
+    - field.field.node.empl.field_type
+    - field.field.node.empl.layout_selection
+    - node.type.empl
+  module:
+    - text
+    - user
+id: node.empl.teaser
+targetEntityType: node
+bundle: empl
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_branch: true
+  field_classification: true
+  field_date_closing: true
+  field_description: true
+  field_email: true
+  field_issued: true
+  field_keywords: true
+  field_locations: true
+  field_meta_type: true
+  field_modified: true
+  field_name: true
+  field_open_to: true
+  field_subject: true
+  field_type: true
+  langcode: true
+  layout_selection: true

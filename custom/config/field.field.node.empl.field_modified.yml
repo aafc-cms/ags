@@ -1,0 +1,24 @@
+uuid: 1563a1b2-e2e8-4e9e-91dc-60adab73b14d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_modified
+    - node.type.empl
+  module:
+    - datetime
+id: node.empl.field_modified
+field_name: field_modified
+entity_type: node
+bundle: empl
+label: modified
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

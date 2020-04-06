@@ -1,0 +1,18 @@
+uuid: bc1b80e8-4636-4a05-a193-7c95583e68ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.tweet
+id: media.tweet.moderation_state
+field_name: moderation_state
+entity_type: media
+bundle: tweet
+label: 'Moderation state'
+description: 'The moderation state of this piece of content.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
