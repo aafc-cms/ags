@@ -2,6 +2,8 @@ uuid: abaf5e62-91d0-4f09-8ff2-143c3fe44c0b
 langcode: en
 status: true
 dependencies:
+  config:
+    - user.role.creator
   enforced:
     module:
       - moderation_dashboard
@@ -293,10 +295,11 @@ display:
     display_title: 'Recently created'
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
       defaults:
         title: false
-      title: 'Recently Created'
+      title: 'All Content Created (Latest revisions)'
     cache_metadata:
       max-age: -1
       contexts:
@@ -312,9 +315,10 @@ display:
     display_title: 'Content you created'
     position: 2
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
       display_description: ''
-      title: 'Content you created'
+      title: 'All Content created by me (Latest revisions)'
       empty:
         area_text_custom:
           id: area_text_custom
@@ -331,6 +335,8 @@ display:
         title: false
         arguments: false
         empty: false
+        access: false
+        pager: false
       arguments:
         uid:
           id: uid
@@ -402,6 +408,32 @@ display:
           validate_options: {  }
           must_not_be: false
           plugin_id: 'null'
+      access:
+        type: role
+        options:
+          role:
+            creator: creator
+      pager:
+        type: full
+        options:
+          items_per_page: 5
+          offset: 0
+          id: 3
+          total_pages: null
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
     cache_metadata:
       max-age: -1
       contexts:
@@ -411,5 +443,5 @@ display:
         - url.query_args
         - user
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags: {  }

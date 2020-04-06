@@ -424,10 +424,11 @@ display:
     display_title: 'Recent Changes'
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
       defaults:
         title: false
-      title: 'Recent Changes'
+      title: 'All recent Changes (Latest revisions)'
     cache_metadata:
       max-age: -1
       contexts:
@@ -440,16 +441,17 @@ display:
   block_2:
     display_plugin: block
     id: block_2
-    display_title: 'Your activity'
+    display_title: 'My activity'
     position: 2
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
       display_description: ''
       arguments:
-        uid:
-          id: uid
-          table: node_field_revision
-          field: uid
+        revision_uid:
+          id: revision_uid
+          table: node_revision
+          field: revision_uid
           relationship: none
           group_type: group
           admin_label: ''
@@ -460,9 +462,8 @@ display:
             title: All
           title_enable: false
           title: ''
-          default_argument_type: user
-          default_argument_options:
-            user: false
+          default_argument_type: current_user
+          default_argument_options: {  }
           default_argument_skip_url: false
           summary_options:
             base_path: ''
@@ -481,46 +482,14 @@ display:
           break_phrase: false
           not: false
           entity_type: node
-          entity_field: uid
+          entity_field: revision_uid
           plugin_id: numeric
-        'null':
-          id: 'null'
-          table: views
-          field: 'null'
-          relationship: none
-          group_type: group
-          admin_label: 'Logged-in user'
-          default_action: default
-          exception:
-            value: all
-            title_enable: false
-            title: All
-          title_enable: true
-          title: '{%if raw_arguments.uid == raw_arguments.null%}{{"Your activity"|t}}{%else%}{{"User''s activity"|t}}{%endif%}'
-          default_argument_type: current_user
-          default_argument_options: {  }
-          default_argument_skip_url: true
-          summary_options:
-            base_path: ''
-            count: true
-            items_per_page: 25
-            override: false
-          summary:
-            sort_order: asc
-            number_of_records: 0
-            format: default_summary
-          specify_validation: false
-          validate:
-            type: none
-            fail: 'not found'
-          validate_options: {  }
-          must_not_be: false
-          plugin_id: 'null'
       defaults:
         arguments: false
         title: false
         empty: false
-      title: 'Your activity'
+        access: false
+      title: 'My activity'
       empty:
         area_text_custom:
           id: area_text_custom
@@ -533,6 +502,10 @@ display:
           tokenize: false
           content: 'Activity log is empty.'
           plugin_id: text_custom
+      access:
+        type: perm
+        options:
+          perm: 'view all revisions'
     cache_metadata:
       max-age: -1
       contexts:
