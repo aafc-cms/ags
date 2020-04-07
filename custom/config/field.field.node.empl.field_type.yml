@@ -1,19 +1,33 @@
-uuid: e5e6dfee-2ad6-425b-95af-90c14f93ebf0
+uuid: 8bb56749-3e93-4ac0-906e-224fd3c1edda
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_type
     - node.type.empl
+    - taxonomy.vocabulary.employment_type
+  content:
+    - 'taxonomy_term:employment_type:a75a8fa6-4e6b-440a-9e83-5784d5e2d12b'
 id: node.empl.field_type
 field_name: field_type
 entity_type: node
 bundle: empl
-label: Type
+label: 'Employment Opportunity Type(s)'
 description: ''
-required: false
-translatable: true
-default_value: {  }
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: a75a8fa6-4e6b-440a-9e83-5784d5e2d12b
 default_value_callback: ''
-settings: {  }
-field_type: string
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      employment_type: employment_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
