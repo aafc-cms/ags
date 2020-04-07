@@ -129,22 +129,6 @@ third_party_settings:
                 type: string
             additional: {  }
             weight: 5
-          b5b31025-3edc-43ce-8cf6-70dc0412e3ca:
-            uuid: b5b31025-3edc-43ce-8cf6-70dc0412e3ca
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:empl:field_type'
-              formatter:
-                label: above
-                settings:
-                  link_to_entity: false
-                third_party_settings: {  }
-                type: string
-            additional: {  }
-            weight: 6
           53439002-1294-4f6b-be2e-91f38e3168d3:
             uuid: 53439002-1294-4f6b-be2e-91f38e3168d3
             region: content
@@ -282,22 +266,6 @@ third_party_settings:
                 type: string
             additional: {  }
             weight: 15
-          ecfe54f8-2b98-41d1-baf1-426dc3c8be72:
-            uuid: ecfe54f8-2b98-41d1-baf1-426dc3c8be72
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:empl:field_type'
-              formatter:
-                label: above
-                settings:
-                  link_to_entity: false
-                third_party_settings: {  }
-                type: string
-            additional: {  }
-            weight: 16
           171eb16d-68eb-42e1-86f5-49b626f46b07:
             uuid: 171eb16d-68eb-42e1-86f5-49b626f46b07
             region: content
@@ -344,6 +312,22 @@ third_party_settings:
                 third_party_settings: {  }
             additional: {  }
             weight: 19
+          62f40623-01bd-4baf-8f0b-3f09fb8b85f1:
+            uuid: 62f40623-01bd-4baf-8f0b-3f09fb8b85f1
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:empl:field_type'
+              formatter:
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+                type: entity_reference_label
+            additional: {  }
+            weight: 20
         third_party_settings: {  }
   layout_library:
     enable: true
@@ -427,12 +411,12 @@ content:
     type: string
     region: content
   field_type:
-    weight: 6
+    weight: 10
     label: above
     settings:
-      link_to_entity: false
+      link: true
     third_party_settings: {  }
-    type: string
+    type: entity_reference_label
     region: content
   links:
     weight: 0
