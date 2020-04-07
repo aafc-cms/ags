@@ -1,0 +1,34 @@
+uuid: 2cbddbee-3bb8-4695-a6d4-3c2d058c4a74
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - language
+    - taxonomy
+id: branches_fr
+label: 'Directions générales'
+type: 'canonical_entities:taxonomy_term'
+pattern: 'directions-generales/[term:name]'
+selection_criteria:
+  a1bf8084-3d7e-47c9-91c0-70d8474712fe:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      branch: branch
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: a1bf8084-3d7e-47c9-91c0-70d8474712fe
+  051e8274-0c08-4ec5-8293-1a2d11f299a1:
+    id: language
+    langcodes:
+      fr: fr
+    negate: false
+    context_mapping:
+      language: 'taxonomy_term:langcode:language'
+    uuid: 051e8274-0c08-4ec5-8293-1a2d11f299a1
+selection_logic: and
+weight: -10
+relationships:
+  'taxonomy_term:langcode:language':
+    label: Language

@@ -1,0 +1,33 @@
+uuid: f4941381-2ab9-4f20-ab49-3ead71c32a58
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: employment_opportunity
+label: 'employment opportunity'
+type: 'canonical_entities:node'
+pattern: 'employment/[node:field_locations:value]/[node:field_date_closing:date:html_date]/[node:title]'
+selection_criteria:
+  19137e97-e561-4917-8abd-c39198862bee:
+    id: node_type
+    bundles:
+      empl: empl
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 19137e97-e561-4917-8abd-c39198862bee
+  a802eee2-5692-4a75-9eef-1c69b829c40f:
+    id: language
+    langcodes:
+      en: en
+    negate: false
+    context_mapping:
+      language: 'node:langcode:language'
+    uuid: a802eee2-5692-4a75-9eef-1c69b829c40f
+selection_logic: and
+weight: -9
+relationships:
+  'node:langcode:language':
+    label: Language

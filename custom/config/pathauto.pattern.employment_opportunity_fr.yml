@@ -1,0 +1,33 @@
+uuid: 00f3cfc4-b48e-41cf-b05a-adb582417f81
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: employment_opportunity_fr
+label: 'opportunité d''emploi'
+type: 'canonical_entities:node'
+pattern: 'emploi/[node:field_locations:value]/[node:field_date_closing:date:html_date]/[node:title]'
+selection_criteria:
+  2893b9dc-4c09-4f66-a92f-4926ddd19824:
+    id: node_type
+    bundles:
+      empl: empl
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 2893b9dc-4c09-4f66-a92f-4926ddd19824
+  c91d9d03-d93f-4ceb-bd52-d7bcf7a189dc:
+    id: language
+    langcodes:
+      fr: fr
+    negate: false
+    context_mapping:
+      language: 'node:langcode:language'
+    uuid: c91d9d03-d93f-4ceb-bd52-d7bcf7a189dc
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language

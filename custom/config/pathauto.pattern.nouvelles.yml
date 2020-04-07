@@ -1,0 +1,33 @@
+uuid: 934a2fe9-fbab-474a-be9e-13c682c5d93c
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: nouvelles
+label: Nouvelles
+type: 'canonical_entities:node'
+pattern: 'nouvelles/[node:field_posted:date:html_date]/[node:title]'
+selection_criteria:
+  9240f2d5-cbd0-4aa6-aa80-1f0b28ca28d4:
+    id: node_type
+    bundles:
+      news: news
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 9240f2d5-cbd0-4aa6-aa80-1f0b28ca28d4
+  07d5d95c-2f62-4853-bfa6-c8e3e300124f:
+    id: language
+    langcodes:
+      fr: fr
+    negate: false
+    context_mapping:
+      language: 'node:langcode:language'
+    uuid: 07d5d95c-2f62-4853-bfa6-c8e3e300124f
+selection_logic: and
+weight: -7
+relationships:
+  'node:langcode:language':
+    label: Language
