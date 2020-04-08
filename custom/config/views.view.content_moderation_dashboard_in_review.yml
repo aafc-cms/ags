@@ -372,6 +372,7 @@ display:
         filter_groups: false
         title: false
         access: false
+        empty: false
       filter_groups:
         operator: AND
         groups:
@@ -384,6 +385,18 @@ display:
         options:
           role:
             reviewer: reviewer
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: 'There is no content for review.'
+          plugin_id: text_custom
     cache_metadata:
       max-age: -1
       contexts:
@@ -632,7 +645,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: 'No draft content was found.'
+          content: 'No draft content authored by me.'
           plugin_id: text_custom
       arguments:
         uid:
@@ -819,6 +832,7 @@ display:
         title: false
         access: false
         arguments: false
+        empty: false
       filter_groups:
         operator: AND
         groups:
@@ -832,6 +846,18 @@ display:
             reviewer: reviewer
       rendering_language: '***LANGUAGE_language_interface***'
       arguments: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: 'There is no content currently being reviewed.'
+          plugin_id: text_custom
     cache_metadata:
       max-age: -1
       contexts:
@@ -936,6 +962,7 @@ display:
         title: false
         access: false
         arguments: false
+        empty: false
       filter_groups:
         operator: AND
         groups:
@@ -985,6 +1012,18 @@ display:
           entity_type: node
           entity_field: revision_uid
           plugin_id: numeric
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: 'There is no content being reviewed by me.'
+          plugin_id: text_custom
     cache_metadata:
       max-age: -1
       contexts:
