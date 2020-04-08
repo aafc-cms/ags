@@ -1,21 +1,19 @@
-uuid: bbb8c416-ca87-4fac-bed9-6d4db2aad2f7
+uuid: 95b5fabc-16f4-429a-be48-a4ee6c285890
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_to
+    - field.storage.node.field_newssubmittername
     - node.type.news
-  module:
-    - options
-id: node.news.field_to
-field_name: field_to
+id: node.news.field_newssubmittername
+field_name: field_newssubmittername
 entity_type: node
 bundle: news
-label: 'Intended Audience'
+label: NewsSubmitterName
 description: ''
 required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: list_string
+field_type: string
