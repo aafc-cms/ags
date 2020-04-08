@@ -35,16 +35,6 @@ third_party_settings:
         layout_settings:
           label: ''
         components:
-          6eb534fe-cf99-40cc-9b6c-622111a1236e:
-            uuid: 6eb534fe-cf99-40cc-9b6c-622111a1236e
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'extra_field_block:node:news:links'
-            additional: {  }
-            weight: 0
           45701dbd-452b-4178-a5dd-5142f7145b66:
             uuid: 45701dbd-452b-4178-a5dd-5142f7145b66
             region: content
@@ -59,7 +49,7 @@ third_party_settings:
                 settings: {  }
                 third_party_settings: {  }
             additional: {  }
-            weight: 1
+            weight: 4
           b55e5f7a-d086-495c-a1d3-7f8c2880d926:
             uuid: b55e5f7a-d086-495c-a1d3-7f8c2880d926
             region: content
@@ -76,7 +66,7 @@ third_party_settings:
                 third_party_settings: {  }
                 type: datetime_default
             additional: {  }
-            weight: 2
+            weight: 0
           bf433f92-3206-43ee-a513-a9c2e28f2b74:
             uuid: bf433f92-3206-43ee-a513-a9c2e28f2b74
             region: content
@@ -91,7 +81,7 @@ third_party_settings:
                 third_party_settings: {  }
                 type: list_default
             additional: {  }
-            weight: 3
+            weight: 2
           f5d61c19-b2a7-4eb1-aa5a-086d07861e2b:
             uuid: f5d61c19-b2a7-4eb1-aa5a-086d07861e2b
             region: content
@@ -106,7 +96,17 @@ third_party_settings:
                 third_party_settings: {  }
                 type: text_default
             additional: {  }
-            weight: 4
+            weight: 1
+          6eb534fe-cf99-40cc-9b6c-622111a1236e:
+            uuid: 6eb534fe-cf99-40cc-9b6c-622111a1236e
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'extra_field_block:node:news:links'
+            additional: {  }
+            weight: 5
         third_party_settings: {  }
   layout_library:
     enable: true
