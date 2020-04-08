@@ -1,0 +1,21 @@
+uuid: 1fd960a2-f651-46e8-9884-a182205b6ae9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_newssubmitterphone
+    - node.type.news
+  module:
+    - telephone
+id: node.news.field_newssubmitterphone
+field_name: field_newssubmitterphone
+entity_type: node
+bundle: news
+label: NewsSubmitterPhone
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

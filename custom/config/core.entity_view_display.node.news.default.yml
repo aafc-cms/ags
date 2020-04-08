@@ -10,6 +10,9 @@ dependencies:
     - field.field.node.news.field_keywords
     - field.field.node.news.field_meta_type
     - field.field.node.news.field_modified
+    - field.field.node.news.field_newssubmitteremail
+    - field.field.node.news.field_newssubmittername
+    - field.field.node.news.field_newssubmitterphone
     - field.field.node.news.field_newstype
     - field.field.node.news.field_posted
     - field.field.node.news.field_subject
@@ -107,6 +110,52 @@ third_party_settings:
               id: 'extra_field_block:node:news:links'
             additional: {  }
             weight: 5
+          81e7f049-5fa9-4dfc-9a4f-bbbb94e98eb4:
+            uuid: 81e7f049-5fa9-4dfc-9a4f-bbbb94e98eb4
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:news:field_newssubmittername'
+              formatter:
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+                type: string
+            additional: {  }
+            weight: 6
+          da41ba68-5f6a-44d1-a080-70e760ea5f95:
+            uuid: da41ba68-5f6a-44d1-a080-70e760ea5f95
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:news:field_newssubmitteremail'
+              formatter:
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+                type: basic_string
+            additional: {  }
+            weight: 7
+          50154502-ade4-4b9f-92ac-f709543125a4:
+            uuid: 50154502-ade4-4b9f-92ac-f709543125a4
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:news:field_newssubmitterphone'
+              formatter:
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+                type: basic_string
+            additional: {  }
+            weight: 8
         third_party_settings: {  }
   layout_library:
     enable: true
@@ -140,6 +189,28 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_newssubmitteremail:
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_newssubmittername:
+    weight: 5
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_newssubmitterphone:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
     region: content
   field_posted:
     weight: 2
