@@ -1,19 +1,29 @@
-uuid: 9f3ca768-c786-4258-b327-3eb04072c7e6
+uuid: 40c22007-5e51-466e-bcb0-92a215968bc2
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_classification
     - node.type.empl
+  module:
+    - entity_reference_revisions
 id: node.empl.field_classification
 field_name: field_classification
 entity_type: node
 bundle: empl
 label: Classification
 description: ''
-required: false
-translatable: true
+required: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles: null
+    target_bundles_drag_drop:
+      classification:
+        weight: 2
+        enabled: false
+field_type: entity_reference_revisions

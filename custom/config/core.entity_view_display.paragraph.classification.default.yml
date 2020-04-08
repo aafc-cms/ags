@@ -1,0 +1,30 @@
+uuid: 751848cf-f751-4a84-8351-f6b5530b2666
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.classification.field_class_id
+    - field.field.paragraph.classification.field_class_level
+    - paragraphs.paragraphs_type.classification
+  module:
+    - options
+id: paragraph.classification.default
+targetEntityType: paragraph
+bundle: classification
+mode: default
+content:
+  field_class_id:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_class_level:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+hidden: {  }

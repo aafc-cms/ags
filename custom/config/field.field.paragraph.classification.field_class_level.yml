@@ -1,0 +1,23 @@
+uuid: f6362cf3-13b6-4aa4-b69d-669e63c6766b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_class_level
+    - paragraphs.paragraphs_type.classification
+  module:
+    - options
+id: paragraph.classification.field_class_level
+field_name: field_class_level
+entity_type: paragraph
+bundle: classification
+label: 'Class level'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: '2'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

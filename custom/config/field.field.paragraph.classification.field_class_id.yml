@@ -1,0 +1,21 @@
+uuid: c1f315c9-d8a6-420e-8848-cbb123ad7b36
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_class_id
+    - paragraphs.paragraphs_type.classification
+  module:
+    - options
+id: paragraph.classification.field_class_id
+field_name: field_class_id
+entity_type: paragraph
+bundle: classification
+label: 'Class id'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

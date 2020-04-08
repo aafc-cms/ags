@@ -1,20 +1,20 @@
-uuid: 00e76bbb-0647-4b1d-8eb0-b418234b0a44
+uuid: f7c28a9c-f083-422a-bc24-f8c2884a28a5
 langcode: en
 status: true
 dependencies:
   module:
+    - entity_reference_revisions
     - node
+    - paragraphs
 id: node.field_classification
 field_name: field_classification
 entity_type: node
-type: string
+type: entity_reference_revisions
 settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
-module: core
+  target_type: paragraph
+module: entity_reference_revisions
 locked: false
-cardinality: 1
+cardinality: 10
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

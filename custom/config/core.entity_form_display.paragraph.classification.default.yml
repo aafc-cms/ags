@@ -1,0 +1,28 @@
+uuid: ffa269a4-524b-41df-a585-18fabce7a8ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.classification.field_class_id
+    - field.field.paragraph.classification.field_class_level
+    - paragraphs.paragraphs_type.classification
+id: paragraph.classification.default
+targetEntityType: paragraph
+bundle: classification
+mode: default
+content:
+  field_class_id:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_class_level:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+hidden:
+  created: true
+  status: true
