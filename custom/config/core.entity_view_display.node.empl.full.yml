@@ -1,0 +1,159 @@
+uuid: a69dbc74-53a2-4946-9c21-da5d0a645134
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.empl.body
+    - field.field.node.empl.field_branch
+    - field.field.node.empl.field_classification
+    - field.field.node.empl.field_date_closing
+    - field.field.node.empl.field_description
+    - field.field.node.empl.field_email
+    - field.field.node.empl.field_issued
+    - field.field.node.empl.field_keywords
+    - field.field.node.empl.field_locations
+    - field.field.node.empl.field_meta_type
+    - field.field.node.empl.field_modified
+    - field.field.node.empl.field_name
+    - field.field.node.empl.field_open_to
+    - field.field.node.empl.field_subject
+    - field.field.node.empl.field_type
+    - field.field.node.empl.layout_selection
+    - node.type.empl
+  module:
+    - datetime
+    - field_group
+    - layout_builder
+    - layout_builder_restrictions
+    - layout_library
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+  layout_library:
+    enable: true
+  layout_builder_restrictions:
+    entity_view_mode_restriction:
+      allowed_blocks: {  }
+      allowed_layouts:
+        - layout_onecol
+        - bs_2col_bricked
+        - bs_3col_bricked
+        - bs_4col_bricked
+        - layout_twocol_section
+        - layout_threecol_section
+        - layout_fourcol_section
+  field_group:
+    group_opportunity_details:
+      children:
+        - field_type
+        - field_classification
+        - field_branch
+        - field_locations
+        - field_date_closing
+        - field_open_to
+        - field_name
+        - field_email
+      parent_name: ''
+      weight: 0
+      format_type: details
+      region: content
+      format_settings:
+        description: ''
+        open: true
+        id: ''
+        classes: employment-header-node-display
+      label: 'Opportunity Details'
+id: node.empl.full
+targetEntityType: node
+bundle: empl
+mode: full
+content:
+  body:
+    label: above
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_branch:
+    weight: 10
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_classification:
+    weight: 9
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_date_closing:
+    weight: 12
+    label: inline
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_email:
+    weight: 15
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_locations:
+    weight: 11
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_name:
+    weight: 14
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_open_to:
+    weight: 13
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_type:
+    weight: 8
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_description: true
+  field_issued: true
+  field_keywords: true
+  field_meta_type: true
+  field_modified: true
+  field_subject: true
+  langcode: true
+  layout_selection: true

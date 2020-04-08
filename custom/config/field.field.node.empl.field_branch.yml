@@ -1,19 +1,29 @@
-uuid: 7068e2c0-ea28-4465-9987-ff45e9dafc01
+uuid: ef604570-a731-4cb5-beaf-2bc860f903a9
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_branch
     - node.type.empl
+    - taxonomy.vocabulary.branch
 id: node.empl.field_branch
 field_name: field_branch
 entity_type: node
 bundle: empl
 label: Branch
 description: ''
-required: false
-translatable: true
+required: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      branch: branch
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
