@@ -1,13 +1,13 @@
-uuid: 969a7714-f3ef-42f2-aa45-82bae3c2cbc9
+uuid: 3aa43b77-dc5e-41ad-9143-1417acbe0b61
 langcode: en
 status: true
 dependencies:
   config:
-    - taxonomy.vocabulary.employment_type
-id: taxonomy_term.employment_type.status
+    - taxonomy.vocabulary.branch
+id: taxonomy_term.branch.status
 field_name: status
 entity_type: taxonomy_term
-bundle: employment_type
+bundle: branch
 label: Published
 description: ''
 required: false
