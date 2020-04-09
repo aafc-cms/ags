@@ -22,9 +22,28 @@ dependencies:
   module:
     - content_moderation
     - datetime
+    - field_group
     - path
     - telephone
     - text
+third_party_settings:
+  field_group:
+    group_news_details:
+      children:
+        - field_newssubmittername
+        - field_newssubmitteremail
+        - field_newssubmitterphone
+      parent_name: ''
+      weight: 23
+      format_type: details
+      region: content
+      format_settings:
+        description: ''
+        open: true
+        id: ''
+        classes: news-details-fieldset
+        required_fields: false
+      label: 'News Details'
 id: node.news.default
 targetEntityType: node
 bundle: news
@@ -91,28 +110,28 @@ content:
     type: datetime_default
     region: content
   field_newssubmitteremail:
-    weight: 24
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
     type: email_default
+    weight: 24
     region: content
-  field_newssubmittername:
-    weight: 23
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_newssubmittername:
     type: string_textfield
+    weight: 23
     region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_newssubmitterphone:
+    type: telephone_default
     weight: 25
+    region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
-    type: telephone_default
-    region: content
   field_newstype:
     weight: 0
     settings: {  }
