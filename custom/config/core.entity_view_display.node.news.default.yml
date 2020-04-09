@@ -23,7 +23,6 @@ dependencies:
     - datetime
     - layout_builder
     - layout_builder_restrictions
-    - layout_discovery
     - layout_library
     - options
     - text
@@ -31,146 +30,13 @@ dependencies:
 third_party_settings:
   layout_builder:
     allow_custom: false
-    enabled: true
-    sections:
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: ''
-        components:
-          45701dbd-452b-4178-a5dd-5142f7145b66:
-            uuid: 45701dbd-452b-4178-a5dd-5142f7145b66
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:news:body'
-              formatter:
-                label: hidden
-                type: text_default
-                settings: {  }
-                third_party_settings: {  }
-            additional: {  }
-            weight: 4
-          b55e5f7a-d086-495c-a1d3-7f8c2880d926:
-            uuid: b55e5f7a-d086-495c-a1d3-7f8c2880d926
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:news:field_posted'
-              formatter:
-                label: above
-                settings:
-                  format_type: medium
-                  timezone_override: ''
-                third_party_settings: {  }
-                type: datetime_default
-            additional: {  }
-            weight: 0
-          bf433f92-3206-43ee-a513-a9c2e28f2b74:
-            uuid: bf433f92-3206-43ee-a513-a9c2e28f2b74
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:news:field_to'
-              formatter:
-                label: above
-                settings: {  }
-                third_party_settings: {  }
-                type: list_default
-            additional: {  }
-            weight: 2
-          f5d61c19-b2a7-4eb1-aa5a-086d07861e2b:
-            uuid: f5d61c19-b2a7-4eb1-aa5a-086d07861e2b
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:news:field_from'
-              formatter:
-                label: above
-                settings: {  }
-                third_party_settings: {  }
-                type: text_default
-            additional: {  }
-            weight: 1
-          6eb534fe-cf99-40cc-9b6c-622111a1236e:
-            uuid: 6eb534fe-cf99-40cc-9b6c-622111a1236e
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'extra_field_block:node:news:links'
-            additional: {  }
-            weight: 5
-          81e7f049-5fa9-4dfc-9a4f-bbbb94e98eb4:
-            uuid: 81e7f049-5fa9-4dfc-9a4f-bbbb94e98eb4
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:news:field_newssubmittername'
-              formatter:
-                label: above
-                settings:
-                  link_to_entity: false
-                third_party_settings: {  }
-                type: string
-            additional: {  }
-            weight: 6
-          da41ba68-5f6a-44d1-a080-70e760ea5f95:
-            uuid: da41ba68-5f6a-44d1-a080-70e760ea5f95
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:news:field_newssubmitteremail'
-              formatter:
-                label: above
-                settings: {  }
-                third_party_settings: {  }
-                type: basic_string
-            additional: {  }
-            weight: 7
-          50154502-ade4-4b9f-92ac-f709543125a4:
-            uuid: 50154502-ade4-4b9f-92ac-f709543125a4
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:news:field_newssubmitterphone'
-              formatter:
-                label: above
-                settings: {  }
-                third_party_settings: {  }
-                type: basic_string
-            additional: {  }
-            weight: 8
-        third_party_settings: {  }
+    enabled: false
   layout_library:
     enable: true
   layout_builder_restrictions:
     entity_view_mode_restriction:
       allowed_blocks: {  }
-      allowed_layouts:
-        - layout_onecol
-        - bs_2col_bricked
-        - bs_3col_bricked
-        - bs_4col_bricked
-        - layout_twocol_section
-        - layout_threecol_section
-        - layout_fourcol_section
-        - wxt_topic
+      allowed_layouts: {  }
 id: node.news.default
 targetEntityType: node
 bundle: news
@@ -179,41 +45,20 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 1
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     region: content
   field_from:
-    weight: 4
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
-  field_newssubmitteremail:
-    weight: 6
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_newssubmittername:
-    weight: 5
+    weight: 2
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
-  field_newssubmitterphone:
-    weight: 7
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
   field_posted:
-    weight: 2
+    weight: 3
     label: above
     settings:
       format_type: medium
@@ -222,7 +67,7 @@ content:
     type: datetime_default
     region: content
   field_to:
-    weight: 3
+    weight: 1
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -239,6 +84,9 @@ hidden:
   field_keywords: true
   field_meta_type: true
   field_modified: true
+  field_newssubmitteremail: true
+  field_newssubmittername: true
+  field_newssubmitterphone: true
   field_newstype: true
   field_subject: true
   langcode: true

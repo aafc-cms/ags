@@ -1,4 +1,6 @@
 display:
+  block_4:
+    display_title: 'All Content with Reviewer-fr'
   default:
     display_title: Maître
     display_options:
@@ -7,12 +9,24 @@ display:
           submit_button: Appliquer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
       pager:
         options:
+          tags:
+            previous: ‹‹
+            next: ››
           expose:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'
             offset_label: Décalage
+      fields:
+        title:
+          separator: ', '
+      empty:
+        area_text_custom:
+          content: 'There is no content being reviewed by me.'
+      title: 'My Content drafts'
   block_1:
     display_title: 'En cours de révision'
   block_2:
@@ -20,7 +34,9 @@ display:
     display_options:
       title: 'En brouillon'
   block_3:
+    display_title: 'My Content drafts'
     display_options:
+      title: 'My Content drafts'
       arguments:
         uid:
           exception:
@@ -28,7 +44,4 @@ display:
         'null':
           exception:
             title: Tout
-    display_title: 'Vos brouillons'
-  block_4:
-    display_title: 'All Content with Reviewer-fr'
 label: 'Moderation Dashboard In Review - Fr'
