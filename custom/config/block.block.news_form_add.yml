@@ -1,34 +1,30 @@
-uuid: 5cc40ed6-e854-470a-9ee8-caa508b3c221
+uuid: 18feb687-5269-4aa8-b91c-bcf76b622342
 langcode: en
 status: true
 dependencies:
   module:
-    - block_class
-    - entity_block
+    - formblock
     - system
     - wxt_library
   theme:
     - grstheme_bootstrap
-third_party_settings:
-  block_class:
-    classes: col-md-9
-id: media_2
+id: news_form_add
 theme: grstheme_bootstrap
-region: content
-weight: -13
+region: content_footer
+weight: -12
 provider: null
-plugin: 'entity_block:media'
+plugin: formblock_node
 settings:
-  id: 'entity_block:media'
-  label: Media
-  provider: entity_block
-  label_display: ''
-  entity: '7'
-  view_mode: default
+  id: formblock_node
+  label: 'News form, submit an article'
+  provider: formblock
+  label_display: visible
+  type: news
+  show_help: 1
 visibility:
   request_path:
     id: request_path
-    pages: '<front>'
+    pages: "/submit-article-news-work\r\n/submit-article-newswork"
     negate: false
     context_mapping: {  }
   panels_title:

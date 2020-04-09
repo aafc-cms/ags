@@ -1,0 +1,19 @@
+uuid: 2570ae0c-f7f6-4e60-b73b-391503200072
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_newsapprovedby
+    - node.type.news
+id: node.news.field_newsapprovedby
+field_name: field_newsapprovedby
+entity_type: node
+bundle: news
+label: newsApprovedby
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

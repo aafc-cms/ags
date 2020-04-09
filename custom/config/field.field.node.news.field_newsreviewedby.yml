@@ -1,19 +1,19 @@
-uuid: 95b5fabc-16f4-429a-be48-a4ee6c285890
+uuid: cc41b67e-f49e-47ef-8ad9-fb2d6bcaa4f0
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_newssubmittername
+    - field.storage.node.field_newsreviewedby
     - node.type.news
-id: node.news.field_newssubmittername
-field_name: field_newssubmittername
+id: node.news.field_newsreviewedby
+field_name: field_newsreviewedby
 entity_type: node
 bundle: news
-label: Name
+label: newsReviewedby
 description: ''
 required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: string
+field_type: email

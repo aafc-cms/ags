@@ -3,13 +3,15 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.news.body
+    - field.field.node.news.field_body
     - field.field.node.news.field_description
     - field.field.node.news.field_from
     - field.field.node.news.field_issued
     - field.field.node.news.field_keywords
     - field.field.node.news.field_meta_type
     - field.field.node.news.field_modified
+    - field.field.node.news.field_newsapprovedby
+    - field.field.node.news.field_newsreviewedby
     - field.field.node.news.field_newssubmitteremail
     - field.field.node.news.field_newssubmittername
     - field.field.node.news.field_newssubmitterphone
@@ -23,55 +25,66 @@ dependencies:
     - content_moderation
     - datetime
     - field_group
-    - path
     - telephone
     - text
 third_party_settings:
   field_group:
-    group_news_details:
+    group_submitter_s_contact_inform:
       children:
         - field_newssubmittername
         - field_newssubmitteremail
         - field_newssubmitterphone
       parent_name: ''
-      weight: 23
+      weight: 6
       format_type: details
       region: content
       format_settings:
-        description: ''
-        open: true
         id: ''
-        classes: news-details-fieldset
-        required_fields: false
-      label: 'News Details'
+        classes: submitterContactDetail
+        description: 'This person will be contacted if there are questions about this submission.'
+        open: true
+        required_fields: true
+      label: 'Submitter''s contact information'
+    group_aboutarticle:
+      children:
+        - field_newstype
+        - field_to
+      parent_name: ''
+      weight: 1
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'About the article'
+    group_newreviewandapprove:
+      children:
+        - field_newsreviewedby
+        - field_newsapprovedby
+      parent_name: ''
+      weight: 0
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Article approval'
 id: node.news.default
 targetEntityType: node
 bundle: news
 mode: default
 content:
-  body:
-    type: text_textarea_with_summary
-    weight: 15
+  field_body:
+    weight: 4
     settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-      show_summary: false
-    third_party_settings: {  }
-    region: content
-  created:
-    type: datetime_timestamp
-    weight: 8
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_description:
-    weight: 18
-    settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
+    type: text_textarea
     region: content
   field_from:
     weight: 3
@@ -81,37 +94,25 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_issued:
-    weight: 16
-    settings: {  }
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
-  field_keywords:
-    weight: 20
+  field_newsapprovedby:
+    weight: 25
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
+    type: email_default
     region: content
-  field_meta_type:
-    weight: 19
+  field_newsreviewedby:
+    weight: 24
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_modified:
-    weight: 17
-    settings: {  }
-    third_party_settings: {  }
-    type: datetime_default
+    type: email_default
     region: content
   field_newssubmitteremail:
     type: email_default
-    weight: 24
+    weight: 31
     region: content
     settings:
       size: 60
@@ -119,7 +120,7 @@ content:
     third_party_settings: {  }
   field_newssubmittername:
     type: string_textfield
-    weight: 23
+    weight: 29
     region: content
     settings:
       size: 60
@@ -127,7 +128,7 @@ content:
     third_party_settings: {  }
   field_newssubmitterphone:
     type: telephone_default
-    weight: 25
+    weight: 32
     region: content
     settings:
       placeholder: ''
@@ -139,18 +140,10 @@ content:
     type: options_select
     region: content
   field_posted:
-    weight: 22
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
-    region: content
-  field_subject:
-    weight: 4
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
     region: content
   field_to:
     weight: 1
@@ -158,50 +151,16 @@ content:
     third_party_settings: {  }
     type: options_select
     region: content
-  langcode:
-    type: language_select
-    weight: 5
-    region: content
-    settings:
-      include_locked: true
-    third_party_settings: {  }
   layout_selection:
     type: options_select
     region: content
-    weight: 21
+    weight: 8
     settings: {  }
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 13
+    weight: 7
     settings: {  }
-    region: content
-    third_party_settings: {  }
-  path:
-    type: path
-    weight: 11
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 9
-    region: content
-    third_party_settings: {  }
-  status:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 14
-    region: content
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 10
     region: content
     third_party_settings: {  }
   title:
@@ -212,24 +171,19 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  translation:
-    weight: 7
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
-    weight: 6
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-      match_limit: 10
-    region: content
-    third_party_settings: {  }
-  url_redirects:
-    weight: 12
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  created: true
+  field_description: true
+  field_issued: true
+  field_keywords: true
+  field_meta_type: true
+  field_modified: true
+  field_subject: true
+  langcode: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  translation: true
+  uid: true
+  url_redirects: true

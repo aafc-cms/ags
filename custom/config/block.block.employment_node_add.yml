@@ -1,0 +1,34 @@
+uuid: 01138b99-1293-4a44-b111-449cd634285e
+langcode: en
+status: true
+dependencies:
+  module:
+    - formblock
+    - system
+    - wxt_library
+  theme:
+    - grstheme_bootstrap
+id: employment_node_add
+theme: grstheme_bootstrap
+region: content_footer
+weight: -13
+provider: null
+plugin: formblock_node
+settings:
+  id: formblock_node
+  label: 'Employment form, add opportunity'
+  provider: formblock
+  label_display: '0'
+  type: empl
+  show_help: 0
+visibility:
+  panels_title:
+    id: panels_title
+    enabled: 0
+    negate: false
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: /hide-this
+    negate: false
+    context_mapping: {  }
