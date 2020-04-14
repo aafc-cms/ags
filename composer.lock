@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fd834933a9da59febe9e4f7fabd60d97",
+    "content-hash": "e6462aa6a119b3d0a915bb9d7c17a6c9",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -265,7 +265,7 @@
             "version": "v2.3.4",
             "source": {
                 "type": "git",
-                "url": "git@github.com:fengyuanchen/cropper.git",
+                "url": "https://github.com/fengyuanchen/cropper.git",
                 "reference": "30c58b29ee21010e17e58ebab165fbd84285c685"
             },
             "dist": {
@@ -3499,6 +3499,9 @@
                 "patches_applied": {
                     "remove hreflang attribute from language switcher li element": "https://www.drupal.org/files/issues/2019-06-05/2454289-82.patch",
                     "Language negotiation core fix, needed by access_unpublished and content moderation for forward draft revisions in non default language.": "https://www.drupal.org/files/issues/2019-05-30/drupal-2951294-21-fix-fallback.patch",
+                    "2869592 - Disabled update module shouldn't produce a status report warning": "https://www.drupal.org/files/issues/2869592-remove-update-warning-7.patch",
+                    "2815221 - Add quickedit to the latest-revision route": "https://www.drupal.org/files/issues/2019-11-27/2815221-125.patch",
+                    "Enter drupal/core patch #2752443 description here": "https://www.drupal.org/files/issues/in_correct_order_and-2752443-1.patch",
                     "Enter drupal/core patch #1356276 description here": "https://www.drupal.org/files/issues/2019-12-27/1356276-88x-603.patch",
                     "Enter drupal/core patch #1838234 description here": "https://www.drupal.org/files/issues/2018-09-06/1838234-52.patch",
                     "Enter drupal/core patch #2846485 description here": "https://www.drupal.org/files/issues/2018-04-03/views-multivalue_field_rendering_performance-2846485-23.patch",
@@ -3508,7 +3511,6 @@
                     "Enter drupal/core patch #2698057 description here": "https://www.drupal.org/files/issues/2698057_2.patch",
                     "2699157 - Plugin Lazy loading can cause usort warning": "https://www.drupal.org/files/issues/2699157-23.drupal.Plugin-Lazy-loading-can-cause-usort-warning.patch",
                     "Enter drupal/core patch #2715483 description here": "https://www.drupal.org/files/issues/2020-01-09/regression-2715483-22.patch",
-                    "Enter drupal/core patch #2752443 description here": "https://www.drupal.org/files/issues/in_correct_order_and-2752443-1.patch",
                     "2759397 - Patch EntityReferenceItemNormalizer to prevent recursion": "https://www.drupal.org/files/issues/2020-03-21/2759397-19-entityref_recursion.patch",
                     "Enter drupal/core patch #2765297 description here": "https://www.drupal.org/files/issues/2019-06-28/taxonomy_translation_2765297_0.patch",
                     "Enter drupal/core patch #2816921 description here": "https://www.drupal.org/files/issues/user_password-2816921-2.patch",
@@ -3521,9 +3523,7 @@
                     "Enter drupal/core patch #2914389 description here": "https://www.drupal.org/files/issues/2019-10-22/2914389-14-do-not-test.patch",
                     "Enter drupal/core patch #2938129 description here": "https://www.drupal.org/files/issues/2019-01-18/2938129-pagetitle-11.patch",
                     "Enter drupal/core patch #3017710 description here": "https://www.drupal.org/files/issues/2018-12-05/3017710-20.patch",
-                    "Enter drupal/core patch #3081656 description here": "https://www.drupal.org/files/issues/2019-09-16/0001-Issue-2488350-by-alexpott-Wim-Leers-Dimiter-catch-da.patch",
-                    "2869592 - Disabled update module shouldn't produce a status report warning": "https://www.drupal.org/files/issues/2869592-remove-update-warning-7.patch",
-                    "2815221 - Add quickedit to the latest-revision route": "https://www.drupal.org/files/issues/2019-11-27/2815221-125.patch"
+                    "Enter drupal/core patch #3081656 description here": "https://www.drupal.org/files/issues/2019-09-16/0001-Issue-2488350-by-alexpott-Wim-Leers-Dimiter-catch-da.patch"
                 }
             },
             "autoload": {
@@ -9092,6 +9092,65 @@
             }
         },
         {
+            "name": "drupal/warmer",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/warmer.git",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/warmer-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "acd81a2e53ee4cf8ba8b161aab63909b391b982d"
+            },
+            "require": {
+                "drupal/core": "~8.0",
+                "php": ">=5.6.0",
+                "vipnytt/sitemapparser": "^1.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1565733488",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^9"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Mateu Aguiló Bosch",
+                    "homepage": "https://www.drupal.org/user/550110",
+                    "email": "mateu@mateuaguilo.com"
+                },
+                {
+                    "name": "slv_",
+                    "homepage": "https://www.drupal.org/user/826088"
+                }
+            ],
+            "description": "Module that provides infrastructure for common cache warming/pre-fetching techniques.",
+            "homepage": "https://www.drupal.org/project/warmer",
+            "support": {
+                "source": "https://git.drupalcode.org/project/warmer"
+            }
+        },
+        {
             "name": "drupal/webform",
             "version": "5.9.0",
             "source": {
@@ -14127,6 +14186,64 @@
             "notification-url": "https://packagist.org/downloads/",
             "description": "forked from dinbror/blazy to be used as drupal-library",
             "time": "2017-07-16T11:19:13+00:00"
+        },
+        {
+            "name": "vipnytt/sitemapparser",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/VIPnytt/SitemapParser.git",
+                "reference": "e793cae01672a14215d35d39fdca50a0854ea498"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/VIPnytt/SitemapParser/zipball/e793cae01672a14215d35d39fdca50a0854ea498",
+                "reference": "e793cae01672a14215d35d39fdca50a0854ea498",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "ext-simplexml": "*",
+                "guzzlehttp/guzzle": "^6.0",
+                "lib-libxml": "*",
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "^0",
+                "phpunit/phpunit": "^5.0 || ^6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "vipnytt\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "VIP nytt",
+                    "email": "vipnytt@gmail.com",
+                    "role": "creator"
+                },
+                {
+                    "name": "Jan-Petter Gundersen",
+                    "email": "europe.jpg@gmail.com",
+                    "role": "developer"
+                }
+            ],
+            "description": "XML Sitemap parser class compliant with the Sitemaps.org protocol.",
+            "homepage": "https://github.com/VIPnytt/SitemapParser",
+            "keywords": [
+                "Sitemap",
+                "parser",
+                "robots.txt",
+                "sitemaps.org",
+                "xml"
+            ],
+            "time": "2019-08-10T15:31:54+00:00"
         },
         {
             "name": "w8tcha/ckeditor-codemirror",
