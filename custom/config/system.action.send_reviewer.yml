@@ -1,0 +1,13 @@
+uuid: 526c3550-c7f6-4bfc-80d4-7fc6d6fb74ec
+langcode: en
+status: true
+dependencies:
+  module:
+    - moderated_content_bulk_publish
+_core:
+  default_config_hash: oG7FS9P4xFEPel3L3Uf6tJIzEljWGTkHhmTiuSxL568
+id: send_reviewer
+label: 'Send to Reviewer'
+type: node
+plugin: send_reviewer_latest_revision_action
+configuration: {  }
