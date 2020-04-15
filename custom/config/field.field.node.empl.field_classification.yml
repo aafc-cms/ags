@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_classification
     - node.type.empl
+    - paragraphs.paragraphs_type.classification
   module:
     - entity_reference_revisions
 id: node.empl.field_classification
@@ -21,9 +22,10 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     negate: 0
-    target_bundles: null
+    target_bundles:
+      classification: classification
     target_bundles_drag_drop:
       classification:
+        enabled: true
         weight: 2
-        enabled: false
 field_type: entity_reference_revisions

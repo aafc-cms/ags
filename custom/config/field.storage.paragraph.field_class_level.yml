@@ -12,6 +12,12 @@ type: list_string
 settings:
   allowed_values:
     -
+      value: '-2'
+      label: 'Minus 2'
+    -
+      value: '-1'
+      label: 'Minus 1'
+    -
       value: '1'
       label: '1'
     -
@@ -47,6 +53,15 @@ settings:
     -
       value: '12'
       label: '12'
+    -
+      value: '13'
+      label: '13'
+    -
+      value: '14'
+      label: '14'
+    -
+      value: '15'
+      label: '15'
   allowed_values_function: ''
 module: options
 locked: false
