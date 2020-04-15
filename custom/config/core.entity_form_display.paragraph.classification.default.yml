@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.classification.field_class_id
     - field.field.paragraph.classification.field_class_level
+    - field.field.paragraph.classification.field_class_sub
     - paragraphs.paragraphs_type.classification
 id: paragraph.classification.default
 targetEntityType: paragraph
@@ -18,6 +19,12 @@ content:
     type: options_select
     region: content
   field_class_level:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_class_sub:
     weight: 1
     settings: {  }
     third_party_settings: {  }

@@ -1,0 +1,108 @@
+uuid: 4ce85a00-0cce-4541-ac42-7324804b4907
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_class_sub
+field_name: field_class_sub
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: AIO
+      label: AIO
+    -
+      value: BUS
+      label: BUS
+    -
+      value: CGC
+      label: CGC
+    -
+      value: COI
+      label: COI
+    -
+      value: CON
+      label: CON
+    -
+      value: DEV
+      label: DEV
+    -
+      value: EIM
+      label: EIM
+    -
+      value: ELE
+      label: ELE
+    -
+      value: ENG
+      label: ENG
+    -
+      value: FOS
+      label: FOS
+    -
+      value: GHW
+      label: GHW
+    -
+      value: INM
+      label: INM
+    -
+      value: LAT
+      label: LAT
+    -
+      value: MAM
+      label: MAM
+    -
+      value: MAN
+      label: MAN
+    -
+      value: MDO
+      label: MDO
+    -
+      value: MOC
+      label: MOC
+    -
+      value: MST
+      label: MST
+    -
+      value: OCE
+      label: OCE
+    -
+      value: PCF
+      label: PCF
+    -
+      value: PIP
+      label: PIP
+    -
+      value: PRO
+      label: PRO
+    -
+      value: REM
+      label: REM
+    -
+      value: RES
+      label: RES
+    -
+      value: SCY
+      label: SCY
+    -
+      value: SMW
+      label: SMW
+    -
+      value: STS
+      label: STS
+    -
+      value: VHE
+      label: VHE
+    -
+      value: WOW
+      label: WOW
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

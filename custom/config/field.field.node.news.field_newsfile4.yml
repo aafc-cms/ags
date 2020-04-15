@@ -1,0 +1,27 @@
+uuid: 2194eff8-6000-4832-a869-1cb5a554b19e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_newsfile4
+    - node.type.news
+  module:
+    - file
+id: node.news.field_newsfile4
+field_name: field_newsfile4
+entity_type: node
+bundle: news
+label: 'File 4:'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: txt
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

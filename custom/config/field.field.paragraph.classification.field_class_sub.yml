@@ -1,19 +1,19 @@
-uuid: c1f315c9-d8a6-420e-8848-cbb123ad7b36
+uuid: 48e6e726-6185-4f60-b0f6-76c1f86cdf57
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_class_id
+    - field.storage.paragraph.field_class_sub
     - paragraphs.paragraphs_type.classification
   module:
     - options
-id: paragraph.classification.field_class_id
-field_name: field_class_id
+id: paragraph.classification.field_class_sub
+field_name: field_class_sub
 entity_type: paragraph
 bundle: classification
-label: Group
+label: 'Sub group'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

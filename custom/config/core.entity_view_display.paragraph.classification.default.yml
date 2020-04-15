@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.classification.field_class_id
     - field.field.paragraph.classification.field_class_level
+    - field.field.paragraph.classification.field_class_sub
     - paragraphs.paragraphs_type.classification
   module:
     - options
@@ -22,6 +23,13 @@ content:
     region: content
   field_class_level:
     weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_class_sub:
+    weight: 2
     label: above
     settings: {  }
     third_party_settings: {  }

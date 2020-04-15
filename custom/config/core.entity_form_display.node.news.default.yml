@@ -11,6 +11,10 @@ dependencies:
     - field.field.node.news.field_meta_type
     - field.field.node.news.field_modified
     - field.field.node.news.field_newsapprovedby
+    - field.field.node.news.field_newsfile1
+    - field.field.node.news.field_newsfile2
+    - field.field.node.news.field_newsfile3
+    - field.field.node.news.field_newsfile4
     - field.field.node.news.field_newsnotes
     - field.field.node.news.field_newsreviewedby
     - field.field.node.news.field_newssubmitteremail
@@ -27,6 +31,7 @@ dependencies:
     - content_moderation
     - datetime
     - field_group
+    - file
     - telephone
     - text
 third_party_settings:
@@ -37,7 +42,7 @@ third_party_settings:
         - field_newssubmitteremail
         - field_newssubmitterphone
       parent_name: ''
-      weight: 7
+      weight: 8
       format_type: details
       region: content
       format_settings:
@@ -137,7 +142,7 @@ third_party_settings:
       children:
         - field_posted
       parent_name: ''
-      weight: 5
+      weight: 7
       format_type: details
       region: content
       format_settings:
@@ -151,7 +156,7 @@ third_party_settings:
       children:
         - field_newsnotes
       parent_name: ''
-      weight: 8
+      weight: 9
       format_type: details
       region: content
       format_settings:
@@ -161,6 +166,23 @@ third_party_settings:
         id: ''
         classes: ''
       label: Notes
+    group_newsattachedfiles:
+      children:
+        - field_newsfile1
+        - field_newsfile2
+        - field_newsfile4
+        - field_newsfile3
+      parent_name: ''
+      weight: 5
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: 'Click "Attach files" to add any photos, graphics, PDFs or other  related files to the article. Review the instructions for <a href="http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2903304&amp;lang=eng" target="_blank">photos, graphics, captions and permissions</a>.'
+        open: true
+        required_fields: true
+      label: 'Related files'
 id: node.news.default
 targetEntityType: node
 bundle: news
@@ -189,6 +211,34 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: email_default
+    region: content
+  field_newsfile1:
+    weight: 11
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+  field_newsfile2:
+    weight: 12
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+  field_newsfile3:
+    weight: 14
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+  field_newsfile4:
+    weight: 13
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
     region: content
   field_newsnotes:
     weight: 10
@@ -258,12 +308,12 @@ content:
   layout_selection:
     type: options_select
     region: content
-    weight: 10
+    weight: 11
     settings: {  }
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 9
+    weight: 10
     settings: {  }
     region: content
     third_party_settings: {  }
