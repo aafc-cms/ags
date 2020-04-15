@@ -20,8 +20,20 @@ body.news-article-form-page {
     min-height: 20px;
   }
 
-  .has-glyphicons .select-wrapper:after {
-    right: 71%;
+  &.i18n-en .field--type-entity-reference .select-wrapper:after {
+    right: 71% !important;
+  }
+
+  &.i18n-en .field--type-list-string .select-wrapper:after {
+    right: 74% !important;
+  }
+
+  &.i18n-fr .field--type-entity-reference .select-wrapper:after {
+    right: 61% !important;
+  }
+
+  &.i18n-fr .field--type-list-string .select-wrapper:after {
+    right: 74% !important;
   }
 
   // News Item form Style //
