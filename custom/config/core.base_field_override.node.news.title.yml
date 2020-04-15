@@ -1,15 +1,14 @@
-uuid: d6a5fac6-d0aa-4a54-af97-c2ca2953e6d6
+uuid: 1e047c15-38a5-4f47-850d-ff2c537d4228
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_from
     - node.type.news
-id: node.news.field_from
-field_name: field_from
+id: node.news.title
+field_name: title
 entity_type: node
 bundle: news
-label: 'Sent by'
+label: Headline
 description: ''
 required: true
 translatable: true

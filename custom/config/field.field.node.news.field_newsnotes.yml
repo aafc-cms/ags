@@ -1,0 +1,19 @@
+uuid: aa78bfbc-078f-45e1-a69c-1ee97a35208e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_newsnotes
+    - node.type.news
+id: node.news.field_newsnotes
+field_name: field_newsnotes
+entity_type: node
+bundle: news
+label: 'Please enter any notes or special instructions here.'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

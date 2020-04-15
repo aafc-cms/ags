@@ -11,10 +11,12 @@ dependencies:
     - field.field.node.news.field_meta_type
     - field.field.node.news.field_modified
     - field.field.node.news.field_newsapprovedby
+    - field.field.node.news.field_newsnotes
     - field.field.node.news.field_newsreviewedby
     - field.field.node.news.field_newssubmitteremail
     - field.field.node.news.field_newssubmittername
     - field.field.node.news.field_newssubmitterphone
+    - field.field.node.news.field_newstranslationnum
     - field.field.node.news.field_newstype
     - field.field.node.news.field_posted
     - field.field.node.news.field_subject
@@ -35,7 +37,7 @@ third_party_settings:
         - field_newssubmitteremail
         - field_newssubmitterphone
       parent_name: ''
-      weight: 6
+      weight: 7
       format_type: details
       region: content
       format_settings:
@@ -45,53 +47,127 @@ third_party_settings:
         open: true
         required_fields: true
       label: 'Submitter''s contact information'
+    group_newsreviewerandapprover:
+      children:
+        - field_newsreviewedby
+        - field_newsapprovedby
+      parent_name: ''
+      weight: 0
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: 'All articles must be reviewed by a <a href="?id=1308685719458" target="_blank">Public Affairs Branch Advisor</a> and be approved by a Director or above.'
+        open: true
+        required_fields: true
+      label: 'Article approval'
     group_aboutarticle:
       children:
         - field_newstype
         - field_to
       parent_name: ''
       weight: 1
-      format_type: fieldset
+      format_type: details
       region: content
       format_settings:
         id: ''
         classes: ''
         description: ''
+        open: true
         required_fields: true
       label: 'About the article'
-    group_newreviewandapprove:
+    group_newsarticleheadline:
       children:
-        - field_newsreviewedby
-        - field_newsapprovedby
+        - title
       parent_name: ''
-      weight: 0
-      format_type: fieldset
+      weight: 2
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: 'See the <a href="http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2903350&amp;lang=eng" target="_blank">headline guidelines</a> for information on how to write an effective headline.'
+        open: true
+        required_fields: true
+      label: 'Article headline'
+    group_newssentby:
+      children:
+        - field_from
+      parent_name: ''
+      weight: 3
+      format_type: details
       region: content
       format_settings:
         id: ''
         classes: ''
         description: ''
+        open: true
         required_fields: true
-      label: 'Article approval'
-    group_approvalmsglabel:
-      children: {  }
+      label: 'Who will readers see the article has been "Sent By"?'
+    group_newsarticle:
+      children:
+        - field_body
       parent_name: ''
-      weight: 20
-      format_type: fieldset
-      region: hidden
+      weight: 4
+      format_type: details
+      region: content
       format_settings:
         id: ''
         classes: ''
-        description: 'All articles must be reviewed by a <a href="?id=1308685719458" target="_blank">Public Affairs Branch Advisor</a> and be approved by a Director or above.”'
+        description: "Paste the body of  the article below (do not include the headline). Indicate where any images (including captions) should appear.\r\n\r\nAny images, PDFs or other related files must be attached in the \"Related files\" section below. Review the instructions for  <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2903304&amp;lang=eng\" target=\"_blank\">photos, graphics, captions and permissions</a>."
+        open: true
         required_fields: true
-      label: approvalMsgLabel
+      label: 'The article'
+    group_newstranslationreqnum:
+      children:
+        - field_newstranslationnum
+      parent_name: ''
+      weight: 6
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: 'Please supply the request number given to you by <a href="http://intranet.agr.gc.ca/agrisource/eng/branches-and-offices/public-affairs-branch/translation-and-revision-services?id=1298922166577" target="_blank">Translation and Revision Services</a>. '
+        open: true
+        required_fields: true
+      label: 'Translation request number'
+    group_newsposteddate:
+      children:
+        - field_posted
+      parent_name: ''
+      weight: 5
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: true
+        required_fields: true
+      label: 'Posting date'
+    group_newsnotes:
+      children:
+        - field_newsnotes
+      parent_name: ''
+      weight: 8
+      format_type: details
+      region: content
+      format_settings:
+        description: ''
+        open: true
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Notes
 id: node.news.default
 targetEntityType: node
 bundle: news
 mode: default
 content:
   field_body:
-    weight: 4
+    weight: 5
     settings:
       rows: 5
       placeholder: ''
@@ -99,7 +175,7 @@ content:
     type: text_textarea
     region: content
   field_from:
-    weight: 3
+    weight: 4
     settings:
       size: 60
       placeholder: ''
@@ -107,15 +183,23 @@ content:
     type: string_textfield
     region: content
   field_newsapprovedby:
-    weight: 25
+    weight: 1
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: email_default
     region: content
+  field_newsnotes:
+    weight: 10
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
   field_newsreviewedby:
-    weight: 24
+    weight: 0
     settings:
       size: 60
       placeholder: ''
@@ -124,7 +208,7 @@ content:
     region: content
   field_newssubmitteremail:
     type: email_default
-    weight: 31
+    weight: 8
     region: content
     settings:
       size: 60
@@ -132,7 +216,7 @@ content:
     third_party_settings: {  }
   field_newssubmittername:
     type: string_textfield
-    weight: 29
+    weight: 6
     region: content
     settings:
       size: 60
@@ -140,25 +224,33 @@ content:
     third_party_settings: {  }
   field_newssubmitterphone:
     type: telephone_default
-    weight: 32
+    weight: 9
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
+  field_newstranslationnum:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_newstype:
-    weight: 0
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_posted:
-    weight: 5
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_to:
-    weight: 1
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -166,18 +258,18 @@ content:
   layout_selection:
     type: options_select
     region: content
-    weight: 8
+    weight: 10
     settings: {  }
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 7
+    weight: 9
     settings: {  }
     region: content
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 2
+    weight: 3
     region: content
     settings:
       size: 60
