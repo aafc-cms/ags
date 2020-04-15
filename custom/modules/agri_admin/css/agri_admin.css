@@ -1,2 +1,44 @@
  /* Admin css for the administration theme (override) */
+@media screen and (min-width: 992px) {
+  body.etuf-sbs.nodeaddnews .layout-region-node-main, body.etuf-sbs.nodeaddnews .layout-region-node-footer {
+    width: auto !important;
+  }
+
+  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-main .js-form-item.form-item,
+  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-footer .js-form-item.form-item {
+    float: none !important;
+    width: auto !important;
+    margin-right: auto !important;
+  }
+
+  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-main .js-form-item.form-item:nth-child(even),
+  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-footer .js-form-item.form-item:nth-child(even) {
+    float: none !important;
+    width: auto !important;
+    margin-left: auto !important;
+  }
+
+  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-main .js-form-item.form-item.form-type--textarea {
+    width: auto !important;
+  }
+
+  body.etuf-sbs.nodeaddnews .layout-region-node-secondary {
+    width: auto !important;
+  }
+
+  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-footer .js-form-item.form-item.form-item--moderation-state-0-state,
+  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-footer transitionset {
+    float: none !important;
+    width: auto !important;
+    margin-right: auto !important;
+  }
+
+  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-footer .js-form-item.form-item.form-item--moderation-state-etuf-fr-0-state,
+  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-footer transitionset:nth-child(even) {
+    float: none !important;
+    width: auto !important;
+    margin-left: auto !important;
+  }
+
+}
 
