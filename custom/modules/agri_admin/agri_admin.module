@@ -13,6 +13,9 @@ function agri_admin_preprocess_html(&$variables) {
   $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $variables['current_path'] = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
   $clean_path = preg_replace( '/[\W]/', '', $variables['current_path']);
+  if (strlen($clean_path) > 30) {
+    $clean_path = substr($clean_path, 0, 29);
+  }
   $variables['attributes']['class'][] = $clean_path;
 }
 
