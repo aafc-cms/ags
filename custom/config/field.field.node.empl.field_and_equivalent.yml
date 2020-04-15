@@ -1,0 +1,23 @@
+uuid: 9c2d2a2e-9acd-4062-862e-13b49e63b60a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_and_equivalent
+    - node.type.empl
+id: node.empl.field_and_equivalent
+field_name: field_and_equivalent
+entity_type: node
+bundle: empl
+label: 'and equivalent'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'and equivalent'
+  off_label: 'limited to these groups only'
+field_type: boolean
