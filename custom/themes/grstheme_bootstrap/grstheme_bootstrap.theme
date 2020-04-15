@@ -6,3 +6,35 @@
  *
  * Place your custom PHP code in this file.
  */
+
+function grstheme_bootstrap_preprocess_html(&$variables) {
+
+  $current_path = \Drupal::service('path.current')->getPath();
+  $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $variables['langID'] = $langId;
+  $theme = \Drupal\bootstrap\Bootstrap::getTheme();
+  $themedir = $theme->getPath();
+  $variables['current_path'] = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+  // Add node id to the body class.
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node) {
+    // Workaround for https://www.drupal.org/project/drupal/issues/2730631 .
+    // Workaround for inconsistent router behaviour, see comments in issue 2730631.
+    $nodeType = '';
+    $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+
+    if (is_string($node) && is_numeric($node)) {
+      $nid = $node;
+    }
+    else if (gettype($node) == 'object') {
+      $nid = $node->id();
+      $nodeType = $node->getType();
+      $vid = $node->getRevisionId();
+    }
+    if ($nid == 49) {
+      $variables['attributes']['class'][] = 'news-article-form-page';
+    }
+    $variables['attributes']['class'][] = 'node-' . $nid;
+  }
+
+}
