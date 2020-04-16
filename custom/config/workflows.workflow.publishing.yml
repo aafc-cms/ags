@@ -3,9 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - block_content.type.basic
-    - block_content.type.media_slideshow
-    - block_content.type.text
     - media.type.audio_file
     - media.type.document
     - media.type.image
@@ -127,10 +124,6 @@ type_settings:
       to: with_reviewer_for_deletion
       weight: 9
   entity_types:
-    block_content:
-      - basic
-      - media_slideshow
-      - text
     media:
       - audio_file
       - document
