@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.news.field_body
+    - field.field.node.news.body
     - field.field.node.news.field_description
     - field.field.node.news.field_from
     - field.field.node.news.field_issued
@@ -112,6 +112,7 @@ third_party_settings:
       label: 'Who will readers see the article has been "Sent By"?'
     group_newsarticle:
       children:
+        - body
         - field_body
       parent_name: ''
       weight: 4
@@ -188,13 +189,15 @@ targetEntityType: node
 bundle: news
 mode: default
 content:
-  field_body:
-    weight: 5
+  body:
+    weight: 26
     settings:
-      rows: 5
+      rows: 9
+      summary_rows: 3
       placeholder: ''
+      show_summary: false
     third_party_settings: {  }
-    type: text_textarea
+    type: text_textarea_with_summary
     region: content
   field_from:
     weight: 4

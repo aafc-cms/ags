@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.news.field_body
+    - field.field.node.news.body
     - field.field.node.news.field_description
     - field.field.node.news.field_from
     - field.field.node.news.field_issued
@@ -51,8 +51,8 @@ targetEntityType: node
 bundle: news
 mode: default
 content:
-  field_body:
-    weight: 6
+  body:
+    weight: 4
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -67,14 +67,14 @@ content:
     type: string
     region: content
   field_newsapprovedby:
-    weight: 8
+    weight: 7
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_newsfile1:
-    weight: 11
+    weight: 10
     label: above
     settings:
       use_description_as_link_text: true
@@ -82,7 +82,7 @@ content:
     type: file_default
     region: content
   field_newsfile2:
-    weight: 12
+    weight: 11
     label: above
     settings:
       use_description_as_link_text: true
@@ -90,7 +90,7 @@ content:
     type: file_default
     region: content
   field_newsfile3:
-    weight: 13
+    weight: 12
     label: above
     settings:
       use_description_as_link_text: true
@@ -98,7 +98,7 @@ content:
     type: file_default
     region: content
   field_newsfile4:
-    weight: 14
+    weight: 13
     label: above
     settings:
       use_description_as_link_text: true
@@ -106,21 +106,21 @@ content:
     type: file_default
     region: content
   field_newsnotes:
-    weight: 10
+    weight: 9
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_newsreviewedby:
-    weight: 7
+    weight: 6
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_newstranslationnum:
-    weight: 9
+    weight: 8
     label: above
     settings:
       link_to_entity: false

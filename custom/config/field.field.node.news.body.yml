@@ -1,14 +1,14 @@
-uuid: 540cc4d8-a929-4401-8a59-e656fa3a392c
+uuid: 73ccd27b-557e-4b3a-8c5d-761fbca25c47
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_body
+    - field.storage.node.body
     - node.type.news
   module:
     - text
-id: node.news.field_body
-field_name: field_body
+id: node.news.body
+field_name: body
 entity_type: node
 bundle: news
 label: 'Article text'
@@ -17,5 +17,7 @@ required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: text_long
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary
