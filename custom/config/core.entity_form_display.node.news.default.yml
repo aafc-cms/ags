@@ -46,11 +46,11 @@ third_party_settings:
       format_type: details
       region: content
       format_settings:
-        id: ''
-        classes: submitterContactDetail
-        description: 'This person will be contacted if there are questions about this submission.'
+        description: "<span class=\"english-only\">This person will be contacted if there are questions about this submission.</span>\r\n\r\n<span class=\"french-only\">\r\nLe coordonnateur de <em>nouvelles@l’ouvrage</em> communiquera avec cette personne s’il y a des questions au sujet de  l’article soumis.\r\n</span>"
         open: true
         required_fields: true
+        id: ''
+        classes: submitterContactDetail
       label: 'Submitter''s contact information'
     group_newsreviewerandapprover:
       children:
@@ -61,11 +61,11 @@ third_party_settings:
       format_type: details
       region: content
       format_settings:
-        id: ''
-        classes: ''
-        description: 'All articles must be reviewed by a <a href="?id=1308685719458" target="_blank">Public Affairs Branch Advisor</a> and be approved by a Director or above.'
+        description: "<span class=\"english-only\">All articles must be reviewed by a <a href=\"?id=1308685719458\" target=\"_blank\">Public Affairs Branch Advisor</a> and be approved by a Director or above.</span>\r\n<span class=\"french-only\">Les articles doivent avoir l'approbation par un <a href=\"?id=1308685719458\" target=\"_blank\">Conseiller d'Affaires Publique</a> et approver par un directeur ou a le conseiller d'affaires publiques.</span>"
         open: true
         required_fields: true
+        id: ''
+        classes: ''
       label: 'Article approval'
     group_aboutarticle:
       children:
@@ -90,11 +90,11 @@ third_party_settings:
       format_type: details
       region: content
       format_settings:
-        id: ''
-        classes: ''
-        description: 'See the <a href="http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2903350&amp;lang=eng" target="_blank">headline guidelines</a> for information on how to write an effective headline.'
+        description: "<span class=\"english-only\">See the <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2903350&amp;lang=eng\" target=\"_blank\">headline guidelines</a> for information on how to write an effective headline.</span>\r\n\r\n<span class=\"french-only\">\r\n<p>Veuillez consulter les <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2911217&amp;lang=fra\" target=\"_blank\">instructions sur les titres</a> pour obtenir des conseils sur la rédaction de titres efficaces.</p>\r\n</span>"
         open: true
         required_fields: true
+        id: ''
+        classes: ''
       label: 'Article headline'
     group_newssentby:
       children:
@@ -104,26 +104,25 @@ third_party_settings:
       format_type: details
       region: content
       format_settings:
-        id: ''
-        classes: ''
-        description: ''
+        description: "<span class=\"english-only\">Name the branch, ADM, directorate, unit, or group that readers will see the article has been \"Sent By\". Consult the <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2903361&amp;lang=eng\" target=\"_blank\">Sent By guidelines</a>.</span>\r\n\r\n<span class=\"french-only\">Veuillez indiquer le nom de la direction générale, du ou de la SMA, de la direction, de la section ou du groupe que les lecteurs verront sous la mention « De ». Consultez les <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2911213&amp;lang=fra\" target=\"_blank\">instructions sur la mention « De »</a>.\r\n</span>"
         open: true
         required_fields: true
+        id: ''
+        classes: ''
       label: 'Who will readers see the article has been "Sent By"?'
     group_newsarticle:
       children:
         - body
-        - field_body
       parent_name: ''
       weight: 4
       format_type: details
       region: content
       format_settings:
-        id: ''
-        classes: ''
-        description: "Paste the body of  the article below (do not include the headline). Indicate where any images (including captions) should appear.\r\n\r\nAny images, PDFs or other related files must be attached in the \"Related files\" section below. Review the instructions for  <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2903304&amp;lang=eng\" target=\"_blank\">photos, graphics, captions and permissions</a>."
+        description: "<span class=\"english-only\">\r\nPaste the body of  the article below (do not include the headline). Indicate where any images (including captions) should appear.\r\n\r\nAny images, PDFs or other related files must be attached in the \"Related files\" section below. Review the instructions for  <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2903304&amp;lang=eng\" target=\"_blank\">photos, graphics, captions and permissions</a>.</span>\r\n\r\n<span class=\"french-only\">\r\nVeuillez copier/coller l’article dans l’espace ci-dessous (ne pas inclure le titre). Si  l’article contient des images, indiquez à quel endroit ces dernières et les légendes qui les accompagnent doivent être insérées dans l’article.\r\n\r\nLes images, les fichiers en format PDF et autres fichiers connexes doivent être joints  dans la section « Fichiers connexes » ci-dessous. Consultez les <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2911233&amp;lang=fra\" target=\"_blank\">instructions sur les photos, les graphiques, les légendes et les autorisations</a>.</span>"
         open: true
         required_fields: true
+        id: ''
+        classes: ''
       label: 'The article'
     group_newstranslationreqnum:
       children:
@@ -133,11 +132,11 @@ third_party_settings:
       format_type: details
       region: content
       format_settings:
-        id: ''
-        classes: ''
-        description: 'Please supply the request number given to you by <a href="http://intranet.agr.gc.ca/agrisource/eng/branches-and-offices/public-affairs-branch/translation-and-revision-services?id=1298922166577" target="_blank">Translation and Revision Services</a>. '
+        description: "<span class=\"english-only\">Please supply the request number given to you by <a href=\"http://intranet.agr.gc.ca/agrisource/eng/branches-and-offices/public-affairs-branch/translation-and-revision-services?id=1298922166577\" target=\"_blank\">Translation and Revision Services</a>. </span>\r\n\r\n<span class=\"french-only\">Veuillez fournir le  numéro de demande qui vous a été fourni par le <a href=\"http://intranet.agr.gc.ca/agrisource/fra/directions-generales-et-bureaux/direction-generale-des-affaires-publiques/service-de-traduction-et-de-revision?id=1298922166577\" target=\"_blank\">Service de traduction et de révision</a>.  </span>"
         open: true
         required_fields: true
+        id: ''
+        classes: ''
       label: 'Translation request number'
     group_newsposteddate:
       children:
