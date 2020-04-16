@@ -1,0 +1,43 @@
+uuid: 0ef6b7d7-b450-4c83-87fa-e7a5865a6a19
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:b382751d-0591-4714-8dc8-506d8d8aa343'
+  module:
+    - block_class
+    - block_content
+    - ctools
+    - wxt_library
+  theme:
+    - grstheme_bootstrap
+third_party_settings:
+  block_class:
+    classes: employment-privacy-notice-block
+id: privacynotice
+theme: grstheme_bootstrap
+region: content_footer
+weight: -12
+provider: null
+plugin: 'block_content:b382751d-0591-4714-8dc8-506d8d8aa343'
+settings:
+  id: 'block_content:b382751d-0591-4714-8dc8-506d8d8aa343'
+  label: 'Privacy Notice'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      empl: empl
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  panels_title:
+    id: panels_title
+    enabled: 0
+    negate: false
+    context_mapping: {  }
