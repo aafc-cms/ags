@@ -1,43 +1,55 @@
  /* Admin css for the administration theme (override) */
+body.nodeaddempl .field-group-fieldset,
+body.node-edit.page-node-type-empl .field-group-fieldset {
+  width: 100% !important;
+}
+
+body.nodeaddempl .field-group-fieldset,
+body.node-edit.page-node-type-empl .field-group-fieldset .js-form-item.form-item {
+  float: inherit !important;
+  width: auto;
+  margin-right: auto;
+}
+
 @media screen and (min-width: 992px) {
   body.etuf-sbs.nodeaddnews .layout-region-node-main, body.etuf-sbs.nodeaddnews .layout-region-node-footer {
-    width: auto !important;
+    width: auto;
   }
 
   body.etuf-sbs.nodeaddnews.path-node .layout-region-node-main .js-form-item.form-item,
   body.etuf-sbs.nodeaddnews.path-node .layout-region-node-footer .js-form-item.form-item {
-    float: none !important;
-    width: auto !important;
-    margin-right: auto !important;
+    float: inherit !important;
+    width: auto;
+    margin-right: auto;
   }
 
   body.etuf-sbs.nodeaddnews.path-node .layout-region-node-main .js-form-item.form-item:nth-child(even),
   body.etuf-sbs.nodeaddnews.path-node .layout-region-node-footer .js-form-item.form-item:nth-child(even) {
-    float: none !important;
-    width: auto !important;
-    margin-left: auto !important;
+    float: inherit !important;
+    width: auto;
+    margin-left: auto;
   }
 
   body.etuf-sbs.nodeaddnews.path-node .layout-region-node-main .js-form-item.form-item.form-type--textarea {
-    width: auto !important;
+    width: auto;
   }
 
   body.etuf-sbs.nodeaddnews .layout-region-node-secondary {
-    width: auto !important;
+    width: auto;
   }
 
   body.etuf-sbs.nodeaddnews.path-node .layout-region-node-footer .js-form-item.form-item.form-item--moderation-state-0-state,
   body.etuf-sbs.nodeaddnews.path-node .layout-region-node-footer transitionset {
-    float: none !important;
-    width: auto !important;
-    margin-right: auto !important;
+    float: inherit !important;
+    width: auto;
+    margin-right: auto;
   }
 
   body.etuf-sbs.nodeaddnews.path-node .layout-region-node-footer .js-form-item.form-item.form-item--moderation-state-etuf-fr-0-state,
   body.etuf-sbs.nodeaddnews.path-node .layout-region-node-footer transitionset:nth-child(even) {
-    float: none !important;
-    width: auto !important;
-    margin-left: auto !important;
+    float: inherit !important;
+    width: auto;
+    margin-left: auto;
   }
 
 }

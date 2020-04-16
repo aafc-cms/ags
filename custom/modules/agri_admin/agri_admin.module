@@ -11,10 +11,16 @@ use Drupal\agri_admin\AgriAdminHelper;
 function agri_admin_preprocess_html(&$variables) {
   $current_path = \Drupal::service('path.current')->getPath();
   $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
-  $variables['current_path'] = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+  $current_path = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+  $variables['current_path'] = $current_path;
   $clean_path = preg_replace( '/[\W]/', '', $variables['current_path']);
   if (strlen($clean_path) > 30) {
     $clean_path = substr($clean_path, 0, 29);
+  }
+  if (strpos($current_path, 'node') > 0) {
+    if (substr_compare($current_path, 'edit', -strlen('edit')) === 0) {
+      $clean_path = 'node-edit';
+    }
   }
   $variables['attributes']['class'][] = $clean_path;
 }
