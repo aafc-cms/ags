@@ -52,7 +52,7 @@ third_party_settings:
         - field_branch
         - group_level_and
       parent_name: ''
-      weight: 19
+      weight: 18
       format_type: fieldset
       region: content
       format_settings:
@@ -122,28 +122,6 @@ content:
     type: datetime_default
     region: content
   field_description:
-    weight: 7
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_email:
-    weight: 12
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: email_default
-    region: content
-  field_issued:
-    weight: 17
-    settings: {  }
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
-  field_keywords:
     weight: 6
     settings:
       size: 60
@@ -151,15 +129,21 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_locations:
-    weight: 9
+  field_email:
+    weight: 11
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
+    type: email_default
     region: content
-  field_meta_type:
+  field_issued:
+    weight: 16
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_keywords:
     weight: 5
     settings:
       size: 60
@@ -167,14 +151,30 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_locations:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_meta_type:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_modified:
-    weight: 18
+    weight: 17
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_name:
-    weight: 11
+    weight: 10
     settings:
       size: 60
       placeholder: ''
@@ -182,7 +182,7 @@ content:
     type: string_textfield
     region: content
   field_open_to:
-    weight: 10
+    weight: 9
     settings:
       size: 60
       placeholder: ''
@@ -198,7 +198,7 @@ content:
     type: email_default
     region: content
   field_subject:
-    weight: 4
+    weight: 3
     settings:
       size: 60
       placeholder: ''
@@ -214,43 +214,43 @@ content:
   layout_selection:
     type: options_select
     region: content
-    weight: 13
+    weight: 12
     settings: {  }
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 14
+    weight: 13
     settings: {  }
     region: content
     third_party_settings: {  }
   path:
     type: path
-    weight: 16
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 8
+    weight: 7
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 3
+    weight: 1
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 20
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
   url_redirects:
-    weight: 15
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
