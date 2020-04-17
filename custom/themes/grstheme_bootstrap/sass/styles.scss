@@ -11,6 +11,14 @@
 @import 'forms/news_submission_form';
 @import 'legacy/classes';
 
+html[lang="fr"] .english-only {
+  display: none !important;
+}
+
+html[lang="en"] .french-only {
+  display: none !important;
+}
+
 body > div > div.container {
   border-right: 1px solid $agrisource-border;
   border-left: 1px solid $agrisource-border;
