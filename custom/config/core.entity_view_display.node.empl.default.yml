@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.empl.field_modified
     - field.field.node.empl.field_name
     - field.field.node.empl.field_open_to
+    - field.field.node.empl.field_opportunityapproval
     - field.field.node.empl.field_subject
     - field.field.node.empl.field_type
     - field.field.node.empl.layout_selection
@@ -117,6 +118,13 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_opportunityapproval:
+    weight: 11
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
     region: content
   field_type:
     weight: 1

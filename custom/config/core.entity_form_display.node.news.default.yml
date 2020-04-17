@@ -177,11 +177,11 @@ third_party_settings:
       format_type: details
       region: content
       format_settings:
-        id: ''
-        classes: ''
-        description: 'Click "Attach files" to add any photos, graphics, PDFs or other  related files to the article. Review the instructions for <a href="http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2903304&amp;lang=eng" target="_blank">photos, graphics, captions and permissions</a>.'
+        description: "<span class=\"english-only\">Click \"Attach files\" to add any photos, graphics, PDFs or other  related files to the article. Review the instructions for <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2903304&amp;lang=eng\" target=\"_blank\">photos, graphics, captions and permissions</a>.</span>\r\n\r\n<span class=\"french-only\">\r\nSi l’article contient des photos, des graphiques, un  fichier en format PDF ou tout autre fichier connexe, cliquez sur « Joindre des fichiers » pour ajouter ces documents. Consultez les <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2911233&amp;lang=fra\" target=\"_blank\">instructions sur photos, les graphiques, les légendes et les autorisations</a>.\r\n</span>"
         open: true
         required_fields: true
+        id: ''
+        classes: ''
       label: 'Related files'
 id: node.news.default
 targetEntityType: node

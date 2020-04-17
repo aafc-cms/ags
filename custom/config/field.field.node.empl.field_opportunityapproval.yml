@@ -1,0 +1,19 @@
+uuid: cfe0e76b-5c90-427f-958b-050880e8a981
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_opportunityapproval
+    - node.type.empl
+id: node.empl.field_opportunityapproval
+field_name: field_opportunityapproval
+entity_type: node
+bundle: empl
+label: 'Email address of Human Resources Advisor, Staffing  who  approved this opportunity'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email
