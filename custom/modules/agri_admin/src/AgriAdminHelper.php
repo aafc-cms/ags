@@ -489,6 +489,9 @@ class AgriAdminHelper {
           'status' => TRUE,
           'langcode' => $lang,
         ];
+        if ($menu_name == 'sidebar') {
+          $menu_attributes['expanded'] = FALSE;
+        }
         //static::addToLog('en menu_attributes["parent"]=' . $menu_attributes['parent']);
         if (gettype($parentUuid) == 'boolean') {
           unset($menu_attributes['parent']);
