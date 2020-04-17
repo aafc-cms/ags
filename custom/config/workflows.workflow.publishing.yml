@@ -11,7 +11,9 @@ dependencies:
     - media.type.tweet
     - media.type.video
     - media.type.video_file
+    - node.type.empl
     - node.type.landing_page
+    - node.type.news
     - node.type.page
   module:
     - content_moderation
@@ -134,6 +136,8 @@ type_settings:
       - video
       - video_file
     node:
+      - empl
       - landing_page
+      - news
       - page
   default_moderation_state: draft
