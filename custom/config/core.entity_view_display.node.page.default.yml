@@ -244,7 +244,7 @@ third_party_settings:
               label_display: '0'
               context_mapping: {  }
             additional: {  }
-            weight: 1
+            weight: 2
           32338ff6-919d-414d-a91b-fa0310743e8c:
             uuid: 32338ff6-919d-414d-a91b-fa0310743e8c
             region: top
@@ -257,7 +257,7 @@ third_party_settings:
               secondary: true
               context_mapping: {  }
             additional: {  }
-            weight: 2
+            weight: 3
           62bdbdfd-4fa7-4b64-9568-7e57ff8dfb6d:
             uuid: 62bdbdfd-4fa7-4b64-9568-7e57ff8dfb6d
             region: bottom
@@ -277,25 +277,9 @@ third_party_settings:
                 entity: layout_builder.entity
             additional: {  }
             weight: 0
-          66489d18-cc62-4f33-b1cd-68f5668eefd3:
-            uuid: 66489d18-cc62-4f33-b1cd-68f5668eefd3
-            region: top
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:page:field_category'
-              formatter:
-                label: above
-                settings:
-                  link: true
-                third_party_settings: {  }
-                type: entity_reference_label
-            additional: {  }
-            weight: 3
           a9f455ac-7a75-4241-bb9e-52f56897df0a:
             uuid: a9f455ac-7a75-4241-bb9e-52f56897df0a
-            region: top
+            region: main
             configuration:
               id: 'field_block:node:page:body'
               label: Body
@@ -310,6 +294,22 @@ third_party_settings:
                 entity: layout_builder.entity
             additional: {  }
             weight: 0
+          66489d18-cc62-4f33-b1cd-68f5668eefd3:
+            uuid: 66489d18-cc62-4f33-b1cd-68f5668eefd3
+            region: main
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:page:field_category'
+              formatter:
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+                type: entity_reference_label
+            additional: {  }
+            weight: 1
         third_party_settings: {  }
     allow_custom: true
   layout_library:
