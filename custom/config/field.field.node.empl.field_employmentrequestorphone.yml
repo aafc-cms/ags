@@ -1,0 +1,21 @@
+uuid: 6e3a1833-ecb0-496e-a4af-e667ffa15a5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_employmentrequestorphone
+    - node.type.empl
+  module:
+    - telephone
+id: node.empl.field_employmentrequestorphone
+field_name: field_employmentrequestorphone
+entity_type: node
+bundle: empl
+label: 'Your telephone  number'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

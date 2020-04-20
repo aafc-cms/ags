@@ -11,6 +11,10 @@ dependencies:
     - field.field.node.empl.field_date_closing
     - field.field.node.empl.field_description
     - field.field.node.empl.field_email
+    - field.field.node.empl.field_empladditionalnotes
+    - field.field.node.empl.field_employmentrequestoremail
+    - field.field.node.empl.field_employmentrequestorname
+    - field.field.node.empl.field_employmentrequestorphone
     - field.field.node.empl.field_issued
     - field.field.node.empl.field_keywords
     - field.field.node.empl.field_locations
@@ -143,9 +147,14 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  content_moderation_control: true
   field_and_equivalent: true
   field_classification: true
   field_description: true
+  field_empladditionalnotes: true
+  field_employmentrequestoremail: true
+  field_employmentrequestorname: true
+  field_employmentrequestorphone: true
   field_issued: true
   field_keywords: true
   field_meta_type: true

@@ -1,0 +1,19 @@
+uuid: 590a6bac-bf72-48a4-a964-0cc94e48c221
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_empladditionalnotes
+    - node.type.empl
+id: node.empl.field_empladditionalnotes
+field_name: field_empladditionalnotes
+entity_type: node
+bundle: empl
+label: 'Please add any final instructions or notes here.  '
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

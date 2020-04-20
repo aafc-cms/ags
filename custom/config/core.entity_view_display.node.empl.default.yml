@@ -10,6 +10,10 @@ dependencies:
     - field.field.node.empl.field_date_closing
     - field.field.node.empl.field_description
     - field.field.node.empl.field_email
+    - field.field.node.empl.field_empladditionalnotes
+    - field.field.node.empl.field_employmentrequestoremail
+    - field.field.node.empl.field_employmentrequestorname
+    - field.field.node.empl.field_employmentrequestorphone
     - field.field.node.empl.field_issued
     - field.field.node.empl.field_keywords
     - field.field.node.empl.field_locations
@@ -95,6 +99,35 @@ content:
     third_party_settings: {  }
     type: basic_string
     region: content
+  field_empladditionalnotes:
+    weight: 15
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_employmentrequestoremail:
+    weight: 13
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_employmentrequestorname:
+    weight: 12
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_employmentrequestorphone:
+    weight: 14
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
   field_locations:
     weight: 5
     label: inline
@@ -140,6 +173,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  content_moderation_control: true
   field_description: true
   field_issued: true
   field_keywords: true
