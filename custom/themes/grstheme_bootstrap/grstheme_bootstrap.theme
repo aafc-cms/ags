@@ -34,6 +34,9 @@ function grstheme_bootstrap_preprocess_html(&$variables) {
     if ($nid == 49) {
       $variables['attributes']['class'][] = 'news-article-form-page';
     }
+    if ($nid == 50) {
+      $variables['attributes']['class'][] = 'employment-opportunity-request-form-page';
+    }
     $variables['attributes']['class'][] = 'node-' . $nid;
   }
 
