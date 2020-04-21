@@ -30,7 +30,7 @@ configureSettingsFile () {
     printf "Setting your config sync folder to modules/custom/config\n";
     chmod 664 $settings_file;
     echo "//wxt config_sync_directory" >> $settings_file;
-    echo "\$settings['config_sync_directory'] = 'modules/custom/config';" >> $settings_file;
+    echo "\$settings['config_sync_directory'] = 'modules/custom/config/sync';" >> $settings_file;
     hashsalt=`drush php-eval 'echo \Drupal\Component\Utility\Crypt::randomBytesBase64(55)'`;
     echo "\$settings['hash_salt'] = '$hashsalt';" >> $settings_file;
   fi
@@ -52,6 +52,10 @@ configureSettingsFile () {
     chmod 664 $settings_file;
     ./post_install_helper.php "force_split=dev";
   fi
+
+  # Fix previously configured environments.
+  ./post_install_helper.php file_path="$settings_file" old_text="'modules/custom/config'" new_text="'modules/custom/config/sync'"
+
 }
 
 configureSettingsFile

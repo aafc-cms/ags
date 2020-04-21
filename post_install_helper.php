@@ -25,7 +25,7 @@ if (empty($file_path)) {
   $file_path = 'html/sites/default/settings.php';
 }
 if (!isset($force_split)) {
-  $force_split == 'neither';
+  $force_split = 'neither';
 }
 
 if (($force_split != 'dev' && $force_split != 'live') && empty($old_text)) {
