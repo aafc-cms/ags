@@ -1,0 +1,52 @@
+uuid: 4c832e2c-c24e-42ff-96a1-e2f95a1431c1
+langcode: en
+status: true
+dependencies:
+  module:
+    - content_moderation
+id: block_publishing
+label: 'Block Publishing'
+type: content_moderation
+type_settings:
+  states:
+    archived:
+      published: false
+      default_revision: true
+      label: Archived
+      weight: 4
+    draft:
+      label: Draft
+      published: false
+      default_revision: false
+      weight: 0
+    published:
+      label: Published
+      published: true
+      default_revision: true
+      weight: 1
+    send_to_reviewer:
+      published: false
+      default_revision: false
+      label: 'Send to Reviewer'
+      weight: 2
+    with_reviewer:
+      published: false
+      default_revision: false
+      label: 'With Reviewer'
+      weight: 3
+  transitions:
+    create_new_draft:
+      label: 'Create New Draft'
+      to: draft
+      weight: 0
+      from:
+        - draft
+        - published
+    publish:
+      label: Publish
+      to: published
+      weight: 1
+      from:
+        - draft
+        - published
+  entity_types: {  }
