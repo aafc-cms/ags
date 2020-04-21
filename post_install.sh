@@ -5,11 +5,13 @@ printf "execute post_install.sh\n";
 trap "sudo configureSettingsFile" SIGINT SIGTERM
 
 live=0
-if [ $1 == "live" ]; then
-  echo "live environment setup.";
-  live=1
-else
+if [ -z $1 ]; then
   echo "dev environment setup.\n";
+else
+  if [ $1 == "live" ]; then
+    echo "live environment setup.";
+    live=1
+  fi
 fi
 configureSettingsFile () {
   if [ ! -f html/sites/default/settings.php ]; then
