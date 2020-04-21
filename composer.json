@@ -147,7 +147,7 @@
             "drupal/moderated_content_bulk_publish": {
                 "Custom functionality for workflows, bulk send to reviewer.":
                 "https://www.drupal.org/files/issues/2020-04-19/apply_permissions-3128767-3_before_this-3124868-8.patch",
-                "Custom functionality for workflows, bulk send to reviewer.":
+                "Add permissions to the bulk publish module.":
                 "https://www.drupal.org/files/issues/2020-04-19/permissions-3128767-3.patch"
             }
         },
@@ -185,7 +185,10 @@
         "drupal/moderated_content_bulk_publish": "^1.0",
         "drupal/formblock": "1.x-dev",
         "drupal/warmer": "^1.1",
-        "drupal/bigmenu": "^1.0"
+        "drupal/bigmenu": "^1.0",
+        "drupal/purge": "^3.0@beta",
+        "drupal/varnish_purger": "^1.12",
+        "drupal/config_split": "1.x-dev"
     },
     "autoload": {
         "classmap": [
