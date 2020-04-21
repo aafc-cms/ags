@@ -1,0 +1,17 @@
+uuid: 59535f93-dca1-46bc-a7f8-3eec41ee84a4
+langcode: en
+status: true
+dependencies: {  }
+id: live
+label: live
+description: "settings only to be deployed to environments configured as 'live'.  \r\n"
+folder: modules/custom/config/splits/live
+module: {  }
+theme: {  }
+blacklist:
+  - system.logging
+  - system.performance
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: false
+weight: 0

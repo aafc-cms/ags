@@ -58,14 +58,15 @@ third_party_settings:
         - group_opportunitylocation
       parent_name: ''
       weight: 1
-      format_type: fieldset
+      format_type: details
       region: content
       format_settings:
+        description: ''
+        open: true
+        required_fields: true
         id: ''
         classes: ''
-        description: ''
-        required_fields: true
-      label: 'opportunity details'
+      label: 'Opportunity details'
     group_opportunity_approval:
       children:
         - field_opportunityapproval
@@ -84,6 +85,7 @@ third_party_settings:
       children:
         - field_locations
         - group_opportunityopento
+        - group_emplopportunityclosingdate
       parent_name: group_opportunity_details
       weight: 11
       format_type: details
@@ -114,7 +116,7 @@ third_party_settings:
       children:
         - body
       parent_name: ''
-      weight: 2
+      weight: 3
       format_type: details
       region: content
       format_settings:
@@ -129,7 +131,7 @@ third_party_settings:
         - field_name
         - field_email
       parent_name: ''
-      weight: 3
+      weight: 4
       format_type: details
       region: content
       format_settings:
@@ -145,7 +147,7 @@ third_party_settings:
         - field_employmentrequestoremail
         - field_employmentrequestorphone
       parent_name: ''
-      weight: 4
+      weight: 5
       format_type: details
       region: content
       format_settings:
@@ -159,7 +161,7 @@ third_party_settings:
       children:
         - field_empladditionalnotes
       parent_name: ''
-      weight: 5
+      weight: 6
       format_type: details
       region: content
       format_settings:
@@ -172,8 +174,8 @@ third_party_settings:
     group_emplopportunityclosingdate:
       children:
         - field_date_closing
-      parent_name: ''
-      weight: 6
+      parent_name: group_opportunitylocation
+      weight: 14
       format_type: details
       region: content
       format_settings:
