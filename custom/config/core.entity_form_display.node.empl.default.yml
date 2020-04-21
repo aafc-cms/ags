@@ -84,7 +84,6 @@ third_party_settings:
       children:
         - field_locations
         - group_opportunityopento
-        - field_date_closing
       parent_name: group_opportunity_details
       weight: 11
       format_type: details
@@ -170,6 +169,20 @@ third_party_settings:
         open: true
         required_fields: true
       label: 'Additional remarks'
+    group_emplopportunityclosingdate:
+      children:
+        - field_date_closing
+      parent_name: ''
+      weight: 6
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: true
+        required_fields: true
+      label: 'Opportunity closing:'
 id: node.empl.default
 targetEntityType: node
 bundle: empl
@@ -296,12 +309,12 @@ content:
   layout_selection:
     type: options_select
     region: content
-    weight: 6
+    weight: 7
     settings: {  }
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 7
+    weight: 8
     settings: {  }
     region: content
     third_party_settings: {  }
