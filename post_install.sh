@@ -4,6 +4,13 @@ printf "execute post_install.sh\n";
 
 trap "sudo configureSettingsFile" SIGINT SIGTERM
 
+live=0
+if [ $1 == "live" ]; then
+  echo "live environment setup.";
+  live=1
+else
+  echo "dev environment setup.\n";
+fi
 configureSettingsFile () {
   if [ ! -f html/sites/default/settings.php ]; then
     printf "Creating your settings.php file\n";
@@ -16,14 +23,32 @@ configureSettingsFile () {
     chmod 775 html/sites/default/files
   fi
 
-  if ! grep -q "wxt config_sync_directory" html/sites/default/settings.php; then
+  settings_file=html/sites/default/settings.php;
+  if ! grep -q "wxt config_sync_directory" $settings_file; then
     printf "Setting your config sync folder to modules/custom/config\n";
-    settings_file=html/sites/default/settings.php;
     chmod 664 $settings_file;
     echo "//wxt config_sync_directory" >> $settings_file;
     echo "\$settings['config_sync_directory'] = 'modules/custom/config';" >> $settings_file;
     hashsalt=`drush php-eval 'echo \Drupal\Component\Utility\Crypt::randomBytesBase64(55)'`;
     echo "\$settings['hash_salt'] = '$hashsalt';" >> $settings_file;
+  fi
+
+  if ! grep -q "config_split.config_split.dev" $settings_file; then
+    printf "Setting up config_split for the first time.";
+    chmod 775 html/sites/default;
+    chmod 664 $settings_file;
+    echo "\$config['config_split.config_split.dev']['status'] = TRUE; #config split DEV, do not remove this" >> $settings_file;
+    echo "\$config['config_split.config_split.live']['status'] = FALSE; #config split LIVE, do not remove this" >> $settings_file;
+  fi
+
+  if [ $live -eq 1 ]; then
+    chmod 775 html/sites/default;
+    chmod 664 $settings_file;
+    ./post_install_helper.php "force_split=live";
+  else
+    chmod 775 html/sites/default;
+    chmod 664 $settings_file;
+    ./post_install_helper.php "force_split=dev";
   fi
 }
 
