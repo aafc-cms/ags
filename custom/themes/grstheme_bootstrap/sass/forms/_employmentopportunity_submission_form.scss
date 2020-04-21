@@ -171,27 +171,39 @@ body.employment-opportunity-request-form-page {
    }
 
   &.i18n-en .form-item-field-classification-0-subform-field-class-id .select-wrapper:after {
-    right: 80% !important;
+    right: 26% !important;
   } 
 
-  &.i18n-fr .form-item-field-classification-0-subform-field-class-id .select-wrapper:after {
-    right: 77% !important;
+  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-0-subform-field-class-id.js-form-item-field-classification-0-subform-field-class-id.form-group {
+    float: left !important;
   }
 
+  &.i18n-fr .form-item-field-classification-0-subform-field-class-id .select-wrapper:after {
+    right: 24% !important;
+  } 
+
   &.i18n-en .form-item-field-classification-0-subform-field-class-sub .select-wrapper:after {
-    right: 88% !important;
+    right: 42% !important;
+  } 
+  
+  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-0-subform-field-class-sub.js-form-item-field-classification-0-subform-field-class-sub.form-group {
+    float: left !important;
   }
   
   &.i18n-fr .form-item-field-classification-0-subform-field-class-sub .select-wrapper:after {
-    right: 84% !important;
-   }
+    right: 37% !important;
+  } 
 
   &.i18n-en .form-item-field-classification-0-subform-field-class-level .select-wrapper:after {
-    right: 88% !important;
+    right: 33% !important;
+  } 
+
+  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-0-subform-field-class-level.js-form-item-field-classification-0-subform-field-class-level.form-group {
+    float: left !important;
   }
 
   &.i18n-fr .form-item-field-classification-0-subform-field-class-level .select-wrapper:after {
-    right: 88% !important;
+    right: 32% !important;
   }
 
   #edit-group-emplopportunityclosingdate div a.panel-title {
