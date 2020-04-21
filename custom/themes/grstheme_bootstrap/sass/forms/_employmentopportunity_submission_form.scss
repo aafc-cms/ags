@@ -1,0 +1,304 @@
+
+body.user-anonymous {
+  #node-empl-form {
+    #edit-revision-information, a[href="#edit-revision-information"] {
+      display: none !important;
+    }
+    .vertical-tabs-panes {
+      border: none !important;
+    }
+  }
+  &.employment-opportunity-request-form-page div.form-item.js-form-item.form-type-textarea.js-form-type-textarea.form-item-body-etuf-en-0-summary.js-form-item-body-etuf-en-0-summary.form-group {
+    display: none !important;
+  }
+
+  &.employment-opportunity-request-form-page div.form-item.js-form-item.form-type-textarea.js-form-type-textarea.form-item-body-etuf-fr-0-summary.js-form-item-body-etuf-fr-0-summary.form-group {
+    display: none !important;
+  }
+
+  &.employment-opportunity-request-form-page span.field-edit-link button.link.link-edit-summary.btn.btn-default.btn-xs.pull-right { 
+    display: none !important;
+  }
+}
+
+body.employment-opportunity-request-form-page {
+  .help-block {
+    font-size: 16px;
+    color: #333;
+  }
+
+  .btn.icon-before .glyphicon {
+    min-height: 20px;
+  }
+
+  &.i18n-en .field--type-entity-reference .select-wrapper:after {
+    right: 58% !important;
+  }
+
+  &.i18n-fr .field--type-entity-reference .select-wrapper:after {
+    right: 45% !important;
+  }
+
+  // News Item form Style //
+  #edit-group-opportunity-approval div a.panel-title
+  {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    background-color: white;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  #edit-group-opportunity-approval.panel-default {
+    border-color: white;
+  }
+
+  #edit-group-opportunity-approval div.panel-heading {
+    border-bottom: 0px;
+    padding-bottom: 0px;
+  }
+
+
+  #edit-group-opportunity-details div a.panel-title {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    background-color: white;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  #edit-group-opportunity-details.panel-default {
+    border-color: white;
+  }
+  
+  #edit-group-opportunity-details div.panel-heading {
+    border-bottom: 0px;
+    padding-bottom: 0px;
+  }
+  
+  #edit-group-opportunitylocation div a.panel-title {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    background-color: white;
+    font-size: 20.8px;
+    font-weight: bold;
+  }
+
+  #edit-group-opportunitylocation.panel-default {
+    border-color: white;
+  }
+
+  #edit-group-opportunitylocation div.panel-heading {
+    border-bottom: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  #edit-group-opportunitylocation--content.panel-body {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  
+  #edit-group-opportunityopento div a.panel-title {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    background-color: white;
+    font-size: 20.8px;
+    font-weight: bold;
+  }
+
+  #edit-group-opportunityopento.panel-default {
+    border-color: white;
+  }
+
+  #edit-group-opportunityopento div.panel-heading {
+    border-bottom: 0px;
+    padding-bottom: 0px;
+  }
+  
+  #edit-group-opportunityopento--content.panel-body {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  #edit-group-level-and div.panel-heading {
+    border-bottom: 0px;
+    padding-bottom: 0px;
+    display: none !important;
+  }
+
+  #edit-group-level-and div.panel-body {
+    padding: 0px;
+  }
+
+  #edit-group-level-and div.table-responsive button.tabledrag-toggle-weight.btn-sm.btn.btn-default {
+    display: none !important;
+  }
+
+
+  #edit-group-newsarticleheadline div a.panel-title {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    background-color: white;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+   #field-classification-values th.field-label.form-required {
+     padding-left: 0px;
+   }
+
+   #field-classification-values td.field-multiple-drag {
+     display: none;
+   }
+
+   #edit-field-classification-0-top div.paragraph-type-title.form-group.js-form-wrapper.form-wrapper {
+     display: none;
+   } 
+
+   #field-classification-values tr.draggable.odd {
+     background-color: white !important;
+   }  
+
+   #edit-group-newsarticleheadline.panel-default {
+     border-color: white;
+   }
+
+  &.i18n-en .form-item-field-classification-0-subform-field-class-id .select-wrapper:after {
+    right: 80% !important;
+  } 
+
+  &.i18n-fr .form-item-field-classification-0-subform-field-class-id .select-wrapper:after {
+    right: 77% !important;
+  }
+
+  &.i18n-en .form-item-field-classification-0-subform-field-class-sub .select-wrapper:after {
+    right: 88% !important;
+  }
+  
+  &.i18n-fr .form-item-field-classification-0-subform-field-class-sub .select-wrapper:after {
+    right: 84% !important;
+   }
+
+  &.i18n-en .form-item-field-classification-0-subform-field-class-level .select-wrapper:after {
+    right: 88% !important;
+  }
+
+  &.i18n-fr .form-item-field-classification-0-subform-field-class-level .select-wrapper:after {
+    right: 88% !important;
+  }
+
+  #edit-group-emplopportunityclosingdate div a.panel-title {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    background-color: white;
+    font-size: 20.8px;
+    font-weight: bold;
+  }
+  
+  #edit-group-emplopportunityclosingdate.panel-default {
+    border-color: white;
+  }
+  
+  #edit-group-emplopportunityclosingdate div.panel-heading {
+    border-bottom: 0px;
+    padding-bottom: 0px;
+  }
+
+  #edit-group-opportunitydescription div a.panel-title {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    background-color: white;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  #edit-group-opportunitydescription div.panel-heading {
+    border-bottom: 0px;
+    padding-bottom: 0px;
+  }
+
+  #edit-group-opportunitydescription.panel-default {
+    border-color: white;
+  }
+
+    #edit-group-emploppsubitappquestion div a.panel-title {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    background-color: white;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+   #edit-group-employmentrequestorinfo div a.panel-title {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    background-color: white;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  #edit-group-employmentrequestorinfo.panel-default {
+    border-color: white;
+  }
+  
+  #edit-group-employmentrequestorinfo div.panel-heading {
+    border-bottom: 0px;
+    padding-bottom: 0px;
+  }
+
+  #field-email-add-more-wrapper div.table-responsive button.tabledrag-toggle-weight.btn-sm.btn.btn-default {
+	  display: none !important;
+   }  
+
+  #field-email-values td.field-multiple-drag {
+	display: none !important;
+  }
+
+  #edit-group-emploppsubitappquestion.panel-default {
+    border-color: white;
+  }
+  
+  #edit-group-emploppsubitappquestion div.panel-heading {
+    border-bottom: 0px;
+    padding-bottom: 0px;
+  }
+
+  #edit-group-empladditionalnotes div a.panel-title {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    background-color: white;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  #edit-group-empladditionalnotes.panel-default {
+    border-color: white;
+  }
+
+  #edit-group-empladditionalnotes div.panel-heading {
+    border-bottom: 0px;
+    padding-bottom: 0px;
+  }
+
+  #edit-field-employmentrequestorphone-0-value {
+    display: block;
+  }
+  
+  #block-news-form-add h2.block-title {
+    display: none !important;
+  }
+  
+}
+// End of the News Item
