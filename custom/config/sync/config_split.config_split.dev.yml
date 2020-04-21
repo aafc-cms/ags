@@ -8,7 +8,9 @@ description: 'dev environment settings.'
 folder: modules/custom/config/splits/dev
 module: {  }
 theme: {  }
-blacklist: {  }
+blacklist:
+  - system.logging
+  - system.performance
 graylist: {  }
 graylist_dependents: true
 graylist_skip_equal: true
