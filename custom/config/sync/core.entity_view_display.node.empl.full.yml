@@ -102,13 +102,6 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_email:
-    weight: 15
-    label: inline
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
   field_locations:
     weight: 11
     label: above
@@ -151,6 +144,7 @@ hidden:
   field_and_equivalent: true
   field_classification: true
   field_description: true
+  field_email: true
   field_empladditionalnotes: true
   field_employmentrequestoremail: true
   field_employmentrequestorname: true
