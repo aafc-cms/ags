@@ -609,15 +609,14 @@ class AgriAdminHelper {
   }
 
   static public function translateLinkIfNotTranslated($nid, $menu_name = 'main') {
-    // @TODO: fix this logic, use a conditional instead, MEMORY KILLER/ CPU KILLER HERE.
-    //menuLinkManager = 'plugin.manager.menu.link'
-    $result = \Drupal::entityTypeManager()->getStorage('menu_link_content')
-      ->loadLinksByRoute('entity.node.canonical', ['node' => $nid]);
+
+    $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
+    $result = $menu_link_manager->loadLinksByRoute('entity.node.canonical', ['node' => $nid]);
     foreach ($result as $menu_item) {
       if (is_object($menu_item)) {
         $otherLang = static::getOtherLang();
         $id = $menu_item->getPluginDefinition()['metadata']['entity_id'];
-        $menu_link = $this->entityTypeManager->getStorage('menu_link_content')->load($id);
+        $menu_link = \Drupal::entityTypeManager()->getStorage('menu_link_content')->load($id);
         $node = Node::load($nid);
         $title = $node->getTranslation($otherLang)->getTitle();
         $menu_link->addTranslation($otherLang, ['title' => $title]);
