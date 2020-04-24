@@ -154,6 +154,18 @@ body.employment-opportunity-request-form-page {
      padding-left: 0px;
    }
 
+//   #field-classification-values td.field-multiple-drag {
+//     display: none;
+//   }
+
+//   #edit-field-classification-0-top div.paragraph-type-title.form-group.js-form-wrapper.form-wrapper {
+//     display: none;
+//   } 
+
+//   #field-classification-values tr.draggable.odd {
+//     background-color: white !important;
+//   }  
+
   #edit-field-classification-wrapper a.tabledrag-handle {
 	display: none !important;
   }     
@@ -170,9 +182,9 @@ body.employment-opportunity-request-form-page {
     float: left !important;
   }
 
-  //#edit-field-classification-wrapper div.paragraphs-dropbutton-wrapper {
-  //  float: right !important;
-  // }
+  #edit-field-classification-wrapper div.paragraphs-dropbutton-wrapper {
+    float: right !important;
+   }
 
   &.i18n-fr .form-item-field-classification-0-subform-field-class-id .select-wrapper:after {
     right: 52% !important;
@@ -617,12 +629,8 @@ body.employment-opportunity-request-form-page {
 
   // group header - classificaiton
   #edit-field-classification-wrapper th.field-label.form-required {
-    display: none !important;
+	  display: none !important;
   }   
-
-#edit-field-classification-wrapper  div.paragraph-type-title.form-group.js-form-wrapper.form-wrapper {
-    display: none !important;
-}
 
 }
 // End of the News Item
