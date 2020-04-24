@@ -614,14 +614,15 @@ class AgriAdminHelper {
     $result = \Drupal::entityTypeManager()->getStorage('menu_link_content')
       ->loadLinksByRoute('entity.node.canonical', ['node' => $nid]);
     foreach ($result as $menu_item) {
-    if (is_object($menu_item)) {
-      $otherLang = static::getOtherLang();
-      $id = $menu_item->getPluginDefinition()['metadata']['entity_id'];
-      $menu_link = $this->entityTypeManager->getStorage('menu_link_content')->load($id);
-      $node = Node::load($nid);
-      $title = $node->getTranslation($otherLang)->getTitle();
-      $menu_link->addTranslation($otherLang, ['title' => $title]);
-      $menu_link->save();
+      if (is_object($menu_item)) {
+        $otherLang = static::getOtherLang();
+        $id = $menu_item->getPluginDefinition()['metadata']['entity_id'];
+        $menu_link = $this->entityTypeManager->getStorage('menu_link_content')->load($id);
+        $node = Node::load($nid);
+        $title = $node->getTranslation($otherLang)->getTitle();
+        $menu_link->addTranslation($otherLang, ['title' => $title]);
+        $menu_link->save();
+      }
     }
 
   }
