@@ -612,12 +612,15 @@ class AgriAdminHelper {
 
     $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
     $result = $menu_link_manager->loadLinksByRoute('entity.node.canonical', ['node' => $nid]);
+    $node = NULL;
+    if (count($result) > 0) {
+      $node = Node::load($nid);
+    }
     foreach ($result as $menu_item) {
       if (is_object($menu_item)) {
         $otherLang = static::getOtherLang();
         $id = $menu_item->getPluginDefinition()['metadata']['entity_id'];
         $menu_link = \Drupal::entityTypeManager()->getStorage('menu_link_content')->load($id);
-        $node = Node::load($nid);
         if (isset($node) && !is_null($node)) {
           if ($node->hasTranslation($otherLang)) {
             $title = $node->getTranslation($otherLang)->getTitle();
