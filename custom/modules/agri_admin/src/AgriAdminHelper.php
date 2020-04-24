@@ -621,7 +621,7 @@ class AgriAdminHelper {
       $node = Node::load($nid);
       $title = $node->getTranslation($otherLang)->getTitle();
       $menu_link->addTranslation($otherLang, ['title' => $title]);
-      $menu_link->save()
+      $menu_link->save();
     }
 
   }
