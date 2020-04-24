@@ -619,9 +619,11 @@ class AgriAdminHelper {
         $menu_link = \Drupal::entityTypeManager()->getStorage('menu_link_content')->load($id);
         $node = Node::load($nid);
         if (isset($node) && !is_null($node)) {
-          $title = $node->getTranslation($otherLang)->getTitle();
-          $menu_link->addTranslation($otherLang, ['title' => $title]);
-          $menu_link->save();
+          if ($node->hasTranslation($otherLang)) {
+            $title = $node->getTranslation($otherLang)->getTitle();
+            $menu_link->addTranslation($otherLang, ['title' => $title]);
+            $menu_link->save();
+          }
 	}
       }
     }
