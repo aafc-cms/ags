@@ -11,8 +11,7 @@ class AgriAdminHelper {
   }
 
 
-  static public function addToLog($message) {
-    $DEBUG = FALSE;
+  static public function addToLog($message, $DEBUG = FALSE) {
     //$DEBUG = TRUE;
     if ($DEBUG) {
       \Drupal::logger('agri_admin')->notice($message);
@@ -606,6 +605,39 @@ class AgriAdminHelper {
       }
     }
     return FALSE;
+  }
+
+  static public function disableMenuLink($id = NULL, $nid = NULL, $menu_name = 'main') {
+    $DEBUG = FALSE;
+
+    if (isset($id) && !empty($id)) {
+      $menu_link = \Drupal::entityTypeManager()->getStorage('menu_link_content')->load($id);
+      static::addToLog($id, $DEBUG);
+    }
+    if (!isset($menu_link) && isset($nid) && is_numeric($nid)) {
+      $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
+      $result = $menu_link_manager->loadLinksByRoute('entity.node.canonical', ['node' => $nid]);
+      foreach ($result as $menu_item) {
+        if (is_object($menu_item)) {
+          $id = $menu_item->getPluginDefinition()['metadata']['entity_id'];
+          static::addToLog($id, $DEBUG);
+          $menu_link = \Drupal::entityTypeManager()->getStorage('menu_link_content')->load($id);
+        }
+      }
+    }
+
+    if (isset($menu_link) && is_object($menu_link)) {
+      if ($menu_link->getMenuName() == $menu_name) {
+        $menu_link->set('enabled', FALSE);
+        $menu_link->save();
+        if ($menu_link->isEnabled()) {
+          static::addToLog('enabled', $DEBUG);
+        }
+        else {
+          static::addToLog('disabled', $DEBUG);
+        }
+      }
+    }
   }
 
   static public function translateLinkIfNotTranslated($nid, $menu_name = 'main') {
