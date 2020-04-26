@@ -3,14 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - media.type.audio_file
-    - media.type.document
-    - media.type.image
-    - media.type.instagram
-    - media.type.slideshow
-    - media.type.tweet
-    - media.type.video
-    - media.type.video_file
     - node.type.empl
     - node.type.landing_page
     - node.type.news
@@ -126,15 +118,6 @@ type_settings:
       to: with_reviewer_for_deletion
       weight: 9
   entity_types:
-    media:
-      - audio_file
-      - document
-      - image
-      - instagram
-      - slideshow
-      - tweet
-      - video
-      - video_file
     node:
       - empl
       - landing_page

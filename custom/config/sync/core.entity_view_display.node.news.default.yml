@@ -44,8 +44,10 @@ third_party_settings:
     enable: true
   layout_builder_restrictions:
     entity_view_mode_restriction:
-      allowed_blocks: {  }
       allowed_layouts: {  }
+      whitelisted_blocks: {  }
+      blacklisted_blocks: {  }
+    allowed_block_categories: {  }
 id: node.news.default
 targetEntityType: node
 bundle: news
