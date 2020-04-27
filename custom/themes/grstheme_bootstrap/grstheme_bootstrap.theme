@@ -41,3 +41,14 @@ function grstheme_bootstrap_preprocess_html(&$variables) {
   }
 
 }
+
+
+/**
+ * Implments hook_preprocess_node.
+ */
+function grstheme_bootstrap_preprocess_field(&$variables, $hook) {
+  if ($variables['element']['#field_name'] == 'field_classification') {
+    $block = \Drupal\agri_admin\UtilsBlock::getRendered('employment_classification_groups');
+    $variables['empl_classification_block'] = $block;
+  }
+}
