@@ -1,4 +1,11 @@
  /* Admin css for the administration theme (override) */
+html[lang="fr"] .english-only {
+  display: none !important;
+}
+
+html[lang="en"] .french-only {
+  display: none !important;
+}
 
 body.nodeaddempl .field-group-fieldset,
 body.node-edit.page-node-type-empl .field-group-fieldset {
