@@ -6,6 +6,12 @@
   Drupal.behaviors.agriAdmin = {
     attach: function (context, settings) {
       if (context == document) {
+        if ($('body').hasClass('nodeaddempl') || $('body').hasClass('nodeaddnews')) {
+          $('body').removeClass('etuf-sbs');
+        }
+        if ($('body').hasClass('nodeeditempl') || $('body').hasClass('nodeeditnews')) {
+          $('body').removeClass('etuf-sbs');
+        }
         if ($('body').hasClass('user-logged-in')) {
           // Check if the actual 'admin' user is logged in, based on the name displayed in the toolbar.
           // There is a small delay before this information is available, so set a timer.
