@@ -642,10 +642,12 @@ class AgriAdminHelper {
               if (isset($options['attributes']['class'])) {
                 if (empty($options['attributes']['class'])) {
                   $options['attributes']['class'] = ['basic-page-link'];
+		  $menu_link->link->options = $options;
                 }
               }
               else {
                 $options['attributes']['class'] = ['basic-page-link'];
+                $menu_link->link->options = $options;
               }
             }
             else {
