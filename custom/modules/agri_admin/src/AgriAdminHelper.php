@@ -636,10 +636,19 @@ class AgriAdminHelper {
           $menu_link = \Drupal::entityTypeManager()->getStorage('menu_link_content')->load($id);
           if ($menu_link->getMenuName() == $menu_name) {
             $menu_link->set('enabled', FALSE);
-            $menu_link->save();
             if ($menu_link->isEnabled()) {
               static::addToLog('enabled', $DEBUG);
+              $options = $menu_link->link->options;
+              if (isset($options['attributes']['class'])) {
+                if (empty($options['attributes']['class'])) {
+                  $options['attributes']['class'] = ['basic-page-link'];
+                }
+              }
+              else {
+                $options['attributes']['class'] = ['basic-page-link'];
+              }
             }
+            $menu_link->save();
             else {
               static::addToLog('disabled', $DEBUG);
             }
