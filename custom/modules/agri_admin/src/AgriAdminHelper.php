@@ -648,10 +648,10 @@ class AgriAdminHelper {
                 $options['attributes']['class'] = ['basic-page-link'];
               }
             }
-            $menu_link->save();
             else {
               static::addToLog('disabled', $DEBUG);
             }
+            $menu_link->save();
           }
         }
       }
