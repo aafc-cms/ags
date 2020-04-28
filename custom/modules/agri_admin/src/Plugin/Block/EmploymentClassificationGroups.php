@@ -80,12 +80,7 @@ class  EmploymentClassificationGroups extends BlockBase {
         }
 
         if ( strlen($classification) >0 ) {
-          if ($currentlangId == 'en') {
-            $classification = $classification.' or '. $tmpText;
-          }
-          else {
-            $classification = $classification.' ou '. $tmpText;
-          }
+            $classification = $classification.', '. $tmpText;
         }
         else {
           $classification = $tmpText;
@@ -94,9 +89,14 @@ class  EmploymentClassificationGroups extends BlockBase {
 
       // get equivalent flag value
       $equivalentval = $emplNode->get('field_and_equivalent')->getValue();
-      $equivalentlbl = $emplNode->get('field_and_equivalent')->getFieldDefinition()->getLabel();
+      //$equivalentlbl = $emplNode->get('field_and_equivalent')->getFieldDefinition()->getLabel();
       if ($equivalentval) {
-        $classification = $classification.' '.$equivalentlbl;
+        if ($currentlangId == 'en') {
+          $classification = $classification.' and equivalent';
+        }
+        else {
+          $classification = $classification.' et équivalent';
+        }
       }
     }
 
