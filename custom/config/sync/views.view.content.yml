@@ -2,8 +2,6 @@ uuid: null
 langcode: en
 status: true
 dependencies:
-  config:
-    - workflows.workflow.editorial
   module:
     - content_moderation
     - node
@@ -39,12 +37,24 @@ display:
       pager:
         type: full
         options:
-          items_per_page: 50
+          items_per_page: 100
+          offset: 0
+          id: 0
+          total_pages: null
           tags:
             previous: '‹ Previous'
             next: 'Next ›'
             first: '« First'
             last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
       style:
         type: table
         options:
@@ -594,7 +604,30 @@ display:
         operator: AND
         groups:
           1: AND
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: 'Displaying @start - @end of @total with @per_page items per page.'
+          plugin_id: result
+      footer:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: 'Displaying @start - @end of @total with @per_page items per page.'
+          plugin_id: result
     display_plugin: default
     display_title: Master
     id: default

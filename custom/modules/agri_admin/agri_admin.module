@@ -222,5 +222,9 @@ function _helperUpdateProcess($action, $entity_id, $bundle) {
     AgriAdminHelper::addToLog('test action=' . $action . ' : ' . $entity_id . ' : ' . $bundle);
     AgriAdminHelper::postCreateOrUpdateAutoTranslate($action, $entity_id, $bundle);
   //AgriAdminHelper::postUpdateProcess($action, $entity_id, $bundle);
+    if ($bundle == 'page') {
+      AgriAdminHelper::disableMenuLink(NULL, $entity_id, 'main');
+      AgriAdminHelper::disableMenuLink(NULL, $entity_id, 'sidebar');
+    }
   }
 }

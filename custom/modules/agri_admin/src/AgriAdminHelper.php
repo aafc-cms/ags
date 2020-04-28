@@ -11,8 +11,7 @@ class AgriAdminHelper {
   }
 
 
-  static public function addToLog($message) {
-    $DEBUG = FALSE;
+  static public function addToLog($message, $DEBUG = FALSE) {
     //$DEBUG = TRUE;
     if ($DEBUG) {
       \Drupal::logger('agri_admin')->notice($message);
@@ -31,7 +30,7 @@ class AgriAdminHelper {
   }
 
 
-  static public function postUpdateProcess($action, $entity_id, $bundle) {
+  static public function postUpdateProcess($action, $entity_id, $bundle, $disable_menu_link = FALSE) {
     static::addToLog(__function__);
     static::addToLog($action . ' entity_id ' . $entity_id);
     $parentUuid = NULL;
@@ -39,7 +38,7 @@ class AgriAdminHelper {
     if ($bundle == 'page') {
       $parentNid = static::findParentOfNid($entity_id, 'main', $parentUuid, $parentUuidClean);
       if ($parentNid > 0) {
-        $resultCode = static::createChildOfParentNid($entity_id, 'sidebar', $parentNid, $parentUuid);
+        $resultCode = static::createChildOfParentNid($entity_id, 'sidebar', $parentNid, $parentUuid, $disable_menu_link);
         if ($resultCode) {
           static::addToLog('Successfully created new sidebar link for nid=id=' . $entity_id);
         }
@@ -48,7 +47,7 @@ class AgriAdminHelper {
   }
 
 
-  static public function postImportProcess($action, $entity_id, $bundle) {
+  static public function postImportProcess($action, $entity_id, $bundle, $disable_menu_link = FALSE) {
     static::addToLog(__function__);
     static::addToLog($action . ' entity_id ' . $entity_id);
     $parentUuid = NULL;
@@ -56,11 +55,11 @@ class AgriAdminHelper {
     if ($bundle == 'page') {
       $parentNid = static::findParentOfNid($entity_id, 'main', $parentUuid, $parentUuidClean);
       if ($parentNid > 0) {
-        $resultCode = static::createChildOfParentNid($entity_id, 'main', $parentNid, $parentUuid);
+        $resultCode = static::createChildOfParentNid($entity_id, 'main', $parentNid, $parentUuid, $disable_menu_link);
         if ($resultCode) {
           static::addToLog('Successfully created new main link for nid=id=' . $entity_id);
         }
-        $resultCode = static::createChildOfParentNid($entity_id, 'sidebar', $parentNid, $parentUuid);
+        $resultCode = static::createChildOfParentNid($entity_id, 'sidebar', $parentNid, $parentUuid, $disable_menu_link);
         if ($resultCode) {
           static::addToLog('Successfully created new sidebar link for nid=id=' . $entity_id);
         }
@@ -464,15 +463,19 @@ class AgriAdminHelper {
   }
 
 
-  static public function createInternalLegacyMenuLink($nid, $ts_nid, $ts_pnid, $dcr_id, $menu_name = 'main', $lang = 'en') {
+  static public function createInternalLegacyMenuLink($nid, $ts_nid, $ts_pnid, $dcr_id, $menu_name = 'main', $lang = 'en', $title_en = NULL, $title_fr = NULL, $disable_menu_link = FALSE) {
     static::addToLog(__function__ . ' : ' . $lang);
     // @TODO add description.
     //$lang = static::getLang();
     //$lang = 'en'; // default to 'en' for now.
     if ($nid > 0 && $lang == 'en') {
       if (!static::menuLinkExists($nid, $menu_name)) {
+        $status = TRUE;
+        if ($disable_menu_link) {
+          $status = FALSE;
+        }
         $node =  \Drupal\node\Entity\Node::load($nid);
-        $title = $node->getTitle();
+        $title = !isset($title_en) ? $node->getTitle() : $title_en;
         $parentUuid = static::legacyMenuLinkExists($menu_name, $ts_pnid, $lang);
         if (gettype($parentUuid) != 'string') {
           // Importing a teamsite content that has no ts_pnid , only a ts_nid.
@@ -486,7 +489,7 @@ class AgriAdminHelper {
           'expanded' => TRUE,
           'external' => FALSE,
           'bundle' => 'menu_link_content',
-          'status' => TRUE,
+          'status' => $status,
           'langcode' => $lang,
         ];
         if ($menu_name == 'sidebar') {
@@ -498,7 +501,7 @@ class AgriAdminHelper {
         }
         $menu_link = \Drupal\menu_link_content\Entity\MenuLinkContent::create($menu_attributes);
         $returnCode = $menu_link->save();
-        $titleFr = $node->getTranslation('fr')->getTitle();
+        $titleFr = !isset($title_fr) ? $node->getTranslation('fr')->getTitle() : $title_fr;
         if (!$menu_link->hasTranslation('fr') && !empty($titleFr)) {
           $menu_link->addTranslation('fr', ['title' => $titleFr]);
           static::addToLog(__function__ . '** JOSEPH TEST ************added french translation for menu title=' . $titleFr);
@@ -523,28 +526,32 @@ class AgriAdminHelper {
     return FALSE;
   }
 
-  static public function createTopLevelInternalMenuItem($nid, $menu_name = 'sidebar', $ts_nid = NULL, $ts_pnid = NULL, $dcr_id = NULL) {
+  static public function createTopLevelInternalMenuItem($nid, $menu_name = 'sidebar', $ts_nid = NULL, $ts_pnid = NULL, $dcr_id = NULL, $title_en = NULL, $title_fr = NULL) {
     static::addToLog(__function__);
     // Load main navigation menu link for nid, find the parent nid, then look up the menu link
     // in the sidebar with that nid, that will be the parent of this new sidebar link.
     $node =  \Drupal\node\Entity\Node::load($nid);
     $lang = static::getLang();
+    $expanded = TRUE;
+    if ($menu_name == 'sidebar') {
+      $expanded = FALSE;
+    }
     if ($lang == 'en') {
       if (!static::menuLinkExists($nid, $menu_name)) {
-        $title = $node->getTitle();
+        $title = !isset($title_en) ? $node->getTitle() : $title_en;
         //$parentId = static::getMenuIdFromUuid($parentUuid);
         $menu_link = \Drupal\menu_link_content\Entity\MenuLinkContent::create([
           'title' => $title,
           'link' => ['uri' => 'entity:node/' . $nid],
           'menu_name' => $menu_name,
-          'expanded' => TRUE,
+          'expanded' => $expanded,
           'external' => FALSE,
           'langcode' => $lang,
           'status' => TRUE,
         ]);
         $menu_link->save();
         if (!$menu_link->hasTranslation('fr')) {
-          $title = $node->getTranslation('fr')->getTitle();
+          $title = !isset($title_fr) ? $node->getTranslation('fr')->getTitle() : $title_fr;
           $menu_link->addTranslation('fr', ['title' => $title]);
         }
         if ($returnCode && isset($ts_nid) && !empty($ts_nid)) {
@@ -562,11 +569,15 @@ class AgriAdminHelper {
   }
 
 
-  static public function createChildOfParentNid($nid, $menu_name = 'sidebar', $parentNid, $parentUuid) {
+  static public function createChildOfParentNid($nid, $menu_name = 'sidebar', $parentNid, $parentUuid, $disable_menu_link = FALSE) {
     static::addToLog(__function__);
     // Load main navigation menu link for nid, find the parent nid, then look up the menu link
     // in the sidebar with that nid, that will be the parent of this new sidebar link.
 
+    $status = TRUE;
+    if ($disable_menu_link) {
+      $status = FALSE;
+    }
     $node =  \Drupal\node\Entity\Node::load($nid);
     $lang = static::getLang();
     if ($lang == 'en') {
@@ -582,7 +593,7 @@ class AgriAdminHelper {
           'expanded' => TRUE,
           'external' => FALSE,
           'langcode' => $lang,
-          'status' => TRUE,
+          'status' => $status,
           'parent' => 'menu_link_content:' . $parentUuid,
         ]);
         $menu_link->save();
@@ -596,19 +607,83 @@ class AgriAdminHelper {
     return FALSE;
   }
 
-  static public function translateLinkIfNotTranslated($nid, $menu_name = 'main') {
-    $menu = \Drupal::entityTypeManager()->getStorage('menu_link_content')
-      ->loadByProperties(['menu_name' => $menu_name]);
+  static public function disableMenuLink($id = NULL, $nid = NULL, $menu_name = 'main') {
+    $DEBUG = FALSE;
 
-    foreach ($menu as $item) {
-      $otherLang = static::getOtherLang();
-      if (!$item->hasTranslation($otherLang)) {
-        $node = Node::load($nid);
-        $title = $node->getTranslation($otherLang)->getTitle();
-        $item->addTranslation($otherLang, ['title' => $title]);
+    if (isset($id) && !empty($id)) {
+      $menu_link = \Drupal::entityTypeManager()->getStorage('menu_link_content')->load($id);
+      static::addToLog($id, $DEBUG);
+      if (isset($menu_link) && is_object($menu_link)) {
+        if ($menu_link->getMenuName() == $menu_name) {
+          $menu_link->set('enabled', FALSE);
+          $menu_link->save();
+          if ($menu_link->isEnabled()) {
+            static::addToLog('enabled', $DEBUG);
+          }
+          else {
+            static::addToLog('disabled', $DEBUG);
+          }
+        }
       }
-      $item->save();
     }
+    if (!isset($menu_link) && isset($nid) && is_numeric($nid)) {
+      $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
+      $result = $menu_link_manager->loadLinksByRoute('entity.node.canonical', ['node' => $nid]);
+      foreach ($result as $menu_item) {
+        if (is_object($menu_item)) {
+          $id = $menu_item->getPluginDefinition()['metadata']['entity_id'];
+          static::addToLog($id, $DEBUG);
+          $menu_link = \Drupal::entityTypeManager()->getStorage('menu_link_content')->load($id);
+          if ($menu_link->getMenuName() == $menu_name) {
+            $menu_link->set('enabled', FALSE);
+            if ($menu_link->isEnabled()) {
+              static::addToLog('enabled', $DEBUG);
+              $options = $menu_link->link->options;
+              if (isset($options['attributes']['class'])) {
+                if (empty($options['attributes']['class'])) {
+                  $options['attributes']['class'] = ['basic-page-link'];
+		  $menu_link->link->options = $options;
+                }
+              }
+              else {
+                $options['attributes']['class'] = ['basic-page-link'];
+                $menu_link->link->options = $options;
+              }
+            }
+            else {
+              static::addToLog('disabled', $DEBUG);
+            }
+            $menu_link->save();
+          }
+        }
+      }
+    }
+
+  }
+
+  static public function translateLinkIfNotTranslated($nid, $menu_name = 'main') {
+
+    $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
+    $result = $menu_link_manager->loadLinksByRoute('entity.node.canonical', ['node' => $nid]);
+    $node = NULL;
+    foreach ($result as $menu_item) {
+      if (is_object($menu_item)) {
+        $otherLang = static::getOtherLang();
+        $id = $menu_item->getPluginDefinition()['metadata']['entity_id'];
+        $menu_link = \Drupal::entityTypeManager()->getStorage('menu_link_content')->load($id);
+        if (!$menu_link->hasTranslation($otherLang)) {
+          $node = Node::load($nid);
+          if (isset($node) && !is_null($node)) {
+            if ($node->hasTranslation($otherLang)) {
+              $title = $node->getTranslation($otherLang)->getTitle();
+              $menu_link->addTranslation($otherLang, ['title' => $title]);
+              $menu_link->save();
+            }
+          }
+	}
+      }
+    }
+
   }
 
   static public function findParentOfNid($nid, $menu_name = 'main', &$parentUuid, &$parentUuidClean) {

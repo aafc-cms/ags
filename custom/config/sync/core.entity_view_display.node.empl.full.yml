@@ -43,7 +43,6 @@ third_party_settings:
     enable: true
   layout_builder_restrictions:
     entity_view_mode_restriction:
-      allowed_blocks: {  }
       allowed_layouts:
         - layout_onecol
         - bs_2col_bricked
@@ -52,6 +51,9 @@ third_party_settings:
         - layout_twocol_section
         - layout_threecol_section
         - layout_fourcol_section
+      whitelisted_blocks: {  }
+      blacklisted_blocks: {  }
+    allowed_block_categories: {  }
   field_group:
     group_opportunity_details:
       children:
@@ -102,13 +104,6 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_email:
-    weight: 15
-    label: inline
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
   field_locations:
     weight: 11
     label: above
@@ -151,6 +146,7 @@ hidden:
   field_and_equivalent: true
   field_classification: true
   field_description: true
+  field_email: true
   field_empladditionalnotes: true
   field_employmentrequestoremail: true
   field_employmentrequestorname: true

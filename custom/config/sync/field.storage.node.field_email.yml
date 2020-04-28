@@ -1,4 +1,4 @@
-uuid: 273cd540-c89f-4de5-85a3-593a4816120c
+uuid: 16bec495-a06e-435d-943b-7cbba0fd6f46
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,14 @@ dependencies:
 id: node.field_email
 field_name: field_email
 entity_type: node
-type: email
-settings: {  }
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

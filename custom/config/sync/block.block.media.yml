@@ -1,4 +1,4 @@
-uuid: 5cc40ed6-e854-470a-9ee8-caa508b3c221
+uuid: e9d75ba6-c067-442a-b4ae-7f2c21ba8653
 langcode: en
 status: true
 dependencies:
@@ -13,10 +13,10 @@ dependencies:
 third_party_settings:
   block_class:
     classes: col-md-9
-id: media_2
+id: media
 theme: grstheme_bootstrap
 region: content
-weight: -14
+weight: -13
 provider: null
 plugin: 'entity_block:media'
 settings:
@@ -24,9 +24,16 @@ settings:
   label: Media
   provider: entity_block
   label_display: ''
-  entity: '7'
+  entity: '21'
   view_mode: default
 visibility:
+  language:
+    id: language
+    langcodes:
+      fr: fr
+    negate: false
+    context_mapping:
+      language: '@language.current_language_context:language_interface'
   request_path:
     id: request_path
     pages: '<front>'
@@ -37,10 +44,3 @@ visibility:
     enabled: 0
     negate: false
     context_mapping: {  }
-  language:
-    id: language
-    langcodes:
-      en: en
-    negate: false
-    context_mapping:
-      language: '@language.current_language_context:language_interface'

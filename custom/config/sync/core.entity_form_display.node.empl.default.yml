@@ -116,11 +116,11 @@ third_party_settings:
       children:
         - body
       parent_name: ''
-      weight: 3
+      weight: 2
       format_type: details
       region: content
       format_settings:
-        description: "Please include the information identified below in the opportunity description. This information must be included in your employment opportunity poster. If you have not yet created your poster, please complete in consultation with your Human Resources Advisor, Staffing, the AAFC Employment Opportunity Poster Template\r\n.  •Duties (if applicable)\r\n   •Statement of Merit Criteria(required)\t\r\n      ◦Essential Qualifications (i.e.: education, experience, knowledge, competencies) (required)\r\n      ◦Language Requirement(s) (required)\r\n\r\n   •Asset Qualifications (i.e.: education, experience, knowledge, competencies) (optional)\r\n   •Organizational Needs (required)\r\n   •Conditions of Employment (required)\r\n       ◦Security Requirement(s) (required)\r\n      ◦Other conditions of employment (i.e.: travel and/or overtime) (optional)\r\n   •Applications(required)\r\n   •Notes (required)\r\n"
+        description: "<p class=\"english-only\">\r\n Please include the information identified below in the opportunity description. This information must be included in your employment opportunity poster. If you have not yet created your poster, please complete in consultation with your\r\n<a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=1548432&amp;lang=eng\">Human Resources Advisor</a>\r\n, Staffing, the <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2879035&amp;lang=eng\">AAFC Employment Opportunity Poster Template</a>.</p><ul class=\"english-only\">\t\r\n\t<li>Duties <strong>(if applicable)</strong></li>\t\r\n\t<li>Statement of Merit Criteria<strong>(required)</strong>\t\t\r\n\t\t\t<ul>\t\t\t\r\n\t\t\t<li>Essential Qualifications (i.e.: education, experience, knowledge, competencies) <strong>(required)</strong></li>\t\t\t\r\n\t\t\t<li>Language Requirement(s) <strong>(required)</strong></li>\t\t\r\n\t\t\t</ul>\t\r\n\t</li>\t\r\n\t<li>Asset Qualifications (i.e.: education, experience, knowledge, competencies) <strong>(optional)</strong></li>\t\r\n\t<li>Organizational Needs <strong>(required)</strong></li>\t\r\n\t<li>Conditions of Employment <strong>(required)</strong>\r\n\t\t<ul>\t\t\r\n\t\t<li>Security Requirement(s) <strong>(required)</strong></li>\t\t\r\n\t\t<li>Other conditions of employment (i.e.: travel and/or overtime) <strong>(optional)</strong></li>\t\r\n\t\t</ul>\r\n\t </li>\r\n\t<li>Applications<strong>(required)</strong></li>\t\r\n\t<li>Notes <strong>(required)</strong></li>\r\n</ul>\r\n<p></p>\r\n\r\n\r\n\r\n<p class=\"french-only\">\r\nVeuillez inclure les renseignements indiqués ci-dessous dans la description de la possibilité. Ces renseignements doivent être inclus dans votre affiche annonçant la possibilité d'emploi. Si vous n'avez pas encore créé votre affiche, veuillez remplir, en consultation avec votre\r\n<a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=1548432&amp;lang=fra\">conseiller en ressources humaines</a>\r\nresponsable de la dotation, le modèle\r\n<a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2917181&amp;lang=fra\">d'affiche pour les possibilités d'emploi à AAC</a>.\r\n<ul class=\"french-only\">\t\r\n\t<li>Fonctions <strong>(le cas échéant)</strong></li>\t\r\n\t<li>Énoncer des critères de mérite <strong>(requis)</strong>\t\t\r\n\t\t<ul>\t\t\t\r\n\t\t\t<li>Qualifications essentielles (exemples: éducation, expérience, connaissance, compétences) <strong>(requis)</strong></li>\t\t\t\r\n\t\t\t<li>Exigence(s) linguistique(s) <strong>(requis)</strong></li>\t\t\r\n\t\t</ul>\t\r\n\t</li>\t\r\n\t<li>Qualifications constituant un atout (exemples: éducation, expérience, connaissance, compétences) <strong>(optionnelle)</strong></li>\t\r\n\t<li>Besoins de l'organisation <strong>(requis)</strong></li>\t\r\n\t<li>Conditions d'emploi <strong>(requis)</strong>\t\t\r\n\t\t<ul>\t\t\t\r\n\t\t<li>Exigence(s) de sécurité(s) <strong>(requis)</strong></li>\t\t\t\r\n\t\t<li>Autre(s) conditions d'emploi(s) (exemples: voyager et/ou heures supplémentaires) <strong>(optionnelle)</strong></li>\t\t\r\n\t\t</ul>\t\r\n\t</li>\t\r\n\t<li>Demandes <strong>(requis)</strong></li>\t\r\n\t<li>Remarques <strong>(requis)</strong></li>\r\n</ul>\r\n</p>"
         open: true
         required_fields: true
         id: ''
@@ -131,7 +131,7 @@ third_party_settings:
         - field_name
         - field_email
       parent_name: ''
-      weight: 4
+      weight: 3
       format_type: details
       region: content
       format_settings:
@@ -147,7 +147,7 @@ third_party_settings:
         - field_employmentrequestoremail
         - field_employmentrequestorphone
       parent_name: ''
-      weight: 5
+      weight: 4
       format_type: details
       region: content
       format_settings:
@@ -161,7 +161,7 @@ third_party_settings:
       children:
         - field_empladditionalnotes
       parent_name: ''
-      weight: 6
+      weight: 5
       format_type: details
       region: content
       format_settings:
@@ -201,12 +201,12 @@ content:
     third_party_settings: {  }
     region: content
   field_and_equivalent:
-    weight: 20
+    type: boolean_checkbox
+    weight: 19
+    region: content
     settings:
       display_label: true
     third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   field_branch:
     weight: 10
     settings: {  }
@@ -232,12 +232,12 @@ content:
     type: datetime_default
     region: content
   field_email:
-    weight: 6
+    weight: 26
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: email_default
+    type: string_textfield
     region: content
   field_empladditionalnotes:
     weight: 11
@@ -311,12 +311,12 @@ content:
   layout_selection:
     type: options_select
     region: content
-    weight: 7
+    weight: 6
     settings: {  }
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 8
+    weight: 7
     settings: {  }
     region: content
     third_party_settings: {  }

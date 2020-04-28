@@ -154,12 +154,14 @@ third_party_settings:
     enable: true
   layout_builder_restrictions:
     entity_view_mode_restriction:
-      allowed_blocks: {  }
       allowed_layouts:
         - layout_onecol
         - layout_twocol_section
         - layout_threecol_section
         - layout_fourcol_section
+      whitelisted_blocks: {  }
+      blacklisted_blocks: {  }
+    allowed_block_categories: {  }
 _core:
   default_config_hash: KNrs28OA6IqyPYfOOuVB_TtvU9cW6teRktxiPQAnjjg
 id: node.landing_page.default

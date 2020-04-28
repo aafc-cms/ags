@@ -59,7 +59,6 @@ third_party_settings:
     enable: true
   layout_builder_restrictions:
     entity_view_mode_restriction:
-      allowed_blocks: {  }
       allowed_layouts:
         - layout_onecol
         - bs_2col_bricked
@@ -69,6 +68,9 @@ third_party_settings:
         - layout_threecol_section
         - layout_fourcol_section
         - wxt_topic
+      whitelisted_blocks: {  }
+      blacklisted_blocks: {  }
+    allowed_block_categories: {  }
 id: node.news.full
 targetEntityType: node
 bundle: news
@@ -81,6 +83,7 @@ content:
     third_party_settings: {  }
 hidden:
   body: true
+  content_moderation_control: true
   field_description: true
   field_from: true
   field_issued: true
