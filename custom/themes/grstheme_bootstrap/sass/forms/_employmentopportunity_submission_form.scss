@@ -23,13 +23,21 @@ body.user-anonymous {
 
 body.page-node-type-empl {
   /* field title float left class */
-  div.field.field--name-field-type .field--label {
+  .field--name-field-type .field--label {
+    float: left;
+  } 
+
+  .field--name-field-type .field--item {
     float: left;
   } 
  
-  div.field.field.field--name-field-classification .field--label {
-    float: left;
+  .field--name-field-type .field--item:last-child {
+    float: none;
   } 
+  
+  .field--name-field-classification .field--label {
+    float: left;
+  }
 }
 
 /* block-privacynotice */
