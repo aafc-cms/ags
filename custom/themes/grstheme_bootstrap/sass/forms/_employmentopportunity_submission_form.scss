@@ -21,6 +21,17 @@ body.user-anonymous {
   }
 }
 
+body.page-node-type-empl {
+  /* field title float left class */
+  div.field.field--name-field-type .field--label {
+    float: left;
+  } 
+ 
+  div.field.field.field--name-field-classification .field--label {
+    float: left;
+  } 
+}
+
 /* block-privacynotice */
 #block-privacynotice {
   padding-left: 15px !important;
@@ -41,7 +52,7 @@ body.employment-opportunity-request-form-page {
   .btn.icon-before .glyphicon {
     min-height: 20px;
   }
-
+  
   &.i18n-en .field--type-entity-reference .select-wrapper:after {
     right: 58% !important;
   }
