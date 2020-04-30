@@ -61,6 +61,13 @@ type_settings:
         - with_reviewer_for_deletion
       to: archived
       weight: 10
+    emergency_publish:
+      label: 'Emergency publish'
+      from:
+        - draft
+        - published
+      to: published
+      weight: 11
     publish:
       label: Publish
       to: published
