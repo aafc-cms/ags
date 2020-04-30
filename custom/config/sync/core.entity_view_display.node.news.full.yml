@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.news.field_meta_type
     - field.field.node.news.field_modified
     - field.field.node.news.field_newsapprovedby
+    - field.field.node.news.field_newsexpirydate
     - field.field.node.news.field_newsfile1
     - field.field.node.news.field_newsfile2
     - field.field.node.news.field_newsfile3
@@ -91,6 +92,7 @@ hidden:
   field_meta_type: true
   field_modified: true
   field_newsapprovedby: true
+  field_newsexpirydate: true
   field_newsfile1: true
   field_newsfile2: true
   field_newsfile3: true

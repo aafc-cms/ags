@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.news.field_meta_type
     - field.field.node.news.field_modified
     - field.field.node.news.field_newsapprovedby
+    - field.field.node.news.field_newsexpirydate
     - field.field.node.news.field_newsfile1
     - field.field.node.news.field_newsfile2
     - field.field.node.news.field_newsfile3
@@ -27,6 +28,7 @@ dependencies:
     - field.field.node.news.field_to
     - field.field.node.news.layout_selection
     - node.type.news
+    - workflows.workflow.publishing
   module:
     - content_moderation
     - datetime
@@ -334,6 +336,7 @@ hidden:
   field_keywords: true
   field_meta_type: true
   field_modified: true
+  field_newsexpirydate: true
   field_subject: true
   langcode: true
   path: true

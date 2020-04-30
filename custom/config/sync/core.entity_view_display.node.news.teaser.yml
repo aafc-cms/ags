@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.news.field_meta_type
     - field.field.node.news.field_modified
     - field.field.node.news.field_newsapprovedby
+    - field.field.node.news.field_newsexpirydate
     - field.field.node.news.field_newsfile1
     - field.field.node.news.field_newsfile2
     - field.field.node.news.field_newsfile3
@@ -49,6 +50,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  content_moderation_control: true
   field_description: true
   field_from: true
   field_issued: true
@@ -56,6 +58,7 @@ hidden:
   field_meta_type: true
   field_modified: true
   field_newsapprovedby: true
+  field_newsexpirydate: true
   field_newsfile1: true
   field_newsfile2: true
   field_newsfile3: true

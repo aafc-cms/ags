@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.news.field_meta_type
     - field.field.node.news.field_modified
     - field.field.node.news.field_newsapprovedby
+    - field.field.node.news.field_newsexpirydate
     - field.field.node.news.field_newsfile1
     - field.field.node.news.field_newsfile2
     - field.field.node.news.field_newsfile3
@@ -69,14 +70,14 @@ content:
     type: string
     region: content
   field_newsapprovedby:
-    weight: 7
+    weight: 6
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_newsfile1:
-    weight: 10
+    weight: 9
     label: above
     settings:
       use_description_as_link_text: true
@@ -84,7 +85,7 @@ content:
     type: file_default
     region: content
   field_newsfile2:
-    weight: 11
+    weight: 10
     label: above
     settings:
       use_description_as_link_text: true
@@ -92,7 +93,7 @@ content:
     type: file_default
     region: content
   field_newsfile3:
-    weight: 12
+    weight: 11
     label: above
     settings:
       use_description_as_link_text: true
@@ -100,7 +101,7 @@ content:
     type: file_default
     region: content
   field_newsfile4:
-    weight: 13
+    weight: 12
     label: above
     settings:
       use_description_as_link_text: true
@@ -108,21 +109,21 @@ content:
     type: file_default
     region: content
   field_newsnotes:
-    weight: 9
+    weight: 8
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_newsreviewedby:
-    weight: 6
+    weight: 5
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_newstranslationnum:
-    weight: 8
+    weight: 7
     label: above
     settings:
       link_to_entity: false
@@ -157,6 +158,7 @@ hidden:
   field_keywords: true
   field_meta_type: true
   field_modified: true
+  field_newsexpirydate: true
   field_newssubmitteremail: true
   field_newssubmittername: true
   field_newssubmitterphone: true
