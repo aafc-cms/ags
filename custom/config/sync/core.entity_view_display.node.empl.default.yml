@@ -84,13 +84,14 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_employmentrequestoremail:
+  field_email:
+    type: string
     weight: 8
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
     region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
   field_locations:
     weight: 4
     label: inline
@@ -132,8 +133,8 @@ hidden:
   content_moderation_control: true
   field_and_equivalent: true
   field_description: true
-  field_email: true
   field_empladditionalnotes: true
+  field_employmentrequestoremail: true
   field_employmentrequestorname: true
   field_employmentrequestorphone: true
   field_issued: true
