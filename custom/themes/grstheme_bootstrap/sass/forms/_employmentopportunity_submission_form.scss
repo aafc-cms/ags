@@ -61,8 +61,21 @@ body.page-node-type-empl {
     white-space: pre; 
   } 
 
+  .field.field--name-body.field--type-text-with-summary.field--label-above .field--label::after {
+    content: "\A"; 
+    white-space: pre; 
+  }
+ 
   .field.field--name-body.field--type-text-with-summary.field--label-above .field--label {
     font-size: 24px;
+  }
+  
+  .field.field--name-field-employmentrequestoremail.field--type-email .field--label {
+    float: left;
+  }
+
+  .field.field--name-field-employmentrequestoremail.field--type-email .field--label::after {
+    content: "\00a0\00a0";
   }
 
   #block-privacynotice h2.block-title {
@@ -210,9 +223,13 @@ body.employment-opportunity-request-form-page {
     font-weight: bold;
   }
 
-   #field-classification-values th.field-label.form-required {
-     padding-left: 0px;
-   }
+  #field-classification-values th.field-label.form-required {
+    padding-left: 0px;
+  }
+  
+  #edit-field-classification-wrapper .paragraph-type-top.form-group.js-form-wrapper.form-wrapper {
+    float: right !important;
+  }  
 
   #edit-field-classification-wrapper a.tabledrag-handle {
 	display: none !important;
