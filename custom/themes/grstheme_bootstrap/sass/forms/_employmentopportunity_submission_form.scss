@@ -55,6 +55,15 @@ body.page-node-type-empl {
   .field--name-field-classification .field--label::after {
     content: '\00a0\00a0';
   }
+
+  .field.field--name-body.field--type-text-with-summary.field--label-above .field--label::before {
+    content: "\A"; 
+    white-space: pre; 
+  } 
+
+  .field.field--name-body.field--type-text-with-summary.field--label-above .field--label {
+    font-size: 24px;
+  } 
 }
 
 /* block-privacynotice */
