@@ -32,17 +32,12 @@ body.page-node-type-empl {
   } 
  
   .field--name-field-type .field--label::after {
-    content: '\00a0\00a0';
+    content: '\00a0';
   } 
   
   .field--name-field-type .field--item::after {
     content: ',\00a0';
   } 
-
-  
-  .field--name-field-type .field--item:last-child::after {
-    content: '';
-  }
 
   .field--name-field-type .field--item:last-child {
     float: none;
@@ -53,20 +48,7 @@ body.page-node-type-empl {
   }
 
   .field--name-field-classification .field--label::after {
-    content: '\00a0\00a0';
-  }
-
-  .field.field--name-body.field--type-text-with-summary.field--label-above .field--label::before {
-    content: "\A"; 
-    white-space: pre; 
-  } 
-
-  .field.field--name-body.field--type-text-with-summary.field--label-above .field--label {
-    font-size: 24px;
-  }
-
-  #block-privacynotice h2.block-title {
-    display: none;
+    content: '\00a0';
   }
 }
 

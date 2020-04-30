@@ -9,7 +9,10 @@
         if ($('body').hasClass('nodeaddempl') || $('body').hasClass('nodeaddnews')) {
           $('body').removeClass('etuf-sbs');
         }
-        if ($('body').hasClass('nodeeditempl') || $('body').hasClass('nodeeditnews')) {
+        if ($('body').hasClass('node-edit') && $('body').hasClass('page-node-type-empl')) {
+          $('body').removeClass('etuf-sbs');
+        }
+        if ($('body').hasClass('node-edit') && $('body').hasClass('page-node-type-news')) {
           $('body').removeClass('etuf-sbs');
         }
         if ($('body').hasClass('user-logged-in')) {
