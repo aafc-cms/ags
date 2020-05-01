@@ -62,7 +62,7 @@
           if ($('body').hasClass('adminstructuremenumanagesideb') || $('body').hasClass('adminstructuremenumanagemain')) {
             var disabledMenuLinkHtml = '<form id="menu-disabled-links-form" action="#nothing">' +
             '<input type="checkbox" id="menu-disabled-links-switch" name="menu-disabled-links-switch" value="enabled" checked>' +
-            '<label for="menu-disabled-links-switch" class="show-disabled"> ' + Drupal.t('Show disabled items') + '</label>' +
+            '<label for="menu-disabled-links-switch" class="show-disabled"> ' + Drupal.t('Hide disabled items') + '</label>' +
             '</form>';
             $('div.region-content .tabledrag-toggle-weight-wrapper').prepend(disabledMenuLinkHtml);
             $('table#menu-overview tr.menu-disabled').each(function(e, index) {
