@@ -607,7 +607,7 @@ class AgriAdminHelper {
     return FALSE;
   }
 
-  static public function disableMenuLink($id = NULL, $nid = NULL, $menu_name = 'main') {
+  static public function disableMenuLink($id = NULL, $nid = NULL, $menu_name = 'main', $force = FALSE) {
     $DEBUG = FALSE;
 
     if (isset($id) && !empty($id)) {
@@ -634,26 +634,25 @@ class AgriAdminHelper {
           $id = $menu_item->getPluginDefinition()['metadata']['entity_id'];
           static::addToLog($id, $DEBUG);
           $menu_link = \Drupal::entityTypeManager()->getStorage('menu_link_content')->load($id);
-          if ($menu_link->getMenuName() == $menu_name) {
+          if ($force || ($menu_link->getMenuName() == $menu_name && $menu_name != 'sidebar')) {
+            $options = $menu_link->link->options;
+            if ($menu_link->isEnabled() && empty($options['attributes']['class'])) {
+              $options['attributes']['class'] = ['basic-page-link'];
+              $menu_link->link->options = $options;
+              $menu_link->save();
+            }
+            static::addToLog('disabling ' . $menu_name . ' link for menu link id=' . $id, $DEBUG);
             $menu_link->set('enabled', FALSE);
-            if ($menu_link->isEnabled()) {
-              static::addToLog('enabled', $DEBUG);
-              $options = $menu_link->link->options;
-              if (isset($options['attributes']['class'])) {
-                if (empty($options['attributes']['class'])) {
-                  $options['attributes']['class'] = ['basic-page-link'];
-		  $menu_link->link->options = $options;
-                }
-              }
-              else {
-                $options['attributes']['class'] = ['basic-page-link'];
-                $menu_link->link->options = $options;
-              }
-            }
-            else {
-              static::addToLog('disabled', $DEBUG);
-            }
             $menu_link->save();
+            $options = $menu_link->link->options;
+          }
+          if ($menu_link->getMenuName() == 'sidebar') {
+            $options = $menu_link->link->options;
+            if (empty($options['attributes']['class'])) {
+              $options['attributes']['class'] = ['basic-page-link'];
+              $menu_link->link->options = $options;
+              $menu_link->save();
+            }
           }
         }
       }
