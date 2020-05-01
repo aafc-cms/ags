@@ -11,6 +11,14 @@ body.path-admin #block-claro-content nav.breadcrumb {
   font-size: 1.3rem;
 }
 
+body.adminstructuremenumanagemain #menu-disabled-links-form,
+body.adminstructuremenumanagesideb #menu-disabled-links-form {
+  display: inline-block;
+  margin-right: 20px;
+  float: left;
+  margin-left: 20px;
+}
+
 body.nodeaddempl .field-group-fieldset,
 body.node-edit.page-node-type-empl .field-group-fieldset {
   width: 100% !important;
@@ -89,4 +97,3 @@ body.node-edit.page-node-type-empl .paragraph-type-top div[data-drupal-selector^
   }
 
 }
-

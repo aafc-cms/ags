@@ -33,34 +33,56 @@
               console.log('agri_admin hide the promote checkbox on node edit.');
             }
           }, 500);
-  
+
           //make sure in ETUF the french language is french (it defaults to english if creating node in french UI)
           if ($('html').attr('lang') == 'fr') {
             $('#edit-langcode-0-value option[value="en"]').removeAttr("selected");
             $('#edit-langcode-0-value option[value="fr"]').attr("selected","selected");
-          }         
- 
+          }
+
           //ETUF - sync the news type selection, with JS
           var bothSelects = $("#edit-layout-selection, #edit-layout-selection-etuf-fr, #edit-layout-selection-etuf-en");
           bothSelects.change(function(e) {
             bothSelects.val(this.value); // "this" is the changed one
-          }); 
-          
+          });
+
           //ETUF - sync the publish status selection, with JS
-         
+
           var bothStatus = $("#edit-moderation-state-0-state, #edit-moderation-state-etuf-fr-0-state, #edit-moderation-state-etuf-en-0-state");
           bothStatus.change(function(e) {
             bothStatus.val(this.value); // "this" is the changed one
-          }); 
+          });
 
           //change the submit button value to "Save" instead of "Save (this translation)"
           if ($('body').hasClass('i18n-en')) {
             $(".node-form .form-actions #edit-submit").val("Save");
-	  }
- 
+	        }
+
+          // Hide disabled menu links
+          if ($('body').hasClass('adminstructuremenumanagesideb') || $('body').hasClass('adminstructuremenumanagemain')) {
+            var disabledMenuLinkHtml = '<form id="menu-disabled-links-form" action="#nothing">' +
+            '<input type="checkbox" id="menu-disabled-links-switch" name="menu-disabled-links-switch" value="enabled" checked>' +
+            '<label for="menu-disabled-links-switch" class="show-disabled"> ' + Drupal.t('Show disabled items') + '</label>' +
+            '</form>';
+            $('div.region-content .tabledrag-toggle-weight-wrapper').prepend(disabledMenuLinkHtml);
+            $('table#menu-overview tr.menu-disabled').each(function(e, index) {
+              $(this).hide();
+            });
+            $('#menu-disabled-links-switch label.hide-disabled').hide();
+            $("#menu-disabled-links-switch").click(function(e) {
+              $('table#menu-overview tr.menu-disabled').each(function(e, index) {
+                if ($(this).is(":hidden")) {
+                  $(this).show();
+                }
+                else {
+                  $(this).hide();
+                }
+              });
+            });
+	        }
+
         }//end if user is loggedIn
       }
     }
   };
 })(jQuery, Drupal, drupalSettings);
-
