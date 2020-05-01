@@ -55,7 +55,7 @@ bundle: news
 mode: default
 content:
   body:
-    weight: 4
+    weight: 3
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -70,14 +70,14 @@ content:
     type: string
     region: content
   field_newsapprovedby:
-    weight: 6
+    weight: 5
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_newsfile1:
-    weight: 9
+    weight: 8
     label: above
     settings:
       use_description_as_link_text: true
@@ -85,7 +85,7 @@ content:
     type: file_default
     region: content
   field_newsfile2:
-    weight: 10
+    weight: 9
     label: above
     settings:
       use_description_as_link_text: true
@@ -93,7 +93,7 @@ content:
     type: file_default
     region: content
   field_newsfile3:
-    weight: 11
+    weight: 10
     label: above
     settings:
       use_description_as_link_text: true
@@ -101,7 +101,7 @@ content:
     type: file_default
     region: content
   field_newsfile4:
-    weight: 12
+    weight: 11
     label: above
     settings:
       use_description_as_link_text: true
@@ -109,21 +109,21 @@ content:
     type: file_default
     region: content
   field_newsnotes:
-    weight: 8
+    weight: 7
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_newsreviewedby:
-    weight: 5
+    weight: 4
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_newstranslationnum:
-    weight: 7
+    weight: 6
     label: above
     settings:
       link_to_entity: false
@@ -131,7 +131,7 @@ content:
     type: string
     region: content
   field_posted:
-    weight: 3
+    weight: 0
     label: above
     settings:
       format_type: medium
@@ -146,11 +146,6 @@ content:
     third_party_settings: {  }
     type: list_default
     region: content
-  links:
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   content_moderation_control: true
   field_description: true
@@ -166,3 +161,4 @@ hidden:
   field_subject: true
   langcode: true
   layout_selection: true
+  links: true
