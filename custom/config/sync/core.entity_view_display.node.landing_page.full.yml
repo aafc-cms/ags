@@ -387,7 +387,7 @@ third_party_settings:
               label_display: '0'
               context_mapping: {  }
             additional: {  }
-            weight: 0
+            weight: 1
           e58e904b-8890-4559-9582-222b7ca445a9:
             uuid: e58e904b-8890-4559-9582-222b7ca445a9
             region: top_right
@@ -400,10 +400,10 @@ third_party_settings:
               secondary: true
               context_mapping: {  }
             additional: {  }
-            weight: 1
+            weight: 2
           2ba0359c-af3f-4bd7-a6d6-a6e93f680883:
             uuid: 2ba0359c-af3f-4bd7-a6d6-a6e93f680883
-            region: top
+            region: bottom
             configuration:
               id: 'field_block:node:page:body'
               label: Body
@@ -420,7 +420,7 @@ third_party_settings:
             weight: 0
           e18fc4d1-7588-47ae-97b7-69379a6f2e0d:
             uuid: e18fc4d1-7588-47ae-97b7-69379a6f2e0d
-            region: top_left
+            region: bottom
             configuration:
               id: 'system_menu_block:account'
               label: 'User account menu'
@@ -431,7 +431,7 @@ third_party_settings:
               expand_all_items: false
               context_mapping: {  }
             additional: {  }
-            weight: 0
+            weight: 1
         third_party_settings: {  }
   layout_library:
     enable: true
