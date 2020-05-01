@@ -239,189 +239,50 @@ body.employment-opportunity-request-form-page {
 	display: none !important;
   }
 
-  &.i18n-en .form-item-field-classification-0-subform-field-class-id .select-wrapper:after {
+  &.i18n-en div[class$="-subform-field-class-id form-group"] .select-wrapper:after {
     right: 50% !important;
   } 
 
-  &.i18n-en .form-item-field-classification-0-subform-field-class-id .select-wrapper .form-select.required.form-control {
-     min-width: 165px !important;
+  &.i18n-en select[name$="[subform][field_class_id]"] {
+     min-width: 168px !important;
   } 
 
-  &.i18n-fr .form-item-field-classification-0-subform-field-class-id .select-wrapper .form-select.required.form-control {
+  &.i18n-fr select[name$="[subform][field_class_id]"] {
      min-width: 190px !important;
   } 
 
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-0-subform-field-class-id.js-form-item-field-classification-0-subform-field-class-id.form-group {
+  & div[class$="-subform-field-class-id form-group"] {
     float: left !important;
   }
 
-  &.i18n-fr .form-item-field-classification-0-subform-field-class-id .select-wrapper:after {
+  &.i18n-fr div[class$="-subform-field-class-id form-group"] .select-wrapper:after {
     right: 52% !important;
   } 
 
-  &.i18n-en .form-item-field-classification-0-subform-field-class-sub .select-wrapper:after {
+  &.i18n-en div[class$="-subform-field-class-sub form-group"] .select-wrapper:after {
     right: 44% !important;
   } 
   
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-0-subform-field-class-sub.js-form-item-field-classification-0-subform-field-class-sub.form-group {
+  & div[class$="-subform-field-class-sub form-group"] {
     float: left !important;
   }
   
-  &.i18n-fr .form-item-field-classification-0-subform-field-class-sub .select-wrapper:after {
+  &.i18n-fr div[class$="-subform-field-class-sub form-group"] .select-wrapper:after {
     right: 45% !important;
   } 
 
-  &.i18n-en .form-item-field-classification-0-subform-field-class-level .select-wrapper:after {
+  &.i18n-en div[class$="-subform-field-class-level form-group"] .select-wrapper:after {
     right: 36% !important;
   } 
 
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-0-subform-field-class-level.js-form-item-field-classification-0-subform-field-class-level.form-group {
+  & div[class$="-subform-field-class-level form-group"] {
     float: left !important;
   }
 
-  &.i18n-fr .form-item-field-classification-0-subform-field-class-level .select-wrapper:after {
+  &.i18n-fr div[class$="-subform-field-class-level form-group"] .select-wrapper:after {
     right: 40% !important;
   }
   // end of Classication group 1
-
-
-  // Group 2
-  &.i18n-en .form-item-field-classification-1-subform-field-class-id .select-wrapper .form-select.required.form-control {
-    min-width: 165px !important;
-  } 
-
-  &.i18n-fr .form-item-field-classification-1-subform-field-class-id .select-wrapper .form-select.required.form-control {
-     min-width: 190px !important;
-  } 
-
-  &.i18n-en .form-item-field-classification-1-subform-field-class-id .select-wrapper:after {
-    right: 50% !important;
-  } 
-
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-1-subform-field-class-id.js-form-item-field-classification-1-subform-field-class-id.form-group {
-    float: left !important;
-  }
-
-  &.i18n-fr .form-item-field-classification-1-subform-field-class-id .select-wrapper:after {
-    right: 52% !important;
-  } 
-
-  &.i18n-en .form-item-field-classification-1-subform-field-class-sub .select-wrapper:after {
-    right: 44% !important;
-  } 
-  
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-1-subform-field-class-sub.js-form-item-field-classification-1-subform-field-class-sub.form-group {
-    float: left !important;
-  }
-  
-  &.i18n-fr .form-item-field-classification-1-subform-field-class-sub .select-wrapper:after {
-    right: 45% !important;
-  } 
-
-  &.i18n-en .form-item-field-classification-1-subform-field-class-level .select-wrapper:after {
-    right: 36% !important;
-  } 
-
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-1-subform-field-class-level.js-form-item-field-classification-1-subform-field-class-level.form-group {
-    float: left !important;
-  }
-
-  &.i18n-fr .form-item-field-classification-1-subform-field-class-level .select-wrapper:after {
-    right: 40% !important;
-  }
-  // the end of group 2
-
-
-   // group 3
-  &.i18n-en .form-item-field-classification-2-subform-field-class-id .select-wrapper .form-select.required.form-control {
-    min-width: 165px !important;
-  } 
-
-  &.i18n-fr .form-item-field-classification-2-subform-field-class-id .select-wrapper .form-select.required.form-control {
-     min-width: 190px !important;
-  } 
-
-  &.i18n-en .form-item-field-classification-2-subform-field-class-id .select-wrapper:after {
-    right: 50% !important;
-  }
-
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-2-subform-field-class-id.js-form-item-field-classification-2-subform-field-class-id.form-group {
-    float: left !important;
-  }
-
-  &.i18n-fr .form-item-field-classification-2-subform-field-class-id .select-wrapper:after {
-    right: 52% !important;
-  }
-
-  &.i18n-en .form-item-field-classification-2-subform-field-class-sub .select-wrapper:after {
-    right: 44% !important;
-  }
-
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-2-subform-field-class-sub.js-form-item-field-classification-2-subform-field-class-sub.form-group {
-    float: left !important;
-  }
-
-  &.i18n-fr .form-item-field-classification-2-subform-field-class-sub .select-wrapper:after {
-    right: 45% !important;
-  }
-
-  &.i18n-en .form-item-field-classification-2-subform-field-class-level .select-wrapper:after {
-    right: 36% !important;
-  }
-
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-2-subform-field-class-level.js-form-item-field-classification-2-subform-field-class-level.form-group {
-    float: left !important;
-  }
-
-  &.i18n-fr .form-item-field-classification-2-subform-field-class-level .select-wrapper:after {
-    right: 40% !important;
-  }
-
-  // group 4
-  &.i18n-en .form-item-field-classification-3-subform-field-class-id .select-wrapper .form-select.required.form-control {
-     min-width: 165px !important;
-  } 
-
-  &.i18n-fr .form-item-field-classification-3-subform-field-class-id .select-wrapper .form-select.required.form-control {
-     min-width: 190px !important;
-  } 
-
-  &.i18n-en .form-item-field-classification-3-subform-field-class-id .select-wrapper:after {
-    right: 50% !important;
-  }
-
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-3-subform-field-class-id.js-form-item-field-classification-3-subform-field-class-id.form-group {
-    float: left !important;
-  }
-
-  &.i18n-fr .form-item-field-classification-3-subform-field-class-id .select-wrapper:after {
-    right: 52% !important;
-  }
-
-  &.i18n-en .form-item-field-classification-3-subform-field-class-sub .select-wrapper:after {
-    right: 44% !important;
-  }
-
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-3-subform-field-class-sub.js-form-item-field-classification-3-subform-field-class-sub.form-group {
-    float: left !important;
-  }
-
-  &.i18n-fr .form-item-field-classification-3-subform-field-class-sub .select-wrapper:after {
-    right: 45% !important;
-  }
-
-  &.i18n-en .form-item-field-classification-3-subform-field-class-level .select-wrapper:after {
-    right: 36% !important;
-  }
-
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-3-subform-field-class-level.js-form-item-field-classification-3-subform-field-class-level.form-group {
-    float: left !important;
-  }
-
-  &.i18n-fr .form-item-field-classification-3-subform-field-class-level .select-wrapper:after {
-    right: 40% !important;
-  }
- // end group 4
 
   #edit-group-emplopportunityclosingdate div a.panel-title {
     pointer-events: none;
@@ -539,239 +400,8 @@ body.employment-opportunity-request-form-page {
   #block-grstheme-bootstrap-reportproblemblock {
     padding-top: 15px !important;
   }
-
-  // group 5
-  &.i18n-en .form-item-field-classification-4-subform-field-class-id .select-wrapper .form-select.required.form-control {
-     min-width: 165px !important;
-  } 
-
-  &.i18n-fr .form-item-field-classification-4-subform-field-class-id .select-wrapper .form-select.required.form-control {
-     min-width: 190px !important;
-  } 
-
-  &.i18n-en .form-item-field-classification-4-subform-field-class-id .select-wrapper:after {
-    right: 50% !important;
-  } 
-
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-4-subform-field-class-id.js-form-item-field-classification-4-subform-field-class-id.form-group {
-    float: left !important;
-  }
-
-  &.i18n-fr .form-item-field-classification-4-subform-field-class-id .select-wrapper:after {
-    right: 52% !important;
-  } 
-
-  &.i18n-en .form-item-field-classification-4-subform-field-class-sub .select-wrapper:after {
-    right: 44% !important;
-  } 
   
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-4-subform-field-class-sub.js-form-item-field-classification-4-subform-field-class-sub.form-group {
-    float: left !important;
-  }
-  
-  &.i18n-fr .form-item-field-classification-4-subform-field-class-sub .select-wrapper:after {
-    right: 45% !important;
-  } 
-
-  &.i18n-en .form-item-field-classification-4-subform-field-class-level .select-wrapper:after {
-    right: 36% !important;
-  } 
-
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-4-subform-field-class-level.js-form-item-field-classification-4-subform-field-class-level.form-group {
-    float: left !important;
-  }
-
-  &.i18n-fr .form-item-field-classification-4-subform-field-class-level .select-wrapper:after {
-    right: 40% !important;
-  }
- // end group 5  
-
-   //Extra Classification group 6
-  &.i18n-en .form-item-field-classification-5-subform-field-class-id .select-wrapper .form-select.required.form-control {
-     min-width: 165px !important;
-  } 
-
-  &.i18n-fr .form-item-field-classification-5-subform-field-class-id .select-wrapper .form-select.required.form-control {
-     min-width: 190px !important;
-  } 
-
-  &.i18n-en .form-item-field-classification-5-subform-field-class-id .select-wrapper:after {
-    right: 50% !important;
-  }
-
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-5-subform-field-class-id.js-form-item-field-classification-5-subform-field-class-id.form-group {
-    float: left !important;
-  }
-
-  &.i18n-fr .form-item-field-classification-5-subform-field-class-id .select-wrapper:after {
-    right: 52% !important;
-  }
-
-  &.i18n-en .form-item-field-classification-5-subform-field-class-sub .select-wrapper:after {
-    right: 44% !important;
-  }
-
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-5-subform-field-class-sub.js-form-item-field-classification-5-subform-field-class-sub.form-group {
-    float: left !important;
-  }
-
-  &.i18n-fr .form-item-field-classification-5-subform-field-class-sub .select-wrapper:after {
-    right: 45% !important;
-  }
-
-  &.i18n-en .form-item-field-classification-5-subform-field-class-level .select-wrapper:after {
-    right: 36% !important;
-  }
-
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-5-subform-field-class-level.js-form-item-field-classification-5-subform-field-class-level.form-group {
-    float: left !important;
-  }
-
-  &.i18n-fr .form-item-field-classification-5-subform-field-class-level .select-wrapper:after {
-    right: 40% !important;
-  }
-  // end of group 6
-
-
-  // group 7
-  &.i18n-en .form-item-field-classification-6-subform-field-class-id .select-wrapper .form-select.required.form-control {
-     min-width: 165px !important;
-  } 
-
-  &.i18n-fr .form-item-field-classification-6-subform-field-class-id .select-wrapper .form-select.required.form-control {
-     min-width: 190px !important;
-  } 
-
-  &.i18n-en .form-item-field-classification-6-subform-field-class-id .select-wrapper:after {
-    right: 50% !important;
-  }
-
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-6-subform-field-class-id.js-form-item-field-classification-6-subform-field-class-id.form-group {
-    float: left !important;
-  }
-
-  &.i18n-fr .form-item-field-classification-6-subform-field-class-id .select-wrapper:after {
-    right: 52% !important;
-  }
-
-  &.i18n-en .form-item-field-classification-6-subform-field-class-sub .select-wrapper:after {
-    right: 44% !important;
-  }
-
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-6-subform-field-class-sub.js-form-item-field-classification-6-subform-field-class-sub.form-group {
-    float: left !important;
-  }
-
-  &.i18n-fr .form-item-field-classification-6-subform-field-class-sub .select-wrapper:after {
-    right: 45% !important;
-  }
-
-  &.i18n-en .form-item-field-classification-6-subform-field-class-level .select-wrapper:after {
-    right: 36% !important;
-  }
-
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-6-subform-field-class-level.js-form-item-field-classification-6-subform-field-class-level.form-group {
-    float: left !important;
-  }
-
-  &.i18n-fr .form-item-field-classification-6-subform-field-class-level .select-wrapper:after {
-    right: 40% !important;
-  }
-  // end group 7
-
-  // group 8
-  &.i18n-en .form-item-field-classification-7-subform-field-class-id .select-wrapper .form-select.required.form-control {
-     min-width: 165px !important;
-  } 
-
-  &.i18n-fr .form-item-field-classification-7-subform-field-class-id .select-wrapper .form-select.required.form-control {
-     min-width: 190px !important;
-  } 
-
-  &.i18n-en .form-item-field-classification-7-subform-field-class-id .select-wrapper:after {
-    right: 50% !important;
-  }
-
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-7-subform-field-class-id.js-form-item-field-classification-7-subform-field-class-id.form-group {
-    float: left !important;
-  }
-
-  &.i18n-fr .form-item-field-classification-7-subform-field-class-id .select-wrapper:after {
-    right: 52% !important;
-  }
-
-  &.i18n-en .form-item-field-classification-7-subform-field-class-sub .select-wrapper:after {
-    right: 44% !important;
-  }
-
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-7-subform-field-class-sub.js-form-item-field-classification-7-subform-field-class-sub.form-group {
-    float: left !important;
-  }
-
-  &.i18n-fr .form-item-field-classification-7-subform-field-class-sub .select-wrapper:after {
-    right: 45% !important;
-  }
-
-  &.i18n-en .form-item-field-classification-7-subform-field-class-level .select-wrapper:after {
-    right: 36% !important;
-  }
-
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-7-subform-field-class-level.js-form-item-field-classification-7-subform-field-class-level.form-group {
-    float: left !important;
-  }
-
-  &.i18n-fr .form-item-field-classification-7-subform-field-class-level .select-wrapper:after {
-    right: 40% !important;
-  }
-  // end group 8
-
-  // group 9
-  &.i18n-en .form-item-field-classification-8-subform-field-class-id .select-wrapper .form-select.required.form-control {
-     min-width: 165px !important;
-  } 
-
-  &.i18n-fr .form-item-field-classification-8-subform-field-class-id .select-wrapper .form-select.required.form-control {
-     min-width: 190px !important;
-  } 
-
-  &.i18n-en .form-item-field-classification-8-subform-field-class-id .select-wrapper:after {
-    right: 50% !important;
-  } 
-
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-8-subform-field-class-id.js-form-item-field-classification-8-subform-field-class-id.form-group {
-    float: left !important;
-  }
-
-  &.i18n-fr .form-item-field-classification-8-subform-field-class-id .select-wrapper:after {
-    right: 52% !important;
-  } 
-
-  &.i18n-en .form-item-field-classification-8-subform-field-class-sub .select-wrapper:after {
-    right: 44% !important;
-  } 
-  
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-8-subform-field-class-sub.js-form-item-field-classification-8-subform-field-class-sub.form-group {
-    float: left !important;
-  }
-  
-  &.i18n-fr .form-item-field-classification-8-subform-field-class-sub .select-wrapper:after {
-    right: 45% !important;
-  } 
-
-  &.i18n-en .form-item-field-classification-8-subform-field-class-level .select-wrapper:after {
-    right: 36% !important;
-  } 
-
-  & .form-item.js-form-item.form-type-select.js-form-type-select.form-item-field-classification-8-subform-field-class-level.js-form-item-field-classification-8-subform-field-class-level.form-group {
-    float: left !important;
-  }
-
-  &.i18n-fr .form-item-field-classification-8-subform-field-class-level .select-wrapper:after {
-    right: 40% !important;
-  }
-  // end group 9
-
-  // group header - classificaiton
+// group header - classificaiton
   #edit-field-classification-wrapper th.field-label.form-required {
     display: none !important;
   }   
