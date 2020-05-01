@@ -6,3 +6,9 @@ body.page-node-type-landing-page .bs-2col-bricked {
   div.bs-region--top-right {
   }
 }
+
+body.page-node-type-landing-page.user-anonymous .bs-2col-bricked {
+  div.bs-region--bottom ul.menu.nav.account {
+    display: none;
+  }
+}
