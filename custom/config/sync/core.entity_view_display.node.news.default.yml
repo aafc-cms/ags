@@ -69,15 +69,8 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_newsapprovedby:
-    weight: 5
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
   field_newsfile1:
-    weight: 8
+    weight: 4
     label: above
     settings:
       use_description_as_link_text: true
@@ -85,7 +78,7 @@ content:
     type: file_default
     region: content
   field_newsfile2:
-    weight: 9
+    weight: 5
     label: above
     settings:
       use_description_as_link_text: true
@@ -93,7 +86,7 @@ content:
     type: file_default
     region: content
   field_newsfile3:
-    weight: 10
+    weight: 6
     label: above
     settings:
       use_description_as_link_text: true
@@ -101,41 +94,19 @@ content:
     type: file_default
     region: content
   field_newsfile4:
-    weight: 11
+    weight: 7
     label: above
     settings:
       use_description_as_link_text: true
     third_party_settings: {  }
     type: file_default
     region: content
-  field_newsnotes:
-    weight: 7
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_newsreviewedby:
-    weight: 4
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_newstranslationnum:
-    weight: 6
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
   field_posted:
     weight: 0
     label: above
     settings:
-      format_type: medium
-      timezone_override: ''
+      timezone_override: America/Toronto
+      format_type: html_date
     third_party_settings: {  }
     type: datetime_default
     region: content
@@ -153,10 +124,14 @@ hidden:
   field_keywords: true
   field_meta_type: true
   field_modified: true
+  field_newsapprovedby: true
   field_newsexpirydate: true
+  field_newsnotes: true
+  field_newsreviewedby: true
   field_newssubmitteremail: true
   field_newssubmittername: true
   field_newssubmitterphone: true
+  field_newstranslationnum: true
   field_newstype: true
   field_subject: true
   langcode: true
