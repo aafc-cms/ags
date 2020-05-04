@@ -7,6 +7,11 @@ _core:
 id: node
 label: Content
 tags:
-  title: '[node:title]'
   canonical_url: '[node:url]'
-  description: '[node:summary]'
+  news_keywords: '[node:field_keywords]'
+  keywords: '[node:field_keywords]'
+  dcterms_title: '[node:title]'
+  dcterms_date: '[node:changed:html_date]'
+  dcterms_language: '[language:langcode]-ca'
+  dcterms_creator: 'Agriculture and Agri-Food Canada'
+  dcterms_description: '[node:field_description] [node:summary]'
