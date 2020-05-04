@@ -125,7 +125,10 @@ body.employment-opportunity-request-form-page {
   }
 
   // News Item form Style //
-  #edit-group-opportunity-approval div a.panel-title
+  #edit-group-opportunity-approval div a.panel-title, #edit-group-opportunity-details div a.panel-title,
+  #edit-group-newsarticleheadline div a.panel-title, #edit-group-opportunitydescription div a.panel-title,
+  #edit-group-emploppsubitappquestion div a.panel-title, #edit-group-employmentrequestorinfo div a.panel-title,
+  #edit-group-empladditionalnotes div a.panel-title
   {
     pointer-events: none;
     cursor: default;
@@ -135,77 +138,38 @@ body.employment-opportunity-request-form-page {
     font-weight: bold;
   }
 
-  #edit-group-opportunity-approval.panel-default {
+  #edit-group-opportunity-approval.panel-default, #edit-group-opportunity-details.panel-default,
+  #edit-group-opportunitylocation.panel-default, #edit-group-opportunityopento.panel-default,
+  #edit-group-emplopportunityclosingdate.panel-default, #edit-group-opportunitydescription.panel-default,
+  #edit-group-employmentrequestorinfo.panel-default, #edit-group-emploppsubitappquestion.panel-default,
+  #edit-group-empladditionalnotes.panel-default {
     border-color: white;
   }
 
-  #edit-group-opportunity-approval div.panel-heading {
-    border-bottom: 0px;
-    padding-bottom: 0px;
-  }
-
-
-  #edit-group-opportunity-details div a.panel-title {
-    pointer-events: none;
-    cursor: default;
-    text-decoration: none;
-    background-color: white;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  #edit-group-opportunity-details.panel-default {
-    border-color: white;
-  }
-  
-  #edit-group-opportunity-details div.panel-heading {
+  #edit-group-opportunity-approval div.panel-heading, #edit-group-opportunity-details div.panel-heading,
+  #edit-group-opportunitylocation div.panel-heading, #edit-group-opportunityopento div.panel-heading,
+  #edit-group-emplopportunityclosingdate div.panel-heading, #edit-group-opportunitydescription div.panel-heading,
+  #edit-group-employmentrequestorinfo div.panel-heading, #edit-group-emploppsubitappquestion div.panel-heading,
+  #edit-group-empladditionalnotes div.panel-heading {
     border-bottom: 0px;
     padding-bottom: 0px;
   }
   
-  #edit-group-opportunitylocation div a.panel-title {
+  #edit-group-opportunitylocation div a.panel-title, #edit-group-opportunityopento div a.panel-title,
+   #edit-group-emplopportunityclosingdate div a.panel-title  {
     pointer-events: none;
     cursor: default;
     text-decoration: none;
     background-color: white;
     font-size: 20.8px;
     font-weight: bold;
-  }
-
-  #edit-group-opportunitylocation.panel-default {
-    border-color: white;
-  }
-
-  #edit-group-opportunitylocation div.panel-heading {
-    border-bottom: 0px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
   }
 
   #edit-group-opportunitylocation--content.panel-body {
     padding-left: 0px;
     padding-right: 0px;
   }
-  
-  #edit-group-opportunityopento div a.panel-title {
-    pointer-events: none;
-    cursor: default;
-    text-decoration: none;
-    background-color: white;
-    font-size: 20.8px;
-    font-weight: bold;
-  }
 
-  #edit-group-opportunityopento.panel-default {
-    border-color: white;
-  }
-
-  #edit-group-opportunityopento div.panel-heading {
-    border-bottom: 0px;
-    padding-bottom: 0px;
-  }
-  
   #edit-group-opportunityopento--content.panel-body {
     padding-left: 0px;
     padding-right: 0px;
@@ -223,16 +187,6 @@ body.employment-opportunity-request-form-page {
 
   #edit-group-level-and div.table-responsive button.tabledrag-toggle-weight.btn-sm.btn.btn-default {
     display: none !important;
-  }
-
-
-  #edit-group-newsarticleheadline div a.panel-title {
-    pointer-events: none;
-    cursor: default;
-    text-decoration: none;
-    background-color: white;
-    font-size: 24px;
-    font-weight: bold;
   }
 
   #field-classification-values th.field-label.form-required {
@@ -296,69 +250,6 @@ body.employment-opportunity-request-form-page {
   }
   // end of Classication group 1
 
-  #edit-group-emplopportunityclosingdate div a.panel-title {
-    pointer-events: none;
-    cursor: default;
-    text-decoration: none;
-    background-color: white;
-    font-size: 20.8px;
-    font-weight: bold;
-  }
-  
-  #edit-group-emplopportunityclosingdate.panel-default {
-    border-color: white;
-  }
-  
-  #edit-group-emplopportunityclosingdate div.panel-heading {
-    border-bottom: 0px;
-    padding-bottom: 0px;
-  }
-
-  #edit-group-opportunitydescription div a.panel-title {
-    pointer-events: none;
-    cursor: default;
-    text-decoration: none;
-    background-color: white;
-    font-size: 24px;
-    font-weight: bold;
-  }
-
-  #edit-group-opportunitydescription div.panel-heading {
-    border-bottom: 0px;
-    padding-bottom: 0px;
-  }
-
-  #edit-group-opportunitydescription.panel-default {
-    border-color: white;
-  }
-
-    #edit-group-emploppsubitappquestion div a.panel-title {
-    pointer-events: none;
-    cursor: default;
-    text-decoration: none;
-    background-color: white;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-   #edit-group-employmentrequestorinfo div a.panel-title {
-    pointer-events: none;
-    cursor: default;
-    text-decoration: none;
-    background-color: white;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  #edit-group-employmentrequestorinfo.panel-default {
-    border-color: white;
-  }
-  
-  #edit-group-employmentrequestorinfo div.panel-heading {
-    border-bottom: 0px;
-    padding-bottom: 0px;
-  }
-
   #field-email-add-more-wrapper div.table-responsive button.tabledrag-toggle-weight.btn-sm.btn.btn-default {
 	  display: none !important;
    }  
@@ -372,24 +263,6 @@ body.employment-opportunity-request-form-page {
   }
   
   #edit-group-emploppsubitappquestion div.panel-heading {
-    border-bottom: 0px;
-    padding-bottom: 0px;
-  }
-
-  #edit-group-empladditionalnotes div a.panel-title {
-    pointer-events: none;
-    cursor: default;
-    text-decoration: none;
-    background-color: white;
-    font-size: 24px;
-    font-weight: bold;
-  }
-
-  #edit-group-empladditionalnotes.panel-default {
-    border-color: white;
-  }
-
-  #edit-group-empladditionalnotes div.panel-heading {
     border-bottom: 0px;
     padding-bottom: 0px;
   }
