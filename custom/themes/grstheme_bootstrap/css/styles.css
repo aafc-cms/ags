@@ -207,33 +207,75 @@ body.user-anonymous.news-article-form-page span.field-edit-link button.link.link
   display: none !important;
 }
 
-/* line 25, ../sass/forms/_news_submission_form.scss */
+/* line 24, ../sass/forms/_news_submission_form.scss */
+body.page-node-type-news {
+  /* field title float left class */
+}
+/* line 26, ../sass/forms/_news_submission_form.scss */
+body.page-node-type-news .field--name-field-posted .field--label,
+body.page-node-type-news .field--name-field-to .field--label,
+body.page-node-type-news .field--name-field-from .field--label {
+  float: left;
+}
+/* line 32, ../sass/forms/_news_submission_form.scss */
+body.page-node-type-news .field--name-field-posted .field--label::after,
+body.page-node-type-news .field--name-field-to .field--label::after,
+body.page-node-type-news .field--name-field-from .field--label::after {
+  content: '\00a0\00a0';
+}
+/* line 38, ../sass/forms/_news_submission_form.scss */
+body.page-node-type-news .field--name-body .field--label {
+  display: none;
+}
+/* line 42, ../sass/forms/_news_submission_form.scss */
+body.page-node-type-news .field--name-body.field--type-text-with-summary.field--label-above.quickedit-field .field--item::before {
+  content: "\A";
+  white-space: pre;
+}
+
+/* line 49, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page .help-block {
   font-size: 16px;
   color: #333;
 }
-/* line 30, ../sass/forms/_news_submission_form.scss */
+/* line 54, ../sass/forms/_news_submission_form.scss */
+body.news-article-form-page #edit-actions, body.news-article-form-page #edit-footer {
+  padding-left: 15px;
+}
+/* line 58, ../sass/forms/_news_submission_form.scss */
+body.news-article-form-page #edit-moderation-state-0 .select-wrapper::after {
+  right: 87%;
+}
+/* line 62, ../sass/forms/_news_submission_form.scss */
+body.news-article-form-page #edit-moderation-state-etuf-fr-0 .select-wrapper::after {
+  right: 87%;
+}
+/* line 66, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page .btn.icon-before .glyphicon {
   min-height: 20px;
 }
-/* line 34, ../sass/forms/_news_submission_form.scss */
+/* line 70, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page.i18n-en .field--type-entity-reference .select-wrapper:after {
   right: 78% !important;
 }
-/* line 38, ../sass/forms/_news_submission_form.scss */
+/* line 74, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page.i18n-en .field--type-list-string .select-wrapper:after {
   right: 80.5% !important;
 }
-/* line 42, ../sass/forms/_news_submission_form.scss */
+/* line 78, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page.i18n-fr .field--type-entity-reference .select-wrapper:after {
   right: 71% !important;
 }
-/* line 46, ../sass/forms/_news_submission_form.scss */
+/* line 82, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page.i18n-fr .field--type-list-string .select-wrapper:after {
   right: 80.5% !important;
 }
-/* line 51, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-newsreviewerandapprover div a.panel-title {
+/* line 87, ../sass/forms/_news_submission_form.scss */
+body.news-article-form-page #edit-group-newsreviewerandapprover div a.panel-title, body.news-article-form-page #edit-group-submitter-s-contact-inform div a.panel-title,
+body.news-article-form-page #edit-group-newsposteddate div a.panel-title, body.news-article-form-page #edit-group-newsarticle div a.panel-title,
+body.news-article-form-page #edit-group-newssentby div a.panel-title, body.news-article-form-page #edit-group-newsarticleheadline div a.panel-title,
+body.news-article-form-page #edit-group-aboutarticle div a.panel-title, body.news-article-form-page #edit-group-newstranslationreqnum div a.panel-title,
+body.news-article-form-page #edit-group-newsnotes div a.panel-title, body.news-article-form-page #edit-group-newsattachedfiles div a.panel-title {
   pointer-events: none;
   cursor: default;
   text-decoration: none;
@@ -241,198 +283,44 @@ body.news-article-form-page #edit-group-newsreviewerandapprover div a.panel-titl
   font-size: 24px;
   font-weight: bold;
 }
-/* line 61, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-newsreviewerandapprover.panel-default {
+/* line 100, ../sass/forms/_news_submission_form.scss */
+body.news-article-form-page #edit-group-newsreviewerandapprover.panel-default, body.news-article-form-page #edit-group-submitter-s-contact-inform.panel-default,
+body.news-article-form-page #edit-group-newsposteddate.panel-default, body.news-article-form-page #edit-group-newsarticle.panel-default,
+body.news-article-form-page #edit-group-newssentby.panel-default, body.news-article-form-page #edit-group-newsarticleheadline.panel-default,
+body.news-article-form-page #edit-group-aboutarticle.panel-default, body.news-article-form-page #edit-group-newstranslationreqnum.panel-default,
+body.news-article-form-page #edit-group-newsnotes.panel-default, body.news-article-form-page #edit-group-newsattachedfiles.panel-default {
   border-color: white;
 }
-/* line 65, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-newsreviewerandapprover div.panel-heading {
+/* line 109, ../sass/forms/_news_submission_form.scss */
+body.news-article-form-page #edit-group-newsreviewerandapprover div.panel-heading, body.news-article-form-page #edit-group-submitter-s-contact-inform div.panel-heading,
+body.news-article-form-page #edit-group-newsposteddate div.panel-heading, body.news-article-form-page #edit-group-newsarticle div.panel-heading,
+body.news-article-form-page #edit-group-newssentby div.panel-heading, body.news-article-form-page #edit-group-newsarticleheadline div.panel-heading,
+body.news-article-form-page #edit-group-aboutarticle div.panel-heading, body.news-article-form-page #edit-group-newstranslationreqnum div.panel-heading,
+body.news-article-form-page #edit-group-newsnotes div.panel-heading, body.news-article-form-page #edit-group-newsattachedfiles div.panel-heading {
   border-bottom: 0px;
   padding-bottom: 0px;
 }
-/* line 71, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-submitter-s-contact-inform div a.panel-title {
-  pointer-events: none;
-  cursor: default;
-  text-decoration: none;
-  background-color: white;
-  font-size: 24px;
-  font-weight: bold;
-}
-/* line 80, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-submitter-s-contact-inform.panel-default {
-  border-color: white;
-}
-/* line 84, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-submitter-s-contact-inform div.panel-heading {
-  border-bottom: 0px;
-  padding-bottom: 0px;
-}
-/* line 89, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-newsposteddate div a.panel-title {
-  pointer-events: none;
-  cursor: default;
-  text-decoration: none;
-  background-color: white;
-  font-size: 24px;
-  font-weight: bold;
-}
-/* line 98, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-newsposteddate.panel-default {
-  border-color: white;
-}
-/* line 102, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-newsposteddate div.panel-heading {
-  border-bottom: 0px;
-  padding-bottom: 0px;
-}
-/* line 107, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-newsarticle div a.panel-title {
-  pointer-events: none;
-  cursor: default;
-  text-decoration: none;
-  background-color: white;
-  font-size: 24px;
-  font-weight: bold;
-}
-/* line 116, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-newsarticle.panel-default {
-  border-color: white;
-}
-/* line 120, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-newsarticle div.panel-heading {
-  border-bottom: 0px;
-  padding-bottom: 0px;
-}
-/* line 125, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-newssentby div a.panel-title {
-  pointer-events: none;
-  cursor: default;
-  text-decoration: none;
-  background-color: white;
-  font-size: 24px;
-  font-weight: bold;
-}
-/* line 134, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-newssentby.panel-default {
-  border-color: white;
-}
-/* line 138, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-newssentby div.panel-heading {
-  border-bottom: 0px;
-  padding-bottom: 0px;
-}
-/* line 143, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-newsarticleheadline div a.panel-title {
-  pointer-events: none;
-  cursor: default;
-  text-decoration: none;
-  background-color: white;
-  font-size: 24px;
-  font-weight: bold;
-}
-/* line 152, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-newsarticleheadline.panel-default {
-  border-color: white;
-}
-/* line 156, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-newsarticleheadline div.panel-heading {
-  border-bottom: 0px;
-  padding-bottom: 0px;
-}
-/* line 161, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-aboutarticle div a.panel-title {
-  pointer-events: none;
-  cursor: default;
-  text-decoration: none;
-  background-color: white;
-  font-size: 24px;
-  font-weight: bold;
-}
-/* line 170, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-aboutarticle.panel-default {
-  border-color: white;
-}
-/* line 174, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-aboutarticle div.panel-heading {
-  border-bottom: 0px;
-  padding-bottom: 0px;
-}
-/* line 179, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-newstranslationreqnum div a.panel-title {
-  pointer-events: none;
-  cursor: default;
-  text-decoration: none;
-  background-color: white;
-  font-size: 24px;
-  font-weight: bold;
-}
-/* line 188, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-newstranslationreqnum.panel-default {
-  border-color: white;
-}
-/* line 192, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-newstranslationreqnum div.panel-heading {
-  border-bottom: 0px;
-  padding-bottom: 0px;
-}
-/* line 197, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-newsnotes div a.panel-title {
-  pointer-events: none;
-  cursor: default;
-  text-decoration: none;
-  background-color: white;
-  font-size: 24px;
-  font-weight: bold;
-}
-/* line 206, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-newsnotes.panel-default {
-  border-color: white;
-}
-/* line 210, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-newsnotes div.panel-heading {
-  border-bottom: 0px;
-  padding-bottom: 0px;
-}
-/* line 215, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-newsattachedfiles div a.panel-title {
-  pointer-events: none;
-  cursor: default;
-  text-decoration: none;
-  background-color: white;
-  font-size: 24px;
-  font-weight: bold;
-}
-/* line 224, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-newsattachedfiles.panel-default {
-  border-color: white;
-}
-/* line 228, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-group-newsattachedfiles div.panel-heading {
-  border-bottom: 0px;
-  padding-bottom: 0px;
-}
-/* line 233, ../sass/forms/_news_submission_form.scss */
+/* line 119, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newsfile1-0--description {
   display: none;
 }
-/* line 237, ../sass/forms/_news_submission_form.scss */
+/* line 123, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newsfile2-0--description {
   display: none;
 }
-/* line 241, ../sass/forms/_news_submission_form.scss */
+/* line 127, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newsfile3-0--description {
   display: none;
 }
-/* line 245, ../sass/forms/_news_submission_form.scss */
+/* line 131, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newsfile4-0--description {
   display: none;
 }
-/* line 249, ../sass/forms/_news_submission_form.scss */
+/* line 135, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newssubmitterphone-0-value {
   display: block;
 }
-/* line 253, ../sass/forms/_news_submission_form.scss */
+/* line 139, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #block-news-form-add h2.block-title {
   display: none !important;
 }
