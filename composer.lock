@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0325d531906a2b8e8c79907cb159cc41",
+    "content-hash": "80e8896124680fbc88fea85b647d4318",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -4756,7 +4756,7 @@
                 },
                 "patches_applied": {
                     "Fix a warning about a missing const definition.": "https://www.drupal.org/files/issues/2019-12-02/entity_translation_unified_form-warning-3095038-5.patch",
-                    "Support content moderation latest revision in other language AND fix a glitch with the image field type.": "https://www.drupal.org/files/issues/2020-04-06/etuf-support_content_moderation-3098533-30.patch",
+                    "Support content moderation latest revision in other language AND fix a glitch with the image field type.": "https://www.drupal.org/files/issues/2020-04-27/etuf-support_content_moderation-3098533-32.patch",
                     "Support side-by-side interface and sync of moderation state with jquery": "https://www.drupal.org/files/issues/2020-02-17/etuf-sbs-3113998-09.patch"
                 }
             },
@@ -5793,7 +5793,7 @@
                 },
                 "drupal": {
                     "version": "8.x-4.5",
-                    "datestamp": "1583505030",
+                    "datestamp": "1583505009",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6780,6 +6780,78 @@
             "homepage": "https://www.drupal.org/project/media_entity_twitter",
             "support": {
                 "source": "https://git.drupalcode.org/project/media_entity_twitter"
+            }
+        },
+        {
+            "name": "drupal/memcache",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/memcache.git",
+                "reference": "8.x-2.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/memcache-8.x-2.0.zip",
+                "reference": "8.x-2.0",
+                "shasum": "78c09097c42781343f4069b4823dce7acd98a8b1"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.0",
+                    "datestamp": "1540546681",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Fabianx",
+                    "homepage": "https://www.drupal.org/user/693738"
+                },
+                {
+                    "name": "Jeremy",
+                    "homepage": "https://www.drupal.org/user/409"
+                },
+                {
+                    "name": "bdragon",
+                    "homepage": "https://www.drupal.org/user/53081"
+                },
+                {
+                    "name": "catch",
+                    "homepage": "https://www.drupal.org/user/35733"
+                },
+                {
+                    "name": "damiankloip",
+                    "homepage": "https://www.drupal.org/user/1037976"
+                },
+                {
+                    "name": "jvandyk",
+                    "homepage": "https://www.drupal.org/user/2375"
+                },
+                {
+                    "name": "robertDouglass",
+                    "homepage": "https://www.drupal.org/user/5449"
+                }
+            ],
+            "description": "High performance integration with memcache.",
+            "homepage": "http://drupal.org/project/memcache",
+            "support": {
+                "source": "https://git.drupalcode.org/project/memcache",
+                "issues": "https://www.drupal.org/project/issues/memcache"
             }
         },
         {
@@ -9031,6 +9103,9 @@
                     "services": {
                         "drush.services.yml": "^9 || ^10"
                     }
+                },
+                "patches_applied": {
+                    "Add current language token.": "https://www.drupal.org/files/issues/2019-03-15/2863200-23.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -9907,6 +9982,9 @@
                     "drupal/core": {
                         "Enter drupal/core patch #2752443 description here": "https://www.drupal.org/files/issues/in_correct_order_and-2752443-1.patch"
                     }
+                },
+                "patches_applied": {
+                    "Patch to allow custom blocks to be used without crashing on a null.": "https://www.drupal.org/files/issues/2020-04-27/3131393-2.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
