@@ -1,10 +1,11 @@
-uuid: aaf4d592-e3f8-4552-bdc3-fb25ef351c50
+uuid: 73c6d5d4-9f45-4b81-98d0-bbc7f982294a
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_subject
     - node.type.page
+    - taxonomy.vocabulary.category
 id: node.page.field_subject
 field_name: field_subject
 entity_type: node
@@ -12,8 +13,17 @@ bundle: page
 label: subject
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      category: category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

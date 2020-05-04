@@ -302,6 +302,16 @@ content:
     third_party_settings: {  }
     type: email_default
     region: content
+  field_subject:
+    weight: 27
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   field_type:
     weight: 9
     settings: {  }
@@ -335,7 +345,6 @@ hidden:
   field_keywords: true
   field_meta_type: true
   field_modified: true
-  field_subject: true
   langcode: true
   path: true
   promote: true

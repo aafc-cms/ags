@@ -310,6 +310,22 @@ third_party_settings:
                 type: entity_reference_label
             additional: {  }
             weight: 1
+          a0e33d91-6c7c-40b8-89d5-b43351c05bcb:
+            uuid: a0e33d91-6c7c-40b8-89d5-b43351c05bcb
+            region: top
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:page:field_subject'
+              formatter:
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+                type: entity_reference_label
+            additional: {  }
+            weight: 4
         third_party_settings: {  }
     allow_custom: true
   layout_library:
@@ -390,9 +406,9 @@ content:
     weight: 9
     label: above
     settings:
-      link_to_entity: false
+      link: true
     third_party_settings: {  }
-    type: string
+    type: entity_reference_label
     region: top
   links:
     weight: 1

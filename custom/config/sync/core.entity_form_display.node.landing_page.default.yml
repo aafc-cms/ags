@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.landing_page.layout_builder__translation
     - field.field.node.landing_page.layout_selection
     - node.type.landing_page
+    - workflows.workflow.publishing
   module:
     - content_moderation
     - datetime
@@ -107,12 +108,14 @@ content:
       match_limit: 10
     third_party_settings: {  }
   field_subject:
-    weight: 13
+    weight: 26
     settings:
+      match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
+    type: entity_reference_autocomplete
     region: content
   langcode:
     type: language_select

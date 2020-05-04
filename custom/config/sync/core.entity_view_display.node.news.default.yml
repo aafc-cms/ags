@@ -110,6 +110,14 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
+  field_subject:
+    weight: 8
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_to:
     weight: 1
     label: above
@@ -133,7 +141,6 @@ hidden:
   field_newssubmitterphone: true
   field_newstranslationnum: true
   field_newstype: true
-  field_subject: true
   langcode: true
   layout_selection: true
   links: true
