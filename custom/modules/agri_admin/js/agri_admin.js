@@ -92,23 +92,6 @@
                 $("#menu-disabled-links-form").hide();
               }
             });
-            if (!$("#edit-menu-enabled").is(":checked") && $("#edit-menu-enabled").is(':visible')) {
-              var is_hidden = $("#menu-disabled-links-form").css('display') == 'none';
-              if (is_hidden) {
-                $("#menu-disabled-links-form").show();
-              }
-              else {
-                $("#menu-disabled-links-form").hide();
-              }
-            } else {
-              var is_hidden = $("#menu-disabled-links-form").css('display') == 'none';
-              if (is_hidden) {
-                $("#menu-disabled-links-form").show();
-              }
-              else {
-                $("#menu-disabled-links-form").hide();
-              }
-            }
             var disabledMenuLinkHtml = '<form id="menu-disabled-links-form" action="#nothing">' +
             '<input type="checkbox" class="form-boolean--type-checkbox form-checkbox form-boolean" id="menu-disabled-links-switch" name="menu-disabled-links-switch" value="enabled" checked>' +
             '<label for="menu-disabled-links-switch" class="show-disabled form-item__label"> ' + Drupal.t('Hide disabled items') + '</label>' +
@@ -139,6 +122,23 @@
                 }
               });
             });
+            if (!$("#edit-menu-enabled").is(":checked") && $("#edit-menu-enabled").is(':visible')) {
+              var is_hidden = $("#menu-disabled-links-form").css('display') == 'none';
+              if (is_hidden) {
+                $("#menu-disabled-links-form").show();
+              }
+              else {
+                $("#menu-disabled-links-form").hide();
+              }
+            } else {
+              var is_hidden = $("#menu-disabled-links-form").css('display') == 'none';
+              if (is_hidden) {
+                $("#menu-disabled-links-form").show();
+              }
+              else {
+                $("#menu-disabled-links-form").hide();
+              }
+            }
           }
 
         }//end if user is loggedIn
