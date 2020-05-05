@@ -326,6 +326,22 @@ third_party_settings:
                 type: entity_reference_label
             additional: {  }
             weight: 4
+          5bac33ba-289d-45e0-b0d7-6b6d758603ae:
+            uuid: 5bac33ba-289d-45e0-b0d7-6b6d758603ae
+            region: top
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:page:field_meta_type'
+              formatter:
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+                type: entity_reference_label
+            additional: {  }
+            weight: 5
         third_party_settings: {  }
     allow_custom: true
   layout_library:
@@ -386,12 +402,12 @@ content:
     type: string
     region: top
   field_meta_type:
-    weight: 8
+    weight: 10
     label: above
     settings:
-      link_to_entity: false
+      link: true
     third_party_settings: {  }
-    type: string
+    type: entity_reference_label
     region: top
   field_modified:
     weight: 6

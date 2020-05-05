@@ -1,10 +1,11 @@
-uuid: 0c3b5f11-a0a8-42ec-ae5a-eb65b94be22c
+uuid: a34f6ab7-1b94-4732-bfab-5241c523b3d8
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_meta_type
     - node.type.page
+    - taxonomy.vocabulary.aafc_type
 id: node.page.field_meta_type
 field_name: field_meta_type
 entity_type: node
@@ -12,8 +13,17 @@ bundle: page
 label: 'meta type'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      aafc_type: aafc_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

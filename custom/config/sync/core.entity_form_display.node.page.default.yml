@@ -77,12 +77,14 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_meta_type:
-    weight: 16
+    weight: 27
     settings:
+      match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
+    type: entity_reference_autocomplete
     region: content
   field_modified:
     weight: 19

@@ -303,16 +303,6 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_subject:
-    weight: 27
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_to:
     weight: 3
     settings: {  }
@@ -347,6 +337,7 @@ hidden:
   field_meta_type: true
   field_modified: true
   field_newsexpirydate: true
+  field_subject: true
   langcode: true
   path: true
   promote: true
