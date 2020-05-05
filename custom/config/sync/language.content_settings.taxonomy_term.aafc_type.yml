@@ -1,0 +1,16 @@
+uuid: a4ae4530-548e-4696-9e7b-34f42752119e
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.aafc_type
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.aafc_type
+target_entity_type_id: taxonomy_term
+target_bundle: aafc_type
+default_langcode: site_default
+language_alterable: false
