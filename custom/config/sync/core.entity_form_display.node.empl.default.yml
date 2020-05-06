@@ -302,6 +302,12 @@ content:
     third_party_settings: {  }
     type: email_default
     region: content
+  field_subject:
+    type: options_buttons
+    weight: 19
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_type:
     weight: 9
     settings: {  }
@@ -335,7 +341,6 @@ hidden:
   field_keywords: true
   field_meta_type: true
   field_modified: true
-  field_subject: true
   langcode: true
   path: true
   promote: true
