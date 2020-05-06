@@ -97,3 +97,20 @@ body.node-edit.page-node-type-empl .paragraph-type-top div[data-drupal-selector^
   }
 
 }
+
+body.user-logged-in select[data-drupal-selector=edit-menu-parent] option,
+body.path-node div[data-drupal-selector=edit-menu] option
+{ 
+  font-weight: bold;
+  line-height: 3rem;
+}
+
+body.adminstructuremenumanagemain table[data-drupal-selector=edit-links] td{
+  height: 0rem;
+  padding: 0mm;
+}
+
+body.adminstructuremenumanagemain .tabledrag-cell-content .tree {
+  min-height: 0%;
+}
+
