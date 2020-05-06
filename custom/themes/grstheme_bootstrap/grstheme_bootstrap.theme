@@ -52,3 +52,22 @@ function grstheme_bootstrap_preprocess_field(&$variables, $hook) {
     $variables['empl_classification_block'] = $block;
   }
 }
+
+/**
+ * Implements hook_form_alter.
+ * Link:  https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Form%21form.api.php/function/hook_form_alter/8.8.x
+ */
+function grstheme_bootstrap_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+  if ($form_id === 'node_news_form' || $form_id === 'node_news_edit_form') {
+//    if ($fp = fopen('themes/custom/grstheme_bootstrap/debug.txt', 'a'))
+//    {
+      $text = t("<p>Preview your article to see how it will look in news@work.  If your article doesn't appear correct, close the preview window and edit it again.</p>");
+      $form['actions']['preview']['#prefix'] = '<br><div class="preview-wrapper">';
+      $form['actions']['preview']['#suffix'] = $text . '</div>';
+
+//      fwrite($fp, print_r(array_keys($form['actions']['preview']), TRUE) . "\r\n");
+//      fclose($fp);
+//    }
+  }
+}
