@@ -1,3 +1,4 @@
+uuid: 4441aeb9-01a4-4dfe-a40b-a1b9ef1c0c09
 langcode: en
 status: true
 dependencies:
@@ -6,20 +7,17 @@ dependencies:
     - node.type.page
   module:
     - metatag
+_core:
+  default_config_hash: DhaWPMPedKnABJiFN_rFWD0zRfkl1oeG0RZIoRcMQYo
 id: node.page.field_meta_tags
 field_name: field_meta_tags
 entity_type: node
 bundle: page
-label: 'Meta tags'
-description: ''
+label: 'meta tags'
+description: 'For meta tag dcterms:type'
 required: false
-translatable: true
-default_value:
-  -
-    value: 'a:0:{}'
+translatable: false
+default_value: {  }
 default_value_callback: ''
 settings: {  }
 field_type: metatag
-_core:
-  default_config_hash: DhaWPMPedKnABJiFN_rFWD0zRfkl1oeG0RZIoRcMQYo
-uuid: 4441aeb9-01a4-4dfe-a40b-a1b9ef1c0c09
