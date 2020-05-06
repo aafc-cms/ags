@@ -6,7 +6,6 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.landing_page.body
     - field.field.node.landing_page.field_description
-    - field.field.node.landing_page.field_htype
     - field.field.node.landing_page.field_issued
     - field.field.node.landing_page.field_keywords
     - field.field.node.landing_page.field_meta_tags
@@ -52,7 +51,6 @@ content:
 hidden:
   content_moderation_control: true
   field_description: true
-  field_htype: true
   field_issued: true
   field_keywords: true
   field_meta_type: true
