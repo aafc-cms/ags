@@ -377,7 +377,7 @@ class AgriAdminHelper {
 
     //$lang = static::getLang();
     //$lang = 'en'; // default to 'en' for now.
-    if ($lang == 'en' || $lang == 'fr') {
+    if ($lang == 'en') {
       if (!static::menuExternalLinkExists($title, $external_link, $menu_name, $ts_nid, $lang) && gettype(static::legacyMenuLinkExists($menu_name, $ts_pnid, $lang)) == 'string') {
         $parentUuid = static::legacyMenuLinkExists($menu_name, $ts_pnid, $lang);
         $menu_attributes = [
@@ -397,12 +397,7 @@ class AgriAdminHelper {
           unset($menu_attributes['parent']);
         }
         $menu_link = \Drupal\menu_link_content\Entity\MenuLinkContent::create($menu_attributes);
-        if ($lang == 'en') {
-          $options['attributes']['class'] = ['english-only legacy-external-link'];
-        }
-        else if ($lang = 'fr') {
-          $options['attributes']['class'] = ['french-only legacy-external-link'];
-        }
+        $options['attributes']['class'] = ['english-only legacy-external-link'];
         $menu_link->link->options = $options;
         $returnCode = $menu_link->save();
         if ($returnCode) {
@@ -411,7 +406,7 @@ class AgriAdminHelper {
           static::updateTsPnid($id, $ts_pnid, $lang);
           //static::updateDcrId($id, $dcr_id, $lang); // dcr_id is not numeric for external legacy sitemap menu links
         }
-        if (!$menu_link->hasTranslation('fr') && $external_link == $external_linkFr && $title != $titleFr) {
+        if ($lang == 'en' && !$menu_link->hasTranslation('fr') && $external_link == $external_linkFr && $title != $titleFr) {
           $menu_link->addTranslation('fr', ['title' => $titleFr]);
           static::addToLog(__function__ . '** JOSEPH TEST ************added french translation for menu title=' . $titleFr);
           $returnCode = $menu_link->save();
@@ -431,7 +426,7 @@ class AgriAdminHelper {
         return $returnCode; //@TODO remove this
       }
     }
-    else if ($lang == 'fr' && ($external_link != $external_linkFr)) {
+    else if ($lang == 'fr') {
       if ( !static::menuExternalLinkExists($titleFr, $external_linkFr, $menu_name, $ts_nid, 'fr') &&
           gettype(static::legacyMenuLinkExists($menu_name, $ts_pnid, $lang)) == 'string' ) {
         $parentUuid = static::legacyMenuLinkExists($menu_name, $ts_pnid, 'en');
@@ -450,6 +445,8 @@ class AgriAdminHelper {
           'status' => TRUE,
           'langcode' => $lang,
         ];
+        $options['attributes']['class'] = ['french-only legacy-external-link'];
+        $menu_link->link->options = $options;
         if (gettype($parentUuid) == 'boolean') {
           unset($menu_attributes['parent']);
         }
