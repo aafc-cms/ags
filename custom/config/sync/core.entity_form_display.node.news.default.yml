@@ -185,6 +185,52 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'Related files'
+    group_testingdetailsgroup:
+      children:
+        - field_description
+        - field_keywords
+      parent_name: ''
+      weight: 12
+      format_type: details_sidebar
+      region: content
+      format_settings:
+        description: ''
+        weight: -50
+        required_fields: true
+        id: ''
+        classes: ''
+        open: false
+      label: 'aafc metadata group'
+    group_newsaafcdectermstype:
+      children:
+        - field_meta_type
+      parent_name: ''
+      weight: 13
+      format_type: details_sidebar
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+        weight: -44
+      label: aafc-dcterms-gctype
+    group_newsaafcdctermssubject:
+      children:
+        - field_subject
+      parent_name: ''
+      weight: 14
+      format_type: details_sidebar
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+        weight: -43
+      label: aafc-dcterms-subject
 id: node.news.default
 targetEntityType: node
 bundle: news
@@ -200,6 +246,14 @@ content:
     third_party_settings: {  }
     type: text_textarea_with_summary
     region: content
+  field_description:
+    type: string_textfield
+    weight: 15
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_from:
     weight: 4
     settings:
@@ -208,6 +262,20 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_keywords:
+    type: string_textfield
+    weight: 16
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_meta_type:
+    type: options_buttons
+    weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_newsapprovedby:
     weight: 1
     settings:
@@ -303,6 +371,12 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
+  field_subject:
+    type: options_buttons
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_to:
     weight: 3
     settings: {  }
@@ -331,13 +405,9 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  field_description: true
   field_issued: true
-  field_keywords: true
-  field_meta_type: true
   field_modified: true
   field_newsexpirydate: true
-  field_subject: true
   langcode: true
   path: true
   promote: true

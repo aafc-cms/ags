@@ -56,7 +56,7 @@ third_party_settings:
         id: ''
         classes: aafc-subject-group
         open: false
-      label: 'aafc dcterms subject'
+      label: aafc-dcterms-subject
     group_aafc_dcterms_type:
       children:
         - field_meta_type
@@ -69,9 +69,9 @@ third_party_settings:
         weight: -41
         required_fields: true
         id: ''
-        classes: aafc-dcterm-type-group
+        classes: aafc-dcterm-gctype-group
         open: false
-      label: aafc-dcterms-type
+      label: aafc-dcterms-gctype
 _core:
   default_config_hash: 93TnkIzh65W5fSqt_74vYO-VnxfJ92GSYGlKHFraxlA
 id: node.landing_page.default

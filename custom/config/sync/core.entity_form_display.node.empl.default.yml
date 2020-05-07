@@ -185,6 +185,52 @@ third_party_settings:
         open: true
         required_fields: true
       label: 'Opportunity closing:'
+    group_emplaafcmetdatagroup:
+      children:
+        - field_keywords
+        - field_description
+      parent_name: ''
+      weight: 8
+      format_type: details_sidebar
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+        weight: -50
+      label: 'aafc metdata group'
+    group_aafcdctermsgctype:
+      children:
+        - field_meta_type
+      parent_name: ''
+      weight: 10
+      format_type: details_sidebar
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+        weight: 45
+      label: aafc-dcterms-gctype
+    group_aafcdctermssubject:
+      children:
+        - field_subject
+      parent_name: ''
+      weight: 9
+      format_type: details_sidebar
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+        weight: -40
+      label: aafc-dcterms-subject
 id: node.empl.default
 targetEntityType: node
 bundle: empl
@@ -231,6 +277,14 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
+  field_description:
+    type: string_textfield
+    weight: 12
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_email:
     weight: 26
     settings:
@@ -270,6 +324,14 @@ content:
     third_party_settings: {  }
     type: telephone_default
     region: content
+  field_keywords:
+    type: string_textfield
+    weight: 11
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_locations:
     weight: 12
     settings:
@@ -278,6 +340,12 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_meta_type:
+    type: options_buttons
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_name:
     weight: 5
     settings:
@@ -304,7 +372,7 @@ content:
     region: content
   field_subject:
     type: options_buttons
-    weight: 19
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -336,10 +404,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  field_description: true
   field_issued: true
-  field_keywords: true
-  field_meta_type: true
   field_modified: true
   langcode: true
   path: true
