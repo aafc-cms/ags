@@ -14,22 +14,6 @@
   Drupal.behaviors.grstheme_bootstrap = {
     attach: function (context, settings) {
       if (context == document) {
-        if ($('body').hasClass('internalemploymentopportunity') || $('body').hasClass('submitarticlenewswork')) {
-          // etuf-sbs is a patch we are using for entity_translation_unified_form.
-          $('body').removeClass('etuf-sbs');
-        }
-        if ($('body').hasClass('nodeaddempl') || $('body').hasClass('nodeaddnews')) {
-          // etuf-sbs is a patch we are using for entity_translation_unified_form.
-          $('body').removeClass('etuf-sbs');
-        }
-        if ($('body').hasClass('nodeeditempl') || $('body').hasClass('nodeeditnews')) {
-          // etuf-sbs is a patch we are using for entity_translation_unified_form.
-          $('body').removeClass('etuf-sbs');
-        }
-        if ($('body').hasClass('user-anonymous')) {
-          // etuf-sbs is a patch we are using for entity_translation_unified_form.
-          $('body').removeClass('etuf-sbs');
-        }
       }
     }
   }
