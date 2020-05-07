@@ -427,8 +427,7 @@ class AgriAdminHelper {
       }
     }
     else if ($lang == 'fr') {
-      if ( !static::menuExternalLinkExists($titleFr, $external_linkFr, $menu_name, $ts_nid, 'fr') &&
-          gettype(static::legacyMenuLinkExists($menu_name, $ts_pnid, $lang)) == 'string' ) {
+      if ( !static::menuExternalLinkExists($titleFr, $external_linkFr, $menu_name, $ts_nid, 'fr') && gettype(static::legacyMenuLinkExists($menu_name, $ts_pnid, 'en')) == 'string' ) {
         $parentUuid = static::legacyMenuLinkExists($menu_name, $ts_pnid, 'en');
         if (gettype($parentUuid) == 'boolean') {
           $parentUuid = static::legacyMenuLinkExists($menu_name, $ts_pnid, $lang);
@@ -445,13 +444,13 @@ class AgriAdminHelper {
           'status' => TRUE,
           'langcode' => $lang,
         ];
-        $options['attributes']['class'] = ['french-only legacy-external-link'];
-        $menu_link->link->options = $options;
         if (gettype($parentUuid) == 'boolean') {
           unset($menu_attributes['parent']);
         }
         static::addToLog('********** JOSEPH TEST ************just before create French menu link');
         $menu_link = \Drupal\menu_link_content\Entity\MenuLinkContent::create($menu_attributes);
+        $options['attributes']['class'] = ['french-only legacy-external-link'];
+        $menu_link->link->options = $options;
         $returnCode = $menu_link->save();
         if ($returnCode) {
           $id = $menu_link->id();
