@@ -133,6 +133,7 @@ class AgriAdminHelper {
       ->loadByProperties([
         'link.title' => $title,
         'link.uri' => $external_link,
+        'langcode' => $lang,
         'menu_name' => $menu_name,
       ]);
     $menuLink = reset($menuLink);
