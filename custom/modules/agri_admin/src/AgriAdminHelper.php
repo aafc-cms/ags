@@ -396,6 +396,13 @@ class AgriAdminHelper {
           unset($menu_attributes['parent']);
         }
         $menu_link = \Drupal\menu_link_content\Entity\MenuLinkContent::create($menu_attributes);
+        if ($lang == 'en') {
+          $options['attributes']['class'] = ['english-only legacy-external-link'];
+        }
+        else if ($lang = 'fr') {
+          $options['attributes']['class'] = ['french-only legacy-external-link'];
+        }
+        $menu_link->link->options = $options;
         $returnCode = $menu_link->save();
         if ($returnCode) {
           $id = $menu_link->id();
