@@ -20,12 +20,16 @@ class AgriAdminHelper {
 
 
   static public function postCreateOrUpdateAutoTranslate($action, $entity_id, $bundle) {
+    $menu_link_array = array();
     if ($bundle == 'page') {
-      static::translateLinkIfNotTranslated($entity_id, 'sidebar');
+      // @TODO: that function doesn't actually do anything with param 2.
+      $menu_link_array = static::translateLinkIfNotTranslated($entity_id, 'sidebar');
     }
 
     if ($bundle == 'page' || $bundle == 'landing_page') {
-      static::translateLinkIfNotTranslated($entity_id, 'main');
+      // @TODO: that function doesn't actually do anything with param 2.
+      $menu_link_main_array = static::translateLinkIfNotTranslated($entity_id, 'main');
+      return array_merge($menu_link_array, $menu_link_main_array); // For goto redirect.
     }
   }
 
@@ -372,7 +376,7 @@ class AgriAdminHelper {
 
     //$lang = static::getLang();
     //$lang = 'en'; // default to 'en' for now.
-    if ($lang == 'en') {
+    if ($lang == 'en' || $lang == 'fr') {
       if (!static::menuExternalLinkExists($title, $external_link, $menu_name, $ts_nid, $lang) && gettype(static::legacyMenuLinkExists($menu_name, $ts_pnid, $lang)) == 'string') {
         $parentUuid = static::legacyMenuLinkExists($menu_name, $ts_pnid, $lang);
         $menu_attributes = [
@@ -662,6 +666,7 @@ class AgriAdminHelper {
 
   static public function translateLinkIfNotTranslated($nid, $menu_name = 'main') {
 
+    $menu_link_ids = array();
     $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
     $result = $menu_link_manager->loadLinksByRoute('entity.node.canonical', ['node' => $nid]);
     $node = NULL;
@@ -677,12 +682,17 @@ class AgriAdminHelper {
               $title = $node->getTranslation($otherLang)->getTitle();
               $menu_link->addTranslation($otherLang, ['title' => $title]);
               $menu_link->save();
+              if ($menu_link->getMenuName() == 'main') {
+                // Only return ids from the 'main' menu link.
+                $menu_link_ids[] = $id;
+                static::addToLog($id, TRUE);
+              }
             }
           }
-	}
+        }
       }
     }
-
+    return $menu_link_ids;
   }
 
   static public function findParentOfNid($nid, $menu_name = 'main', &$parentUuid, &$parentUuidClean) {
