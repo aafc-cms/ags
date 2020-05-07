@@ -110,11 +110,13 @@ type_settings:
       from:
         - author_reviewing
         - draft
+        - published
       to: review_by_cctreviewer
       weight: -3
     take:
       label: Take
       from:
+        - published
         - review_by_cctreviewer
       to: with_reviewer
       weight: 6

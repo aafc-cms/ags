@@ -1,6 +1,6 @@
 uuid: 13e27690-cf6b-4d57-9d0e-b4e081e3fc2b
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -27,6 +27,11 @@ visibility:
     pages: '<front>'
     negate: true
     context_mapping: {  }
+  panels_title:
+    id: panels_title
+    enabled: 0
+    negate: false
+    context_mapping: {  }
   user_role:
     id: user_role
     roles:
@@ -34,8 +39,3 @@ visibility:
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
-  panels_title:
-    id: panels_title
-    enabled: 0
-    negate: false
-    context_mapping: {  }
