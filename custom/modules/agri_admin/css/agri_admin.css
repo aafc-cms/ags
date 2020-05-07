@@ -7,6 +7,42 @@ html[lang="en"] .french-only {
   display: none !important;
 }
 
+html[lang="fr"] .english-only.legacy-external-link {
+  display: inherit !important;
+  color: darkred;
+}
+
+html[lang="en"] .english-only.legacy-external-link::before {
+  color: black;
+}
+
+html[lang="fr"] .french-only.legacy-external-link::before {
+  color: black;
+}
+
+html[lang="en"] .french-only.legacy-external-link::after {
+  content: " (external link displays in french)";
+  color: black;
+}
+
+html[lang="fr"] .english-only.legacy-external-link::after {
+  content: " (lien externe affiché en anglais)";
+  color: black;
+}
+
+html[lang="fr"] .french-only.legacy-external-link {
+  color: darkgreen;
+}
+
+html[lang="en"] .english-only.legacy-external-link {
+  color: darkgreen;
+}
+
+html[lang="en"] .french-only.legacy-external-link {
+  display: inherit !important;
+  color: darkred;
+}
+
 body.path-admin #block-claro-content nav.breadcrumb {
   font-size: 1.3rem;
 }
