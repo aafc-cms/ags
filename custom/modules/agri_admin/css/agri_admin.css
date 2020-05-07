@@ -7,38 +7,38 @@ html[lang="en"] .french-only {
   display: none !important;
 }
 
-html[lang="fr"] .english-only.legacy-external-link {
+html[lang="fr"] body.path-admin .english-only.legacy-external-link {
   display: inherit !important;
   color: darkred;
 }
 
-html[lang="en"] .english-only.legacy-external-link::before {
+html[lang="en"] body.path-admin .english-only.legacy-external-link::before {
   color: black;
 }
 
-html[lang="fr"] .french-only.legacy-external-link::before {
+html[lang="fr"] body.path-admin .french-only.legacy-external-link::before {
   color: black;
 }
 
-html[lang="en"] .french-only.legacy-external-link::after {
+html[lang="en"] body.path-admin .french-only.legacy-external-link::after {
   content: " (external link displays in french)";
   color: black;
 }
 
-html[lang="fr"] .english-only.legacy-external-link::after {
+html[lang="fr"] body.path-admin .english-only.legacy-external-link::after {
   content: " (lien externe affiché en anglais)";
   color: black;
 }
 
-html[lang="fr"] .french-only.legacy-external-link {
+html[lang="fr"] body.path-admin .french-only.legacy-external-link {
   color: darkgreen;
 }
 
-html[lang="en"] .english-only.legacy-external-link {
+html[lang="en"] body.path-admin .english-only.legacy-external-link {
   color: darkgreen;
 }
 
-html[lang="en"] .french-only.legacy-external-link {
+html[lang="en"] body.path-admin .french-only.legacy-external-link {
   display: inherit !important;
   color: darkred;
 }
