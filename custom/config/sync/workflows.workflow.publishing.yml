@@ -29,6 +29,11 @@ type_settings:
       published: false
       default_revision: false
       weight: -2
+    emergency_publish:
+      published: true
+      default_revision: true
+      label: 'Emergency Publish'
+      weight: 7
     published:
       published: true
       default_revision: true
@@ -47,7 +52,7 @@ type_settings:
     with_reviewer:
       published: false
       default_revision: false
-      label: 'With reviewer'
+      label: Take
       weight: 4
     with_reviewer_for_deletion:
       published: false
@@ -65,7 +70,7 @@ type_settings:
       label: 'Emergency publish'
       from:
         - draft
-        - published
+        - emergency_publish
       to: published
       weight: 11
     publish:
