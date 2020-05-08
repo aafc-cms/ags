@@ -27,11 +27,6 @@ visibility:
     pages: '<front>'
     negate: true
     context_mapping: {  }
-  panels_title:
-    id: panels_title
-    enabled: 0
-    negate: false
-    context_mapping: {  }
   user_role:
     id: user_role
     roles:
@@ -39,3 +34,8 @@ visibility:
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
+  panels_title:
+    id: panels_title
+    enabled: 0
+    negate: false
+    context_mapping: {  }
