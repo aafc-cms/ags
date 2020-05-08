@@ -21,9 +21,59 @@ dependencies:
   module:
     - content_moderation
     - datetime
+    - field_group
     - metatag
     - path
     - text
+third_party_settings:
+  field_group:
+    group_aafc_metadata_group:
+      children:
+        - field_description
+        - field_keywords
+        - field_modified
+      parent_name: ''
+      weight: 13
+      format_type: details_sidebar
+      region: content
+      format_settings:
+        id: ''
+        classes: aafc-metadata-group
+        description: ''
+        open: false
+        required_fields: true
+        weight: -42
+      label: 'aafc metadata group'
+    group_aafc_dcterms_gctype:
+      children:
+        - field_meta_type
+      parent_name: ''
+      weight: 14
+      format_type: details_sidebar
+      region: content
+      format_settings:
+        id: ''
+        classes: aafc-dcterm-gctype-group
+        description: ''
+        open: false
+        required_fields: true
+        weight: -41
+      label: aafc-dcterms-gctype
+    group_aafc_dcterms_subject:
+      children:
+        - field_subject
+      parent_name: ''
+      weight: 15
+      format_type: details_sidebar
+      region: content
+      format_settings:
+        id: ''
+        classes: aafc-subject-group
+        description: ''
+        open: false
+        required_fields: true
+        weight: -40
+      label: aafc-dcterms-subject
 _core:
   default_config_hash: 7fm6IQg6gNfLHHQlwMKSUqMSbPhM8O91P6nqQkjtH80
 id: node.page.default
@@ -56,13 +106,13 @@ content:
     type: string_textfield
     region: content
   field_issued:
-    weight: 18
+    weight: 12
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_keywords:
-    weight: 14
+    weight: 16
     settings:
       size: 60
       placeholder: ''
@@ -72,24 +122,24 @@ content:
   field_meta_tags:
     type: metatag_firehose
     region: content
-    weight: 12
+    weight: 10
     settings:
       sidebar: true
     third_party_settings: {  }
   field_meta_type:
-    weight: 27
+    weight: 18
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
   field_modified:
-    weight: 19
+    weight: 17
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_subject:
-    weight: 26
+    weight: 19
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
@@ -104,12 +154,12 @@ content:
   layout_selection:
     type: options_select
     region: content
-    weight: 13
+    weight: 11
     settings: {  }
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 11
+    weight: 9
     settings: {  }
     region: content
     third_party_settings: {  }
@@ -148,11 +198,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     region: content
-  translation:
-    weight: 9
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
     weight: 1
@@ -163,14 +208,11 @@ content:
       match_limit: 10
     third_party_settings: {  }
     region: content
-  url_redirects:
-    weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   comment: true
   field_category: true
   layout_builder__layout: true
   layout_builder__translation: true
   panelizer: true
+  translation: true
+  url_redirects: true
