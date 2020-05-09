@@ -27,121 +27,12 @@ dependencies:
 third_party_settings:
   layout_builder:
     allow_custom: false
-    enabled: true
-    sections:
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: ''
-        components:
-          bffe9bf5-acdd-4c16-9a1f-a219372d8a59:
-            uuid: bffe9bf5-acdd-4c16-9a1f-a219372d8a59
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:landing_page:field_issued'
-              formatter:
-                label: above
-                settings:
-                  format_type: medium
-                  timezone_override: ''
-                third_party_settings: {  }
-                type: datetime_default
-            additional: {  }
-            weight: 0
-          b460b3ff-d6a0-4e15-bdc8-6027ce55c73d:
-            uuid: b460b3ff-d6a0-4e15-bdc8-6027ce55c73d
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:landing_page:field_description'
-              formatter:
-                label: above
-                settings:
-                  link_to_entity: false
-                third_party_settings: {  }
-                type: string
-            additional: {  }
-            weight: 2
-          43f339b1-b40e-4c1d-bc28-fea4035f92fb:
-            uuid: 43f339b1-b40e-4c1d-bc28-fea4035f92fb
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:landing_page:field_keywords'
-              formatter:
-                label: above
-                settings:
-                  link_to_entity: false
-                third_party_settings: {  }
-                type: string
-            additional: {  }
-            weight: 5
-          d9600d0c-0415-415e-a2ee-f3771cef5d91:
-            uuid: d9600d0c-0415-415e-a2ee-f3771cef5d91
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:landing_page:field_modified'
-              formatter:
-                label: above
-                settings:
-                  format_type: medium
-                  timezone_override: ''
-                third_party_settings: {  }
-                type: datetime_default
-            additional: {  }
-            weight: 6
-          1fc2c235-9479-468c-90df-051eb14bafcf:
-            uuid: 1fc2c235-9479-468c-90df-051eb14bafcf
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:landing_page:field_subject'
-              formatter:
-                label: above
-                settings:
-                  link: true
-                third_party_settings: {  }
-                type: entity_reference_label
-            additional: {  }
-            weight: 7
-          f2303300-83c1-475b-ad50-14d38806312a:
-            uuid: f2303300-83c1-475b-ad50-14d38806312a
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:landing_page:field_meta_type'
-              formatter:
-                label: above
-                settings:
-                  link: true
-                third_party_settings: {  }
-                type: entity_reference_label
-            additional: {  }
-            weight: 8
-        third_party_settings: {  }
+    enabled: false
   layout_library:
     enable: true
   layout_builder_restrictions:
     entity_view_mode_restriction:
-      allowed_layouts:
-        - layout_onecol
-        - layout_twocol_section
-        - layout_threecol_section
-        - layout_fourcol_section
+      allowed_layouts: {  }
       whitelisted_blocks: {  }
       blacklisted_blocks: {  }
     allowed_block_categories: {  }

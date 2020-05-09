@@ -293,54 +293,6 @@ third_party_settings:
                 entity: layout_builder.entity
             additional: {  }
             weight: 0
-          66489d18-cc62-4f33-b1cd-68f5668eefd3:
-            uuid: 66489d18-cc62-4f33-b1cd-68f5668eefd3
-            region: main
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:page:field_category'
-              formatter:
-                label: above
-                settings:
-                  link: true
-                third_party_settings: {  }
-                type: entity_reference_label
-            additional: {  }
-            weight: 1
-          a0e33d91-6c7c-40b8-89d5-b43351c05bcb:
-            uuid: a0e33d91-6c7c-40b8-89d5-b43351c05bcb
-            region: top
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:page:field_subject'
-              formatter:
-                label: above
-                settings:
-                  link: true
-                third_party_settings: {  }
-                type: entity_reference_label
-            additional: {  }
-            weight: 4
-          5bac33ba-289d-45e0-b0d7-6b6d758603ae:
-            uuid: 5bac33ba-289d-45e0-b0d7-6b6d758603ae
-            region: top
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:page:field_meta_type'
-              formatter:
-                label: above
-                settings:
-                  link: true
-                third_party_settings: {  }
-                type: entity_reference_label
-            additional: {  }
-            weight: 5
         third_party_settings: {  }
     allow_custom: true
   layout_library:
