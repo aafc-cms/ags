@@ -83,6 +83,7 @@ type_settings:
     reject:
       label: Reject
       from:
+        - published
         - review_by_cctreviewer
         - to_be_deleted
       to: author_reviewing
