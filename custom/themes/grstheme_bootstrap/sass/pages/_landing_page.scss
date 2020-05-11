@@ -12,3 +12,8 @@ body.page-node-type-landing-page.user-anonymous .bs-2col-bricked {
     display: none;
   }
 }
+
+//hide the user account block in page-node-type-landing-page
+body.user-logged-in.path-node.page-node-type-landing-page .bs-region--bottom #wb-sec {
+  display: none;
+}

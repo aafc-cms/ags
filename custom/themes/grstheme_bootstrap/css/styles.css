@@ -129,6 +129,11 @@ body.page-node-type-landing-page.user-anonymous .bs-2col-bricked div.bs-region--
   display: none;
 }
 
+/* line 17, ../sass/pages/_landing_page.scss */
+body.user-logged-in.path-node.page-node-type-landing-page .bs-region--bottom #wb-sec {
+  display: none;
+}
+
 /* Green Primary Panel Heading to match theme (4a7333) - GY */
 /* line 2, ../sass/pages/_all_pages.scss */
 .btn-primary {
@@ -1028,11 +1033,6 @@ section.col-sm-3 ul.list-unstyled {
 /* line 241, ../sass/styles.scss */
 .region.region-content-footer {
   padding-top: 20px;
-}
-
-/* line 247, ../sass/styles.scss */
-body.user-logged-in.path-node.page-node-type-landing-page .bs-region--bottom #wb-sec {
-  display: none;
 }
 
 /*# sourceMappingURL=styles.css.map */
