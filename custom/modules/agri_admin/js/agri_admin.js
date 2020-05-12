@@ -31,6 +31,10 @@
             $('#edit-langcode-0-value option[value="fr"]').attr("selected","selected");
           }
 
+          //Layout - sync the layout type selection, with JS
+          var layoutElement = $("#edit-layout-selection");
+          layoutElement.val('node_page_default_default'); // Default to the default layout value.
+
           //ETUF - sync the news type selection, with JS
           var bothSelects = $("#edit-layout-selection, #edit-layout-selection-etuf-fr, #edit-layout-selection-etuf-en");
           bothSelects.change(function(e) {
