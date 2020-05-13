@@ -1,0 +1,22 @@
+uuid: 1bc49f2d-ab05-4dcd-935d-72a142124bc1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: human_resources
+label: 'Human Resources'
+type: 'canonical_entities:node'
+pattern: 'employment/[node:field_locations:value]/[node:field_date_closing:date:html_date]/[node:title]'
+selection_criteria:
+  1329f00f-7760-4e69-87b0-032349a388d5:
+    id: node_type
+    bundles:
+      empl: empl
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 1329f00f-7760-4e69-87b0-032349a388d5
+selection_logic: and
+weight: -5
+relationships: {  }
