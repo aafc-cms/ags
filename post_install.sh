@@ -101,14 +101,13 @@ else
   settings_file=html/sites/default/settings.php;
   echo "\n";
   read -t 2 -p "Confirm username $uservar" confirm
+  echo "\n";
 
   if [ -z $passvar ]; then
-    echo "\n";
-    read -t 60 -p 'Mysql database Username: default (60 seconds) is: username:' uservar
+    passvar=`whoami`;
   fi
   if [ -z $uservar ]; then
-    echo "\n";
-    read -t 60 -sp 'Mysql database Password: default (60 seconds) is: password:' passvar
+    userver=`whoami`;
   fi
   echo "\$databases['default']['default'] = array (" >> $settings_file 
   echo "  'database' => '$uservar'," >> $settings_file
