@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_branch
+    - field.storage.node.field_classification
     - field.storage.node.field_date_closing
     - field.storage.node.field_locations
     - field.storage.node.field_open_to
@@ -12,6 +13,7 @@ dependencies:
     - taxonomy.vocabulary.employment_type
   module:
     - datetime
+    - entity_reference_revisions
     - node
     - options
     - paragraphs
@@ -77,11 +79,7 @@ display:
       style:
         type: table
         options:
-          grouping:
-            -
-              field: nid
-              rendered: true
-              rendered_strip: false
+          grouping: {  }
           row_class: ''
           default_row_class: true
           override: true
@@ -104,8 +102,6 @@ display:
               empty_column: false
               responsive: ''
             field_classification:
-              sortable: false
-              default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
@@ -145,7 +141,7 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-          default: '-1'
+          default: field_date_closing
           empty_table: true
       row:
         type: fields
@@ -218,7 +214,7 @@ display:
           table: node__field_classification
           field: field_classification
           relationship: none
-          group_type: count_distinct
+          group_type: group
           admin_label: ''
           label: 'Group, level and position'
           exclude: false
@@ -479,7 +475,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Closing date'
+          label: Closing
           exclude: false
           alter:
             alter_text: false
@@ -546,7 +542,7 @@ display:
           label: ''
           exclude: true
           alter:
-            alter_text: false
+            alter_text: true
             text: ''
             make_link: false
             path: ''
@@ -579,9 +575,9 @@ display:
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
-          hide_empty: false
+          hide_empty: true
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
@@ -665,7 +661,7 @@ display:
             identifier: field_type_target_id
             required: false
             remember: false
-            multiple: false
+            multiple: true
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
@@ -697,7 +693,7 @@ display:
           id: field_class_id_value
           table: paragraph__field_class_id
           field: field_class_id_value
-          relationship: none
+          relationship: field_classification
           group_type: group
           admin_label: ''
           operator: or
@@ -715,7 +711,7 @@ display:
             identifier: field_class_id_value
             required: false
             remember: false
-            multiple: false
+            multiple: true
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
@@ -727,18 +723,24 @@ display:
           is_grouped: false
           group_info:
             label: 'Classification Group: (field_class_id)'
-            description: null
+            description: ''
             identifier: field_class_id_value
             optional: true
-            widget: select
-            multiple: false
+            widget: radios
+            multiple: true
             remember: false
             default_group: All
-            default_group_multiple: {  }
+            default_group_multiple:
+              All: 0
+              1: 1
+              2: 2
+              3: 3
             group_items:
-              1: {  }
-              2: {  }
-              3: {  }
+              3:
+                title: 'test 3'
+                operator: or
+                value:
+                  AC: AC
           reduce_duplicates: false
           plugin_id: list_field
         field_date_closing_value:
@@ -899,6 +901,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_branch'
+        - 'config:field.storage.node.field_classification'
         - 'config:field.storage.node.field_date_closing'
         - 'config:field.storage.node.field_locations'
         - 'config:field.storage.node.field_open_to'
@@ -928,6 +931,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_branch'
+        - 'config:field.storage.node.field_classification'
         - 'config:field.storage.node.field_date_closing'
         - 'config:field.storage.node.field_locations'
         - 'config:field.storage.node.field_open_to'
