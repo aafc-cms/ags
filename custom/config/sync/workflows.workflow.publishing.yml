@@ -72,6 +72,7 @@ type_settings:
       to: published
       weight: 2
       from:
+        - emergency_publish
         - published
         - review_by_cctreviewer
     re_publish_archived:
@@ -83,6 +84,7 @@ type_settings:
     reject:
       label: Reject
       from:
+        - emergency_publish
         - published
         - review_by_cctreviewer
         - to_be_deleted
