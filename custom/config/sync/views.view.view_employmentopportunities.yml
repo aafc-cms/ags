@@ -261,27 +261,27 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          set_precision: false
-          precision: 0
-          decimal: .
-          separator: ', '
-          format_plural: false
-          format_plural_string: !!binary MQNAY291bnQ=
-          prefix: ''
-          suffix: ''
           click_sort_column: target_id
           type: entity_reference_revisions_entity_view
           settings:
             view_mode: default
-          group_column: null
-          group_columns: null
+          group_column: entity_id
+          group_columns: {  }
           group_rows: true
           delta_limit: 7
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
+          separator: ', '
           field_api_classes: false
+          set_precision: false
+          precision: 0
+          decimal: .
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
           plugin_id: field
         field_branch:
           id: field_branch
