@@ -200,7 +200,7 @@ var Agrisource = function() {
 
     //remove the data-toggle from the links anchors in main navigation for media or large devices
 
-    $('.alert.access-unpublished a').each(function(){
+    $('.alert a.access-unpublished').each(function() {
       if ($(this).hasClass('access-unpublished')) {
         // Add a copy-link icon to the unpublished link, if one exists
         var access_link = $('a.access-unpublished');
@@ -296,6 +296,19 @@ var Agrisource = function() {
     }, 1000);
   }
 
+  function isIE() {
+    if (navigator.appName == 'Microsoft Internet Explorer') {
+      return true;
+    }
+    else if (navigator.appName == 'Netscape') {
+      if (navigator.appVersion.indexOf('Trident') > 0 || navigator.appVersion.indexOf('Edge') > 0) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+
   /**
    * Expose functions and variables
    */
@@ -304,6 +317,7 @@ var Agrisource = function() {
     lang: lang,
     mouse: mouse,
     page_type: page_type,
+    copyLink: copyLink,
   }
 }();
 

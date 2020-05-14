@@ -155,3 +155,7 @@ body[class*=moderationdashboard] nav[aria-label=Tabs]
   visibility: hidden;
 }
 
+/* glyphicon-copy fix */
+.glyphicon.glyphicon-copy:before {
+  content: "\e205";
+}
