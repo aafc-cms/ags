@@ -113,9 +113,59 @@ function _latest_revision($nid, &$vid) {
  * This is so we can have themed (orange as example) pending draft rows.
  * to complement the hotpink current draft rows.
  * @TODO: add {{ status }} to a view row.
+ * May 14 2020: Added the implementation for customization on
+ * Classfication Groups & Postion Title in Employment Opportunities View
  */
 function agri_admin_preprocess_views_view_field(&$variables) {
-  return; // Disable this for now, not yet using this.
+  $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $view = $variables['view'];
+  if ($view->id() == 'view_employmentopportunities') {
+    $field = $variables['field'];
+    $row = $variables['row'];
+    $nid = $row->_entity->id();
+    $vid = $row->_entity->getLoadedRevisionId();
+    $empNode = $row->_entity;
+    $classification   = '';
+    if ($field->field =='field_classification' && $empNode->getType() == 'empl') {
+     // if ($row->_entity->get($field->field)->value) {
+      if ($paragraph_field_items =  $row->_entity->get('field_classification')->getValue()) {
+        $paragraph_storage = \Drupal::entityTypeManager()->getStorage('paragraph');
+        // Collect paragraph field's ids.
+        $ids = array_column($paragraph_field_items, 'target_id');
+        // Load all paragraph objects.
+        $paragraphs_objects = $paragraph_storage->loadMultiple($ids);
+        foreach ($paragraphs_objects as $paragraph) {
+          // Get field from the paragraph.
+          $groupval    = $paragraph->get('field_class_id')->value;
+          $subgroupval = $paragraph->get('field_class_sub')->value;
+          $levelval    = $paragraph->get('field_class_level')->value;
+          $tmpText     = '';
+          // Do something with $text...
+          if ($subgroupval) {
+            $tmpText = $groupval.'-'.$subgroupval.'-'.$levelval;
+          }
+          else {
+            $tmpText = $groupval.'-'.$levelval;
+          }
+          if ( strlen($classification) >0 ) {
+            $classification = $classification.', '. $tmpText;
+          }
+          else {
+            $classification = $tmpText;
+          }
+        }
+        $ptitle = $row->_entity->get('title')->value;
+        $titlefield = '<a href="/'.$lang.'/node/'.$nid.'"'. 'hreflang="'.$lang.'">'. $row->_entity->get('title')->value.'</a>';
+        $variables['output'] =  \Drupal\Core\Render\Markup::create( $classification.' '. $titlefield);
+      }
+    }
+
+    if ($field->field =='field_date_closing' && $empNode->getType() == 'empl') {
+         $closeddate =  $row->_entity->get('field_date_closing')->value;
+         $variables['output'] = $closeddate;
+    }
+  }
+  
   if ($variables['logged_in']) {
     $user = \Drupal::currentUser();
     $hasPermission = $user->hasPermission('agrisource pending drafts');
