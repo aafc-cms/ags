@@ -131,6 +131,18 @@
         {% endblock %}
       {% endif %}
 
+      {# Access Unpublished Links #}
+      {% set accessUnpublishedUrl = getHashTag(node.id()) %}
+      {% if accessUnpublishedUrl is not empty %}
+        {% if not node.isPublished() %}
+          {% set hashLinkTitle = 'Access unpublished hash link allows unpublished access to content.' %}
+          {% set linkClass = 'link access-unpublished' %}
+          <div class="alert alert-success alert-dismissible" role="status" aria-label="Status message">
+            <b><a href="{{ accessUnpublishedUrl }}" class="{{ linkClass }}">{{ hashLinkTitle|t }}</a></b>
+          </div>
+        {% endif %}
+      {% endif %}
+
       {# Content #}
       {%
         set content_classes = [

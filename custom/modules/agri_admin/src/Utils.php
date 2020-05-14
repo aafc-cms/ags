@@ -173,7 +173,7 @@ class Utils {
 
 
   static public function gotoRoute($key, $statusCode=null, $headers=null, $trusted=false) {
-    return static::goto(\Drupal::url($key), $statusCode, $headers, false);
+    return static::goto(\Drupal::url($key), $statusCode, $headers, $trusted);
   }
 
 
@@ -185,10 +185,12 @@ class Utils {
   static public function gotoLegacy($path='', $options=array(), $responseCode=null) {
     $query = isset($options['query']) ? $options['query'] : array();
 
-    if (preg_match('#^[[:alpha:]][[:alnum:]]*://#', $path)) {
+    if (1 || preg_match('#^[[:alpha:]][[:alnum:]]*://#', $path)) {
+      \Drupal\agri_admin\AgriAdminHelper::addToLog($path, TRUE);
       $url = Url::fromUri($path, $options);
     }
     else {
+      \Drupal\agri_admin\AgriAdminHelper::addToLog('test test from route ', TRUE);
       $url = Url::fromRoute($path, [], $query);
     }
 
