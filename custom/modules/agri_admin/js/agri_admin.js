@@ -33,8 +33,25 @@
 
           //Layout - sync the layout type selection, with JS
           var layoutElement = $("#edit-layout-selection");
-          layoutElement.val('node_page_default_default'); // Default to the default layout value.
+          if ($('body').hasClass('nodeaddpage')) {
+            layoutElement.val('node_page_default_default'); // Default to the default layout value.
+          }
+          if ($('body').hasClass('nodeaddlanding_page')) {
+            layoutElement.val('node_landing_page_full_default'); // Default to the default layout value.
+          }
 
+          if ($('body').hasClass('node-edit')) {
+            if ($('body').hasClass('page-node-type-landing-page')) {
+              if (layoutElement.val() == '_none') {
+                layoutElement.val('node_landing_page_full_default'); // Default to the default layout value.
+              }
+            }
+            if ($('body').hasClass('page-node-type-page')) {
+              if (layoutElement.val() == '_none') {
+                layoutElement.val('node_page_default_default'); // Default to the default layout value.
+              }
+            }
+          }
           //ETUF - sync the news type selection, with JS
           var bothSelects = $("#edit-layout-selection, #edit-layout-selection-etuf-fr, #edit-layout-selection-etuf-en");
           bothSelects.change(function(e) {
