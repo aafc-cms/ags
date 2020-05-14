@@ -137,7 +137,7 @@
         {% if not node.isPublished() %}
           {% set hashLinkTitle = 'Access unpublished hash link allows unpublished access to content.' %}
           {% set linkClass = 'link access-unpublished' %}
-          <div class="alert alert-success alert-dismissible" role="status" aria-label="Status message">
+          <div class="alert alert-success access_unpublished alert-dismissible" role="status" aria-label="Status message">
             <b><a href="{{ accessUnpublishedUrl }}" class="{{ linkClass }}">{{ hashLinkTitle|t }}</a></b>
           </div>
         {% endif %}
