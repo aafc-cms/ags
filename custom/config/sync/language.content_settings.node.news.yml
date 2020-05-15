@@ -11,10 +11,10 @@ third_party_settings:
     bundle_settings:
       entity_translation_unified_form_enable: '1'
       entity_translation_unified_form_theme: EntityTranslationUnifiedFormInlineMode
-      untranslatable_fields_hide: '0'
+      untranslatable_fields_hide: '1'
     enabled: true
 id: node.news
 target_entity_type_id: node
 target_bundle: news
-default_langcode: site_default
-language_alterable: false
+default_langcode: current_interface
+language_alterable: true
