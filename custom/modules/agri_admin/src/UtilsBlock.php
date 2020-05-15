@@ -82,7 +82,8 @@ class UtilsBlock {
     $rendered = false;
 
     if (($renderArray = static::getRenderArray($id, $options))) {
-      $rendered = Utils::render($renderArray);
+      // Passing false into this function prevents a bubbling of attached assets break in line 138 of core/lib/Drupal/Core/Render/Renderer.php.
+      $rendered = Utils::render($renderArray, FALSE);
     }
 
     return $rendered;
