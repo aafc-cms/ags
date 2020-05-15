@@ -1,0 +1,18 @@
+uuid: 0183683c-dda4-4c41-b69c-e77bf9886dac
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.classification
+id: paragraph.classification.metatag
+field_name: metatag
+entity_type: paragraph
+bundle: classification
+label: Metatags
+description: 'The meta tags for the entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

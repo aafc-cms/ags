@@ -1,20 +1,20 @@
-uuid: 2c76ac35-9ad3-44d3-987b-84663075bd1f
+uuid: 724ec06c-4b5e-4b91-948d-6ef01360adf0
 langcode: en
 status: true
 dependencies:
   config:
-    - media.type.image
+    - paragraphs.paragraphs_type.classification
   module:
     - content_translation
 third_party_settings:
   content_translation:
-    enabled: true
+    enabled: false
     bundle_settings:
       entity_translation_unified_form_theme: EntityTranslationUnifiedFormInlineMode
-      untranslatable_fields_hide: '1'
       entity_translation_unified_form_enable: '0'
-id: media.image
-target_entity_type_id: media
-target_bundle: image
+      untranslatable_fields_hide: '0'
+id: paragraph.classification
+target_entity_type_id: paragraph
+target_bundle: classification
 default_langcode: site_default
 language_alterable: false
