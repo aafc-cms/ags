@@ -46,7 +46,7 @@ type_settings:
       weight: -3
     to_be_deleted:
       published: false
-      default_revision: false
+      default_revision: true
       label: Delete
       weight: -1
   transitions:
@@ -85,7 +85,6 @@ type_settings:
       label: Reject
       from:
         - review_by_cctreviewer
-        - to_be_deleted
       to: author_reviewing
       weight: -2
     save_as_a_draft:
@@ -102,10 +101,6 @@ type_settings:
       from:
         - archived
         - author_reviewing
-        - draft
-        - emergency_publish
-        - published
-        - review_by_cctreviewer
       to: to_be_deleted
       weight: 5
     send_to_reviewer:
