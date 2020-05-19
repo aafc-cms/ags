@@ -19,6 +19,10 @@ body.user-anonymous {
   &.news-article-form-page span.field-edit-link button.link.link-edit-summary.btn.btn-default.btn-xs.pull-right { 
     display: none !important;
   }
+
+  #edit-field-newsexpirydate-0 {
+    display: none !important;
+  }
 }
 
 body.page-node-type-news {
@@ -64,11 +68,11 @@ body.news-article-form-page {
   }
 
   #edit-moderation-state-0 .select-wrapper::after {
-    right: 87%; 
+    right: 84%; 
   }
 
   #edit-moderation-state-etuf-fr-0 .select-wrapper::after {
-    right: 87%;
+    right: 84%;
   }
 
   .btn.icon-before .glyphicon {
@@ -148,5 +152,14 @@ body.news-article-form-page {
     display: none !important;
   }
   
+  #edit-field-newsexpirydate-0 div.panel-heading {
+    background-color: white;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .tabbable.tabs-left.vertical-tabs.clearfix {
+    display: none !important;
+  }
 }
 // End of the News Item
