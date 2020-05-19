@@ -3,11 +3,14 @@ langcode: fr
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
+    - field.storage.node.body
+    - field.storage.node.field_from
+    - field.storage.node.field_newstype
     - node.type.news
   module:
     - datetime
     - node
+    - text
     - user
 id: view_news_work
 label: 'nouvelles@l''ouvrage'
@@ -67,19 +70,84 @@ display:
             previous: ‹‹
             next: ››
       style:
-        type: html_list
+        type: default
         options:
+          grouping: {  }
           row_class: ''
           default_row_class: true
-          uses_fields: false
-          type: ul
-          wrapper_class: item-list
-          class: ''
       row:
-        type: 'entity:node'
+        type: fields
         options:
-          view_mode: teaser
+          default_field_elements: true
+          inline:
+            title: title
+            body: body
+          separator: ''
+          hide_empty: false
       fields:
+        field_newstype:
+          id: field_newstype
+          table: node__field_newstype
+          field: field_newstype
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: h2
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         title:
           id: title
           table: node_field_data
@@ -127,6 +195,132 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        field_from:
+          id: field_from
+          table: node__field_from
+          field: field_from
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        body:
+          id: body
+          table: node__body
+          field: body
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_summary_or_trimmed
+          settings:
+            trim_length: 600
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
       filters:
         status:
           value: '1'
@@ -267,7 +461,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: "<p>Please note: As of March 16, 2020, news@work is limited to priority news and updates related to COVID-19 or business continuity. These priority articles will continue to be published on the news@work page, but the weekly email bulletin has been suspended for the time being. Thank you for your cooperation and understanding.</p>\r\n\r\n<p><i>news@work</i> brings you important information about departmental news and events. <i>news@work</i> articles are posted in this section throughout the week, and an email bulletin of current articles is sent to all staff on Thursdays.</p>\r\n\r\n<ul>\r\n<li><a href=\"display-afficher.do?id=1305895655987&amp;lang=eng\">Submit an article</a> (consult the <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=102428321&amp;lang=eng\" target=\"_blank\">checklist and style guide (Word)</a>). </li>\r\n<li><a href=\"display-afficher.do?id=1319728307118&amp;lang=eng\">Search previous <i>news@work</i> articles</a>.</li>\r\n<li><a href=\"https://collab.agr.gc.ca/br-dg/ccb-dgcc/Lists/bulletins/AllItems.aspx\" rel=\"internal\">View previous <i>news@work</i> bulletins</a> in Knowledge Workspace.</li>\r\n<li>Contact us at <a href=\"mailto:aafc.newsatwork-nouvellesalouvrage.aac@canada.ca\">aafc.newsatwork-nouvellesalouvrage.aac@canada.ca</a> if  you have any questions or comments about <i>news@work</i></li>\r\n</ul>"
+          content: "<div class=\"alert alert-info\">\r\n<p>Please note: As of March 16, 2020, news@work is limited to priority news and updates related to COVID-19 or business continuity. These priority articles will continue to be published on the news@work page, but the weekly email bulletin has been suspended for the time being. Thank you for your cooperation and understanding.</p>\r\n</div>\r\n\r\n<p><i>news@work</i> brings you important information about departmental news and events. <i>news@work</i> articles are posted in this section throughout the week, and an email bulletin of current articles is sent to all staff on Thursdays.</p>\r\n\r\n<ul>\r\n<li><a href=\"display-afficher.do?id=1305895655987&amp;lang=eng\">Submit an article</a> (consult the <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=102428321&amp;lang=eng\" target=\"_blank\">checklist and style guide (Word)</a>). </li>\r\n<li><a href=\"display-afficher.do?id=1319728307118&amp;lang=eng\">Search previous <i>news@work</i> articles</a>.</li>\r\n<li><a href=\"https://collab.agr.gc.ca/br-dg/ccb-dgcc/Lists/bulletins/AllItems.aspx\" rel=\"internal\">View previous <i>news@work</i> bulletins</a> in Knowledge Workspace.</li>\r\n<li>Contact us at <a href=\"mailto:aafc.newsatwork-nouvellesalouvrage.aac@canada.ca\">aafc.newsatwork-nouvellesalouvrage.aac@canada.ca</a> if  you have any questions or comments about <i>news@work</i></li>\r\n</ul>\r\n"
           plugin_id: text_custom
       footer: {  }
       empty: {  }
@@ -282,7 +476,10 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_from'
+        - 'config:field.storage.node.field_newstype'
   page_1:
     display_plugin: page
     id: page_1
@@ -300,4 +497,7 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_from'
+        - 'config:field.storage.node.field_newstype'
