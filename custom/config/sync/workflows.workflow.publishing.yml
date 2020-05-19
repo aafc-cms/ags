@@ -18,37 +18,37 @@ type_settings:
       published: false
       default_revision: true
       label: Archived
-      weight: 6
+      weight: 2
     author_reviewing:
       published: false
       default_revision: false
       label: Reject
-      weight: 0
+      weight: -2
     draft:
       label: Draft
       published: false
       default_revision: false
-      weight: -2
+      weight: -4
     emergency_publish:
       published: true
       default_revision: true
       label: 'Emergency Publish'
-      weight: 7
+      weight: 1
     published:
       published: true
       default_revision: true
       label: Publish
-      weight: 1
+      weight: 0
     review_by_cctreviewer:
       published: false
       default_revision: false
       label: 'Send to review'
-      weight: -1
+      weight: -3
     to_be_deleted:
       published: false
-      default_revision: false
+      default_revision: true
       label: Delete
-      weight: 3
+      weight: -1
   transitions:
     delete:
       label: Delete
@@ -84,10 +84,7 @@ type_settings:
     reject:
       label: Reject
       from:
-        - emergency_publish
-        - published
         - review_by_cctreviewer
-        - to_be_deleted
       to: author_reviewing
       weight: -2
     save_as_a_draft:
@@ -102,9 +99,8 @@ type_settings:
     send_for_deletion:
       label: 'Send for deletion'
       from:
-        - draft
-        - emergency_publish
-        - published
+        - archived
+        - author_reviewing
       to: to_be_deleted
       weight: 5
     send_to_reviewer:
@@ -112,8 +108,6 @@ type_settings:
       from:
         - author_reviewing
         - draft
-        - emergency_publish
-        - published
       to: review_by_cctreviewer
       weight: -3
   entity_types:

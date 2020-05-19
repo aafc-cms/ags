@@ -107,28 +107,28 @@ display:
               empty_column: false
               responsive: ''
             field_branch:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             field_open_to:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             field_locations:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             field_date_closing:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
@@ -198,7 +198,7 @@ display:
           type: entity_reference_label
           settings:
             link: true
-          group_column: target_id
+          group_column: entity_id
           group_columns: {  }
           group_rows: true
           delta_limit: 3
@@ -475,7 +475,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Closing
+          label: 'Closing date'
           exclude: false
           alter:
             alter_text: false
@@ -661,7 +661,7 @@ display:
             identifier: field_type_target_id
             required: false
             remember: false
-            multiple: true
+            multiple: false
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
@@ -711,7 +711,7 @@ display:
             identifier: field_class_id_value
             required: false
             remember: false
-            multiple: true
+            multiple: false
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
@@ -858,7 +858,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: "Below is a list of current acting, assignment and deployment opportunities available only to Agriculture and Agri-Food Canada (AAFC) employees.\r\n\r\nThe Branch, Open to, Location and Closing date fields can be filtered in ascending or descending order by selecting the column title.\r\n\r\n<br/>\r\n\r\n"
+            value: "<p class=\"english-only\">  Below is a list of current acting, assignment and deployment opportunities available only to Agriculture and Agri-Food Canada (AAFC) employees.\r\n</p>\r\n<p class=\"english-only\"> The <i>Branch, Open to, Location</i> and <i>Closing date</i> fields can be filtered in ascending or descending order by selecting the column title.\r\n<br/>\r\n</p>\r\n\r\n<p class=\"french-only\">\r\nVous trouverez ci-dessous une liste des possibilités de nomination intérimaire, d'affectation et de mutation actuellement offertes exclusivement aux employés d'Agriculture et Agroalimentaire Canada (AAC).\r\n</p>\r\n\r\n<p  class=\"french-only\">Vous pouvez filtrer les éléments des colonnes <i>Direction générale, Ouvert à, Lieu</i> et <i>Date de cl<em>ô</em>ture</i> en sélectionnant le titre de ces colonnes.\r\n<br/>\r\n</p>\r\n<p></p>\r\n"
             format: full_html
           plugin_id: text
       footer:
@@ -872,7 +872,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: "Note: Not all AAFC job opportunities are posted on this page. Employees should monitor and check employment opportunities on the Public Service Jobs page on a regular basis to view all employment opportunities within AAFC and other departments.\r\n\r\nIf you have an internal employment opportunity you would like to post, please see our internal employment opportunity posting process.\r\n"
+            value: "<p></p>\r\n<p class=\"english-only\"><b>Note:</b> Not all AAFC job opportunities are posted on this page. Employees should monitor and check employment opportunities on the <a href=\"https://emploisfp-psjobs.cfp-psc.gc.ca/psrs-srfp/applicant/page2440?fromMenu=true&amp;toggleLanguage=en\">Public Service Jobs</a> page on a regular basis to view all employment opportunities within AAFC and other departments.</p>\r\n<p class=\"english-only\">If you have an internal employment opportunity you would like to post, please see our <a href=\"display-afficher.do?id=1287680969053&amp;lang=eng\">internal employment opportunity posting process</a>.</p>\r\n\r\n<p class=\"french-only\"> <b>Remarque&nbsp;:</b> Les possibilités d'emploi à AAC ne sont pas toutes affichées sur cette page. Il est conseillé aux employés de consulter régulièrement le site <a href=\"https://emploisfp-psjobs.cfp-psc.gc.ca/psrs-srfp/applicant/page2440?fromMenu=true&amp;toggleLanguage=fr\">Emplois à la fonction publique</a> pour voir toutes les possibilités à AAC et dans les autres ministères.</p>\r\n\r\n<p class=\"french-only\">Si vous souhaitez annoncer une possibilité d'emploi, à l'interne veuillez  consulter la page consacrée  au <a href=\"display-afficher.do?id=1287680969053&amp;lang=fra\">processus relatif à la publication des possibilités d'emploi à l'interne</a>.</p>\r\n"
             format: rich_text
           plugin_id: text
       empty: {  }
