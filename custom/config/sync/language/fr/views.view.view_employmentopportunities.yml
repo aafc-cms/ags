@@ -3,17 +3,17 @@ display:
     display_options:
       fields:
         field_type:
-          admin_label: 'Type of opportunity'
+          label: 'Type de possibilité'
         field_classification:
-          admin_label: 'Group, level and position'
+          label: 'Groupe, niveau et poste'
         field_branch:
-          admin_label: 'Direction générale'
+          label: 'Direction générale'
         field_open_to:
-          admin_label: 'Ouvert à'
+          label: 'Ouvert à'
         field_locations:
-          admin_label: Lieu
+          label: Lieu
         field_date_closing:
-          admin_label: 'Date de clôture'
+          label: 'Date de clôture'
       header:
         area:
           content:
@@ -24,3 +24,8 @@ display:
           content:
             value: "<p>&nbsp;</p>\r\n\r\n<p class=\"english-only\"><b>Note:</b> Not all AAFC job opportunities are posted on this page. Employees should monitor and check employment opportunities on the <a href=\"https://emploisfp-psjobs.cfp-psc.gc.ca/psrs-srfp/applicant/page2440?fromMenu=true&amp;toggleLanguage=en\">Public Service Jobs</a> page on a regular basis to view all employment opportunities within AAFC and other departments.</p>\r\n\r\n<p class=\"english-only\">If you have an internal employment opportunity you would like to post, please see our <a href=\"display-afficher.do?id=1287680969053&amp;lang=eng\">internal employment opportunity posting process</a>.</p>\r\n\r\n<p class=\"french-only\"><b>Remarque&nbsp;:</b> Les possibilités d'emploi à AAC ne sont pas toutes affichées sur cette page. Il est conseillé aux employés de consulter régulièrement le site <a href=\"https://emploisfp-psjobs.cfp-psc.gc.ca/psrs-srfp/applicant/page2440?fromMenu=true&amp;toggleLanguage=fr\">Emplois à la fonction publique</a> pour voir toutes les possibilités à AAC et dans les autres ministères.</p>\r\n\r\n<p class=\"french-only\">Si vous souhaitez annoncer une possibilité d'emploi, à l'interne veuillez consulter la page consacrée au <a href=\"display-afficher.do?id=1287680969053&amp;lang=fra\">processus relatif à la publication des possibilités d'emploi à l'interne</a>.</p>\r\n"
             format: rich_text
+      filters:
+        field_type_target_id:
+          expose:
+            label: 'Type de possibilité:'
+            description: 'Type de possibilité:'

@@ -909,7 +909,7 @@ display:
   page_1:
     display_plugin: page
     id: page_1
-    display_title: Page
+    display_title: 'Employment Opportunities Page'
     position: 1
     display_options:
       display_extenders:
@@ -917,8 +917,14 @@ display:
       path: internal-employment-opportunities
       menu:
         type: normal
-        title: testingview
+        title: employmentopportunities
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 0
+        context: '0'
         menu_name: admin
+      display_description: ''
     cache_metadata:
       max-age: -1
       contexts:
