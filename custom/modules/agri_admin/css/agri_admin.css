@@ -159,3 +159,28 @@ body[class*=moderationdashboard] nav[aria-label=Tabs]
 .glyphicon.glyphicon-copy:before {
   content: "\e205";
 }
+
+/**** Components Node for unpublished content *****/
+/* Note that drupal-bootstrap-not-cdn.min.css sets the background-color to #fff4f4 for body.is-unpublished */
+
+.views-row.published-no {
+  background-color: pink;
+  border: 3px solid hotpink;
+}
+
+.views-row.published-no h1 {
+  background-color: pink;
+  border: 3px solid hotpink;
+}
+
+/* Unpublished revision pending to overwrite the published revision */
+.views-row.published-no.pending-draft {
+  background-color: #FFECA9;
+  border: 3px solid orange;
+}
+
+.views-row.published-no.pending-draft h1 {
+  background-color: #FFECA9;
+  border: 3px solid orange;
+}
+
