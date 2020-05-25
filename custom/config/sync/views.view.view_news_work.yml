@@ -8,7 +8,7 @@ dependencies:
     - field.storage.node.field_newstype
     - node.type.news
   content:
-    - 'block_content:basic:753ded17-8adf-4fef-8ef7-212fcf7c3dfe'
+    - 'block_content:basic:be4d3824-c613-4aef-8992-42ba10131caf'
   module:
     - datetime
     - node
@@ -462,8 +462,8 @@ display:
           group_type: group
           admin_label: ''
           empty: true
-          tokenize: false
-          target: 753ded17-8adf-4fef-8ef7-212fcf7c3dfe
+          tokenize: true
+          target: be4d3824-c613-4aef-8992-42ba10131caf
           view_mode: default
           bypass_access: false
           plugin_id: entity
