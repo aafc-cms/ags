@@ -255,9 +255,35 @@ function agri_admin_node_insert(Drupal\Core\Entity\EntityInterface $entity) {
 function agri_admin_node_update(Drupal\Core\Entity\EntityInterface $entity) {
   $entity_id = $entity->id();
 
+
   $action = 'update';
-  AgriAdminHelper::addToLog(__function__);
+//  AgriAdminHelper::addToLog(__function__);
+//  AgriAdminHelper::addToLog(print_r($DEBUG_THIS, TRUE), TRUE);
   drupal_register_shutdown_function('_helperUpdateProcess', $action, $entity_id, $entity->bundle());
+}
+
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  // Custom code goes here:
+  $entity_id = $entity->id();
+//  Set Authored by to current user if role is creator.
+  $current_author_id = $entity->getOwnerId();
+  $current_user = \Drupal::currentUser();
+  $current_user_id = $current_user->id();
+  $roles = $current_user->getRoles();
+  foreach ($roles as $value) {
+    $role = $value;
+    if ($role == 'creator'){
+      $debug_message = 'Authored on: '.$entity->getCreatedTime().'; Node id: '.$entity_id.'; Old Author: '.$current_author_id;
+      $entity->setOwnerId($current_user_id);
+      $entity->set('created', time());
+      $debug_message = $debug_message . '; New Author: ' . $entity->getOwnerId();
+      AgriAdminHelper::addToLog($debug_message);
+    }
+  }
 }
 
 
