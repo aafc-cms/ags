@@ -123,11 +123,6 @@ function agri_admin_preprocess_views_view_field(&$variables) {
   if ($variables['logged_in']) {
     $user = \Drupal::currentUser();
     $hasPermission = $user->hasPermission('agrisource pending drafts');
-    if (!$hasPermission) {
-      return;
-    }
-  } else {
-    return;
   }
   $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $otherLang = 'fr';
@@ -136,7 +131,10 @@ function agri_admin_preprocess_views_view_field(&$variables) {
   }
 
   $view = $variables['view'];
-  if ($view->id() == 'news' || $view->id() == 'view_employmentopportunities' || $view->id() == 'some_view_machine_name_example') {
+  if ($hasPermission &&
+       ($view->id() == 'news' ||
+        $view->id() == 'view_employmentopportunities' ||
+        $view->id() == 'some_view_machine_name_example')) {
     $field = $variables['field'];
     $row = $variables['row'];
     $nid = $row->_entity->id();
