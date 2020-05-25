@@ -295,6 +295,23 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
 function _helperUpdateProcess($action, $entity_id, $bundle) {
   global $import_override;
   if (!isset($import_override) || $import_override == FALSE) {
+    if ($action == 'insert') {
+      $entity = \Drupal::entityTypeManager()->getStorage('node')->load($entity_id);
+
+      $current_user = \Drupal::currentUser();
+      $current_user_id = $current_user->id();
+      $roles = $current_user->getRoles();
+      foreach ($roles as $value) {
+        $role = $value;
+        if ($role == 'creator'){
+          $lock_service = \Drupal::service('content_lock');
+          $state = $entity->get('moderation_state')->getString();
+          if ($state == 'draft') {
+            $lock_service->locking($entity->id(), $entity->language()->getId(), 'update', $current_user_id, 'node');
+          }
+        }
+      }
+    }
     AgriAdminHelper::addToLog('test action=' . $action . ' : ' . $entity_id . ' : ' . $bundle);
     $menu_link_ids = [];
     $menu_link_ids = AgriAdminHelper::postCreateOrUpdateAutoTranslate($action, $entity_id, $bundle);
