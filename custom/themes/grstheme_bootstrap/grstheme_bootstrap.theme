@@ -15,30 +15,118 @@ function grstheme_bootstrap_preprocess_html(&$variables) {
   $theme = \Drupal\bootstrap\Bootstrap::getTheme();
   $themedir = $theme->getPath();
   $variables['current_path'] = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+  // Add class attribute (current role names) to the body class (for styling).
+  // Ex: administrator, comms, reviewer, anonymous.
+  $roles = \Drupal::currentUser()->getRoles();
+  foreach ($roles as $role_name) {
+    $variables['attributes']['class'][] = $role_name;
+  }
+
+  // Begin logic to grab moderation state and add it to the body class for styling.
+  // This section is required for view node identify draft revisions as 'pink'.
+  // Corresponding draft pink css is in css/style.scss.
+
+  $variables['current_path'] = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
   // Add node id to the body class.
   $node = \Drupal::routeMatch()->getParameter('node');
+  $node_revision = \Drupal::routeMatch()->getParameter('node_revision');
+  $routeMatchParams = \Drupal::routeMatch()->getParameters();
+  $nid = 0;
+  $vid = 0;
+  $revision_is_object = FALSE;
+  $nodeLoaded = 0;
+  $archived = '';
   if ($node) {
     // Workaround for https://www.drupal.org/project/drupal/issues/2730631 .
     // Workaround for inconsistent router behaviour, see comments in issue 2730631.
+    // TODO, follow up on issue 2730631.
+    $published = 'published-yes';
+    $is_unpublished = '';
+    $is_pending_draft = '';
     $nodeType = '';
     $node_storage = \Drupal::entityTypeManager()->getStorage('node');
 
-    if (is_string($node) && is_numeric($node)) {
+    if(is_string($node) && is_numeric($node)) {
       $nid = $node;
     }
     else if (gettype($node) == 'object') {
       $nid = $node->id();
       $nodeType = $node->getType();
       $vid = $node->getRevisionId();
+      // Load a single node.
+      $nodeLoaded = $node_storage->load($nid);
     }
+
+    $variables['attributes']['class'][] = 'node-' . $nid;
+
     if ($nid == 49) {
       $variables['attributes']['class'][] = 'news-article-form-page';
     }
     if ($nid == 50) {
       $variables['attributes']['class'][] = 'employment-opportunity-request-form-page';
     }
+
+    if (is_string($node_revision) && is_numeric($node_revision)) {
+      $vid = $node_revision;
+    }
+
+    if (gettype($node_revision) == 'object') {
+      $revision_is_object = TRUE;
+      $vid = $node_revision->revision_id();
+    }
+
+    if ($vid == 0) {
+      // Get the revision id.
+      $vid = $nodeLoaded->getRevisionId();
+    }
+
+    if ($vid) {
+      // Load the revision.
+      $this_revision = $node_revision;
+      if (!$revision_is_object) {
+        $this_revision = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($vid);
+      }
+      if ($this_revision->hasTranslation($langId)) {
+        // Get current language revision.
+        $this_revision = $this_revision->getTranslation($langId);
+      }
+      // Get the revisions moderation state.
+      $this_revision_state = $this_revision->get('moderation_state')->getString();
+      if ($this_revision_state != 'published' && $this_revision_state != 'archived' && $this_revision_state != 'emergency_publish') {
+        $published = 'published-no';
+        $is_unpublished = 'is-unpublished';
+        // Determine if revision is pending-draft (unpublished with previous published revision).
+        if (!$this_revision->isDefaultRevision()) {
+          // Since this is NOT the default revision, it means that the current revision state is not draft.
+          // So given our workflow configuration we can assume that this is a 'pending-draft'.
+          $is_pending_draft = 'pending-draft';
+        }
+      }
+      if ($this_revision_state == 'archived' || $this_revision_state == 'archive') {
+        $archived = 'archived';
+      }
+      $nodeType = $this_revision->getType();
+    }
+
+    if (!empty($nodeType)) {
+      $variables['attributes']['class'][] = $nodeType;
+    }
     $variables['attributes']['class'][] = 'node-' . $nid;
+    // Add node published status to body class.
+    $variables['attributes']['class'][] = $published;
+    if (!empty($archived)) {
+      $variables['attributes']['class'][] = $archived;
+    }
+    if (!empty($is_unpublished)) {
+      $variables['attributes']['class'][] = $is_unpublished;
+    }
+    if (!empty($is_pending_draft)) {
+      $variables['attributes']['class'][] = $is_pending_draft;
+    }
+
   }
+  // End of logic to grab moderation state and add it to the body class for styling.
+
 
 }
 

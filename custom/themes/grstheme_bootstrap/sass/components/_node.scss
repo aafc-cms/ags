@@ -1,0 +1,41 @@
+/**** Components Node for unpublished content *****/
+/* Note that drupal-bootstrap-not-cdn.min.css sets the background-color to #fff4f4 for body.is-unpublished */
+
+body.user-logged-in.published-no {
+  article {
+    background-color: pink;
+    border: 3px solid hotpink;
+  }
+  div.region-header h1 {
+    background-color: pink;
+    border: 3px solid hotpink;
+  }
+}
+
+/* The following code will override the body.is-unpublished background-color that drupal sets by default */
+body.is-unpublished {
+  background-color: white;
+}
+
+/* Unpublished revision pending to overwrite the published revision */
+body.user-logged-in.published-no.pending-draft {
+  article {
+    background-color: #FFECA9;
+    border: 3px solid orange;
+  }
+  div.region-header h1 {
+    background-color: #FFECA9;
+    border: 3px solid orange;
+  }
+}
+
+body.user-logged-in.archived {
+  article {
+    background-color: pink;
+    border: 3px solid red;
+  }
+  div.region-header h1 {
+    background-color: pink;
+    border: 3px solid red;
+  }
+}
