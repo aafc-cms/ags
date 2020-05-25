@@ -284,7 +284,7 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
       AgriAdminHelper::addToLog($debug_message);
       $lock_service = \Drupal::service('content_lock');
       $state = $entity->get('moderation_state')->getString();
-      if ($state == 'draft') {
+      if ($state == 'draft' && !$entity->isNew()) {
         $lock_service->locking($entity->id(), $entity->language()->getId(), 'update', $current_user_id, 'node');
       }
     }
