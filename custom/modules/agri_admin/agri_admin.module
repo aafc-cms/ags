@@ -285,7 +285,7 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
       $lock_service = \Drupal::service('content_lock');
       $state = $entity->get('moderation_state')->getString();
       if ($state == 'draft' && !$entity->isNew()) {
-        $lock_service->locking($entity->id(), $entity->language()->getId(), 'update', $current_user_id, 'node');
+        $lock_service->locking($entity->id(), $entity->language()->getId(), 'edit', $current_user_id, 'node');
       }
     }
   }
@@ -307,7 +307,7 @@ function _helperUpdateProcess($action, $entity_id, $bundle) {
           $lock_service = \Drupal::service('content_lock');
           $state = $entity->get('moderation_state')->getString();
           if ($state == 'draft') {
-            $lock_service->locking($entity->id(), $entity->language()->getId(), 'update', $current_user_id, 'node');
+            $lock_service->locking($entity->id(), $entity->language()->getId(), 'edit', $current_user_id, 'node');
           }
         }
       }
