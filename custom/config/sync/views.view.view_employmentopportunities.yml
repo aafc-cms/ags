@@ -13,6 +13,7 @@ dependencies:
     - taxonomy.vocabulary.employment_type
   content:
     - 'block_content:basic:140bae31-217c-44cb-9487-a6f1c6608c13'
+    - 'block_content:basic:e23400a2-0d24-42cc-8030-35527053dd6a'
   module:
     - datetime
     - entity_reference_revisions
@@ -864,19 +865,6 @@ display:
           bypass_access: false
           plugin_id: entity
       footer:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content:
-            value: "<p></p>\r\n<p><b>Note:</b> Not all AAFC job opportunities are posted on this page. Employees should monitor and check employment opportunities on the <a href=\"https://emploisfp-psjobs.cfp-psc.gc.ca/psrs-srfp/applicant/page2440?fromMenu=true&amp;toggleLanguage=en\">Public Service Jobs</a> page on a regular basis to view all employment opportunities within AAFC and other departments.</p>\r\n<p>If you have an internal employment opportunity you would like to post, please see our <a href=\"display-afficher.do?id=1287680969053&amp;lang=eng\">internal employment opportunity posting process</a>.</p>\r\n\r\n"
-            format: rich_text
-          plugin_id: text
         entity_block_content:
           id: entity_block_content
           table: views
@@ -886,7 +874,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: true
-          target: 140bae31-217c-44cb-9487-a6f1c6608c13
+          target: e23400a2-0d24-42cc-8030-35527053dd6a
           view_mode: default
           bypass_access: false
           plugin_id: entity
