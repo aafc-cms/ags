@@ -148,6 +148,7 @@ function agri_admin_preprocess_views_view_field(&$variables) {
         //status
         //nid
         //field_title
+        $variables['output'] = strtolower($variables['output']);
         $variables['output'] = Drupal\Core\Render\Markup::create(str_replace('yes', 'no pending-draft', $variables['output']));
       } else if ($field->field == 'nothing') {
         // There is no fieldable field called 'nothing' this is a views field, so skip it.
