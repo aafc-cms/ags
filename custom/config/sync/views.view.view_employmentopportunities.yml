@@ -11,6 +11,8 @@ dependencies:
     - field.storage.node.field_type
     - system.menu.admin
     - taxonomy.vocabulary.employment_type
+  content:
+    - 'block_content:basic:140bae31-217c-44cb-9487-a6f1c6608c13'
   module:
     - datetime
     - entity_reference_revisions
@@ -848,19 +850,19 @@ display:
           granularity: second
       title: 'Internal Employment Opportunities'
       header:
-        area:
-          id: area
+        entity_block_content:
+          id: entity_block_content
           table: views
-          field: area
+          field: entity_block_content
           relationship: none
           group_type: group
           admin_label: ''
-          empty: true
-          tokenize: false
-          content:
-            value: "<p>  Below is a list of current acting, assignment and deployment opportunities available only to Agriculture and Agri-Food Canada (AAFC) employees.\r\n</p>\r\n<p> The <i>Branch, Open to, Location</i> and <i>Closing date</i> fields can be filtered in ascending or descending order by selecting the column title.\r\n<br/>\r\n</p>\r\n<p>&nbsp;</p>\r\n"
-            format: full_html
-          plugin_id: text
+          empty: false
+          tokenize: true
+          target: 140bae31-217c-44cb-9487-a6f1c6608c13
+          view_mode: default
+          bypass_access: false
+          plugin_id: entity
       footer:
         area:
           id: area
@@ -875,6 +877,19 @@ display:
             value: "<p></p>\r\n<p><b>Note:</b> Not all AAFC job opportunities are posted on this page. Employees should monitor and check employment opportunities on the <a href=\"https://emploisfp-psjobs.cfp-psc.gc.ca/psrs-srfp/applicant/page2440?fromMenu=true&amp;toggleLanguage=en\">Public Service Jobs</a> page on a regular basis to view all employment opportunities within AAFC and other departments.</p>\r\n<p>If you have an internal employment opportunity you would like to post, please see our <a href=\"display-afficher.do?id=1287680969053&amp;lang=eng\">internal employment opportunity posting process</a>.</p>\r\n\r\n"
             format: rich_text
           plugin_id: text
+        entity_block_content:
+          id: entity_block_content
+          table: views
+          field: entity_block_content
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: true
+          target: 140bae31-217c-44cb-9487-a6f1c6608c13
+          view_mode: default
+          bypass_access: false
+          plugin_id: entity
       empty: {  }
       relationships:
         field_classification:

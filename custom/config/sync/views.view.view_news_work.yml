@@ -1,5 +1,5 @@
 uuid: 835810c3-0c57-456f-9ca4-281340a25037
-langcode: en
+langcode: fr
 status: true
 dependencies:
   config:
@@ -7,13 +7,15 @@ dependencies:
     - field.storage.node.field_from
     - field.storage.node.field_newstype
     - node.type.news
+  content:
+    - 'block_content:basic:753ded17-8adf-4fef-8ef7-212fcf7c3dfe'
   module:
     - datetime
     - node
     - text
     - user
 id: view_news_work
-label: news@work
+label: 'nouvelles@l''ouvrage'
 module: views
 description: ''
 tag: ''
@@ -452,17 +454,19 @@ display:
           granularity: second
       title: news@work
       header:
-        area_text_custom:
-          id: area_text_custom
+        entity_block_content:
+          id: entity_block_content
           table: views
-          field: area_text_custom
+          field: entity_block_content
           relationship: none
           group_type: group
           admin_label: ''
-          empty: true
-          tokenize: false
-          content: "<div class=\"alert alert-info english-only\">\r\n<p class=\"english-only\"> Please note: As of March 16, 2020, news@work is limited to priority news and updates related to COVID-19 or business continuity. These priority articles will continue to be published on the news@work page, but the weekly email bulletin has been suspended for the time being. Thank you for your cooperation and understanding.</p>\r\n</div>\r\n\r\n<p class=\"english-only\"> <i>news@work</i> brings you important information about departmental news and events. <i>news@work</i> articles are posted in this section throughout the week, and an email bulletin of current articles is sent to all staff on Thursdays.</p>\r\n\r\n<ul <p class=\"english-only\"> \r\n<li><a href=\"display-afficher.do?id=1305895655987&amp;lang=eng\">Submit an article</a> (consult the <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=102428321&amp;lang=eng\" target=\"_blank\">checklist and style guide (Word)</a>). </li>\r\n<li><a href=\"display-afficher.do?id=1319728307118&amp;lang=eng\">Search previous <i>news@work</i> articles</a>.</li>\r\n<li><a href=\"https://collab.agr.gc.ca/br-dg/ccb-dgcc/Lists/bulletins/AllItems.aspx\" rel=\"internal\">View previous <i>news@work</i> bulletins</a> in Knowledge Workspace.</li>\r\n<li>Contact us at <a href=\"mailto:aafc.newsatwork-nouvellesalouvrage.aac@canada.ca\">aafc.newsatwork-nouvellesalouvrage.aac@canada.ca</a> if  you have any questions or comments about <i>news@work</i></li>\r\n</ul>\r\n"
-          plugin_id: text_custom
+          empty: false
+          tokenize: true
+          target: 753ded17-8adf-4fef-8ef7-212fcf7c3dfe
+          view_mode: default
+          bypass_access: false
+          plugin_id: entity
       footer: {  }
       empty: {  }
       relationships: {  }
