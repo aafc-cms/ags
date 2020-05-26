@@ -120,14 +120,10 @@ function agri_admin_preprocess_views_view_field(&$variables) {
   $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $view = $variables['view'];
   
+  $hasPermission = FALSE;
   if ($variables['logged_in']) {
     $user = \Drupal::currentUser();
     $hasPermission = $user->hasPermission('agrisource pending drafts');
-    if (!$hasPermission) {
-      return;
-    }
-  } else {
-    return;
   }
   $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $otherLang = 'fr';
@@ -136,7 +132,10 @@ function agri_admin_preprocess_views_view_field(&$variables) {
   }
 
   $view = $variables['view'];
-  if ($view->id() == 'news' || $view->id() == 'view_employmentopportunities' || $view->id() == 'some_view_machine_name_example') {
+  if ($hasPermission &&
+       ($view->id() == 'news' ||
+        $view->id() == 'view_employmentopportunities' ||
+        $view->id() == 'view_news_work')) {
     $field = $variables['field'];
     $row = $variables['row'];
     $nid = $row->_entity->id();
@@ -149,6 +148,7 @@ function agri_admin_preprocess_views_view_field(&$variables) {
         //status
         //nid
         //field_title
+        $variables['output'] = strtolower($variables['output']);
         $variables['output'] = Drupal\Core\Render\Markup::create(str_replace('yes', 'no pending-draft', $variables['output']));
       } else if ($field->field == 'nothing') {
         // There is no fieldable field called 'nothing' this is a views field, so skip it.
@@ -282,6 +282,11 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
       $entity->set('created', time());
       $debug_message = $debug_message . '; New Author: ' . $entity->getOwnerId();
       AgriAdminHelper::addToLog($debug_message);
+      $lock_service = \Drupal::service('content_lock');
+      $state = $entity->get('moderation_state')->getString();
+      if ($state == 'draft' && !$entity->isNew()) {
+        $lock_service->locking($entity->id(), $entity->language()->getId(), 'edit', $current_user_id, 'node');
+      }
     }
   }
 }
@@ -290,6 +295,23 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
 function _helperUpdateProcess($action, $entity_id, $bundle) {
   global $import_override;
   if (!isset($import_override) || $import_override == FALSE) {
+    if ($action == 'insert') {
+      $entity = \Drupal::entityTypeManager()->getStorage('node')->load($entity_id);
+
+      $current_user = \Drupal::currentUser();
+      $current_user_id = $current_user->id();
+      $roles = $current_user->getRoles();
+      foreach ($roles as $value) {
+        $role = $value;
+        if ($role == 'creator'){
+          $lock_service = \Drupal::service('content_lock');
+          $state = $entity->get('moderation_state')->getString();
+          if ($state == 'draft') {
+            $lock_service->locking($entity->id(), $entity->language()->getId(), 'edit', $current_user_id, 'node');
+          }
+        }
+      }
+    }
     AgriAdminHelper::addToLog('test action=' . $action . ' : ' . $entity_id . ' : ' . $bundle);
     $menu_link_ids = [];
     $menu_link_ids = AgriAdminHelper::postCreateOrUpdateAutoTranslate($action, $entity_id, $bundle);

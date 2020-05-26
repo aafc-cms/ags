@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "38fdc28a89a988482b511796e4c77bca",
+    "content-hash": "4f9ea07646fd31d835840702b6c21604",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -3889,6 +3889,7 @@
                 },
                 "patches_applied": {
                     "core views module fix for contextual filter": "https://www.drupal.org/files/issues/2628130-11.patch",
+                    "allow field groups to be compatible": "https://www.drupal.org/files/issues/2020-02-05/2546212-119.patch",
                     "remove hreflang attribute from language switcher li element": "https://www.drupal.org/files/issues/2019-06-05/2454289-82.patch",
                     "Language negotiation core fix, needed by access_unpublished and content moderation for forward draft revisions in non default language.": "https://www.drupal.org/files/issues/2019-05-30/drupal-2951294-21-fix-fallback.patch",
                     "2869592 - Disabled update module shouldn't produce a status report warning": "https://www.drupal.org/files/issues/2869592-remove-update-warning-7.patch",
@@ -5993,7 +5994,7 @@
                 },
                 "drupal": {
                     "version": "8.x-4.5",
-                    "datestamp": "1583505009",
+                    "datestamp": "1583505030",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -9828,6 +9829,69 @@
             "homepage": "https://www.drupal.org/project/views_infinite_scroll",
             "support": {
                 "source": "https://git.drupalcode.org/project/views_infinite_scroll"
+            }
+        },
+        {
+            "name": "drupal/views_published_or_roles",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/views_published_or_roles.git",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/views_published_or_roles-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "9a6e937f8a70b5e8423b71410990cc50d6d9a3b3"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1563467285",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "albertski",
+                    "homepage": "https://www.drupal.org/user/1327432"
+                },
+                {
+                    "name": "michaelpporter",
+                    "homepage": "https://www.drupal.org/user/845350"
+                },
+                {
+                    "name": "mikeacklin",
+                    "homepage": "https://www.drupal.org/user/1198900"
+                },
+                {
+                    "name": "the_turk",
+                    "homepage": "https://www.drupal.org/user/3169829"
+                },
+                {
+                    "name": "thejimbirch",
+                    "homepage": "https://www.drupal.org/user/2507260"
+                }
+            ],
+            "description": "Custom Filter to allow filtering on published and roles",
+            "homepage": "https://www.drupal.org/project/views_published_or_roles",
+            "support": {
+                "source": "https://git.drupalcode.org/project/views_published_or_roles"
             }
         },
         {

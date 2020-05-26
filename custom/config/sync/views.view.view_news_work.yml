@@ -1,5 +1,5 @@
 uuid: 835810c3-0c57-456f-9ca4-281340a25037
-langcode: fr
+langcode: en
 status: true
 dependencies:
   config:
@@ -7,6 +7,7 @@ dependencies:
     - field.storage.node.field_from
     - field.storage.node.field_newstype
     - node.type.news
+    - system.menu.main
   content:
     - 'block_content:basic:be4d3824-c613-4aef-8992-42ba10131caf'
   module:
@@ -14,8 +15,9 @@ dependencies:
     - node
     - text
     - user
+    - views_published_or_roles
 id: view_news_work
-label: 'nouvelles@l''ouvrage'
+label: news@work
 module: views
 description: ''
 tag: ''
@@ -75,7 +77,7 @@ display:
         type: default
         options:
           grouping: {  }
-          row_class: ''
+          row_class: 'news-at-work-row published-{{ status }} node-{{ nid }}'
           default_row_class: true
       row:
         type: fields
@@ -87,6 +89,73 @@ display:
           separator: ''
           hide_empty: false
       fields:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: custom
+            format_custom_true: 'yes'
+            format_custom_false: 'no'
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: status
+          plugin_id: field
         field_newstype:
           id: field_newstype
           table: node__field_newstype
@@ -323,20 +392,71 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-      filters:
-        status:
-          value: '1'
+        nid:
+          id: nid
           table: node_field_data
-          field: status
-          plugin_id: boolean
+          field: nid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_unformatted
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
           entity_type: node
-          entity_field: status
-          id: status
-          expose:
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-          group: 1
+          entity_field: nid
+          plugin_id: field
+      filters:
         type:
           id: type
           table: node_field_data
@@ -349,51 +469,7 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
-        field_newsexpirydate_value:
-          id: field_newsexpirydate_value
-          table: node__field_newsexpirydate
-          field: field_newsexpirydate_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '>='
-          value:
-            min: ''
-            max: ''
-            value: today
-            type: offset
           group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: datetime
         langcode:
           id: langcode
           table: node_field_data
@@ -436,6 +512,134 @@ display:
           entity_type: node
           entity_field: langcode
           plugin_id: language
+        field_newsexpirydate_value:
+          id: field_newsexpirydate_value
+          table: node__field_newsexpirydate
+          field: field_newsexpirydate_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '>='
+          value:
+            min: ''
+            max: ''
+            value: '-1 week'
+            type: offset
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: datetime
+        status_1:
+          id: status_1
+          table: node_field_data
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+        current_user_has_roles_1:
+          id: current_user_has_roles_1
+          table: node
+          field: current_user_has_roles
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            administrator: administrator
+            creator: creator
+            editor: editor
+            reviewer: reviewer
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          plugin_id: current_user_has_roles
       sorts:
         created:
           id: created
@@ -472,6 +676,11 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+          2: OR
     cache_metadata:
       max-age: -1
       contexts:
@@ -494,6 +703,15 @@ display:
         metatag_display_extender: {  }
       path: news@work
       display_description: ''
+      menu:
+        type: normal
+        title: news@work
+        description: ''
+        expanded: false
+        parent: wxt.front_page
+        weight: 0
+        context: '0'
+        menu_name: main
     cache_metadata:
       max-age: -1
       contexts:
