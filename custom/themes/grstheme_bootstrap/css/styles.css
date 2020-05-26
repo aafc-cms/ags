@@ -179,10 +179,16 @@ body.user-logged-in.archived div.region-header h1 {
   border: 3px solid red;
 }
 
-/* line 44, ../sass/components/_node.scss */
+/* line 43, ../sass/components/_node.scss */
 body.user-logged-in tr.employmentopportunities-row.published-no {
   background-color: #FFECA9;
   border: 3px solid orange;
+}
+
+/* line 48, ../sass/components/_node.scss */
+body.user-logged-in tr.employmentopportunities-row.published-no.pending-draft {
+  background-color: pink;
+  border: 3px solid red;
 }
 
 /* line 11, ../sass/pages/_landing_page.scss */

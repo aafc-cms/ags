@@ -40,8 +40,12 @@ body.user-logged-in.archived {
   }
 }
 
-
 body.user-logged-in tr.employmentopportunities-row.published-no {
   background-color: #FFECA9;
   border: 3px solid orange;
+}
+
+body.user-logged-in tr.employmentopportunities-row.published-no.pending-draft {
+  background-color: pink;
+  border: 3px solid red;
 }
