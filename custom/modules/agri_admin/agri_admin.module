@@ -302,7 +302,7 @@ function _helperLockingContent($action, $entity_id, $bundle) {
         $role = $value;
         if ($role == 'creator'){
           $lock_service = \Drupal::service('content_lock');
-          if ($state != 'published' && $state != 'emergency_publish' && $state != 'review_by_cctreviewer') {
+          if ($state == 'draft') {
             $lock_service->locking($entity->id(), $entity->language()->getId(), 'edit', $current_user_id, $entity->getEntityTypeId());
           }
           else {
