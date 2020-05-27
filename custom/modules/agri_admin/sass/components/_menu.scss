@@ -1,0 +1,26 @@
+/* Menu css/sass/scss here */
+
+body.adminstructuremenumanagemain #menu-disabled-links-form,
+body.adminstructuremenumanagesideb #menu-disabled-links-form {
+  display: inline-block;
+  margin-right: 20px;
+  float: left;
+  margin-left: 20px;
+}
+
+body.user-logged-in select[data-drupal-selector=edit-menu-parent] option,
+body.path-node div[data-drupal-selector=edit-menu] option
+{ 
+  font-weight: bold;
+  line-height: 3rem;
+}
+
+body.adminstructuremenumanagemain table[data-drupal-selector=edit-links] td{
+  height: 0rem;
+  padding: 0mm;
+}
+
+body.adminstructuremenumanagemain .tabledrag-cell-content .tree {
+  min-height: 0%;
+}
+

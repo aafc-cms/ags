@@ -1,0 +1,46 @@
+
+ /* Admin css for the administration theme (override) */
+html[lang="fr"] .english-only {
+  display: none !important;
+}
+
+html[lang="en"] .french-only {
+  display: none !important;
+}
+
+html[lang="fr"] body.path-admin table#menu-overview .english-only {
+  display: inherit !important;
+  color: darkred;
+}
+
+html[lang="en"] body.path-admin table#menu-overview .english-only::before {
+  color: black;
+}
+
+html[lang="fr"] body.path-admin table#menu-overview .french-only::before {
+  color: black;
+}
+
+html[lang="en"] body.path-admin table#menu-overview .french-only::after {
+  content: " (external link displays in french)";
+  color: black;
+}
+
+html[lang="fr"] body.path-admin table#menu-overview .english-only::after {
+  content: " (lien externe affiché en anglais)";
+  color: black;
+}
+
+html[lang="fr"] body.path-admin table#menu-overview .french-only {
+  color: darkgreen;
+}
+
+html[lang="en"] body.path-admin table#menu-overview .english-only {
+  color: darkgreen;
+}
+
+html[lang="en"] body.path-admin table#menu-overview .french-only {
+  display: inherit !important;
+  color: darkred;
+}
+

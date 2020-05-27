@@ -1,0 +1,13 @@
+@import 'global/language';
+@import 'components/breadcrumb';
+@import 'components/menu';
+@import 'pages/moderation-dashboard';
+@import 'global/variables';
+@import 'components/node';
+@import 'components/etuf';/* for side by side etuf css tweaks */
+@import 'components/draft-pending-views';
+
+/* glyphicon-copy fix */
+.glyphicon.glyphicon-copy:before {
+  content: "\e205";
+}

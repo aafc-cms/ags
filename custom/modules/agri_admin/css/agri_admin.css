@@ -1,4 +1,5 @@
- /* Admin css for the administration theme (override) */
+@charset "UTF-8";
+/* Admin css for the administration theme (override) */
 html[lang="fr"] .english-only {
   display: none !important;
 }
@@ -43,10 +44,12 @@ html[lang="en"] body.path-admin table#menu-overview .french-only {
   color: darkred;
 }
 
+/* breadcrumb css/scss/sass here */
 body.path-admin #block-claro-content nav.breadcrumb {
   font-size: 1.3rem;
 }
 
+/* Menu css/sass/scss here */
 body.adminstructuremenumanagemain #menu-disabled-links-form,
 body.adminstructuremenumanagesideb #menu-disabled-links-form {
   display: inline-block;
@@ -55,6 +58,26 @@ body.adminstructuremenumanagesideb #menu-disabled-links-form {
   margin-left: 20px;
 }
 
+body.user-logged-in select[data-drupal-selector=edit-menu-parent] option,
+body.path-node div[data-drupal-selector=edit-menu] option {
+  font-weight: bold;
+  line-height: 3rem;
+}
+
+body.adminstructuremenumanagemain table[data-drupal-selector=edit-links] td {
+  height: 0rem;
+  padding: 0mm;
+}
+
+body.adminstructuremenumanagemain .tabledrag-cell-content .tree {
+  min-height: 0%;
+}
+
+body[class*=moderationdashboard] nav[aria-label=Tabs] {
+  visibility: hidden;
+}
+
+/* Put variables here for colors, fonts, etc */
 body.nodeaddempl .field-group-fieldset,
 body.node-edit.page-node-type-empl .field-group-fieldset {
   width: 100% !important;
@@ -84,6 +107,7 @@ body.nodeaddempl select[name*="[subform][field_class_id]"],
 body.node-edit.page-node-type-empl select[name*="[subform][field_class_id]"] {
   min-width: 165px;
 }
+
 body.nodeaddempl .paragraph-type-top div[data-drupal-selector^="edit-field-classification"],
 body.node-edit.page-node-type-empl .paragraph-type-top div[data-drupal-selector^="edit-field-classification"] {
   margin-top: 30px;
@@ -131,38 +155,10 @@ body.node-edit.page-node-type-empl .paragraph-type-top div[data-drupal-selector^
     width: auto;
     margin-left: auto;
   }
-
 }
-
-body.user-logged-in select[data-drupal-selector=edit-menu-parent] option,
-body.path-node div[data-drupal-selector=edit-menu] option
-{ 
-  font-weight: bold;
-  line-height: 3rem;
-}
-
-body.adminstructuremenumanagemain table[data-drupal-selector=edit-links] td{
-  height: 0rem;
-  padding: 0mm;
-}
-
-body.adminstructuremenumanagemain .tabledrag-cell-content .tree {
-  min-height: 0%;
-}
-
-body[class*=moderationdashboard] nav[aria-label=Tabs]
-{
-  visibility: hidden;
-}
-
-/* glyphicon-copy fix */
-.glyphicon.glyphicon-copy:before {
-  content: "\e205";
-}
-
+/* for side by side etuf css tweaks */
 /**** Components Node for unpublished content *****/
 /* Note that drupal-bootstrap-not-cdn.min.css sets the background-color to #fff4f4 for body.is-unpublished */
-
 .views-row.published-no {
   background-color: pink;
   border: 3px solid hotpink;
@@ -184,3 +180,9 @@ body[class*=moderationdashboard] nav[aria-label=Tabs]
   border: 3px solid orange;
 }
 
+/* glyphicon-copy fix */
+.glyphicon.glyphicon-copy:before {
+  content: "\e205";
+}
+
+/*# sourceMappingURL=agri_admin.css.map */
