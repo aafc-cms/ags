@@ -115,6 +115,43 @@ body.node-edit.page-node-type-empl .paragraph-type-top div[data-drupal-selector^
   margin-left: 10px;
 }
 
+body.node-edit.user-logged-in.path-node.page-node-type-empl #edit-group-opportunitylocation {
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+}
+body.node-edit.user-logged-in.path-node.page-node-type-empl #edit-group-opportunitylocation .claro-details__summary.form-required::before {
+  display: none;
+}
+body.node-edit.user-logged-in.path-node.page-node-type-empl #edit-group-opportunitylocation .claro-details__summary.form-required {
+  padding-left: 0px;
+}
+body.node-edit.user-logged-in.path-node.page-node-type-empl #edit-group-opportunitylocation div.claro-details__wrapper.details-wrapper {
+  margin-left: 0px;
+}
+body.node-edit.user-logged-in.path-node.page-node-type-empl #edit-group-opportunityopento {
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+}
+body.node-edit.user-logged-in.path-node.page-node-type-empl #edit-group-opportunityopento .claro-details__wrapper.details-wrapper {
+  margin-left: 0px;
+}
+body.node-edit.user-logged-in.path-node.page-node-type-empl #edit-group-opportunityopento summary.claro-details__summary::before {
+  display: none;
+}
+body.node-edit.user-logged-in.path-node.page-node-type-empl #edit-group-opportunityopento summary.claro-details__summary.form-required {
+  padding-left: 0px;
+}
+body.node-edit.user-logged-in.path-node.page-node-type-empl #edit-group-level-and span.fieldset__label {
+  padding-left: 0px !important;
+}
+body.node-edit.user-logged-in.path-node.page-node-type-empl #edit-group-level-and div.fieldset__wrapper {
+  margin-left: 0px;
+}
+
 @media screen and (min-width: 992px) {
   body.etuf-sbs.nodeaddnews .layout-region-node-main, body.etuf-sbs.nodeaddnews .layout-region-node-footer {
     width: auto;
