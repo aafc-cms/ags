@@ -183,17 +183,20 @@ body.user-logged-in.archived div.region-header h1 {
 body.user-logged-in .view-content tr.published-no {
   background-color: #FFECA9;
   border: 3px solid orange;
+  overflow: hidden;
 }
 
-/* line 7, ../sass/components/_draft-pending-views.scss */
+/* line 8, ../sass/components/_draft-pending-views.scss */
 body.user-logged-in .view-content tr.published-no.pending-draft {
   background-color: pink;
   border: 3px solid red;
+  overflow: hidden;
 }
 
-/* line 12, ../sass/components/_draft-pending-views.scss */
+/* line 14, ../sass/components/_draft-pending-views.scss */
 body.user-logged-in .view-content table.dataTable {
   border-collapse: collapse;
+  overflow: hidden;
 }
 
 /* line 11, ../sass/pages/_landing_page.scss */
