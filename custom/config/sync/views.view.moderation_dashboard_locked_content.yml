@@ -406,6 +406,8 @@ display:
         relationships: false
         fields: false
         sorts: false
+        cache: false
+        use_ajax: false
       arguments:
         uid:
           id: uid
@@ -559,7 +561,7 @@ display:
       fields:
         nid:
           id: nid
-          table: node_field_revision
+          table: node_field_data
           field: nid
           relationship: none
           group_type: group
@@ -674,7 +676,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: true
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -885,6 +887,10 @@ display:
           granularity: second
           plugin_id: date
       rendering_language: '***LANGUAGE_language_interface***'
+      cache:
+        type: none
+        options: {  }
+      use_ajax: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -927,6 +933,8 @@ display:
         relationships: false
         fields: false
         sorts: false
+        use_ajax: false
+        cache: false
       arguments: {  }
       access:
         type: none
@@ -1005,7 +1013,7 @@ display:
       fields:
         nid:
           id: nid
-          table: node_field_revision
+          table: node_field_data
           field: nid
           relationship: none
           group_type: group
@@ -1120,7 +1128,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: true
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1396,6 +1404,10 @@ display:
           granularity: second
           plugin_id: date
       rendering_language: '***LANGUAGE_language_interface***'
+      use_ajax: false
+      cache:
+        type: none
+        options: {  }
     cache_metadata:
       max-age: -1
       contexts:

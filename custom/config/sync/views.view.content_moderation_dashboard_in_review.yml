@@ -57,7 +57,7 @@ display:
       pager:
         type: mini
         options:
-          items_per_page: 25
+          items_per_page: 5
           offset: 0
           id: 0
           total_pages: null
@@ -651,7 +651,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: true
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1061,7 +1061,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: true
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1543,7 +1543,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: true
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
