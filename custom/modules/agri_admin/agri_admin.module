@@ -246,6 +246,7 @@ function agri_admin_node_insert(Drupal\Core\Entity\EntityInterface $entity) {
   $action = 'insert';
   AgriAdminHelper::addToLog(__function__);
   drupal_register_shutdown_function('_helperUpdateProcess', $action, $entity_id, $entity->bundle());
+  drupal_register_shutdown_function('_helperLockingContent', $action, $entity_id, $entity->bundle());
 }
 
 
@@ -260,6 +261,7 @@ function agri_admin_node_update(Drupal\Core\Entity\EntityInterface $entity) {
 //  AgriAdminHelper::addToLog(__function__);
 //  AgriAdminHelper::addToLog(print_r($DEBUG_THIS, TRUE), TRUE);
   drupal_register_shutdown_function('_helperUpdateProcess', $action, $entity_id, $entity->bundle());
+  drupal_register_shutdown_function('_helperLockingContent', $action, $entity_id, $entity->bundle());
 }
 
 
@@ -282,21 +284,15 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
       $entity->set('created', time());
       $debug_message = $debug_message . '; New Author: ' . $entity->getOwnerId();
       AgriAdminHelper::addToLog($debug_message);
-      $lock_service = \Drupal::service('content_lock');
-      $state = $entity->get('moderation_state')->getString();
-      if (!$entity->isNew() && $state != 'published' && $state != 'emergency_publish' && $state != 'review_by_cctreviewer') {
-        // For new entities, check the 'insert' action.
-        $lock_service->locking($entity->id(), $entity->language()->getId(), 'edit', $current_user_id, 'node');
-      }
     }
   }
 }
 
 
-function _helperUpdateProcess($action, $entity_id, $bundle) {
+function _helperLockingContent($action, $entity_id, $bundle) {
   global $import_override;
   if (!isset($import_override) || $import_override == FALSE) {
-    if ($action == 'insert') {
+    if ($action == 'insert' || $action == 'update') {
       $entity = \Drupal::entityTypeManager()->getStorage('node')->load($entity_id);
 
       $current_user = \Drupal::currentUser();
@@ -312,6 +308,12 @@ function _helperUpdateProcess($action, $entity_id, $bundle) {
         }
       }
     }
+  }
+}
+
+function _helperUpdateProcess($action, $entity_id, $bundle) {
+  global $import_override;
+  if (!isset($import_override) || $import_override == FALSE) {
     AgriAdminHelper::addToLog('test action=' . $action . ' : ' . $entity_id . ' : ' . $bundle);
     $menu_link_ids = [];
     $menu_link_ids = AgriAdminHelper::postCreateOrUpdateAutoTranslate($action, $entity_id, $bundle);
