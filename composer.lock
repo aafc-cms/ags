@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4f9ea07646fd31d835840702b6c21604",
+    "content-hash": "ceb48f5b037ce9f27406af27b6faef14",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -300,7 +300,7 @@
             "version": "3.5.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:jquery/jquery-dist.git",
+                "url": "https://github.com/jquery/jquery-dist.git",
                 "reference": "4c0e4becb8263bb5b3e6dadc448d8e7305ef8215"
             },
             "dist": {
@@ -9002,6 +9002,62 @@
                 "source": "http://git.drupal.org/project/search_api_solr.git",
                 "issues": "https://www.drupal.org/project/issues/search_api_solr",
                 "irc": "https://drupalchat.me/channel/search"
+            }
+        },
+        {
+            "name": "drupal/sharedemail",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/sharedemail.git",
+                "reference": "8.x-2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/sharedemail-8.x-2.1.zip",
+                "reference": "8.x-2.1",
+                "shasum": "d829b1ad30027ead8bc956a6d9a6c4c0c1bb36d4"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-2.1",
+                    "datestamp": "1586475765",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "aufumy",
+                    "homepage": "https://www.drupal.org/user/109516"
+                },
+                {
+                    "name": "baikho",
+                    "homepage": "https://www.drupal.org/user/2727459"
+                },
+                {
+                    "name": "burgdawg",
+                    "homepage": "https://www.drupal.org/user/3429219"
+                },
+                {
+                    "name": "christefano",
+                    "homepage": "https://www.drupal.org/user/104"
+                }
+            ],
+            "description": "Allow an e-mail address to be used by more than one user account",
+            "homepage": "https://www.drupal.org/project/sharedemail",
+            "support": {
+                "source": "https://git.drupalcode.org/project/sharedemail"
             }
         },
         {

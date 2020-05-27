@@ -1,0 +1,15 @@
+
+body.user-logged-in .view-content tr.published-no {
+  background-color: #FFECA9;
+  border: 3px solid orange;
+}
+
+body.user-logged-in .view-content tr.published-no.pending-draft {
+  background-color: pink;
+  border: 3px solid red;
+}
+
+body.user-logged-in .view-content table.dataTable {
+  border-collapse: collapse;
+}
+
