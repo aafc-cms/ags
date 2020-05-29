@@ -334,7 +334,6 @@ function _helperUpdateProcess($action, $entity_id, $bundle) {
             //Goto
             //\Drupal\agri_admin\Utils
             //$host = \Drupal::request()->getSchemeAndHttpHost();
-            AgriAdminHelper::addToLog('TEST ', TRUE);
             AgriAdminHelper::addToLog(Url::fromUserInput('/admin/structure/menu/item/' . $menu_link_id . '/edit')->toString(), TRUE);
             $redirect = new RedirectResponse(Url::fromUserInput('/admin/structure/menu/item/' . $menu_link_id . '/edit')->toString());
             $redirect->send();

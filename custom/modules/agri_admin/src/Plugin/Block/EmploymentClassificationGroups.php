@@ -27,6 +27,8 @@ class  EmploymentClassificationGroups extends BlockBase {
     if ($node) {
       if (is_string($node) && is_numeric($node)) {
         $nid = $node;
+        $vid = NULL;
+        $node = self::_latest_revision($nid, $vid);
       }
       else if (gettype($node) == 'object') {
         $nid = $node->id();
@@ -111,6 +113,38 @@ class  EmploymentClassificationGroups extends BlockBase {
    */
   protected function blockAccess(AccountInterface $account) {
     return AccessResult::allowedIfHasPermission($account, 'access content');
+  }
+
+  /**
+   * Get the latest revision.
+   */
+  public static function _latest_revision($nid, &$vid) {
+    $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    $otherLang = 'fr';
+    if ($lang == 'fr') {
+      $otherLang = 'en';
+    }
+    $latestRevisionResult = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
+      ->latestRevision()
+      ->condition('nid', $nid, '=')
+      ->execute();
+    if (count($latestRevisionResult)) {
+      $node_revision_id = key($latestRevisionResult);
+      if ($node_revision_id == $vid) {
+        // There is no pending revision, the current revision is the latest.
+        return FALSE;
+      }
+      $vid = $node_revision_id;
+      $latestRevision = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($node_revision_id);
+      if ($latestRevision->language()->getId() != $lang) {
+        $latestRevision = $latestRevision->getTranslation($lang);
+      }
+      $moderation_state = $latestRevision->get('moderation_state')->getString();
+      if ($moderation_state == 'draft') {
+        return $latestRevision;
+      }
+    }
+    return FALSE;
   }
 
   /**
