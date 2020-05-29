@@ -26,6 +26,8 @@ class  EmploymentClassificationGroups extends BlockBase {
     $node = \Drupal::routeMatch()->getParameter('node');
     if ($node) {
       if (is_string($node) && is_numeric($node)) {
+        // Can be removed once we move to Drupal >= 8.6.0 , currently on 8.5.0.
+        // See change record here: https://www.drupal.org/node/2942013 .
         $nid = $node;
         $vid = NULL;
         $node = self::_latest_revision($nid, $vid);
@@ -119,6 +121,8 @@ class  EmploymentClassificationGroups extends BlockBase {
    * Get the latest revision.
    */
   public static function _latest_revision($nid, &$vid) {
+    // Can be removed once we move to Drupal >= 8.6.0 , currently on 8.5.0.
+    // See change record here: https://www.drupal.org/node/2942013 .
     $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
     $otherLang = 'fr';
     if ($lang == 'fr') {
