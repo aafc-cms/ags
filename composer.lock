@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ceb48f5b037ce9f27406af27b6faef14",
+    "content-hash": "81bfb94dbe358dbba554f57c3d8c70cc",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -178,16 +178,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.138.9",
+            "version": "3.138.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "aaee8d1639e0f92a9617c4842c4fb8e527281d2a"
+                "reference": "cf197a033ad75cd9e3a90a207cf5ec8935aafa48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/aaee8d1639e0f92a9617c4842c4fb8e527281d2a",
-                "reference": "aaee8d1639e0f92a9617c4842c4fb8e527281d2a",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/cf197a033ad75cd9e3a90a207cf5ec8935aafa48",
+                "reference": "cf197a033ad75cd9e3a90a207cf5ec8935aafa48",
                 "shasum": ""
             },
             "require": {
@@ -258,7 +258,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-05-27T18:13:35+00:00"
+            "time": "2020-05-28T18:12:07+00:00"
         },
         {
             "name": "bower-asset/cropper",
@@ -1966,16 +1966,16 @@
         },
         {
             "name": "doctrine/inflector",
-            "version": "1.4.2",
+            "version": "1.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "889b42b8155f2aa274596b6e0424371b1e3c51bb"
+                "reference": "4650c8b30c753a76bf44fb2ed00117d6f367490c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/889b42b8155f2aa274596b6e0424371b1e3c51bb",
-                "reference": "889b42b8155f2aa274596b6e0424371b1e3c51bb",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/4650c8b30c753a76bf44fb2ed00117d6f367490c",
+                "reference": "4650c8b30c753a76bf44fb2ed00117d6f367490c",
                 "shasum": ""
             },
             "require": {
@@ -2040,7 +2040,7 @@
                 "uppercase",
                 "words"
             ],
-            "time": "2020-05-25T20:02:40+00:00"
+            "time": "2020-05-29T07:19:59+00:00"
         },
         {
             "name": "doctrine/lexer",
@@ -7415,17 +7415,17 @@
         },
         {
             "name": "drupal/moderated_content_bulk_publish",
-            "version": "1.0.0-beta2",
+            "version": "1.0.0-beta3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/moderated_content_bulk_publish.git",
-                "reference": "8.x-1.0-beta2"
+                "reference": "8.x-1.0-beta3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/moderated_content_bulk_publish-8.x-1.0-beta2.zip",
-                "reference": "8.x-1.0-beta2",
-                "shasum": "4bd2b3e16aadd09a9c6037369e9fd476390c8faa"
+                "url": "https://ftp.drupal.org/files/projects/moderated_content_bulk_publish-8.x-1.0-beta3.zip",
+                "reference": "8.x-1.0-beta3",
+                "shasum": "014f1a448dd2b3b67abc5ccbcf41d634c17a4b12"
             },
             "require": {
                 "drupal/core": "^8 || ^9"
@@ -7433,15 +7433,15 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-beta2",
-                    "datestamp": "1589901375",
+                    "version": "8.x-1.0-beta3",
+                    "datestamp": "1590768307",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
                     }
                 },
                 "patches_applied": {
-                    "Custom functionality for workflows, bulk send to reviewer.": "https://www.drupal.org/files/issues/2020-05-20/3124868-9.patch"
+                    "Custom functionality for workflows, bulk send to reviewer.": "https://www.drupal.org/files/issues/2020-05-29/3124868-10.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -7532,6 +7532,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Synchronize moderation states between all translations of the entity": "https://www.drupal.org/files/issues/2020-05-28/sync_all_translations_states-3143559-2.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -8443,33 +8446,34 @@
         },
         {
             "name": "drupal/purge",
-            "version": "3.0.0-beta9",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/purge.git",
-                "reference": "8.x-3.0-beta9"
+                "reference": "8.x-3.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/purge-8.x-3.0-beta9.zip",
-                "reference": "8.x-3.0-beta9",
-                "shasum": "d7d5229806582f7553f3b46b56218a9e41e9e6c4"
+                "url": "https://ftp.drupal.org/files/projects/purge-8.x-3.0.zip",
+                "reference": "8.x-3.0",
+                "shasum": "e7113e9927dbdbbd5c2f4edc2649a14676e14f34"
             },
             "require": {
-                "drupal/core": "~8.0"
+                "drupal/core": "^8.7.7 || ^9",
+                "php": ">=7.2"
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-3.x": "3.x-dev"
-                },
                 "drupal": {
-                    "version": "8.x-3.0-beta9",
-                    "datestamp": "1570540105",
+                    "version": "8.x-3.0",
+                    "datestamp": "1590744318",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "branch-alias": {
+                    "dev-8.x-3.x": "3.x-dev"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -8478,8 +8482,8 @@
             ],
             "authors": [
                 {
-                    "name": "SqyD",
-                    "homepage": "https://www.drupal.org/user/106525"
+                    "name": "Niels van Mourik",
+                    "homepage": "http://www.nielsvm.org"
                 },
                 {
                     "name": "djbobbydrake",
@@ -8498,23 +8502,24 @@
         },
         {
             "name": "drupal/purge_tokens",
-            "version": "3.0.0-beta9",
+            "version": "3.0.0",
             "require": {
-                "drupal/core": "~8.0",
-                "drupal/purge": "self.version"
+                "drupal/core": "^8.7.7 || ^9",
+                "drupal/purge": "self.version",
+                "php": ">=7.2"
             },
             "type": "metapackage",
             "extra": {
-                "branch-alias": {
-                    "dev-3.x": "3.x-dev"
-                },
                 "drupal": {
-                    "version": "8.x-3.0-beta9",
-                    "datestamp": "1570540105",
+                    "version": "8.x-3.0",
+                    "datestamp": "1590744318",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "branch-alias": {
+                    "dev-8.x-3.x": "3.x-dev"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -8523,8 +8528,8 @@
             ],
             "authors": [
                 {
-                    "name": "SqyD",
-                    "homepage": "https://www.drupal.org/user/106525"
+                    "name": "Niels van Mourik",
+                    "homepage": "http://www.nielsvm.org"
                 },
                 {
                     "name": "djbobbydrake",
@@ -12946,16 +12951,16 @@
         },
         {
             "name": "swagger-api/swagger-ui",
-            "version": "v3.25.4",
+            "version": "v3.25.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swagger-api/swagger-ui.git",
-                "reference": "c845498f28bb8b2043e2c74114cb3c2887f8889e"
+                "reference": "28b7d7c54866f3581f0f703f3971422a09ebd649"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swagger-api/swagger-ui/zipball/c845498f28bb8b2043e2c74114cb3c2887f8889e",
-                "reference": "c845498f28bb8b2043e2c74114cb3c2887f8889e",
+                "url": "https://api.github.com/repos/swagger-api/swagger-ui/zipball/28b7d7c54866f3581f0f703f3971422a09ebd649",
+                "reference": "28b7d7c54866f3581f0f703f3971422a09ebd649",
                 "shasum": ""
             },
             "type": "library",
@@ -12999,7 +13004,7 @@
                 "swagger",
                 "ui"
             ],
-            "time": "2020-05-21T19:00:57+00:00"
+            "time": "2020-05-28T17:37:47+00:00"
         },
         {
             "name": "symfony-cmf/routing",
