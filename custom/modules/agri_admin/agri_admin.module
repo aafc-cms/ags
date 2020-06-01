@@ -317,31 +317,13 @@ function _helperLockingContent($action, $entity_id, $bundle) {
 function _helperUpdateProcess($action, $entity_id, $bundle) {
   global $import_override;
   if (!isset($import_override) || $import_override == FALSE) {
-    AgriAdminHelper::addToLog('test action=' . $action . ' : ' . $entity_id . ' : ' . $bundle);
+    AgriAdminHelper::addToLog('_helperUpdateProcess action=' . $action . ' : ' . $entity_id . ' : ' . $bundle);
     $menu_link_ids = [];
     $menu_link_ids = AgriAdminHelper::postCreateOrUpdateAutoTranslate($action, $entity_id, $bundle);
     //AgriAdminHelper::postUpdateProcess($action, $entity_id, $bundle);
     if ($bundle == 'page') {
       AgriAdminHelper::disableMenuLink(NULL, $entity_id, 'main');
       AgriAdminHelper::disableMenuLink(NULL, $entity_id, 'sidebar');
-    }
-    if ($bundle == 'page' || $bundle == 'landing_page') {
-      return;
-      if (!empty($menu_link_ids)) {
-        foreach ($menu_link_ids as $menu_link_id) {
-          AgriAdminHelper::addToLog($menu_link_id, TRUE);
-          if (is_numeric($menu_link_id)) {
-            //Goto
-            //\Drupal\agri_admin\Utils
-            //$host = \Drupal::request()->getSchemeAndHttpHost();
-            AgriAdminHelper::addToLog(Url::fromUserInput('/admin/structure/menu/item/' . $menu_link_id . '/edit')->toString(), TRUE);
-            $redirect = new RedirectResponse(Url::fromUserInput('/admin/structure/menu/item/' . $menu_link_id . '/edit')->toString());
-            $redirect->send();
-            //AgriAdminHelper::addToLog($host_plus, TRUE);
-            //\Drupal\agri_admin\Utils::goto($host_plus . '/admin/structure/menu/item/' . $menu_link_id . '/edit', NULL, NULL, TRUE);
-          }
-        }
-      }
     }
   }
 }
