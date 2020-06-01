@@ -1,0 +1,14 @@
+uuid: 9da3051e-4432-4ef2-9f84-bc71891e77ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.news_ccpub
+  module:
+    - user
+id: user_remove_role_action.news_ccpub
+label: 'Remove the ccpub role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: news_ccpub

@@ -1,0 +1,14 @@
+uuid: 6a007df3-ab53-484e-a6e3-0c4bfd8e9162
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.news_ccpub
+  module:
+    - user
+id: user_add_role_action.news_ccpub
+label: 'Add the ccpub role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: news_ccpub

@@ -1,0 +1,27 @@
+uuid: e2b2ac67-7425-4b28-92fe-32e76cbeb354
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+third_party_settings:
+  lightning_core:
+    description: 'ccpub role is used to review and approve the news item.'
+id: news_ccpub
+label: ccpub
+weight: -4
+is_admin: null
+permissions:
+  - 'access_unpublished node news'
+  - 'access_unpublished taxonomy_term news_type'
+  - 'edit any news content'
+  - 'edit own news content'
+  - 'revert news revisions'
+  - 'use publishing_news transition delete_newsstrans'
+  - 'use publishing_news transition emergency_publish_newsstrans'
+  - 'use publishing_news transition publish'
+  - 'use publishing_news transition publish_archived_content_newsstrans'
+  - 'use publishing_news transition save_as_a_draft_newsstrans'
+  - 'use publishing_news transition send_for_deletion_newsstrans'
+  - 'use publishing_news transition send_to_reviewer_newstrans'
+  - 'view news revisions'
