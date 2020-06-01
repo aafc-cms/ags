@@ -1,0 +1,28 @@
+workflows:
+  block_publishing_workflow:
+    disabled_transitions:
+      create_new_draft: '0'
+      send_for_review: '0'
+      publish: '0'
+      delete_a_block: '0'
+      approve_deletion: '0'
+      re_publish_archived: '0'
+  editorial_workflow:
+    disabled_transitions:
+      create_new_draft: '0'
+      review: '0'
+      publish: '0'
+      archive: '0'
+      archived_published: '0'
+  publishing_workflow:
+    disabled_transitions:
+      send_to_reviewer: send_to_reviewer
+      save_as_a_draft: save_as_a_draft
+      send_for_deletion: send_for_deletion
+      emergency_publish: emergency_publish
+      reject: '0'
+      publish: '0'
+      re_publish_archived: '0'
+      delete: '0'
+      take: '0'
+      take_for_deletion: '0'

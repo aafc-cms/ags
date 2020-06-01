@@ -3,9 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - node.type.empl
     - node.type.landing_page
-    - node.type.news
     - node.type.page
   module:
     - content_moderation
@@ -39,6 +37,11 @@ type_settings:
       default_revision: true
       label: Publish
       weight: 0
+    reject_delete:
+      published: false
+      default_revision: false
+      label: 'Reject delete'
+      weight: 5
     review_by_cctreviewer:
       published: false
       default_revision: false
@@ -49,14 +52,21 @@ type_settings:
       default_revision: true
       label: Delete
       weight: -1
+    with_reviewer:
+      published: false
+      default_revision: false
+      label: 'With reviewer'
+      weight: 3
+    with_reviewer_for_delete:
+      published: false
+      default_revision: false
+      label: 'With reviewer for delete'
+      weight: 4
   transitions:
     delete:
-      label: Delete
+      label: 'Approve delete'
       from:
-        - draft
-        - emergency_publish
-        - published
-        - to_be_deleted
+        - with_reviewer_for_delete
       to: archived
       weight: 9
     emergency_publish:
@@ -68,13 +78,11 @@ type_settings:
       to: emergency_publish
       weight: 8
     publish:
-      label: Publish
+      label: 'Approve publish'
       to: published
       weight: 2
       from:
-        - emergency_publish
-        - published
-        - review_by_cctreviewer
+        - with_reviewer
     re_publish_archived:
       label: 'Publish archived content'
       from:
@@ -84,9 +92,15 @@ type_settings:
     reject:
       label: Reject
       from:
-        - review_by_cctreviewer
+        - with_reviewer
       to: author_reviewing
       weight: -2
+    reject_delete:
+      label: 'Reject delete'
+      from:
+        - with_reviewer_for_delete
+      to: reject_delete
+      weight: 12
     save_as_a_draft:
       label: 'Save as a draft'
       from:
@@ -99,8 +113,9 @@ type_settings:
     send_for_deletion:
       label: 'Send for deletion'
       from:
-        - archived
-        - author_reviewing
+        - draft
+        - emergency_publish
+        - published
       to: to_be_deleted
       weight: 5
     send_to_reviewer:
@@ -108,12 +123,24 @@ type_settings:
       from:
         - author_reviewing
         - draft
+        - emergency_publish
+        - published
       to: review_by_cctreviewer
       weight: -3
+    take:
+      label: Take
+      from:
+        - review_by_cctreviewer
+      to: with_reviewer
+      weight: 10
+    take_for_deletion:
+      label: 'Take for deletion'
+      from:
+        - to_be_deleted
+      to: with_reviewer_for_delete
+      weight: 11
   entity_types:
     node:
-      - empl
       - landing_page
-      - news
       - page
   default_moderation_state: draft
