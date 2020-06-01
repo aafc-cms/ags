@@ -12,6 +12,11 @@ label: cspub
 weight: -3
 is_admin: null
 permissions:
+  - 'access_unpublished node empl'
+  - 'create empl content'
+  - 'edit any empl content'
+  - 'edit own empl content'
+  - 'revert empl revisions'
   - 'schedule publishing_employmentopportunity transition delete_empltrans'
   - 'schedule publishing_employmentopportunity transition emergency_publish_empltrans'
   - 'schedule publishing_employmentopportunity transition publish'
@@ -27,3 +32,4 @@ permissions:
   - 'use publishing_employmentopportunity transition save_as_a_draft_empltrans'
   - 'use publishing_employmentopportunity transition send_for_deletion_empltrans'
   - 'use publishing_employmentopportunity transition send_to_reviewer_empltrans'
+  - 'view empl revisions'
