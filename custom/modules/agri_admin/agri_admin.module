@@ -272,6 +272,7 @@ function _helperLockingContent($action, $entity_id, $bundle, $entity_obj = NULL)
       $current_user_id = $current_user->id();
       $roles = $current_user->getRoles();
       $is_creator = FALSE;
+      $is_reviewer = FALSE;
       foreach ($roles as $value) {
         $role = $value;
         if ($role == 'creator') {
@@ -279,18 +280,28 @@ function _helperLockingContent($action, $entity_id, $bundle, $entity_obj = NULL)
           $state = $latest->get('moderation_state')->getString();
           if ($state == 'draft') {
             $lock_service->locking($entity_id, $latest->language()->getId(), 'edit', $current_user_id, $latest->getEntityTypeId());
+            return; // Finished processing.
           }
           else {
             $lock_service->release($entity_id, $latest->language()->getId(), 'edit', $content_user_id, $latest->getEntityTypeId());
           }
         }
+        if ($role == 'reviewer' && $state == 'with_reviewer') {
+          $is_reviewer = TRUE;
+          // Persist the lock for the reviewer.
+          $lock_service->locking($entity_id, $latest->language()->getId(), 'edit', $current_user_id, $latest->getEntityTypeId());
+          return; // Finished processing.
+        }
       }
-      //$original_state = $entity_obj->getOriginal('moderation_state')->getString();
+      // $original_state = $entity_obj->getOriginal('moderation_state')->getString();
       $state = $latest->get('moderation_state')->getString();
       if ($state == 'author_reviewing' && !$is_creator && !is_null($entity_obj)) {
+        // Reviewer is rejecting, sends back to author_reviewing, re-assigns the lock to the $current_author_id.
         $lock_service->locking($entity_id, $latest->language()->getId(), 'edit', $current_author_id, $latest->getEntityTypeId());
       }
-      else {
+      else (!$is_creator) {
+        // Is neither reviewer, nor creator, therefore release all locks.
+        $lock_service->release($entity_id, $latest->language()->getId(), 'edit', $current_user_id, $latest->getEntityTypeId());
         $lock_service->release($entity_id, $latest->language()->getId(), 'edit', $current_author_id, $latest->getEntityTypeId());
       }
     }
