@@ -299,7 +299,7 @@ function _helperLockingContent($action, $entity_id, $bundle, $entity_obj = NULL)
         // Reviewer is rejecting, sends back to author_reviewing, re-assigns the lock to the $current_author_id.
         $lock_service->locking($entity_id, $latest->language()->getId(), 'edit', $current_author_id, $latest->getEntityTypeId());
       }
-      else (!$is_creator) {
+      else if (!$is_creator) {
         // Is neither reviewer, nor creator, therefore release all locks.
         $lock_service->release($entity_id, $latest->language()->getId(), 'edit', $current_user_id, $latest->getEntityTypeId());
         $lock_service->release($entity_id, $latest->language()->getId(), 'edit', $current_author_id, $latest->getEntityTypeId());
