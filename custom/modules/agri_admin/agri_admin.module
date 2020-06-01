@@ -52,63 +52,6 @@ function agri_admin_theme($existing, $type, $theme, $path) {
 }
 
 
-function _draft_latest_revision($nid, &$vid) {
-  $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
-  $otherLang = 'fr';
-  if ($lang == 'fr') {
-    $otherLang = 'en';
-  }
-  $latestRevisionResult = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
-    ->latestRevision()
-    ->condition('nid', $nid, '=')
-    ->execute();
-  if (count($latestRevisionResult)) {
-    $node_revision_id = key($latestRevisionResult);
-    if ($node_revision_id == $vid) {
-      // There is no pending revision, the current revision is the latest.
-      return FALSE;
-    }
-    $vid = $node_revision_id;
-    $latestRevision = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($node_revision_id);
-    if ($latestRevision->language()->getId() != $lang) {
-      $latestRevision = $latestRevision->getTranslation($lang);
-    }
-    $moderation_state = $latestRevision->get('moderation_state')->getString();
-    if ($moderation_state == 'draft') {
-      return $latestRevision;
-    }
-  }
-  return FALSE;
-}
-
-
-function _any_latest_revision($nid, &$vid) {
-  $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
-  $otherLang = 'fr';
-  if ($lang == 'fr') {
-    $otherLang = 'en';
-  }
-  $latestRevisionResult = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
-    ->latestRevision()
-    ->condition('nid', $nid, '=')
-    ->execute();
-  if (count($latestRevisionResult)) {
-    $node_revision_id = key($latestRevisionResult);
-    if ($node_revision_id == $vid) {
-      // There is no pending revision, the current revision is the latest.
-      return FALSE;
-    }
-    $vid = $node_revision_id;
-    $latestRevision = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($node_revision_id);
-    if ($latestRevision->language()->getId() != $lang) {
-      $latestRevision = $latestRevision->getTranslation($lang);
-    }
-    $moderation_state = $latestRevision->get('moderation_state')->getString();
-    return $latestRevision;
-  }
-  return FALSE;
-}
-
 /*variables array_keys=Array
 (
     [0] => view
@@ -168,7 +111,7 @@ function agri_admin_preprocess_views_view_field(&$variables) {
     $row = $variables['row'];
     $nid = $row->_entity->id();
     $vid = $row->_entity->getLoadedRevisionId();
-    if ($row->_entity->isPublished() && $latestRevision = _draft_latest_revision($nid, $vid)) {
+    if ($row->_entity->isPublished() && $latestRevision = AgriAdminHelper::getLatestRevisionOnlyIfDraft($nid, $vid)) {
       if ($field->field == 'status') {
         //title
         //body
@@ -321,7 +264,7 @@ function _helperLockingContent($action, $entity_id, $bundle, $entity_obj = NULL)
   global $import_override;
   if (!isset($import_override) || $import_override == FALSE) {
     if ($action == 'insert' || $action == 'update') {
-      $latest = _any_latest_revision($entity_id, $vid);
+      $latest = AgriAdminHelper::getLatestRevision($entity_id, $vid);
       $current_author_id = $latest->getOwnerId();
 
       $lock_service = \Drupal::service('content_lock');
