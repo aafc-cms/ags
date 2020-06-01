@@ -1,0 +1,14 @@
+uuid: f655c549-db8f-409b-a495-f407e5a233f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.empl_cspub
+  module:
+    - user
+id: user_remove_role_action.empl_cspub
+label: 'Remove the cspub role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: empl_cspub

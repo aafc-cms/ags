@@ -1,0 +1,29 @@
+uuid: 73254895-4eed-46ac-bba3-a52d7aa6b0bd
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+third_party_settings:
+  lightning_core:
+    description: 'the cspuyb role is used for HR to review and approve the employment opportunity form.'
+id: empl_cspub
+label: cspub
+weight: -3
+is_admin: null
+permissions:
+  - 'schedule publishing_employmentopportunity transition delete_empltrans'
+  - 'schedule publishing_employmentopportunity transition emergency_publish_empltrans'
+  - 'schedule publishing_employmentopportunity transition publish'
+  - 'schedule publishing_employmentopportunity transition publish_archived_content_empltrans'
+  - 'schedule publishing_employmentopportunity transition save_as_a_draft_empltrans'
+  - 'schedule publishing_employmentopportunity transition send_for_deletion_empltrans'
+  - 'schedule publishing_employmentopportunity transition send_to_reviewer_empltrans'
+  - 'translate empl node'
+  - 'use publishing_employmentopportunity transition delete_empltrans'
+  - 'use publishing_employmentopportunity transition emergency_publish_empltrans'
+  - 'use publishing_employmentopportunity transition publish'
+  - 'use publishing_employmentopportunity transition publish_archived_content_empltrans'
+  - 'use publishing_employmentopportunity transition save_as_a_draft_empltrans'
+  - 'use publishing_employmentopportunity transition send_for_deletion_empltrans'
+  - 'use publishing_employmentopportunity transition send_to_reviewer_empltrans'

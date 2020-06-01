@@ -1,0 +1,14 @@
+uuid: ec6f1769-5a83-4b86-90dc-f68a7510824c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.empl_cspub
+  module:
+    - user
+id: user_add_role_action.empl_cspub
+label: 'Add the cspub role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: empl_cspub
