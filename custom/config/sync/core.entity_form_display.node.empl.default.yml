@@ -26,7 +26,7 @@ dependencies:
     - field.field.node.empl.field_type
     - field.field.node.empl.layout_selection
     - node.type.empl
-    - workflows.workflow.publishing
+    - workflows.workflow.publishing_employmentopportunity
   module:
     - content_moderation
     - datetime
@@ -291,7 +291,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
+    type: email_default
     region: content
   field_empladditionalnotes:
     weight: 11
