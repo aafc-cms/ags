@@ -42,7 +42,7 @@ type_settings:
       default_revision: false
       label: 'Reject delete'
       weight: 5
-    review_by_cctreviewer:
+    review_by_reviewer:
       published: false
       default_revision: false
       label: 'Send to review'
@@ -125,12 +125,12 @@ type_settings:
         - draft
         - emergency_publish
         - published
-      to: review_by_cctreviewer
+      to: review_by_reviewer
       weight: -3
     take:
       label: Take
       from:
-        - review_by_cctreviewer
+        - review_by_reviewer
       to: with_reviewer
       weight: 10
     take_for_deletion:
