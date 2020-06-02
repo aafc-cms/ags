@@ -23,6 +23,11 @@ function agri_admin_preprocess_html(&$variables) {
     }
   }
   $variables['attributes']['class'][] = $clean_path;
+  $current_user = \Drupal::currentUser();
+  $roles = $current_user->getRoles();
+  foreach ($roles as $rolename) {
+    $variables['attributes']['class'][] = 'role-is-' . $rolename;
+  }
 }
 
 
@@ -295,9 +300,14 @@ function _helperLockingContent($action, $entity_id, $bundle, $entity_obj = NULL)
       }
       // $original_state = $entity_obj->getOriginal('moderation_state')->getString();
       $state = $latest->get('moderation_state')->getString();
+      if ($state == 'review_by_reviewer' && !$is_creator && !is_null($entity_obj)) {
+        // @TODO for Deepani - Call a function that sends an email to the reviewer role.
+        // @TODO Check the content type of $latest (entity) and do a case, possibly different group email per content type.
+      }
       if ($state == 'author_reviewing' && !$is_creator && !is_null($entity_obj)) {
         // Reviewer is rejecting, sends back to author_reviewing, re-assigns the lock to the $current_author_id.
         $lock_service->locking($entity_id, $latest->language()->getId(), 'edit', $current_author_id, $latest->getEntityTypeId());
+        // @TODO for Deepani - Call a function that sends an email to $current_author_id (get his email address) and send email.
       }
       else if (!$is_creator) {
         // Is neither reviewer, nor creator, therefore release all locks.
