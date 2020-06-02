@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9e9dc8b4760c9ffefe2dc0c1bb75c010",
+    "content-hash": "9cfd9a6a048667b22636dbc41e80fca5",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -11097,6 +11097,20 @@
                 "GPL-2.0+"
             ],
             "description": "Agrisource sub theme based on the WxT Bootstrap sub-theme (which it'self is also a sub theme of Bootstrap https://www.drupal.org/bootstrap) for Drupal WxT."
+        },
+        {
+            "name": "entreprise7pro/safedelete",
+            "version": "8.9999999.9999999.9999999-dev",
+            "dist": {
+                "type": "path",
+                "url": "custom/modules/safedelete",
+                "reference": "5e516d811b4bc1e0ca30a8488f4945ba552c7bb8",
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "^1.2"
+            },
+            "type": "drupal-custom-module"
         },
         {
             "name": "ezyang/htmlpurifier",
