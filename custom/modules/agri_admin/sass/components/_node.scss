@@ -1,3 +1,15 @@
+// For the reviewer role hide the edit button.
+body.role-is-reviewer.path-node {
+  ul.tabs--primary a[rel=edit-form] {
+    display:none !important;
+  }
+  #moderation-sidebar-discard-draft {
+    display: none;
+  }
+  .moderation-sidebar-primary-tasks > a:nth-child(2) {
+    display: none;
+  }
+}
 
 body.nodeaddempl .field-group-fieldset,
 body.node-edit.page-node-type-empl .field-group-fieldset {
