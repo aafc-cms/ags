@@ -3,12 +3,13 @@ body.role-is-reviewer.path-node {
   ul.tabs--primary a[rel=edit-form] {
     display:none !important;
   }
-  #moderation-sidebar-discard-draft {
+  .ui-dialog-off-canvas #drupal-off-canvas .moderation-sidebar-link.button.button--danger{
     display: none;
   }
-  .moderation-sidebar-primary-tasks > a:nth-child(2) {
+  .ui-dialog-off-canvas #drupal-off-canvas .moderation-sidebar-container a, .ui-dialog-off-canvas #drupal-off-canvas .moderation-sidebar-container p{
     display: none;
   }
+  
 }
 
 body.nodeaddempl .field-group-fieldset,

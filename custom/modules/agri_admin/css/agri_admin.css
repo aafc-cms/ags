@@ -81,10 +81,10 @@ body[class*=moderationdashboard] nav[aria-label=Tabs] {
 body.role-is-reviewer.path-node ul.tabs--primary a[rel=edit-form] {
   display: none !important;
 }
-body.role-is-reviewer.path-node #moderation-sidebar-discard-draft {
+body.role-is-reviewer.path-node .ui-dialog-off-canvas #drupal-off-canvas .moderation-sidebar-link.button.button--danger {
   display: none;
 }
-body.role-is-reviewer.path-node .moderation-sidebar-primary-tasks > a:nth-child(2) {
+body.role-is-reviewer.path-node .ui-dialog-off-canvas #drupal-off-canvas .moderation-sidebar-container a, body.role-is-reviewer.path-node .ui-dialog-off-canvas #drupal-off-canvas .moderation-sidebar-container p {
   display: none;
 }
 
