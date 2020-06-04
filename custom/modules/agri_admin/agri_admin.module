@@ -254,7 +254,7 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
   $roles = $current_user->getRoles();
   foreach ($roles as $value) {
     $role = $value;
-    if ($role == 'creator'){
+    if ($role == 'creator' || $role == 'news_ccpub' || $role == 'empl_ccpub') {
       $debug_message = 'Authored on: '.$entity->getCreatedTime().'; Node id: '.$entity_id.'; Old Author: '.$current_author_id;
       $entity->setOwnerId($current_user_id);
       $entity->set('created', time());
@@ -277,9 +277,21 @@ function _helperLockingContent($action, $entity_id, $bundle, $entity_obj = NULL)
       $current_user_id = $current_user->id();
       $roles = $current_user->getRoles();
       $is_creator = FALSE;
+      $is_master = FALSE;
       $is_reviewer = FALSE;
       foreach ($roles as $value) {
         $role = $value;
+        if ($role == 'news_ccpub' || $role == 'empl_ccpub') {
+          $is_master = TRUE;
+          $state = $latest->get('moderation_state')->getString();
+          if ($state == 'draft' || $state == 'review_by_reviewer' || $state == 'author_reviewing') {
+            $lock_service->locking($entity_id, $latest->language()->getId(), 'edit', $current_user_id, $latest->getEntityTypeId());
+            return; // Finished processing.
+          }
+          else {
+            $lock_service->release($entity_id, $latest->language()->getId(), 'edit', $content_user_id, $latest->getEntityTypeId());
+          }
+        }
         if ($role == 'creator') {
           $is_creator = TRUE;
           $state = $latest->get('moderation_state')->getString();
