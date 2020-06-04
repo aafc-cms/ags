@@ -5,7 +5,7 @@ dependencies:
   config:
     - page_manager.page.moderation_dashboard
     - views.view.content_moderation_dashboard_in_review
-    - views.view.moderation_dashboard_content_in_review
+    - views.view.moderation_dashboard_in_draft
     - views.view.moderation_dashboard_locked_content
     - views.view.moderation_dashboard_my_content_in_review
     - views.view.moderation_dashboard_recent_changes
@@ -24,124 +24,135 @@ variant_settings:
   blocks:
     810cd29f-e1c6-46ec-9eaa-dec914cfd4f4:
       id: 'views_block:content_moderation_dashboard_in_review-block_1'
-      label: 'All Content waiting for Review (Latest Revisions)'
+      label: ''
       provider: views
       label_display: visible
-      views_label: 'All Content waiting for Review (Latest Revisions)'
+      views_label: ''
       items_per_page: none
       region: left
-      weight: -10
+      weight: -3
       uuid: 810cd29f-e1c6-46ec-9eaa-dec914cfd4f4
-      context_mapping: {  }
-    6f599e3c-e949-490d-8fee-a467d3094ac9:
-      id: 'views_block:content_moderation_dashboard_in_review-block_2'
-      label: 'All Content drafts (Latest Revisions)'
-      provider: views
-      label_display: visible
-      views_label: 'All Content drafts (Latest Revisions)'
-      items_per_page: none
-      region: left
-      weight: -8
-      uuid: 6f599e3c-e949-490d-8fee-a467d3094ac9
-      context_mapping: {  }
-    6c424801-a4e1-4e86-a65f-73020e68e1d3:
-      id: 'views_block:content_moderation_dashboard_in_review-block_3'
-      label: 'My Revisions in Draft'
-      provider: views
-      label_display: visible
-      views_label: 'My Revisions in Draft'
-      items_per_page: none
-      region: left
-      weight: -9
-      uuid: 6c424801-a4e1-4e86-a65f-73020e68e1d3
       context_mapping: {  }
     1fbb2fbb-d06a-4682-8fb3-07b37de946b8:
       id: 'views_block:moderation_dashboard_recent_changes-block_2'
-      label: 'My activity'
+      label: '[en Français]-My activity'
       provider: views
       label_display: visible
-      views_label: 'My activity'
+      views_label: '[en Français]-My activity'
       items_per_page: none
       region: right
-      weight: -9
+      weight: -4
       uuid: 1fbb2fbb-d06a-4682-8fb3-07b37de946b8
       context_mapping: {  }
     cf820386-af3d-4972-ac42-d61956e7c776:
       id: 'views_block:moderation_dashboard_my_content_in_review-block_2'
-      label: 'My Content Rejected by Reviewer'
+      label: '[en Français]-My Content Rejected by Reviewer'
       provider: views
       label_display: visible
-      views_label: 'My Content Rejected by Reviewer'
+      views_label: '[en Français]-My Content Rejected by Reviewer'
       items_per_page: none
-      region: middle
-      weight: -2
+      region: right
+      weight: -5
       uuid: cf820386-af3d-4972-ac42-d61956e7c776
       context_mapping: {  }
     7897b564-98cc-4aa2-981f-9a6b30444ebd:
       id: 'views_block:moderation_dashboard_locked_content-block_2'
-      label: 'Content locked by me (Latest revisions)'
+      label: '[en Français]-Content locked by me (Latest revisions)'
       provider: views
       label_display: visible
-      views_label: 'Content locked by me (Latest revisions)'
+      views_label: '[en Français]-Content locked by me (Latest revisions)'
       items_per_page: none
-      region: right
-      weight: -8
+      region: left
+      weight: -2
       uuid: 7897b564-98cc-4aa2-981f-9a6b30444ebd
       context_mapping: {  }
-    1e052bea-4038-4e1b-9767-9ea6102e1cee:
-      id: 'views_block:moderation_dashboard_content_in_review-block_1'
-      label: 'My Content in Review'
+    864eb054-e8e4-432c-902c-3e430be436c2:
+      id: 'views_block:moderation_dashboard_my_content_in_review-block_1'
+      label: '[en Français]-My Content Waiting for Review'
       provider: views
       label_display: visible
-      views_label: 'My Content in Review'
+      views_label: '[en Français]-My Content Waiting for Review'
       items_per_page: none
       region: middle
-      weight: -3
-      uuid: 1e052bea-4038-4e1b-9767-9ea6102e1cee
+      weight: -10
+      uuid: 864eb054-e8e4-432c-902c-3e430be436c2
       context_mapping: {  }
-    17260d49-1d8b-44a3-86ae-1ab15fe915b5:
-      id: 'views_block:moderation_dashboard_content_in_review-block_2'
+    53cbeb2b-ea02-4bf1-9a37-25b049bc8583:
+      id: 'views_block:moderation_dashboard_recent_changes-block_1'
+      label: '[en Français]-All recently published content'
+      provider: views
+      label_display: visible
+      views_label: '[en Français]-All recently published content'
+      items_per_page: none
+      region: right
+      weight: -3
+      uuid: 53cbeb2b-ea02-4bf1-9a37-25b049bc8583
+      context_mapping: {  }
+    7af80867-c94c-4937-b75d-5cbd9073050f:
+      id: 'views_block:content_moderation_dashboard_in_review-block_5'
+      label: 'My Review Content'
+      provider: views
+      label_display: visible
+      views_label: 'My Review Content'
+      items_per_page: none
+      region: middle
+      weight: -8
+      uuid: 7af80867-c94c-4937-b75d-5cbd9073050f
+      context_mapping: {  }
+    0f29eadf-5708-4a3c-804e-70550bf7ecbf:
+      id: 'views_block:moderation_dashboard_in_draft-block_1'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: left
+      weight: -4
+      uuid: 0f29eadf-5708-4a3c-804e-70550bf7ecbf
+      context_mapping: {  }
+    6f1e3c0a-3baf-4fa7-a976-93cfa256f987:
+      id: 'views_block:moderation_dashboard_in_draft-block_2'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: left
+      weight: -5
+      uuid: 6f1e3c0a-3baf-4fa7-a976-93cfa256f987
+      context_mapping: {  }
+    4a337826-ac1d-4917-b70a-f7a81e8219f6:
+      id: 'views_block:content_moderation_dashboard_in_review-block_4'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: left
+      weight: -1
+      uuid: 4a337826-ac1d-4917-b70a-f7a81e8219f6
+      context_mapping: {  }
+    8546c763-701f-4335-a636-b39661bce800:
+      id: 'views_block:moderation_dashboard_my_content_in_review-block_4'
       label: 'My Published Content'
       provider: views
       label_display: visible
       views_label: 'My Published Content'
       items_per_page: none
-      region: left
-      weight: -7
-      uuid: 17260d49-1d8b-44a3-86ae-1ab15fe915b5
+      region: middle
+      weight: -9
+      uuid: 8546c763-701f-4335-a636-b39661bce800
       context_mapping: {  }
-    864eb054-e8e4-432c-902c-3e430be436c2:
-      id: 'views_block:moderation_dashboard_my_content_in_review-block_1'
-      label: 'My Content Waiting for Review'
+    e5ecc3b5-e177-4a34-a7b6-4ae621977203:
+      id: 'views_block:moderation_dashboard_recent_changes-block_3'
+      label: 'My activity'
       provider: views
       label_display: visible
-      views_label: 'My Content Waiting for Review'
+      views_label: 'My activity'
       items_per_page: none
       region: middle
-      weight: -4
-      uuid: 864eb054-e8e4-432c-902c-3e430be436c2
-      context_mapping: {  }
-    ae1bee0e-397c-4389-95b1-c916b85d93d0:
-      id: 'views_block:moderation_dashboard_locked_content-block_3'
-      label: 'All Content currently locked'
-      provider: views
-      label_display: visible
-      views_label: 'All Content currently locked'
-      items_per_page: none
-      region: right
       weight: -7
-      uuid: ae1bee0e-397c-4389-95b1-c916b85d93d0
-      context_mapping: {  }
-    53cbeb2b-ea02-4bf1-9a37-25b049bc8583:
-      id: 'views_block:moderation_dashboard_recent_changes-block_1'
-      label: 'All recently published content'
-      provider: views
-      label_display: visible
-      views_label: 'All recently published content'
-      items_per_page: none
-      region: middle
-      weight: -5
-      uuid: 53cbeb2b-ea02-4bf1-9a37-25b049bc8583
+      uuid: e5ecc3b5-e177-4a34-a7b6-4ae621977203
       context_mapping: {  }
   id: panels_variant
   uuid: 4267dc51-27a4-4f19-bb07-19fe044527fa

@@ -2,6 +2,8 @@ uuid: 1476fa45-e83a-4d1f-b2ce-6f56132f6316
 langcode: en
 status: true
 dependencies:
+  config:
+    - user.role.creator
   enforced:
     module:
       - moderation_dashboard
@@ -69,11 +71,14 @@ display:
             offset: false
             offset_label: Offset
       style:
-        type: default
+        type: html_list
         options:
           grouping: {  }
           row_class: ''
           default_row_class: true
+          type: ul
+          wrapper_class: item-list
+          class: ''
       row:
         type: fields
         options:
@@ -382,7 +387,7 @@ display:
       display_extenders:
         metatag_display_extender: {  }
       display_description: ''
-      title: 'All Content locked by me (Latest revisions)'
+      title: 'Content locked by me'
       empty:
         area_text_custom:
           id: area_text_custom
@@ -446,8 +451,10 @@ display:
           entity_field: uid
           plugin_id: user_uid
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            creator: creator
       pager:
         type: mini
         options:
@@ -899,6 +906,7 @@ display:
         - url.query_args
         - user
         - 'user.node_grants:view'
+        - user.roles
       tags: {  }
   block_3:
     display_plugin: block
