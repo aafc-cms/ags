@@ -19,6 +19,10 @@ body.user-anonymous {
   &.employment-opportunity-request-form-page span.field-edit-link button.link.link-edit-summary.btn.btn-default.btn-xs.pull-right { 
     display: none !important;
   }
+
+  &.employment-opportunity-request-form-page div.form-item.js-form-item.form-type-vertical-tabs.js-form-type-vertical-tabs.form-item-.js-form-item-.form-no-label.form-group {
+       display: none !important;
+  } 
 }
 
 body.page-node-type-empl {
