@@ -12,6 +12,7 @@ label: ccpub
 weight: -4
 is_admin: null
 permissions:
+  - 'access toolbar'
   - 'access_unpublished node news'
   - 'access_unpublished taxonomy_term news_type'
   - 'edit any news content'
@@ -24,4 +25,6 @@ permissions:
   - 'use publishing_news transition save_as_a_draft_newsstrans'
   - 'use publishing_news transition send_for_deletion_newsstrans'
   - 'use publishing_news transition send_to_reviewer_newstrans'
+  - 'view all revisions'
   - 'view news revisions'
+  - 'view own unpublished content'
