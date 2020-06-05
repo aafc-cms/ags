@@ -2,6 +2,9 @@ uuid: aa2f155a-5979-4130-99dd-3abcdb4c50e4
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.empl
+    - node.type.news
   module:
     - content_moderation
 _core:
@@ -26,11 +29,6 @@ type_settings:
       published: true
       default_revision: true
       weight: 0
-    review:
-      label: 'In review'
-      weight: -1
-      published: false
-      default_revision: false
   transitions:
     archive:
       label: Archive
@@ -52,7 +50,6 @@ type_settings:
         - archived
         - draft
         - published
-        - review
     publish:
       label: Publish
       to: published
@@ -60,13 +57,8 @@ type_settings:
       from:
         - draft
         - published
-        - review
-    review:
-      label: 'Send to review'
-      to: review
-      weight: 0
-      from:
-        - draft
-        - review
-  entity_types: {  }
+  entity_types:
+    node:
+      - empl
+      - news
   default_moderation_state: draft
