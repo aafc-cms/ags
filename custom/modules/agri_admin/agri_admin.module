@@ -343,3 +343,25 @@ function _helperUpdateProcess($action, $entity_id, $bundle) {
     }
   }
 }
+
+/**
+ * Implements hook_form_alter().
+ */
+function agri_admin_form_node_news_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if (\Drupal::currentUser()->isAnonymous()) {
+    $form['actions']['preview']['#weight'] = -99;
+    $form['actions']['preview']['#attributes'] = array('onclick' => 'this.form.target="_blank";return true;');
+    $form['actions']['#weight'] = 5;
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function agri_admin_form_node_empl_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if (\Drupal::currentUser()->isAnonymous()) {
+    $form['actions']['preview']['#weight'] = -99;
+    $form['actions']['preview']['#attributes'] = array('onclick' => 'this.form.target="_blank";return true;');
+    $form['actions']['#weight'] = 5;
+  }
+}
