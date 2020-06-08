@@ -88,6 +88,14 @@ body.role-is-reviewer.path-node .ui-dialog-off-canvas #drupal-off-canvas .modera
   display: none;
 }
 
+body.role-is-reviewer.path-admin div.js-form-item-action, body.role-is-creator.path-admin div.js-form-item-action {
+  display: none;
+}
+
+body.role-is-reviewer.path-node details[data-drupal-selector="edit-access-unpublished-settings"], body.role-is-creator.path-node details[data-drupal-selector="edit-access-unpublished-settings"] {
+  display: none;
+}
+
 body.nodeaddempl .field-group-fieldset,
 body.node-edit.page-node-type-empl .field-group-fieldset {
   width: 100% !important;
