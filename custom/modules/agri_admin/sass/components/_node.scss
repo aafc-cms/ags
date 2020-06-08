@@ -13,7 +13,7 @@ body.role-is-reviewer.path-node {
 }
 
 // For the reviewer and creator role hide the action list dropdown on content page.
-body.role-is-reviewer.path-admin, body.role-is-creator.path-admin {
+body.role-is-reviewer.admincontent.path-admin, body.role-is-creator.admincontent.path-admin {
   div.js-form-item-action{  
     display: none;
   }
