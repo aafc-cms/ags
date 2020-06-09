@@ -25,7 +25,26 @@ body.user-anonymous {
 
   &.employment-opportunity-request-form-page div.form-item.js-form-item.form-type-vertical-tabs.js-form-type-vertical-tabs.form-item-.js-form-item-.form-no-label.form-group {
        display: none !important;
-  } 
+  }
+  
+  &.role-is-anonymous.employment-opportunity-request-form-page {
+    button#edit-submit {
+      position: relative;
+      top: 615px !important;
+      min-width: 36px;    
+    }
+    
+    button#edit-preview {
+      background-color: #1b6c1c;
+      border-color: #071a07;
+      color: #fff;
+    } 
+  
+    #block-grstheme-bootstrap-sharewidgetblock,#block-grstheme-bootstrap-reportproblemblock {
+      padding-top: 65px !important;
+    } 
+  }
+ 
 }
 
 body.page-node-type-empl {
