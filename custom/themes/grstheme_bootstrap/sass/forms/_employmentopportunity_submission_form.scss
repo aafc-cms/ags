@@ -28,9 +28,13 @@ body.user-anonymous {
   }
   
   &.role-is-anonymous.employment-opportunity-request-form-page {
-    button#edit-submit {
+    div#edit-actions .preview-wrapper {
       position: relative;
-      top: 615px !important;
+    }
+
+    button#edit-submit {
+      position: absolute;
+      top: 3740px !important;
       min-width: 36px;    
     }
     

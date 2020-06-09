@@ -151,7 +151,7 @@ function grstheme_bootstrap_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
       $form['actions']['preview']['#suffix'] = $text . '</div>';
       $textsubmitmsg = t("<p>When you've completed and previewed your article, click submit to send it to the news@work coordinator.</p>");
       $form['actions']['submit']['#prefix'] = '';
-      $form['actions']['submit']['#suffix'] = "<div class='submit-helptext-paragraph'>".$textsubmitmsg . "</div>";
+      $form['actions']['submit']['#prefix'] = "<div class='submit-helptext-paragraph'>".$textsubmitmsg . "</div>";
   }
 
   if ($form_id === 'node_empl_form' || $form_id === 'node_empl_edit_form') {

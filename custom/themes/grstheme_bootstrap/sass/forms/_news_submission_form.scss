@@ -28,9 +28,13 @@ body.user-anonymous {
   }
 
   &.role-is-anonymous.news-article-form-page {
-    button#edit-submit {
+    div#edit-actions .preview-wrapper {
       position: relative;
-      top: 1450px !important;
+    }
+
+    button#edit-submit {
+      position: absolute;
+      top: 3710px !important;
       min-width: 36px;    
     }
     
@@ -90,7 +94,7 @@ body.news-article-form-page {
 
   .submit-helptext-paragraph {
     position: relative;
-    top: 1460px;
+    top: 1440px;
     float: right !important;
   }
 
