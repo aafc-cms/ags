@@ -299,79 +299,95 @@ body.user-anonymous.news-article-form-page span.field-edit-link button.link.link
 body.user-anonymous #edit-field-newsexpirydate-0 {
   display: none !important;
 }
+/* line 30, ../sass/forms/_news_submission_form.scss */
+body.user-anonymous button#edit-submit {
+  position: relative;
+  top: 1450px !important;
+  min-width: 36px;
+}
+/* line 35, ../sass/forms/_news_submission_form.scss */
+body.user-anonymous button#edit-preview {
+  background-color: #1b6c1c;
+  border-color: #071a07;
+  color: #fff;
+}
+/* line 41, ../sass/forms/_news_submission_form.scss */
+body.user-anonymous #block-grstheme-bootstrap-sharewidgetblock, body.user-anonymous #block-grstheme-bootstrap-reportproblemblock {
+  padding-top: 65px !important;
+}
 
-/* line 31, ../sass/forms/_news_submission_form.scss */
+/* line 46, ../sass/forms/_news_submission_form.scss */
 body.page-node-type-news {
   /* field title float left class */
 }
-/* line 33, ../sass/forms/_news_submission_form.scss */
+/* line 48, ../sass/forms/_news_submission_form.scss */
 body.page-node-type-news .field--name-field-posted .field--label,
 body.page-node-type-news .field--name-field-to .field--label,
 body.page-node-type-news .field--name-field-from .field--label {
   float: left;
 }
-/* line 39, ../sass/forms/_news_submission_form.scss */
+/* line 54, ../sass/forms/_news_submission_form.scss */
 body.page-node-type-news .field--name-field-posted .field--label::after,
 body.page-node-type-news .field--name-field-to .field--label::after,
 body.page-node-type-news .field--name-field-from .field--label::after {
   content: '\00a0\00a0';
 }
-/* line 45, ../sass/forms/_news_submission_form.scss */
+/* line 60, ../sass/forms/_news_submission_form.scss */
 body.page-node-type-news .field--name-body .field--label {
   display: none;
 }
-/* line 49, ../sass/forms/_news_submission_form.scss */
+/* line 64, ../sass/forms/_news_submission_form.scss */
 body.page-node-type-news .field--name-body.field--type-text-with-summary.field--label-above.quickedit-field .field--item::before {
   content: "\A";
   white-space: pre;
 }
 
-/* line 56, ../sass/forms/_news_submission_form.scss */
+/* line 71, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page .help-block {
   font-size: 16px;
   color: #333;
 }
-/* line 61, ../sass/forms/_news_submission_form.scss */
+/* line 76, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-actions, body.news-article-form-page #edit-footer {
   padding-left: 15px;
 }
-/* line 65, ../sass/forms/_news_submission_form.scss */
+/* line 80, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page .preview-wrapper {
   padding-top: 15px;
 }
-/* line 69, ../sass/forms/_news_submission_form.scss */
+/* line 84, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page .preview-helptext-paragraph {
   float: right;
 }
-/* line 73, ../sass/forms/_news_submission_form.scss */
+/* line 88, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-moderation-state-0 .select-wrapper::after {
   right: 84%;
 }
-/* line 77, ../sass/forms/_news_submission_form.scss */
+/* line 92, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-moderation-state-etuf-fr-0 .select-wrapper::after {
   right: 84%;
 }
-/* line 81, ../sass/forms/_news_submission_form.scss */
+/* line 96, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page .btn.icon-before .glyphicon {
   min-height: 20px;
 }
-/* line 85, ../sass/forms/_news_submission_form.scss */
+/* line 100, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page.i18n-en .field--type-entity-reference .select-wrapper:after {
   right: 78% !important;
 }
-/* line 89, ../sass/forms/_news_submission_form.scss */
+/* line 104, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page.i18n-en .field--type-list-string .select-wrapper:after {
   right: 80.5% !important;
 }
-/* line 93, ../sass/forms/_news_submission_form.scss */
+/* line 108, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page.i18n-fr .field--type-entity-reference .select-wrapper:after {
   right: 71% !important;
 }
-/* line 97, ../sass/forms/_news_submission_form.scss */
+/* line 112, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page.i18n-fr .field--type-list-string .select-wrapper:after {
   right: 80.5% !important;
 }
-/* line 102, ../sass/forms/_news_submission_form.scss */
+/* line 117, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-group-newsreviewerandapprover div a.panel-title, body.news-article-form-page #edit-group-submitter-s-contact-inform div a.panel-title,
 body.news-article-form-page #edit-group-newsposteddate div a.panel-title, body.news-article-form-page #edit-group-newsarticle div a.panel-title,
 body.news-article-form-page #edit-group-newssentby div a.panel-title, body.news-article-form-page #edit-group-newsarticleheadline div a.panel-title,
@@ -384,7 +400,7 @@ body.news-article-form-page #edit-group-newsnotes div a.panel-title, body.news-a
   font-size: 24px;
   font-weight: bold;
 }
-/* line 115, ../sass/forms/_news_submission_form.scss */
+/* line 130, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-group-newsreviewerandapprover.panel-default, body.news-article-form-page #edit-group-submitter-s-contact-inform.panel-default,
 body.news-article-form-page #edit-group-newsposteddate.panel-default, body.news-article-form-page #edit-group-newsarticle.panel-default,
 body.news-article-form-page #edit-group-newssentby.panel-default, body.news-article-form-page #edit-group-newsarticleheadline.panel-default,
@@ -392,7 +408,7 @@ body.news-article-form-page #edit-group-aboutarticle.panel-default, body.news-ar
 body.news-article-form-page #edit-group-newsnotes.panel-default, body.news-article-form-page #edit-group-newsattachedfiles.panel-default {
   border-color: white;
 }
-/* line 124, ../sass/forms/_news_submission_form.scss */
+/* line 139, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-group-newsreviewerandapprover div.panel-heading, body.news-article-form-page #edit-group-submitter-s-contact-inform div.panel-heading,
 body.news-article-form-page #edit-group-newsposteddate div.panel-heading, body.news-article-form-page #edit-group-newsarticle div.panel-heading,
 body.news-article-form-page #edit-group-newssentby div.panel-heading, body.news-article-form-page #edit-group-newsarticleheadline div.panel-heading,
@@ -401,37 +417,37 @@ body.news-article-form-page #edit-group-newsnotes div.panel-heading, body.news-a
   border-bottom: 0px;
   padding-bottom: 0px;
 }
-/* line 134, ../sass/forms/_news_submission_form.scss */
+/* line 149, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newsfile1-0--description {
   display: none;
 }
-/* line 138, ../sass/forms/_news_submission_form.scss */
+/* line 153, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newsfile2-0--description {
   display: none;
 }
-/* line 142, ../sass/forms/_news_submission_form.scss */
+/* line 157, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newsfile3-0--description {
   display: none;
 }
-/* line 146, ../sass/forms/_news_submission_form.scss */
+/* line 161, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newsfile4-0--description {
   display: none;
 }
-/* line 150, ../sass/forms/_news_submission_form.scss */
+/* line 165, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newssubmitterphone-0-value {
   display: block;
 }
-/* line 154, ../sass/forms/_news_submission_form.scss */
+/* line 169, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #block-news-form-add h2.block-title {
   display: none !important;
 }
-/* line 158, ../sass/forms/_news_submission_form.scss */
+/* line 173, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newsexpirydate-0 div.panel-heading {
   background-color: white;
   font-size: 24px;
   font-weight: bold;
 }
-/* line 164, ../sass/forms/_news_submission_form.scss */
+/* line 179, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page .tabbable.tabs-left.vertical-tabs.clearfix {
   display: none !important;
 }

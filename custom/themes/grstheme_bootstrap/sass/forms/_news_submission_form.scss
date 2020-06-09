@@ -26,6 +26,21 @@ body.user-anonymous {
   #edit-field-newsexpirydate-0 {
     display: none !important;
   }
+
+  & button#edit-submit {
+    position: relative;
+    top: 1450px !important;
+    min-width: 36px;    
+  }
+  & button#edit-preview {
+    background-color: #1b6c1c;
+    border-color: #071a07;
+    color: #fff;
+  }
+  
+  & #block-grstheme-bootstrap-sharewidgetblock,#block-grstheme-bootstrap-reportproblemblock {
+    padding-top: 65px !important;
+  }
 }
 
 body.page-node-type-news {
