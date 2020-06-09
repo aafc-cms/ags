@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.field_tracking_number
     - user.role.reviewer
     - workflows.workflow.publishing
   enforced:
@@ -72,15 +73,18 @@ display:
             offset: false
             offset_label: Offset
       style:
-        type: default
+        type: html_list
         options:
           grouping:
             -
-              field: revision_log
+              field: field_tracking_number-revision_id
               rendered: false
               rendered_strip: false
           row_class: ''
           default_row_class: true
+          type: ul
+          wrapper_class: item-list
+          class: ''
       row:
         type: fields
         options:
@@ -608,10 +612,10 @@ display:
           entity_type: node
           entity_field: nid
           plugin_id: field
-        revision_log:
-          id: revision_log
-          table: node_revision
-          field: revision_log
+        field_tracking_number-revision_id:
+          id: field_tracking_number-revision_id
+          table: node_revision__field_tracking_number
+          field: field_tracking_number-revision_id
           relationship: none
           group_type: group
           admin_label: ''
@@ -657,8 +661,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: basic_string
-          settings: {  }
+          type: string
+          settings:
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -669,8 +674,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: revision_log
           plugin_id: field
         title:
           id: title
@@ -911,7 +914,7 @@ display:
         options:
           grouping:
             -
-              field: revision_log
+              field: field_tracking_number-revision_id
               rendered: false
               rendered_strip: false
           row_class: ''
@@ -936,6 +939,7 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
+        - 'config:field.storage.node.field_tracking_number'
         - 'config:workflow_list'
   block_4:
     display_plugin: block
@@ -994,7 +998,7 @@ display:
           admin_label: ''
           operator: in
           value:
-            publishing-review_by_reviewer: publishing-review_by_reviewer
+            publishing-with_reviewer: publishing-with_reviewer
           group: 1
           exposed: false
           expose:
@@ -1062,6 +1066,135 @@ display:
           content: 'There is no content currently being reviewed.'
           plugin_id: text_custom
       fields:
+        nid:
+          id: nid
+          table: node_field_revision
+          field: nid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: nid
+          plugin_id: field
+        field_tracking_number-revision_id:
+          id: field_tracking_number-revision_id
+          table: node_revision__field_tracking_number
+          field: field_tracking_number-revision_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Description
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         title:
           id: title
           table: node_field_revision
@@ -1074,8 +1207,8 @@ display:
           alter:
             alter_text: false
             text: ''
-            make_link: false
-            path: ''
+            make_link: true
+            path: 'node/{{nid}}/latest'
             absolute: false
             external: false
             replace_spaces: false
@@ -1113,7 +1246,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: true
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1301,6 +1434,7 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
+        - 'config:field.storage.node.field_tracking_number'
         - 'config:workflow_list'
   block_5:
     display_plugin: block
@@ -1359,7 +1493,7 @@ display:
           admin_label: ''
           operator: in
           value:
-            publishing-review_by_reviewer: publishing-review_by_reviewer
+            publishing-with_reviewer: publishing-with_reviewer
           group: 1
           exposed: false
           expose:
@@ -1413,10 +1547,10 @@ display:
             reviewer: reviewer
       rendering_language: '***LANGUAGE_language_interface***'
       arguments:
-        uid:
-          id: uid
-          table: node_field_revision
-          field: uid
+        revision_uid:
+          id: revision_uid
+          table: node_revision
+          field: revision_uid
           relationship: none
           group_type: group
           admin_label: ''
@@ -1447,7 +1581,7 @@ display:
           break_phrase: false
           not: false
           entity_type: node
-          entity_field: uid
+          entity_field: revision_uid
           plugin_id: numeric
       empty:
         area_text_custom:
@@ -1527,6 +1661,69 @@ display:
           field_api_classes: false
           entity_type: node
           entity_field: nid
+          plugin_id: field
+        field_tracking_number-revision_id:
+          id: field_tracking_number-revision_id
+          table: node_revision__field_tracking_number
+          field: field_tracking_number-revision_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Description
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
           plugin_id: field
         title:
           id: title
@@ -1751,4 +1948,5 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
+        - 'config:field.storage.node.field_tracking_number'
         - 'config:workflow_list'

@@ -1,0 +1,19 @@
+uuid: 95a663b4-c38b-4891-8a33-b4107c32f7ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tracking_number
+    - node.type.landing_page
+id: node.landing_page.field_tracking_number
+field_name: field_tracking_number
+entity_type: node
+bundle: landing_page
+label: 'Tracking Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

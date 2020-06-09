@@ -7,29 +7,25 @@ display:
           submit_button: Appliquer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
-          sort_asc_label: Asc
-          sort_desc_label: Desc
       pager:
         options:
-          tags:
-            previous: ‹‹
-            next: ››
+          tags: {  }
           expose:
             items_per_page_label: 'Éléments par page'
             items_per_page_options_all_label: '- Tout -'
             offset_label: Décalage
       fields:
-        title:
-          separator: ', '
-        revision_uid:
-          separator: ', '
-        revision_timestamp:
-          separator: ', '
+        title: {  }
+        revision_uid: {  }
+        revision_timestamp: {  }
   block_1:
     display_title: 'All recent Changes (Latest revisions)'
     display_options:
-      title: 'All recent Changes (Latest revisions)'
+      title: 'Tout le contenu récemment publié'
   block_2:
     display_title: 'My activity'
     display_options:
-      title: 'My activity'
+      title: 'Mon activité'
+  block_3:
+    display_options:
+      title: 'Mon activité'
