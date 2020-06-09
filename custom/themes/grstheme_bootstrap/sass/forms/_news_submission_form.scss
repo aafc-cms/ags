@@ -27,19 +27,22 @@ body.user-anonymous {
     display: none !important;
   }
 
-  & button#edit-submit {
-    position: relative;
-    top: 1450px !important;
-    min-width: 36px;    
-  }
-  & button#edit-preview {
-    background-color: #1b6c1c;
-    border-color: #071a07;
-    color: #fff;
-  }
+  &.role-is-anonymous.news-article-form-page {
+    button#edit-submit {
+      position: relative;
+      top: 1450px !important;
+      min-width: 36px;    
+    }
+    
+    button#edit-preview {
+      background-color: #1b6c1c;
+      border-color: #071a07;
+      color: #fff;
+    } 
   
-  & #block-grstheme-bootstrap-sharewidgetblock,#block-grstheme-bootstrap-reportproblemblock {
-    padding-top: 65px !important;
+    #block-grstheme-bootstrap-sharewidgetblock,#block-grstheme-bootstrap-reportproblemblock {
+      padding-top: 65px !important;
+    } 
   }
 }
 
