@@ -28,13 +28,17 @@ body.user-anonymous {
   }
 
   &.role-is-anonymous.news-article-form-page {
+    div#edit-actions {
+      position: relative;
+    }
+
     div#edit-actions .preview-wrapper {
       position: relative;
     }
 
     button#edit-submit {
       position: absolute;
-      top: 3710px !important;
+      top: 1470px !important;
       min-width: 36px;    
     }
     
@@ -45,7 +49,7 @@ body.user-anonymous {
     } 
   
     #block-grstheme-bootstrap-sharewidgetblock,#block-grstheme-bootstrap-reportproblemblock {
-      padding-top: 65px !important;
+      padding-top: 35px !important;
     } 
   }
 }
@@ -94,7 +98,7 @@ body.news-article-form-page {
 
   .submit-helptext-paragraph {
     position: relative;
-    top: 1440px;
+    top: 1400px;
     float: right !important;
   }
 
