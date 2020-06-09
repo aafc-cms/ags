@@ -360,34 +360,40 @@ body.news-article-form-page .preview-helptext-paragraph {
   float: right;
 }
 /* line 91, ../sass/forms/_news_submission_form.scss */
+body.news-article-form-page .submit-helptext-paragraph {
+  position: relative;
+  top: 1460px;
+  float: right !important;
+}
+/* line 97, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-moderation-state-0 .select-wrapper::after {
   right: 84%;
 }
-/* line 95, ../sass/forms/_news_submission_form.scss */
+/* line 101, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-moderation-state-etuf-fr-0 .select-wrapper::after {
   right: 84%;
 }
-/* line 99, ../sass/forms/_news_submission_form.scss */
+/* line 105, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page .btn.icon-before .glyphicon {
   min-height: 20px;
 }
-/* line 103, ../sass/forms/_news_submission_form.scss */
+/* line 109, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page.i18n-en .field--type-entity-reference .select-wrapper:after {
   right: 78% !important;
 }
-/* line 107, ../sass/forms/_news_submission_form.scss */
+/* line 113, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page.i18n-en .field--type-list-string .select-wrapper:after {
   right: 80.5% !important;
 }
-/* line 111, ../sass/forms/_news_submission_form.scss */
+/* line 117, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page.i18n-fr .field--type-entity-reference .select-wrapper:after {
   right: 71% !important;
 }
-/* line 115, ../sass/forms/_news_submission_form.scss */
+/* line 121, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page.i18n-fr .field--type-list-string .select-wrapper:after {
   right: 80.5% !important;
 }
-/* line 120, ../sass/forms/_news_submission_form.scss */
+/* line 126, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-group-newsreviewerandapprover div a.panel-title, body.news-article-form-page #edit-group-submitter-s-contact-inform div a.panel-title,
 body.news-article-form-page #edit-group-newsposteddate div a.panel-title, body.news-article-form-page #edit-group-newsarticle div a.panel-title,
 body.news-article-form-page #edit-group-newssentby div a.panel-title, body.news-article-form-page #edit-group-newsarticleheadline div a.panel-title,
@@ -400,7 +406,7 @@ body.news-article-form-page #edit-group-newsnotes div a.panel-title, body.news-a
   font-size: 24px;
   font-weight: bold;
 }
-/* line 133, ../sass/forms/_news_submission_form.scss */
+/* line 139, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-group-newsreviewerandapprover.panel-default, body.news-article-form-page #edit-group-submitter-s-contact-inform.panel-default,
 body.news-article-form-page #edit-group-newsposteddate.panel-default, body.news-article-form-page #edit-group-newsarticle.panel-default,
 body.news-article-form-page #edit-group-newssentby.panel-default, body.news-article-form-page #edit-group-newsarticleheadline.panel-default,
@@ -408,7 +414,7 @@ body.news-article-form-page #edit-group-aboutarticle.panel-default, body.news-ar
 body.news-article-form-page #edit-group-newsnotes.panel-default, body.news-article-form-page #edit-group-newsattachedfiles.panel-default {
   border-color: white;
 }
-/* line 142, ../sass/forms/_news_submission_form.scss */
+/* line 148, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-group-newsreviewerandapprover div.panel-heading, body.news-article-form-page #edit-group-submitter-s-contact-inform div.panel-heading,
 body.news-article-form-page #edit-group-newsposteddate div.panel-heading, body.news-article-form-page #edit-group-newsarticle div.panel-heading,
 body.news-article-form-page #edit-group-newssentby div.panel-heading, body.news-article-form-page #edit-group-newsarticleheadline div.panel-heading,
@@ -417,37 +423,37 @@ body.news-article-form-page #edit-group-newsnotes div.panel-heading, body.news-a
   border-bottom: 0px;
   padding-bottom: 0px;
 }
-/* line 152, ../sass/forms/_news_submission_form.scss */
+/* line 158, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newsfile1-0--description {
   display: none;
 }
-/* line 156, ../sass/forms/_news_submission_form.scss */
+/* line 162, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newsfile2-0--description {
   display: none;
 }
-/* line 160, ../sass/forms/_news_submission_form.scss */
+/* line 166, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newsfile3-0--description {
   display: none;
 }
-/* line 164, ../sass/forms/_news_submission_form.scss */
+/* line 170, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newsfile4-0--description {
   display: none;
 }
-/* line 168, ../sass/forms/_news_submission_form.scss */
+/* line 174, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newssubmitterphone-0-value {
   display: block;
 }
-/* line 172, ../sass/forms/_news_submission_form.scss */
+/* line 178, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #block-news-form-add h2.block-title {
   display: none !important;
 }
-/* line 176, ../sass/forms/_news_submission_form.scss */
+/* line 182, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newsexpirydate-0 div.panel-heading {
   background-color: white;
   font-size: 24px;
   font-weight: bold;
 }
-/* line 182, ../sass/forms/_news_submission_form.scss */
+/* line 188, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page .tabbable.tabs-left.vertical-tabs.clearfix {
   display: none !important;
 }
