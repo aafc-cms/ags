@@ -352,6 +352,7 @@ function agri_admin_form_node_news_form_alter(&$form, \Drupal\Core\Form\FormStat
     $form['actions']['preview']['#weight'] = -99;
     $form['actions']['preview']['#attributes'] = array('onclick' => 'this.form.target="_blank";return true;');
     $form['actions']['#weight'] = 5;
+    $form['actions']['submit']['#value'] = t('Submit'); 
   }
 }
 
@@ -362,6 +363,7 @@ function agri_admin_form_node_empl_form_alter(&$form, \Drupal\Core\Form\FormStat
   if (\Drupal::currentUser()->isAnonymous()) {
     $form['actions']['preview']['#weight'] = -99;
     $form['actions']['preview']['#attributes'] = array('onclick' => 'this.form.target="_blank";return true;');
-    $form['actions']['#weight'] = 5;
+    $form['actions']['#weight'] = 4;
+    $form['actions']['submit']['#value'] = t('Submit Request');
   }
 }

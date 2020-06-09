@@ -26,6 +26,32 @@ body.user-anonymous {
   #edit-field-newsexpirydate-0 {
     display: none !important;
   }
+
+  &.role-is-anonymous.news-article-form-page {
+    div#edit-actions {
+      position: relative;
+    }
+
+    div#edit-actions .preview-wrapper {
+      position: relative;
+    }
+
+    button#edit-submit {
+      position: absolute;
+      top: 1470px !important;
+      min-width: 36px;    
+    }
+    
+    button#edit-preview {
+      background-color: #1b6c1c;
+      border-color: #071a07;
+      color: #fff;
+    } 
+  
+    #block-grstheme-bootstrap-sharewidgetblock,#block-grstheme-bootstrap-reportproblemblock {
+      padding-top: 35px !important;
+    } 
+  }
 }
 
 body.page-node-type-news {
@@ -68,6 +94,12 @@ body.news-article-form-page {
 
   .preview-helptext-paragraph {
     float: right;
+  }
+
+  .submit-helptext-paragraph {
+    position: relative;
+    top: 1400px;
+    float: right !important;
   }
 
   #edit-moderation-state-0 .select-wrapper::after {
