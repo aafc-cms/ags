@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.page.field_meta_type
     - field.field.node.page.field_modified
     - field.field.node.page.field_subject
+    - field.field.node.page.field_tracking_number
     - field.field.node.page.layout_builder__layout
     - field.field.node.page.layout_builder__translation
     - field.field.node.page.layout_selection
@@ -143,6 +144,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
+    region: content
+  field_tracking_number:
+    weight: 26
+    settings:
+      size: 60
+      placeholder: 'Workflow submissions grouped by this field value.'
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   langcode:
     type: language_select
