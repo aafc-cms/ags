@@ -708,13 +708,9 @@ class AgriAdminHelper {
 
     $linkNodeId = '';
     foreach ($menu as $item) {
-      if (!$item->getUrlObject()->isExternal()) {
-        if ('entity.node.canonical' == $item->getUrlObject()->getRouteName()) {
-          $params = $item->getUrlObject()->getRouteParameters();
-          $linkNodeId = $params['node'];
-        } else {
-          $linkNodeId = '';
-        }
+      if ('entity.node.canonical' == $item->getUrlObject()->getRouteName()) {
+        $params = $item->getUrlObject()->getRouteParameters();
+        $linkNodeId = $params['node'];
 
         if ($linkNodeId == $nid) {
           $parentMenuLinkId = $item->getParentId();
