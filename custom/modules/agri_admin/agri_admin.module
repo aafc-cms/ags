@@ -350,9 +350,10 @@ function _helperUpdateProcess($action, $entity_id, $bundle) {
 function agri_admin_form_node_news_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   if (\Drupal::currentUser()->isAnonymous()) {
     $form['actions']['preview']['#weight'] = -99;
-    $form['actions']['preview']['#attributes'] = array('onclick' => 'this.form.target="_blank";return true;');
+    $form['#attached']['library'][] = 'agri_admin/agri-admin'; // see js/agri_admin.js previewInNewTab().
     $form['actions']['#weight'] = 5;
     $form['actions']['submit']['#value'] = t('Submit'); 
+    $form['#attributes']['target'] = '_blank';
   }
 }
 
@@ -362,8 +363,9 @@ function agri_admin_form_node_news_form_alter(&$form, \Drupal\Core\Form\FormStat
 function agri_admin_form_node_empl_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   if (\Drupal::currentUser()->isAnonymous()) {
     $form['actions']['preview']['#weight'] = -99;
-    $form['actions']['preview']['#attributes'] = array('onclick' => 'this.form.target="_blank";return true;');
+    $form['#attached']['library'][] = 'agri_admin/agri-admin'; // see js/agri_admin.js previewInNewTab().
     $form['actions']['#weight'] = 4;
     $form['actions']['submit']['#value'] = t('Submit Request');
+    $form['#attributes']['target'] = '_blank';
   }
 }
