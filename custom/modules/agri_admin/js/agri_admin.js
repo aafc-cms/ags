@@ -39,7 +39,7 @@
             bothStatus.val(this.value); // "this" is the changed one
           });
 
-          //change the submit button value to "Save" instead of "Save (this translation)"
+          // Change the submit button value to "Save" instead of "Save (this translation)"
           if ($('body').hasClass('i18n-en')) {
             $(".node-form .form-actions #edit-submit").val("Save");
           }
@@ -155,8 +155,12 @@ var Agrisource = function() {
     //Determine the page type
     if ($('body').hasClass('path-frontpage')) {
       Agrisource.page_type = 'front'; // Front page <front> ex, /en or /fr.
-    } else if ($('body').hasClass('nodeaddpage')) {
-      Agrisource.page_type = 'add-page';
+    }
+    else if ($('body').hasClass('employment-opportunity-request-form-page')) {
+      Agrisource.page_type = 'add-empl-special';
+    }
+    else if ($('body').hasClass('news-article-form-page')) {
+      Agrisource.page_type = 'add-news-special';
     }
     else if ($('body').hasClass('nodeaddlanding_page')) {
       Agrisource.page_type = 'add-landing-page';
@@ -166,6 +170,9 @@ var Agrisource = function() {
     }
     else if ($('body').hasClass('nodeaddnews')) {
       Agrisource.page_type = 'add-news';
+    }
+    else if ($('body').hasClass('nodeaddpage')) {
+      Agrisource.page_type = 'add-page';
     }
     else if ($('body').hasClass('node-edit') && $('body').hasClass('page-node-type-landing-page')) {
       Agrisource.page_type = 'edit-landing-page';
@@ -196,6 +203,7 @@ var Agrisource = function() {
     ) {
       setLayoutDefaults();
     }
+    previewInNewTab();
     $(document).on('mousemove', onMouseMove);
 
     //remove the data-toggle from the links anchors in main navigation for media or large devices
@@ -215,6 +223,26 @@ var Agrisource = function() {
     });
 
     initialized = true;
+  }
+
+  /**
+   * Set up preview in new tab.
+   */
+  function previewInNewTab() {
+    if (Agrisource.page_type == 'add-empl-special' || Agrisource.page_type == 'add-news-special') {
+      jQuery('#edit-preview').on('mouseover', function(e){
+        jQuery('.node-form').attr('target', '_blank');
+      });
+      jQuery('#edit-preview').on('mouseout', function(e){
+        jQuery('.node-form').removeAttr('target');
+      });
+      jQuery('#edit-preview').on('click', function(e){
+        jQuery('.node-form').attr('data-drupal-form-submit-last', '');
+      });
+      jQuery('#edit-submit').on('mouseover', function(e){
+        jQuery('.node-form').attr('data-drupal-form-submit-last', '');
+      });
+    }
   }
 
   /**
