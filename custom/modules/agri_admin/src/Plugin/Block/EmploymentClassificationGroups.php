@@ -22,8 +22,12 @@ use Drupal\node\Entity\Node;
  */
 class  EmploymentClassificationGroups extends BlockBase {
 
-  protected function getNode() {
+  protected function getNode(&$ispreview_node) {
     $node = \Drupal::routeMatch()->getParameter('node');
+    if (!is_object($node)) {
+      $node = \Drupal::routeMatch()->getParameter('node_preview');
+      $ispreview_node = true;
+    }
     if ($node) {
       if (is_string($node) && is_numeric($node)) {
         // Can be removed once we move to Drupal >= 8.6.0 , currently on 8.5.0.
@@ -46,6 +50,7 @@ class  EmploymentClassificationGroups extends BlockBase {
   * {@inheritdoc}
   */
   public function build() {
+    $ispreview_node = false;
     $config = $this->getConfiguration(); 
     $block['#id'] = $config['id'];
     $block['#title'] = 'Employment Classification Groups';
@@ -55,22 +60,29 @@ class  EmploymentClassificationGroups extends BlockBase {
     $currentlangId    = $current_language->getId();
     $classification   = '';
 
-    $emplNode =  $this->getNode();
+    $emplNode =  $this->getNode($ispreview_node);
     if (!$emplNode) {
       $block['content']['#markup'] = $classification;
       return $block;
     }
 
-    if ($paragraph_field_items = $emplNode->get('field_classification')->getValue()) {
-      // Get storage. It very useful for loading a small number of objects.
+    if ($ispreview_node) {
+      // Logic for preview node
+      $paragraphs_objects = $emplNode->get('field_classification')->referencedEntities();
+    }
+    else {
+      $paragraph_field_items = $emplNode->get('field_classification')->getValue(); 
       $paragraph_storage = \Drupal::entityTypeManager()->getStorage('paragraph');
       // Collect paragraph field's ids.
       $ids = array_column($paragraph_field_items, 'target_id');
       // Load all paragraph objects.
       $paragraphs_objects = $paragraph_storage->loadMultiple($ids);
-      /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+    }
+
+    /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+    if ($paragraphs_objects) { 
       foreach ($paragraphs_objects as $paragraph) {
-        // Get field from the paragraph.
+      // Get field from the paragraph.
         $groupval    = $paragraph->get('field_class_id')->value;
         $subgroupval = $paragraph->get('field_class_sub')->value;
         $levelval    = $paragraph->get('field_class_level')->value;
@@ -89,8 +101,7 @@ class  EmploymentClassificationGroups extends BlockBase {
         else {
           $classification = $tmpText;
         }
-      }
-
+      } 
       // get equivalent flag value
       $equivalentval = $emplNode->get('field_and_equivalent')->getValue();
       //$equivalentlbl = $emplNode->get('field_and_equivalent')->getFieldDefinition()->getLabel();
