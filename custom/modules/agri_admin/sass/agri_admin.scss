@@ -11,3 +11,20 @@
 .glyphicon.glyphicon-copy:before {
   content: "\e205";
 }
+
+/* Hide fields on BasicPage and LandingPage add - edit forms */
+.node-edit, .nodeaddpage, .nodeaddlanding_page {
+  /* Hide Menu link Weight */
+  #edit-advanced .form-item--menu-weight {
+    display: none;
+  }
+  /* Hide Preview button */
+  #edit-preview {
+    display: none;
+  }
+  /* Hide help text under the WYSIWYG */
+  #edit-body-0--description, #edit-body-etuf-fr-0--description {
+    display: none;
+  }  
+  
+}
