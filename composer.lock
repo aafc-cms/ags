@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "eb3512130cb5bc8acf3327f87e64f5e9",
+    "content-hash": "c30f5ece8cd00b1b845db14cad4e5247",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -307,7 +307,7 @@
             "version": "v5.7.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:enyo/dropzone.git",
+                "url": "https://github.com/enyo/dropzone.git",
                 "reference": "5b82186d5f18540a1d13b6f4914fdc6220617ef5"
             },
             "dist": {
@@ -8804,6 +8804,124 @@
             }
         },
         {
+            "name": "drupal/safedelete",
+            "version": "1.0.0-alpha2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/safedelete.git",
+                "reference": "1.0.0-alpha2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/safedelete-1.0.0-alpha2.zip",
+                "reference": "1.0.0-alpha2",
+                "shasum": "30305b81626f42aeb3b6eb4c71c2ea7e24bb4a18"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9",
+                "drupal/linkit": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.0-alpha2",
+                    "datestamp": "1591818680",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "joseph.olstad",
+                    "homepage": "https://www.drupal.org/user/1321830"
+                }
+            ],
+            "description": "Safely delete nodes without causing broken links in the node body or other entity body fields.",
+            "homepage": "https://www.drupal.org/project/safedelete",
+            "support": {
+                "source": "https://git.drupalcode.org/project/safedelete"
+            }
+        },
+        {
+            "name": "drupal/scanner",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/scanner.git",
+                "reference": "f4288924094498c13bee92c6923546d71cf04adc"
+            },
+            "require": {
+                "drupal/core": "^8.7.7 || ^9"
+            },
+            "require-dev": {
+                "drupal/paragraphs": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-rc2+0-dev",
+                    "datestamp": "1587498695",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "DamienMcKenna",
+                    "homepage": "https://www.drupal.org/user/108450"
+                },
+                {
+                    "name": "MikeyR",
+                    "homepage": "https://www.drupal.org/user/715156"
+                },
+                {
+                    "name": "Shreya Shetty",
+                    "homepage": "https://www.drupal.org/user/2943029"
+                },
+                {
+                    "name": "aasarava",
+                    "homepage": "https://www.drupal.org/user/181407"
+                },
+                {
+                    "name": "codebymikey",
+                    "homepage": "https://www.drupal.org/user/3573206"
+                },
+                {
+                    "name": "fizk",
+                    "homepage": "https://www.drupal.org/user/473174"
+                },
+                {
+                    "name": "mpearrow",
+                    "homepage": "https://www.drupal.org/user/13144"
+                },
+                {
+                    "name": "starbow",
+                    "homepage": "https://www.drupal.org/user/33290"
+                }
+            ],
+            "description": "Perform search and replace on chosen text fields.",
+            "homepage": "https://www.drupal.org/project/scanner",
+            "support": {
+                "source": "https://git.drupalcode.org/project/scanner"
+            },
+            "time": "2020-05-02T17:21:37+00:00"
+        },
+        {
             "name": "drupal/schemata",
             "version": "1.0.0-beta2",
             "source": {
@@ -11017,12 +11135,12 @@
             "version": "0.9.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/njh/easyrdf.git",
+                "url": "https://github.com/easyrdf/easyrdf.git",
                 "reference": "acd09dfe0555fbcfa254291e433c45fdd4652566"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/njh/easyrdf/zipball/acd09dfe0555fbcfa254291e433c45fdd4652566",
+                "url": "https://api.github.com/repos/easyrdf/easyrdf/zipball/acd09dfe0555fbcfa254291e433c45fdd4652566",
                 "reference": "acd09dfe0555fbcfa254291e433c45fdd4652566",
                 "shasum": ""
             },
@@ -11233,20 +11351,6 @@
                 "GPL-2.0+"
             ],
             "description": "Agrisource sub theme based on the WxT Bootstrap sub-theme (which it'self is also a sub theme of Bootstrap https://www.drupal.org/bootstrap) for Drupal WxT."
-        },
-        {
-            "name": "entreprise7pro/safedelete",
-            "version": "8.9999999.9999999.9999999-dev",
-            "dist": {
-                "type": "path",
-                "url": "custom/modules/safedelete",
-                "reference": "5e516d811b4bc1e0ca30a8488f4945ba552c7bb8",
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "^1.2"
-            },
-            "type": "drupal-custom-module"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -19867,6 +19971,7 @@
         "drupal/formblock": 20,
         "drupal/purge": 10,
         "drupal/config_split": 20,
+        "drupal/scanner": 20,
         "phpmd/phpmd": 0
     },
     "prefer-stable": true,
