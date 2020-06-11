@@ -1,3 +1,17 @@
+
+/* Hide fields on BasicPage and LandingPage add - edit forms */
+body.is-reviewer, 
+body.is-creator,
+body.is-ccpub,
+body.is-cspub {
+  &.node-edit, &.nodeaddpage, &.nodeaddlanding_page {
+    /* Hide Menu link Weight */
+    #edit-advanced .form-item--menu-weight {
+      display: none;
+    }
+  }
+}
+
 // For the reviewer role hide the edit button.
 body.role-is-reviewer.path-node {
   ul.tabs--primary a[rel=edit-form] {
