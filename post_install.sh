@@ -86,7 +86,8 @@ if [ ! -L html/sites/default/files/splashimages ]; then
   ln -s ../../../../custom/splash/sites/default/files/splashimages splashimages
   popd;
 fi
-cp html/libraries/theme-gc-intranet/css/theme.css html/libraries/theme-gc-intranet/css/theme.min.css
+#cp html/libraries/theme-gc-intranet/css/theme.css html/libraries/theme-gc-intranet/css/theme.min.css
+sed 's//\\e092/' html/libraries/theme-gc-intranet/css/theme.min.css > html/libraries/theme-gc-intranet/css/theme.min.css
 
 dbSetupTest=0
 
