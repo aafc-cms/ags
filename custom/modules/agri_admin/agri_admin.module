@@ -222,7 +222,7 @@ function agri_admin_node_insert(Drupal\Core\Entity\EntityInterface $entity) {
   $action = 'insert';
   AgriAdminHelper::addToLog(__function__);
   drupal_register_shutdown_function('_helperUpdateProcess', $action, $entity_id, $entity->bundle());
-  drupal_register_shutdown_function('_helperLockingContent', $action, $entity_id, $entity->bundle());
+  drupal_register_shutdown_function('_helperLockingContent', $action, $entity_id, $entity->bundle(), $entity);
 }
 
 
@@ -269,16 +269,24 @@ function _helperLockingContent($action, $entity_id, $bundle, $entity_obj = NULL)
   global $import_override;
   if (!isset($import_override) || $import_override == FALSE) {
     if ($action == 'insert' || $action == 'update') {
-      $latest = AgriAdminHelper::getLatestRevision($entity_id, $vid);
-      $current_author_id = $latest->getOwnerId();
-
-      $lock_service = \Drupal::service('content_lock');
       $current_user = \Drupal::currentUser();
       $current_user_id = $current_user->id();
-      $roles = $current_user->getRoles();
+      if ($action == 'update') {
+        $latest = AgriAdminHelper::getLatestRevision($entity_id, $vid);
+      }
+      if ($action == 'insert') {
+        $latest = $entity_obj;
+      }
+      $current_author_id = $latest->getOwnerId();
+      if (!isset($current_author_id)) {
+        $current_author_id = $current_user_id;
+      }
+
+      $lock_service = \Drupal::service('content_lock');
       $is_creator = FALSE;
       $is_master = FALSE;
       $is_reviewer = FALSE;
+      $roles = $current_user->getRoles();
       foreach ($roles as $value) {
         $role = $value;
         if ($role == 'news_ccpub' || $role == 'empl_ccpub') {
@@ -289,7 +297,7 @@ function _helperLockingContent($action, $entity_id, $bundle, $entity_obj = NULL)
             return; // Finished processing.
           }
           else {
-            $lock_service->release($entity_id, $latest->language()->getId(), 'edit', $content_user_id, $latest->getEntityTypeId());
+            $lock_service->release($entity_id, $latest->language()->getId(), 'edit', $current_author_id, $latest->getEntityTypeId());
           }
         }
         if ($role == 'creator') {
@@ -300,7 +308,7 @@ function _helperLockingContent($action, $entity_id, $bundle, $entity_obj = NULL)
             return; // Finished processing.
           }
           else {
-            $lock_service->release($entity_id, $latest->language()->getId(), 'edit', $content_user_id, $latest->getEntityTypeId());
+            $lock_service->release($entity_id, $latest->language()->getId(), 'edit', $current_author_id, $latest->getEntityTypeId());
           }
         }
         if ($role == 'reviewer' && $state == 'with_reviewer') {
