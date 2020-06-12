@@ -78,6 +78,38 @@ body[class*=moderationdashboard] nav[aria-label=Tabs] {
 }
 
 /* Put variables here for colors, fonts, etc */
+/* This comment shows up in css file */
+body.is-reviewer.node-edit.page-node-type-page #edit-advanced .form-item--menu-weight, body.is-reviewer.node-edit.page-node-type-landing-page #edit-advanced .form-item--menu-weight, body.is-reviewer.nodeaddpage #edit-advanced .form-item--menu-weight, body.is-reviewer.nodeaddlanding_page #edit-advanced .form-item--menu-weight,
+body.is-creator.node-edit.page-node-type-page #edit-advanced .form-item--menu-weight,
+body.is-creator.node-edit.page-node-type-landing-page #edit-advanced .form-item--menu-weight,
+body.is-creator.nodeaddpage #edit-advanced .form-item--menu-weight,
+body.is-creator.nodeaddlanding_page #edit-advanced .form-item--menu-weight,
+body.is-ccpub.node-edit.page-node-type-page #edit-advanced .form-item--menu-weight,
+body.is-ccpub.node-edit.page-node-type-landing-page #edit-advanced .form-item--menu-weight,
+body.is-ccpub.nodeaddpage #edit-advanced .form-item--menu-weight,
+body.is-ccpub.nodeaddlanding_page #edit-advanced .form-item--menu-weight,
+body.is-cspub.node-edit.page-node-type-page #edit-advanced .form-item--menu-weight,
+body.is-cspub.node-edit.page-node-type-landing-page #edit-advanced .form-item--menu-weight,
+body.is-cspub.nodeaddpage #edit-advanced .form-item--menu-weight,
+body.is-cspub.nodeaddlanding_page #edit-advanced .form-item--menu-weight {
+  display: none;
+}
+body.is-reviewer.node-edit.page-node-type-page #edit-preview, body.is-reviewer.node-edit.page-node-type-landing-page #edit-preview, body.is-reviewer.nodeaddpage #edit-preview, body.is-reviewer.nodeaddlanding_page #edit-preview,
+body.is-creator.node-edit.page-node-type-page #edit-preview,
+body.is-creator.node-edit.page-node-type-landing-page #edit-preview,
+body.is-creator.nodeaddpage #edit-preview,
+body.is-creator.nodeaddlanding_page #edit-preview,
+body.is-ccpub.node-edit.page-node-type-page #edit-preview,
+body.is-ccpub.node-edit.page-node-type-landing-page #edit-preview,
+body.is-ccpub.nodeaddpage #edit-preview,
+body.is-ccpub.nodeaddlanding_page #edit-preview,
+body.is-cspub.node-edit.page-node-type-page #edit-preview,
+body.is-cspub.node-edit.page-node-type-landing-page #edit-preview,
+body.is-cspub.nodeaddpage #edit-preview,
+body.is-cspub.nodeaddlanding_page #edit-preview {
+  display: none;
+}
+
 body.role-is-reviewer.path-node ul.tabs--primary a[rel=edit-form] {
   display: none !important;
 }
