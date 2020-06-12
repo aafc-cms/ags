@@ -187,10 +187,12 @@ display:
           action_title: Action
           include_exclude: include
           selected_actions:
-            - pin
+            - node_break_lock_action
+            - node_delete_action
+            - pathauto_update_alias_node
             - publish_latest
             - send_reviewer
-            - unpin
+            - unpublish_current
           plugin_id: node_bulk_form
           entity_type: node
         title:
