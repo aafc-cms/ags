@@ -1,12 +1,22 @@
 
-/* Hide fields on BasicPage and LandingPage add - edit forms */
+/* This comment shows up in css file */
+// This comment line does NOT compile into the css file.
+// Hide fields on BasicPage and LandingPage add - edit forms.
 body.is-reviewer, 
 body.is-creator,
 body.is-ccpub,
 body.is-cspub {
-  &.node-edit, &.nodeaddpage, &.nodeaddlanding_page {
-    /* Hide Menu link Weight */
+  &.node-edit.page-node-type-page, // Target specifically node edit for basic page as per specs.
+  &.node-edit.page-node-type-landing-page, // Target specifically node edit for landing page as per specs.
+  &.nodeaddpage, // Target specifically nodeaddpage.
+  &.nodeaddlanding_page // Target specifically nodeaddlanding_page.
+  {
+    // Hide Menu link Weight.
     #edit-advanced .form-item--menu-weight {
+      display: none;
+    }
+    // Hide Preview button.
+    #edit-preview {
       display: none;
     }
   }
