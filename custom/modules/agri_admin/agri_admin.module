@@ -173,9 +173,9 @@ function agri_admin_preprocess_views_view_field(&$variables) {
   if ($view->id() == 'view_employmentopportunities') {
     $field = $variables['field'];
     $row = $variables['row'];
-    $empNode = $row->_entity;
+    $node = $row->_entity;
     $classification   = '';
-    if ($field->field =='field_classification' && $empNode->getType() == 'empl') {
+    if ($field->field =='field_classification' && $node->getType() == 'empl') {
      // if ($row->_entity->get($field->field)->value) {
       if ($paragraph_field_items =  $row->_entity->get('field_classification')->getValue()) {
         $paragraph_storage = \Drupal::entityTypeManager()->getStorage('paragraph');
@@ -204,7 +204,12 @@ function agri_admin_preprocess_views_view_field(&$variables) {
           }
         }
         $ptitle = $row->_entity->get('title')->value;
-        $titlefield = '<a href="/'.$lang.'/node/'.$nid.'"'. 'hreflang="'.$lang.'">'. $row->_entity->get('title')->value.'</a>';
+        // Friendly url explained: https://drupal.stackexchange.com/a/275438/99288 .
+        $friendly_url = $node->toUrl()->toString(); // Relative url.
+        //$friendly_url = $node->toUrl()->setAbsolute()->toString(); // Or absolute url.
+        // @Note to James, previously, $nid was undefined, so this was producing an invalid link.
+        // So I changed it to the friendly url instead as a fix and improvement.
+        $titlefield = '<a href="'.$friendly_url.'"'. 'hreflang="'.$lang.'">'. $node->get('title')->value.'</a>';
         $variables['output'] =  \Drupal\Core\Render\Markup::create( $classification.' '. $titlefield);
       }
     }
