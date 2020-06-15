@@ -12,8 +12,10 @@
    */
   Drupal.behaviors.agriAdminValidation = {
     attach: function (context, settings) {
-      AgriHelper.init();
-      console.log('initialized agri_admin/js/agri-empl-or-news-submit.js');
+      if ($('.block-formblock').length) {
+        // Only initialize when the formblock becomes available.
+        AgriHelper.init();
+      }
     }
   };
 
@@ -32,6 +34,7 @@ var AgriHelper = function() {
     if (initialized) {
       return;
     }
+    console.log('initialize agri_admin/js/agri-empl-or-news-submit.js');
 
     // Get the current UI language
     $ = jQuery;
@@ -84,7 +87,12 @@ var AgriHelper = function() {
       });
 
       jQuery('#edit-preview').on('mouseover', function(e){
-        jQuery('.node-form').attr('target', '_blank');
+        if (AgriHelper.form_required_valid == true ) {
+          formRequiredFieldsValidation();
+          if (AgriHelper.form_required_valid == true ) {
+            jQuery('.node-form').attr('target', '_blank');
+          }
+        }
       });
       jQuery('#edit-preview').on('mouseout', function(e){
         jQuery('.node-form').removeAttr('target');
@@ -92,9 +100,10 @@ var AgriHelper = function() {
       jQuery('#edit-preview').on('click', function(e){
         formRequiredFieldsValidation();
         if (AgriHelper.form_required_valid == false ) {
-          jQuery('.node-form').removeAttr('target');
           // Trigger the submit click instead.
+          jQuery('.node-form').removeAttr('target');
           jQuery('#edit-submit').trigger('click');
+          jQuery('.node-form').removeAttr('target');
           // Reset the validation for form required.
           AgriHelper.form_required_valid = true;
           //now suppress mouse click for #edit-preview.
