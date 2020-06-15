@@ -136,6 +136,7 @@
 
 var Agrisource = function() {
   var initialized = false;   // Flag to indicate that this class has been initialized
+  var form_required_valid = true; // Flag to indicate that the validation is for the News and EO forms
   var lang = 'en';           // Will be 'en' or 'fr' regardless of how the url segment is formed (currently eng or fra)
   var mouse = {x:0, y:0};    // Tracks the mouse position
   var page_type = 'content';
@@ -225,11 +226,34 @@ var Agrisource = function() {
     initialized = true;
   }
 
+  /*
+    validate news form and EO form
+  */
+  function formrequiredfiledsvalidation () {
+    $('input[required="required"]').each(function() {
+      if ($(this).hasClass('form-text')) {
+        if ($(this).val.length == 0) {
+          Agrisource.form_required_valid = false;
+          return Agrisource.form_required_valid;
+        }
+      }
+    });
+  }
   /**
    * Set up preview in new tab.
    */
   function previewInNewTab() {
     if (Agrisource.page_type == 'add-empl-special' || Agrisource.page_type == 'add-news-special') {
+      jQuery('#edit-preview').on('mousedown', function(e){
+        formrequiredfiledsvalidation ();
+        if (form_required_valid == false ) {
+          jQuery('#edit-submit').trigger('click');
+          //now suppress mouse down
+          Event.stop(e);
+          return false;
+        }
+      });
+
       jQuery('#edit-preview').on('mouseover', function(e){
         jQuery('.node-form').attr('target', '_blank');
       });
@@ -237,6 +261,11 @@ var Agrisource = function() {
         jQuery('.node-form').removeAttr('target');
       });
       jQuery('#edit-preview').on('click', function(e){
+        formrequiredfiledsvalidation ();
+        if (form_required_valid == false ) {
+          Event.stop(e);
+          return false;
+        }
         jQuery('.node-form').attr('data-drupal-form-submit-last', '');
       });
       jQuery('#edit-submit').on('mouseover', function(e){
