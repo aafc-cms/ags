@@ -76,6 +76,14 @@ var AgriHelper = function() {
         }
       }
     });
+    $('input[required="required"]').each(function(index, element) {
+      if ($(element).hasClass('form-date')) {
+        if ($(element).val().length == 0) {
+          AgriHelper.form_required_valid = false;
+          return AgriHelper.form_required_valid;
+        }
+      }
+    });
   }
   /**
    * Set up preview in new tab.
