@@ -123,6 +123,7 @@ var AgriHelper = function() {
           Event.stop(e);
           return false;
         }
+        AgriHelper.initialize = false;
         jQuery('.node-form').attr('data-drupal-form-submit-last', '');
       });
       jQuery('#edit-submit').on('mouseover', function(e){
