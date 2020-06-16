@@ -102,11 +102,31 @@ var AgriHelper = function() {
           }
         }
       });
+
       jQuery('#edit-preview').on('mouseout', function(e){
         jQuery('.node-form').removeAttr('target');
       });
+
       jQuery('#edit-preview').on('click', function(e){
-        formRequiredFieldsValidation();
+        handleSubmitAndPreviewClickEvent(e);
+      });
+
+      jQuery('#edit-submit').on('mouseover', function(e){
+        console.log('mouse over submit button');
+        jQuery('.node-form').attr('data-drupal-form-submit-last', '');
+      });
+
+      jQuery('#edit-submit').on('click', function(e){
+        handleSubmitAndPreviewClickEvent(e);
+      });
+    }
+  }
+/**
+  * funciton handle button click event to perform classic validation 
+  * and prevent to open new tab when the form validation is false.
+*/
+  function handleSubmitAndPreviewClickEvent(e) {
+     formRequiredFieldsValidation();
         if (AgriHelper.form_required_valid == false ) {
           // Trigger the submit click instead.
           jQuery('.node-form').removeAttr('target');
@@ -125,14 +145,7 @@ var AgriHelper = function() {
         }
         AgriHelper.initialize = false;
         jQuery('.node-form').attr('data-drupal-form-submit-last', '');
-      });
-      jQuery('#edit-submit').on('mouseover', function(e){
-        jQuery('.node-form').attr('data-drupal-form-submit-last', '');
-      });
-    }
   }
-
-
   /**
    * Expose functions and variables
    */
