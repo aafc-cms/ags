@@ -12,8 +12,13 @@ body.user-anonymous {
     }
   }
   
-  &.employment-opportunity-request-form-page div.alert.alert-danger.alert-dismissible.mrgn-tp-md.mrgn-bttm-md ul.item-list__comma-list li:before { 
+  &.employment-opportunity-request-form-page.i18n-en div.alert.alert-danger.alert-dismissible.mrgn-tp-md.mrgn-bttm-md ul.item-list__comma-list li:before { 
     content: "\A Error: ";
+    white-space: pre;
+  }
+  
+  &.employment-opportunity-request-form-page.i18n-fr div.alert.alert-danger.alert-dismissible.mrgn-tp-md.mrgn-bttm-md ul.item-list__comma-list li:before { 
+    content: "\A Erreurs: ";
     white-space: pre;
   }
 
@@ -40,15 +45,10 @@ body.user-anonymous {
 
     div#edit-actions .preview-wrapper {
       position: relative;
+      padding-bottom: 15px;
     }
 
-    button#edit-submit {
-      position: absolute;
-      top: 640px !important;
-      min-width: 36px;    
-    }
-    
-    button#edit-preview {
+   button#edit-submit, button#edit-preview {
       background-color: #1b6c1c;
       border-color: #071a07;
       color: #fff;

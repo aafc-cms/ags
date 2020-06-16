@@ -380,7 +380,7 @@ function agri_admin_form_node_empl_form_alter(&$form, \Drupal\Core\Form\FormStat
     $form['actions']['preview']['#weight'] = -99;
     // See js/agri-empl-or-news-submit.js previewInNewTab().
     $form['#attached']['library'][] = 'agri_admin/agri-empl-news-submit'; // For empl submit.
-    $form['actions']['#weight'] = 4;
+    $form['actions']['#weight'] = 5;
     $form['actions']['submit']['#value'] = t('Submit Request');
     $form['#attributes']['target'] = '_blank';
     $form['#attributes']['novalidate'] = 'novalidate';

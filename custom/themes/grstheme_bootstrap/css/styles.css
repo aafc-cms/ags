@@ -310,133 +310,128 @@ body.user-anonymous #node-news-form .vertical-tabs-panes {
 body.user-anonymous #node-news-form #edit-footer {
   display: none !important;
 }
-/* line 14, ../sass/forms/_news_submission_form.scss */
-body.user-anonymous.news-article-form-page div.alert.alert-danger.alert-dismissible.mrgn-tp-md.mrgn-bttm-md ul.item-list__comma-list li:before {
+/* line 15, ../sass/forms/_news_submission_form.scss */
+body.user-anonymous.news-article-form-page.i18n-en div.alert.alert-danger.alert-dismissible.mrgn-tp-md.mrgn-bttm-md ul.item-list__comma-list li:before {
   content: "\A Error: ";
   white-space: pre;
 }
-/* line 19, ../sass/forms/_news_submission_form.scss */
+/* line 20, ../sass/forms/_news_submission_form.scss */
+body.user-anonymous.news-article-form-page.i18n-fr div.alert.alert-danger.alert-dismissible.mrgn-tp-md.mrgn-bttm-md ul.item-list__comma-list li:before {
+  content: "\A Erreurs: ";
+  white-space: pre;
+}
+/* line 24, ../sass/forms/_news_submission_form.scss */
 body.user-anonymous.news-article-form-page div.form-item.js-form-item.form-type-textarea.js-form-type-textarea.form-item-body-etuf-en-0-summary.js-form-item-body-etuf-en-0-summary.form-group {
   display: none !important;
 }
-/* line 23, ../sass/forms/_news_submission_form.scss */
+/* line 28, ../sass/forms/_news_submission_form.scss */
 body.user-anonymous.news-article-form-page div.form-item.js-form-item.form-type-textarea.js-form-type-textarea.form-item-body-etuf-fr-0-summary.js-form-item-body-etuf-fr-0-summary.form-group {
   display: none !important;
 }
-/* line 27, ../sass/forms/_news_submission_form.scss */
+/* line 32, ../sass/forms/_news_submission_form.scss */
 body.user-anonymous.news-article-form-page span.field-edit-link button.link.link-edit-summary.btn.btn-default.btn-xs.pull-right {
   display: none !important;
 }
-/* line 31, ../sass/forms/_news_submission_form.scss */
+/* line 36, ../sass/forms/_news_submission_form.scss */
 body.user-anonymous #edit-field-newsexpirydate-0 {
   display: none !important;
 }
-/* line 35, ../sass/forms/_news_submission_form.scss */
-body.user-anonymous.role-is-anonymous.news-article-form-page {
-  /*
-      button#edit-submit {
-        position: absolute;
-        top: 1470px !important;
-        min-width: 36px;    
-      }
-  */
-}
-/* line 36, ../sass/forms/_news_submission_form.scss */
+/* line 41, ../sass/forms/_news_submission_form.scss */
 body.user-anonymous.role-is-anonymous.news-article-form-page div#edit-actions {
   position: relative;
 }
-/* line 40, ../sass/forms/_news_submission_form.scss */
+/* line 45, ../sass/forms/_news_submission_form.scss */
 body.user-anonymous.role-is-anonymous.news-article-form-page div#edit-actions .preview-wrapper {
   position: relative;
   padding-bottom: 15px;
 }
-/* line 51, ../sass/forms/_news_submission_form.scss */
-body.user-anonymous.role-is-anonymous.news-article-form-page button#edit-preview {
+/* line 50, ../sass/forms/_news_submission_form.scss */
+body.user-anonymous.role-is-anonymous.news-article-form-page button#edit-submit, body.user-anonymous.role-is-anonymous.news-article-form-page button#edit-preview {
   background-color: #1b6c1c;
   border-color: #071a07;
   color: #fff;
 }
-/* line 57, ../sass/forms/_news_submission_form.scss */
+/* line 56, ../sass/forms/_news_submission_form.scss */
 body.user-anonymous.role-is-anonymous.news-article-form-page #block-grstheme-bootstrap-sharewidgetblock, body.user-anonymous.role-is-anonymous.news-article-form-page #block-grstheme-bootstrap-reportproblemblock {
   padding-top: 35px !important;
 }
 
-/* line 63, ../sass/forms/_news_submission_form.scss */
+/* line 62, ../sass/forms/_news_submission_form.scss */
 body.page-node-type-news {
   /* field title float left class */
 }
-/* line 65, ../sass/forms/_news_submission_form.scss */
+/* line 64, ../sass/forms/_news_submission_form.scss */
 body.page-node-type-news .field--name-field-posted .field--label,
 body.page-node-type-news .field--name-field-to .field--label,
 body.page-node-type-news .field--name-field-from .field--label {
   float: left;
 }
-/* line 71, ../sass/forms/_news_submission_form.scss */
+/* line 70, ../sass/forms/_news_submission_form.scss */
 body.page-node-type-news .field--name-field-posted .field--label::after,
 body.page-node-type-news .field--name-field-to .field--label::after,
 body.page-node-type-news .field--name-field-from .field--label::after {
   content: '\00a0\00a0';
 }
-/* line 77, ../sass/forms/_news_submission_form.scss */
+/* line 76, ../sass/forms/_news_submission_form.scss */
 body.page-node-type-news .field--name-body .field--label {
   display: none;
 }
-/* line 81, ../sass/forms/_news_submission_form.scss */
+/* line 80, ../sass/forms/_news_submission_form.scss */
 body.page-node-type-news .field--name-body.field--type-text-with-summary.field--label-above.quickedit-field .field--item::before {
   content: "\A";
   white-space: pre;
 }
 
-/* line 88, ../sass/forms/_news_submission_form.scss */
+/* line 87, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page .help-block {
   font-size: 16px;
   color: #333;
 }
-/* line 93, ../sass/forms/_news_submission_form.scss */
+/* line 92, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-actions, body.news-article-form-page #edit-footer {
   padding-left: 15px;
 }
-/* line 97, ../sass/forms/_news_submission_form.scss */
+/* line 96, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page .preview-wrapper {
   padding-top: 15px;
 }
-/* line 101, ../sass/forms/_news_submission_form.scss */
+/* line 100, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page .preview-helptext-paragraph {
   float: right;
 }
-/* line 105, ../sass/forms/_news_submission_form.scss */
+/* line 104, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page .submit-helptext-paragraph {
   float: right !important;
 }
-/* line 109, ../sass/forms/_news_submission_form.scss */
+/* line 108, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-moderation-state-0 .select-wrapper::after {
   right: 84%;
 }
-/* line 113, ../sass/forms/_news_submission_form.scss */
+/* line 112, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-moderation-state-etuf-fr-0 .select-wrapper::after {
   right: 84%;
 }
-/* line 117, ../sass/forms/_news_submission_form.scss */
+/* line 116, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page .btn.icon-before .glyphicon {
   min-height: 20px;
 }
-/* line 121, ../sass/forms/_news_submission_form.scss */
+/* line 120, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page.i18n-en .field--type-entity-reference .select-wrapper:after {
   right: 78% !important;
 }
-/* line 125, ../sass/forms/_news_submission_form.scss */
+/* line 124, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page.i18n-en .field--type-list-string .select-wrapper:after {
   right: 80.5% !important;
 }
-/* line 129, ../sass/forms/_news_submission_form.scss */
+/* line 128, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page.i18n-fr .field--type-entity-reference .select-wrapper:after {
   right: 71% !important;
 }
-/* line 133, ../sass/forms/_news_submission_form.scss */
+/* line 132, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page.i18n-fr .field--type-list-string .select-wrapper:after {
   right: 80.5% !important;
 }
-/* line 138, ../sass/forms/_news_submission_form.scss */
+/* line 137, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-group-newsreviewerandapprover div a.panel-title, body.news-article-form-page #edit-group-submitter-s-contact-inform div a.panel-title,
 body.news-article-form-page #edit-group-newsposteddate div a.panel-title, body.news-article-form-page #edit-group-newsarticle div a.panel-title,
 body.news-article-form-page #edit-group-newssentby div a.panel-title, body.news-article-form-page #edit-group-newsarticleheadline div a.panel-title,
@@ -449,7 +444,7 @@ body.news-article-form-page #edit-group-newsnotes div a.panel-title, body.news-a
   font-size: 24px;
   font-weight: bold;
 }
-/* line 151, ../sass/forms/_news_submission_form.scss */
+/* line 150, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-group-newsreviewerandapprover.panel-default, body.news-article-form-page #edit-group-submitter-s-contact-inform.panel-default,
 body.news-article-form-page #edit-group-newsposteddate.panel-default, body.news-article-form-page #edit-group-newsarticle.panel-default,
 body.news-article-form-page #edit-group-newssentby.panel-default, body.news-article-form-page #edit-group-newsarticleheadline.panel-default,
@@ -457,7 +452,7 @@ body.news-article-form-page #edit-group-aboutarticle.panel-default, body.news-ar
 body.news-article-form-page #edit-group-newsnotes.panel-default, body.news-article-form-page #edit-group-newsattachedfiles.panel-default {
   border-color: white;
 }
-/* line 160, ../sass/forms/_news_submission_form.scss */
+/* line 159, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-group-newsreviewerandapprover div.panel-heading, body.news-article-form-page #edit-group-submitter-s-contact-inform div.panel-heading,
 body.news-article-form-page #edit-group-newsposteddate div.panel-heading, body.news-article-form-page #edit-group-newsarticle div.panel-heading,
 body.news-article-form-page #edit-group-newssentby div.panel-heading, body.news-article-form-page #edit-group-newsarticleheadline div.panel-heading,
@@ -466,37 +461,37 @@ body.news-article-form-page #edit-group-newsnotes div.panel-heading, body.news-a
   border-bottom: 0px;
   padding-bottom: 0px;
 }
-/* line 170, ../sass/forms/_news_submission_form.scss */
+/* line 169, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newsfile1-0--description {
   display: none;
 }
-/* line 174, ../sass/forms/_news_submission_form.scss */
+/* line 173, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newsfile2-0--description {
   display: none;
 }
-/* line 178, ../sass/forms/_news_submission_form.scss */
+/* line 177, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newsfile3-0--description {
   display: none;
 }
-/* line 182, ../sass/forms/_news_submission_form.scss */
+/* line 181, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newsfile4-0--description {
   display: none;
 }
-/* line 186, ../sass/forms/_news_submission_form.scss */
+/* line 185, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newssubmitterphone-0-value {
   display: block;
 }
-/* line 190, ../sass/forms/_news_submission_form.scss */
+/* line 189, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #block-news-form-add h2.block-title {
   display: none !important;
 }
-/* line 194, ../sass/forms/_news_submission_form.scss */
+/* line 193, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newsexpirydate-0 div.panel-heading {
   background-color: white;
   font-size: 24px;
   font-weight: bold;
 }
-/* line 200, ../sass/forms/_news_submission_form.scss */
+/* line 199, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page .tabbable.tabs-left.vertical-tabs.clearfix {
   display: none !important;
 }
@@ -514,42 +509,42 @@ body.user-anonymous #node-empl-form #edit-footer {
   display: none !important;
 }
 /* line 15, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.user-anonymous.employment-opportunity-request-form-page div.alert.alert-danger.alert-dismissible.mrgn-tp-md.mrgn-bttm-md ul.item-list__comma-list li:before {
+body.user-anonymous.employment-opportunity-request-form-page.i18n-en div.alert.alert-danger.alert-dismissible.mrgn-tp-md.mrgn-bttm-md ul.item-list__comma-list li:before {
   content: "\A Error: ";
   white-space: pre;
 }
 /* line 20, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.user-anonymous.employment-opportunity-request-form-page.i18n-fr div.alert.alert-danger.alert-dismissible.mrgn-tp-md.mrgn-bttm-md ul.item-list__comma-list li:before {
+  content: "\A Erreurs: ";
+  white-space: pre;
+}
+/* line 25, ../sass/forms/_employmentopportunity_submission_form.scss */
 body.user-anonymous.employment-opportunity-request-form-page div.form-item.js-form-item.form-type-textarea.js-form-type-textarea.form-item-body-etuf-en-0-summary.js-form-item-body-etuf-en-0-summary.form-group {
   display: none !important;
 }
-/* line 24, ../sass/forms/_employmentopportunity_submission_form.scss */
+/* line 29, ../sass/forms/_employmentopportunity_submission_form.scss */
 body.user-anonymous.employment-opportunity-request-form-page div.form-item.js-form-item.form-type-textarea.js-form-type-textarea.form-item-body-etuf-fr-0-summary.js-form-item-body-etuf-fr-0-summary.form-group {
   display: none !important;
 }
-/* line 28, ../sass/forms/_employmentopportunity_submission_form.scss */
+/* line 33, ../sass/forms/_employmentopportunity_submission_form.scss */
 body.user-anonymous.employment-opportunity-request-form-page span.field-edit-link button.link.link-edit-summary.btn.btn-default.btn-xs.pull-right {
   display: none !important;
 }
-/* line 32, ../sass/forms/_employmentopportunity_submission_form.scss */
+/* line 37, ../sass/forms/_employmentopportunity_submission_form.scss */
 body.user-anonymous.employment-opportunity-request-form-page div.form-item.js-form-item.form-type-vertical-tabs.js-form-type-vertical-tabs.form-item-.js-form-item-.form-no-label.form-group {
   display: none !important;
 }
-/* line 37, ../sass/forms/_employmentopportunity_submission_form.scss */
+/* line 42, ../sass/forms/_employmentopportunity_submission_form.scss */
 body.user-anonymous.role-is-anonymous.employment-opportunity-request-form-page div#edit-actions {
   position: relative;
 }
-/* line 41, ../sass/forms/_employmentopportunity_submission_form.scss */
+/* line 46, ../sass/forms/_employmentopportunity_submission_form.scss */
 body.user-anonymous.role-is-anonymous.employment-opportunity-request-form-page div#edit-actions .preview-wrapper {
   position: relative;
-}
-/* line 45, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.user-anonymous.role-is-anonymous.employment-opportunity-request-form-page button#edit-submit {
-  position: absolute;
-  top: 640px !important;
-  min-width: 36px;
+  padding-bottom: 15px;
 }
 /* line 51, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.user-anonymous.role-is-anonymous.employment-opportunity-request-form-page button#edit-preview {
+body.user-anonymous.role-is-anonymous.employment-opportunity-request-form-page button#edit-submit, body.user-anonymous.role-is-anonymous.employment-opportunity-request-form-page button#edit-preview {
   background-color: #1b6c1c;
   border-color: #071a07;
   color: #fff;
