@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.empl.field_issued
     - field.field.node.empl.field_keywords
     - field.field.node.empl.field_locations
+    - field.field.node.empl.field_meta_tags
     - field.field.node.empl.field_meta_type
     - field.field.node.empl.field_modified
     - field.field.node.empl.field_name
@@ -26,7 +27,7 @@ dependencies:
     - field.field.node.empl.field_type
     - field.field.node.empl.layout_selection
     - node.type.empl
-    - workflows.workflow.publishing
+    - workflows.workflow.editorial
   module:
     - content_moderation
     - datetime
@@ -405,6 +406,7 @@ content:
 hidden:
   created: true
   field_issued: true
+  field_meta_tags: true
   field_modified: true
   langcode: true
   path: true
