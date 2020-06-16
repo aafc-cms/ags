@@ -1,0 +1,9 @@
+# idol_feed_api endpoints
+
+idol_feed_api.get:
+  path: 'idol_feed_api/search'
+  defaults: { _controller: '\Drupal\idol_feed_api\Controller\idol_feed_api_Controller::get_content' }
+  methods:  [GET]
+  requirements:
+    _access: 'TRUE'
+
