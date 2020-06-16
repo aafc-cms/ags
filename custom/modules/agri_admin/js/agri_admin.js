@@ -51,7 +51,7 @@
             '<label for="menu-disabled-links-switch" class="show-disabled"> ' + Drupal.t('Hide disabled items') + '</label>' +
             '</form>';
             $('div.region-content .tabledrag-toggle-weight-wrapper').prepend(disabledMenuLinkHtml);
-            $('table#menu-overview tr.menu-disabled').each(function(e, index) {
+            $('table#menu-overview tr.menu-disabled').each(function(index, element) {
               $(this).hide();
             });
             $('#menu-disabled-links-switch label.hide-disabled').hide();
@@ -136,6 +136,7 @@
 
 var Agrisource = function() {
   var initialized = false;   // Flag to indicate that this class has been initialized
+  var form_required_valid = true; // Flag to indicate that the validation is for the News and EO forms
   var lang = 'en';           // Will be 'en' or 'fr' regardless of how the url segment is formed (currently eng or fra)
   var mouse = {x:0, y:0};    // Tracks the mouse position
   var page_type = 'content';
@@ -203,12 +204,11 @@ var Agrisource = function() {
     ) {
       setLayoutDefaults();
     }
-    previewInNewTab();
     $(document).on('mousemove', onMouseMove);
 
     //remove the data-toggle from the links anchors in main navigation for media or large devices
 
-    $('.alert a.access-unpublished').each(function() {
+    $('.alert a.access-unpublished').each(function(index, element) {
       if ($(this).hasClass('access-unpublished')) {
         // Add a copy-link icon to the unpublished link, if one exists
         var access_link = $('a.access-unpublished');
@@ -225,25 +225,6 @@ var Agrisource = function() {
     initialized = true;
   }
 
-  /**
-   * Set up preview in new tab.
-   */
-  function previewInNewTab() {
-    if (Agrisource.page_type == 'add-empl-special' || Agrisource.page_type == 'add-news-special') {
-      jQuery('#edit-preview').on('mouseover', function(e){
-        jQuery('.node-form').attr('target', '_blank');
-      });
-      jQuery('#edit-preview').on('mouseout', function(e){
-        jQuery('.node-form').removeAttr('target');
-      });
-      jQuery('#edit-preview').on('click', function(e){
-        jQuery('.node-form').attr('data-drupal-form-submit-last', '');
-      });
-      jQuery('#edit-submit').on('mouseover', function(e){
-        jQuery('.node-form').attr('data-drupal-form-submit-last', '');
-      });
-    }
-  }
 
   /**
    * Keep track of mouse movements.
