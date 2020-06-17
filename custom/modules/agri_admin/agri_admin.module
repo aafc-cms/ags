@@ -10,7 +10,7 @@ use Drupal\agri_admin\AgriAdminHelper;
  */
 function agri_admin_preprocess_html(&$variables) {
   $current_path = \Drupal::service('path.current')->getPath();
-  $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $current_path = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
   $variables['current_path'] = $current_path;
   $clean_path = preg_replace( '/[\W]/', '', $variables['current_path']);
@@ -27,6 +27,17 @@ function agri_admin_preprocess_html(&$variables) {
   $roles = $current_user->getRoles();
   foreach ($roles as $rolename) {
     $variables['attributes']['class'][] = 'role-is-' . $rolename;
+  }
+  $path = \Drupal::request()->getpathInfo();
+  $arg  = explode('/',$path);
+  if ($arg[0] == $langcode && isset($arg[2])) {
+    $first_two_elements = $arg[1] . '-' . $arg[2];
+  }
+  if ($arg[1] == $langcode && isset($arg[3])) {
+    $first_two_elements = $arg[2] . '-' . $arg[3];
+  }
+  if (isset($first_two_elements)) {
+    $variables['attributes']['class'][] = $first_two_elements;
   }
 }
 
@@ -364,7 +375,7 @@ function agri_admin_form_node_news_form_alter(&$form, \Drupal\Core\Form\FormStat
   if (\Drupal::currentUser()->isAnonymous()) {
     $form['actions']['preview']['#weight'] = -99;
     // See js/agri-empl-or-news-submit.js previewInNewTab().
-    $form['#attached']['library'][] = 'agri_admin/agri-empl-news-submit'; // For news submit.
+    $form['#attached']['library'][] = 'agri_admin/agri-empl-news-submit'; // For empl submit.
     $form['actions']['#weight'] = 10;
     $form['actions']['submit']['#value'] = t('Submit'); 
     $form['#attributes']['target'] = '_blank';

@@ -12,7 +12,7 @@
    */
   Drupal.behaviors.agriAdminValidation = {
     attach: function (context, settings) {
-      if ($('.block-formblock').length) {
+      if ($('.block-formblock').length && $('#edit-preview').length) {
         // Only initialize when the formblock becomes available.
         AgriHelper.init();
       }
@@ -40,6 +40,13 @@ var AgriHelper = function() {
     $ = jQuery;
     lang = $('html').attr('lang');
 
+    //Determine the page type
+    if ($('body').hasClass('nodeaddnews')) {
+      AgriHelper.page_type = 'add-news-special';
+    }
+    if ($('body').hasClass('nodeaddempl')) {
+      AgriHelper.page_type = 'add-empl-special';
+    }
     //Determine the page type
     if ($('body').hasClass('employment-opportunity-request-form-page')) {
       AgriHelper.page_type = 'add-empl-special';
@@ -92,14 +99,24 @@ var AgriHelper = function() {
     if (AgriHelper.page_type == 'add-empl-special' || AgriHelper.page_type == 'add-news-special') {
       jQuery('#edit-preview').on('mousedown', function(e){
         formRequiredFieldsValidation();
+        if (AgriHelper.form_required_valid == true ) {
+          jQuery('.node-form').attr('target', '_blank');
+        }
+        else {
+          jQuery('.node-form').removeAttr('target');
+          jQuery('.node-form').attr('data-drupal-form-submit-last', '');
+          jQuery('.node-form').attr('data-drupal-form-field', '');
+        }
       });
 
-      jQuery('#edit-preview').on('mouseover', function(e){
+      jQuery('#edit-preview, #edit-preview span').on('mouseover', function(e){
+        formRequiredFieldsValidation();
         if (AgriHelper.form_required_valid == true ) {
-          formRequiredFieldsValidation();
-          if (AgriHelper.form_required_valid == true ) {
-            jQuery('.node-form').attr('target', '_blank');
-          }
+          jQuery('.node-form').attr('target', '_blank');
+        }
+        else {
+          jQuery('.node-form').removeAttr('target');
+          jQuery('.node-form').attr('data-drupal-form-submit-last', '');
         }
       });
 
@@ -108,44 +125,62 @@ var AgriHelper = function() {
       });
 
       jQuery('#edit-preview').on('click', function(e){
-        handleSubmitAndPreviewClickEvent(e);
+        var element = $(this);
+        handlePreviewClickEvent(element, e);
       });
 
-      jQuery('#edit-submit').on('mouseover', function(e){
-        console.log('mouse over submit button');
+      jQuery('#edit-submit').on('mousedown', function(e){
         jQuery('.node-form').attr('data-drupal-form-submit-last', '');
       });
 
       jQuery('#edit-submit').on('click', function(e){
-        handleSubmitAndPreviewClickEvent(e);
+        var element = $(this);
+        handleSubmitClickEvent(element, e);
       });
     }
   }
+
 /**
-  * funciton handle button click event to perform classic validation 
+  * Function handles preview button click to perform classic validation
   * and prevent to open new tab when the form validation is false.
-*/
-  function handleSubmitAndPreviewClickEvent(e) {
-     formRequiredFieldsValidation();
-        if (AgriHelper.form_required_valid == false ) {
-          // Trigger the submit click instead.
-          jQuery('.node-form').removeAttr('target');
-          jQuery('#edit-submit').trigger('click');
-          jQuery('.node-form').removeAttr('target');
-          // Reset the validation for form required.
-          AgriHelper.form_required_valid = true;
-          //now suppress mouse click for #edit-preview.
-          e.preventDefault(); // Should only need this.
-          Event.stop(e); // Not sure if we need this.
-          return false;
-        }
-        if (form_required_valid == false ) {
-          Event.stop(e);
-          return false;
-        }
-        AgriHelper.initialize = false;
-        jQuery('.node-form').attr('data-drupal-form-submit-last', '');
+  */
+  function handlePreviewClickEvent(element, e) {
+    console.log('handlePreview click');
+    formRequiredFieldsValidation();
+    if (AgriHelper.form_required_valid == false ) {
+      // Trigger the submit click instead.
+      jQuery('.node-form').removeAttr('target');
+      jQuery('.node-form').attr('data-drupal-form-submit-last', '');
+      jQuery('.node-form').attr('data-drupal-form-fields', '');
+      jQuery('#edit-submit').trigger('click');
+      // Reset the validation for form required.
+      AgriHelper.form_required_valid = true;
+      //now suppress mouse click for #edit-preview.
+      e.preventDefault(); // Should only need this.
+      return false;
+    }
+    if ($(element).val() != 'Preview') {
+      jQuery('.node-form').removeAttr('target');
+      jQuery('.node-form').attr('data-drupal-form-submit-last', '');
+      jQuery('.node-form').attr('data-drupal-form-fields', '');
+    }
   }
+
+/**
+  * Function handles button click event to perform classic validation
+  * and prevent to open new tab when the form validation is false.
+  */
+  function handleSubmitClickEvent(element, e) {
+    console.log('handleSubmit click');
+    formRequiredFieldsValidation();
+    if (AgriHelper.form_required_valid == false ) {
+      // Trigger the submit click instead.
+      jQuery('.node-form').removeAttr('target');
+      // Reset the validation for form required.
+      AgriHelper.form_required_valid = true;
+    }
+  }
+
   /**
    * Expose functions and variables
    */
@@ -153,6 +188,8 @@ var AgriHelper = function() {
     init: init,
     lang: lang,
     form_required_valid: form_required_valid,
+    handleSubmitClickEvent: handleSubmitClickEvent,
+    handlePreviewClickEvent: handlePreviewClickEvent,
     page_type: page_type,
   }
 }();
