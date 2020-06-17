@@ -16,6 +16,11 @@
         // Only initialize when the formblock becomes available.
         AgriHelper.init();
       }
+      else if ($('body').hasClass('node-add') &&
+        $('body').hasClass('role-is-anonymous') &&
+        $('#edit-preview').length ) {
+        AgriHelper.init();
+      }
     }
   };
 
@@ -82,9 +87,13 @@ var AgriHelper = function() {
           return AgriHelper.form_required_valid;
         }
       }
-    });
-    $('input[required="required"]').each(function(index, element) {
       if ($(element).hasClass('form-date')) {
+        if ($(element).val().length == 0) {
+          AgriHelper.form_required_valid = false;
+          return AgriHelper.form_required_valid;
+        }
+      }
+      if ($(element).hasClass('form-tel')) {
         if ($(element).val().length == 0) {
           AgriHelper.form_required_valid = false;
           return AgriHelper.form_required_valid;
