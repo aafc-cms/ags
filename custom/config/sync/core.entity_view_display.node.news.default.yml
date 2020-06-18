@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.news.field_from
     - field.field.node.news.field_issued
     - field.field.node.news.field_keywords
+    - field.field.node.news.field_meta_tags
     - field.field.node.news.field_meta_type
     - field.field.node.news.field_modified
     - field.field.node.news.field_newsapprovedby
@@ -34,6 +35,7 @@ dependencies:
     - layout_builder
     - layout_builder_restrictions
     - layout_library
+    - metatag
     - options
     - text
     - user
@@ -68,6 +70,13 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_meta_tags:
+    weight: 8
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
     region: content
   field_newsfile1:
     weight: 4

@@ -57,30 +57,57 @@ class idol_feed_api_Controller extends ControllerBase {
          $documentXml->addChild('URI',$requstURL . $node->toUrl()->toString());
          $datatype = $node->type->entity->label();
          switch (strtolower($datatype)) {
+           case "page de base":
            case "basic page":
+           case "page de destination":
            case "landing page":
             $datatype = "gene-gene";
             break;
+           case "titre du poste":
            case "employment opportunity":
+
              $datatype = "empl-empl";
              break;
+           case "nouvelle":
            case "news":
                $datatype = "news-nouv";
                break;
          }
          $documentXml->addChild('DATATYPE',$datatype);
+
+         $metatags = metatag_generate_entity_metatags($node);
+         $dcterms_creator="";
+         $dcterms_description="";
+         foreach ($metatags as $key => $value) {
+           switch (strtolower($key)) {
+             case "dcterms_creator":
+                $dcterms_creator = $value["#attributes"]["content"];
+                break;
+              case "dcterms_description":
+                $dcterms_description = $value["#attributes"]["content"];
+                break;
+              case "keywords":
+                $keywords = $value["#attributes"]["content"];
+
+            }
+          }
+
          $documentXml->addChild('CONTENTTYPE',"text/html");
          $documentXml->addChild('FILE_SYSTEM_MODIFIED_DATE',$node->get('field_modified')->getValue()[0]['value'] );
          $documentXml->addChild('META_MODIFIED_DATE',$node->get('field_modified')->getValue()[0]['value'] );
          $documentXml->addChild('AGRISOURCE_META_DATEMODIFIED',$node->get('field_modified')->getValue()[0]['value'] );
          $documentXml->addChild('AGRISOURCE_META_COVERAGEIDS');
-         $documentXml->addChild('AGRISOURCE_META_DCCREATOR',"Government of Canada; Agriculture and Agri-Food Canada;");
+         $documentXml->addChild('AGRISOURCE_META_DCCREATOR',$dcterms_creator);
 
 
          $targetIds = $node->get('field_meta_type')->getValue();
          $AGRISOURCE_META_AAFCTYPES_id = $this->getTargetIdsAsString($targetIds);
          $documentXml->addChild('AGRISOURCE_META_AAFCTYPEIDS', $AGRISOURCE_META_AAFCTYPES_id);
-         $documentXml->addChild('AGRISOURCE_META_KEYWORDS', $node->get('field_keywords')->value);
+
+         if($keywords==""){
+           $keywords = $node->get('field_keywords')->value;
+         }
+         $documentXml->addChild('AGRISOURCE_META_KEYWORDS', $keywords);
 
          $documentXml->addChild('AGRISOURCE_META_AAFCTYPES', $this->getTermLablesByTargetIds($targetIds, "en"));
 
@@ -90,8 +117,9 @@ class idol_feed_api_Controller extends ControllerBase {
 
          $targetIds = $node->get('layout_selection')->getValue();
          $documentXml->addChild('AGRISOURCE_META_PRESENTATIONTEMPLATETYPE', $this->getTermLablesByTargetIds($targetIds, "en"));
+
          $documentXml->addChild('AGRISOURCE_META_COVERAGES');
-         $documentXml->addChild('AGRISOURCE_META_DESCRIPTION', $node->get('field_description')->value);
+         $documentXml->addChild('AGRISOURCE_META_DESCRIPTION', $dcterms_description);
          $documentXml->addChild('AGRISOURCE_META_SUBJECTIDS', $AGRISOURCE_META_SUBJECTS_id);
          $documentXml->addChild('CONTENT', $node->get('body')->value);
          $documentXml->addChild('EXTERNALURL');
@@ -115,16 +143,38 @@ class idol_feed_api_Controller extends ControllerBase {
           //$DATATYPE = $trnode->type->entity->label();
 
           $documentXmlFr->addChild('DATATYPE',$datatype);
+
+          $metatags = metatag_generate_entity_metatags($trnode);
+          $dcterms_creator="";
+          $dcterms_description="";
+          $keywords="";
+          foreach ($metatags as $key => $value) {
+            switch (strtolower($key)) {
+              case "dcterms_creator":
+                 $dcterms_creator = $value["#attributes"]["content"];
+                 break;
+               case "dcterms_description":
+                 $dcterms_description = $value["#attributes"]["content"];
+                 break;
+               case "keywords":
+                 $keywords = $value["#attributes"]["content"];
+             }
+           }
+
           $documentXmlFr->addChild('CONTENTTYPE',"text/html");
           $documentXmlFr->addChild('FILE_SYSTEM_MODIFIED_DATE',$trnode->get('field_modified')->getValue()[0]['value'] );
           $documentXmlFr->addChild('META_MODIFIED_DATE',$trnode->get('field_modified')->getValue()[0]['value'] );
           $documentXmlFr->addChild('AGRISOURCE_META_DATEMODIFIED',$trnode->get('field_modified')->getValue()[0]['value'] );
           $documentXmlFr->addChild('AGRISOURCE_META_COVERAGEIDS');
-          $documentXmlFr->addChild('AGRISOURCE_META_DCCREATOR',"Gouvernement du Canada; Agriculture et Agroalimentaire Canada;");
+          $documentXmlFr->addChild('AGRISOURCE_META_DCCREATOR',$dcterms_creator);
           $targetIds = $node->get('field_meta_type')->getValue();
           $AGRISOURCE_META_AAFCTYPES_id = $this->getTargetIdsAsString($targetIds);
           $documentXmlFr->addChild('AGRISOURCE_META_AAFCTYPEIDS', $AGRISOURCE_META_AAFCTYPES_id);
-          $documentXmlFr->addChild('AGRISOURCE_META_KEYWORDS', $trnode->get('field_keywords')->value);
+
+          if($keywords==""){
+            $keywords = $trnode->get('field_keywords')->value;
+          }
+          $documentXmlFr->addChild('AGRISOURCE_META_KEYWORDS', $keywords);
 
           $documentXmlFr->addChild('AGRISOURCE_META_AAFCTYPES', $this->getTermLablesByTargetIds($targetIds, "fr"));
 
@@ -136,7 +186,7 @@ class idol_feed_api_Controller extends ControllerBase {
           $documentXmlFr->addChild('AGRISOURCE_META_PRESENTATIONTEMPLATETYPE', $this->getTermLablesByTargetIds($targetIds, "fr"));
 
           $documentXmlFr->addChild('AGRISOURCE_META_COVERAGES');
-          $documentXmlFr->addChild('AGRISOURCE_META_DESCRIPTION', $trnode->get('field_description')->value);
+          $documentXmlFr->addChild('AGRISOURCE_META_DESCRIPTION', $dcterms_description);
           $documentXmlFr->addChild('AGRISOURCE_META_SUBJECTIDS', $AGRISOURCE_META_SUBJECTS_id);
           $documentXmlFr->addChild('CONTENT', $trnode->get('body')->value);
           $documentXmlFr->addChild('EXTERNALURL');

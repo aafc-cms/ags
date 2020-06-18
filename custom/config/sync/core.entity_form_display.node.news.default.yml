@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.news.field_from
     - field.field.node.news.field_issued
     - field.field.node.news.field_keywords
+    - field.field.node.news.field_meta_tags
     - field.field.node.news.field_meta_type
     - field.field.node.news.field_modified
     - field.field.node.news.field_newsapprovedby
@@ -28,7 +29,7 @@ dependencies:
     - field.field.node.news.field_to
     - field.field.node.news.layout_selection
     - node.type.news
-    - workflows.workflow.publishing
+    - workflows.workflow.editorial
   module:
     - content_moderation
     - datetime
@@ -412,6 +413,7 @@ content:
 hidden:
   created: true
   field_issued: true
+  field_meta_tags: true
   field_modified: true
   langcode: true
   path: true
