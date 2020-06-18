@@ -34,7 +34,7 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /node/add/news
+    pages: "/node/add/news*\r\nnode/add/news/*\r\n/submit-article-news-work\r\n/soumettre-un-article-nouvelles-au-travail\r\n/news/newswork/submit-article-newswork\r\n/nouvelles/nouvelleslouvrage/soumission-dun-article-pour-nouvelleslouvrage"
     negate: false
     context_mapping: {  }
   user_role:
