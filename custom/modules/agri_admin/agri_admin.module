@@ -375,11 +375,11 @@ function agri_admin_form_node_news_form_alter(&$form, \Drupal\Core\Form\FormStat
   if (\Drupal::currentUser()->isAnonymous()) {
     $form['actions']['preview']['#weight'] = -99;
     // See js/agri-empl-or-news-submit.js previewInNewTab().
-    $form['#attached']['library'][] = 'agri_admin/agri-empl-news-submit'; // For empl submit.
+    //$form['#attached']['library'][] = 'agri_admin/agri-empl-news-submit'; // For empl submit.
     $form['actions']['#weight'] = 10;
     $form['actions']['submit']['#value'] = t('Submit'); 
-    $form['#attributes']['target'] = '_blank';
-    $form['#attributes']['novalidate'] = 'novalidate';
+    //$form['#attributes']['target'] = '_blank';
+    //$form['#attributes']['novalidate'] = 'novalidate';
   }
 }
 
@@ -390,10 +390,10 @@ function agri_admin_form_node_empl_form_alter(&$form, \Drupal\Core\Form\FormStat
   if (\Drupal::currentUser()->isAnonymous()) {
     $form['actions']['preview']['#weight'] = -99;
     // See js/agri-empl-or-news-submit.js previewInNewTab().
-    $form['#attached']['library'][] = 'agri_admin/agri-empl-news-submit'; // For empl submit.
+    //$form['#attached']['library'][] = 'agri_admin/agri-empl-news-submit'; // For empl submit.
     $form['actions']['#weight'] = 5;
     $form['actions']['submit']['#value'] = t('Submit Request');
-    $form['#attributes']['target'] = '_blank';
-    $form['#attributes']['novalidate'] = 'novalidate';
+    //$form['#attributes']['target'] = '_blank';
+    //$form['#attributes']['novalidate'] = 'novalidate';
   }
 }
