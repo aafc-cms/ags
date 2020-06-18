@@ -86,7 +86,15 @@ if [ ! -L html/sites/default/files/splashimages ]; then
   ln -s ../../../../custom/splash/sites/default/files/splashimages splashimages
   popd;
 fi
-cp html/libraries/theme-gc-intranet/css/theme.css html/libraries/theme-gc-intranet/css/theme.min.css
+
+if [ $live -eq 1 ]; then
+  echo "Do not use minified css";
+else
+  #Use minified theme.min.css.
+  #cp html/libraries/theme-gc-intranet/css/theme.css html/libraries/theme-gc-intranet/css/theme.min.css
+  # Uncomment the above line if needing the source css for the gc intranet theme library css.
+  echo "Use the minified css in dev (for now)."
+fi
 
 dbSetupTest=0
 
