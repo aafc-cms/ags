@@ -5,9 +5,11 @@ dependencies:
   config:
     - page_manager.page.moderation_dashboard
     - views.view.content_moderation_dashboard_in_review
+    - views.view.moderation_dashboard_emp_opp_content
     - views.view.moderation_dashboard_in_draft
     - views.view.moderation_dashboard_locked_content
     - views.view.moderation_dashboard_my_content_in_review
+    - views.view.moderation_dashboard_news_content
     - views.view.moderation_dashboard_recent_changes
   enforced:
     module:
@@ -30,7 +32,7 @@ variant_settings:
       views_label: ''
       items_per_page: none
       region: left
-      weight: -3
+      weight: -6
       uuid: 810cd29f-e1c6-46ec-9eaa-dec914cfd4f4
       context_mapping: {  }
     1fbb2fbb-d06a-4682-8fb3-07b37de946b8:
@@ -52,7 +54,7 @@ variant_settings:
       views_label: ''
       items_per_page: none
       region: middle
-      weight: -2
+      weight: -3
       uuid: cf820386-af3d-4972-ac42-d61956e7c776
       context_mapping: {  }
     7897b564-98cc-4aa2-981f-9a6b30444ebd:
@@ -63,7 +65,7 @@ variant_settings:
       views_label: ''
       items_per_page: none
       region: left
-      weight: -2
+      weight: -3
       uuid: 7897b564-98cc-4aa2-981f-9a6b30444ebd
       context_mapping: {  }
     864eb054-e8e4-432c-902c-3e430be436c2:
@@ -74,7 +76,7 @@ variant_settings:
       views_label: 'My Content Waiting for Review'
       items_per_page: none
       region: middle
-      weight: -6
+      weight: -7
       uuid: 864eb054-e8e4-432c-902c-3e430be436c2
       context_mapping: {  }
     53cbeb2b-ea02-4bf1-9a37-25b049bc8583:
@@ -96,7 +98,7 @@ variant_settings:
       views_label: ''
       items_per_page: none
       region: middle
-      weight: -5
+      weight: -6
       uuid: 7af80867-c94c-4937-b75d-5cbd9073050f
       context_mapping: {  }
     0f29eadf-5708-4a3c-804e-70550bf7ecbf:
@@ -107,7 +109,7 @@ variant_settings:
       views_label: ''
       items_per_page: none
       region: left
-      weight: -4
+      weight: -7
       uuid: 0f29eadf-5708-4a3c-804e-70550bf7ecbf
       context_mapping: {  }
     6f1e3c0a-3baf-4fa7-a976-93cfa256f987:
@@ -118,19 +120,8 @@ variant_settings:
       views_label: ''
       items_per_page: none
       region: left
-      weight: -5
+      weight: -8
       uuid: 6f1e3c0a-3baf-4fa7-a976-93cfa256f987
-      context_mapping: {  }
-    4a337826-ac1d-4917-b70a-f7a81e8219f6:
-      id: 'views_block:content_moderation_dashboard_in_review-block_4'
-      label: ''
-      provider: views
-      label_display: visible
-      views_label: ''
-      items_per_page: none
-      region: left
-      weight: -1
-      uuid: 4a337826-ac1d-4917-b70a-f7a81e8219f6
       context_mapping: {  }
     8546c763-701f-4335-a636-b39661bce800:
       id: 'views_block:moderation_dashboard_my_content_in_review-block_4'
@@ -151,7 +142,7 @@ variant_settings:
       views_label: ''
       items_per_page: none
       region: middle
-      weight: -4
+      weight: -5
       uuid: e5ecc3b5-e177-4a34-a7b6-4ae621977203
       context_mapping: {  }
     7de0a811-74f5-405d-9376-232ce65f78a0:
@@ -162,8 +153,74 @@ variant_settings:
       views_label: 'My Content With Reviewer'
       items_per_page: none
       region: middle
-      weight: -3
+      weight: -4
       uuid: 7de0a811-74f5-405d-9376-232ce65f78a0
+      context_mapping: {  }
+    ae2b9587-c9a2-4845-a487-d69a9d558a32:
+      id: 'views_block:moderation_dashboard_news_content-block_1'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: left
+      weight: -5
+      uuid: ae2b9587-c9a2-4845-a487-d69a9d558a32
+      context_mapping: {  }
+    c8f89f3a-bee8-49c1-bcc3-e96ddee1b8ef:
+      id: 'views_block:moderation_dashboard_news_content-block_2'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: middle
+      weight: -2
+      uuid: c8f89f3a-bee8-49c1-bcc3-e96ddee1b8ef
+      context_mapping: {  }
+    79161744-de86-4d0f-b535-75474b311248:
+      id: 'views_block:moderation_dashboard_news_content-block_3'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: right
+      weight: 0
+      uuid: 79161744-de86-4d0f-b535-75474b311248
+      context_mapping: {  }
+    0c30e8be-31c0-488b-a8d3-c8495db4f000:
+      id: 'views_block:moderation_dashboard_emp_opp_content-block_1'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: left
+      weight: -4
+      uuid: 0c30e8be-31c0-488b-a8d3-c8495db4f000
+      context_mapping: {  }
+    786237f0-829b-4dd4-8d26-b5f24d3bf1a5:
+      id: 'views_block:moderation_dashboard_emp_opp_content-block_2'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: middle
+      weight: 0
+      uuid: 786237f0-829b-4dd4-8d26-b5f24d3bf1a5
+      context_mapping: {  }
+    b6de5adc-eec1-4900-b84b-8b82e0df63c6:
+      id: 'views_block:moderation_dashboard_emp_opp_content-block_3'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: right
+      weight: 0
+      uuid: b6de5adc-eec1-4900-b84b-8b82e0df63c6
       context_mapping: {  }
   id: panels_variant
   uuid: 4267dc51-27a4-4f19-bb07-19fe044527fa
