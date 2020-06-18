@@ -37,7 +37,7 @@ body.user-anonymous {
     display: none !important;
   }
 
-  &.role-is-anonymous.news-article-form-page {
+  &.role-is-anonymous.news-article-form-page, &.nodeaddnews.role-is-anonymous {
     div#edit-actions {
       position: relative;
     }
@@ -83,7 +83,16 @@ body.page-node-type-news {
   }
 }
 
-body.news-article-form-page {
+body.nodeaddnews.role-is-anonymous.node-add {
+  #wb-cont {    
+    display: none;
+  }
+  #block-cutomblock-submitarticlefornewsatwork .block-title {
+    font-size: 34px !important;
+  }
+}
+
+body.news-article-form-page, body.nodeaddnews.role-is-anonymous.node-add {
   .help-block {
     font-size: 16px;
     color: #333;
