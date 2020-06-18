@@ -15,7 +15,6 @@
  * @ingroup templates
  */
 #}
-
 {% import _self as menus %}
 
 {#
@@ -23,7 +22,7 @@
   @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
 {% if language_prefix == 'en' %}
-<div class="show-this footer-menus-div">
+<div class="show-this mrgn-lft-lg">
   {{ menus.menu_links(items, attributes, 0, menu_name|clean_class) }}
 </div>
 <ul id="gc-tctr" class="col-sm-12 list-inline">
