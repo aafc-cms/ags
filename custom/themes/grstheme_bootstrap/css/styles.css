@@ -311,124 +311,123 @@ body.user-anonymous #node-news-form #edit-footer {
   display: none !important;
 }
 /* line 15, ../sass/forms/_news_submission_form.scss */
-body.user-anonymous.news-article-form-page.i18n-en div.alert.alert-danger.alert-dismissible.mrgn-tp-md.mrgn-bttm-md ul.item-list__comma-list li:before {
-  content: "\A Error: ";
-  white-space: pre;
-}
-/* line 20, ../sass/forms/_news_submission_form.scss */
-body.user-anonymous.news-article-form-page.i18n-fr div.alert.alert-danger.alert-dismissible.mrgn-tp-md.mrgn-bttm-md ul.item-list__comma-list li:before {
-  content: "\A Erreur: ";
-  white-space: pre;
-}
-/* line 24, ../sass/forms/_news_submission_form.scss */
 body.user-anonymous.news-article-form-page div.form-item.js-form-item.form-type-textarea.js-form-type-textarea.form-item-body-etuf-en-0-summary.js-form-item-body-etuf-en-0-summary.form-group {
   display: none !important;
 }
-/* line 28, ../sass/forms/_news_submission_form.scss */
+/* line 19, ../sass/forms/_news_submission_form.scss */
 body.user-anonymous.news-article-form-page div.form-item.js-form-item.form-type-textarea.js-form-type-textarea.form-item-body-etuf-fr-0-summary.js-form-item-body-etuf-fr-0-summary.form-group {
   display: none !important;
 }
-/* line 32, ../sass/forms/_news_submission_form.scss */
+/* line 23, ../sass/forms/_news_submission_form.scss */
 body.user-anonymous.news-article-form-page span.field-edit-link button.link.link-edit-summary.btn.btn-default.btn-xs.pull-right {
   display: none !important;
 }
-/* line 36, ../sass/forms/_news_submission_form.scss */
+/* line 27, ../sass/forms/_news_submission_form.scss */
 body.user-anonymous #edit-field-newsexpirydate-0 {
   display: none !important;
 }
-/* line 41, ../sass/forms/_news_submission_form.scss */
-body.user-anonymous.role-is-anonymous.news-article-form-page div#edit-actions {
+/* line 32, ../sass/forms/_news_submission_form.scss */
+body.user-anonymous.role-is-anonymous.news-article-form-page div#edit-actions, body.user-anonymous.nodeaddnews.role-is-anonymous div#edit-actions {
   position: relative;
 }
-/* line 45, ../sass/forms/_news_submission_form.scss */
-body.user-anonymous.role-is-anonymous.news-article-form-page div#edit-actions .preview-wrapper {
+/* line 36, ../sass/forms/_news_submission_form.scss */
+body.user-anonymous.role-is-anonymous.news-article-form-page div#edit-actions .preview-wrapper, body.user-anonymous.nodeaddnews.role-is-anonymous div#edit-actions .preview-wrapper {
   position: relative;
   padding-bottom: 15px;
 }
-/* line 50, ../sass/forms/_news_submission_form.scss */
-body.user-anonymous.role-is-anonymous.news-article-form-page button#edit-submit, body.user-anonymous.role-is-anonymous.news-article-form-page button#edit-preview {
+/* line 41, ../sass/forms/_news_submission_form.scss */
+body.user-anonymous.role-is-anonymous.news-article-form-page button#edit-submit, body.user-anonymous.role-is-anonymous.news-article-form-page button#edit-preview, body.user-anonymous.nodeaddnews.role-is-anonymous button#edit-submit, body.user-anonymous.nodeaddnews.role-is-anonymous button#edit-preview {
   background-color: #1b6c1c;
   border-color: #071a07;
   color: #fff;
 }
-/* line 56, ../sass/forms/_news_submission_form.scss */
-body.user-anonymous.role-is-anonymous.news-article-form-page #block-grstheme-bootstrap-sharewidgetblock, body.user-anonymous.role-is-anonymous.news-article-form-page #block-grstheme-bootstrap-reportproblemblock {
+/* line 47, ../sass/forms/_news_submission_form.scss */
+body.user-anonymous.role-is-anonymous.news-article-form-page #block-grstheme-bootstrap-sharewidgetblock, body.user-anonymous.role-is-anonymous.news-article-form-page #block-grstheme-bootstrap-reportproblemblock, body.user-anonymous.nodeaddnews.role-is-anonymous #block-grstheme-bootstrap-sharewidgetblock, body.user-anonymous.nodeaddnews.role-is-anonymous #block-grstheme-bootstrap-reportproblemblock {
   padding-top: 35px !important;
 }
 
-/* line 62, ../sass/forms/_news_submission_form.scss */
+/* line 53, ../sass/forms/_news_submission_form.scss */
 body.page-node-type-news {
   /* field title float left class */
 }
-/* line 64, ../sass/forms/_news_submission_form.scss */
+/* line 55, ../sass/forms/_news_submission_form.scss */
 body.page-node-type-news .field--name-field-posted .field--label,
 body.page-node-type-news .field--name-field-to .field--label,
 body.page-node-type-news .field--name-field-from .field--label {
   float: left;
 }
-/* line 70, ../sass/forms/_news_submission_form.scss */
+/* line 61, ../sass/forms/_news_submission_form.scss */
 body.page-node-type-news .field--name-field-posted .field--label::after,
 body.page-node-type-news .field--name-field-to .field--label::after,
 body.page-node-type-news .field--name-field-from .field--label::after {
   content: '\00a0\00a0';
 }
-/* line 76, ../sass/forms/_news_submission_form.scss */
+/* line 67, ../sass/forms/_news_submission_form.scss */
 body.page-node-type-news .field--name-body .field--label {
   display: none;
 }
-/* line 80, ../sass/forms/_news_submission_form.scss */
+/* line 71, ../sass/forms/_news_submission_form.scss */
 body.page-node-type-news .field--name-body.field--type-text-with-summary.field--label-above.quickedit-field .field--item::before {
   content: "\A";
   white-space: pre;
 }
 
+/* line 78, ../sass/forms/_news_submission_form.scss */
+body.nodeaddnews.role-is-anonymous.node-add #wb-cont {
+  display: none;
+}
+/* line 81, ../sass/forms/_news_submission_form.scss */
+body.nodeaddnews.role-is-anonymous.node-add #block-cutomblock-submitarticlefornewsatwork .block-title {
+  font-size: 34px !important;
+}
+
 /* line 87, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page .help-block {
+body.news-article-form-page .help-block, body.nodeaddnews.role-is-anonymous.node-add .help-block {
   font-size: 16px;
   color: #333;
 }
 /* line 92, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-actions, body.news-article-form-page #edit-footer {
+body.news-article-form-page #edit-actions, body.news-article-form-page #edit-footer, body.nodeaddnews.role-is-anonymous.node-add #edit-actions, body.nodeaddnews.role-is-anonymous.node-add #edit-footer {
   padding-left: 15px;
 }
 /* line 96, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page .preview-wrapper {
+body.news-article-form-page .preview-wrapper, body.nodeaddnews.role-is-anonymous.node-add .preview-wrapper {
   padding-top: 15px;
 }
 /* line 100, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page .preview-helptext-paragraph {
+body.news-article-form-page .preview-helptext-paragraph, body.nodeaddnews.role-is-anonymous.node-add .preview-helptext-paragraph {
   float: right;
 }
 /* line 104, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page .submit-helptext-paragraph {
+body.news-article-form-page .submit-helptext-paragraph, body.nodeaddnews.role-is-anonymous.node-add .submit-helptext-paragraph {
   float: right !important;
 }
 /* line 108, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-moderation-state-0 .select-wrapper::after {
+body.news-article-form-page #edit-moderation-state-0 .select-wrapper::after, body.nodeaddnews.role-is-anonymous.node-add #edit-moderation-state-0 .select-wrapper::after {
   right: 84%;
 }
 /* line 112, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-moderation-state-etuf-fr-0 .select-wrapper::after {
+body.news-article-form-page #edit-moderation-state-etuf-fr-0 .select-wrapper::after, body.nodeaddnews.role-is-anonymous.node-add #edit-moderation-state-etuf-fr-0 .select-wrapper::after {
   right: 84%;
 }
 /* line 116, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page .btn.icon-before .glyphicon {
+body.news-article-form-page .btn.icon-before .glyphicon, body.nodeaddnews.role-is-anonymous.node-add .btn.icon-before .glyphicon {
   min-height: 20px;
 }
 /* line 120, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page.i18n-en .field--type-entity-reference .select-wrapper:after {
+body.news-article-form-page.i18n-en .field--type-entity-reference .select-wrapper:after, body.nodeaddnews.role-is-anonymous.node-add.i18n-en .field--type-entity-reference .select-wrapper:after {
   right: 78% !important;
 }
 /* line 124, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page.i18n-en .field--type-list-string .select-wrapper:after {
+body.news-article-form-page.i18n-en .field--type-list-string .select-wrapper:after, body.nodeaddnews.role-is-anonymous.node-add.i18n-en .field--type-list-string .select-wrapper:after {
   right: 80.5% !important;
 }
 /* line 128, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page.i18n-fr .field--type-entity-reference .select-wrapper:after {
+body.news-article-form-page.i18n-fr .field--type-entity-reference .select-wrapper:after, body.nodeaddnews.role-is-anonymous.node-add.i18n-fr .field--type-entity-reference .select-wrapper:after {
   right: 71% !important;
 }
 /* line 132, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page.i18n-fr .field--type-list-string .select-wrapper:after {
+body.news-article-form-page.i18n-fr .field--type-list-string .select-wrapper:after, body.nodeaddnews.role-is-anonymous.node-add.i18n-fr .field--type-list-string .select-wrapper:after {
   right: 80.5% !important;
 }
 /* line 137, ../sass/forms/_news_submission_form.scss */
@@ -436,7 +435,11 @@ body.news-article-form-page #edit-group-newsreviewerandapprover div a.panel-titl
 body.news-article-form-page #edit-group-newsposteddate div a.panel-title, body.news-article-form-page #edit-group-newsarticle div a.panel-title,
 body.news-article-form-page #edit-group-newssentby div a.panel-title, body.news-article-form-page #edit-group-newsarticleheadline div a.panel-title,
 body.news-article-form-page #edit-group-aboutarticle div a.panel-title, body.news-article-form-page #edit-group-newstranslationreqnum div a.panel-title,
-body.news-article-form-page #edit-group-newsnotes div a.panel-title, body.news-article-form-page #edit-group-newsattachedfiles div a.panel-title {
+body.news-article-form-page #edit-group-newsnotes div a.panel-title, body.news-article-form-page #edit-group-newsattachedfiles div a.panel-title, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsreviewerandapprover div a.panel-title, body.nodeaddnews.role-is-anonymous.node-add #edit-group-submitter-s-contact-inform div a.panel-title,
+body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsposteddate div a.panel-title, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsarticle div a.panel-title,
+body.nodeaddnews.role-is-anonymous.node-add #edit-group-newssentby div a.panel-title, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsarticleheadline div a.panel-title,
+body.nodeaddnews.role-is-anonymous.node-add #edit-group-aboutarticle div a.panel-title, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newstranslationreqnum div a.panel-title,
+body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsnotes div a.panel-title, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsattachedfiles div a.panel-title {
   pointer-events: none;
   cursor: default;
   text-decoration: none;
@@ -449,7 +452,11 @@ body.news-article-form-page #edit-group-newsreviewerandapprover.panel-default, b
 body.news-article-form-page #edit-group-newsposteddate.panel-default, body.news-article-form-page #edit-group-newsarticle.panel-default,
 body.news-article-form-page #edit-group-newssentby.panel-default, body.news-article-form-page #edit-group-newsarticleheadline.panel-default,
 body.news-article-form-page #edit-group-aboutarticle.panel-default, body.news-article-form-page #edit-group-newstranslationreqnum.panel-default,
-body.news-article-form-page #edit-group-newsnotes.panel-default, body.news-article-form-page #edit-group-newsattachedfiles.panel-default {
+body.news-article-form-page #edit-group-newsnotes.panel-default, body.news-article-form-page #edit-group-newsattachedfiles.panel-default, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsreviewerandapprover.panel-default, body.nodeaddnews.role-is-anonymous.node-add #edit-group-submitter-s-contact-inform.panel-default,
+body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsposteddate.panel-default, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsarticle.panel-default,
+body.nodeaddnews.role-is-anonymous.node-add #edit-group-newssentby.panel-default, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsarticleheadline.panel-default,
+body.nodeaddnews.role-is-anonymous.node-add #edit-group-aboutarticle.panel-default, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newstranslationreqnum.panel-default,
+body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsnotes.panel-default, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsattachedfiles.panel-default {
   border-color: white;
 }
 /* line 159, ../sass/forms/_news_submission_form.scss */
@@ -457,42 +464,46 @@ body.news-article-form-page #edit-group-newsreviewerandapprover div.panel-headin
 body.news-article-form-page #edit-group-newsposteddate div.panel-heading, body.news-article-form-page #edit-group-newsarticle div.panel-heading,
 body.news-article-form-page #edit-group-newssentby div.panel-heading, body.news-article-form-page #edit-group-newsarticleheadline div.panel-heading,
 body.news-article-form-page #edit-group-aboutarticle div.panel-heading, body.news-article-form-page #edit-group-newstranslationreqnum div.panel-heading,
-body.news-article-form-page #edit-group-newsnotes div.panel-heading, body.news-article-form-page #edit-group-newsattachedfiles div.panel-heading {
+body.news-article-form-page #edit-group-newsnotes div.panel-heading, body.news-article-form-page #edit-group-newsattachedfiles div.panel-heading, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsreviewerandapprover div.panel-heading, body.nodeaddnews.role-is-anonymous.node-add #edit-group-submitter-s-contact-inform div.panel-heading,
+body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsposteddate div.panel-heading, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsarticle div.panel-heading,
+body.nodeaddnews.role-is-anonymous.node-add #edit-group-newssentby div.panel-heading, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsarticleheadline div.panel-heading,
+body.nodeaddnews.role-is-anonymous.node-add #edit-group-aboutarticle div.panel-heading, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newstranslationreqnum div.panel-heading,
+body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsnotes div.panel-heading, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsattachedfiles div.panel-heading {
   border-bottom: 0px;
   padding-bottom: 0px;
 }
 /* line 169, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-field-newsfile1-0--description {
+body.news-article-form-page #edit-field-newsfile1-0--description, body.nodeaddnews.role-is-anonymous.node-add #edit-field-newsfile1-0--description {
   display: none;
 }
 /* line 173, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-field-newsfile2-0--description {
+body.news-article-form-page #edit-field-newsfile2-0--description, body.nodeaddnews.role-is-anonymous.node-add #edit-field-newsfile2-0--description {
   display: none;
 }
 /* line 177, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-field-newsfile3-0--description {
+body.news-article-form-page #edit-field-newsfile3-0--description, body.nodeaddnews.role-is-anonymous.node-add #edit-field-newsfile3-0--description {
   display: none;
 }
 /* line 181, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-field-newsfile4-0--description {
+body.news-article-form-page #edit-field-newsfile4-0--description, body.nodeaddnews.role-is-anonymous.node-add #edit-field-newsfile4-0--description {
   display: none;
 }
 /* line 185, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-field-newssubmitterphone-0-value {
+body.news-article-form-page #edit-field-newssubmitterphone-0-value, body.nodeaddnews.role-is-anonymous.node-add #edit-field-newssubmitterphone-0-value {
   display: block;
 }
 /* line 189, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #block-news-form-add h2.block-title {
+body.news-article-form-page #block-news-form-add h2.block-title, body.nodeaddnews.role-is-anonymous.node-add #block-news-form-add h2.block-title {
   display: none !important;
 }
 /* line 193, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page #edit-field-newsexpirydate-0 div.panel-heading {
+body.news-article-form-page #edit-field-newsexpirydate-0 div.panel-heading, body.nodeaddnews.role-is-anonymous.node-add #edit-field-newsexpirydate-0 div.panel-heading {
   background-color: white;
   font-size: 24px;
   font-weight: bold;
 }
 /* line 199, ../sass/forms/_news_submission_form.scss */
-body.news-article-form-page .tabbable.tabs-left.vertical-tabs.clearfix {
+body.news-article-form-page .tabbable.tabs-left.vertical-tabs.clearfix, body.nodeaddnews.role-is-anonymous.node-add .tabbable.tabs-left.vertical-tabs.clearfix {
   display: none !important;
 }
 
@@ -508,175 +519,203 @@ body.user-anonymous #node-empl-form .vertical-tabs-panes {
 body.user-anonymous #node-empl-form #edit-footer {
   display: none !important;
 }
-/* line 15, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.user-anonymous.employment-opportunity-request-form-page.i18n-en div.alert.alert-danger.alert-dismissible.mrgn-tp-md.mrgn-bttm-md ul.item-list__comma-list li:before {
-  content: "\A Error: ";
-  white-space: pre;
-}
-/* line 20, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.user-anonymous.employment-opportunity-request-form-page.i18n-fr div.alert.alert-danger.alert-dismissible.mrgn-tp-md.mrgn-bttm-md ul.item-list__comma-list li:before {
-  content: "\A Erreur: ";
-  white-space: pre;
-}
-/* line 25, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.user-anonymous.employment-opportunity-request-form-page div.form-item.js-form-item.form-type-textarea.js-form-type-textarea.form-item-body-etuf-en-0-summary.js-form-item-body-etuf-en-0-summary.form-group {
+/* line 16, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.user-anonymous.employment-opportunity-request-form-page div.form-item.js-form-item.form-type-textarea.js-form-type-textarea.form-item-body-etuf-en-0-summary.js-form-item-body-etuf-en-0-summary.form-group, body.user-anonymous.nodeaddempl.role-is-anonymous div.form-item.js-form-item.form-type-textarea.js-form-type-textarea.form-item-body-etuf-en-0-summary.js-form-item-body-etuf-en-0-summary.form-group {
   display: none !important;
 }
-/* line 29, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.user-anonymous.employment-opportunity-request-form-page div.form-item.js-form-item.form-type-textarea.js-form-type-textarea.form-item-body-etuf-fr-0-summary.js-form-item-body-etuf-fr-0-summary.form-group {
+/* line 22, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.user-anonymous.employment-opportunity-request-form-page div.form-item.js-form-item.form-type-textarea.js-form-type-textarea.form-item-body-etuf-fr-0-summary.js-form-item-body-etuf-fr-0-summary.form-group, body.user-anonymous.nodeaddempl.role-is-anonymous div.form-item.js-form-item.form-type-textarea.js-form-type-textarea.form-item-body-etuf-fr-0-summary.js-form-item-body-etuf-fr-0-summary.form-group {
   display: none !important;
 }
-/* line 33, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.user-anonymous.employment-opportunity-request-form-page span.field-edit-link button.link.link-edit-summary.btn.btn-default.btn-xs.pull-right {
+/* line 28, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.user-anonymous.employment-opportunity-request-form-page span.field-edit-link button.link.link-edit-summary.btn.btn-default.btn-xs.pull-right, body.user-anonymous.nodeaddempl.role-is-anonymous span.field-edit-link button.link.link-edit-summary.btn.btn-default.btn-xs.pull-right {
   display: none !important;
 }
-/* line 37, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.user-anonymous.employment-opportunity-request-form-page div.form-item.js-form-item.form-type-vertical-tabs.js-form-type-vertical-tabs.form-item-.js-form-item-.form-no-label.form-group {
+/* line 34, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.user-anonymous.employment-opportunity-request-form-page div.form-item.js-form-item.form-type-vertical-tabs.js-form-type-vertical-tabs.form-item-.js-form-item-.form-no-label.form-group, body.user-anonymous.nodeaddempl.role-is-anonymous div.form-item.js-form-item.form-type-vertical-tabs.js-form-type-vertical-tabs.form-item-.js-form-item-.form-no-label.form-group {
   display: none !important;
 }
-/* line 42, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.user-anonymous.role-is-anonymous.employment-opportunity-request-form-page div#edit-actions {
+/* line 40, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.user-anonymous.role-is-anonymous.employment-opportunity-request-form-page div#edit-actions, body.user-anonymous.nodeaddempl.role-is-anonymous div#edit-actions {
   position: relative;
 }
-/* line 46, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.user-anonymous.role-is-anonymous.employment-opportunity-request-form-page div#edit-actions .preview-wrapper {
+/* line 44, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.user-anonymous.role-is-anonymous.employment-opportunity-request-form-page div#edit-actions .preview-wrapper, body.user-anonymous.nodeaddempl.role-is-anonymous div#edit-actions .preview-wrapper {
   position: relative;
   padding-bottom: 15px;
 }
-/* line 51, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.user-anonymous.role-is-anonymous.employment-opportunity-request-form-page button#edit-submit, body.user-anonymous.role-is-anonymous.employment-opportunity-request-form-page button#edit-preview {
+/* line 49, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.user-anonymous.role-is-anonymous.employment-opportunity-request-form-page button#edit-submit, body.user-anonymous.role-is-anonymous.employment-opportunity-request-form-page button#edit-preview, body.user-anonymous.nodeaddempl.role-is-anonymous button#edit-submit, body.user-anonymous.nodeaddempl.role-is-anonymous button#edit-preview {
   background-color: #1b6c1c;
   border-color: #071a07;
   color: #fff;
 }
-/* line 57, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.user-anonymous.role-is-anonymous.employment-opportunity-request-form-page #block-grstheme-bootstrap-sharewidgetblock, body.user-anonymous.role-is-anonymous.employment-opportunity-request-form-page #block-grstheme-bootstrap-reportproblemblock {
+/* line 55, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.user-anonymous.role-is-anonymous.employment-opportunity-request-form-page #block-grstheme-bootstrap-sharewidgetblock, body.user-anonymous.role-is-anonymous.employment-opportunity-request-form-page #block-grstheme-bootstrap-reportproblemblock, body.user-anonymous.nodeaddempl.role-is-anonymous #block-grstheme-bootstrap-sharewidgetblock, body.user-anonymous.nodeaddempl.role-is-anonymous #block-grstheme-bootstrap-reportproblemblock {
   padding-top: 35px !important;
 }
 
-/* line 64, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.page-node-type-empl {
+/* line 61, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.page-node-type-empl, body.nodeaddempl.role-is-anonymous {
   /* field title float left class */
 }
-/* line 66, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.page-node-type-empl .field--name-field-type .field--label {
+/* line 63, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.page-node-type-empl .field--name-field-type .field--label, body.nodeaddempl.role-is-anonymous .field--name-field-type .field--label {
   float: left;
 }
-/* line 70, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.page-node-type-empl .field--name-field-type .field--item {
+/* line 67, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.page-node-type-empl .field--name-field-type .field--item, body.nodeaddempl.role-is-anonymous .field--name-field-type .field--item {
   float: left;
 }
-/* line 74, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.page-node-type-empl .field--name-field-type .field--label::after {
+/* line 71, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.page-node-type-empl .field--name-field-type .field--label::after, body.nodeaddempl.role-is-anonymous .field--name-field-type .field--label::after {
   content: '\00a0\00a0';
 }
-/* line 78, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.page-node-type-empl .field--name-field-type .field--item::after {
+/* line 75, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.page-node-type-empl .field--name-field-type .field--item::after, body.nodeaddempl.role-is-anonymous .field--name-field-type .field--item::after {
   content: ',\00a0';
 }
-/* line 83, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.page-node-type-empl .field--name-field-type .field--item:last-child::after {
+/* line 80, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.page-node-type-empl .field--name-field-type .field--item:last-child::after, body.nodeaddempl.role-is-anonymous .field--name-field-type .field--item:last-child::after {
   content: '';
 }
-/* line 87, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.page-node-type-empl .field--name-field-type .field--item:last-child {
+/* line 84, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.page-node-type-empl .field--name-field-type .field--item:last-child, body.nodeaddempl.role-is-anonymous .field--name-field-type .field--item:last-child {
   float: none;
 }
-/* line 91, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.page-node-type-empl .field--name-field-classification .field--label {
+/* line 88, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.page-node-type-empl .field--name-field-classification .field--label, body.nodeaddempl.role-is-anonymous .field--name-field-classification .field--label {
   float: left;
 }
-/* line 95, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.page-node-type-empl .field--name-field-classification .field--label::after {
+/* line 92, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.page-node-type-empl .field--name-field-classification .field--label::after, body.nodeaddempl.role-is-anonymous .field--name-field-classification .field--label::after {
   content: '\00a0\00a0';
 }
-/* line 99, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.page-node-type-empl .field.field--name-body.field--type-text-with-summary.field--label-above .field--label::before {
+/* line 96, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.page-node-type-empl .field.field--name-body.field--type-text-with-summary.field--label-above .field--label::before, body.nodeaddempl.role-is-anonymous .field.field--name-body.field--type-text-with-summary.field--label-above .field--label::before {
   content: "\A";
   white-space: pre;
 }
-/* line 104, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.page-node-type-empl .field.field--name-body.field--type-text-with-summary.field--label-above .field--item::before {
+/* line 101, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.page-node-type-empl .field.field--name-body.field--type-text-with-summary.field--label-above .field--item::before, body.nodeaddempl.role-is-anonymous .field.field--name-body.field--type-text-with-summary.field--label-above .field--item::before {
   content: "\A";
   white-space: pre;
 }
-/* line 109, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.page-node-type-empl .field.field--name-body.field--type-text-with-summary.field--label-above .field--label {
+/* line 106, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.page-node-type-empl .field.field--name-body.field--type-text-with-summary.field--label-above .field--label, body.nodeaddempl.role-is-anonymous .field.field--name-body.field--type-text-with-summary.field--label-above .field--label {
   font-size: 24px;
 }
-/* line 113, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.page-node-type-empl .field.field--name-field-email .field--label {
+/* line 110, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.page-node-type-empl .field.field--name-field-email .field--label, body.nodeaddempl.role-is-anonymous .field.field--name-field-email .field--label {
   float: left;
 }
-/* line 117, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.page-node-type-empl .field.field.field--name-field-email .field--label::after {
+/* line 114, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.page-node-type-empl .field.field.field--name-field-email .field--label::after, body.nodeaddempl.role-is-anonymous .field.field.field--name-field-email .field--label::after {
   content: "\00a0\00a0";
 }
-/* line 121, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.page-node-type-empl #block-privacynotice h2.block-title {
+/* line 118, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.page-node-type-empl #block-privacynotice h2.block-title, body.nodeaddempl.role-is-anonymous #block-privacynotice h2.block-title {
   display: none;
 }
 
 /* block-privacynotice */
-/* line 127, ../sass/forms/_employmentopportunity_submission_form.scss */
+/* line 124, ../sass/forms/_employmentopportunity_submission_form.scss */
 #block-privacynotice {
   padding-left: 15px !important;
   padding-right: 15px !important;
 }
 
 /* block-grstheme-bootstrap-reportproblemblock */
-/* line 133, ../sass/forms/_employmentopportunity_submission_form.scss */
+/* line 130, ../sass/forms/_employmentopportunity_submission_form.scss */
 #block-grstheme-bootstrap-reportproblemblock {
   padding-top: 15px !important;
 }
 
-/* line 137, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page {
+/* line 135, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.nodeaddempl.role-is-anonymous.node-add #wb-cont {
+  display: none;
+}
+/* line 138, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.nodeaddempl.role-is-anonymous.node-add #block-customblock-submitemploymentopportunity {
+  padding-bottom: 20px;
+}
+/* line 141, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.nodeaddempl.role-is-anonymous.node-add #block-customblock-submitemploymentopportunity .block-title {
+  font-size: 34px !important;
+}
+/* line 144, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.nodeaddempl.role-is-anonymous.node-add #block-privacynotice {
+  display: none;
+}
+/* line 147, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.nodeaddempl.role-is-anonymous.node-add button.tabledrag-toggle-weight.btn-sm.btn.btn-default {
+  display: none !important;
+}
+
+/* line 152, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page, body.nodeaddempl.role-is-anonymous {
   /* block-privacynotice */
   /* block-grstheme-bootstrap-reportproblemblock */
 }
-/* line 138, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page .help-block {
+/* line 153, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page .help-block, body.nodeaddempl.role-is-anonymous .help-block {
   font-size: 16px;
   color: #333;
 }
-/* line 143, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page #edit-actions, body.employment-opportunity-request-form-page #edit-footer {
+/* line 158, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-actions, body.role-is-anonymous.employment-opportunity-request-form-page #edit-footer, body.nodeaddempl.role-is-anonymous #edit-actions, body.nodeaddempl.role-is-anonymous #edit-footer {
   padding-left: 15px;
 }
-/* line 147, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page .preview-wrapper {
+/* line 162, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page .preview-wrapper, body.nodeaddempl.role-is-anonymous .preview-wrapper {
   padding-top: 15px;
 }
-/* line 151, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page .preview-helptext-paragraph {
+/* line 166, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page .preview-helptext-paragraph, body.nodeaddempl.role-is-anonymous .preview-helptext-paragraph {
   float: right;
 }
-/* line 155, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page #edit-moderation-state-0 .select-wrapper::after {
+/* line 170, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-moderation-state-0 .select-wrapper::after, body.nodeaddempl.role-is-anonymous #edit-moderation-state-0 .select-wrapper::after {
   right: 87%;
 }
-/* line 159, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page #edit-moderation-state-etuf-fr-0 .select-wrapper::after {
+/* line 174, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-moderation-state-etuf-fr-0 .select-wrapper::after, body.nodeaddempl.role-is-anonymous #edit-moderation-state-etuf-fr-0 .select-wrapper::after {
   right: 87%;
 }
-/* line 163, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page .btn.icon-before .glyphicon {
+/* line 178, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page .btn.icon-before .glyphicon, body.nodeaddempl.role-is-anonymous .btn.icon-before .glyphicon {
   min-height: 20px;
 }
-/* line 167, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page.i18n-en .field--type-entity-reference .select-wrapper:after {
+/* line 182, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page.i18n-en .field--type-entity-reference .select-wrapper:after, body.nodeaddempl.role-is-anonymous.i18n-en .field--type-entity-reference .select-wrapper:after {
   right: 69% !important;
 }
-/* line 171, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page.i18n-fr .field--type-entity-reference .select-wrapper:after {
+/* line 186, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page.i18n-fr .field--type-entity-reference .select-wrapper:after, body.nodeaddempl.role-is-anonymous.i18n-fr .field--type-entity-reference .select-wrapper:after {
   right: 59% !important;
 }
-/* line 176, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page #edit-group-opportunity-approval div a.panel-title, body.employment-opportunity-request-form-page #edit-group-opportunity-details div a.panel-title,
-body.employment-opportunity-request-form-page #edit-group-newsarticleheadline div a.panel-title, body.employment-opportunity-request-form-page #edit-group-opportunitydescription div a.panel-title,
-body.employment-opportunity-request-form-page #edit-group-emploppsubitappquestion div a.panel-title, body.employment-opportunity-request-form-page #edit-group-employmentrequestorinfo div a.panel-title,
-body.employment-opportunity-request-form-page #edit-group-empladditionalnotes div a.panel-title {
+/* line 190, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunitylocation div.panel-heading, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunityopento div.panel-heading,
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-emplopportunityclosingdate div.panel-heading, body.nodeaddempl.role-is-anonymous #edit-group-opportunitylocation div.panel-heading, body.nodeaddempl.role-is-anonymous #edit-group-opportunityopento div.panel-heading,
+body.nodeaddempl.role-is-anonymous #edit-group-emplopportunityclosingdate div.panel-heading {
+  padding-left: 0px;
+}
+/* line 195, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page div#edit-group-emplopportunityclosingdate--content, body.nodeaddempl.role-is-anonymous div#edit-group-emplopportunityclosingdate--content {
+  padding-left: 0px;
+}
+/* line 199, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page div#edit-group-opportunity-details, body.nodeaddempl.role-is-anonymous div#edit-group-opportunity-details {
+  margin-bottom: 0px;
+}
+/* line 203, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunity-approval div a.panel-title, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunity-details div a.panel-title,
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-newsarticleheadline div a.panel-title, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunitydescription div a.panel-title,
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-emploppsubitappquestion div a.panel-title, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-employmentrequestorinfo div a.panel-title,
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-empladditionalnotes div a.panel-title, body.nodeaddempl.role-is-anonymous #edit-group-opportunity-approval div a.panel-title, body.nodeaddempl.role-is-anonymous #edit-group-opportunity-details div a.panel-title,
+body.nodeaddempl.role-is-anonymous #edit-group-newsarticleheadline div a.panel-title, body.nodeaddempl.role-is-anonymous #edit-group-opportunitydescription div a.panel-title,
+body.nodeaddempl.role-is-anonymous #edit-group-emploppsubitappquestion div a.panel-title, body.nodeaddempl.role-is-anonymous #edit-group-employmentrequestorinfo div a.panel-title,
+body.nodeaddempl.role-is-anonymous #edit-group-empladditionalnotes div a.panel-title {
   pointer-events: none;
   cursor: default;
   text-decoration: none;
@@ -684,26 +723,35 @@ body.employment-opportunity-request-form-page #edit-group-empladditionalnotes di
   font-size: 24px;
   font-weight: bold;
 }
-/* line 189, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page #edit-group-opportunity-approval.panel-default, body.employment-opportunity-request-form-page #edit-group-opportunity-details.panel-default,
-body.employment-opportunity-request-form-page #edit-group-opportunitylocation.panel-default, body.employment-opportunity-request-form-page #edit-group-opportunityopento.panel-default,
-body.employment-opportunity-request-form-page #edit-group-emplopportunityclosingdate.panel-default, body.employment-opportunity-request-form-page #edit-group-opportunitydescription.panel-default,
-body.employment-opportunity-request-form-page #edit-group-employmentrequestorinfo.panel-default, body.employment-opportunity-request-form-page #edit-group-emploppsubitappquestion.panel-default,
-body.employment-opportunity-request-form-page #edit-group-empladditionalnotes.panel-default {
+/* line 216, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunity-approval.panel-default, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunity-details.panel-default,
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunitylocation.panel-default, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunityopento.panel-default,
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-emplopportunityclosingdate.panel-default, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunitydescription.panel-default,
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-employmentrequestorinfo.panel-default, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-emploppsubitappquestion.panel-default,
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-empladditionalnotes.panel-default, body.nodeaddempl.role-is-anonymous #edit-group-opportunity-approval.panel-default, body.nodeaddempl.role-is-anonymous #edit-group-opportunity-details.panel-default,
+body.nodeaddempl.role-is-anonymous #edit-group-opportunitylocation.panel-default, body.nodeaddempl.role-is-anonymous #edit-group-opportunityopento.panel-default,
+body.nodeaddempl.role-is-anonymous #edit-group-emplopportunityclosingdate.panel-default, body.nodeaddempl.role-is-anonymous #edit-group-opportunitydescription.panel-default,
+body.nodeaddempl.role-is-anonymous #edit-group-employmentrequestorinfo.panel-default, body.nodeaddempl.role-is-anonymous #edit-group-emploppsubitappquestion.panel-default,
+body.nodeaddempl.role-is-anonymous #edit-group-empladditionalnotes.panel-default {
   border-color: white;
 }
-/* line 197, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page #edit-group-opportunity-approval div.panel-heading, body.employment-opportunity-request-form-page #edit-group-opportunity-details div.panel-heading,
-body.employment-opportunity-request-form-page #edit-group-opportunitylocation div.panel-heading, body.employment-opportunity-request-form-page #edit-group-opportunityopento div.panel-heading,
-body.employment-opportunity-request-form-page #edit-group-emplopportunityclosingdate div.panel-heading, body.employment-opportunity-request-form-page #edit-group-opportunitydescription div.panel-heading,
-body.employment-opportunity-request-form-page #edit-group-employmentrequestorinfo div.panel-heading, body.employment-opportunity-request-form-page #edit-group-emploppsubitappquestion div.panel-heading,
-body.employment-opportunity-request-form-page #edit-group-empladditionalnotes div.panel-heading {
+/* line 224, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunity-approval div.panel-heading, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunity-details div.panel-heading,
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunitylocation div.panel-heading, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunityopento div.panel-heading,
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-emplopportunityclosingdate div.panel-heading, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunitydescription div.panel-heading,
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-employmentrequestorinfo div.panel-heading, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-emploppsubitappquestion div.panel-heading,
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-empladditionalnotes div.panel-heading, body.nodeaddempl.role-is-anonymous #edit-group-opportunity-approval div.panel-heading, body.nodeaddempl.role-is-anonymous #edit-group-opportunity-details div.panel-heading,
+body.nodeaddempl.role-is-anonymous #edit-group-opportunitylocation div.panel-heading, body.nodeaddempl.role-is-anonymous #edit-group-opportunityopento div.panel-heading,
+body.nodeaddempl.role-is-anonymous #edit-group-emplopportunityclosingdate div.panel-heading, body.nodeaddempl.role-is-anonymous #edit-group-opportunitydescription div.panel-heading,
+body.nodeaddempl.role-is-anonymous #edit-group-employmentrequestorinfo div.panel-heading, body.nodeaddempl.role-is-anonymous #edit-group-emploppsubitappquestion div.panel-heading,
+body.nodeaddempl.role-is-anonymous #edit-group-empladditionalnotes div.panel-heading {
   border-bottom: 0px;
   padding-bottom: 0px;
 }
-/* line 206, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page #edit-group-opportunitylocation div a.panel-title, body.employment-opportunity-request-form-page #edit-group-opportunityopento div a.panel-title,
-body.employment-opportunity-request-form-page #edit-group-emplopportunityclosingdate div a.panel-title {
+/* line 233, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunitylocation div a.panel-title, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunityopento div a.panel-title,
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-emplopportunityclosingdate div a.panel-title, body.nodeaddempl.role-is-anonymous #edit-group-opportunitylocation div a.panel-title, body.nodeaddempl.role-is-anonymous #edit-group-opportunityopento div a.panel-title,
+body.nodeaddempl.role-is-anonymous #edit-group-emplopportunityclosingdate div a.panel-title {
   pointer-events: none;
   cursor: default;
   text-decoration: none;
@@ -711,130 +759,130 @@ body.employment-opportunity-request-form-page #edit-group-emplopportunityclosing
   font-size: 20.8px;
   font-weight: bold;
 }
-/* line 216, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page #edit-group-opportunitylocation--content.panel-body {
+/* line 243, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunitylocation--content.panel-body, body.nodeaddempl.role-is-anonymous #edit-group-opportunitylocation--content.panel-body {
   padding-left: 0px;
   padding-right: 0px;
-}
-/* line 221, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page #edit-group-opportunityopento--content.panel-body {
-  padding-left: 0px;
-  padding-right: 0px;
-}
-/* line 226, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page #edit-group-level-and div.panel-heading {
-  border-bottom: 0px;
-  padding-bottom: 0px;
-  display: none !important;
-}
-/* line 232, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page #edit-group-level-and div.panel-body {
-  padding: 0px;
-}
-/* line 236, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page #edit-group-level-and div.table-responsive button.tabledrag-toggle-weight.btn-sm.btn.btn-default {
-  display: none !important;
-}
-/* line 240, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page #field-classification-values th.field-label.form-required {
-  padding-left: 0px;
-}
-/* line 244, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page #edit-field-classification-wrapper .paragraph-type-top.form-group.js-form-wrapper.form-wrapper {
-  float: right !important;
 }
 /* line 248, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page #edit-field-classification-wrapper a.tabledrag-handle {
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunityopento--content.panel-body, body.nodeaddempl.role-is-anonymous #edit-group-opportunityopento--content.panel-body {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+/* line 253, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-level-and div.panel-heading, body.nodeaddempl.role-is-anonymous #edit-group-level-and div.panel-heading {
+  border-bottom: 0px;
+  padding-bottom: 0px;
   display: none !important;
 }
-/* line 252, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page #edit-field-classification-0-top.paragraph-type-top.form-group.js-form-wrapper.form-wrapper {
+/* line 259, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-level-and div.panel-body, body.nodeaddempl.role-is-anonymous #edit-group-level-and div.panel-body {
+  padding: 0px;
+}
+/* line 263, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-level-and div.table-responsive button.tabledrag-toggle-weight.btn-sm.btn.btn-default, body.nodeaddempl.role-is-anonymous #edit-group-level-and div.table-responsive button.tabledrag-toggle-weight.btn-sm.btn.btn-default {
   display: none !important;
 }
-/* line 256, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page.i18n-en div[class$="-subform-field-class-id form-group"] .select-wrapper:after {
+/* line 267, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page #field-classification-values th.field-label.form-required, body.nodeaddempl.role-is-anonymous #field-classification-values th.field-label.form-required {
+  padding-left: 0px;
+}
+/* line 271, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-field-classification-wrapper .paragraph-type-top.form-group.js-form-wrapper.form-wrapper, body.nodeaddempl.role-is-anonymous #edit-field-classification-wrapper .paragraph-type-top.form-group.js-form-wrapper.form-wrapper {
+  float: right !important;
+}
+/* line 275, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-field-classification-wrapper a.tabledrag-handle, body.nodeaddempl.role-is-anonymous #edit-field-classification-wrapper a.tabledrag-handle {
+  display: none !important;
+}
+/* line 279, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-field-classification-0-top.paragraph-type-top.form-group.js-form-wrapper.form-wrapper, body.nodeaddempl.role-is-anonymous #edit-field-classification-0-top.paragraph-type-top.form-group.js-form-wrapper.form-wrapper {
+  display: none !important;
+}
+/* line 283, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page.i18n-en div[class$="-subform-field-class-id form-group"] .select-wrapper:after, body.nodeaddempl.role-is-anonymous.i18n-en div[class$="-subform-field-class-id form-group"] .select-wrapper:after {
   right: 50% !important;
 }
-/* line 260, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page.i18n-en select[name$="[subform][field_class_id]"] {
+/* line 287, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page.i18n-en select[name$="[subform][field_class_id]"], body.nodeaddempl.role-is-anonymous.i18n-en select[name$="[subform][field_class_id]"] {
   min-width: 168px !important;
 }
-/* line 264, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page.i18n-fr select[name$="[subform][field_class_id]"] {
+/* line 291, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page.i18n-fr select[name$="[subform][field_class_id]"], body.nodeaddempl.role-is-anonymous.i18n-fr select[name$="[subform][field_class_id]"] {
   min-width: 190px !important;
 }
-/* line 268, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page div[class$="-subform-field-class-id form-group"] {
+/* line 295, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page div[class$="-subform-field-class-id form-group"], body.nodeaddempl.role-is-anonymous div[class$="-subform-field-class-id form-group"] {
   float: left !important;
 }
-/* line 272, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page.i18n-fr div[class$="-subform-field-class-id form-group"] .select-wrapper:after {
+/* line 299, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page.i18n-fr div[class$="-subform-field-class-id form-group"] .select-wrapper:after, body.nodeaddempl.role-is-anonymous.i18n-fr div[class$="-subform-field-class-id form-group"] .select-wrapper:after {
   right: 52% !important;
 }
-/* line 276, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page.i18n-en div[class$="-subform-field-class-sub form-group"] .select-wrapper:after {
+/* line 303, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page.i18n-en div[class$="-subform-field-class-sub form-group"] .select-wrapper:after, body.nodeaddempl.role-is-anonymous.i18n-en div[class$="-subform-field-class-sub form-group"] .select-wrapper:after {
   right: 44% !important;
 }
-/* line 280, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page div[class$="-subform-field-class-sub form-group"] {
+/* line 307, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page div[class$="-subform-field-class-sub form-group"], body.nodeaddempl.role-is-anonymous div[class$="-subform-field-class-sub form-group"] {
   float: left !important;
 }
-/* line 284, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page.i18n-fr div[class$="-subform-field-class-sub form-group"] .select-wrapper:after {
+/* line 311, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page.i18n-fr div[class$="-subform-field-class-sub form-group"] .select-wrapper:after, body.nodeaddempl.role-is-anonymous.i18n-fr div[class$="-subform-field-class-sub form-group"] .select-wrapper:after {
   right: 45% !important;
 }
-/* line 288, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page.i18n-en div[class$="-subform-field-class-level form-group"] .select-wrapper:after {
+/* line 315, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page.i18n-en div[class$="-subform-field-class-level form-group"] .select-wrapper:after, body.nodeaddempl.role-is-anonymous.i18n-en div[class$="-subform-field-class-level form-group"] .select-wrapper:after {
   right: 36% !important;
 }
-/* line 292, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page div[class$="-subform-field-class-level form-group"] {
+/* line 319, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page div[class$="-subform-field-class-level form-group"], body.nodeaddempl.role-is-anonymous div[class$="-subform-field-class-level form-group"] {
   float: left !important;
 }
-/* line 296, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page.i18n-fr div[class$="-subform-field-class-level form-group"] .select-wrapper:after {
+/* line 323, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page.i18n-fr div[class$="-subform-field-class-level form-group"] .select-wrapper:after, body.nodeaddempl.role-is-anonymous.i18n-fr div[class$="-subform-field-class-level form-group"] .select-wrapper:after {
   right: 40% !important;
 }
-/* line 301, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page #field-email-add-more-wrapper div.table-responsive button.tabledrag-toggle-weight.btn-sm.btn.btn-default {
+/* line 328, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page #field-email-add-more-wrapper div.table-responsive button.tabledrag-toggle-weight.btn-sm.btn.btn-default, body.nodeaddempl.role-is-anonymous #field-email-add-more-wrapper div.table-responsive button.tabledrag-toggle-weight.btn-sm.btn.btn-default {
   display: none !important;
 }
-/* line 305, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page #field-email-values td.field-multiple-drag {
+/* line 332, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page #field-email-values td.field-multiple-drag, body.nodeaddempl.role-is-anonymous #field-email-values td.field-multiple-drag {
   display: none !important;
 }
-/* line 309, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page #edit-group-emploppsubitappquestion.panel-default {
+/* line 336, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-emploppsubitappquestion.panel-default, body.nodeaddempl.role-is-anonymous #edit-group-emploppsubitappquestion.panel-default {
   border-color: white;
 }
-/* line 313, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page #edit-group-emploppsubitappquestion div.panel-heading {
+/* line 340, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-emploppsubitappquestion div.panel-heading, body.nodeaddempl.role-is-anonymous #edit-group-emploppsubitappquestion div.panel-heading {
   border-bottom: 0px;
   padding-bottom: 0px;
 }
-/* line 318, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page #edit-field-employmentrequestorphone-0-value {
+/* line 345, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-field-employmentrequestorphone-0-value, body.nodeaddempl.role-is-anonymous #edit-field-employmentrequestorphone-0-value {
   display: block;
 }
-/* line 322, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page #block-news-form-add h2.block-title {
+/* line 349, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page #block-news-form-add h2.block-title, body.nodeaddempl.role-is-anonymous #block-news-form-add h2.block-title {
   display: none !important;
 }
-/* line 327, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page #block-privacynotice {
+/* line 354, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page #block-privacynotice, body.nodeaddempl.role-is-anonymous #block-privacynotice {
   padding-left: 15px !important;
   padding-right: 15px !important;
 }
-/* line 333, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page #block-grstheme-bootstrap-reportproblemblock {
+/* line 360, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page #block-grstheme-bootstrap-reportproblemblock, body.nodeaddempl.role-is-anonymous #block-grstheme-bootstrap-reportproblemblock {
   padding-top: 15px !important;
 }
-/* line 338, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page #edit-field-classification-wrapper th.field-label.form-required {
+/* line 365, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-field-classification-wrapper th.field-label.form-required, body.nodeaddempl.role-is-anonymous #edit-field-classification-wrapper th.field-label.form-required {
   display: none !important;
 }
-/* line 342, ../sass/forms/_employmentopportunity_submission_form.scss */
-body.employment-opportunity-request-form-page #edit-field-classification-wrapper div.paragraph-type-title.form-group.js-form-wrapper.form-wrapper {
+/* line 369, ../sass/forms/_employmentopportunity_submission_form.scss */
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-field-classification-wrapper div.paragraph-type-title.form-group.js-form-wrapper.form-wrapper, body.nodeaddempl.role-is-anonymous #edit-field-classification-wrapper div.paragraph-type-title.form-group.js-form-wrapper.form-wrapper {
   display: none !important;
 }
 

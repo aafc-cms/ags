@@ -1,0 +1,65 @@
+uuid: 47d76153-364b-4dd1-8888-88ddd738ab70
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:09fc2dda-c635-4f1a-8d74-44db0a5cbf59'
+  module:
+    - block_class
+    - block_content
+    - ctools
+    - node
+    - system
+    - user
+    - wxt_library
+  theme:
+    - grstheme_bootstrap
+third_party_settings:
+  block_class:
+    classes: ccs_submitarticlefornewsatwork_block
+id: cutomblock_submitarticlefornewsatwork
+theme: grstheme_bootstrap
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:09fc2dda-c635-4f1a-8d74-44db0a5cbf59'
+settings:
+  id: 'block_content:09fc2dda-c635-4f1a-8d74-44db0a5cbf59'
+  label: 'Submit an article for news at work'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "/node/add/news*\r\nnode/add/news/*\r\n/submit-article-news-work\r\n/soumettre-un-article-nouvelles-au-travail\r\n/news/newswork/submit-article-newswork\r\n/nouvelles/nouvelleslouvrage/soumission-dun-article-pour-nouvelleslouvrage"
+    negate: false
+    context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      anonymous: anonymous
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+  panels_title:
+    id: panels_title
+    enabled: 0
+    negate: false
+    context_mapping: {  }
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      news: news
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  node_type:
+    id: node_type
+    bundles:
+      news: news
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

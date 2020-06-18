@@ -1,0 +1,84 @@
+
+body.nodeaddempl .field-group-fieldset,
+body.node-edit.page-node-type-empl .field-group-fieldset {
+  width: 100% !important;
+}
+
+body.nodeaddempl .field-group-fieldset .js-form-item.form-item,
+body.node-edit.page-node-type-empl .field-group-fieldset .js-form-item.form-item {
+  float: inherit !important;
+  width: auto;
+  margin-right: auto;
+}
+
+body.nodeaddempl .field-group-fieldset .field--type-list-string,
+body.node-edit.page-node-type-empl .field-group-fieldset .field--type-list-string {
+  float: left;
+  margin-right: 30px;
+}
+
+body.nodeaddempl .field-group-fieldset .paragraphs-subform,
+body.node-edit.page-node-type-empl .field-group-fieldset .paragraphs-subform {
+  max-height: 100px;
+  margin-top: -90px;
+  margin-left: 217px;
+}
+
+body.nodeaddempl select[name*="[subform][field_class_id]"],
+body.node-edit.page-node-type-empl select[name*="[subform][field_class_id]"] {
+  min-width: 165px;
+}
+body.nodeaddempl .paragraph-type-top div[data-drupal-selector^="edit-field-classification"],
+body.node-edit.page-node-type-empl .paragraph-type-top div[data-drupal-selector^="edit-field-classification"] {
+  margin-top: 30px;
+  max-width: 120px;
+  margin-left: 10px;
+}
+
+body.node-edit.user-logged-in.path-node.page-node-type-empl {
+  #edit-group-opportunitylocation {
+     border-top-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+
+    .claro-details__summary.form-required::before {
+      display: none;
+    }
+
+    .claro-details__summary.form-required {
+      padding-left: 0px;
+    }
+
+    div.claro-details__wrapper.details-wrapper {
+      margin-left: 0px;
+    }
+  }  
+
+  #edit-group-opportunityopento {
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+
+    .claro-details__wrapper.details-wrapper {
+      margin-left: 0px;
+    }
+
+    summary.claro-details__summary::before {
+      display: none;
+    }
+
+    summary.claro-details__summary.form-required {
+      padding-left: 0px;
+    }
+  }
+
+  #edit-group-level-and span.fieldset__label {
+    padding-left: 0px !important;
+  }
+
+  #edit-group-level-and div.fieldset__wrapper {
+    margin-left: 0px;
+  }
+}

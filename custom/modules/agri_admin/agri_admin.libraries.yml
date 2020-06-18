@@ -9,6 +9,9 @@ agri-admin:
     - core/drupalSettings
 
 agri-empl-news-submit:
+  css:
+    component:
+      css2/news-empl-submit.css: {}
   js:
     js/agri-empl-or-news-submit.js: {}
   dependencies:

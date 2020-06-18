@@ -11,34 +11,32 @@ body.user-anonymous {
       display: none !important;
     }
   }
-  
-  &.employment-opportunity-request-form-page.i18n-en div.alert.alert-danger.alert-dismissible.mrgn-tp-md.mrgn-bttm-md ul.item-list__comma-list li:before { 
-    content: "\A Error: ";
-    white-space: pre;
-  }
-  
-  &.employment-opportunity-request-form-page.i18n-fr div.alert.alert-danger.alert-dismissible.mrgn-tp-md.mrgn-bttm-md ul.item-list__comma-list li:before { 
-    content: "\A Erreur: ";
-    white-space: pre;
+ 
+  &.employment-opportunity-request-form-page, &.nodeaddempl.role-is-anonymous {
+    div.form-item.js-form-item.form-type-textarea.js-form-type-textarea.form-item-body-etuf-en-0-summary.js-form-item-body-etuf-en-0-summary.form-group {
+      display: none !important;
+    }
   }
 
-  &.employment-opportunity-request-form-page div.form-item.js-form-item.form-type-textarea.js-form-type-textarea.form-item-body-etuf-en-0-summary.js-form-item-body-etuf-en-0-summary.form-group {
-    display: none !important;
+  &.employment-opportunity-request-form-page, &.nodeaddempl.role-is-anonymous {
+    div.form-item.js-form-item.form-type-textarea.js-form-type-textarea.form-item-body-etuf-fr-0-summary.js-form-item-body-etuf-fr-0-summary.form-group {
+      display: none !important;
+    }
   }
 
-  &.employment-opportunity-request-form-page div.form-item.js-form-item.form-type-textarea.js-form-type-textarea.form-item-body-etuf-fr-0-summary.js-form-item-body-etuf-fr-0-summary.form-group {
-    display: none !important;
-  }
+  &.employment-opportunity-request-form-page, &.nodeaddempl.role-is-anonymous {
+    span.field-edit-link button.link.link-edit-summary.btn.btn-default.btn-xs.pull-right { 
+      display: none !important;
+   }
+  } 
 
-  &.employment-opportunity-request-form-page span.field-edit-link button.link.link-edit-summary.btn.btn-default.btn-xs.pull-right { 
-    display: none !important;
-  }
-
-  &.employment-opportunity-request-form-page div.form-item.js-form-item.form-type-vertical-tabs.js-form-type-vertical-tabs.form-item-.js-form-item-.form-no-label.form-group {
+  &.employment-opportunity-request-form-page, &.nodeaddempl.role-is-anonymous {
+    div.form-item.js-form-item.form-type-vertical-tabs.js-form-type-vertical-tabs.form-item-.js-form-item-.form-no-label.form-group {
        display: none !important;
+    }
   }
   
-  &.role-is-anonymous.employment-opportunity-request-form-page {
+  &.role-is-anonymous.employment-opportunity-request-form-page, &.nodeaddempl.role-is-anonymous {
     div#edit-actions {
       position: relative;
     }
@@ -58,10 +56,9 @@ body.user-anonymous {
       padding-top: 35px !important;
     } 
   }
- 
 }
 
-body.page-node-type-empl {
+body.page-node-type-empl, body.nodeaddempl.role-is-anonymous {
   /* field title float left class */
   .field--name-field-type .field--label {
     float: left;
@@ -134,7 +131,25 @@ body.page-node-type-empl {
   padding-top: 15px !important;
 }
 
-body.employment-opportunity-request-form-page {
+body.nodeaddempl.role-is-anonymous.node-add {
+  #wb-cont {    
+    display: none;
+  }
+  #block-customblock-submitemploymentopportunity {
+    padding-bottom: 20px;
+  }
+  #block-customblock-submitemploymentopportunity .block-title {
+    font-size: 34px !important;
+  }
+  #block-privacynotice {
+    display: none;
+  }
+  button.tabledrag-toggle-weight.btn-sm.btn.btn-default {
+    display: none !important;
+  }
+}
+
+body.role-is-anonymous.employment-opportunity-request-form-page, body.nodeaddempl.role-is-anonymous {
   .help-block {
     font-size: 16px;
     color: #333;
@@ -172,6 +187,18 @@ body.employment-opportunity-request-form-page {
     right: 59% !important;
   }
 
+  #edit-group-opportunitylocation div.panel-heading, #edit-group-opportunityopento div.panel-heading, 
+  #edit-group-emplopportunityclosingdate div.panel-heading {
+    padding-left: 0px;
+  }
+
+  div#edit-group-emplopportunityclosingdate--content {
+    padding-left: 0px;
+  }
+
+  div#edit-group-opportunity-details {
+    margin-bottom: 0px;
+  }
   // News Item form Style //
   #edit-group-opportunity-approval div a.panel-title, #edit-group-opportunity-details div a.panel-title,
   #edit-group-newsarticleheadline div a.panel-title, #edit-group-opportunitydescription div a.panel-title,
@@ -299,11 +326,11 @@ body.employment-opportunity-request-form-page {
   // end of Classication group 1
 
   #field-email-add-more-wrapper div.table-responsive button.tabledrag-toggle-weight.btn-sm.btn.btn-default {
-	  display: none !important;
-   }  
+    display: none !important;
+  }    
 
   #field-email-values td.field-multiple-drag {
-	display: none !important;
+    display: none !important;
   }
 
   #edit-group-emploppsubitappquestion.panel-default {
@@ -339,9 +366,9 @@ body.employment-opportunity-request-form-page {
     display: none !important;
   }   
 
-#edit-field-classification-wrapper  div.paragraph-type-title.form-group.js-form-wrapper.form-wrapper {
+  #edit-field-classification-wrapper  div.paragraph-type-title.form-group.js-form-wrapper.form-wrapper {
     display: none !important;
-}
+  }
 
 }
 // End of the employment opportunity form 
