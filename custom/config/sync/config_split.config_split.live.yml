@@ -16,8 +16,10 @@ module:
   varnish_purger: 0
 theme: {  }
 blacklist:
+  - autologout.settings
   - system.logging
   - system.performance
+  - warmer.settings
 graylist: {  }
 graylist_dependents: true
 graylist_skip_equal: false
