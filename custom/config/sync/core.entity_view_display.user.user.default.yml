@@ -5,8 +5,6 @@ dependencies:
   config:
     - field.field.user.user.field_first_name
     - field.field.user.user.field_last_name
-    - field.field.user.user.field_last_password_reset
-    - field.field.user.user.field_password_expiration
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
@@ -34,7 +32,5 @@ content:
 hidden:
   field_first_name: true
   field_last_name: true
-  field_last_password_reset: true
-  field_password_expiration: true
   langcode: true
   name: true
