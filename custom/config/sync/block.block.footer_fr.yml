@@ -25,16 +25,17 @@ settings:
   label: 'Footer fr'
   provider: menu_block
   label_display: visible
+  follow: false
+  follow_parent: child
   level: 1
-  custom_level: '1'
-  hide_children: 0
   depth: 0
   expand: 1
-  expand_only_active_trails: 0
   parent: 'footer-fr:'
-  render_parent: false
-  follow: 0
   suggestion: footer_fr
+  custom_level: '1'
+  hide_children: 0
+  expand_only_active_trails: 0
+  render_parent: false
 visibility:
   panels_title:
     id: panels_title
