@@ -186,9 +186,11 @@ display:
           empty_zero: false
           hide_alter_empty: true
           action_title: Action
-          include_exclude: exclude
+          include_exclude: include
           selected_actions:
-            - send_reviewer
+            - node_break_lock_action
+            - node_delete_action
+            - publish_latest
             - unpublish_current
           plugin_id: node_bulk_form
           entity_type: node
