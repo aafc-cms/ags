@@ -2,9 +2,6 @@ uuid: e771b24e-197e-4502-8ab6-776ba7d2a917
 langcode: en
 status: true
 dependencies:
-  config:
-    - node.type.landing_page
-    - node.type.page
   module:
     - content_moderation
 id: publishing
@@ -139,8 +136,5 @@ type_settings:
         - to_be_deleted
       to: with_reviewer_for_delete
       weight: 11
-  entity_types:
-    node:
-      - landing_page
-      - page
+  entity_types: {  }
   default_moderation_state: draft
