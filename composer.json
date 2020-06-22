@@ -138,6 +138,8 @@
                 "https://www.drupal.org/files/issues/2020-02-05/2546212-119.patch",
                 "remove hreflang attribute from language switcher li element":
                 "https://www.drupal.org/files/issues/2019-06-05/2454289-82.patch",
+                "Node preview current language":
+                "https://www.drupal.org/files/issues/2020-06-20/node-preview_current_language-3150728-12.patch",
                 "Language negotiation core fix, needed by access_unpublished and content moderation for forward draft revisions in non default language.":
                 "https://www.drupal.org/files/issues/2019-05-30/drupal-2951294-21-fix-fallback.patch"
             },
@@ -217,7 +219,7 @@
         "oomphinc/composer-installers-extender": "^1.1",
         "drupal/core-composer-scaffold": "*",
         "drush/drush": "^9.0",
-        "drupalwxt/wxt": "3.0.11",
+        "drupalwxt/wxt": "3.0.12",
         "entreprise7pro/agri_admin": "*",
         "junhuang/idol_feed_api": "*",
         "entreprise7pro/config": "*",
@@ -243,7 +245,8 @@
         "wikimedia/composer-merge-plugin": "^1.4",
         "scssphp/scssphp": "^1.1",
         "drupal/safedelete": "^1.0",
-        "drupal/scanner": "1.x-dev"
+        "drupal/scanner": "1.x-dev",
+        "drupal/recreate_block_content": "2.x-dev"
     },
     "autoload": {
         "classmap": [
