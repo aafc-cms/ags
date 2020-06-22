@@ -120,11 +120,11 @@ body.role-is-reviewer.path-node .ui-dialog-off-canvas #drupal-off-canvas .modera
   display: none;
 }
 
-body.role-is-reviewer.admincontent.path-admin div.js-form-item-action, body.role-is-creator.admincontent.path-admin div.js-form-item-action {
+body.role-is-reviewer.path-node details[data-drupal-selector="edit-access-unpublished-settings"], body.role-is-creator.path-node details[data-drupal-selector="edit-access-unpublished-settings"] {
   display: none;
 }
 
-body.role-is-reviewer.path-node details[data-drupal-selector="edit-access-unpublished-settings"], body.role-is-creator.path-node details[data-drupal-selector="edit-access-unpublished-settings"] {
+body.role-is-reviewer a[data-drupal-link-system-path="admin/help"], body.role-is-creator a[data-drupal-link-system-path="admin/help"] {
   display: none;
 }
 

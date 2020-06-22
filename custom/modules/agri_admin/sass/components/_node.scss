@@ -36,16 +36,16 @@ body.role-is-reviewer.path-node {
   
 }
 
-// For the reviewer and creator role hide the action list dropdown on content page.
-body.role-is-reviewer.admincontent.path-admin, body.role-is-creator.admincontent.path-admin {
-  div.js-form-item-action{  
+// For the reviewer and creator role hide 'Temporary unpublished access' control on Edit content form.
+body.role-is-reviewer.path-node, body.role-is-creator.path-node {
+  details[data-drupal-selector="edit-access-unpublished-settings"]{  
     display: none;
   }
 }
 
-// For the reviewer and creator role hide 'Temporary unpublished access' control on Edit content form.
-body.role-is-reviewer.path-node, body.role-is-creator.path-node {
-  details[data-drupal-selector="edit-access-unpublished-settings"]{  
+// For the reviewer and creator role hide help menu.
+body.role-is-reviewer, body.role-is-creator{ 
+  a[data-drupal-link-system-path="admin/help"]{  
     display: none;
   }
 }
