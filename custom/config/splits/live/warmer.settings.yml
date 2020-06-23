@@ -1,4 +1,11 @@
 warmers:
+  cdn:
+    id: cdn
+    frequency: '300'
+    batchSize: '50'
+    urls: {  }
+    headers: {  }
+    verify: 1
   sitemap:
     id: sitemap
     frequency: '300'
@@ -7,25 +14,18 @@ warmers:
     minPriority: '0'
     headers: {  }
     verify: 1
-  cdn:
-    id: cdn
-    frequency: '300'
-    batchSize: '50'
-    urls: {  }
-    headers: {  }
-    verify: 1
   entity:
     id: entity
     frequency: 300
-    batchSize: 50
+    batchSize: 100
     entity_types:
       'node:empl': 'node:empl'
       'node:landing_page': 'node:landing_page'
       'node:news': 'node:news'
       'node:page': 'node:page'
       'node:webform': 'node:webform'
-      'page:page': 'page:page'
+      'node_type:node_type': 'node_type:node_type'
       'page_variant:page_variant': 'page_variant:page_variant'
-      'view:view': 'view:view'
+      'page:page': 'page:page'
 _core:
   default_config_hash: wLhhL58IKPWkAbhxcI6gpCna7d431Q7kM0y-Om92BUQ
