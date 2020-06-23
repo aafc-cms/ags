@@ -1,0 +1,65 @@
+uuid: ce8bba2b-592b-4102-b2eb-a923f526cbe5
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:878c1db8-a3da-452d-8479-8a1c1f740d6e'
+  module:
+    - block_class
+    - block_content
+    - ctools
+    - node
+    - system
+    - user
+    - wxt_library
+  theme:
+    - grstheme_bootstrap
+third_party_settings:
+  block_class:
+    classes: css_submitemploymentopportunity_block
+id: customblock_submitemploymentopportunity
+theme: grstheme_bootstrap
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:878c1db8-a3da-452d-8479-8a1c1f740d6e'
+settings:
+  id: 'block_content:878c1db8-a3da-452d-8479-8a1c1f740d6e'
+  label: 'Submit an Employment Opportunity Request'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      empl: empl
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  node_type:
+    id: node_type
+    bundles:
+      empl: empl
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: "/node/add/empl*\r\nnode/add/empl*\r\n/internal-employment-opportunity-request-form\r\n/formulaire-de-demande-pour-les-possibilites-demploi-a-linterne\r\n/human-resources/staffing/internal-employment-opportunity-request-form\r\n/ressources-humaines/dotation/formulaire-de-demande-pour-les-possibilites-demploi-linterne"
+    negate: false
+    context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      anonymous: anonymous
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+  panels_title:
+    id: panels_title
+    enabled: 0
+    negate: false
+    context_mapping: {  }
