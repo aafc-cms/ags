@@ -411,8 +411,36 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
       $links = $breadcrumb->getlinks(); 
       $breadcrumb = new \Drupal\Core\Breadcrumb\Breadcrumb();
       $breadcrumb->addLink($links[0]);
-      $breadcrumb->addLink(Link::createFromRoute(t('News'), 'view.view_news_work.page_1'));
-      $breadcrumb->addLink(Link::createFromRoute(t('News@work'), 'view.view_news_work.page_1'));
+      // dynamically handle the route name for News link
+      $news = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
+        ->condition('title', 'news', '=')
+        ->execute();
+      if ($news) {
+        $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
+        if ($news->hasTranslation($langcode)) {
+          $news = $news->getTranslation($langcode);
+        }
+        $linkNews = $news->toLink($news->getTitle(), 'edit-form');
+      }
+      else {
+        $linkNews = Link::createFromRoute(t('News'), 'view.view_news_work.page_1');
+      }
+      $breadcrumb->addLink($linkNews);
+      //Dynamically handle the route name for news at work link
+      $news_at_work = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
+        ->condition('title', 'news@work', '=')
+        ->execute();
+      if ($news_at_work) {
+        $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
+        if ($news_at_work->hasTranslation($langcode)) {
+          $news_at_work = $news_at_work->getTranslation($langcode);
+        }
+        $linkNewsatWork = $news_at_work->toLink($news_at_work->getTitle(), 'edit-form');
+      }
+      else {
+        $linkNewsatWork = Link::createFromRoute(t('News@work'), 'view.view_news_work.page_1');
+      }   
+      $breadcrumb->addLink($linkNewsatWork);
     }
   }
 }
