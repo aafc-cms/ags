@@ -4,9 +4,9 @@ status: true
 dependencies:
   config:
     - page_manager.page.moderation_dashboard
+    - views.view.moderation_dashboard_content_locked
     - views.view.moderation_dashboard_emp_opp_content
     - views.view.moderation_dashboard_in_draft
-    - views.view.moderation_dashboard_locked_content
     - views.view.moderation_dashboard_my_content_in_review
     - views.view.moderation_dashboard_news_content
     - views.view.moderation_dashboard_recent_changes
@@ -33,17 +33,6 @@ variant_settings:
       region: middle
       weight: -4
       uuid: 1fbb2fbb-d06a-4682-8fb3-07b37de946b8
-      context_mapping: {  }
-    7897b564-98cc-4aa2-981f-9a6b30444ebd:
-      id: 'views_block:moderation_dashboard_locked_content-block_2'
-      label: ''
-      provider: views
-      label_display: visible
-      views_label: ''
-      items_per_page: none
-      region: left
-      weight: -4
-      uuid: 7897b564-98cc-4aa2-981f-9a6b30444ebd
       context_mapping: {  }
     53cbeb2b-ea02-4bf1-9a37-25b049bc8583:
       id: 'views_block:moderation_dashboard_recent_changes-block_1'
@@ -176,6 +165,17 @@ variant_settings:
       region: right
       weight: 0
       uuid: 48ef35f2-4edb-4b09-99fc-328d8082d85a
+      context_mapping: {  }
+    a13b69c9-5687-4550-a3a0-6911e7f7067a:
+      id: 'views_block:moderation_dashboard_content_locked-block_1'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: left
+      weight: -4
+      uuid: a13b69c9-5687-4550-a3a0-6911e7f7067a
       context_mapping: {  }
   id: panels_variant
   uuid: 4267dc51-27a4-4f19-bb07-19fe044527fa
