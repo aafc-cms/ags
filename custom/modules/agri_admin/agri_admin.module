@@ -425,10 +425,14 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         ->execute();
       if ($news) {
         $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
+        if (is_array($news)) {
+          $first_nid = array_shift($news);
+          $news = \Drupal\node\Entity\Node::load($first_nid);
+        }
         if ($news->hasTranslation($langcode)) {
           $news = $news->getTranslation($langcode);
         }
-        $linkNews = $news->toLink($news->getTitle(), 'edit-form');
+        $linkNews = $news->toLink($news->getTitle(), 'node_view');
       }
       else {
         $linkNews = Link::createFromRoute(t('News'), 'view.view_news_work.page_1');
@@ -438,12 +442,16 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
       $news_at_work = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
         ->condition('title', 'news@work', '=')
         ->execute();
+      if (is_array($news_at_work)) {
+        $first_nid = array_shift($news_at_work);
+        $news_at_work = \Drupal\node\Entity\Node::load($first_nid);
+      }
       if ($news_at_work) {
         $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
         if ($news_at_work->hasTranslation($langcode)) {
           $news_at_work = $news_at_work->getTranslation($langcode);
         }
-        $linkNewsatWork = $news_at_work->toLink($news_at_work->getTitle(), 'edit-form');
+        $linkNewsatWork = $news_at_work->toLink($news_at_work->getTitle(), 'node_view');
       }
       else {
         $linkNewsatWork = Link::createFromRoute(t('News@work'), 'view.view_news_work.page_1');
