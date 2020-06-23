@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_tracking_number
     - user.role.creator
+    - workflows.workflow.editorial
     - workflows.workflow.publishing
   enforced:
     module:
@@ -2364,7 +2365,7 @@ display:
           admin_label: ''
           operator: in
           value:
-            publishing-published: publishing-published
+            editorial-published: editorial-published
           group: 1
           exposed: false
           expose:

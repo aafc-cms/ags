@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - page_manager.page.moderation_dashboard
-    - views.view.content_moderation_dashboard_in_review
     - views.view.moderation_dashboard_emp_opp_content
     - views.view.moderation_dashboard_in_draft
     - views.view.moderation_dashboard_locked_content
@@ -24,17 +23,6 @@ label: Panels
 variant: panels_variant
 variant_settings:
   blocks:
-    810cd29f-e1c6-46ec-9eaa-dec914cfd4f4:
-      id: 'views_block:content_moderation_dashboard_in_review-block_1'
-      label: ''
-      provider: views
-      label_display: visible
-      views_label: ''
-      items_per_page: none
-      region: left
-      weight: -6
-      uuid: 810cd29f-e1c6-46ec-9eaa-dec914cfd4f4
-      context_mapping: {  }
     1fbb2fbb-d06a-4682-8fb3-07b37de946b8:
       id: 'views_block:moderation_dashboard_recent_changes-block_2'
       label: ''
@@ -42,20 +30,9 @@ variant_settings:
       label_display: visible
       views_label: ''
       items_per_page: none
-      region: right
-      weight: -8
-      uuid: 1fbb2fbb-d06a-4682-8fb3-07b37de946b8
-      context_mapping: {  }
-    cf820386-af3d-4972-ac42-d61956e7c776:
-      id: 'views_block:moderation_dashboard_my_content_in_review-block_2'
-      label: ''
-      provider: views
-      label_display: visible
-      views_label: ''
-      items_per_page: none
       region: middle
-      weight: -3
-      uuid: cf820386-af3d-4972-ac42-d61956e7c776
+      weight: -4
+      uuid: 1fbb2fbb-d06a-4682-8fb3-07b37de946b8
       context_mapping: {  }
     7897b564-98cc-4aa2-981f-9a6b30444ebd:
       id: 'views_block:moderation_dashboard_locked_content-block_2'
@@ -65,19 +42,8 @@ variant_settings:
       views_label: ''
       items_per_page: none
       region: left
-      weight: -3
+      weight: -4
       uuid: 7897b564-98cc-4aa2-981f-9a6b30444ebd
-      context_mapping: {  }
-    864eb054-e8e4-432c-902c-3e430be436c2:
-      id: 'views_block:moderation_dashboard_my_content_in_review-block_1'
-      label: 'My Content Waiting for Review'
-      provider: views
-      label_display: visible
-      views_label: 'My Content Waiting for Review'
-      items_per_page: none
-      region: middle
-      weight: -7
-      uuid: 864eb054-e8e4-432c-902c-3e430be436c2
       context_mapping: {  }
     53cbeb2b-ea02-4bf1-9a37-25b049bc8583:
       id: 'views_block:moderation_dashboard_recent_changes-block_1'
@@ -87,19 +53,8 @@ variant_settings:
       views_label: ''
       items_per_page: none
       region: right
-      weight: -7
+      weight: -9
       uuid: 53cbeb2b-ea02-4bf1-9a37-25b049bc8583
-      context_mapping: {  }
-    7af80867-c94c-4937-b75d-5cbd9073050f:
-      id: 'views_block:content_moderation_dashboard_in_review-block_5'
-      label: ''
-      provider: views
-      label_display: visible
-      views_label: ''
-      items_per_page: none
-      region: middle
-      weight: -6
-      uuid: 7af80867-c94c-4937-b75d-5cbd9073050f
       context_mapping: {  }
     0f29eadf-5708-4a3c-804e-70550bf7ecbf:
       id: 'views_block:moderation_dashboard_in_draft-block_1'
@@ -109,7 +64,7 @@ variant_settings:
       views_label: ''
       items_per_page: none
       region: left
-      weight: -7
+      weight: -2
       uuid: 0f29eadf-5708-4a3c-804e-70550bf7ecbf
       context_mapping: {  }
     6f1e3c0a-3baf-4fa7-a976-93cfa256f987:
@@ -120,7 +75,7 @@ variant_settings:
       views_label: ''
       items_per_page: none
       region: left
-      weight: -8
+      weight: -3
       uuid: 6f1e3c0a-3baf-4fa7-a976-93cfa256f987
       context_mapping: {  }
     8546c763-701f-4335-a636-b39661bce800:
@@ -130,64 +85,9 @@ variant_settings:
       label_display: visible
       views_label: ''
       items_per_page: none
-      region: right
-      weight: -9
+      region: middle
+      weight: -5
       uuid: 8546c763-701f-4335-a636-b39661bce800
-      context_mapping: {  }
-    e5ecc3b5-e177-4a34-a7b6-4ae621977203:
-      id: 'views_block:moderation_dashboard_recent_changes-block_3'
-      label: ''
-      provider: views
-      label_display: visible
-      views_label: ''
-      items_per_page: none
-      region: middle
-      weight: -5
-      uuid: e5ecc3b5-e177-4a34-a7b6-4ae621977203
-      context_mapping: {  }
-    7de0a811-74f5-405d-9376-232ce65f78a0:
-      id: 'views_block:moderation_dashboard_my_content_in_review-block_3'
-      label: 'My Content With Reviewer'
-      provider: views
-      label_display: visible
-      views_label: 'My Content With Reviewer'
-      items_per_page: none
-      region: middle
-      weight: -4
-      uuid: 7de0a811-74f5-405d-9376-232ce65f78a0
-      context_mapping: {  }
-    ae2b9587-c9a2-4845-a487-d69a9d558a32:
-      id: 'views_block:moderation_dashboard_news_content-block_1'
-      label: ''
-      provider: views
-      label_display: visible
-      views_label: ''
-      items_per_page: none
-      region: left
-      weight: -5
-      uuid: ae2b9587-c9a2-4845-a487-d69a9d558a32
-      context_mapping: {  }
-    c8f89f3a-bee8-49c1-bcc3-e96ddee1b8ef:
-      id: 'views_block:moderation_dashboard_news_content-block_2'
-      label: ''
-      provider: views
-      label_display: visible
-      views_label: ''
-      items_per_page: none
-      region: middle
-      weight: -2
-      uuid: c8f89f3a-bee8-49c1-bcc3-e96ddee1b8ef
-      context_mapping: {  }
-    79161744-de86-4d0f-b535-75474b311248:
-      id: 'views_block:moderation_dashboard_news_content-block_3'
-      label: ''
-      provider: views
-      label_display: visible
-      views_label: ''
-      items_per_page: none
-      region: right
-      weight: 0
-      uuid: 79161744-de86-4d0f-b535-75474b311248
       context_mapping: {  }
     0c30e8be-31c0-488b-a8d3-c8495db4f000:
       id: 'views_block:moderation_dashboard_emp_opp_content-block_1'
@@ -197,7 +97,7 @@ variant_settings:
       views_label: ''
       items_per_page: none
       region: left
-      weight: -4
+      weight: -6
       uuid: 0c30e8be-31c0-488b-a8d3-c8495db4f000
       context_mapping: {  }
     786237f0-829b-4dd4-8d26-b5f24d3bf1a5:
@@ -208,7 +108,7 @@ variant_settings:
       views_label: ''
       items_per_page: none
       region: middle
-      weight: 0
+      weight: -2
       uuid: 786237f0-829b-4dd4-8d26-b5f24d3bf1a5
       context_mapping: {  }
     b6de5adc-eec1-4900-b84b-8b82e0df63c6:
@@ -219,8 +119,63 @@ variant_settings:
       views_label: ''
       items_per_page: none
       region: right
-      weight: 0
+      weight: -8
       uuid: b6de5adc-eec1-4900-b84b-8b82e0df63c6
+      context_mapping: {  }
+    1d21dae3-f4e2-4c8c-9d08-f165c8ac313f:
+      id: 'views_block:moderation_dashboard_emp_opp_content-block_4'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: left
+      weight: -1
+      uuid: 1d21dae3-f4e2-4c8c-9d08-f165c8ac313f
+      context_mapping: {  }
+    fd5bd31a-b469-445a-97b9-8c76228828d6:
+      id: 'views_block:moderation_dashboard_news_content-block_1'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: left
+      weight: -5
+      uuid: fd5bd31a-b469-445a-97b9-8c76228828d6
+      context_mapping: {  }
+    f20a28f3-f935-4342-9efd-5c0142b4d4c2:
+      id: 'views_block:moderation_dashboard_news_content-block_4'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: left
+      weight: 0
+      uuid: f20a28f3-f935-4342-9efd-5c0142b4d4c2
+      context_mapping: {  }
+    acaeb451-af7d-49e3-97fd-13e809e96e6b:
+      id: 'views_block:moderation_dashboard_news_content-block_2'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: middle
+      weight: 0
+      uuid: acaeb451-af7d-49e3-97fd-13e809e96e6b
+      context_mapping: {  }
+    48ef35f2-4edb-4b09-99fc-328d8082d85a:
+      id: 'views_block:moderation_dashboard_news_content-block_3'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: right
+      weight: 0
+      uuid: 48ef35f2-4edb-4b09-99fc-328d8082d85a
       context_mapping: {  }
   id: panels_variant
   uuid: 4267dc51-27a4-4f19-bb07-19fe044527fa

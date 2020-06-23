@@ -383,13 +383,13 @@ display:
   block_2:
     display_plugin: block
     id: block_2
-    display_title: 'Content locked to me'
+    display_title: 'My Locked Content'
     position: 2
     display_options:
       display_extenders:
         metatag_display_extender: {  }
       display_description: ''
-      title: 'Content locked by me'
+      title: 'My Locked Content'
       empty:
         area_text_custom:
           id: area_text_custom
@@ -400,7 +400,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: 'No content was found.'
+          content: 'There is no content locked to me.'
           plugin_id: text_custom
       defaults:
         title: false
