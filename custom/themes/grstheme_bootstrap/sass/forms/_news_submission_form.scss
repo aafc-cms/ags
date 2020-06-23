@@ -50,6 +50,11 @@ body.user-anonymous {
   }
 }
 
+body.nodeaddnews.user-anonymous ol.breadcrumb li:last-child {
+  display: none;
+}
+
+
 body.page-node-type-news {
   /* field title float left class */
   .field--name-field-posted .field--label,

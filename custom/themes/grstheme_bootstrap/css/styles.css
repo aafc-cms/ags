@@ -347,90 +347,95 @@ body.user-anonymous.role-is-anonymous.news-article-form-page #block-grstheme-boo
 }
 
 /* line 53, ../sass/forms/_news_submission_form.scss */
+body.nodeaddnews.user-anonymous ol.breadcrumb li:last-child {
+  display: none;
+}
+
+/* line 58, ../sass/forms/_news_submission_form.scss */
 body.page-node-type-news {
   /* field title float left class */
 }
-/* line 55, ../sass/forms/_news_submission_form.scss */
+/* line 60, ../sass/forms/_news_submission_form.scss */
 body.page-node-type-news .field--name-field-posted .field--label,
 body.page-node-type-news .field--name-field-to .field--label,
 body.page-node-type-news .field--name-field-from .field--label {
   float: left;
 }
-/* line 61, ../sass/forms/_news_submission_form.scss */
+/* line 66, ../sass/forms/_news_submission_form.scss */
 body.page-node-type-news .field--name-field-posted .field--label::after,
 body.page-node-type-news .field--name-field-to .field--label::after,
 body.page-node-type-news .field--name-field-from .field--label::after {
   content: '\00a0\00a0';
 }
-/* line 67, ../sass/forms/_news_submission_form.scss */
+/* line 72, ../sass/forms/_news_submission_form.scss */
 body.page-node-type-news .field--name-body .field--label {
   display: none;
 }
-/* line 71, ../sass/forms/_news_submission_form.scss */
+/* line 76, ../sass/forms/_news_submission_form.scss */
 body.page-node-type-news .field--name-body.field--type-text-with-summary.field--label-above.quickedit-field .field--item::before {
   content: "\A";
   white-space: pre;
 }
 
-/* line 78, ../sass/forms/_news_submission_form.scss */
+/* line 83, ../sass/forms/_news_submission_form.scss */
 body.nodeaddnews.role-is-anonymous.node-add #wb-cont {
   display: none;
 }
-/* line 81, ../sass/forms/_news_submission_form.scss */
+/* line 86, ../sass/forms/_news_submission_form.scss */
 body.nodeaddnews.role-is-anonymous.node-add #block-cutomblock-submitarticlefornewsatwork .block-title {
   font-size: 34px !important;
 }
 
-/* line 87, ../sass/forms/_news_submission_form.scss */
+/* line 92, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page .help-block, body.nodeaddnews.role-is-anonymous.node-add .help-block {
   font-size: 16px;
   color: #333;
 }
-/* line 92, ../sass/forms/_news_submission_form.scss */
+/* line 97, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-actions, body.news-article-form-page #edit-footer, body.nodeaddnews.role-is-anonymous.node-add #edit-actions, body.nodeaddnews.role-is-anonymous.node-add #edit-footer {
   padding-left: 15px;
 }
-/* line 96, ../sass/forms/_news_submission_form.scss */
+/* line 101, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page .preview-wrapper, body.nodeaddnews.role-is-anonymous.node-add .preview-wrapper {
   padding-top: 15px;
 }
-/* line 100, ../sass/forms/_news_submission_form.scss */
+/* line 105, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page .preview-helptext-paragraph, body.nodeaddnews.role-is-anonymous.node-add .preview-helptext-paragraph {
   float: right;
 }
-/* line 104, ../sass/forms/_news_submission_form.scss */
+/* line 109, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page .submit-helptext-paragraph, body.nodeaddnews.role-is-anonymous.node-add .submit-helptext-paragraph {
   float: right !important;
 }
-/* line 108, ../sass/forms/_news_submission_form.scss */
+/* line 113, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-moderation-state-0 .select-wrapper::after, body.nodeaddnews.role-is-anonymous.node-add #edit-moderation-state-0 .select-wrapper::after {
   right: 84%;
 }
-/* line 112, ../sass/forms/_news_submission_form.scss */
+/* line 117, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-moderation-state-etuf-fr-0 .select-wrapper::after, body.nodeaddnews.role-is-anonymous.node-add #edit-moderation-state-etuf-fr-0 .select-wrapper::after {
   right: 84%;
 }
-/* line 116, ../sass/forms/_news_submission_form.scss */
+/* line 121, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page .btn.icon-before .glyphicon, body.nodeaddnews.role-is-anonymous.node-add .btn.icon-before .glyphicon {
   min-height: 20px;
 }
-/* line 120, ../sass/forms/_news_submission_form.scss */
+/* line 125, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page.i18n-en .field--type-entity-reference .select-wrapper:after, body.nodeaddnews.role-is-anonymous.node-add.i18n-en .field--type-entity-reference .select-wrapper:after {
   right: 78% !important;
 }
-/* line 124, ../sass/forms/_news_submission_form.scss */
+/* line 129, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page.i18n-en .field--type-list-string .select-wrapper:after, body.nodeaddnews.role-is-anonymous.node-add.i18n-en .field--type-list-string .select-wrapper:after {
   right: 80.5% !important;
 }
-/* line 128, ../sass/forms/_news_submission_form.scss */
+/* line 133, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page.i18n-fr .field--type-entity-reference .select-wrapper:after, body.nodeaddnews.role-is-anonymous.node-add.i18n-fr .field--type-entity-reference .select-wrapper:after {
   right: 71% !important;
 }
-/* line 132, ../sass/forms/_news_submission_form.scss */
+/* line 137, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page.i18n-fr .field--type-list-string .select-wrapper:after, body.nodeaddnews.role-is-anonymous.node-add.i18n-fr .field--type-list-string .select-wrapper:after {
   right: 80.5% !important;
 }
-/* line 137, ../sass/forms/_news_submission_form.scss */
+/* line 142, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-group-newsreviewerandapprover div a.panel-title, body.news-article-form-page #edit-group-submitter-s-contact-inform div a.panel-title,
 body.news-article-form-page #edit-group-newsposteddate div a.panel-title, body.news-article-form-page #edit-group-newsarticle div a.panel-title,
 body.news-article-form-page #edit-group-newssentby div a.panel-title, body.news-article-form-page #edit-group-newsarticleheadline div a.panel-title,
@@ -447,7 +452,7 @@ body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsnotes div a.panel-ti
   font-size: 24px;
   font-weight: bold;
 }
-/* line 150, ../sass/forms/_news_submission_form.scss */
+/* line 155, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-group-newsreviewerandapprover.panel-default, body.news-article-form-page #edit-group-submitter-s-contact-inform.panel-default,
 body.news-article-form-page #edit-group-newsposteddate.panel-default, body.news-article-form-page #edit-group-newsarticle.panel-default,
 body.news-article-form-page #edit-group-newssentby.panel-default, body.news-article-form-page #edit-group-newsarticleheadline.panel-default,
@@ -459,7 +464,7 @@ body.nodeaddnews.role-is-anonymous.node-add #edit-group-aboutarticle.panel-defau
 body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsnotes.panel-default, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsattachedfiles.panel-default {
   border-color: white;
 }
-/* line 159, ../sass/forms/_news_submission_form.scss */
+/* line 164, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-group-newsreviewerandapprover div.panel-heading, body.news-article-form-page #edit-group-submitter-s-contact-inform div.panel-heading,
 body.news-article-form-page #edit-group-newsposteddate div.panel-heading, body.news-article-form-page #edit-group-newsarticle div.panel-heading,
 body.news-article-form-page #edit-group-newssentby div.panel-heading, body.news-article-form-page #edit-group-newsarticleheadline div.panel-heading,
@@ -472,37 +477,37 @@ body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsnotes div.panel-head
   border-bottom: 0px;
   padding-bottom: 0px;
 }
-/* line 169, ../sass/forms/_news_submission_form.scss */
+/* line 174, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newsfile1-0--description, body.nodeaddnews.role-is-anonymous.node-add #edit-field-newsfile1-0--description {
   display: none;
 }
-/* line 173, ../sass/forms/_news_submission_form.scss */
+/* line 178, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newsfile2-0--description, body.nodeaddnews.role-is-anonymous.node-add #edit-field-newsfile2-0--description {
   display: none;
 }
-/* line 177, ../sass/forms/_news_submission_form.scss */
+/* line 182, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newsfile3-0--description, body.nodeaddnews.role-is-anonymous.node-add #edit-field-newsfile3-0--description {
   display: none;
 }
-/* line 181, ../sass/forms/_news_submission_form.scss */
+/* line 186, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newsfile4-0--description, body.nodeaddnews.role-is-anonymous.node-add #edit-field-newsfile4-0--description {
   display: none;
 }
-/* line 185, ../sass/forms/_news_submission_form.scss */
+/* line 190, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newssubmitterphone-0-value, body.nodeaddnews.role-is-anonymous.node-add #edit-field-newssubmitterphone-0-value {
   display: block;
 }
-/* line 189, ../sass/forms/_news_submission_form.scss */
+/* line 194, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #block-news-form-add h2.block-title, body.nodeaddnews.role-is-anonymous.node-add #block-news-form-add h2.block-title {
   display: none !important;
 }
-/* line 193, ../sass/forms/_news_submission_form.scss */
+/* line 198, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page #edit-field-newsexpirydate-0 div.panel-heading, body.nodeaddnews.role-is-anonymous.node-add #edit-field-newsexpirydate-0 div.panel-heading {
   background-color: white;
   font-size: 24px;
   font-weight: bold;
 }
-/* line 199, ../sass/forms/_news_submission_form.scss */
+/* line 204, ../sass/forms/_news_submission_form.scss */
 body.news-article-form-page .tabbable.tabs-left.vertical-tabs.clearfix, body.nodeaddnews.role-is-anonymous.node-add .tabbable.tabs-left.vertical-tabs.clearfix {
   display: none !important;
 }

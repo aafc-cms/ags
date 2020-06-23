@@ -397,3 +397,44 @@ function agri_admin_form_node_empl_form_alter(&$form, \Drupal\Core\Form\FormStat
     //$form['#attributes']['novalidate'] = 'novalidate';
   }
 }
+
+/**
+ * Implements hook_system_breadcrumb_alter().
+ * for /node/add/news page
+ */
+
+function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &$breadcrumb, \Drupal\Core\Routing\RouteMatchInterface $route_match, array $context) {
+  $current_path = \Drupal::service('path.current')->getPath();
+  $result = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+  if (($result =='/node/add/news') && (\Drupal::currentUser()->isAnonymous())) {
+    if ($breadcrumb) {
+      $links = $breadcrumb->getlinks(); 
+      $breadcrumb = new \Drupal\Core\Breadcrumb\Breadcrumb();
+      $breadcrumb->addLink($links[0]);
+      $breadcrumb->addLink(Link::createFromRoute(t('News'), 'view.view_news_work.page_1'));
+      $breadcrumb->addLink(Link::createFromRoute(t('News@work'), 'view.view_news_work.page_1'));
+    }
+  }
+}
+
+/**
+ * Implements hook_preproces_breadcrumb.
+ * for /node/add/news page
+ */
+
+function agri_admin_preprocess_breadcrumb(&$variables) {
+  if ($variables['breadcrumb']) {
+    $request = \Drupal::request();
+    $route_match = \Drupal::routeMatch();
+    $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+    $current_path = \Drupal::service('path.current')->getPath();
+    $result = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+ 
+    if (!empty($page_title) && ($result =='/node/add/news') && (\Drupal::currentUser()->isAnonymous()) ) {
+      $variables['breadcrumb'][] = [
+        'text' => t('Submit an article for news at work'),
+        'attributes' => new Drupal\Core\Template\Attribute(['class' => ['active']])
+      ];
+    }
+  }
+}
