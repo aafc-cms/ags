@@ -273,6 +273,13 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
     if ($role == 'creator' || $role == 'news_ccpub' || $role == 'empl_cspub') {
   AgriAdminHelper::addToLog('presave called for ' . $entity->language()->getId() . ' ' . $entity->id(), TRUE);
       $debug_message = 'Authored on: '.$entity->getCreatedTime().'; Node id: '.$entity_id.'; Old Author: '.$current_author_id;
+      $langcode = $entity->language()->getId();
+      if ($langcode == 'en') {
+        $entity->getTranslation('fr')->setOwnerId($current_user_id);
+      }
+      else {
+        $entity->getTranslation('en')->setOwnerId($current_user_id);
+      }
       $entity->setOwnerId($current_user_id);
       $entity->set('created', time());
       $debug_message = $debug_message . '; New Author: ' . $entity->getOwnerId();
