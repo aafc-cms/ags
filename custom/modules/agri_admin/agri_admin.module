@@ -375,7 +375,7 @@ function agri_admin_form_node_news_form_alter(&$form, \Drupal\Core\Form\FormStat
   if (\Drupal::currentUser()->isAnonymous()) {
     $form['actions']['preview']['#weight'] = -99;
     // See js/agri-empl-or-news-submit.js previewInNewTab().
-    //$form['#attached']['library'][] = 'agri_admin/agri-empl-news-submit'; // For empl submit.
+    $form['#attached']['library'][] = 'agri_admin/agri-empl-news-submit_css'; // For empl submit.
     $form['actions']['#weight'] = 10;
     $form['actions']['submit']['#value'] = t('Submit'); 
     //$form['#attributes']['target'] = '_blank';
@@ -390,10 +390,79 @@ function agri_admin_form_node_empl_form_alter(&$form, \Drupal\Core\Form\FormStat
   if (\Drupal::currentUser()->isAnonymous()) {
     $form['actions']['preview']['#weight'] = -99;
     // See js/agri-empl-or-news-submit.js previewInNewTab().
-    //$form['#attached']['library'][] = 'agri_admin/agri-empl-news-submit'; // For empl submit.
+    $form['#attached']['library'][] = 'agri_admin/agri-empl-news-submit_css'; // For empl submit.
     $form['actions']['#weight'] = 5;
     $form['actions']['submit']['#value'] = t('Submit Request');
     //$form['#attributes']['target'] = '_blank';
     //$form['#attributes']['novalidate'] = 'novalidate';
+  }
+}
+
+/**
+ * Implements hook_system_breadcrumb_alter().
+ * for /node/add/news page
+ */
+
+function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &$breadcrumb, \Drupal\Core\Routing\RouteMatchInterface $route_match, array $context) {
+  $current_path = \Drupal::service('path.current')->getPath();
+  $result = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+  if (($result =='/node/add/news') && (\Drupal::currentUser()->isAnonymous())) {
+    if ($breadcrumb) {
+      $links = $breadcrumb->getlinks(); 
+      $breadcrumb = new \Drupal\Core\Breadcrumb\Breadcrumb();
+      $breadcrumb->addLink($links[0]);
+      // dynamically handle the route name for News link
+      $news = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
+        ->condition('title', 'news', '=')
+        ->execute();
+      if ($news) {
+        $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
+        if ($news->hasTranslation($langcode)) {
+          $news = $news->getTranslation($langcode);
+        }
+        $linkNews = $news->toLink($news->getTitle(), 'edit-form');
+      }
+      else {
+        $linkNews = Link::createFromRoute(t('News'), 'view.view_news_work.page_1');
+      }
+      $breadcrumb->addLink($linkNews);
+      //Dynamically handle the route name for news at work link
+      $news_at_work = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
+        ->condition('title', 'news@work', '=')
+        ->execute();
+      if ($news_at_work) {
+        $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
+        if ($news_at_work->hasTranslation($langcode)) {
+          $news_at_work = $news_at_work->getTranslation($langcode);
+        }
+        $linkNewsatWork = $news_at_work->toLink($news_at_work->getTitle(), 'edit-form');
+      }
+      else {
+        $linkNewsatWork = Link::createFromRoute(t('News@work'), 'view.view_news_work.page_1');
+      }   
+      $breadcrumb->addLink($linkNewsatWork);
+    }
+  }
+}
+
+/**
+ * Implements hook_preproces_breadcrumb.
+ * for /node/add/news page
+ */
+
+function agri_admin_preprocess_breadcrumb(&$variables) {
+  if ($variables['breadcrumb']) {
+    $request = \Drupal::request();
+    $route_match = \Drupal::routeMatch();
+    $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+    $current_path = \Drupal::service('path.current')->getPath();
+    $result = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+ 
+    if (!empty($page_title) && ($result =='/node/add/news') && (\Drupal::currentUser()->isAnonymous()) ) {
+      $variables['breadcrumb'][] = [
+        'text' => t('Submit an article for news at work'),
+        'attributes' => new Drupal\Core\Template\Attribute(['class' => ['active']])
+      ];
+    }
   }
 }
