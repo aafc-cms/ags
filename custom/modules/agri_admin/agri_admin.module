@@ -270,7 +270,8 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
   $roles = $current_user->getRoles();
   foreach ($roles as $value) {
     $role = $value;
-    if ($role == 'creator' || $role == 'news_ccpub' || $role == 'empl_ccpub') {
+    if ($role == 'creator' || $role == 'news_ccpub' || $role == 'empl_cspub') {
+  AgriAdminHelper::addToLog('presave called for ' . $entity->language()->getId() . ' ' . $entity->id(), TRUE);
       $debug_message = 'Authored on: '.$entity->getCreatedTime().'; Node id: '.$entity_id.'; Old Author: '.$current_author_id;
       $entity->setOwnerId($current_user_id);
       $entity->set('created', time());
