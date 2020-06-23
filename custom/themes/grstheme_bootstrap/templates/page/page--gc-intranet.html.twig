@@ -137,9 +137,11 @@
         {% if not node.isPublished() %}
           {% set hashLinkTitle = 'Access unpublished hash link allows unpublished access to content.' %}
           {% set linkClass = 'link access-unpublished' %}
-          <div class="alert alert-success access_unpublished alert-dismissible" role="status" aria-label="Status message">
-            <b><a href="{{ accessUnpublishedUrl }}" class="{{ linkClass }}">{{ hashLinkTitle|t }}</a></b>
-          </div>
+        <div class="alert alert-success access_unpublished alert-dismissible" role="status" aria-label="{{ 'Status message'|t }}">
+          <b><a href="{{ accessUnpublishedUrl }}" class="{{ linkClass }}">{{ hashLinkTitle|t }}</a></b>
+          <button type="button" role="button" class="close" data-dismiss="alert" aria-label="{{ 'Close'|t }}"><span aria-hidden="true">×</span></button>
+          <h2 class="sr-only">{{ 'Status message'|t }}</h2>
+        </div>
         {% endif %}
       {% endif %}
 
