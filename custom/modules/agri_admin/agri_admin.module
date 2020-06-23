@@ -306,7 +306,7 @@ function _helperLockingContent($action, $entity_id, $bundle, $entity_obj = NULL)
       $roles = $current_user->getRoles();
       foreach ($roles as $value) {
         $role = $value;
-        if ($role == 'news_ccpub' || $role == 'empl_ccpub') {
+        if ($role == 'news_ccpub' || $role == 'empl_cspub') {
           $is_master = TRUE;
           $state = $latest->get('moderation_state')->getString();
           if ($state == 'draft' || $state == 'review_by_reviewer' || $state == 'author_reviewing') {
