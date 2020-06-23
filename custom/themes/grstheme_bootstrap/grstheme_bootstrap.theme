@@ -145,18 +145,20 @@ function grstheme_bootstrap_preprocess_field(&$variables, $hook) {
  * Implements hook_form_alter.
  */
 function grstheme_bootstrap_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+/*  We decide to use the Drupal HTML 5 validaton and Drupal default preview funcitonality - Preview page is displayed on the same tab.
+    committed out the logic for adding custom preview message */
   if ($form_id === 'node_news_form' || $form_id === 'node_news_edit_form') {
-      $text = t("<p class='preview-helptext-paragraph'>Preview your article to see how it will look in <strong>news@work</strong>.  If your article doesn't appear correct, close the preview window and edit it again.</p>");
-      $form['actions']['preview']['#prefix'] = '<br><div class="preview-wrapper">';
-      $form['actions']['preview']['#suffix'] = $text . '</div>';
-      $textsubmitmsg = t("<p>When you've completed and previewed your article, click submit to send it to the news@work coordinator.</p>");
-      $form['actions']['submit']['#prefix'] = '';
-      $form['actions']['submit']['#prefix'] = "<div class='submit-helptext-paragraph'>".$textsubmitmsg . "</div>";
+    // $text = t("<p class='preview-helptext-paragraph'>Preview your article to see how it will look in <strong>news@work</strong>.  If your article doesn't appear correct, close the preview window and edit it again.</p>");
+    $form['actions']['preview']['#prefix'] = '<br><div class="preview-wrapper">';
+    $form['actions']['preview']['#suffix'] =  '</div>';
+    // $textsubmitmsg = t("<p>When you've completed and previewed your article, click submit to send it to the news@work coordinator.</p>");
+    $form['actions']['submit']['#prefix'] = '';
+    $form['actions']['submit']['#prefix'] = "<div class='submit-helptext-paragraph'></div>";
   }
 
   if ($form_id === 'node_empl_form' || $form_id === 'node_empl_edit_form') {
-      $text = t("<p class='preview-helptext-paragraph'>Preview your employment opportunity in a <strong>new window</strong> before submitting to ensure that all of the information is correct.<br/><strong>Close</strong> the preview window to return to the form.</p>");
-      $form['actions']['preview']['#prefix'] = '<br><div class="preview-wrapper">';
-      $form['actions']['preview']['#suffix'] = $text . '</div>';
+    //$text = t("<p class='preview-helptext-paragraph'>Preview your employment opportunity in a <strong>new window</strong> before submitting to ensure that all of the information is correct.<br/><strong>Close</strong> the preview window to return to the form.</p>");
+    $form['actions']['preview']['#prefix'] = '<br><div class="preview-wrapper">';
+    $form['actions']['preview']['#suffix'] = '</div>';
   }
 }
