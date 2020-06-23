@@ -7,17 +7,35 @@ label: live
 description: "settings only to be deployed to environments configured as 'live'.  \r\n"
 folder: modules/custom/config/splits/live
 module:
+  autologout: 0
+  password_policy: 0
+  password_policy_character_types: 0
+  password_policy_characters: 0
+  password_policy_history: 0
+  password_policy_length: 0
   purge: 0
+  purge_drush: 0
+  purge_processor_cron: 0
   purge_processor_lateruntime: 0
   purge_queuer_coretags: 0
   purge_tokens: 0
   purge_ui: 0
   varnish_purge_tags: 0
   varnish_purger: 0
+  warmer: 0
+  warmer_cdn: 0
+  warmer_entity: 0
+  wxt_ext_password_policy: 0
 theme: {  }
 blacklist:
+  - autologout.settings
+  - password_policy.password_policy.wxt_ism_policy_strong
+  - password_policy.settings
+  - purge_queuer_coretags.settings
   - system.logging
   - system.performance
+  - varnish_purger.settings.47e333ca49
+  - warmer.settings
 graylist: {  }
 graylist_dependents: true
 graylist_skip_equal: false
