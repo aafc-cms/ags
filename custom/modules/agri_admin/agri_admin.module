@@ -289,7 +289,7 @@ function _helperLockingContent($action, $entity_id, $bundle, $entity_obj = NULL)
       $current_user = \Drupal::currentUser();
       $current_user_id = $current_user->id();
       if ($action == 'update') {
-        $latest = AgriAdminHelper::getLatestRevision($entity_id, $vid);
+        $latest = $entity_obj; //AgriAdminHelper::getLatestRevision($entity_id, $vid);
       }
       if ($action == 'insert') {
         $latest = $entity_obj;
