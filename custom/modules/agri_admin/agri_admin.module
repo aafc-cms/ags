@@ -432,7 +432,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         if ($news->hasTranslation($langcode)) {
           $news = $news->getTranslation($langcode);
         }
-        $linkNews = $news->toLink($news->getTitle(), 'node_view');
+	$linkNews = $news->toLink($news->getTitle());
       }
       else {
         $linkNews = Link::createFromRoute(t('News'), 'view.view_news_work.page_1');
@@ -451,7 +451,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         if ($news_at_work->hasTranslation($langcode)) {
           $news_at_work = $news_at_work->getTranslation($langcode);
         }
-        $linkNewsatWork = $news_at_work->toLink($news_at_work->getTitle(), 'node_view');
+	$linkNewsatWork = $news_at_work->toLink($news_at_work->getTitle());
       }
       else {
         $linkNewsatWork = Link::createFromRoute(t('News@work'), 'view.view_news_work.page_1');
