@@ -1,0 +1,6 @@
+services:
+  path_processor.agri_admin:
+    class: Drupal\agri_admin\PathProcessor\PathProcessorAgriAdmin
+    tags:
+      - { name: path_processor_inbound, priority: 1000 }
+      - { name: path_processor_outbound, priority: 1000 }
