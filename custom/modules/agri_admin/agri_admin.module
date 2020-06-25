@@ -414,6 +414,40 @@ function agri_admin_form_node_empl_form_alter(&$form, \Drupal\Core\Form\FormStat
 function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &$breadcrumb, \Drupal\Core\Routing\RouteMatchInterface $route_match, array $context) {
   $current_path = \Drupal::service('path.current')->getPath();
   $result = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+  $previousUrl = \Drupal::request()->server->get('HTTP_REFERER');
+
+  //handle /node/preview page
+  if (((strpos($result,'/node/preview/') !==false ) && (
+    strpos($previousUrl,'/node/add/news?') >0 ||
+    strpos($previousUrl,'/en/submit-article-news-work') > 0 ||
+    strpos($previousUrl,'/fr/soumettre-un-article-nouvelles-au-travail') > 0 ) ) 
+    && (\Drupal::currentUser()->isAnonymous())) {
+    if ($breadcrumb) {
+      $links = $breadcrumb->getlinks(); 
+      $breadcrumb = new \Drupal\Core\Breadcrumb\Breadcrumb();
+      $breadcrumb->addLink($links[0]);
+      // dynamically handle the route name for News link
+      $news = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
+        ->condition('title', 'news', '=')
+        ->execute();
+      if ($news) {
+        $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
+        if (is_array($news)) {
+          $first_nid = array_shift($news);
+          $news = \Drupal\node\Entity\Node::load($first_nid);
+        }
+        if ($news->hasTranslation($langcode)) {
+          $news = $news->getTranslation($langcode);
+        }
+	$linkNews = $news->toLink($news->getTitle());
+      }
+      else {
+        $linkNews = Link::createFromRoute(t('News'), 'view.view_news_work.page_1');
+      }
+      $breadcrumb->addLink($linkNews); 
+    }
+  } 
+
   if (($result =='/node/add/news') && (\Drupal::currentUser()->isAnonymous())) {
     if ($breadcrumb) {
       $links = $breadcrumb->getlinks(); 
