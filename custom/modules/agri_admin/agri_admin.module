@@ -420,10 +420,10 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
   if (((strpos($result,'/node/preview/') !==false ) && (
     strpos($previousUrl,'/node/add/news?') >0 ||
     strpos($previousUrl,'/en/submit-article-news-work') > 0 ||
-    strpos($previousUrl,'/fr/soumettre-un-article-nouvelles-au-travail') > 0 ) ) 
+    strpos($previousUrl,'/fr/soumettre-un-article-nouvelles-au-travail') > 0 ) )
     && (\Drupal::currentUser()->isAnonymous())) {
     if ($breadcrumb) {
-      $links = $breadcrumb->getlinks(); 
+      $links = $breadcrumb->getlinks();
       $breadcrumb = new \Drupal\Core\Breadcrumb\Breadcrumb();
       $breadcrumb->addLink($links[0]);
       // dynamically handle the route name for News link
@@ -439,18 +439,18 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         if ($news->hasTranslation($langcode)) {
           $news = $news->getTranslation($langcode);
         }
-	$linkNews = $news->toLink($news->getTitle());
+        $linkNews = $news->toLink($news->getTitle());
       }
       else {
         $linkNews = Link::createFromRoute(t('News'), 'view.view_news_work.page_1');
       }
-      $breadcrumb->addLink($linkNews); 
+      $breadcrumb->addLink($linkNews);
     }
-  } 
+  }
 
   if (($result =='/node/add/news') && (\Drupal::currentUser()->isAnonymous())) {
     if ($breadcrumb) {
-      $links = $breadcrumb->getlinks(); 
+      $links = $breadcrumb->getlinks();
       $breadcrumb = new \Drupal\Core\Breadcrumb\Breadcrumb();
       $breadcrumb->addLink($links[0]);
       // dynamically handle the route name for News link
