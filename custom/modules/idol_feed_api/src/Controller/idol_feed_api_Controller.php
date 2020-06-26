@@ -206,7 +206,11 @@ class idol_feed_api_Controller extends ControllerBase {
       }
     }
   }
-      $response = new Response($xml->asXML());
+
+      $a = htmlentities($xml->asXML());
+      $b = html_entity_decode($xml->asXML(),ENT_QUOTES | ENT_HTML401, 'ISO-8859-1');
+      $response = new Response($b);
+      // $response = new Response(html_entity_decode(utf8_decode($xml->asXML())));
       $response->headers->set('Content-Type', 'xml');
 
       return $response;
