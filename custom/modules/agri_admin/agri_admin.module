@@ -416,11 +416,11 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
   $result = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
   $previousUrl = \Drupal::request()->server->get('HTTP_REFERER');
 
-  //handle /node/preview page
+  //handle /node/preview page for News
   if (((strpos($result,'/node/preview/') !==false ) && (
     strpos($previousUrl,'/node/add/news?') >0 ||
     strpos($previousUrl,'/en/submit-article-news-work') > 0 ||
-    strpos($previousUrl,'/fr/soumettre-un-article-nouvelles-au-travail') > 0 ) )
+    strpos($previousUrl,'/fr/soumettre-un-article-nouvelles-au-travail') > 0 ))
     && (\Drupal::currentUser()->isAnonymous())) {
     if ($breadcrumb) {
       $links = $breadcrumb->getlinks();
@@ -445,6 +445,38 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         $linkNews = Link::createFromRoute(t('News'), 'view.view_news_work.page_1');
       }
       $breadcrumb->addLink($linkNews);
+    }
+  }
+
+  // handle /node/preview page for Employment Opportunity form
+  if (((strpos($result,'/node/preview/') !==false ) && (
+    strpos($previousUrl,'/node/add/empl?') >0 ||
+    strpos($previousUrl,'/internal-employment-opportunity-request-form') > 0 ||
+    strpos($previousUrl,'/formulaire-de-demande-pour-les-possibilites-demploi-linterne') > 0 ))
+    && (\Drupal::currentUser()->isAnonymous())) {
+    if ($breadcrumb) {
+      $links = $breadcrumb->getlinks(); 
+      $breadcrumb = new \Drupal\Core\Breadcrumb\Breadcrumb();
+      $breadcrumb->addLink($links[0]);
+      // dynamically handle the route name for EO link
+      $hr = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
+        ->condition('title', 'Human Resources – Services and Information', '=')
+        ->execute();
+      if ($hr) {
+        $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
+        if (is_array($hr)) {
+          $first_nid = array_shift($hr);
+          $hr = \Drupal\node\Entity\Node::load($first_nid);
+        }
+        if ($hr->hasTranslation($langcode)) {
+          $hr = $hr->getTranslation($langcode);
+        }
+	$linkHR = $hr->toLink(t('Human Resources'));
+      }
+      else {
+        $linkHR = Link::createFromRoute(t('Human Resources'), 'view.view_employmentopportunities.page_1');
+      }
+      $breadcrumb->addLink($linkHR); 
     }
   }
 
@@ -493,6 +525,51 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
       $breadcrumb->addLink($linkNewsatWork);
     }
   }
+
+  if (($result =='/node/add/empl') && (\Drupal::currentUser()->isAnonymous())) {
+    if ($breadcrumb) {
+      $links = $breadcrumb->getlinks();
+      $breadcrumb = new \Drupal\Core\Breadcrumb\Breadcrumb();
+      $breadcrumb->addLink($links[0]);
+      // dynamically handle the route name for HR link
+      $hr = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
+        ->condition('title', 'Human Resources – Services and Information', '=')
+       ->execute();
+      if ($hr) {
+        $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
+        if (is_array($hr)) {
+          $first_nid = array_shift($hr);
+          $hr = \Drupal\node\Entity\Node::load($first_nid);
+        }
+        if ($hr->hasTranslation($langcode)) {
+          $hr = $hr->getTranslation($langcode);
+        }
+	$linkHR = $hr->toLink(t('Human Resources'));
+      }
+      else {
+        $linkHR = Link::createFromRoute(t('Human Resources'), 'view.view_employmentopportunities.page_1');
+      }
+      $breadcrumb->addLink($linkHR);
+      $staffing = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
+        ->condition('title', 'Staffing', '=')
+        ->execute();
+      if (is_array($staffing)) {
+        $first_nid = array_shift($staffing);
+        $staffing = \Drupal\node\Entity\Node::load($first_nid);
+      }
+      if ($staffing) {
+        $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
+        if ($staffing->hasTranslation($langcode)) {
+          $staffing = $staffing->getTranslation($langcode);
+        }
+	$linkStaffing = $staffing->toLink($staffing->getTitle());
+      }
+      else {
+        $linkStaffing = Link::createFromRoute(t('Staffing'), 'view.view_employmentopportunities.page_1');
+      } 
+      $breadcrumb->addLink($linkStaffing);
+    }
+  }
 }
 
 /**
@@ -508,9 +585,16 @@ function agri_admin_preprocess_breadcrumb(&$variables) {
     $current_path = \Drupal::service('path.current')->getPath();
     $result = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
  
-    if (!empty($page_title) && ($result =='/node/add/news') && (\Drupal::currentUser()->isAnonymous()) ) {
+    if (!empty($page_title) && ($result =='/node/add/news') && (\Drupal::currentUser()->isAnonymous())) {
       $variables['breadcrumb'][] = [
         'text' => t('Submit an article for news at work'),
+        'attributes' => new Drupal\Core\Template\Attribute(['class' => ['active']])
+      ];
+    }
+
+    if (!empty($page_title) && ($result =='/node/add/empl') && (\Drupal::currentUser()->isAnonymous())) {
+      $variables['breadcrumb'][] = [
+        'text' => t('Internal Employment Opportunity Request Form'),
         'attributes' => new Drupal\Core\Template\Attribute(['class' => ['active']])
       ];
     }
