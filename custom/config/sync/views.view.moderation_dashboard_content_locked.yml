@@ -62,14 +62,11 @@ display:
           items_per_page: 5
           offset: 0
       style:
-        type: html_list
+        type: default
         options:
           grouping: {  }
           row_class: ''
           default_row_class: true
-          type: ul
-          wrapper_class: item-list
-          class: ''
       row:
         type: fields
         options:
@@ -930,7 +927,7 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: strong
+          element_type: em
           element_class: ''
           element_label_type: ''
           element_label_class: ''
