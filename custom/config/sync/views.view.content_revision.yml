@@ -1299,11 +1299,10 @@ display:
       display_extenders:
         metatag_display_extender: {  }
       path: admin/content-revision
-      rendering_language: '***LANGUAGE_entity_translation***'
+      rendering_language: '***LANGUAGE_language_interface***'
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
