@@ -1,6 +1,6 @@
 max_links: 2000
 cron_generate: true
-cron_generate_interval: 0
+cron_generate_interval: 168
 generate_duration: 10000
 remove_duplicates: true
 skip_untranslated: true
@@ -20,3 +20,4 @@ entity_types:
     page:
       index: 1
       priority: '0.5'
+disable_language_hreflang: false
