@@ -415,12 +415,12 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
   $current_path = \Drupal::service('path.current')->getPath();
   $result = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
   $previousUrl = \Drupal::request()->server->get('HTTP_REFERER');
-
+  $node = \Drupal::routeMatch()->getParameter('node_preview');
+  if ($node) { 
+    $nType = $node->getType(); 
+  }
   //handle /node/preview page for News
-  if (((strpos($result,'/node/preview/') !==false ) && (
-    strpos($previousUrl,'/node/add/news?') >0 ||
-    strpos($previousUrl,'/en/submit-article-news-work') > 0 ||
-    strpos($previousUrl,'/fr/soumettre-un-article-nouvelles-au-travail') > 0 ))
+  if (((strpos($result,'/node/preview/') !==false) && ($nType == 'news'))
     && (\Drupal::currentUser()->isAnonymous())) {
     if ($breadcrumb) {
       $links = $breadcrumb->getlinks();
@@ -449,10 +449,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
   }
 
   // handle /node/preview page for Employment Opportunity form
-  if (((strpos($result,'/node/preview/') !==false ) && (
-    strpos($previousUrl,'/node/add/empl?') >0 ||
-    strpos($previousUrl,'/internal-employment-opportunity-request-form') > 0 ||
-    strpos($previousUrl,'/formulaire-de-demande-pour-les-possibilites-demploi-linterne') > 0 ))
+  if (((strpos($result,'/node/preview/') !==false) && ($nType == 'empl'))
     && (\Drupal::currentUser()->isAnonymous())) {
     if ($breadcrumb) {
       $links = $breadcrumb->getlinks(); 
