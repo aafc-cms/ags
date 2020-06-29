@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "29c97c5e8866d1e73ddfd1651132f079",
+    "content-hash": "90fb0d1ecb2b0baa25072269cf8acfd0",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -201,16 +201,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.142.7",
+            "version": "3.143.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "42f1b348f28388233aa6a0c395f8adc29e8cb752"
+                "reference": "d44eac162f8ed1869d20c076adca9869c70a8ad9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/42f1b348f28388233aa6a0c395f8adc29e8cb752",
-                "reference": "42f1b348f28388233aa6a0c395f8adc29e8cb752",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d44eac162f8ed1869d20c076adca9869c70a8ad9",
+                "reference": "d44eac162f8ed1869d20c076adca9869c70a8ad9",
                 "shasum": ""
             },
             "require": {
@@ -282,7 +282,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-06-22T18:15:41+00:00"
+            "time": "2020-06-26T18:21:03+00:00"
         },
         {
             "name": "bower-asset/cropper",
@@ -4019,6 +4019,7 @@
                 },
                 "patches_applied": {
                     "core views module fix for contextual filter": "https://www.drupal.org/files/issues/2628130-11.patch",
+                    "safedelete entity_translation_unified_form form set error squelch noise about #parent element": "https://www.drupal.org/files/issues/2019-08-31/3027240-12.patch",
                     "allow field groups to be compatible": "https://www.drupal.org/files/issues/2020-02-05/2546212-119.patch",
                     "remove hreflang attribute from language switcher li element": "https://www.drupal.org/files/issues/2019-06-05/2454289-82.patch",
                     "Node preview current language": "https://www.drupal.org/files/issues/2020-06-20/node-preview_current_language-3150728-12.patch",
@@ -4712,29 +4713,26 @@
         },
         {
             "name": "drupal/entity_block",
-            "version": "1.0.0-beta2",
+            "version": "1.0.0-beta3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/entity_block.git",
-                "reference": "8.x-1.0-beta2"
+                "reference": "8.x-1.0-beta3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/entity_block-8.x-1.0-beta2.zip",
-                "reference": "8.x-1.0-beta2",
-                "shasum": "626c2ac5d471383d068b06a24ff2e4fd842d9887"
+                "url": "https://ftp.drupal.org/files/projects/entity_block-8.x-1.0-beta3.zip",
+                "reference": "8.x-1.0-beta3",
+                "shasum": "523a66fd1089117fc857fb6e719ae4333d30e46d"
             },
             "require": {
                 "drupal/core": "^8 || ^9"
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
                 "drupal": {
-                    "version": "8.x-1.0-beta2",
-                    "datestamp": "1580800935",
+                    "version": "8.x-1.0-beta3",
+                    "datestamp": "1593050227",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -5058,17 +5056,17 @@
         },
         {
             "name": "drupal/entity_translation_unified_form",
-            "version": "1.0.0-beta5",
+            "version": "1.0.0-beta7",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/entity_translation_unified_form.git",
-                "reference": "8.x-1.0-beta5"
+                "reference": "8.x-1.0-beta7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/entity_translation_unified_form-8.x-1.0-beta5.zip",
-                "reference": "8.x-1.0-beta5",
-                "shasum": "065ab778c2e869cd5fd68c07b5ade3ccd47a42a2"
+                "url": "https://ftp.drupal.org/files/projects/entity_translation_unified_form-8.x-1.0-beta7.zip",
+                "reference": "8.x-1.0-beta7",
+                "shasum": "e7b461c12830e5983b09ff3f1a4ae60dab9df56a"
             },
             "require": {
                 "drupal/core": "^8 || ^9"
@@ -5076,8 +5074,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-beta5",
-                    "datestamp": "1592852092",
+                    "version": "8.x-1.0-beta7",
+                    "datestamp": "1593414629",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -8814,17 +8812,17 @@
         },
         {
             "name": "drupal/safedelete",
-            "version": "1.0.0-alpha2",
+            "version": "1.0.0-alpha3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/safedelete.git",
-                "reference": "1.0.0-alpha2"
+                "reference": "1.0.0-alpha3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/safedelete-1.0.0-alpha2.zip",
-                "reference": "1.0.0-alpha2",
-                "shasum": "30305b81626f42aeb3b6eb4c71c2ea7e24bb4a18"
+                "url": "https://ftp.drupal.org/files/projects/safedelete-1.0.0-alpha3.zip",
+                "reference": "1.0.0-alpha3",
+                "shasum": "c0a1c17ed9cb51e91542dba5a30052fdd96c2df5"
             },
             "require": {
                 "drupal/core": "^8 || ^9",
@@ -8833,8 +8831,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.0-alpha2",
-                    "datestamp": "1591818680",
+                    "version": "1.0.0-alpha3",
+                    "datestamp": "1593415519",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -8885,6 +8883,7 @@
                     }
                 },
                 "patches_applied": {
+                    "Support field translations for search and replace.": "https://www.drupal.org/files/issues/2020-06-24/scanner-handle_languages_for_fields-3154633-2.patch",
                     "Allow creator role to use the search and replace functionality.": "https://www.drupal.org/files/issues/2020-06-22/scanner-grant_without_administer_nodes-3153873-2.patch"
                 }
             },
@@ -10273,17 +10272,17 @@
         },
         {
             "name": "drupal/webform",
-            "version": "5.17.0",
+            "version": "5.18.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/webform.git",
-                "reference": "8.x-5.17"
+                "reference": "8.x-5.18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.17.zip",
-                "reference": "8.x-5.17",
-                "shasum": "05ad1c707119279a11680751b8ca39fc2e331532"
+                "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.18.zip",
+                "reference": "8.x-5.18",
+                "shasum": "539d0ba5bacc402cf6ea2a3419ae164703a09aa0"
             },
             "require": {
                 "drupal/core": "^8.8"
@@ -10322,8 +10321,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-5.17",
-                    "datestamp": "1592841189",
+                    "version": "8.x-5.18",
+                    "datestamp": "1593034084",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -10456,7 +10455,7 @@
         },
         {
             "name": "drupal/webform_node",
-            "version": "5.17.0",
+            "version": "5.18.0",
             "require": {
                 "drupal/core": "^8.8",
                 "drupal/webform": "self.version"
@@ -10464,8 +10463,8 @@
             "type": "metapackage",
             "extra": {
                 "drupal": {
-                    "version": "8.x-5.17",
-                    "datestamp": "1592841189",
+                    "version": "8.x-5.18",
+                    "datestamp": "1593034084",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -10596,6 +10595,7 @@
                     "WCAG wxt_bootstrap Fix duplicate attribute on same element.": "https://www.drupal.org/files/issues/2020-06-17/wxt_bootstrap-wcag_fix_same_element_duplicate_attribute-3152669-2.patch",
                     "WCAG wxt_bootstrap Fix End tag section seen, but there were open elements": "https://www.drupal.org/files/issues/2020-06-18/wxt_bootstrap-wcag_unclosed_section_typo_errors-3152992-2.patch",
                     "WCAG wxt_bootstrap Fix aria-labelledby attribute for this nav element has an invalid value -menu": "https://www.drupal.org/files/issues/2020-06-22/wxt_bootstrap-wcag_invalid_aria_labelledby_menu-3153949-3.patch",
+                    "WCAT wxt_bootstrap autocomplete attribute should not contain a hidden input element.": "https://www.drupal.org/files/issues/2020-06-25/wxt_bootstrap-no_hidden_autocomplete-3153330-15.patch",
                     "WCAG wxt_bootstrap Fix Element figcaption not allowed as child of element article": "https://www.drupal.org/files/issues/2020-06-18/wxt_bootstrap-wcag_fix_article_figure_nesting-3152950-2.patch"
                 }
             },
@@ -11365,16 +11365,16 @@
         },
         {
             "name": "ezyang/htmlpurifier",
-            "version": "v4.12.0",
+            "version": "v4.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezyang/htmlpurifier.git",
-                "reference": "a617e55bc62a87eec73bd456d146d134ad716f03"
+                "reference": "08e27c97e4c6ed02f37c5b2b20488046c8d90d75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/a617e55bc62a87eec73bd456d146d134ad716f03",
-                "reference": "a617e55bc62a87eec73bd456d146d134ad716f03",
+                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/08e27c97e4c6ed02f37c5b2b20488046c8d90d75",
+                "reference": "08e27c97e4c6ed02f37c5b2b20488046c8d90d75",
                 "shasum": ""
             },
             "require": {
@@ -11390,6 +11390,9 @@
                 },
                 "files": [
                     "library/HTMLPurifier.composer.php"
+                ],
+                "exclude-from-classmap": [
+                    "/library/HTMLPurifier/Language/"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -11408,7 +11411,7 @@
             "keywords": [
                 "html"
             ],
-            "time": "2019-10-28T03:44:26+00:00"
+            "time": "2020-06-29T00:56:53+00:00"
         },
         {
             "name": "grasmash/expander",
@@ -12876,25 +12879,25 @@
         },
         {
             "name": "phpdocumentor/reflection-common",
-            "version": "2.1.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionCommon.git",
-                "reference": "6568f4687e5b41b054365f9ae03fcb1ed5f2069b"
+                "reference": "1d01c49d4ed62f25aa84a747ad35d5a16924662b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/6568f4687e5b41b054365f9ae03fcb1ed5f2069b",
-                "reference": "6568f4687e5b41b054365f9ae03fcb1ed5f2069b",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/1d01c49d4ed62f25aa84a747ad35d5a16924662b",
+                "reference": "1d01c49d4ed62f25aa84a747ad35d5a16924662b",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.1"
+                "php": "^7.2 || ^8.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.x-dev"
+                    "dev-2.x": "2.x-dev"
                 }
             },
             "autoload": {
@@ -12921,7 +12924,7 @@
                 "reflection",
                 "static analysis"
             ],
-            "time": "2020-04-27T09:25:28+00:00"
+            "time": "2020-06-27T09:03:43+00:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -12978,25 +12981,24 @@
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "1.2.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "30441f2752e493c639526b215ed81d54f369d693"
+                "reference": "e878a14a65245fbe78f8080eba03b47c3b705651"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/30441f2752e493c639526b215ed81d54f369d693",
-                "reference": "30441f2752e493c639526b215ed81d54f369d693",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/e878a14a65245fbe78f8080eba03b47c3b705651",
+                "reference": "e878a14a65245fbe78f8080eba03b47c3b705651",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2",
+                "php": "^7.2 || ^8.0",
                 "phpdocumentor/reflection-common": "^2.0"
             },
             "require-dev": {
-                "ext-tokenizer": "^7.2",
-                "mockery/mockery": "~1"
+                "ext-tokenizer": "*"
             },
             "type": "library",
             "extra": {
@@ -13020,7 +13022,7 @@
                 }
             ],
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
-            "time": "2020-06-19T20:22:09+00:00"
+            "time": "2020-06-27T10:12:23+00:00"
         },
         {
             "name": "progress-tracker/progress-tracker",
@@ -16977,16 +16979,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "1.10.7",
+            "version": "1.10.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "956608ea4f7de9e58c53dfb019d85ae62b193c39"
+                "reference": "56e0e094478f30935e9128552188355fa9712291"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/956608ea4f7de9e58c53dfb019d85ae62b193c39",
-                "reference": "956608ea4f7de9e58c53dfb019d85ae62b193c39",
+                "url": "https://api.github.com/repos/composer/composer/zipball/56e0e094478f30935e9128552188355fa9712291",
+                "reference": "56e0e094478f30935e9128552188355fa9712291",
                 "shasum": ""
             },
             "require": {
@@ -17005,12 +17007,11 @@
                 "symfony/process": "^2.7 || ^3.0 || ^4.0 || ^5.0"
             },
             "conflict": {
-                "symfony/console": "2.8.38",
-                "symfony/phpunit-bridge": "3.4.40"
+                "symfony/console": "2.8.38"
             },
             "require-dev": {
                 "phpspec/prophecy": "^1.10",
-                "symfony/phpunit-bridge": "^3.4"
+                "symfony/phpunit-bridge": "^4.2"
             },
             "suggest": {
                 "ext-openssl": "Enabling the openssl extension allows you to access https URLs for repositories and packages",
@@ -17054,7 +17055,7 @@
                 "dependency",
                 "package"
             ],
-            "time": "2020-06-03T08:03:56+00:00"
+            "time": "2020-06-24T19:23:30+00:00"
         },
         {
             "name": "composer/spdx-licenses",
@@ -18095,20 +18096,20 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.9.5",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "b2c28789e80a97badd14145fda39b545d83ca3ef"
+                "reference": "5796d127b0c4ff505b77455148ea9d5269d99758"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/b2c28789e80a97badd14145fda39b545d83ca3ef",
-                "reference": "b2c28789e80a97badd14145fda39b545d83ca3ef",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/5796d127b0c4ff505b77455148ea9d5269d99758",
+                "reference": "5796d127b0c4ff505b77455148ea9d5269d99758",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1"
+                "php": "^7.1 || ^8.0"
             },
             "replace": {
                 "myclabs/deep-copy": "self.version"
@@ -18139,7 +18140,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2020-01-17T21:11:47+00:00"
+            "time": "2020-06-28T07:02:41+00:00"
         },
         {
             "name": "pdepend/pdepend",

@@ -134,6 +134,8 @@
             "drupal/core": {
                 "core views module fix for contextual filter":
                 "https://www.drupal.org/files/issues/2628130-11.patch",
+                "safedelete entity_translation_unified_form form set error squelch noise about #parent element":
+                "https://www.drupal.org/files/issues/2019-08-31/3027240-12.patch",
                 "allow field groups to be compatible":
                 "https://www.drupal.org/files/issues/2020-02-05/2546212-119.patch",
                 "remove hreflang attribute from language switcher li element":
@@ -225,7 +227,7 @@
         "oomphinc/composer-installers-extender": "^1.1",
         "drupal/core-composer-scaffold": "*",
         "drush/drush": "^9.0",
-        "drupalwxt/wxt": "3.0.12",
+        "drupalwxt/wxt": "^3.0.12",
         "entreprise7pro/agri_admin": "*",
         "junhuang/idol_feed_api": "*",
         "entreprise7pro/config": "*",
