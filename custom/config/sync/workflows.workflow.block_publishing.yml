@@ -2,8 +2,6 @@ uuid: 4c832e2c-c24e-42ff-96a1-e2f95a1431c1
 langcode: en
 status: true
 dependencies:
-  config:
-    - block_content.type.basic
   module:
     - content_moderation
 id: block_publishing
@@ -78,7 +76,5 @@ type_settings:
         - published
       to: review
       weight: -2
-  entity_types:
-    block_content:
-      - basic
+  entity_types: {  }
   default_moderation_state: draft
