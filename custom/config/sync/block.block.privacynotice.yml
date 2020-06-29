@@ -8,6 +8,9 @@ dependencies:
     - block_class
     - block_content
     - ctools
+    - node
+    - system
+    - user
     - wxt_library
   theme:
     - grstheme_bootstrap
@@ -41,3 +44,22 @@ visibility:
     enabled: 0
     negate: false
     context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: "node/preview*\r\nnode/preview/*\r\nen/node/preview/*\r\n/en/node/preview*\r\n"
+    negate: false
+    context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      anonymous: anonymous
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+  node_type:
+    id: node_type
+    bundles:
+      empl: empl
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
