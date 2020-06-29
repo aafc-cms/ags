@@ -693,6 +693,27 @@ display:
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_from'
         - 'config:field.storage.node.field_newstype'
+  block_1:
+    display_plugin: block
+    id: block_1
+    display_title: Block
+    position: 2
+    display_options:
+      display_extenders:
+        metatag_display_extender: {  }
+      block_description: Block_news@work
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_from'
+        - 'config:field.storage.node.field_newstype'
   page_1:
     display_plugin: page
     id: page_1
