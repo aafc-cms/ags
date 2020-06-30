@@ -17,18 +17,18 @@ body.node-edit.page-node-type-empl .field-group-fieldset .field--type-list-strin
   margin-right: 30px;
 }
 
-body.nodeaddempl .field-group-fieldset .paragraphs-subform,
+body.role-is-authenticated.nodeaddempl .field-group-fieldset .paragraphs-subform,
 body.node-edit.page-node-type-empl .field-group-fieldset .paragraphs-subform {
   max-height: 100px;
   margin-top: -90px;
   margin-left: 217px;
 }
 
-body.nodeaddempl select[name*="[subform][field_class_id]"],
+body.role-is-authenticated.nodeaddempl select[name*="[subform][field_class_id]"],
 body.node-edit.page-node-type-empl select[name*="[subform][field_class_id]"] {
   min-width: 165px;
 }
-body.nodeaddempl .paragraph-type-top div[data-drupal-selector^="edit-field-classification"],
+body.role-is-authenticated.nodeaddempl .paragraph-type-top div[data-drupal-selector^="edit-field-classification"],
 body.node-edit.page-node-type-empl .paragraph-type-top div[data-drupal-selector^="edit-field-classification"] {
   margin-top: 30px;
   max-width: 120px;
@@ -37,7 +37,7 @@ body.node-edit.page-node-type-empl .paragraph-type-top div[data-drupal-selector^
 
 body.node-edit.user-logged-in.path-node.page-node-type-empl {
   #edit-group-opportunitylocation {
-     border-top-width: 0px;
+    border-top-width: 0px;
     border-bottom-width: 0px;
     border-left-width: 0px;
     border-right-width: 0px;
