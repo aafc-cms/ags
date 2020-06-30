@@ -3,8 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - node.type.landing_page
-    - node.type.page
     - user.role.creator
     - user.role.empl_cspub
     - user.role.news_ccpub
@@ -1010,7 +1008,7 @@ display:
       display_extenders:
         metatag_display_extender: {  }
       display_description: ''
-      rendering_language: '***LANGUAGE_language_interface***'
+      rendering_language: '***LANGUAGE_entity_translation***'
       title: 'All Locked Content-unused'
       defaults:
         title: false
@@ -1372,16 +1370,16 @@ display:
             group_items: {  }
           entity_type: node
           plugin_id: latest_revision
-        moderation_state:
-          id: moderation_state
+        langcode:
+          id: langcode
           table: node_field_revision
-          field: moderation_state
+          field: langcode
           relationship: none
           group_type: group
           admin_label: ''
           operator: in
           value:
-            editorial-draft: editorial-draft
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
           group: 1
           exposed: false
           expose:
@@ -1412,18 +1410,17 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           entity_type: node
-          plugin_id: moderation_state_filter
-        type:
-          id: type
-          table: node_field_data
-          field: type
+          entity_field: langcode
+          plugin_id: language
+        is_locked:
+          id: is_locked
+          table: content_lock
+          field: is_locked
           relationship: nid
           group_type: group
           admin_label: ''
-          operator: in
-          value:
-            page: page
-            landing_page: landing_page
+          operator: '='
+          value: '1'
           group: 1
           exposed: false
           expose:
@@ -1440,8 +1437,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-            reduce: false
-            argument: null
           is_grouped: false
           group_info:
             label: ''
@@ -1454,9 +1449,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
+          plugin_id: content_lock_filter
       filter_groups:
         operator: AND
         groups:
@@ -1464,10 +1457,10 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - user
         - 'user.node_grants:view'
         - user.roles
-      tags:
-        - 'config:workflow_list'
+      tags: {  }
