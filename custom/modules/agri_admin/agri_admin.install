@@ -1,0 +1,70 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Agri Admin module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function agri_admin_install() {
+  \Drupal::service('module_installer')->install(['entity_translation_unified_form']);
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function agri_admin_uninstall() {
+}
+
+
+/**
+ * Implements hook_requirements().
+ */
+/*function agri_admin_requirements($phase) {
+  $requirements = [];
+
+  if ($phase == 'runtime') {
+    $value = mt_rand(0, 100);
+    $requirements['agri_admin_status'] = [
+      'title' => t('Agri Admin status'),
+      'value' => t('Agri Admin value: @value', ['@value' => $value]),
+      'severity' => $value > 50 ? REQUIREMENT_INFO : REQUIREMENT_WARNING,
+    ];
+  }
+
+  return $requirements;
+}*/
+
+/**
+ * Force disabled menu links for 'page' nodes AND add menu link for custom block library.
+ */
+function agri_admin_update_8001() {
+  // For Huan agrcms/d8#141
+  $query = \Drupal::entityQuery('node')->condition('type', 'page')
+    ->condition('status', 1);
+  $nids = $query->execute();
+  $count_success = 0;
+  foreach ($nids as $vid => $nid) {
+    $result = \Drupal\agri_admin\AgriAdminHelper::disableMenuLinkByNid($nid, 'main');
+    if ($result !== FALSE) {
+      $count_success++;
+    }
+  }
+
+  // For Deepani issue #65 agrcms/d8#65.
+  $item = \Drupal\menu_link_content\Entity\MenuLinkContent::create([
+    'link' => ['uri' => 'internal:/admin/structure/block/block-content'],
+    'title' => 'Custom block library',
+    'menu_name' => 'admin',
+    //'parent' => 'system.admin_structure',
+    'parent' => 'system.admin_content',
+  ]);
+  $options['attributes']['class'] = ['creator-only agrisource-not-for-admin-link'];
+  $item->link->options = $options;
+  $item->save();
+  return (string) "\n\r1) Updated menu links that link for $count_success basic pages and disabled those links as they are for breadcrumb only. \n\r2) Added new menu link for creators under the admin content menu.";
+}
+
+

@@ -39,6 +39,7 @@ function agri_admin_preprocess_html(&$variables) {
   if (isset($first_two_elements)) {
     $variables['attributes']['class'][] = $first_two_elements;
   }
+
 }
 
 
@@ -370,7 +371,7 @@ function _helperUpdateProcess($action, $entity_id, $bundle) {
     $menu_link_ids = AgriAdminHelper::postCreateOrUpdateAutoTranslate($action, $entity_id, $bundle);
     //AgriAdminHelper::postUpdateProcess($action, $entity_id, $bundle);
     if ($bundle == 'page') {
-      AgriAdminHelper::disableMenuLink(NULL, $entity_id, 'main');
+      AgriAdminHelper::disableMenuLink(NULL, $entity_id, 'main', TRUE);
       AgriAdminHelper::disableMenuLink(NULL, $entity_id, 'sidebar');
     }
   }

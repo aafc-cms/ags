@@ -12,7 +12,7 @@ class AgriAdminHelper {
 
 
   static public function addToLog($message, $DEBUG = FALSE) {
-    //$DEBUG = TRUE;
+    //$DEBUG = FALSE;
     if ($DEBUG) {
       \Drupal::logger('agri_admin')->notice($message);
     }
@@ -94,6 +94,10 @@ class AgriAdminHelper {
     return $otherLangCode;
   }
 
+
+  static public function disableMenuLinkByNid($nid, $menu_name = 'main') {
+    return self::disableMenuLink(NULL, $nid, $menu_name, TRUE);
+  }
 
   static public function legacyMenuLinkExists($menu_name, $ts_nid, $lang) {
     static::addToLog(__function__ . '(' . $menu_name . ', ' . $ts_nid . ', ' . $lang . ')');
