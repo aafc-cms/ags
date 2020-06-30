@@ -400,18 +400,7 @@ display:
           tokenize: false
           content: 'There is no content waiting for review.'
           plugin_id: text_custom
-      relationships:
-        revision_uid:
-          id: revision_uid
-          table: node_revision
-          field: revision_uid
-          relationship: none
-          group_type: group
-          admin_label: 'revision user'
-          required: false
-          entity_type: node
-          entity_field: revision_uid
-          plugin_id: standard
+      relationships: {  }
       arguments:
         uid:
           id: uid
@@ -1662,7 +1651,7 @@ display:
   block_3:
     display_plugin: block
     id: block_3
-    display_title: 'My Content With Reviewer'
+    display_title: 'My Archived Content'
     position: 1
     display_options:
       display_extenders:
@@ -1677,7 +1666,7 @@ display:
           admin_label: ''
           operator: in
           value:
-            editorial-draft: editorial-draft
+            editorial-archived: editorial-archived
           group: 1
           exposed: false
           expose:
@@ -1818,7 +1807,7 @@ display:
           tokenize: false
           content: 'There is no content currently being reviewed.'
           plugin_id: text_custom
-      title: 'My Content With Reviewer'
+      title: 'My Archived Content'
       arguments:
         uid:
           id: uid
@@ -1863,10 +1852,10 @@ display:
           role:
             creator: creator
       sorts:
-        changed:
-          id: changed
-          table: node_field_revision
-          field: changed
+        revision_timestamp:
+          id: revision_timestamp
+          table: node_revision
+          field: revision_timestamp
           relationship: none
           group_type: group
           admin_label: ''
@@ -1876,7 +1865,7 @@ display:
             label: ''
           granularity: second
           entity_type: node
-          entity_field: changed
+          entity_field: revision_timestamp
           plugin_id: date
       fields:
         nid:
@@ -2073,71 +2062,6 @@ display:
           entity_type: node
           entity_field: title
           plugin_id: field
-        revision_uid:
-          id: revision_uid
-          table: node_revision
-          field: revision_uid
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Revised
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: strong
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: false
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: node
-          entity_field: revision_uid
-          plugin_id: field
         revision_timestamp:
           id: revision_timestamp
           table: node_revision
@@ -2205,85 +2129,12 @@ display:
           entity_type: node
           entity_field: revision_timestamp
           plugin_id: field
-        vid:
-          id: vid
-          table: node_field_revision
-          field: vid
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Revision ID'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: number_integer
-          settings:
-            thousand_separator: ''
-            prefix_suffix: true
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: node
-          entity_field: vid
-          plugin_id: field
       style:
-        type: html_list
+        type: default
         options:
-          grouping:
-            -
-              field: field_tracking_number-revision_id
-              rendered: false
-              rendered_strip: false
+          grouping: {  }
           row_class: ''
           default_row_class: true
-          type: ul
-          wrapper_class: item-list
-          class: ''
       row:
         type: fields
         options:
