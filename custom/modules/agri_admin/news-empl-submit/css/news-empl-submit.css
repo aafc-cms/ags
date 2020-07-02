@@ -72,6 +72,455 @@ body.node-edit.user-logged-in.path-node.page-node-type-empl #edit-group-level-an
   margin-left: 0px;
 }
 
+body.user-anonymous #node-news-form #edit-revision-information, body.user-anonymous #node-news-form a[href="#edit-revision-information"] {
+  display: none !important;
+}
+body.user-anonymous #node-news-form .vertical-tabs-panes {
+  border: none !important;
+}
+body.user-anonymous #node-news-form #edit-footer {
+  display: none !important;
+}
+body.user-anonymous.news-article-form-page div.form-item.js-form-item.form-type-textarea.js-form-type-textarea.form-item-body-etuf-en-0-summary.js-form-item-body-etuf-en-0-summary.form-group {
+  display: none !important;
+}
+body.user-anonymous.news-article-form-page div.form-item.js-form-item.form-type-textarea.js-form-type-textarea.form-item-body-etuf-fr-0-summary.js-form-item-body-etuf-fr-0-summary.form-group {
+  display: none !important;
+}
+body.user-anonymous.news-article-form-page span.field-edit-link button.link.link-edit-summary.btn.btn-default.btn-xs.pull-right {
+  display: none !important;
+}
+body.user-anonymous #edit-field-newsexpirydate-0 {
+  display: none !important;
+}
+body.user-anonymous.role-is-anonymous.news-article-form-page div#edit-actions, body.user-anonymous.nodeaddnews.role-is-anonymous div#edit-actions {
+  position: relative;
+}
+body.user-anonymous.role-is-anonymous.news-article-form-page div#edit-actions .preview-wrapper, body.user-anonymous.nodeaddnews.role-is-anonymous div#edit-actions .preview-wrapper {
+  position: relative;
+  padding-bottom: 15px;
+}
+body.user-anonymous.role-is-anonymous.news-article-form-page button#edit-submit, body.user-anonymous.role-is-anonymous.news-article-form-page button#edit-preview, body.user-anonymous.nodeaddnews.role-is-anonymous button#edit-submit, body.user-anonymous.nodeaddnews.role-is-anonymous button#edit-preview {
+  background-color: #1b6c1c;
+  border-color: #071a07;
+  color: #fff;
+}
+body.user-anonymous.role-is-anonymous.news-article-form-page #block-grstheme-bootstrap-sharewidgetblock, body.user-anonymous.role-is-anonymous.news-article-form-page #block-grstheme-bootstrap-reportproblemblock, body.user-anonymous.nodeaddnews.role-is-anonymous #block-grstheme-bootstrap-sharewidgetblock, body.user-anonymous.nodeaddnews.role-is-anonymous #block-grstheme-bootstrap-reportproblemblock {
+  padding-top: 35px !important;
+}
+
+body.page-node-type-news {
+  /* field title float left class */
+}
+body.page-node-type-news .field--name-field-posted .field--label,
+body.page-node-type-news .field--name-field-to .field--label,
+body.page-node-type-news .field--name-field-from .field--label {
+  float: left;
+}
+body.page-node-type-news .field--name-field-posted .field--label::after,
+body.page-node-type-news .field--name-field-to .field--label::after,
+body.page-node-type-news .field--name-field-from .field--label::after {
+  content: '\00a0\00a0';
+}
+body.page-node-type-news .field--name-body .field--label {
+  display: none;
+}
+body.page-node-type-news .field--name-body.field--type-text-with-summary.field--label-above.quickedit-field .field--item::before {
+  content: "\A";
+  white-space: pre;
+}
+
+body.nodeaddnews.role-is-anonymous.node-add #wb-cont {
+  display: none;
+}
+body.nodeaddnews.role-is-anonymous.node-add #block-cutomblock-submitarticlefornewsatwork .block-title {
+  font-size: 34px !important;
+}
+
+body.news-article-form-page .help-block, body.nodeaddnews.role-is-anonymous.node-add .help-block {
+  font-size: 16px;
+  color: #333;
+}
+body.news-article-form-page #edit-actions, body.news-article-form-page #edit-footer, body.nodeaddnews.role-is-anonymous.node-add #edit-actions, body.nodeaddnews.role-is-anonymous.node-add #edit-footer {
+  padding-left: 15px;
+}
+body.news-article-form-page .preview-wrapper, body.nodeaddnews.role-is-anonymous.node-add .preview-wrapper {
+  padding-top: 15px;
+}
+body.news-article-form-page .preview-helptext-paragraph, body.nodeaddnews.role-is-anonymous.node-add .preview-helptext-paragraph {
+  float: right;
+}
+body.news-article-form-page .submit-helptext-paragraph, body.nodeaddnews.role-is-anonymous.node-add .submit-helptext-paragraph {
+  float: right !important;
+}
+body.news-article-form-page #edit-moderation-state-0 .select-wrapper::after, body.nodeaddnews.role-is-anonymous.node-add #edit-moderation-state-0 .select-wrapper::after {
+  right: 84%;
+}
+body.news-article-form-page #edit-moderation-state-etuf-fr-0 .select-wrapper::after, body.nodeaddnews.role-is-anonymous.node-add #edit-moderation-state-etuf-fr-0 .select-wrapper::after {
+  right: 84%;
+}
+body.news-article-form-page .btn.icon-before .glyphicon, body.nodeaddnews.role-is-anonymous.node-add .btn.icon-before .glyphicon {
+  min-height: 20px;
+}
+body.news-article-form-page.i18n-en .field--type-entity-reference .select-wrapper:after, body.nodeaddnews.role-is-anonymous.node-add.i18n-en .field--type-entity-reference .select-wrapper:after {
+  right: 78% !important;
+}
+body.news-article-form-page.i18n-en .field--type-list-string .select-wrapper:after, body.nodeaddnews.role-is-anonymous.node-add.i18n-en .field--type-list-string .select-wrapper:after {
+  right: 80.5% !important;
+}
+body.news-article-form-page.i18n-fr .field--type-entity-reference .select-wrapper:after, body.nodeaddnews.role-is-anonymous.node-add.i18n-fr .field--type-entity-reference .select-wrapper:after {
+  right: 71% !important;
+}
+body.news-article-form-page.i18n-fr .field--type-list-string .select-wrapper:after, body.nodeaddnews.role-is-anonymous.node-add.i18n-fr .field--type-list-string .select-wrapper:after {
+  right: 80.5% !important;
+}
+body.news-article-form-page #edit-group-newsreviewerandapprover div a.panel-title, body.news-article-form-page #edit-group-submitter-s-contact-inform div a.panel-title,
+body.news-article-form-page #edit-group-newsposteddate div a.panel-title, body.news-article-form-page #edit-group-newsarticle div a.panel-title,
+body.news-article-form-page #edit-group-newssentby div a.panel-title, body.news-article-form-page #edit-group-newsarticleheadline div a.panel-title,
+body.news-article-form-page #edit-group-aboutarticle div a.panel-title, body.news-article-form-page #edit-group-newstranslationreqnum div a.panel-title,
+body.news-article-form-page #edit-group-newsnotes div a.panel-title, body.news-article-form-page #edit-group-newsattachedfiles div a.panel-title, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsreviewerandapprover div a.panel-title, body.nodeaddnews.role-is-anonymous.node-add #edit-group-submitter-s-contact-inform div a.panel-title,
+body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsposteddate div a.panel-title, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsarticle div a.panel-title,
+body.nodeaddnews.role-is-anonymous.node-add #edit-group-newssentby div a.panel-title, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsarticleheadline div a.panel-title,
+body.nodeaddnews.role-is-anonymous.node-add #edit-group-aboutarticle div a.panel-title, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newstranslationreqnum div a.panel-title,
+body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsnotes div a.panel-title, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsattachedfiles div a.panel-title {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  background-color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+body.news-article-form-page #edit-group-newsreviewerandapprover.panel-default, body.news-article-form-page #edit-group-submitter-s-contact-inform.panel-default,
+body.news-article-form-page #edit-group-newsposteddate.panel-default, body.news-article-form-page #edit-group-newsarticle.panel-default,
+body.news-article-form-page #edit-group-newssentby.panel-default, body.news-article-form-page #edit-group-newsarticleheadline.panel-default,
+body.news-article-form-page #edit-group-aboutarticle.panel-default, body.news-article-form-page #edit-group-newstranslationreqnum.panel-default,
+body.news-article-form-page #edit-group-newsnotes.panel-default, body.news-article-form-page #edit-group-newsattachedfiles.panel-default, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsreviewerandapprover.panel-default, body.nodeaddnews.role-is-anonymous.node-add #edit-group-submitter-s-contact-inform.panel-default,
+body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsposteddate.panel-default, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsarticle.panel-default,
+body.nodeaddnews.role-is-anonymous.node-add #edit-group-newssentby.panel-default, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsarticleheadline.panel-default,
+body.nodeaddnews.role-is-anonymous.node-add #edit-group-aboutarticle.panel-default, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newstranslationreqnum.panel-default,
+body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsnotes.panel-default, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsattachedfiles.panel-default {
+  border-color: white;
+}
+body.news-article-form-page #edit-group-newsreviewerandapprover div.panel-heading, body.news-article-form-page #edit-group-submitter-s-contact-inform div.panel-heading,
+body.news-article-form-page #edit-group-newsposteddate div.panel-heading, body.news-article-form-page #edit-group-newsarticle div.panel-heading,
+body.news-article-form-page #edit-group-newssentby div.panel-heading, body.news-article-form-page #edit-group-newsarticleheadline div.panel-heading,
+body.news-article-form-page #edit-group-aboutarticle div.panel-heading, body.news-article-form-page #edit-group-newstranslationreqnum div.panel-heading,
+body.news-article-form-page #edit-group-newsnotes div.panel-heading, body.news-article-form-page #edit-group-newsattachedfiles div.panel-heading, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsreviewerandapprover div.panel-heading, body.nodeaddnews.role-is-anonymous.node-add #edit-group-submitter-s-contact-inform div.panel-heading,
+body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsposteddate div.panel-heading, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsarticle div.panel-heading,
+body.nodeaddnews.role-is-anonymous.node-add #edit-group-newssentby div.panel-heading, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsarticleheadline div.panel-heading,
+body.nodeaddnews.role-is-anonymous.node-add #edit-group-aboutarticle div.panel-heading, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newstranslationreqnum div.panel-heading,
+body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsnotes div.panel-heading, body.nodeaddnews.role-is-anonymous.node-add #edit-group-newsattachedfiles div.panel-heading {
+  border-bottom: 0px;
+  padding-bottom: 0px;
+}
+body.news-article-form-page #edit-field-newsfile1-0--description, body.nodeaddnews.role-is-anonymous.node-add #edit-field-newsfile1-0--description {
+  display: none;
+}
+body.news-article-form-page #edit-field-newsfile2-0--description, body.nodeaddnews.role-is-anonymous.node-add #edit-field-newsfile2-0--description {
+  display: none;
+}
+body.news-article-form-page #edit-field-newsfile3-0--description, body.nodeaddnews.role-is-anonymous.node-add #edit-field-newsfile3-0--description {
+  display: none;
+}
+body.news-article-form-page #edit-field-newsfile4-0--description, body.nodeaddnews.role-is-anonymous.node-add #edit-field-newsfile4-0--description {
+  display: none;
+}
+body.news-article-form-page #edit-field-newssubmitterphone-0-value, body.nodeaddnews.role-is-anonymous.node-add #edit-field-newssubmitterphone-0-value {
+  display: block;
+}
+body.news-article-form-page #block-news-form-add h2.block-title, body.nodeaddnews.role-is-anonymous.node-add #block-news-form-add h2.block-title {
+  display: none !important;
+}
+body.news-article-form-page #edit-field-newsexpirydate-0 div.panel-heading, body.nodeaddnews.role-is-anonymous.node-add #edit-field-newsexpirydate-0 div.panel-heading {
+  background-color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+body.news-article-form-page .tabbable.tabs-left.vertical-tabs.clearfix, body.nodeaddnews.role-is-anonymous.node-add .tabbable.tabs-left.vertical-tabs.clearfix {
+  display: none !important;
+}
+
+body.role-is-anonymous #node-empl-form .vertical-tabs-panes {
+  border: none !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page div.form-item.js-form-item.form-type-vertical-tabs.js-form-type-vertical-tabs.form-item-.js-form-item-.form-no-label.form-group, body.role-is-anonymous.nodeaddempl div.form-item.js-form-item.form-type-vertical-tabs.js-form-type-vertical-tabs.form-item-.js-form-item-.form-no-label.form-group {
+  display: none !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page div#edit-actions, body.role-is-anonymous.nodeaddempl div#edit-actions {
+  position: relative;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page div#edit-actions .preview-wrapper, body.role-is-anonymous.nodeaddempl div#edit-actions .preview-wrapper {
+  position: relative;
+  padding-bottom: 15px;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page button#edit-submit, body.role-is-anonymous.employment-opportunity-request-form-page button#edit-preview, body.role-is-anonymous.nodeaddempl button#edit-submit, body.role-is-anonymous.nodeaddempl button#edit-preview {
+  background-color: #1b6c1c;
+  border-color: #071a07;
+  color: #fff;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #block-grstheme-bootstrap-sharewidgetblock, body.role-is-anonymous.employment-opportunity-request-form-page #block-grstheme-bootstrap-reportproblemblock, body.role-is-anonymous.nodeaddempl #block-grstheme-bootstrap-sharewidgetblock, body.role-is-anonymous.nodeaddempl #block-grstheme-bootstrap-reportproblemblock {
+  padding-top: 35px !important;
+}
+
+body.role-is-authenticated.page-node-type-empl .field--name-field-classification td.field-multiple-drag {
+  display: none !important;
+}
+body.role-is-authenticated.page-node-type-empl .field--name-field-type .field--label {
+  float: left;
+}
+body.role-is-authenticated.page-node-type-empl .field--name-field-type .field--item {
+  float: left;
+}
+body.role-is-authenticated.page-node-type-empl .field--name-field-type .field--label::after {
+  content: '\00a0\00a0';
+}
+body.role-is-authenticated.page-node-type-empl .field--name-field-type .field--item::after {
+  content: ',\00a0';
+}
+body.role-is-authenticated.page-node-type-empl .field--name-field-type .field--item:last-child::after {
+  content: '';
+}
+body.role-is-authenticated.page-node-type-empl .field--name-field-type .field--item:last-child {
+  float: none;
+}
+body.role-is-authenticated.page-node-type-empl .field--name-field-classification .field--label {
+  float: left;
+}
+body.role-is-authenticated.page-node-type-empl .field--name-field-classification .field--label::after {
+  content: '\00a0\00a0';
+}
+body.role-is-authenticated.page-node-type-empl .field.field--name-body.field--type-text-with-summary.field--label-above .field--label::before {
+  content: "\A";
+  white-space: pre;
+}
+body.role-is-authenticated.page-node-type-empl .field.field--name-body.field--type-text-with-summary.field--label-above .field--item::before {
+  content: "\A";
+  white-space: pre;
+}
+body.role-is-authenticated.page-node-type-empl .field.field--name-body.field--type-text-with-summary.field--label-above .field--label {
+  font-size: 24px;
+}
+body.role-is-authenticated.page-node-type-empl .field.field--name-field-email .field--label {
+  float: left;
+}
+body.role-is-authenticated.page-node-type-empl .field.field.field--name-field-email .field--label::after {
+  content: "\00a0\00a0";
+}
+body.role-is-authenticated.page-node-type-empl #block-privacynotice h2.block-title {
+  display: none;
+}
+
+/* block-privacynotice */
+#block-privacynotice {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+/* block-grstheme-bootstrap-reportproblemblock */
+#block-grstheme-bootstrap-reportproblemblock {
+  padding-top: 15px !important;
+}
+
+body.nodeaddempl.role-is-anonymous.node-add #block-customblock-submitemploymentopportunity {
+  padding-bottom: 20px;
+}
+body.nodeaddempl.role-is-anonymous.node-add #block-customblock-submitemploymentopportunity .block-title {
+  font-size: 34px !important;
+}
+body.nodeaddempl.role-is-anonymous.node-add #block-privacynotice {
+  display: none;
+}
+body.nodeaddempl.role-is-anonymous.node-add button.tabledrag-toggle-weight.btn-sm.btn.btn-default {
+  display: none !important;
+}
+
+body.role-is-anonymous.employment-opportunity-request-form-page, body.role-is-anonymous.nodeaddempl {
+  /* block-privacynotice */
+  /* block-grstheme-bootstrap-reportproblemblock */
+}
+body.role-is-anonymous.employment-opportunity-request-form-page .help-block, body.role-is-anonymous.nodeaddempl .help-block {
+  font-size: 16px;
+  color: #333;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-actions, body.role-is-anonymous.employment-opportunity-request-form-page #edit-footer, body.role-is-anonymous.nodeaddempl #edit-actions, body.role-is-anonymous.nodeaddempl #edit-footer {
+  padding-left: 15px;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page .preview-wrapper, body.role-is-anonymous.nodeaddempl .preview-wrapper {
+  padding-top: 15px;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page .preview-helptext-paragraph, body.role-is-anonymous.nodeaddempl .preview-helptext-paragraph {
+  float: right;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-moderation-state-0 .select-wrapper::after, body.role-is-anonymous.nodeaddempl #edit-moderation-state-0 .select-wrapper::after {
+  right: 87%;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-moderation-state-etuf-fr-0 .select-wrapper::after, body.role-is-anonymous.nodeaddempl #edit-moderation-state-etuf-fr-0 .select-wrapper::after {
+  right: 87%;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page .btn.icon-before .glyphicon, body.role-is-anonymous.nodeaddempl .btn.icon-before .glyphicon {
+  min-height: 20px;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page.i18n-en .field--type-entity-reference .select-wrapper:after, body.role-is-anonymous.nodeaddempl.i18n-en .field--type-entity-reference .select-wrapper:after {
+  right: 69% !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page.i18n-fr .field--type-entity-reference .select-wrapper:after, body.role-is-anonymous.nodeaddempl.i18n-fr .field--type-entity-reference .select-wrapper:after {
+  right: 59% !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunitylocation div.panel-heading, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunityopento div.panel-heading,
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-emplopportunityclosingdate div.panel-heading, body.role-is-anonymous.nodeaddempl #edit-group-opportunitylocation div.panel-heading, body.role-is-anonymous.nodeaddempl #edit-group-opportunityopento div.panel-heading,
+body.role-is-anonymous.nodeaddempl #edit-group-emplopportunityclosingdate div.panel-heading {
+  padding-left: 0px;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page div#edit-group-emplopportunityclosingdate--content, body.role-is-anonymous.nodeaddempl div#edit-group-emplopportunityclosingdate--content {
+  padding-left: 0px;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page div#edit-group-opportunity-details, body.role-is-anonymous.nodeaddempl div#edit-group-opportunity-details {
+  margin-bottom: 0px;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunity-approval div a.panel-title, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunity-details div a.panel-title,
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-newsarticleheadline div a.panel-title, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunitydescription div a.panel-title,
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-emploppsubitappquestion div a.panel-title, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-employmentrequestorinfo div a.panel-title,
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-empladditionalnotes div a.panel-title, body.role-is-anonymous.nodeaddempl #edit-group-opportunity-approval div a.panel-title, body.role-is-anonymous.nodeaddempl #edit-group-opportunity-details div a.panel-title,
+body.role-is-anonymous.nodeaddempl #edit-group-newsarticleheadline div a.panel-title, body.role-is-anonymous.nodeaddempl #edit-group-opportunitydescription div a.panel-title,
+body.role-is-anonymous.nodeaddempl #edit-group-emploppsubitappquestion div a.panel-title, body.role-is-anonymous.nodeaddempl #edit-group-employmentrequestorinfo div a.panel-title,
+body.role-is-anonymous.nodeaddempl #edit-group-empladditionalnotes div a.panel-title {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  background-color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunity-approval.panel-default, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunity-details.panel-default,
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunitylocation.panel-default, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunityopento.panel-default,
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-emplopportunityclosingdate.panel-default, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunitydescription.panel-default,
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-employmentrequestorinfo.panel-default, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-emploppsubitappquestion.panel-default,
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-empladditionalnotes.panel-default, body.role-is-anonymous.nodeaddempl #edit-group-opportunity-approval.panel-default, body.role-is-anonymous.nodeaddempl #edit-group-opportunity-details.panel-default,
+body.role-is-anonymous.nodeaddempl #edit-group-opportunitylocation.panel-default, body.role-is-anonymous.nodeaddempl #edit-group-opportunityopento.panel-default,
+body.role-is-anonymous.nodeaddempl #edit-group-emplopportunityclosingdate.panel-default, body.role-is-anonymous.nodeaddempl #edit-group-opportunitydescription.panel-default,
+body.role-is-anonymous.nodeaddempl #edit-group-employmentrequestorinfo.panel-default, body.role-is-anonymous.nodeaddempl #edit-group-emploppsubitappquestion.panel-default,
+body.role-is-anonymous.nodeaddempl #edit-group-empladditionalnotes.panel-default {
+  border-color: white;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunity-approval div.panel-heading, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunity-details div.panel-heading,
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunitylocation div.panel-heading, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunityopento div.panel-heading,
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-emplopportunityclosingdate div.panel-heading, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunitydescription div.panel-heading,
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-employmentrequestorinfo div.panel-heading, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-emploppsubitappquestion div.panel-heading,
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-empladditionalnotes div.panel-heading, body.role-is-anonymous.nodeaddempl #edit-group-opportunity-approval div.panel-heading, body.role-is-anonymous.nodeaddempl #edit-group-opportunity-details div.panel-heading,
+body.role-is-anonymous.nodeaddempl #edit-group-opportunitylocation div.panel-heading, body.role-is-anonymous.nodeaddempl #edit-group-opportunityopento div.panel-heading,
+body.role-is-anonymous.nodeaddempl #edit-group-emplopportunityclosingdate div.panel-heading, body.role-is-anonymous.nodeaddempl #edit-group-opportunitydescription div.panel-heading,
+body.role-is-anonymous.nodeaddempl #edit-group-employmentrequestorinfo div.panel-heading, body.role-is-anonymous.nodeaddempl #edit-group-emploppsubitappquestion div.panel-heading,
+body.role-is-anonymous.nodeaddempl #edit-group-empladditionalnotes div.panel-heading {
+  border-bottom: 0px;
+  padding-bottom: 0px;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunitylocation div a.panel-title, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunityopento div a.panel-title,
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-emplopportunityclosingdate div a.panel-title, body.role-is-anonymous.nodeaddempl #edit-group-opportunitylocation div a.panel-title, body.role-is-anonymous.nodeaddempl #edit-group-opportunityopento div a.panel-title,
+body.role-is-anonymous.nodeaddempl #edit-group-emplopportunityclosingdate div a.panel-title {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  background-color: white;
+  font-size: 20.8px;
+  font-weight: bold;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunitylocation--content.panel-body, body.role-is-anonymous.nodeaddempl #edit-group-opportunitylocation--content.panel-body {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunityopento--content.panel-body, body.role-is-anonymous.nodeaddempl #edit-group-opportunityopento--content.panel-body {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-level-and div.panel-heading, body.role-is-anonymous.nodeaddempl #edit-group-level-and div.panel-heading {
+  border-bottom: 0px;
+  padding-bottom: 0px;
+  display: none !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-level-and div.panel-body, body.role-is-anonymous.nodeaddempl #edit-group-level-and div.panel-body {
+  padding: 0px;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-level-and div.table-responsive button.tabledrag-toggle-weight.btn-sm.btn.btn-default, body.role-is-anonymous.nodeaddempl #edit-group-level-and div.table-responsive button.tabledrag-toggle-weight.btn-sm.btn.btn-default {
+  display: none !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #field-classification-values th.field-label.form-required, body.role-is-anonymous.nodeaddempl #field-classification-values th.field-label.form-required {
+  padding-left: 0px;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-field-classification-wrapper .paragraph-type-top.form-group.js-form-wrapper.form-wrapper, body.role-is-anonymous.nodeaddempl #edit-field-classification-wrapper .paragraph-type-top.form-group.js-form-wrapper.form-wrapper {
+  float: right !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-field-classification-wrapper a.tabledrag-handle, body.role-is-anonymous.nodeaddempl #edit-field-classification-wrapper a.tabledrag-handle {
+  display: none !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-field-classification-0-top.paragraph-type-top.form-group.js-form-wrapper.form-wrapper, body.role-is-anonymous.nodeaddempl #edit-field-classification-0-top.paragraph-type-top.form-group.js-form-wrapper.form-wrapper {
+  display: none !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page.i18n-en div[class$="-subform-field-class-id form-group"] .select-wrapper:after, body.role-is-anonymous.nodeaddempl.i18n-en div[class$="-subform-field-class-id form-group"] .select-wrapper:after {
+  right: 50% !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page.i18n-en select[name$="[subform][field_class_id]"], body.role-is-anonymous.nodeaddempl.i18n-en select[name$="[subform][field_class_id]"] {
+  min-width: 168px !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page.i18n-fr select[name$="[subform][field_class_id]"], body.role-is-anonymous.nodeaddempl.i18n-fr select[name$="[subform][field_class_id]"] {
+  min-width: 190px !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page div[class$="-subform-field-class-id form-group"], body.role-is-anonymous.nodeaddempl div[class$="-subform-field-class-id form-group"] {
+  float: left !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page.i18n-fr div[class$="-subform-field-class-id form-group"] .select-wrapper:after, body.role-is-anonymous.nodeaddempl.i18n-fr div[class$="-subform-field-class-id form-group"] .select-wrapper:after {
+  right: 52% !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page.i18n-en div[class$="-subform-field-class-sub form-group"] .select-wrapper:after, body.role-is-anonymous.nodeaddempl.i18n-en div[class$="-subform-field-class-sub form-group"] .select-wrapper:after {
+  right: 44% !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page div[class$="-subform-field-class-sub form-group"], body.role-is-anonymous.nodeaddempl div[class$="-subform-field-class-sub form-group"] {
+  float: left !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page.i18n-fr div[class$="-subform-field-class-sub form-group"] .select-wrapper:after, body.role-is-anonymous.nodeaddempl.i18n-fr div[class$="-subform-field-class-sub form-group"] .select-wrapper:after {
+  right: 45% !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page.i18n-en div[class$="-subform-field-class-level form-group"] .select-wrapper:after, body.role-is-anonymous.nodeaddempl.i18n-en div[class$="-subform-field-class-level form-group"] .select-wrapper:after {
+  right: 45% !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page div[class$="-subform-field-class-level form-group"], body.role-is-anonymous.nodeaddempl div[class$="-subform-field-class-level form-group"] {
+  float: left !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page.i18n-fr div[class$="-subform-field-class-level form-group"] .select-wrapper:after, body.role-is-anonymous.nodeaddempl.i18n-fr div[class$="-subform-field-class-level form-group"] .select-wrapper:after {
+  right: 40% !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #field-email-add-more-wrapper div.table-responsive button.tabledrag-toggle-weight.btn-sm.btn.btn-default, body.role-is-anonymous.nodeaddempl #field-email-add-more-wrapper div.table-responsive button.tabledrag-toggle-weight.btn-sm.btn.btn-default {
+  display: none !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #field-email-values td.field-multiple-drag, body.role-is-anonymous.nodeaddempl #field-email-values td.field-multiple-drag {
+  display: none !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-emploppsubitappquestion.panel-default, body.role-is-anonymous.nodeaddempl #edit-group-emploppsubitappquestion.panel-default {
+  border-color: white;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-emploppsubitappquestion div.panel-heading, body.role-is-anonymous.nodeaddempl #edit-group-emploppsubitappquestion div.panel-heading {
+  border-bottom: 0px;
+  padding-bottom: 0px;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-field-employmentrequestorphone-0-value, body.role-is-anonymous.nodeaddempl #edit-field-employmentrequestorphone-0-value {
+  display: block;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #block-news-form-add h2.block-title, body.role-is-anonymous.nodeaddempl #block-news-form-add h2.block-title {
+  display: none !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #block-privacynotice, body.role-is-anonymous.nodeaddempl #block-privacynotice {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #block-grstheme-bootstrap-reportproblemblock, body.role-is-anonymous.nodeaddempl #block-grstheme-bootstrap-reportproblemblock {
+  padding-top: 15px !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-field-classification-wrapper th.field-label.form-required, body.role-is-anonymous.nodeaddempl #edit-field-classification-wrapper th.field-label.form-required {
+  display: none !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page #edit-field-classification-wrapper div.paragraph-type-title.form-group.js-form-wrapper.form-wrapper, body.role-is-anonymous.nodeaddempl #edit-field-classification-wrapper div.paragraph-type-title.form-group.js-form-wrapper.form-wrapper {
+  display: none !important;
+}
+
 body.nodeaddnews.user-anonymous ol.breadcrumb li:last-child, body.nodeaddempl.user-anonymous ol.breadcrumb li:last-child {
   display: none;
 }
@@ -179,11 +628,6 @@ body.nodeaddempl.role-is-anonymous.node-add button.tabledrag-toggle-weight.btn-s
 }
 
 body.nodeaddempl.role-is-anonymous {
-  /* 
-   // & div[class$="-subform-field-class-sub form-group"] {
-   //   float: left !important;
-   // }
-   */
   /* block-privacynotice */
   /* block-grstheme-bootstrap-reportproblemblock */
 }

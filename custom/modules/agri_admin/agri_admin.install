@@ -9,6 +9,7 @@
  * Implements hook_install().
  */
 function agri_admin_install() {
+  module_set_weight('agri_admin', 1);
   \Drupal::service('module_installer')->install(['entity_translation_unified_form']);
 }
 
@@ -68,3 +69,9 @@ function agri_admin_update_8001() {
 }
 
 
+/**
+ * Increase module weight so that hook form alter runs after field_group.
+ */
+function agri_admin_update_8002() {
+  module_set_weight('agri_admin', 1);
+}

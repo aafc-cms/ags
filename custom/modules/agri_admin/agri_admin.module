@@ -382,6 +382,15 @@ function _helperUpdateProcess($action, $entity_id, $bundle) {
  */
 function agri_admin_form_node_news_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   if (\Drupal::currentUser()->isAnonymous()) {
+    // Remove/do not render these form elements from anonymous user.
+    $form['revision_log']['#access'] = FALSE;
+    $form['revision_information']['#access'] = FALSE;
+    $form['revision']['#access'] = FALSE;
+    $form['field_keywords']['#access'] = FALSE;
+    $form['field_description']['#access'] = FALSE;
+    $form['moderation_state']['#access'] = FALSE;
+    // End of remove these form elements from anonymous user:
+
     $form['actions']['preview']['#weight'] = -99;
     // See js/agri-empl-or-news-submit.js previewInNewTab().
     $form['#attached']['library'][] = 'agri_admin/agri-empl-news-submit_css'; // For empl submit.
@@ -397,6 +406,27 @@ function agri_admin_form_node_news_form_alter(&$form, \Drupal\Core\Form\FormStat
  */
 function agri_admin_form_node_empl_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   if (\Drupal::currentUser()->isAnonymous()) {
+    // Remove/do not render these form elements from anonymous user.
+    $form['revision_log']['#access'] = FALSE;
+    $form['revision_information']['#access'] = FALSE;
+
+//$debug_this = $form['field_classification'];
+//AgriAdminHelper::addToLog('fg debug: <pre>' . print_r(array_keys($form['#fieldgroups']),TRUE) . '</pre>' , TRUE);
+//AgriAdminHelper::addToLog('form debug: <pre>' . print_r(array_keys($form),TRUE) . '</pre>' , TRUE);
+//AgriAdminHelper::addToLog('classif debug: <pre>' . print_r(array_keys($debug_this),TRUE) . '</pre>' , TRUE);
+//AgriAdminHelper::addToLog('classif attr debug: <pre>' . print_r(array_keys($debug_this['#attributes']),TRUE) . '</pre>' , TRUE);
+//AgriAdminHelper::addToLog('fs debug: <pre>' . print_r(get_class_methods($form_state),TRUE) . '</pre>' , TRUE);
+
+//??      // Remove the weight select boxes for every .
+//??  $form['my_field']['und'][0]['_weight']['#access'] = FALSE;
+//??  $form['my_field']['und'][1]['_weight']['#access'] = FALSE;
+
+    $form['revision']['#access'] = FALSE;
+    $form['field_keywords']['#access'] = FALSE;
+    $form['field_description']['#access'] = FALSE;
+    $form['moderation_state']['#access'] = FALSE;
+    // End of remove these form elements from anonymous user:
+
     $form['actions']['preview']['#weight'] = -99;
     // See js/agri-empl-or-news-submit.js previewInNewTab().
     $form['#attached']['library'][] = 'agri_admin/agri-empl-news-submit_css'; // For empl submit.
