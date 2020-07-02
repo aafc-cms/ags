@@ -78,6 +78,7 @@ class idol_feed_api_Controller extends ControllerBase {
          $metatags = metatag_generate_entity_metatags($node);
          $dcterms_creator="";
          $dcterms_description="";
+         $keywords="";
          foreach ($metatags as $key => $value) {
            switch (strtolower($key)) {
              case "dcterms_creator":
@@ -207,9 +208,9 @@ class idol_feed_api_Controller extends ControllerBase {
     }
   }
 
-      $a = htmlentities($xml->asXML());
-      $b = html_entity_decode($xml->asXML(),ENT_QUOTES | ENT_HTML401, 'ISO-8859-1');
-      $response = new Response($b);
+      // $a = htmlentities($xml->asXML());
+      // $b = html_entity_decode($xml->asXML(),ENT_QUOTES | ENT_HTML401, 'ISO-8859-1');
+      $response = new Response($xml->asXML());
       // $response = new Response(html_entity_decode(utf8_decode($xml->asXML())));
       $response->headers->set('Content-Type', 'xml');
 
