@@ -162,3 +162,23 @@ function grstheme_bootstrap_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
     $form['actions']['preview']['#suffix'] = '</div>';
   }
 }
+
+
+function grstheme_bootstrap_preprocess_textarea(&$variables) {
+  if (is_object($variables['attributes'])) {
+    $attr_array = $attribute_obj->toArray();
+    if (isset($attr_array['aria-describedby'])) {
+      $attribute_obj = $variables['attributes'];
+      if ($attr_array['aria-describedby'] == 'edit-body-0-summary--description') {
+        $attribute_obj->removeAttribute('aria-describedby');
+        $variables['attributes'] = $attribute_obj;
+        //\Drupal\agri_admin\AgriAdminHelper::addToLog('debug : <pre>' . print_r($attr_array,TRUE) . '</pre>' , TRUE);
+      }
+
+      if ($attr_array['aria-describedby'] == 'edit-body-etuf-fr-0-summary--description') {
+        $attribute_obj->removeAttribute('aria-describedby');
+        $variables['attributes'] = $attribute_obj;
+      }
+    }
+  }
+}
