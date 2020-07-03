@@ -243,6 +243,9 @@ body.news-article-form-page .tabbable.tabs-left.vertical-tabs.clearfix, body.nod
 body.role-is-anonymous #node-empl-form .vertical-tabs-panes {
   border: none !important;
 }
+body.role-is-anonymous #edit-field-classification-wrapper table.field-multiple-table thead, body.role-is-anonymous #edit-field-classification-wrapper .field_classification-delta-order, body.role-is-anonymous #edit-field-classification-wrapper td.delta-order {
+  display: none;
+}
 body.role-is-anonymous.employment-opportunity-request-form-page div.form-item.js-form-item.form-type-vertical-tabs.js-form-type-vertical-tabs.form-item-.js-form-item-.form-no-label.form-group, body.role-is-anonymous.nodeaddempl div.form-item.js-form-item.form-type-vertical-tabs.js-form-type-vertical-tabs.form-item-.js-form-item-.form-no-label.form-group {
   display: none !important;
 }

@@ -4,9 +4,12 @@ body.role-is-anonymous {
     .vertical-tabs-panes {
       border: none !important;
     }
-//    #edit-footer {
-//      display: none !important;
-//    }
+  }
+
+  #edit-field-classification-wrapper {
+    table.field-multiple-table thead, .field_classification-delta-order, td.delta-order {
+      display: none;
+    }
   }
  
   &.employment-opportunity-request-form-page, &.nodeaddempl {
