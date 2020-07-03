@@ -122,7 +122,10 @@ class idol_feed_api_Controller extends ControllerBase {
          $documentXml->addChild('AGRISOURCE_META_COVERAGES');
          $documentXml->addChild('AGRISOURCE_META_DESCRIPTION', $dcterms_description);
          $documentXml->addChild('AGRISOURCE_META_SUBJECTIDS', $AGRISOURCE_META_SUBJECTS_id);
-         $documentXml->addChild('CONTENT', $node->get('body')->value);
+
+         $content = $node->get('body')->value;
+         $content = htmlentities($content, ENT_XML1, 'UTF-8');
+         $documentXml->addChild('CONTENT', $content);//$node->get('body')->value);
          $documentXml->addChild('EXTERNALURL');
          $documentXml->addChild('LANG', "en");
          $documentXml->addChild('SHORTTITLE', $node->get('title')->value);
@@ -189,7 +192,11 @@ class idol_feed_api_Controller extends ControllerBase {
           $documentXmlFr->addChild('AGRISOURCE_META_COVERAGES');
           $documentXmlFr->addChild('AGRISOURCE_META_DESCRIPTION', $dcterms_description);
           $documentXmlFr->addChild('AGRISOURCE_META_SUBJECTIDS', $AGRISOURCE_META_SUBJECTS_id);
-          $documentXmlFr->addChild('CONTENT', $trnode->get('body')->value);
+
+          $content = $trnode->get('body')->value;
+          $content = htmlentities($content, ENT_XML1, 'UTF-8');
+
+          $documentXmlFr->addChild('CONTENT', $content);//$trnode->get('body')->value);
           $documentXmlFr->addChild('EXTERNALURL');
           $documentXmlFr->addChild('LANG', "fr");
           $documentXmlFr->addChild('SHORTTITLE', $trnode->get('title')->value);
