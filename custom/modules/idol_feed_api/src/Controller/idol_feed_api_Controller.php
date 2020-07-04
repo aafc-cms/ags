@@ -291,7 +291,7 @@ class idol_feed_api_Controller extends ControllerBase {
   }
 
   public function  addElementForNews($documentXml, $node, $lang){
-    $documentXml->addChild('ANDEQUIVALENT');
+    $documentXml->addChild('ADDITIONALREMARKS');
     $documentXml->addChild('AUDIENCEID');
 
     $categorytypeid = "";
