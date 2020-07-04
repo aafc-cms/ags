@@ -1,0 +1,4 @@
+trigger_build:
+  stage: d8
+  script:
+    - "curl -X POST -F token=c565062b2dd906367f3f4746a6e72d -F ref=master https://gitlab.com/api/v4/projects/16646420/trigger/pipeline"
