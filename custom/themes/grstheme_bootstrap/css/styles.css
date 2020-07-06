@@ -110,7 +110,11 @@ body.path-frontpage #block-aafcsocialmedia {
   padding-right: 0;
 }
 /* line 18, ../sass/layouts/_front.scss */
-body.path-frontpage section[data-quickedit-entity-id="block_content/3"] {
+body.path-frontpage section[data-quickedit-entity-id^="block_content/"] {
+  z-index: 1;
+}
+/* line 21, ../sass/layouts/_front.scss */
+body.path-frontpage section[data-quickedit-entity-id^="media/"] {
   z-index: 1;
 }
 
@@ -183,12 +187,6 @@ body.user-logged-in.archived div.region-header h1 {
   /* line 3, ../sass/components/_newsblock.scss */
   #block-newswork {
     position: relative;
-  }
-
-  /* line 6, ../sass/components/_newsblock.scss */
-  #block-newswork .field--name-body {
-    position: absolute;
-    top: -90px;
   }
 }
 @media screen and (min-width: 1200px) {

@@ -15,8 +15,10 @@ body.path-frontpage {
     padding-right: 0;
   }
   // Fix a bug on the home page, was unable to click the links when logged in, this fixes it.
-  section[data-quickedit-entity-id="block_content/3"] {
+  section[data-quickedit-entity-id^="block_content/"] {
     z-index: 1;
   }
-
+  section[data-quickedit-entity-id^="media/"] {
+    z-index: 1;
+  }
 }
