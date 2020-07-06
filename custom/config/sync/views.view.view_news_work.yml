@@ -8,11 +8,13 @@ dependencies:
     - field.storage.node.field_newstype
     - node.type.news
     - system.menu.main
+    - taxonomy.vocabulary.news_type
   content:
     - 'block_content:basic:be4d3824-c613-4aef-8992-42ba10131caf'
   module:
     - datetime
     - node
+    - taxonomy
     - text
     - user
     - views_published_or_roles
@@ -41,7 +43,7 @@ display:
         type: views_query
         options:
           disable_sql_rewrite: false
-          distinct: false
+          distinct: true
           replica: false
           query_comment: ''
           query_tags: {  }
@@ -76,7 +78,11 @@ display:
       style:
         type: default
         options:
-          grouping: {  }
+          grouping:
+            -
+              field: field_newstype
+              rendered: true
+              rendered_strip: false
           row_class: 'news-at-work-row published-{{ status }} node-{{ nid }}'
           default_row_class: true
       row:
@@ -228,7 +234,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -641,6 +647,20 @@ display:
           entity_type: node
           plugin_id: current_user_has_roles
       sorts:
+        weight:
+          id: weight
+          table: taxonomy_term_field_data
+          field: weight
+          relationship: term_node_tid
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          entity_type: taxonomy_term
+          entity_field: weight
+          plugin_id: standard
         created:
           id: created
           table: node_field_data
@@ -673,7 +693,19 @@ display:
           plugin_id: entity
       footer: {  }
       empty: {  }
-      relationships: {  }
+      relationships:
+        term_node_tid:
+          id: term_node_tid
+          table: node_field_data
+          field: term_node_tid
+          entity_type: node
+          plugin_id: node_term_data
+        term_node_tid_1:
+          id: term_node_tid_1
+          table: node_field_data
+          field: term_node_tid
+          entity_type: node
+          plugin_id: node_term_data
       arguments: {  }
       display_extenders: {  }
       filter_groups:
@@ -733,6 +765,59 @@ display:
         weight: 0
         context: '0'
         menu_name: main
+      relationships:
+        term_node_tid_1:
+          id: term_node_tid_1
+          table: node_field_data
+          field: term_node_tid
+          relationship: none
+          group_type: group
+          admin_label: term
+          required: false
+          vids:
+            - news_type
+          entity_type: node
+          plugin_id: node_term_data
+      defaults:
+        relationships: false
+        sorts: false
+        query: false
+      sorts:
+        weight:
+          id: weight
+          table: taxonomy_term_field_data
+          field: weight
+          relationship: term_node_tid_1
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          entity_type: taxonomy_term
+          entity_field: weight
+          plugin_id: standard
+        field_modified_value:
+          id: field_modified_value
+          table: node__field_modified
+          field: field_modified_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+          plugin_id: datetime
+      query:
+        type: views_query
+        options:
+          disable_sql_rewrite: false
+          distinct: true
+          replica: false
+          query_comment: ''
+          query_tags: {  }
     cache_metadata:
       max-age: -1
       contexts:
