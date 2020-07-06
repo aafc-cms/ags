@@ -410,16 +410,8 @@ function agri_admin_form_node_empl_form_alter(&$form, \Drupal\Core\Form\FormStat
     $form['revision_log']['#access'] = FALSE;
     $form['revision_information']['#access'] = FALSE;
 
-//$debug_this = $form['field_classification'];
-//AgriAdminHelper::addToLog('fg debug: <pre>' . print_r(array_keys($form['#fieldgroups']),TRUE) . '</pre>' , TRUE);
-//AgriAdminHelper::addToLog('form debug: <pre>' . print_r(array_keys($form),TRUE) . '</pre>' , TRUE);
+// $debug_this = $form['field_classification'];
 //AgriAdminHelper::addToLog('classif debug: <pre>' . print_r(array_keys($debug_this),TRUE) . '</pre>' , TRUE);
-//AgriAdminHelper::addToLog('classif attr debug: <pre>' . print_r(array_keys($debug_this['#attributes']),TRUE) . '</pre>' , TRUE);
-//AgriAdminHelper::addToLog('fs debug: <pre>' . print_r(get_class_methods($form_state),TRUE) . '</pre>' , TRUE);
-
-//??      // Remove the weight select boxes for every .
-//??  $form['my_field']['und'][0]['_weight']['#access'] = FALSE;
-//??  $form['my_field']['und'][1]['_weight']['#access'] = FALSE;
 
     $form['revision']['#access'] = FALSE;
     $form['field_keywords']['#access'] = FALSE;
@@ -625,6 +617,27 @@ function agri_admin_preprocess_breadcrumb(&$variables) {
         'text' => t('Internal Employment Opportunity Request Form'),
         'attributes' => new Drupal\Core\Template\Attribute(['class' => ['active']])
       ];
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function agri_admin_preprocess_field_multiple_value_form(&$vars) {
+  if (!\Drupal::currentUser()->isAnonymous()) { return; }
+  // Anonymous only logic below.
+
+  // Remove weight option for multivalue fields.
+  if (isset($vars['table']['#tabledrag'])) {
+    unset($vars['table']['#tabledrag']);
+    array_pop($vars['table']['#header']);
+    foreach ($vars['table']['#rows'] as &$row) {
+      foreach ($row['data'] as $key => $rowrowdata) {
+        if (!$rowrowdata['data']) {
+          unset($row['data'][$key]);
+        }
+      }
     }
   }
 }
