@@ -4,4 +4,4 @@ stages:
 trigger_build:
   stage: d8
   script:
-    - "curl -X POST -F token=c565062b2dd906367f3f4746a6e72d -F ref=master -F variables[SOURCE_COMMIT_MSG]=$CI_COMMIT_MESSAGE -F variables[SOURCE_URL]=$CI_PROJECT_URL -F variables[SOURCE_SHA]=$CI_COMMIT_SHA https://gitlab.com/api/v4/projects/16646420/trigger/pipeline"
+    - "curl -X POST -F token=c565062b2dd906367f3f4746a6e72d -F ref=master -F variables[SOURCE_COMMIT_MSG]=\"$CI_COMMIT_MESSAGE\" -F variables[SOURCE_URL]=\"$CI_PROJECT_URL\" -F variables[SOURCE_SHA]=$CI_COMMIT_SHA https://gitlab.com/api/v4/projects/16646420/trigger/pipeline"
