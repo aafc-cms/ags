@@ -14,6 +14,14 @@
   Drupal.behaviors.grstheme_bootstrap = {
     attach: function (context, settings) {
       if (context == document) {
+        jQuery('body.i18n-en a.french-only').each(function(index, element){
+          // For Keyboard navigation fix in English.
+          jQuery(element).closest('li').remove();
+        });
+        jQuery('body.i18n-fr a.english-only').each(function(index, element){
+          // For Keyboard navigation fix in French.
+          jQuery(element).closest('li').remove();
+        });
       }
     }
   }
