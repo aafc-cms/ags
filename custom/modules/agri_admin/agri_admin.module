@@ -624,6 +624,7 @@ function agri_admin_preprocess_breadcrumb(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
+
 function agri_admin_preprocess_field_multiple_value_form(&$vars) {
   if (!\Drupal::currentUser()->isAnonymous()) { return; }
   // Anonymous only logic below.
@@ -642,10 +643,10 @@ function agri_admin_preprocess_field_multiple_value_form(&$vars) {
   }
 }
 
-
 /**
  * Implements hook_preprocess_fieldset_HOOK().
  */
+
 function agri_admin_preprocess_fieldset(&$variables) {
   unset($variables['attributes']['required']);
   unset($variables['attributes']['aria-required']);
@@ -655,28 +656,60 @@ function agri_admin_preprocess_fieldset(&$variables) {
 /**
  * Implements hook_preprocess_select_HOOK().
  */
+
 function agri_admin_preprocess_select(&$variables) {
-  if ($variables['element']['#field_name']== 'field_newstype') {
-    $variables['attributes']['size'] = 9;
-  }
+ 
+  if (\Drupal::currentUser()->isAnonymous()) {
+    //AgriAdminHelper::addToLog('Debug  select - attribute-  <pre> ' . print_r(array_keys($variables['element']), TRUE). '</pre>', TRUE);
+    //AgriAdminHelper::addToLog('Debug  select - fieldname-  <pre> ' . print_r(($variables['element']['#field_name']), TRUE). '</pre>', TRUE);
+    if ($variables['element']['#field_name']) {
+      if ($variables['element']['#field_name']== 'field_newstype') {
+        $variables['attributes']['size'] = 9;
+      }
+    }
 
-  if ($variables['element']['#field_name']== 'field_to') {
-    $variables['attributes']['size'] = 4;
-  }
+    if ($variables['element']['#field_name']) {
+      if ($variables['element']['#field_name']== 'field_to') {
+        $variables['attributes']['size'] = 4;
+      }
+    }
 
-  if ($variables['element']['#field_name']== 'field_branch') {
-    $variables['attributes']['size'] = 15;
-  }
+    if ($variables['element']['#field_name']) {
+      if ($variables['element']['#field_name']== 'field_branch') {
+        $variables['attributes']['size'] = 15;
+      }
+    }
 
-  if ($variables['element']['#field_name']== 'field_class_id') {
-    $variables['attributes']['size'] = 46;
-  }
+    if ($variables['element']['#field_name']) {
+      if ($variables['element']['#field_name']== 'field_class_id') {
+        $variables['attributes']['size'] = 46;
+      }
+    }
   
-  if ($variables['element']['#field_name']== 'field_class_sub') {
-    $variables['attributes']['size'] = 30;
-  }
+    if ($variables['element']['#field_name']) {
+      if ($variables['element']['#field_name']== 'field_class_sub') {
+        $variables['attributes']['size'] = 30;
+      }
+    }
   
-  if ($variables['element']['#field_name']== 'field_class_level') {
-    $variables['attributes']['size'] = 15;
+    if ($variables['element']['#field_name']) {
+      if ($variables['element']['#field_name']== 'field_class_level') {
+        $variables['attributes']['size'] = 15;
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_form_element_label_HOOK().
+ */
+
+function agri_admin_preprocess_form_element_label(&$variables) {
+  if (\Drupal::currentUser()->isAnonymous()) {
+    if ($variables['attributes']['for']) { 
+      if ($variables['attributes']['for'] == 'edit-advanced' ) {
+        $variables['attributes']['id'] = $variables['attributes']['for'];
+      }  
+    }
   }
 }
