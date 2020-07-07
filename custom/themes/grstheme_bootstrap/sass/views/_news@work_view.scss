@@ -5,14 +5,14 @@ body.viewnewswork .alert.alert-info {
   border-color: #269abc;
 }
 
-body.newswork div.news-at-work-row.views-row {
+body.newswork div.news-at-work-row.views-row, body.newsnewswork div.news-at-work-row.views-row {
   margin-bottom: 20px;
-  div.views-field.views-field-field-from  div.field-content {
-    font-style: italic
+  div.views-field.views-field-field-from .field-content {
+    font-style: italic !important;
   }
 }
 
-body.newswork div.news-at-work-row.views-row:last-child {
+body.newswork div.news-at-work-row.views-row:last-child, body.newsnewswork div.news-at-work-row.views-row:last-child {
   margin-bottom: 0px;
 }
 
