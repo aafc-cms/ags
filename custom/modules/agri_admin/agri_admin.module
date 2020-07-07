@@ -641,3 +641,14 @@ function agri_admin_preprocess_field_multiple_value_form(&$vars) {
     }
   }
 }
+
+
+/**
+ * Implements hook_preprocess_fieldset_HOOK().
+ */
+
+function agri_admin_preprocess_fieldset(&$variables) {
+  unset($variables['attributes']['required']);
+  unset($variables['attributes']['aria-required']);
+  unset($variables['attributes']['aria-invalid']);
+}
