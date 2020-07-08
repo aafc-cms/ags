@@ -658,6 +658,7 @@ function agri_admin_preprocess_fieldset(&$variables) {
  */
 
 function agri_admin_preprocess_select(&$variables) {
+  if (!isset($variables['element']['#field_name'])) { return; }
   if (\Drupal::currentUser()->isAnonymous()) {
     if ($variables['element']['#field_name']) {
       if ($variables['element']['#field_name']== 'field_newstype') {
