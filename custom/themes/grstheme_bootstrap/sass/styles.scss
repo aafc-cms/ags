@@ -35,11 +35,6 @@ body > div > div.container {
   border-left: 1px solid $agrisource-border;
 }
 
-#wb-sm .container.nvbar {
-  border-right: 1px solid $agrisource-border-top;
-  border-left: 1px solid $agrisource-border-top;
-}
-
 body.path-frontpage {
   div.region-help {
     .col-md-4, .col-md-8 {
@@ -65,16 +60,6 @@ body.path-frontpage {
 #mb-pnl #edit-submit-container-imprt {
   float: none !important;
   margin-bottom: 0px !important;
-}
-
-#wb-sm .nvbar {
-  background-image: -webkit-gradient(linear,left top,left bottom,from(#939394),to($agrisource-menu-main-med));
-  background-image: -webkit-linear-gradient(#959a9e,#8f9cab);
-  background-image: linear-gradient(#b9b09d,#59595b);
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr="#FF2A79C5", endColorstr="#FF1B5A9F");
-  background-color: #878b8e;
-  border-bottom: 4px solid #ccc;
-  border-top: 1px solid #59595b;
 }
 
 /* Canada Government Logo Size */

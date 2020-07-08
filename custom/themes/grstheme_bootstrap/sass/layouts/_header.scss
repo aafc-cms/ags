@@ -89,3 +89,21 @@ html[lang=en] nav#wb-sm {
     display: none;
   }
 }
+#wb-sm .container.nvbar {
+  border-right: 1px solid $agrisource-border-top;
+  border-left: 1px solid $agrisource-border-top;
+}
+
+#wb-sm .nvbar {
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#939394),to($agrisource-menu-main-med));
+  background-image: -webkit-linear-gradient(#959a9e,#8f9cab);
+  background-image: linear-gradient(#b9b09d,#59595b);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr="#FF2A79C5", endColorstr="#FF1B5A9F");
+  background-color: #878b8e;
+  border-bottom: 4px solid #ccc;
+  border-top: 1px solid #59595b;
+}
+
+#wb-sm a {
+  background-color: transparent;
+}
