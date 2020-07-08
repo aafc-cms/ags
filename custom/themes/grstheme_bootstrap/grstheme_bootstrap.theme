@@ -182,3 +182,19 @@ function grstheme_bootstrap_preprocess_textarea(&$variables) {
     }
   }
 }
+
+
+function grstheme_bootstrap_preprocess_input(&$variables) {
+  if (\Drupal::currentUser()->isAnonymous()) {
+    if (is_object($variables['attributes'])) {
+      $attribute_obj = $variables['attributes'];
+      $attr_array = $attribute_obj->toArray();
+      if (isset($attr_array['id']) ) {
+        if ($attr_array['id'] == 'edit-field-date-closing-0-value-date' ) {
+          $attribute_obj->removeAttribute('aria-required');
+          $variables['attributes'] = $attribute_obj;
+        }
+      }
+    }
+  }
+}
