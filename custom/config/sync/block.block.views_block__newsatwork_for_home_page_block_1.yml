@@ -1,0 +1,40 @@
+uuid: a401a344-73b5-48ae-95aa-c5ed70615a05
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.newsatwork_for_home_page
+  module:
+    - block_class
+    - system
+    - views
+    - wxt_library
+  theme:
+    - grstheme_bootstrap
+third_party_settings:
+  block_class:
+    classes: col-md-3
+id: views_block__newsatwork_for_home_page_block_1
+theme: grstheme_bootstrap
+region: content
+weight: -10
+provider: null
+plugin: 'views_block:newsatwork_for_home_page-block_1'
+settings:
+  id: 'views_block:newsatwork_for_home_page-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  panels_title:
+    id: panels_title
+    enabled: 0
+    negate: false
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
