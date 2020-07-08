@@ -658,43 +658,30 @@ function agri_admin_preprocess_fieldset(&$variables) {
  */
 
 function agri_admin_preprocess_select(&$variables) {
- 
   if (\Drupal::currentUser()->isAnonymous()) {
-    //AgriAdminHelper::addToLog('Debug  select - attribute-  <pre> ' . print_r(array_keys($variables['element']), TRUE). '</pre>', TRUE);
-    //AgriAdminHelper::addToLog('Debug  select - fieldname-  <pre> ' . print_r(($variables['element']['#field_name']), TRUE). '</pre>', TRUE);
     if ($variables['element']['#field_name']) {
       if ($variables['element']['#field_name']== 'field_newstype') {
-        $variables['attributes']['size'] = 9;
+        $variables['attributes']['size'] = 1;
       }
-    }
 
-    if ($variables['element']['#field_name']) {
       if ($variables['element']['#field_name']== 'field_to') {
-        $variables['attributes']['size'] = 4;
-      }
-    }
+        $variables['attributes']['size'] = 1;
+      } 
 
-    if ($variables['element']['#field_name']) {
       if ($variables['element']['#field_name']== 'field_branch') {
-        $variables['attributes']['size'] = 15;
+        $variables['attributes']['size'] = 1;
       }
-    }
 
-    if ($variables['element']['#field_name']) {
       if ($variables['element']['#field_name']== 'field_class_id') {
-        $variables['attributes']['size'] = 46;
+        $variables['attributes']['size'] = 1;
       }
-    }
   
-    if ($variables['element']['#field_name']) {
       if ($variables['element']['#field_name']== 'field_class_sub') {
-        $variables['attributes']['size'] = 30;
-      }
-    }
+        $variables['attributes']['size'] = 1;
+      } 
   
-    if ($variables['element']['#field_name']) {
       if ($variables['element']['#field_name']== 'field_class_level') {
-        $variables['attributes']['size'] = 15;
+        $variables['attributes']['size'] = 1;
       }
     }
   }
