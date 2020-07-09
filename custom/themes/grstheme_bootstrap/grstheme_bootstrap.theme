@@ -194,6 +194,11 @@ function grstheme_bootstrap_preprocess_input(&$variables) {
           $attribute_obj->removeAttribute('aria-required');
           $variables['attributes'] = $attribute_obj;
         }
+        
+        if ($attr_array['id'] == 'edit-field-posted-0-value-date' ) {
+          $attribute_obj->removeAttribute('aria-required');
+          $variables['attributes'] = $attribute_obj;
+        }
       }
     }
   }
