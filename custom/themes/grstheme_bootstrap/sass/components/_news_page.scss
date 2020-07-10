@@ -1,0 +1,25 @@
+
+body.page-node-type-news {
+  /* field title float left class */
+  .field--name-field-posted .field--label,
+  .field--name-field-to .field--label,
+  .field--name-field-from .field--label, {
+    float: left;
+  } 
+
+  .field--name-field-posted .field--label::after,
+  .field--name-field-to .field--label::after,
+  .field--name-field-from .field--label::after {
+    content: '\00a0\00a0';
+  } 
+  
+  .field--name-body .field--label {
+    display: none;
+  }
+
+  .field--name-body.field--type-text-with-summary.field--label-above.quickedit-field .field--item::before {
+    content: "\A"; 
+    white-space: pre; 
+  }
+}
+
