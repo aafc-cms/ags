@@ -134,8 +134,6 @@
             "drupal/core": {
                 "core views module fix for contextual filter":
                 "https://www.drupal.org/files/issues/2628130-11.patch",
-                "core views submit button name attribute cannot be empty for w3c":
-                "https://www.drupal.org/files/issues/2020-07-09/D88x-prevent_empty_name_tag-3061891-13.patch",
                 "safedelete entity_translation_unified_form form set error squelch noise about #parent element":
                 "https://www.drupal.org/files/issues/2019-08-31/3027240-12.patch",
                 "allow field groups to be compatible":
@@ -156,6 +154,10 @@
                 "https://www.drupal.org/files/issues/2019-03-20/access_unpublished-create_per_language_tokens-2958800-3.patch",
                 "Edge case can result in null route - hasPendingRevision() validate for null.":
                 "https://www.drupal.org/files/issues/2019-12-09/access_unpublished-TypeError_hasPendingRevision_null_fix-3099663-2.patch"
+            },
+            "drupal/bootstrap": {
+                "views submit button name attribute cannot be empty for w3c":
+                "https://www.drupal.org/files/issues/2020-07-10/3061891-27.patch"
             },
             "drupal/entity_translation_unified_form": {
                 "Support side-by-side interface and sync of moderation state with jquery":
