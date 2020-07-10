@@ -1,0 +1,74 @@
+
+body.page-node-type-empl {
+
+  .field--name-field-classification td.field-multiple-drag {
+    display: none !important;
+  }
+
+  // field title float left class
+  .field--name-field-type .field--label {
+    float: left;
+  } 
+
+  .field--name-field-type .field--item {
+    float: left;
+  } 
+ 
+  .field--name-field-type .field--label::after {
+    content: '\00a0\00a0';
+  } 
+  
+  .field--name-field-type .field--item::after {
+    content: ',\00a0';
+  } 
+
+  
+  .field--name-field-type .field--item:last-child::after {
+    content: '';
+  }
+
+  .field--name-field-type .field--item:last-child {
+    float: none;
+  } 
+  
+  .field--name-field-classification .field--label {
+    float: left;
+  }
+
+  .field--name-field-classification .field--label::after {
+    content: '\00a0\00a0';
+  }
+
+  .field.field--name-body.field--type-text-with-summary.field--label-above .field--label::before {
+    content: "\A"; 
+    white-space: pre; 
+  } 
+
+  .field.field--name-body.field--type-text-with-summary.field--label-above .field--item::before {
+    content: "\A"; 
+    white-space: pre; 
+  }
+ 
+  .field.field--name-body.field--type-text-with-summary.field--label-above .field--label {
+    font-size: 24px;
+  }
+  
+  .field.field--name-field-email .field--label {
+    float: left;
+  }
+
+  .field.field.field--name-field-email .field--label::after {
+    content: "\00a0\00a0";
+  }
+
+  #block-privacynotice h2.block-title {
+    display: none;
+  }
+}
+
+/* block-privacynotice */
+#block-privacynotice {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
