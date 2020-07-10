@@ -141,6 +141,7 @@ function grstheme_bootstrap_preprocess_field(&$variables, $hook) {
   }
 }
 
+
 /**
  * Implements hook_form_alter.
  */
@@ -164,6 +165,9 @@ function grstheme_bootstrap_form_alter(&$form, \Drupal\Core\Form\FormStateInterf
 }
 
 
+/**
+ * Implements hook_preprocess_textarea().
+ */
 function grstheme_bootstrap_preprocess_textarea(&$variables) {
   if (is_object($variables['attributes'])) {
     $attribute_obj = $variables['attributes'];
@@ -184,6 +188,9 @@ function grstheme_bootstrap_preprocess_textarea(&$variables) {
 }
 
 
+/**
+ * Implements hook_preprocess_input().
+ */
 function grstheme_bootstrap_preprocess_input(&$variables) {
   if (\Drupal::currentUser()->isAnonymous()) {
     if (is_object($variables['attributes'])) {
@@ -194,11 +201,97 @@ function grstheme_bootstrap_preprocess_input(&$variables) {
           $attribute_obj->removeAttribute('aria-required');
           $variables['attributes'] = $attribute_obj;
         }
-        
+
         if ($attr_array['id'] == 'edit-field-posted-0-value-date' ) {
           $attribute_obj->removeAttribute('aria-required');
           $variables['attributes'] = $attribute_obj;
         }
+      }
+    }
+  }
+}
+
+
+/**
+ * Implements hook_preprocess_field_multiple_value_form().
+ */
+function grstheme_bootstrap_preprocess_field_multiple_value_form(&$vars) {
+  if (!\Drupal::currentUser()->isAnonymous()) { return; }
+  // Anonymous only logic below.
+
+  // Remove weight option for multivalue fields.
+  if (isset($vars['table']['#tabledrag'])) {
+    unset($vars['table']['#tabledrag']);
+    array_pop($vars['table']['#header']);
+    foreach ($vars['table']['#rows'] as &$row) {
+      foreach ($row['data'] as $key => $rowrowdata) {
+        if (!$rowrowdata['data']) {
+          unset($row['data'][$key]);
+        }
+      }
+    }
+  }
+}
+
+
+/**
+ * Implements hook_preprocess_fieldset().
+ */
+function grstheme_bootstrap_preprocess_fieldset(&$variables) {
+  unset($variables['attributes']['required']);
+  unset($variables['attributes']['aria-required']);
+  unset($variables['attributes']['aria-invalid']);
+}
+
+
+/**
+ * Implements hook_preprocess_select().
+ */
+function grstheme_bootstrap_preprocess_select(&$variables) {
+  if (!isset($variables['element']['#field_name'])) { return; }
+  if (\Drupal::currentUser()->isAnonymous()) {
+    if ($variables['element']['#field_name']) {
+      if ($variables['element']['#field_name']== 'field_newstype') {
+        $variables['attributes']['size'] = 1;
+      }
+
+      if ($variables['element']['#field_name']== 'field_to') {
+        $variables['attributes']['size'] = 1;
+      }
+
+      if ($variables['element']['#field_name']== 'field_branch') {
+        $variables['attributes']['size'] = 1;
+      }
+
+      if ($variables['element']['#field_name']== 'field_class_id') {
+        $variables['attributes']['size'] = 1;
+      }
+
+      if ($variables['element']['#field_name']== 'field_class_sub') {
+        $variables['attributes']['size'] = 1;
+      }
+
+      if ($variables['element']['#field_name']== 'field_class_level') {
+        $variables['attributes']['size'] = 1;
+      }
+    }
+  }
+}
+
+
+/**
+ * Implements hook_preprocess_form_element_label().
+ */
+function grstheme_bootstrap_preprocess_form_element_label(&$variables) {
+  if (\Drupal::currentUser()->isAnonymous()) {
+    if ($variables['attributes']['for']) {
+      if ($variables['attributes']['for'] == 'edit-advanced' ) {
+        // This squelches w3c error for label that has no element.
+        // Since we have removed edit-advanced section we also adjust its label.
+        unset($variables['element']);
+        unset($variables['attributes']['for']);
+        unset($variables['attributes']['class']);
+        $variables['attributes']['class'] = 'sr-only';
       }
     }
   }
