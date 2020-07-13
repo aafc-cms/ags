@@ -6,7 +6,8 @@ id: dev
 label: dev
 description: 'dev environment settings.'
 folder: modules/custom/config/splits/dev
-module: {  }
+module:
+  smtp: 0
 theme: {  }
 blacklist:
   - system.logging
