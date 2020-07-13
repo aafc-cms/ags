@@ -68,3 +68,42 @@ function agri_admin_update_8001() {
 }
 
 
+/**
+ * Fix source / track elements on imported content.
+ */
+function agri_admin_update_8002() {
+  // For Huan agrcms/d8#141
+  $query = \Drupal::entityQuery('node')->condition('type', 'page')
+    ->condition('status', 1);
+  $and1 = $query->orConditionGroup()
+    ->condition('body', '/track>', 'CONTAINS');
+  $and2 = $query->orConditionGroup()
+    ->condition('body', '/source>', 'CONTAINS');
+  $query->condition($and1)
+    ->condition($and2);
+  $nids = $query->execute();
+  $count_success = 0;
+  $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+  \Drupal::messenger()->addMessage("agri_admin_update_8002()", 'warning', TRUE);
+  $num_updated = 0;
+  $connection = \Drupal::database();
+  foreach ($nids as $vid => $nid) {
+    $node = $node_storage->load($nid);
+    \Drupal::messenger()->addMessage("Use a self closing source / track tag for nid = $nid title = " . $node->getTitle(), 'warning', TRUE);
+    $body_html = $node->body->value; 
+    $self_closing = preg_replace('/<source(.*?)><\/source>/is', '<source$1 />', $body_html);
+    $self_closing = preg_replace('/<track(.*?)><\/track>/is', '<track$1 />', $self_closing);
+/*    $num_updated += $connection->update('node__body')
+      ->fields([
+        'body_value' => $self_closing,
+      ])
+      ->condition('entity_id', $nid, '=')
+      ->condition('revision_id', $vid, '=')
+      ->execute();*/
+    $node->set('body', array('value' => $self_closing, 'format' => 'full_html', 'summary' => text_summary($self_closing)));
+    $node->save();
+    \Drupal::messenger()->addMessage("Saved $nid", 'warning', TRUE);
+  }
+//  \Drupal::messenger()->addMessage("Updated node__body body_value $num_updated time(s)", 'warning', TRUE);
+}
+
