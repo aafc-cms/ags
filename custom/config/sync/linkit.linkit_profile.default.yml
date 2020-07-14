@@ -4,7 +4,6 @@ status: true
 dependencies:
   module:
     - node
-    - node
 _core:
   default_config_hash: Tt8DtxZ3Nooo0PoWPpJvszA3R_5d8MmpUW7LM_R-BzY
 id: default
@@ -21,4 +20,15 @@ matchers:
       group_by_bundle: true
       include_unpublished: true
       substitution_type: canonical
+      limit: 100
+  8e7c8305-2e3c-427e-830c-723340e449b7:
+    uuid: 8e7c8305-2e3c-427e-830c-723340e449b7
+    id: 'entity:media'
+    weight: 0
+    settings:
+      metadata: 'by [media:field_document:entity:owner] [media:field_document:entity:changed]'
+      bundles:
+        document: document
+      group_by_bundle: false
+      substitution_type: media
       limit: 100
