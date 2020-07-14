@@ -22,3 +22,13 @@ agri-empl-news-submit_css:
   css:
     component:
       css2/news-empl-submit.css: {}
+
+news-at-work-bulletin:
+  css:
+    component:
+      css3/news-at-work-bulletin.css: {}
+  js:
+    js/news-at-work-bulletin.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
