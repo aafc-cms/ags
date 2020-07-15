@@ -377,8 +377,18 @@ function _helperUpdateProcess($action, $entity_id, $bundle) {
   }
 }
 
+
 /**
- * Implements hook_form_alter().
+ * Implements hook_form_form_views_form_newsatworkbulletin_page_1_alter().
+ */
+function agri_admin_form_views_form_newsatworkbulletin_page_1_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+ // $debug_this = $form_id;
+ // AgriAdminHelper::addToLog('debug: <pre>' . print_r($debug_this,TRUE) . '</pre>' , TRUE);
+  $form['#attached']['library'][] = 'agri_admin/news-at-work-bulletin'; // For empl submit.
+}
+
+/**
+ * Implements hook_form_node_news_form_alter().
  */
 function agri_admin_form_node_news_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   if (\Drupal::currentUser()->isAnonymous()) {
@@ -402,7 +412,7 @@ function agri_admin_form_node_news_form_alter(&$form, \Drupal\Core\Form\FormStat
 }
 
 /**
- * Implements hook_form_alter().
+ * Implements hook_form_node_empl_form_alter().
  */
 function agri_admin_form_node_empl_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   if (\Drupal::currentUser()->isAnonymous()) {
