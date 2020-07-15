@@ -23,8 +23,22 @@ body.internalemploymentopportuniti {
 
   td, th {
     border: 1px solid #ddd !important;
+    font-size: 87%;
   }
 
+  #view-field-type-table-column {
+    width: 136px;
+  }
+  
+  #view-field-date-closing-table-column, #view-field-locations-table-column {
+    width: 106px;
+  }
+
+  #view-field-date-closing-table-column, #view-field-locations-table-column,
+  #view-field-branch-table-column, #view-field-open-to-table-column {
+    text-decoration: underline;
+    text-decoration-thickness: inherit;
+  }
 }
 
 

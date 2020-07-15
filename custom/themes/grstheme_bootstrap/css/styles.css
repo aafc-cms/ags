@@ -615,6 +615,21 @@ body.internalemploymentopportuniti .wb-tables.table.table-hover.table-striped.st
 /* line 24, ../sass/views/_employmentopportunities_view.scss */
 body.internalemploymentopportuniti td, body.internalemploymentopportuniti th {
   border: 1px solid #ddd !important;
+  font-size: 87%;
+}
+/* line 29, ../sass/views/_employmentopportunities_view.scss */
+body.internalemploymentopportuniti #view-field-type-table-column {
+  width: 136px;
+}
+/* line 33, ../sass/views/_employmentopportunities_view.scss */
+body.internalemploymentopportuniti #view-field-date-closing-table-column, body.internalemploymentopportuniti #view-field-locations-table-column {
+  width: 106px;
+}
+/* line 37, ../sass/views/_employmentopportunities_view.scss */
+body.internalemploymentopportuniti #view-field-date-closing-table-column, body.internalemploymentopportuniti #view-field-locations-table-column,
+body.internalemploymentopportuniti #view-field-branch-table-column, body.internalemploymentopportuniti #view-field-open-to-table-column {
+  text-decoration: underline;
+  text-decoration-thickness: inherit;
 }
 
 /* line 1, ../sass/views/_news@work_view.scss */
