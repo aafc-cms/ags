@@ -1,0 +1,12 @@
+# Custom module library for general purposes.
+
+wet-boew-replacement:
+  remote: http://wet-boew.github.io
+  license:
+    name: MIT
+    gpl-compatible: true
+  js:
+    js/wb/wet-boew.js: { preprocess: false, minified: false, weight: -1 }
+  dependencies:
+    - core/jquery
+

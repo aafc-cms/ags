@@ -1,0 +1,17 @@
+uuid: a002673c-3ee5-472a-a68f-a3fb31efd61d
+langcode: en
+status: true
+dependencies:
+  module:
+    - token_filter
+name: 'No Editor Full'
+format: no_editor_full
+weight: -8
+filters:
+  token_filter:
+    id: token_filter
+    provider: token_filter
+    status: false
+    weight: 0
+    settings:
+      replace_empty: '0'
