@@ -163,15 +163,15 @@ body.path-frontpage section[data-quickedit-entity-id^="media/"] {
 
 /* line 2, ../sass/components/_draft-pending-views.scss */
 body.user-logged-in .view-content tr.published-no {
-  background-color: #FFECA9;
-  border: 3px solid orange;
+  background-color: pink;
+  border: 3px solid red;
   overflow: hidden;
 }
 
 /* line 8, ../sass/components/_draft-pending-views.scss */
 body.user-logged-in .view-content tr.published-no.pending-draft {
-  background-color: pink;
-  border: 3px solid red;
+  background-color: #FFECA9;
+  border: 3px solid orange;
   overflow: hidden;
 }
 

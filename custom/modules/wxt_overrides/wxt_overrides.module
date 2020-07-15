@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for WxT Overrides module.
+ *
+ * @DCG
+ * This file is no longer required in Drupal 8.
+ * @see https://www.drupal.org/node/2217931
+ */
+
+/**
+ * Implements hook_page_attachments().
+ *
+ * Replace the wet-boew library v4.0.35 with v4.0.32 to each page.
+ */
+function wxt_overrides_page_attachments(array &$page) {
+  $library_array = $page['#attached']['library'];
+  foreach ($library_array as $key => $value) {
+    if ($value == 'wxt_library/wet-boew-dev') {
+      unset($page['#attached']['library'][$key]);
+    }
+    if ($value == 'wxt_library/wet-boew') {
+      unset($page['#attached']['library'][$key]);
+    }
+  }
+  $page['#attached']['library'][] = 'wxt_overrides/wet-boew-replacement';
+    $DEBUG = false;
+    if ($DEBUG && $fp = fopen('modules/custom/wxt_overrides/js/wb/debug.txt', 'a'))
+    {
+      fwrite($fp, print_r($page, TRUE) . "\n");
+      fclose($fp);
+    }
+  return;
+}
+
