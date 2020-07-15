@@ -25,7 +25,7 @@ function wxt_overrides_page_attachments(array &$page) {
     }
   }
   $page['#attached']['library'][] = 'wxt_overrides/wet-boew-replacement';
-    $DEBUG = true;
+    $DEBUG = false;
     if ($DEBUG && $fp = fopen('modules/custom/wxt_overrides/js/wb/debug.txt', 'a'))
     {
       fwrite($fp, print_r($page, TRUE) . "\n");
