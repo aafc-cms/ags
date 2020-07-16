@@ -456,6 +456,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
     if (is_array($links) && isset($links[0])) {
       $first_breadcrumb_text = $links[0]->getText();
       if ($first_breadcrumb_text == 'Agrisource') {
+        // Make sure that the first breadcrumb link starts with 'Home' instead of 'Agrisource'.
         $links[0]->setText(t('Home'));
       }
     }
