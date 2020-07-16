@@ -269,11 +269,12 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
   $current_user = \Drupal::currentUser();
   $current_user_id = $current_user->id();
   $roles = $current_user->getRoles();
+  $authored_on = $entity->getCreatedTime();
+
   foreach ($roles as $value) {
     $role = $value;
     if ($role == 'creator' || $role == 'news_ccpub' || $role == 'empl_cspub') {
       //AgriAdminHelper::addToLog('presave called for ' . $entity->language()->getId() . ' ' . $entity->id(), TRUE);
-      $debug_message = 'Authored on: '.$entity->getCreatedTime().'; Node id: '.$entity_id.'; Old Author: '.$current_author_id;
       $langcode = $entity->language()->getId();
       if ($langcode == 'en') {
         $entity->getTranslation('fr')->setOwnerId($current_user_id);
@@ -283,9 +284,35 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
       }
       $entity->setOwnerId($current_user_id);
       $entity->set('created', time());
-      $debug_message = $debug_message . '; New Author: ' . $entity->getOwnerId();
-      //AgriAdminHelper::addToLog($debug_message, TRUE);
     }
+  }
+
+  $content_type = $entity->bundle();
+
+  if($content_type == 'page' || $content_type == 'landing_page') {
+    $changed_time = $entity->getChangedTime();
+    $debug_message = 'Node id: '.$entity_id.'; Changed: '.$changed_time;
+    $date_issued = $entity->get('field_issued')->getString();
+    $date_modified = $entity->get('field_modified')->getString();
+    $update_date_modified_str = $entity->get('field_update_date_modified')->getString();
+    $moderation_state = $entity->moderation_state->value;
+//  AgriAdminHelper::addToLog(print_r('content type: '.$content_type, TRUE), TRUE);
+
+    if($moderation_state == 'published') {
+      $dt = new DateTime();
+      if(empty($date_issued)) {
+        $entity->set('field_issued', $dt->format('Y-m-d'));
+      }
+
+      if($update_date_modified_str == '0') {
+	$entity->set('changed', strtotime($date_modified));
+      } 
+      else {
+        $entity->set('field_modified', $dt->format('Y-m-d'));
+      }
+    }
+    $debug_message = $debug_message . '; Changed (new): ' . $entity->getChangedTime();
+//    AgriAdminHelper::addToLog($debug_message, TRUE);
   }
 }
 
@@ -438,6 +465,28 @@ function agri_admin_form_node_empl_form_alter(&$form, \Drupal\Core\Form\FormStat
     //$form['#attributes']['novalidate'] = 'novalidate';
   }
 }
+
+
+/**
+ * Implements hook_form_node_form_alter().
+ */
+function agri_admin_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+   $entity = $form_state->getFormObject()->getEntity();
+   $content_type = $entity->bundle();	
+//   AgriAdminHelper::addToLog(print_r('content type: '.$content_type, TRUE), TRUE);
+  if($content_type == 'page' || $content_type == 'landing_page') {
+    $form['field_issued']['widget'][0]['#disabled'] = TRUE;  
+    $form['field_modified']['widget'][0]['#disabled'] = TRUE;
+
+    $moderation_state = $entity->moderation_state->value;
+    
+    if($moderation_state == 'published') {
+      $form['field_tracking_number']['widget'][0]['value']['#default_value'] = '';
+    }
+  }
+}
+
+
 
 /**
  * Implements hook_system_breadcrumb_alter().

@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.landing_page.field_queue
     - field.field.node.landing_page.field_subject
     - field.field.node.landing_page.field_tracking_number
+    - field.field.node.landing_page.field_update_date_modified
     - field.field.node.landing_page.layout_builder__layout
     - field.field.node.landing_page.layout_builder__translation
     - field.field.node.landing_page.layout_selection
@@ -107,6 +108,16 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_update_date_modified:
+    weight: 11
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
 hidden:
   body: true
