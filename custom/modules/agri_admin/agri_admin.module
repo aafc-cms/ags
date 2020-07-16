@@ -443,7 +443,6 @@ function agri_admin_form_node_empl_form_alter(&$form, \Drupal\Core\Form\FormStat
  * Implements hook_system_breadcrumb_alter().
  * for /node/add/news page
  */
-
 function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &$breadcrumb, \Drupal\Core\Routing\RouteMatchInterface $route_match, array $context) {
   $current_path = \Drupal::service('path.current')->getPath();
   $result = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
@@ -452,6 +451,16 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
   if ($node) { 
     $nType = $node->getType(); 
   }
+  if (isset($breadcrumb)) {
+    $links = $breadcrumb->getlinks();
+    if (is_array($links) && isset($links[0])) {
+      $first_breadcrumb_text = $links[0]->getText();
+      if ($first_breadcrumb_text == 'Agrisource') {
+        $links[0]->setText(t('Home'));
+      }
+    }
+  }
+
   //handle /node/preview page for News
   if (((strpos($result,'/node/preview/') !==false) && ($nType == 'news'))
     && (\Drupal::currentUser()->isAnonymous())) {
