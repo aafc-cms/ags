@@ -289,7 +289,7 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
 
   $content_type = $entity->bundle();
 
-  if($content_type == 'page' || $content_type == 'landing_page') {
+  if ($content_type == 'page' || $content_type == 'landing_page') {
     $changed_time = $entity->getChangedTime();
     $debug_message = 'Node id: '.$entity_id.'; Changed: '.$changed_time;
     $date_issued = $entity->get('field_issued')->getString();
@@ -298,13 +298,13 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
     $moderation_state = $entity->moderation_state->value;
 //  AgriAdminHelper::addToLog(print_r('content type: '.$content_type, TRUE), TRUE);
 
-    if($moderation_state == 'published') {
+    if ($moderation_state == 'published') {
       $dt = new DateTime();
-      if(empty($date_issued)) {
+      if (empty($date_issued)) {
         $entity->set('field_issued', $dt->format('Y-m-d'));
       }
 
-      if($update_date_modified_str == '0') {
+      if ($update_date_modified_str == '0') {
 	$entity->set('changed', strtotime($date_modified));
       } 
       else {
@@ -471,16 +471,15 @@ function agri_admin_form_node_empl_form_alter(&$form, \Drupal\Core\Form\FormStat
  * Implements hook_form_node_form_alter().
  */
 function agri_admin_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-   $entity = $form_state->getFormObject()->getEntity();
-   $content_type = $entity->bundle();	
-//   AgriAdminHelper::addToLog(print_r('content type: '.$content_type, TRUE), TRUE);
-  if($content_type == 'page' || $content_type == 'landing_page') {
-    $form['field_issued']['widget'][0]['#disabled'] = TRUE;  
+  $entity = $form_state->getFormObject()->getEntity();
+  $content_type = $entity->bundle();
+  if ($content_type == 'page' || $content_type == 'landing_page') {
+    $form['field_issued']['widget'][0]['#disabled'] = TRUE;
     $form['field_modified']['widget'][0]['#disabled'] = TRUE;
 
     $moderation_state = $entity->moderation_state->value;
-    
-    if($moderation_state == 'published') {
+
+    if ($moderation_state == 'published') {
       $form['field_tracking_number']['widget'][0]['value']['#default_value'] = '';
     }
   }
