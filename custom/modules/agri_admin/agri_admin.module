@@ -454,7 +454,6 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
   if (isset($breadcrumb)) {
     $links = $breadcrumb->getlinks();
     if (is_array($links) && isset($links[0])) {
-      $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
       $first_breadcrumb_text = $links[0]->getText();
       if ($first_breadcrumb_text == 'Agrisource') {
         $links[0]->setText(t('Home'));
