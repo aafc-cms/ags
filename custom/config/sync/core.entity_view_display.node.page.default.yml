@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.page.field_modified
     - field.field.node.page.field_subject
     - field.field.node.page.field_tracking_number
+    - field.field.node.page.field_update_date_modified
     - field.field.node.page.layout_builder__layout
     - field.field.node.page.layout_builder__translation
     - field.field.node.page.layout_selection
@@ -310,6 +311,24 @@ third_party_settings:
                 type: string
             additional: {  }
             weight: 4
+          2139c18b-3e9d-491e-93a3-32488d8cc135:
+            uuid: 2139c18b-3e9d-491e-93a3-32488d8cc135
+            region: top
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:page:field_update_date_modified'
+              formatter:
+                label: above
+                settings:
+                  format: default
+                  format_custom_false: ''
+                  format_custom_true: ''
+                third_party_settings: {  }
+                type: boolean
+            additional: {  }
+            weight: 5
         third_party_settings: {  }
     allow_custom: true
   layout_library:
@@ -393,6 +412,16 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: top
+  field_update_date_modified:
+    weight: 12
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: top
   links:
     weight: 1

@@ -1,0 +1,23 @@
+uuid: 8daecd38-ad63-48dd-b652-36e054f23d14
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_update_date_modified
+    - node.type.landing_page
+id: node.landing_page.field_update_date_modified
+field_name: field_update_date_modified
+entity_type: node
+bundle: landing_page
+label: 'Update Date modified on Publish'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

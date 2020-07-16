@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.page.field_modified
     - field.field.node.page.field_subject
     - field.field.node.page.field_tracking_number
+    - field.field.node.page.field_update_date_modified
     - field.field.node.page.layout_builder__layout
     - field.field.node.page.layout_builder__translation
     - field.field.node.page.layout_selection
@@ -32,6 +33,7 @@ third_party_settings:
       children:
         - field_description
         - field_keywords
+        - field_issued
         - field_modified
       parent_name: ''
       weight: 13
@@ -107,7 +109,7 @@ content:
     type: string_textfield
     region: content
   field_issued:
-    weight: 12
+    weight: 17
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
@@ -134,7 +136,7 @@ content:
     type: options_buttons
     region: content
   field_modified:
-    weight: 17
+    weight: 18
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
@@ -152,6 +154,13 @@ content:
       placeholder: 'Workflow submissions grouped by this field value.'
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_update_date_modified:
+    weight: 27
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   langcode:
     type: language_select
