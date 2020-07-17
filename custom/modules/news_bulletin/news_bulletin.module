@@ -1,0 +1,19 @@
+<?php
+
+
+function news_bulletin_theme($existing, $type, $theme, $path) {
+  return [
+    'news_bulletin' => [
+      'variables' => ['test_var' => NULL],
+    ]/*,
+    'node__news' => [
+      'render element' => 'content',
+      'base hook' => 'node',
+      'type' => 'base_theme_engine',
+      'variables' => [
+        'test_var' => NULL,
+        'data' => [],
+      ],
+    ],*/
+  ];
+}

@@ -1,0 +1,7 @@
+news_bulletin.content:
+  path: '/news-at-work-bulletin'
+  defaults:
+    _controller: '\Drupal\news_bulletin\Controller\NewsBulletinController::content'
+    _title: 'News At Work Bulletin'
+  requirements:
+    _permission: 'access content'

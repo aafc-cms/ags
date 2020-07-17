@@ -1,0 +1,52 @@
+{{ attach_library('news_bulletin/bulletins') }}
+
+<div id="list" class="news-bulletin">
+  <div class="tile row viewer-row">
+    <div class="content">
+    </div>
+  </div>
+  <div class="row pagination">
+    <a class="bulletin-pager" href="#">
+      {% trans %}
+        Show More
+      {% endtrans %}
+    </a>
+  </div>
+</div>
+
+<!-- micro-template for bulletin rows -->
+<script type="text/template" id="bulletin-row">
+  <div id="th_ROW_NUM_" class="row bs-thumb-row">
+    <div class="thumb-tbl">
+      <div class="thumb-row row-eq-height">
+      </div>
+    </div>
+  </div>
+</script>
+
+<!-- micro-template for bulletin cards -->
+<script type="text/template" id="bulletin-card">
+  <div class="bulletin-card" data-bulletin="_DATA_BULLETIN_" data-index="_DATA_INDEX_" data-title="_DATA_TITLE_">
+      <div class="bulletin-thumb">
+        <img class="img-responsive" src="_IMG_SRC_" alt="_TITLEBULLETIN_" />
+        <div class="thumb-text-wrapper">
+          <div class="title">_TITLE_</div>
+	</div>
+        <div class="description">_DESC_</div>
+    </div>
+  </div>
+</script>
+
+<!-- micro-template for bulletin cards in single-column format -->
+<script type="text/template" id="bulletin-card-single">
+  <div class="bulletin-card" data-bulletin="_DATA_BULLETIN_" data-index="_DATA_INDEX_" data-title="_DATA_TITLE_">
+    <div class="bulletin-thumb">
+        <div class="td col-xs-12">
+          <div class="title">_TITLE_</div>
+          <div class="field_from">_FROM_</div>
+          <div class="description">_DESC_</div>
+          <div class="scrubber"></div>
+        </div>
+    </div>
+  </div>
+</script>
