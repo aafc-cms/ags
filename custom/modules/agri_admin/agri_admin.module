@@ -270,10 +270,12 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
   $current_user_id = $current_user->id();
   $roles = $current_user->getRoles();
   $authored_on = $entity->getCreatedTime();
+  $peer_review_status = $entity->get('field_peer_review')->getString();
+  AgriAdminHelper::addToLog($peer_review_status, TRUE);
 
   foreach ($roles as $value) {
     $role = $value;
-    if ($role == 'creator' || $role == 'news_ccpub' || $role == 'empl_cspub') {
+    if (($role == 'creator' && $peer_review_status != 'peer_reviewed') || $role == 'news_ccpub' || $role == 'empl_cspub') {
       //AgriAdminHelper::addToLog('presave called for ' . $entity->language()->getId() . ' ' . $entity->id(), TRUE);
       $langcode = $entity->language()->getId();
       if ($langcode == 'en') {
@@ -310,8 +312,9 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
       else {
         $entity->set('field_modified', $dt->format('Y-m-d'));
       }
+
+      $entity->set('field_peer_review', '');
     }
-    $debug_message = $debug_message . '; Changed (new): ' . $entity->getChangedTime();
 //    AgriAdminHelper::addToLog($debug_message, TRUE);
   }
 }
@@ -354,8 +357,9 @@ function _helperLockingContent($action, $entity_id, $bundle, $entity_obj = NULL)
         }
         if ($role == 'creator') {
           $is_creator = TRUE;
-          $state = $latest->get('moderation_state')->getString();
-          if ($state == 'draft') {
+	  $state = $latest->get('moderation_state')->getString();
+	  $peer_review_status = $latest->get('field_peer_review')->getString();
+          if ($state == 'draft' && empty($peer_review_status)) {
             $lock_service->locking($entity_id, $latest->language()->getId(), 'edit', $current_user_id, $latest->getEntityTypeId());
             return; // Finished processing.
           }

@@ -1,0 +1,23 @@
+uuid: 04d3edbf-fb5d-4cd2-9bff-b295d83d0f3c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_peer_review
+    - node.type.page
+  module:
+    - options
+id: node.page.field_peer_review
+field_name: field_peer_review
+entity_type: node
+bundle: page
+label: 'Peer Review'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: '--'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

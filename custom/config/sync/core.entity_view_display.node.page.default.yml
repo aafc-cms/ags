@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.page.field_meta_tags
     - field.field.node.page.field_meta_type
     - field.field.node.page.field_modified
+    - field.field.node.page.field_peer_review
     - field.field.node.page.field_subject
     - field.field.node.page.field_tracking_number
     - field.field.node.page.field_update_date_modified
@@ -24,6 +25,7 @@ dependencies:
     - datetime
     - layout_builder
     - layout_library
+    - options
     - panelizer
     - text
     - user
@@ -329,6 +331,21 @@ third_party_settings:
                 type: boolean
             additional: {  }
             weight: 5
+          6198b8a8-5be4-4206-810d-8207430bef18:
+            uuid: 6198b8a8-5be4-4206-810d-8207430bef18
+            region: top
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:page:field_peer_review'
+              formatter:
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+                type: list_default
+            additional: {  }
+            weight: 6
         third_party_settings: {  }
     allow_custom: true
   layout_library:
@@ -396,6 +413,13 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
+    region: top
+  field_peer_review:
+    weight: 13
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
     region: top
   field_subject:
     weight: 9

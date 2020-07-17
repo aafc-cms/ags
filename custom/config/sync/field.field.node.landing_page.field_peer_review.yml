@@ -1,0 +1,21 @@
+uuid: 53712954-0873-4d87-b831-b2499dc53e34
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_peer_review
+    - node.type.landing_page
+  module:
+    - options
+id: node.landing_page.field_peer_review
+field_name: field_peer_review
+entity_type: node
+bundle: landing_page
+label: 'Peer Review'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
