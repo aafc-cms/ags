@@ -111,7 +111,7 @@ function agri_admin_update_8002() {
  * Add new menu link to the admin/content/moderated page (view) for creators.
  */
 function agri_admin_update_8003() {
-  // For Deepani issue #65 agrcms/d8#65.
+  // For Lakshman issue #169 agrcms/d8#169 .
   $item = \Drupal\menu_link_content\Entity\MenuLinkContent::create([
     'link' => ['uri' => 'internal:/admin/content/moderated'],
     'title' => 'Moderated Content',
