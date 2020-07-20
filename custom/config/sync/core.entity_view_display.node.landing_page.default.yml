@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.landing_page.field_meta_tags
     - field.field.node.landing_page.field_meta_type
     - field.field.node.landing_page.field_modified
+    - field.field.node.landing_page.field_peer_review
     - field.field.node.landing_page.field_queue
     - field.field.node.landing_page.field_subject
     - field.field.node.landing_page.field_tracking_number
@@ -24,6 +25,7 @@ dependencies:
     - layout_builder_restrictions
     - layout_library
     - metatag
+    - options
     - user
 third_party_settings:
   layout_builder:
@@ -92,6 +94,13 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_peer_review:
+    weight: 12
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
     region: content
   field_subject:
     weight: 8

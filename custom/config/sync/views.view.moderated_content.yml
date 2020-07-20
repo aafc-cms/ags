@@ -2,12 +2,15 @@ uuid: 5c498478-d430-4eb2-a03f-c0b1a948869c
 langcode: en
 status: true
 dependencies:
+  config:
+    - field.storage.node.field_peer_review
   enforced:
     module:
       - content_moderation
   module:
     - content_moderation
     - node
+    - options
     - user
 _core:
   default_config_hash: Kjqf5d4F134C3zua0tXV7LA3m5OEeS_Fowa2dP9kk2I
@@ -506,6 +509,68 @@ display:
           destination: true
           entity_type: node
           plugin_id: entity_operations
+        field_peer_review-revision_id:
+          id: field_peer_review-revision_id
+          table: node_revision__field_peer_review
+          field: field_peer_review-revision_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Peer Review'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: list_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
       filters:
         latest_translation_affected_revision:
           id: latest_translation_affected_revision
@@ -721,6 +786,55 @@ display:
           entity_type: node
           entity_field: langcode
           plugin_id: language
+        field_peer_review_value:
+          id: field_peer_review_value
+          table: node_revision__field_peer_review
+          field: field_peer_review_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_peer_review_value_op
+            label: 'Peer Review (field_peer_review)'
+            description: ''
+            use_operator: true
+            operator: field_peer_review_value_op
+            operator_limit_selection: true
+            operator_list:
+              or: or
+              empty: empty
+            identifier: field_peer_review_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              creator: '0'
+              editor: '0'
+              reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          plugin_id: list_field
       sorts: {  }
       title: 'Moderated content'
       header: {  }
@@ -776,6 +890,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
+        - 'config:field.storage.node.field_peer_review'
         - 'config:workflow_list'
   moderated_content:
     display_plugin: page
@@ -796,4 +911,5 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
+        - 'config:field.storage.node.field_peer_review'
         - 'config:workflow_list'

@@ -1,0 +1,27 @@
+uuid: 85a81a1c-c8f6-4aac-afd6-c3fab1b37a06
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_peer_review
+field_name: field_peer_review
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: ready_for_review
+      label: 'Ready for Review'
+    -
+      value: peer_reviewed
+      label: 'Peer Reviewed'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
