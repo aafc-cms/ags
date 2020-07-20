@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5a4d6830753cb42b584c779ba95076e1",
+    "content-hash": "013b4d747c332f740decf2095fd922d1",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -4027,6 +4027,8 @@
                     "Node preview block visibility": "https://www.drupal.org/files/issues/2020-06-30/D888-preview_block-2890758-50.patch",
                     "Node preview current language": "https://www.drupal.org/files/issues/2020-06-20/node-preview_current_language-3150728-12.patch",
                     "Language negotiation core fix, needed by access_unpublished and content moderation for forward draft revisions in non default language.": "https://www.drupal.org/files/issues/2019-05-30/drupal-2951294-21-fix-fallback.patch",
+                    "2869592 - Disabled update module shouldn't produce a status report warning": "https://www.drupal.org/files/issues/2869592-remove-update-warning-7.patch",
+                    "2815221 - Add quickedit to the latest-revision route": "https://www.drupal.org/files/issues/2019-11-27/2815221-125.patch",
                     "Enter drupal/core patch #2752443 description here": "https://www.drupal.org/files/issues/in_correct_order_and-2752443-1.patch",
                     "Enter drupal/core patch #1356276 description here": "https://www.drupal.org/files/issues/2019-12-27/1356276-88x-603.patch",
                     "Enter drupal/core patch #1838234 description here": "https://www.drupal.org/files/issues/2018-09-06/1838234-52.patch",
@@ -4049,9 +4051,7 @@
                     "Enter drupal/core patch #2914389 description here": "https://www.drupal.org/files/issues/2019-10-22/2914389-14-do-not-test.patch",
                     "Enter drupal/core patch #2938129 description here": "https://www.drupal.org/files/issues/2019-01-18/2938129-pagetitle-11.patch",
                     "Enter drupal/core patch #3017710 description here": "https://www.drupal.org/files/issues/2018-12-05/3017710-20.patch",
-                    "Enter drupal/core patch #3081656 description here": "https://www.drupal.org/files/issues/2019-09-16/0001-Issue-2488350-by-alexpott-Wim-Leers-Dimiter-catch-da.patch",
-                    "2869592 - Disabled update module shouldn't produce a status report warning": "https://www.drupal.org/files/issues/2869592-remove-update-warning-7.patch",
-                    "2815221 - Add quickedit to the latest-revision route": "https://www.drupal.org/files/issues/2019-11-27/2815221-125.patch"
+                    "Enter drupal/core patch #3081656 description here": "https://www.drupal.org/files/issues/2019-09-16/0001-Issue-2488350-by-alexpott-Wim-Leers-Dimiter-catch-da.patch"
                 }
             },
             "autoload": {
@@ -5537,6 +5537,50 @@
             "homepage": "https://www.drupal.org/project/fontawesome",
             "support": {
                 "source": "https://git.drupalcode.org/project/fontawesome"
+            }
+        },
+        {
+            "name": "drupal/form_options_attributes",
+            "version": "2.0.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/form_options_attributes.git",
+                "reference": "2.0.0-beta1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/form_options_attributes-2.0.0-beta1.zip",
+                "reference": "2.0.0-beta1",
+                "shasum": "2f26e280074b667862b582dbe5b1def0928a5b69"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0-beta1",
+                    "datestamp": "1591034866",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "zengenuity",
+                    "homepage": "https://www.drupal.org/user/326925"
+                }
+            ],
+            "description": "Allows form options for select, checkboxes, and radio elements to have individual attributes.",
+            "homepage": "https://www.drupal.org/project/form_options_attributes",
+            "support": {
+                "source": "https://git.drupalcode.org/project/form_options_attributes"
             }
         },
         {
@@ -11457,20 +11501,6 @@
             "type": "drupal-custom-module"
         },
         {
-            "name": "entreprise7pro/wxt_overrides",
-            "version": "8.9999999.9999999.9999999-dev",
-            "dist": {
-                "type": "path",
-                "url": "custom/modules/wxt_overrides",
-                "reference": "",
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "^1.2"
-            },
-            "type": "drupal-custom-module"
-        },
-        {
             "name": "entreprise7pro/config",
             "version": "8.9999999.9999999.9999999-dev",
             "dist": {
@@ -11501,6 +11531,20 @@
                 "GPL-2.0+"
             ],
             "description": "Agrisource sub theme based on the WxT Bootstrap sub-theme (which it'self is also a sub theme of Bootstrap https://www.drupal.org/bootstrap) for Drupal WxT."
+        },
+        {
+            "name": "entreprise7pro/wxt_overrides",
+            "version": "8.9999999.9999999.9999999-dev",
+            "dist": {
+                "type": "path",
+                "url": "custom/modules/wxt_overrides",
+                "reference": "",
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "^1.2"
+            },
+            "type": "drupal-custom-module"
         },
         {
             "name": "ezyang/htmlpurifier",
