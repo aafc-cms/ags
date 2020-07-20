@@ -150,6 +150,10 @@ body.path-frontpage section[data-quickedit-entity-id^="block_content/"] {
 body.path-frontpage section[data-quickedit-entity-id^="media/"] {
   z-index: 1;
 }
+/* line 24, ../sass/layouts/_front.scss */
+body.path-frontpage section[data-block-plugin-id^="views_block:"] {
+  z-index: 1;
+}
 
 /* line 2, ../sass/layouts/_sidebar.scss */
 .region-sidebar-first #wb-sec li a.basic-page-link {

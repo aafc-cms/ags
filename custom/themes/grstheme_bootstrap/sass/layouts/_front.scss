@@ -21,4 +21,7 @@ body.path-frontpage {
   section[data-quickedit-entity-id^="media/"] {
     z-index: 1;
   }
+  section[data-block-plugin-id^="views_block:"] {
+    z-index: 1;
+  }
 }
