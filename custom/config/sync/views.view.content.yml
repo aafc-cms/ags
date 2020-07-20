@@ -3,9 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_category
-    - field.storage.node.field_newstype
     - field.storage.node.field_peer_review
+    - field.storage.node.field_subject
     - field.storage.node.field_tracking_number
     - field.storage.node.field_type
     - taxonomy.vocabulary.category
@@ -373,73 +372,10 @@ display:
           entity_type: user
           entity_field: name
           plugin_id: field
-        field_newstype:
-          id: field_newstype
-          table: node__field_newstype
-          field: field_newstype
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: false
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_category:
-          id: field_category
-          table: node__field_category
-          field: field_category
+        field_subject:
+          id: field_subject
+          table: node__field_subject
+          field: field_subject
           relationship: none
           group_type: group
           admin_label: ''
@@ -491,7 +427,7 @@ display:
           group_column: target_id
           group_columns: {  }
           group_rows: true
-          delta_limit: 0
+          delta_limit: 10
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
@@ -714,7 +650,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '{{ field_newstype }}{{ field_category }}{{ field_type }}'
+            text: '{{ field_newstype }}{{ field_subject }}{{ field_type }}'
             make_link: false
             path: ''
             absolute: false
@@ -1220,10 +1156,10 @@ display:
           entity_type: user
           entity_field: name
           plugin_id: string
-        field_category_target_id:
-          id: field_category_target_id
-          table: node__field_category
-          field: field_category_target_id
+        field_subject_target_id:
+          id: field_subject_target_id
+          table: node__field_subject
+          field: field_subject_target_id
           relationship: none
           group_type: group
           admin_label: ''
@@ -1232,14 +1168,14 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_category_target_id_op
-            label: 'category (field_category)'
+            operator_id: field_subject_target_id_op
+            label: 'aafc:subject (field_subject)'
             description: ''
             use_operator: false
-            operator: field_category_target_id_op
+            operator: field_subject_target_id_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_category_target_id
+            identifier: field_subject_target_id
             required: false
             remember: false
             multiple: false
@@ -1535,9 +1471,8 @@ display:
         - user.permissions
       max-age: 0
       tags:
-        - 'config:field.storage.node.field_category'
-        - 'config:field.storage.node.field_newstype'
         - 'config:field.storage.node.field_peer_review'
+        - 'config:field.storage.node.field_subject'
         - 'config:field.storage.node.field_tracking_number'
         - 'config:field.storage.node.field_type'
         - 'config:workflow_list'
@@ -1574,9 +1509,8 @@ display:
         - user.permissions
       max-age: 0
       tags:
-        - 'config:field.storage.node.field_category'
-        - 'config:field.storage.node.field_newstype'
         - 'config:field.storage.node.field_peer_review'
+        - 'config:field.storage.node.field_subject'
         - 'config:field.storage.node.field_tracking_number'
         - 'config:field.storage.node.field_type'
         - 'config:workflow_list'
