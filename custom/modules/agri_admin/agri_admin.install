@@ -114,7 +114,7 @@ function agri_admin_update_8003() {
   // For Deepani issue #65 agrcms/d8#65.
   $item = \Drupal\menu_link_content\Entity\MenuLinkContent::create([
     'link' => ['uri' => 'internal:/admin/content/moderated'],
-    'title' => 'Admin Content Moderated',
+    'title' => 'Moderated Content',
     'menu_name' => 'admin',
     'parent' => 'system.admin_content',
   ]);
