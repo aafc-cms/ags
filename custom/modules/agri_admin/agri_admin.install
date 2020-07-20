@@ -107,3 +107,21 @@ function agri_admin_update_8002() {
 //  \Drupal::messenger()->addMessage("Updated node__body body_value $num_updated time(s)", 'warning', TRUE);
 }
 
+/**
+ * Add new menu link to the admin/content/moderated page (view) for creators.
+ */
+function agri_admin_update_8003() {
+  // For Lakshman issue #169 agrcms/d8#169 .
+  $item = \Drupal\menu_link_content\Entity\MenuLinkContent::create([
+    'link' => ['uri' => 'internal:/admin/content/moderated'],
+    'title' => 'Moderated Content',
+    'menu_name' => 'admin',
+    'parent' => 'system.admin_content',
+  ]);
+  $options['attributes']['class'] = ['creator-only agrisource-not-for-admin-link'];
+  $item->link->options = $options;
+  $item->save();
+  return (string) "\n\r1) Created a new menu link that link to the admin/content/moderated view for creators under the admin content menu.";
+
+}
+
