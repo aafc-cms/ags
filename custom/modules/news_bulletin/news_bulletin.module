@@ -4,7 +4,11 @@
 function news_bulletin_theme($existing, $type, $theme, $path) {
   return [
     'news_bulletin' => [
-      'variables' => ['test_var' => NULL],
+      'variables' => [
+        'news_types' => NULL,
+        'news_items' => NULL,
+        'types_by_weight' => NULL
+      ],
     ]/*,
     'node__news' => [
       'render element' => 'content',

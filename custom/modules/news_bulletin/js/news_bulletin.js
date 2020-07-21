@@ -5,7 +5,7 @@
       if (context === document) {
         logCall('Drupal.behaviors.newsbulletin attach context === document');
         NewsBulletin.init(); // Initialize only when context === document.
-
+        //below is for the demo.
       } else {
         // Functions that need to be called on other attach calls (ex: by ajax) should be added here.
       }
@@ -34,18 +34,11 @@ function logCall(funcName, force) {
 var NewsBulletin = function() {
   var newsbulletin = {
     initialized: false,     // Flag to indicate that this class has been initialized
-    ytNextPageToken: null,  // Holds the token to go to the next page of youtube videos
-    ytPlaylistEN: null,     // English playlist ID
-    ytPlaylistFR: null,     // French playlist ID
-    ytPageSize: 24,         // Number of items-per-request from youtube
-    ytPagesFetched: 0,      // Number of youtube pages fetched
-    ytReload: null,         // Set to true when requesting a reload of the youtube iframe
     lang: 'en',             // language that the content is in
     nCols: 4,               // Number of thumbnail columns
-    googleApiKey: '',       // Key for google/youtube API
+    nbGetPages: 0,          // Current page.
     bulletinList: [],            // Contains the list of bulletin retrieved thus far from youtube
     currentBulletin: 0,          // The index (zero-based) of the currently-selected bulletin
-    historyVid: null,       // May contain the id of a bulletin from the history stack (when the back button is used)
     loggedIn: false,        // Current user on this thread is logged in.
     scrollToCurrent: false, // Indicates whether to scroll to current bulletin after a re-display
     append: false,          // Hack: This flag indicates that the next displayThumbs() should append the curent page
@@ -57,12 +50,33 @@ var NewsBulletin = function() {
    */
   function init() {
     logCall(arguments.callee.name.toString()); // Remove this when finished porting.
-    return;
     if (newsbulletin.initialized) {
       return;
     }
+    var elementsSortable = jQuery(".news-bulletin-test");
+    jQuery(elementsSortable).each(function(index, element) {
+      Sortable.create(element, {
+        group: "sorting",
+        sort: true,
+        direction: 'vertical'
+      });
+    });
+
+/*    var groupsSortable = document.getElementById("news-bulletin-list");//[data-attribute-group]
+    Sortable.create(groupsSortable, {
+      group: "sorting",
+      sort: true,
+      draggable: '.glyphicon-move',
+      direction: 'vertical'
+    });
+*/
+
+
+    newsbulletin.initialized = true;
+    return;
+// sort: false
     //AgrisourceSite.showBusy();
-    initWhenReady();
+    //initWhenReady();
     //AgrisourceSite.showNotBusy();
   }
 
@@ -87,20 +101,12 @@ var NewsBulletin = function() {
       }
     }
 
-    // Check the history state to see if it contains a video id after using the back button. If so, then we'll tee that one up.
-    var ytGetPages = 1;
-    if (history.state && history.state.vid) {
-      newsbulletin.historyVid = history.state.vid;
-      ytGetPages = history.state.npages;
-      history.pushState({}, ''); // Otherwise Chrome gets confused
-    }
-
     newsbulletin.lang = $('html').attr('lang');
     newsbulletin.bulletinList = [];
 
     // If on the main videos page, get/display the initial set of video thumbnails.
     if ($('body').hasClass('newsbulletin')) {
-      getBulletins(ytGetPages);
+      getBulletins(nbGetPages);
     }
 
     // Activate the show-more button
@@ -210,61 +216,16 @@ var NewsBulletin = function() {
 
     if (card) card.addClass('last');
 
-    // Add click-handlers to all thumbnail images. The entire card should be clickable.
-    $('.news-bulletin .vid-card').click(function() {
-      var vid_img = $(this).find('img');
-      var vid_card_test = $(vid_img).closest('.vid-card');
-      var iPlay = null;
-      try {
-        iPlay = $(vid_card_test).data('iplay').play;
-      } catch (err) {
-        // Suppress exception.
-      }
-      if (typeof iPlay != 'undefined' && iPlay == 0) {
-        return;
-      }
-      play(vid_img);
-      // When the video is played, put the focus on video wrapper (accessibility)      
-      $('.news-bulletin .embed-responsive-16by9').focus();
-    });
-    
-    $('.news-bulletin .vid-card').keydown(function(e) {
-      var key = e.which;
-      if (key == 13) { // the enter key code
-        /*play($(this).find('img'));
-        $('.news-bulletin .embed-responsive-16by9').focus();*/        
-        $(this).click();
-      }
-          
-    });
-
-    PMTabs.indexVideo();
-
     // In single-column mode, we don't use a main viewer and there is no "current video" to worry about
     if (newsbulletin.nCols == 1) {
       return;
     }
 
-    // Reset the main viewer and move it to the row above the currently-selected video
-    $('.news-bulletin .player').empty();
-    $('.news-bulletin .sidebar').empty();
-    $('.news-bulletin .transcript').empty();
-    movePlayer();
 
-    // Tee up the current video (if any) but don't start it playing
+    // Tee up the current item.
     if (newsbulletin.currentBulletin >= 0 && newsbulletin.bulletinList[newsbulletin.currentBulletin]) {
-      // If the caller has specified a reload of the iframe, then do it after a small delay.
-      // This is to overcome a feature in chrome where the iframe does not load after a back-button.
-      if (newsbulletin.ytReload) {
-        setTimeout(function() {
-          var frm = $('.news-bulletin .player iframe');
-          var src = $(frm).attr('src');
-          $(frm).attr('src', src);
-        }, 100);
-        newsbulletin.ytReload = false;
-      }
       $('.news-bulletin .sidebar').append('<h2>' + newsbulletin.bulletinListt[newsbulletin.currentBulletin].title + '</h2><p>' + newsbulletin.bulletinListt[newsbulletin.currentBulletin].description + '</p>');
-      var vid_id = newsbulletin.bulletinListt[newsbulletin.currentBulletin].id;
+      var bid_id = newsbulletin.bulletinListt[newsbulletin.currentBulletin].id;
       var ajax_url = (newsbulletin.lang == 'fr' ? '/fr' : '/en') + '/rest/views/news-bulletin-rest';
       logCall('ajax_url =' + ajax_url);
       $.ajax({
@@ -272,28 +233,8 @@ var NewsBulletin = function() {
         type: 'GET',
         dataType: 'json',
         success: function(data) {
-          if (data.no_node_but_has_access) {
-            $('.news-bulletin .transcript').empty().append('<a href="' + (newsbulletin.lang == 'fr' ? '/fr' : '/en') + '/videos/vidmatch">' + Drupal.t('Need to match the videos and add a transcript.') + '</a>');
-          }
-          if (data.transcripts[vid_id]) {
-            $('.news-bulletin .transcript').empty().append('<a href="' + data.transcripts[vid_id]['url'] + '">' + Drupal.t('Transcript') + '</a>');
-
-            PMTabs.indexVideo();
-
-          }
         },
         error: function() {
-        }
-      });
-      //this is added to play the first video when we hit enter key on video wrapper
-      $('.news-bulletin .embed-responsive-16by9').keydown(function(e) {
-        var key = e.which;
-        if (key == 13) {
-          var elementCard = $(e.target).closest('.vid-card');
-          elementCard.trigger('click.cardfirstclick');
-          var frmsrc = $('#vframe').attr('src');
-          var frmscrRep = frmsrc.replace("autoplay=0", "autoplay=1");
-          $('#vframe').attr('src', frmscrRep);    
         }
       });
     }
@@ -301,8 +242,7 @@ var NewsBulletin = function() {
 
 
   /**
-   * Get a list of videos from youtube. This will add to the current list and keep track of the current page, so
-   * can be called repeatedly.
+   * Get a list of news bulletins from rest view.
    */
   function getBulletins(nPages) {
     logCall(arguments.callee.name.toString()); // Remove this when finished porting.
@@ -335,7 +275,7 @@ var NewsBulletin = function() {
           $('.newsbulletin-pager').hide();
         }
 
-        // Initialize an index to be used when searching for historyVid 
+        // Initialize an index to be used when searching for historyVid
         var n = newsbulletin.bulletinList.length;
         if (!n) n = 0;
 
@@ -370,31 +310,6 @@ var NewsBulletin = function() {
   }
 
   /**
-   * Move the main player to be in the row above the currently-selected thumbnail
-   */
-  function movePlayer(card) {
-    logCall(arguments.callee.name.toString()); // Remove this when finished porting.
-    if (!card) {
-      card = $('.news-bulletin .vid-card.selected');
-    }
-    // Determine which bootstrap-row the thumbnail is in, and where the viewer row is
-    if (card.length == 0) return; // No thumbnail is selected
-    var bs_thumb_row = $(card).closest('.bs-thumb-row');
-    var bs_viewer_row = $('.news-bulletin .viewer').closest('.row');
-    var viewer_next_row = $(bs_viewer_row).next();
-    var viewer_height = $(bs_viewer_row).height();
-
-    // If the viewer is not immediately above the thumbnail row, then move it now (with animation)
-    if ($(viewer_next_row).attr('id') != $(bs_thumb_row).attr('id')) {
-      $(bs_viewer_row).remove();
-      $(bs_viewer_row).insertBefore(bs_thumb_row);
-      $(bs_viewer_row).css({'height': 0}).animate({'height': viewer_height}, 500, function() {
-        $(bs_viewer_row).css({'height': 'auto'});
-      });
-    }
-  }
-
-  /**
    * Expose functions and variables
    */
   return {
@@ -402,5 +317,3 @@ var NewsBulletin = function() {
     newsbulletin: newsbulletin,
   }
 }();
-
-

@@ -1,73 +1,8 @@
-.page-node-type-video .transcript .inner {
-  background-color: white;
-  height: 600px;
-  overflow-y: scroll;
-}
-.page-node-type-video .title, .page-node-type-video .body, .page-node-type-video .content {
-  background-color: white;
-  padding: 0.5em 1em;
-}
-
-.page-node-type-video h2 {
-  font-size: 1.3em;
-  font-weight: 700;
-  margin: 0;
-}
-.page-node-type-video div.content .field--name-body {
-  padding: 0;
-}
-
-.page-node-type-video div.content .field--name-field-date-released {
-  padding: 0 0 0.5em 0;
-  font-weight: 700;
-}
-
-.row.viewer-row div, .row.viewer-row iframe, .row.viewer-row {
-  -webkit-transition: padding 1.6s, height 1.6s !important; // For older browsers.
-  transition: padding 1.6s, height 1.6s !important;
-}
-
-.row.viewer-row.hide-viewer, .row.viewer-row.hide-viewer div, .row.viewer-row.hide-viewer iframe {
-  max-height: 0px !important;
-  height: 0px !important;
-  padding 0 !important;
-  margin 0 !important;
-  padding-bottom: 0 !important;
-  border: none !important;
-  background-color: transparent !important;
-}
-
-.row.viewer-row.hide-viewer p, .row.viewer-row.hide-viewer h2, .row.viewer-row.hide-viewer a {
-  font-size: 0.01em !important;
-  margin 0 !important;
-  padding 0 !important;
-  padding-bottom: 0 !important;
-  border: none !important;
-}
-
-.row.viewer-row.hide-viewer .ytvid {
-  float: none;
-}
 
 .news-bulletin .row {
   padding: 0px;
   margin-right: 0px;
   margin-left: 0px;
-}
-
-.news-bulletin .viewer {
-  background-color: white;
-  margin: 5px 10px;
-  padding-top: 10px;
-}
-
-.news-bulletin .bs-thumb-row {
-  margin: 5px 10px;
-}
-
-.news-bulletin .thumbs {
-  margin-top: 20px;
-  position: relative;
 }
 
 .news-bulletin .title {
@@ -82,11 +17,6 @@
   padding: 0 3px;
 }
 
-.news-bulletin .thumb-row {
-  background-color: #eaebed;
-  margin: 4px 0;
-}
-
 .news-bulletin .bulletin-card {
   display: inline-block;
   border: 2px solid white;
@@ -95,40 +25,8 @@
   background-color: white;
 }
 
-.news-bulletin .bulletin-card.col4 {
-  width: 24%;
-  margin-right: 1.33%;
-}
-
-.news-bulletin .bulletin-card.col3 {
-  width: 32%;
-  margin-right: 2%;
-}
-
-.news-bulletin .bulletin-card.col2 {
-  width: 49%;
-  margin-right: 2%;
-}
-
-.news-bulletin .bulletin-card.last {
-  margin-right: 0;
-}
-
-.news-bulletin .bulletin-card.selected {
-  border: 2px solid #777;
-}
-
-.news-bulletin .bulletin-card.blank {
-  background-color: #eaebed;
-  border: 0px;
-}
-
-.news-bulletin .bulletin-card {
+.news-bulletin {
   cursor: pointer;
-}
-
-.news-bulletin .prev, .news-bulletin .next, .news-bulletin .images {
-  display: inline-block;
 }
 
 .news-bulletin .pagination {
@@ -142,20 +40,90 @@
   padding: 10px;
 }
 
-.news-bulletin .pmshare-div ul {
-  margin-left: 0;
-}
-
-.news-bulletin .fullwidth {
-  width: 100%;
-}
-
 .news-bulletin .bulletin-card:hover {
-  box-shadow: 0 15px 16px 5px rgba(0,0,0,0.15);   
+  box-shadow: 0 15px 16px 5px rgba(0,0,0,0.15);
 }
 .news-bulletin .bulletin-card:hover .title,
-.news-bulletin .bulletin-card:focus .title {  
-  text-decoration: underline; 
+.news-bulletin .bulletin-card:focus .title {
+  text-decoration: underline;
 }
 
+#list {
+  background-color: rgba(0, 0, 0, 0.2);
+  margin-top: 50px;
+  padding-bottom: 50px;  /* TODO: necessary util we figure out how to .. */
+  padding-top: 50px;     /*   .. constraint to the Y axis */
+}
 
+.tile {
+  background-color: white;
+  color: #3A3A4D;
+  position: relative;  /* only in order to make z-index used */
+  font-weight: bold;
+}
+
+/* mine below */
+
+.tile {
+  clear: both;
+  /* display: table; not here */
+  margin-top: 10px;
+  padding: 0px;  /* any padding will screw up height calculation */
+}
+
+.tile:first-child {
+  /* margin-top: 0;  if you do this, when the top piece is no longer
+                     the top piece, it would need fixing in the code */
+}
+
+.tile .content {  /* this exists only so that we can have padding without messing up height calculations of tile */
+  padding: 10px;
+}
+
+.tile {
+  display: block;
+}
+
+.tile .cell {
+  display: inline-block;
+}
+
+.tile .news-title {
+  max-width: 230px;
+  min-width: 230px;
+  min-height: 20px;
+  max-height: 20px;
+}
+
+.tile .from {
+  max-width: 200px;
+  min-width: 200px;
+  min-height: 20px;
+  max-height: 20px;
+}
+
+.tile .summary {
+  max-width: 500px;
+  min-width: 500px;
+  min-height: 20px;
+  max-height: 20px;
+}
+
+.glyphicon-move::before {
+  position: absolute;
+  left: -20px;
+  top: 30px;
+  color: darkgreen;
+  cursor: ns-resize;
+}
+
+.glyphicon-folder-open::before, .glyphicon-folder-close::before {
+  color: orange;
+  font-size: xx-large;
+}
+
+.news-group-title {
+  margin-left: 50px;
+  margin-top: -18px;
+  margin-bottom: 20px;
+}

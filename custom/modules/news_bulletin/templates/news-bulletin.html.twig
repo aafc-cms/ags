@@ -1,22 +1,53 @@
 {{ attach_library('news_bulletin/bulletins') }}
 
+
 <div id="list" class="news-bulletin">
-  <div class="tile row viewer-row">
-    <div class="content">
-    </div>
+</div>
+
+<br>
+<br>
+<pre>{#{ dump(types_by_weight) }#}</pre>
+<br><br><br>
+<pre>{#{ dump(news_items) }#}</pre>
+<br>
+<br>
+
+<div id="news-bulletin-list" class="news-bulletin-test col-xs-12">
+{% for wkey, valuetype in types_by_weight %}
+  {% if valuetype.has_items %}
+    {% set open_close = 'open' %}
+  {% else %}
+    {% set open_close = 'close' %}
+  {% endif %}
+  <div class="news-type news-bulletin-move glyphicon glyphicon-folder-{{ open_close }} type-{{ valuetype.first_word }} col-xs-12" data-attribute-group="{{ valuetype.tid }}">
+    <div class="news-group-title">{{ valuetype.name }}</div>
   </div>
-  <div class="row pagination">
-    <a class="bulletin-pager" href="#">
+  {% if open_close == 'open' %}
+    {% for nkey, newsitem in news_items %}
+    {% if valuetype.tid == newsitem.term_id %}
+    <div class="glyphicon glyphicon-move news-bulletin-move tile col-xs-11 col-md-offset-1">
+      <div class="content type-{{ newsitem.first_word }}" data-nid="{{ newsitem.nid }}" data-group-current="{{ newsitem.term_id }}" data-group-orig="{{ newsitem.term_id }}">
+        <div class="cell news-title">{{ newsitem.title }}</div>
+        <div class="cell from">{{ newsitem.from }}</div>
+        <div class="cell summary">{{ newsitem.summary }}</div>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+  <!--<div class="row pagination">
+    <a class="hidden bulletin-pager" href="#">
       {% trans %}
         Show More
       {% endtrans %}
     </a>
-  </div>
+  </div>-->
 </div>
 
 <!-- micro-template for bulletin rows -->
 <script type="text/template" id="bulletin-row">
-  <div id="th_ROW_NUM_" class="row bs-thumb-row">
+  <div id="th_ROW_NUM_" class="row bs-row">
     <div class="thumb-tbl">
       <div class="thumb-row row-eq-height">
       </div>
