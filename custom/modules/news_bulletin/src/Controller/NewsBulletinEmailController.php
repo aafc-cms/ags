@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Drupal\views\Views;
 use Drupal\agri_admin\AgriAdminHelper;
 
-class NewsBulletinController extends ControllerBase {
+class NewsBulletinEmailController extends ControllerBase {
   /**
    * Display the markup.
    *
@@ -21,7 +21,7 @@ class NewsBulletinController extends ControllerBase {
       '#news_items' => $this->getNewsItems(),
       '#types_by_weight' => $this->getTypesByWeight(),
 //      '#markup' => $this->t('Hello, World!'),
-//      '#attached' => ['library' => ['news_bulletin/bulletins']] // OR add this through the twig template
+//      '#attached' => ['library' => ['email_template/bulletins']] // OR add this through the twig template
     ];
   }
 

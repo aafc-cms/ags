@@ -9,7 +9,15 @@ function news_bulletin_theme($existing, $type, $theme, $path) {
         'news_items' => NULL,
         'types_by_weight' => NULL
       ],
-    ]/*,
+    ],
+    'news_bulletin_email' => [
+      'variables' => [
+        'news_types' => NULL,
+        'news_items' => NULL,
+        'types_by_weight' => NULL
+      ],
+    ]
+    /*,
     'node__news' => [
       'render element' => 'content',
       'base hook' => 'node',
