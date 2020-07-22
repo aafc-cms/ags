@@ -53,7 +53,8 @@ var NewsBulletin = function() {
     if (newsbulletin.initialized) {
       return;
     }
-    var elementsSortable = jQuery(".news-bulletin-test");
+
+    var elementsSortable = jQuery("table.table-news-bulletin");
     jQuery(elementsSortable).each(function(index, element) {
       Sortable.create(element, {
         group: "sorting",
@@ -61,15 +62,6 @@ var NewsBulletin = function() {
         direction: 'vertical'
       });
     });
-
-/*    var groupsSortable = document.getElementById("news-bulletin-list");//[data-attribute-group]
-    Sortable.create(groupsSortable, {
-      group: "sorting",
-      sort: true,
-      draggable: '.glyphicon-move',
-      direction: 'vertical'
-    });
-*/
 
 
     newsbulletin.initialized = true;
