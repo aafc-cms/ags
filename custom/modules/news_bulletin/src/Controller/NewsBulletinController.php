@@ -16,7 +16,7 @@ class NewsBulletinController extends ControllerBase {
   public function content() {
     return [
 //      '#type' => 'markup',
-      '#theme' => 'news_bulletin_email',
+      '#theme' => 'news_bulletin',
       '#news_types' => $this->getNewsTypes(),
       '#news_items' => $this->getNewsItems(),
       '#types_by_weight' => $this->getTypesByWeight(),
