@@ -61,7 +61,10 @@ class NewsBulletinController extends ControllerBase {
         }
       }
       if ($new_item) {
-        $custom_results[$id]['newstype'] = $node->get('field_newstype')->entity->getName();
+        $type_name = $node->get('field_newstype')->entity->getName();
+        $word_array = str_word_count($type_name, 1);
+        $custom_results[$id]['first_word'] = strtolower($word_array[0]);
+        $custom_results[$id]['newstype'] = $type_name;
         $custom_results[$id]['term_id'] = $node->get('field_newstype')->target_id;
         $custom_results[$id]['summary'] = $summary;
         $custom_results[$id]['from'] = $node->get('field_from')->value;

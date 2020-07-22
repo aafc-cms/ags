@@ -32,6 +32,8 @@ function logCall(funcName, force) {
  * Class to handle the bulletin page.
  */
 var NewsBulletin = function() {
+  var movedItem = null;        // movedItem (Draggable)
+  var movedItemTid = null;     // movedItem (Draggable) tid (term id) .
   var newsbulletin = {
     initialized: false,     // Flag to indicate that this class has been initialized
     lang: 'en',             // language that the content is in
@@ -54,14 +56,57 @@ var NewsBulletin = function() {
       return;
     }
 
-    var elementsSortable = jQuery("table.table-news-bulletin");
+    //var elementsSortable = jQuery("table.table-news-bulletin");
+    var elementsSortable = jQuery("table");
+    jQuery(elementsSortable).each(function(index, element) {
+      Sortable.create(element, {
+        group: "sorting",
+        sort: true,
+        filter: 'ignore-this',
+        direction: 'vertical',
+        onSort: function(evt) {
+          //alert('test');
+          console.log(evt.item);
+          var movedItem = evt.item;
+          NewsBulletin.movedItem = evt.item;
+          NewsBulletin.movedItemTid = jQuery(movedItem).attr('data-attribute-group');
+          var tempItem = jQuery('table tbody.has-row-data').each(function(index, element) {
+            if (jQuery(element).attr('data-attribute-group') == NewsBulletin.movedItemTid) {
+              if (jQuery(element).hasClass('has-row-data')) {
+                jQuery(element).detach().insertAfter(NewsBulletin.movedItem);
+              }
+              //data-attribute-group
+              console.log('found' + NewsBulletin.movedItemTid);
+            }
+          });
+          var nearestGroup = jQuery(movedItem).closest('tbody');
+          var currentTid = jQuery(nearestGroup).attr('data-attribute-group');
+          console.log(currentTid );
+
+          //alert('currentTid=' +currentTid );
+          jQuery(movedItem).attr('data-group-current', currentTid);
+          //jQuery(movedItem).attr('data-group-current');//jQuerythead data-attribute-group
+        }
+      });
+    });
+    /*
+    var elementsSortable = jQuery(".news-bulletin-test");
     jQuery(elementsSortable).each(function(index, element) {
       Sortable.create(element, {
         group: "sorting",
         sort: true,
         direction: 'vertical'
       });
+    });*/
+
+/*    var groupsSortable = document.getElementById("news-bulletin-list");//[data-attribute-group]
+    Sortable.create(groupsSortable, {
+      group: "sorting",
+      sort: true,
+      draggable: '.glyphicon-move',
+      direction: 'vertical'
     });
+*/
 
 
     newsbulletin.initialized = true;
@@ -307,5 +352,7 @@ var NewsBulletin = function() {
   return {
     init: init,
     newsbulletin: newsbulletin,
+    movedItem: movedItem,
+    movedItemTid: movedItemTid
   }
 }();

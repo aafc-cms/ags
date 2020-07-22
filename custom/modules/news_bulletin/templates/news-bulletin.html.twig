@@ -18,31 +18,26 @@
   {% else %}
     {% set open_close = 'close' %}
   {% endif %}
-  <thead class="type-{{ valuetype.first_word }}" data-attribute-group="{{ valuetype.tid }}">
-    <tr>
-      <th class="glyphicon glyphicon-folder-{{ open_close }} tb-news-group-title">{{ valuetype.name }}</th>
-    {% if nth_run == 1 %}
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    {% else %}
+  {% if open_close == 'open' %}
+  <thead class="news-group type-{{ valuetype.first_word }}" data-attribute-group="{{ valuetype.tid }}">
+    <tr class="news-type-header-row">
+    <th class="glyphicon glyphicon-folder-{{ open_close }} tb-news-group-title">{{ valuetype.name }}</th>
     <th></th>
-    <th>Title</th>
-    <th>from</th>
-    <th>Summary</th>
-    {% endif %}
+    <th class="th-title">Title</th>
+    <th class="th-from">from</th>
+    <th class="th-summary">Summary</th>
     </tr>
   </thead>
+  {% endif %}
   {% set nth_run = 1 %}
-  {% if open_close == 'close' %}
-  <tbody class="tile-tbody"></tbody>
+  {% if open_close == 'closeDISABLED' %}
+  <tbody class="tile-tbody news-group type-{{ valuetype.first_word }}" data-attribute-group="{{ valuetype.tid }}"></tbody>
   {% endif %}
   {% if open_close == 'open' %}
-    <tbody class="tile-tbody">
+    <tbody class="has-row-data tile-tbody news-group type-{{ valuetype.first_word }}" data-attribute-group="{{ valuetype.tid }}">
     {% for nkey, newsitem in news_items %}
     {% if valuetype.tid == newsitem.term_id %}
-    <tr class="value-row type-{{ newsitem.first_word }}" data-nid="{{ newsitem.nid }}" data-group-current="{{ newsitem.term_id }}" data-group-orig="{{ newsitem.term_id }}">
+    <tr class="drag-this-row value-row type-{{ newsitem.first_word }}" data-nid="{{ newsitem.nid }}" data-group-current="{{ newsitem.term_id }}" data-group-orig="{{ newsitem.term_id }}">
       <td class="glyphicon glyphicon-move news-bulletin-move bulletin td-spacer"></td>
       <td>
         <input data-selector="select-node-{{ n_idx }}" checked="checked" type="checkbox" id="edit-select-node-{{ n_idx }}" name="edit_select_node_form[{{ n_idx }}]" value="0" class="form-checkbox form-boolean form-boolean--type-checkbox">
@@ -52,10 +47,10 @@
       <td class="bulletin td-from">{{ newsitem.from }}</td>
       <td class="bulletin td-summary">{{ newsitem.summary }}</td>
     </tr>
-    </tbody>
     {% set n_idx = n_idx + 1 %}
     {% endif %}
     {% endfor %}
+    </tbody>
   {% endif %}
 {% endfor %}
 </table>
