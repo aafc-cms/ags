@@ -1,7 +1,8 @@
 (function ($, Drupal, drupalSettings) {
   Drupal.behaviors.newsbulletin = {
     attach: function (context, settings) {
-      logCall('Drupal.behaviors.newsbulletin attach');
+      logCall(arguments.callee.name.toString());
+      //logCall('Drupal.behaviors.newsbulletin attach');
       if (context === document) {
         logCall('Drupal.behaviors.newsbulletin attach context === document');
         NewsBulletin.init(); // Initialize only when context === document.
@@ -62,12 +63,14 @@ var NewsBulletin = function() {
         direction: 'vertical',
         // Element dragging started
         onStart: function (/**Event*/evt) {
+          logCall(arguments.callee.name.toString());
           //evt.oldIndex;  // element index within parent
-          NewsBulletin.newsTypeArray = [];
+          NewsBulletin.newsTypeArray = []; // Reset the array, important!
+          NewsBulletin.newsNids = []; // Reset the array, important!
         },
         onSort: function(evt) {
+          logCall(arguments.callee.name.toString());
           var movedItem = evt.item;
-          //console.log(movedItem);
           NewsBulletin.movedItem = movedItem;
           NewsBulletin.movedItemNodeName = NewsBulletin.movedItem.nodeName;
           NewsBulletin.movedItemTid = jQuery(movedItem).attr('data-attribute-group');
@@ -77,7 +80,7 @@ var NewsBulletin = function() {
               if (NewsBulletin.movedItemNodeName == 'THEAD') {
                 jQuery(element).detach().insertAfter(NewsBulletin.movedItem);
               }
-              console.log('item that was moved is found , the tid=' + NewsBulletin.movedItemTid);
+              logCall('item that was moved is found , the tid=' + NewsBulletin.movedItemTid);
             }
             else {
               // Workaround for a glitch where the other tbody elements are in the wrong order.
@@ -91,8 +94,14 @@ var NewsBulletin = function() {
             // Build the array of news type tids, assuming each works in element order on DOM.
             NewsBulletin.newsTypeArray.push(jQuery(element).attr('data-attribute-group'));
           });
-          //$('body').after(Drupal.theme.ajaxProgressIndicatorFullscreen(Drupal.t('Updating order of groups.')));
-          //$('table').after(Drupal.theme.ajaxProgressThrobber(Drupal.t('Updating order of groups, one moment please.')));
+          $('table.table input[type=checkbox]:checked').not(':disabled').each(function(index, element) {
+            // Build the array of news type tids, assuming each works in element order on DOM.
+            NewsBulletin.newsNids.push(jQuery(element).attr('value'));
+          });
+          var enabledNodeCount = $('table.table input[type=checkbox]:checked').not(':disabled').length;
+          console.log('enabled news items = ' + enabledNodeCount);
+          console.log('NewsBulletin.newsNids = ' + NewsBulletin.newsNids.join());
+          // Enable the ajax throbber / spinner for show busy.
           $(NewsBulletin.movedItem).after(Drupal.theme.ajaxProgressThrobber(Drupal.t('Updating order of groups, one moment please.')));
           NewsBulletin.setNewsTypeOrder();
           console.log('NewsBulletin.newsTypeArray=' + NewsBulletin.newsTypeArray.toString());
@@ -118,13 +127,10 @@ var NewsBulletin = function() {
     });
 */
 
-
+    initWhenReady();
     newsbulletin.initialized = true;
     return;
-// sort: false
-    //AgrisourceSite.showBusy();
-    //initWhenReady();
-    //AgrisourceSite.showNotBusy();
+
   }
 
   /**
@@ -132,37 +138,14 @@ var NewsBulletin = function() {
    */
   function initWhenReady() {
     logCall(arguments.callee.name.toString()); // Remove this when finished porting.
-    if (!newsbulletin.googleApiKey) {
-      setTimeout(function() { initWhenReady(); }, 100);
-      //AgrisourceSite.showNotBusy();
-      return;
-    }
-
-    // If this is the admin bulletin-matching page then initialize for that and return.
-    if ($('body').hasClass('user-logged-in newsbulletin')) {
-      newsbulletin.loggedIn = true;
-      var vidMatchElement = $('div.pm-vidmatch div').first().hasClass('group-en');
-      if (vidMatchElement) {
-        PMVidmatch.initialize();
-        return;
-      }
-    }
-
     newsbulletin.lang = $('html').attr('lang');
-    newsbulletin.bulletinList = [];
-
-    // If on the main videos page, get/display the initial set of video thumbnails.
-    if ($('body').hasClass('newsbulletin')) {
-      getBulletins(nbGetPages);
-    }
-
     // Activate the show-more button
-    $('.newsbulletin-pager').click(function() {
-      //AgrisourceSite.showBusy();
-      newsbulletin.append = true;
-      newsbulletin.fromIndex = newsbulletin.bulletinList.length;
-      getBulletins(1);
-      return false;
+    $('table.table input').each(function(index, element) {
+      jQuery(element).click(function() {
+      logCall(arguments.callee.name.toString());
+      $(this).after(Drupal.theme.ajaxProgressThrobber(Drupal.t('Updating selections, one moment please.')));
+      NewsBulletin.setNewsTypeOrder();
+      });
     });
   }
 
@@ -195,20 +178,40 @@ var NewsBulletin = function() {
   function setNewsTypeOrder() {
     logCall(arguments.callee.name.toString()); // Remove this when finished porting.
 
+    /*  This ajax option works very well instead of ?= and &= if order isn't important.  However order is important so using .join instead.
+    data: {
+      'tids': NewsBulletin.newsTypeArray,
+      'nids': NewsBulletin.newsNids
+    },
+    */
+    var termsParam = '';
+    if (NewsBulletin.newsTypeArray.length) {
+      termsParam = '?tids=' + NewsBulletin.newsTypeArray.join();
+    }
+    var nidsParam = '';
+    if (NewsBulletin.newsNids.length) {
+      nidsParam = '&nids=' + NewsBulletin.newsNids.join();
+      if (!termsParam.length) {
+        nidsParam = '?nids=' + NewsBulletin.newsNids.join();
+      }
+    }
     // Make the agax call to update the temp store.
     $.ajax({
-      url: '/news-at-work-bulletin/set_temp_config',
+      url: '/news-at-work-bulletin/set_temp_config?tids=' + NewsBulletin.newsTypeArray.join() + nidsParam,
       type: 'GET',
       data: {
-        'tids': NewsBulletin.newsTypeArray,
         'nids': NewsBulletin.newsNids
       },
       success: function(response) {
-        console.log(response);
+        logCall(response);
+        // Disable the ajax throbber / spinner for show busy.
         $('div.ajax-progress').remove(".ajax-progress-throbber"); // Remove the throbber like this.
+        $(input).each(function(index,element) {
+          $(element).remove(".ajax-progress-throbber"); // Remove the throbber like this.
+        });
       },
       error: function(message) {
-        console.log('ajax error');
+        logCall('ajax error');
         $('div.ajax-progress').remove(".ajax-progress-throbber"); // Remove the throbber like this.
         $(NewsBulletin.movedItem).after(Drupal.theme.ajaxProgressMessage(Drupal.t('Error with ajax call in setNewsTypeOrder().')));
       }

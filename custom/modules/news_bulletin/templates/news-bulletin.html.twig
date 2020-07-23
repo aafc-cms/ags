@@ -40,7 +40,7 @@
     <tr class="drag-this-row value-row type-{{ newsitem.first_word }}" data-nid="{{ newsitem.nid }}" data-group-current="{{ newsitem.term_id }}" data-group-orig="{{ newsitem.term_id }}">
       <td class="glyphicon glyphicon-move news-bulletin-move bulletin td-spacer"></td>
       <td>
-        <input data-selector="select-node-{{ n_idx }}" checked="checked" type="checkbox" id="edit-select-node-{{ n_idx }}" name="edit_select_node_form[{{ n_idx }}]" value="0" class="form-checkbox form-boolean form-boolean--type-checkbox">
+        <input data-selector="select-node-{{ n_idx }}" checked="checked" type="checkbox" id="edit-select-node-{{ n_idx }}" name="edit_select_node_form[{{ n_idx }}]" value="{{ newsitem.nid }}" class="form-checkbox form-boolean form-boolean--type-checkbox">
          <label class="sr-only" for="edit_select_node_form[{{ n_idx }}]">If checked will include "{{ newsitem.title }}" in email template.</label>
       </td>
       <td class="bulletin td-news-title">{{ newsitem.title }}</td>
