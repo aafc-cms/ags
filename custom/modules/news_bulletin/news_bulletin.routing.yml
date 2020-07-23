@@ -4,11 +4,23 @@ news_bulletin.content:
     _controller: '\Drupal\news_bulletin\Controller\NewsBulletinController::content'
     _title: 'News At Work Bulletin'
   requirements:
-    _permission: 'administer news bulletin'
+    _permission: 'access content'
+news_bulletin.set_temp_config:
+  path: '/news-at-work-bulletin/set_temp_config'
+  defaults:
+    _controller: '\Drupal\news_bulletin\Controller\NewsBulletinController::setTempConfig'
+  requirements:
+    _permission: 'access content'
+news_bulletin.get_temp_config:
+  path: '/news-at-work-bulletin/get_temp_config'
+  defaults:
+    _controller: '\Drupal\news_bulletin\Controller\NewsBulletinController::getTempConfig'
+  requirements:
+    _permission: 'access content'
 email_template.content:
   path: '/news-bulletin-email'
   defaults:
     _controller: '\Drupal\news_bulletin\Controller\NewsBulletinEmailController::content'
     _title: 'News Bulletin Email'
   requirements:
-    _permission: 'administer news bulletin'
+    _permission: 'access content'
