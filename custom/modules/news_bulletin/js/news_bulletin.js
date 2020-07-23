@@ -33,6 +33,7 @@ function logCall(funcName, force) {
  */
 var NewsBulletin = function() {
   var movedItem = null;        // movedItem (Draggable)
+  var movedItemNodeName = null;        // movedItem (Draggable)
   var movedItemTid = null;     // movedItem (Draggable) tid (term id) .
   var newsbulletin = {
     initialized: false,     // Flag to indicate that this class has been initialized
@@ -62,30 +63,24 @@ var NewsBulletin = function() {
       Sortable.create(element, {
         group: "sorting",
         sort: true,
-        filter: 'ignore-this',
+        filter: 'tbody',
         direction: 'vertical',
         onSort: function(evt) {
-          //alert('test');
-          console.log(evt.item);
           var movedItem = evt.item;
-          NewsBulletin.movedItem = evt.item;
+          //console.log(movedItem);
+          NewsBulletin.movedItem = movedItem;
+          NewsBulletin.movedItemNodeName = NewsBulletin.movedItem.nodeName;
           NewsBulletin.movedItemTid = jQuery(movedItem).attr('data-attribute-group');
+          console.log('movedItemTid ' + NewsBulletin.movedItemTid);
           var tempItem = jQuery('table tbody.has-row-data').each(function(index, element) {
             if (jQuery(element).attr('data-attribute-group') == NewsBulletin.movedItemTid) {
-              if (jQuery(element).hasClass('has-row-data')) {
+              if (NewsBulletin.movedItemNodeName == 'THEAD') {
                 jQuery(element).detach().insertAfter(NewsBulletin.movedItem);
               }
-              //data-attribute-group
+              //data-attribute-group:
               console.log('found' + NewsBulletin.movedItemTid);
             }
           });
-          var nearestGroup = jQuery(movedItem).closest('tbody');
-          var currentTid = jQuery(nearestGroup).attr('data-attribute-group');
-          console.log(currentTid );
-
-          //alert('currentTid=' +currentTid );
-          jQuery(movedItem).attr('data-group-current', currentTid);
-          //jQuery(movedItem).attr('data-group-current');//jQuerythead data-attribute-group
         }
       });
     });
@@ -353,6 +348,7 @@ var NewsBulletin = function() {
     init: init,
     newsbulletin: newsbulletin,
     movedItem: movedItem,
-    movedItemTid: movedItemTid
+    movedItemTid: movedItemTid,
+    movedItemNodeName: movedItemNodeName
   }
 }();
