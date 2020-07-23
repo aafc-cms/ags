@@ -57,7 +57,7 @@ class NewsBulletinController extends ControllerBase {
     }
 
     // Handle comma seperated param and turn it into an array.
-    if (isset($_GET['nids'])) {
+    if (empty($news_nids) && isset($_GET['nids'])) {
       foreach (explode(',', $_GET['nids']) as $nid) {
         if ($nid == (int) $nid) {
           $news_nids[] = $nid;
@@ -75,11 +75,12 @@ class NewsBulletinController extends ControllerBase {
     }
     if (!empty($news_type_weights)) {
       $this->setTypeWeights($news_type_weights);
-      return new JsonResponse(['status' => TRUE, 'message' => ['term weights updated']]);
+      $tempValuesUpdated = $this->getTempValues();
+      return new JsonResponse(['status' => TRUE, 'message' => ['term weights updated ' . serialize($news_type_weights)]]);
     }
     if (!empty($news_nids)) {
       $this->setNewsNids($news_nids);
-      return new JsonResponse(['status' => TRUE, 'message' => ['term weights updated']]);
+      return new JsonResponse(['status' => TRUE, 'message' => ['news nids selection updated ']]);
     }
     return new JsonResponse(['status' => FALSE, 'message' => ['This should not occur']]);
   }
@@ -231,14 +232,5 @@ class NewsBulletinController extends ControllerBase {
     return $news_types;
   }
 
-  public function getSomething() {
-    $keys = array();
-
-    if (isset($_GET['type'])) {
-      $type = $_GET['type'];
-    }
-
-    return new JsonResponse(array_merge(array('status' => true), $keys));
-  }
 
 }
