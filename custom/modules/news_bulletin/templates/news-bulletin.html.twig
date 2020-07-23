@@ -1,12 +1,11 @@
 {{ attach_library('news_bulletin/bulletins') }}
 
-<br>
+<!-- HIDDEN DEBUG SECTION
 <br>
 <pre>{#{ dump(types_by_weight) }#}</pre>
-<br><br><br>
+<br>
 <pre>{#{ dump(news_items) }#}</pre>
-<br>
-<br>
+ END OF HIDDEN DEBUG SECTION -->
 
 <form action="/en/news-bulletin-email" method="post" id="news-bulletin-form-1" accept-charset="UTF-8">
 {% set nth_run = 0 %}

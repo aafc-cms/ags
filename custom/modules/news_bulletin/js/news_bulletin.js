@@ -89,20 +89,9 @@ var NewsBulletin = function() {
               jQuery(element).detach().insertAfter(other_group_element);
             }
           });
-          //data-attribute-group:
-          jQuery('table.table thead').each(function(index, element) {
-            // Build the array of news type tids, assuming each works in element order on DOM.
-            NewsBulletin.newsTypeArray.push(jQuery(element).attr('data-attribute-group'));
-          });
-          $('table.table input[type=checkbox]:checked').not(':disabled').each(function(index, element) {
-            // Build the array of news type tids, assuming each works in element order on DOM.
-            NewsBulletin.newsNids.push(jQuery(element).attr('value'));
-          });
-          var enabledNodeCount = $('table.table input[type=checkbox]:checked').not(':disabled').length;
-          console.log('enabled news items = ' + enabledNodeCount);
-          console.log('NewsBulletin.newsNids = ' + NewsBulletin.newsNids.join());
-          // Enable the ajax throbber / spinner for show busy.
-          $(NewsBulletin.movedItem).after(Drupal.theme.ajaxProgressThrobber(Drupal.t('Updating order of groups, one moment please.')));
+
+          // Enable the ajax throbber / spinner for show busy. (moved)
+          //$(NewsBulletin.movedItem).after(Drupal.theme.ajaxProgressThrobber(Drupal.t('Updating order of groups, one moment please.')));
           NewsBulletin.setNewsTypeOrder();
           console.log('NewsBulletin.newsTypeArray=' + NewsBulletin.newsTypeArray.toString());
         }
@@ -142,14 +131,32 @@ var NewsBulletin = function() {
     // Activate the show-more button
     $('table.table input').each(function(index, element) {
       jQuery(element).click(function() {
-      logCall(arguments.callee.name.toString());
-      $(this).after(Drupal.theme.ajaxProgressThrobber(Drupal.t('Updating selections, one moment please.')));
-      NewsBulletin.setNewsTypeOrder();
+        logCall(arguments.callee.name.toString());
+        //$(this).after(Drupal.theme.ajaxProgressThrobber(Drupal.t('Updating selections, one moment please.')));
+        NewsBulletin.setNewsTypeOrder();
       });
     });
   }
 
+  function tallySelections() {
+    NewsBulletin.newsNids = [];
+    NewsBulletin.newsTypeArray = [];
+    //data-attribute-group:
+    jQuery('table.table thead').each(function(index, element) {
+      // Build the array of news type tids, assuming each works in element order on DOM.
+      NewsBulletin.newsTypeArray.push(jQuery(element).attr('data-attribute-group'));
+    });
 
+    logCall(arguments.callee.name.toString()); // Remove this when finished porting.
+    $('table.table input[type=checkbox]:checked').not(':disabled').each(function(index, element) {
+      // Build the array of news type tids, assuming each works in element order on DOM.
+      NewsBulletin.newsNids.push(jQuery(element).attr('value'));
+    });
+    var enabledNodeCount = $('table.table input[type=checkbox]:checked').not(':disabled').length;
+    console.log('enabled news items = ' + enabledNodeCount);
+    console.log('NewsBulletin.newsNids = ' + NewsBulletin.newsNids.join());
+    console.log('NewsBulletin.newsTypeArray = ' + NewsBulletin.newsTypeArray.join());
+  }
   /**
    * Display a set of video thumbnails
    */
@@ -176,6 +183,9 @@ var NewsBulletin = function() {
    * Set order of news types.
    */
   function setNewsTypeOrder() {
+    $('html, body').css("cursor", "wait");
+    $('body').after(Drupal.theme.ajaxProgressIndicatorFullscreen(Drupal.t('Updating order of groups, one moment please.')));
+    tallySelections();
     logCall(arguments.callee.name.toString()); // Remove this when finished porting.
 
     /*  This ajax option works very well instead of ?= and &= if order isn't important.  However order is important so using .join instead.
@@ -205,15 +215,20 @@ var NewsBulletin = function() {
       success: function(response) {
         logCall(response);
         // Disable the ajax throbber / spinner for show busy.
+        $('html, body').css("cursor", "auto");
         $('div.ajax-progress').remove(".ajax-progress-throbber"); // Remove the throbber like this.
-        $(input).each(function(index,element) {
+        $('div.ajax-progress').remove(".ajax-progress-fullscreen"); // Remove the throbber like this.
+        $('input').each(function(index,element) {
           $(element).remove(".ajax-progress-throbber"); // Remove the throbber like this.
         });
       },
       error: function(message) {
         logCall('ajax error');
+        $('html, body').css("cursor", "auto");
         $('div.ajax-progress').remove(".ajax-progress-throbber"); // Remove the throbber like this.
-        $(NewsBulletin.movedItem).after(Drupal.theme.ajaxProgressMessage(Drupal.t('Error with ajax call in setNewsTypeOrder().')));
+        $('div.ajax-progress').remove(".ajax-progress-fullscreen"); // Remove the throbber like this.
+        //$(NewsBulletin.movedItem).after(Drupal.theme.ajaxProgressMessage(Drupal.t('Error with ajax call in setNewsTypeOrder().')));
+        $('table.table').after(Drupal.theme.ajaxProgressMessage(Drupal.t('Error with ajax call in setNewsTypeOrder().')));
       }
     });
   }
