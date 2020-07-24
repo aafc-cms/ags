@@ -129,17 +129,22 @@ class NewsBulletinEmailController extends ControllerBase {
     foreach ($terms as $term) {
       $term = \Drupal\taxonomy\Entity\Term::load($term->tid);
       $term = $term->getTranslation($lang);
-      if (!isset($types_by_weight[$term->getWeight()]['has_items'])) {
+      $word_array = str_word_count($term->getName(), 1);
+      /*if (!isset($types_by_weight[$term->getWeight()]['has_items'])) {
         $types_by_weight[$term->getWeight()]['has_items'] = 0;
       }
-      $word_array = str_word_count($term->getName(), 1);
       $types_by_weight[$term->getWeight()] = [
         'name' => $term->getName(),
         'tid' => $term->id(),
         'first_word' => strtolower($word_array[0])
-      ];
+      ];*/
       foreach ($news_items as $itemkey => $itemvalue) {
         if ($term->id() == $itemvalue['term_id']) {
+          $types_by_weight[$term->getWeight()] = [
+            'name' => $term->getName(),
+            'tid' => $term->id(),
+            'first_word' => strtolower($word_array[0])
+          ];
           $types_by_weight[$term->getWeight()]['has_items'] = 1;
         }
       }
