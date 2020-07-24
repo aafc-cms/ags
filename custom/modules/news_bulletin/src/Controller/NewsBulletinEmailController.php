@@ -58,13 +58,16 @@ class NewsBulletinEmailController extends ControllerBase {
       '#news_types' => $this->getNewsTypes(),
       '#news_items' => $this->getNewsItems(),
       '#types_by_weight' => $this->getTypesByWeight(),
+      '#news_types_fr' => $this->getNewsTypes('fr'),
+      '#news_items_fr' => $this->getNewsItems('fr'),
+      '#types_by_weight_fr' => $this->getTypesByWeight('fr')
 //      '#markup' => $this->t('Hello, World!'),
 //      '#attached' => ['library' => ['email_template/bulletins']] // OR add this through the twig template
     ];
   }
 
 
-  public function getNewsItems() {
+  public function getNewsItems($lang = 'en') {
 
     $view = Views::getView('newsatworkbulletin');
 
@@ -78,8 +81,12 @@ class NewsBulletinEmailController extends ControllerBase {
     $custom_results = [];
     foreach ($view->result as $id => $result) {
       $node = $result->_entity;
+      if ($node->hasTranslation($lang)) {
+        $node = $node->getTranslation($lang);
+      }
       $newstype_id = $node->get('field_newstype')->target_id;
       $term = $node->get('field_newstype')->entity;
+      $term = $term->getTranslation($lang);
       $termweight = $term->getWeight();
       $summary = $node->get('body')->summary;
       $summary_length = strlen($summary);
@@ -114,24 +121,26 @@ class NewsBulletinEmailController extends ControllerBase {
     return $custom_results;
   }
 
-  public function getTypesByWeight() {
+  public function getTypesByWeight($lang = 'en') {
     $news_items = $this->getNewsItems();
     $types_by_weight = []; // array.
     $vid = 'news_type';
     $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
     foreach ($terms as $term) {
-      if (!isset($types_by_weight[$term->weight]['has_items'])) {
-        $types_by_weight[$term->weight]['has_items'] = 0;
+      $term = \Drupal\taxonomy\Entity\Term::load($term->tid);
+      $term = $term->getTranslation($lang);
+      if (!isset($types_by_weight[$term->getWeight()]['has_items'])) {
+        $types_by_weight[$term->getWeight()]['has_items'] = 0;
       }
-      $word_array = str_word_count($term->name, 1);
-      $types_by_weight[$term->weight] = [
-        'name' => $term->name,
-        'tid' => $term->tid,
+      $word_array = str_word_count($term->getName(), 1);
+      $types_by_weight[$term->getWeight()] = [
+        'name' => $term->getName(),
+        'tid' => $term->id(),
         'first_word' => strtolower($word_array[0])
       ];
       foreach ($news_items as $itemkey => $itemvalue) {
-        if ($term->tid == $itemvalue['term_id']) {
-          $types_by_weight[$term->weight]['has_items'] = 1;
+        if ($term->id() == $itemvalue['term_id']) {
+          $types_by_weight[$term->getWeight()]['has_items'] = 1;
         }
       }
     }
@@ -139,14 +148,16 @@ class NewsBulletinEmailController extends ControllerBase {
     return $types_by_weight;
   }
 
-  public function getNewsTypes() {
+  public function getNewsTypes($lang = 'en') {
     $news_types = []; // array.
     $vid = 'news_type';
     $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
     foreach ($terms as $term) {
-      $word_array = str_word_count($term->name, 1);
-      $news_types[$term->tid] = [
-        'name' => $term->name,
+      $term = \Drupal\taxonomy\Entity\Term::load($term->tid);
+      $term = $term->getTranslation($lang);
+      $word_array = str_word_count($term->getName(), 1);
+      $news_types[$term->id()] = [
+        'name' => $term->getName(),
         'weight' => $term->weight,
         'first_word' => strtolower($word_array[0])
       ];
