@@ -81,6 +81,10 @@ class NewsBulletinEmailController extends ControllerBase {
     $custom_results = [];
     foreach ($view->result as $id => $result) {
       $node = $result->_entity;
+      $nid = $node->id();
+      if (!in_array($nid, $this->getNewsNids())) {
+        continue;
+      }
       if ($node->hasTranslation($lang)) {
         $node = $node->getTranslation($lang);
       }
@@ -95,7 +99,6 @@ class NewsBulletinEmailController extends ControllerBase {
         $max = strpos($summary, ' ', $max);
         $summary = substr($summary, 0, $max) . ' ...';
       }
-      $nid = $node->id();
       $new_item = true;
       foreach ($custom_results as $key_test => $value) {
         // Distinct workaround, view is outputting duplicate nodes.
