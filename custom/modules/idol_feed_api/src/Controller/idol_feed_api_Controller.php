@@ -225,55 +225,73 @@ class idol_feed_api_Controller extends ControllerBase {
   }
 
   public function addElementForEmpl($documentXml, $node, $lang){
-    $documentXml->addChild('ANDEQUIVALENT');
+
     $targetIds = $node->get('field_branch')->getValue();
     $BRANCH = $this->getTermLablesByTargetIds($targetIds, $lang);
     $documentXml->addChild('BRANCH', $BRANCH);
 
-    $classificationXml = $documentXml->addChild('CLASSIFICATIONS');
+    // $classificationXml = $documentXml->addChild('CLASSIFICATIONS');
+    $andEquivalent = $node->get('field_and_equivalent')->getValue()['0']['value'];
+    if($andEquivalent==1){
+        $documentXml->addChild('ANDEQUIVALENT', 'yes');
+    }else{
+      $documentXml->addChild('ANDEQUIVALENT');
+    }
+
+
 
     $my_paragraphs = $node->get('field_classification')->getValue();
     $group = "";
     $level = "";
     $subGroup = "";
-    $groupArray = array();
-    $levelArray = array();
-    $subGroupArray = array();
+    // $groupArray = array();
+    // $levelArray = array();
+    // $subGroupArray = array();
     foreach ($my_paragraphs as $item) {
       $paragraph = \Drupal\paragraphs\Entity\Paragraph::load($item['target_id']);
+      $classificationXml = $documentXml->addChild('CLASSIFICATIONS');
       if (!$paragraph->field_class_id->isEmpty()) {
           $field_class_id = $paragraph->get('field_class_id')->first()->getValue()["value"];
-          if (!in_array($field_class_id, $groupArray)){
-            if(!empty($group))
-              $group = $group . ";";
-            $group = $group . $field_class_id ;
-            $groupArray[] = $field_class_id;
-          }
-      }
+          $classificationXml->addChild('GROUP', $field_class_id);
+          // if (!in_array($field_class_id, $groupArray)){
+          //   if(!empty($group))
+          //     $group = $group . ";";
+          //   $group = $group . $field_class_id ;
+          //   $groupArray[] = $field_class_id;
+          // }
+        }else{
+          $classificationXml->addChild('GROUP');
+        }
       if (!$paragraph->field_class_level->isEmpty()) {
         $field_class_level = $paragraph->get('field_class_level')->first()->getValue()["value"];
-        if (!in_array($field_class_level, $levelArray)){
-          if(!empty($level))
-            $level = $level . ";";
-          $level = $level . $field_class_level;
-          $levelArray[] = $field_class_level;
-        }
+        $classificationXml->addChild('LEVEL', $field_class_level);
+        // if (!in_array($field_class_level, $levelArray)){
+        //   if(!empty($level))
+        //     $level = $level . ";";
+        //   $level = $level . $field_class_level;
+        //   $levelArray[] = $field_class_level;
+        // }
+      }else{
+        $classificationXml->addChild('LEVEL');
       }
       if (!$paragraph->field_class_sub->isEmpty()) {
 
         $field_class_sub = $paragraph->get('field_class_sub')->first()->getValue()["value"];
-        if (!in_array($field_class_sub, $subGroupArray)){
-          if(!empty($subGroup))
-            $subGroup = $subGroup . ";";
-          $subGroup = $subGroup . $field_class_sub;
-          $subGroupArray[] = $field_class_sub;
-        }
+        $classificationXml->addChild('SUBGROUP', $field_class_sub);
+        // if (!in_array($field_class_sub, $subGroupArray)){
+        //   if(!empty($subGroup))
+        //     $subGroup = $subGroup . ";";
+        //   $subGroup = $subGroup . $field_class_sub;
+        //   $subGroupArray[] = $field_class_sub;
+        // }
+      }else{
+        $classificationXml->addChild('SUBGROUP');
       }
 
     }
-    $classificationXml->addChild('GROUP', $group);
-    $classificationXml->addChild('LEVEL', $level);
-    $classificationXml->addChild('SUBGROUP', $subGroup);
+    // $classificationXml->addChild('GROUP', $group);
+    // $classificationXml->addChild('LEVEL', $level);
+    // $classificationXml->addChild('SUBGROUP', $subGroup);
 
     $documentXml->addChild('CLOSINGDATE', $node->get('field_date_closing')->getValue()[0]['value']);
     $documentXml->addChild('CLOSINGTIME');
