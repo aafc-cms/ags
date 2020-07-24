@@ -6,8 +6,46 @@ use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Drupal\views\Views;
 use Drupal\agri_admin\AgriAdminHelper;
+use Drupal\user\PrivateTempStoreFactory;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+
 
 class NewsBulletinEmailController extends ControllerBase {
+
+  protected $tempStore;
+
+  // Pass the dependency to the object constructor
+  public function __construct(PrivateTempStoreFactory $temp_store_factory) {
+    // For "news_bulletin," any unique namespace will do
+    $this->tempStore = $temp_store_factory->get('news_bulletin');
+  }
+
+  // Uses Symfony's ContainerInterface to declare dependency to be passed to constructor
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('user.private_tempstore')
+    );
+  }
+
+  // Read some temporary data
+  public function getTypeWeights() {
+    $news_type_weights = $this->tempStore->get('news_type_weights');
+    if (!isset($news_type_weights)) {
+      $news_type_weights = array();
+    }
+    return $news_type_weights;
+    // Do other stuff, return a render array, etc...
+  }
+
+  // Read some temporary data
+  public function getNewsNids() {
+    $news_nids_selected = $this->tempStore->get('news_nids');
+    if (!isset($news_nids_selected)) {
+      $news_nids_selected = array();
+    }
+    return $news_nids_selected;
+  }
+
   /**
    * Display the markup.
    *

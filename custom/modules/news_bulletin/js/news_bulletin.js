@@ -34,6 +34,8 @@ function logCall(funcName, force) {
  */
 var NewsBulletin = function() {
   var newTab = null;  // Reference to new tab window.
+  var nodeCount = 0;
+  var tempTid = null;
   var movedItem = null;        // movedItem (Draggable)
   var movedItemNodeName = null;        // movedItem (Draggable)
   var movedItemTid = null;     // movedItem (Draggable) tid (term id) .
@@ -150,7 +152,19 @@ var NewsBulletin = function() {
     //data-attribute-group:
     jQuery('table.table thead').each(function(index, element) {
       // Build the array of news type tids, assuming each works in element order on DOM.
-      NewsBulletin.newsTypeArray.push(jQuery(element).attr('data-attribute-group'));
+      NewsBulletin.nodeCount = 0;
+      NewsBulletin.tempTid = jQuery(element).attr('data-attribute-group');
+      $('table.table input[type=checkbox]:checked').not(':disabled').each(function(indexOfInputElements, inputElement) {
+        // Build the array of news type tids, assuming each works in element order on DOM.
+        if (NewsBulletin.tempTid == jQuery(inputElement).closest('tr').attr('data-group-current')) {
+          NewsBulletin.nodeCount++;
+        }
+      });
+      if (NewsBulletin.nodeCount > 0) {
+        // Only include the type if it has nodes, this one does!
+        NewsBulletin.newsTypeArray.push(NewsBulletin.tempTid);
+      }
+
     });
 
     logCall(arguments.callee.name.toString()); // Remove this when finished porting.
@@ -247,6 +261,8 @@ var NewsBulletin = function() {
     init: init,
     newsbulletin: newsbulletin,
     newTab: newTab,
+    nodeCount: nodeCount,
+    tempTid: tempTid,
     movedItem: movedItem,
     movedItemTid: movedItemTid,
     newsTypeArray: newsTypeArray,

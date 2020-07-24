@@ -104,6 +104,10 @@ class NewsBulletinController extends ControllerBase {
   // Read some temporary data
   public function getTypeWeights() {
     $news_type_weights = $this->tempStore->get('news_type_weights');
+    if (!isset($news_type_weights)) {
+      $news_type_weights = array();
+    }
+    return $news_type_weights;
     // Do other stuff, return a render array, etc...
   }
 
