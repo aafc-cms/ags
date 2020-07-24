@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\agri_admin\AgriAdminHelper;
 /**
  * @file
  * Primary module hooks for WxT Overrides module.
@@ -15,22 +16,35 @@
  * Replace the wet-boew library v4.0.35 with v4.0.32 to each page.
  */
 function wxt_overrides_page_attachments(array &$page) {
-  $library_array = $page['#attached']['library'];
-  foreach ($library_array as $key => $value) {
-    if ($value == 'wxt_library/wet-boew-dev') {
-      unset($page['#attached']['library'][$key]);
-    }
-    if ($value == 'wxt_library/wet-boew') {
-      unset($page['#attached']['library'][$key]);
-    }
+  $node = \Drupal::routeMatch()->getRawParameter('node');
+  if (!isset($node)) {
+    return;
   }
-  $page['#attached']['library'][] = 'wxt_overrides/wet-boew-replacement';
-    $DEBUG = false;
-    if ($DEBUG && $fp = fopen('modules/custom/wxt_overrides/js/wb/debug.txt', 'a'))
-    {
-      fwrite($fp, print_r($page, TRUE) . "\n");
-      fclose($fp);
+  if (is_object($node)) {
+    $nid = $node->id();
+  }
+  if (is_string($node) || is_integer($node)) {
+    $nid = $node;
+  }
+  if ($nid == 68 || $nid == 118) {
+    //AgriAdminHelper::addToLog('<pre>' .print_r(array_keys($page), TRUE) . '</pre>', TRUE);
+    $library_array = $page['#attached']['library'];
+    foreach ($library_array as $key => $value) {
+      if ($value == 'wxt_library/wet-boew-dev') {
+        unset($page['#attached']['library'][$key]);
+      }
+      if ($value == 'wxt_library/wet-boew') {
+        unset($page['#attached']['library'][$key]);
+      }
     }
+    $page['#attached']['library'][] = 'wxt_overrides/wet-boew-replacement';
+      $DEBUG = false;
+      if ($DEBUG && $fp = fopen('modules/custom/wxt_overrides/js/wb/debug.txt', 'a'))
+      {
+        fwrite($fp, print_r($page, TRUE) . "\n");
+        fclose($fp);
+      }
+  }
   return;
 }
 
