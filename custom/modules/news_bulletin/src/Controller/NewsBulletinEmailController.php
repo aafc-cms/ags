@@ -126,14 +126,18 @@ class NewsBulletinEmailController extends ControllerBase {
     return $custom_results;
   }
 
-  private function sortArrayByArray(array $array, array $orderArray) {
+  private function sortNewsTypeArrayByArray(array $array, array $orderArray) {
       $ordered = array();
-      foreach ($orderArray as $key) {
-          if (array_key_exists($key, $array)) {
-              $ordered[$key] = $array[$key];
-              unset($array[$key]);
+      foreach ($orderArray as $key => $value) {
+        foreach ($array as $innerKey => $innerValue) {
+          if ($array[$innerKey]['tid'] == $value) {
+            $ordered[$key] = $array[$innerKey];
+            unset($array[$innerKey]);
           }
+        }
       }
+      //AgriAdminHelper::addToLog('<pre>array ' . print_r($array, TRUE) . ' </pre>', TRUE);
+      //AgriAdminHelper::addToLog('<pre>order ' . print_r($orderArray, TRUE) . ' </pre>', TRUE);
       return $ordered + $array;
   }
 
@@ -144,7 +148,7 @@ class NewsBulletinEmailController extends ControllerBase {
 
     $orderedTypes = $this->getTypeWeights();
     if (!empty($orderedTypes)) {
-      $reorderedTypes = $this->sortArrayByArray($unorderedTypes, $orderedTypes);
+      $reorderedTypes = $this->sortNewsTypeArrayByArray($unorderedTypes, $orderedTypes);
     }
     return $reorderedTypes;
   }
