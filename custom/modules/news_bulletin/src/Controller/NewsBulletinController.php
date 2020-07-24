@@ -92,12 +92,12 @@ class NewsBulletinController extends ControllerBase {
 
 
   // Save some temporary data (terms selected and their order/weight (is important)).
-  public function setTypeWeights($terms_and_order_or_weights) {
+  public function setTypeWeights($terms_and_order_or_weights = []) {
     $this->tempStore->set('news_type_weights', $terms_and_order_or_weights);
   }
 
   // Save some temporary data (nids selected).
-  public function setNewsNids($news_nids_selected) {
+  public function setNewsNids($news_nids_selected = []) {
     $this->tempStore->set('news_nids', $news_nids_selected);
   }
 

@@ -83,7 +83,7 @@ var NewsBulletin = function() {
               if (NewsBulletin.movedItemNodeName == 'THEAD') {
                 jQuery(element).detach().insertAfter(NewsBulletin.movedItem);
               }
-              logCall('item that was moved is found , the tid=' + NewsBulletin.movedItemTid);
+              console.log('item that was moved is found , the tid=' + NewsBulletin.movedItemTid);
             }
             else {
               // Workaround for a glitch where the other tbody elements are in the wrong order.
@@ -177,6 +177,7 @@ var NewsBulletin = function() {
     console.log('NewsBulletin.newsNids = ' + NewsBulletin.newsNids.join());
     console.log('NewsBulletin.newsTypeArray = ' + NewsBulletin.newsTypeArray.join());
   }
+
   /**
    * Display a set of video thumbnails
    */
@@ -226,12 +227,12 @@ var NewsBulletin = function() {
       }
     }
     // Make the agax call to update the temp store.
+    /*      data: {
+            'nids': NewsBulletin.newsNids
+          }*/
     $.ajax({
-      url: '/news-at-work-bulletin/set_temp_config?tids=' + NewsBulletin.newsTypeArray.join() + nidsParam,
+      url: '/news-at-work-bulletin/set_temp_config' + termsParam + nidsParam,
       type: 'GET',
-      data: {
-        'nids': NewsBulletin.newsNids
-      },
       success: function(response) {
         logCall(response);
         // Disable the ajax throbber / spinner for show busy.

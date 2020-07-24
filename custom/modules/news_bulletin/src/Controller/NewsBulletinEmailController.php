@@ -27,6 +27,7 @@ class NewsBulletinEmailController extends ControllerBase {
     );
   }
 
+
   // Read some temporary data
   public function getTypeWeights() {
     $news_type_weights = $this->tempStore->get('news_type_weights');
@@ -36,6 +37,7 @@ class NewsBulletinEmailController extends ControllerBase {
     return $news_type_weights;
     // Do other stuff, return a render array, etc...
   }
+
 
   // Read some temporary data
   public function getNewsNids() {
@@ -57,10 +59,10 @@ class NewsBulletinEmailController extends ControllerBase {
       '#theme' => 'news_bulletin_email',
       '#news_types' => $this->getNewsTypes(),
       '#news_items' => $this->getNewsItems(),
-      '#types_by_weight' => $this->getTypesByWeight(),
+      '#types_by_weight' => $this->reOrderTypeWeights(),
       '#news_types_fr' => $this->getNewsTypes('fr'),
       '#news_items_fr' => $this->getNewsItems('fr'),
-      '#types_by_weight_fr' => $this->getTypesByWeight('fr')
+      '#types_by_weight_fr' => $this->reOrderTypeWeights('fr')
 //      '#markup' => $this->t('Hello, World!'),
 //      '#attached' => ['library' => ['email_template/bulletins']] // OR add this through the twig template
     ];
@@ -124,6 +126,29 @@ class NewsBulletinEmailController extends ControllerBase {
     return $custom_results;
   }
 
+  private function sortArrayByArray(array $array, array $orderArray) {
+      $ordered = array();
+      foreach ($orderArray as $key) {
+          if (array_key_exists($key, $array)) {
+              $ordered[$key] = $array[$key];
+              unset($array[$key]);
+          }
+      }
+      return $ordered + $array;
+  }
+
+  public function reOrderTypeWeights($lang = 'en') {
+    $unorderedTypes = $this->getTypesByWeight($lang);
+    $reorderedTypes = $unorderedTypes; // Safe default values.
+    //return $unorderedTypes;
+
+    $orderedTypes = $this->getTypeWeights();
+    if (!empty($orderedTypes)) {
+      $reorderedTypes = $this->sortArrayByArray($unorderedTypes, $orderedTypes);
+    }
+    return $reorderedTypes;
+  }
+
   public function getTypesByWeight($lang = 'en') {
     $news_items = $this->getNewsItems();
     $types_by_weight = []; // array.
@@ -133,6 +158,7 @@ class NewsBulletinEmailController extends ControllerBase {
       $term = \Drupal\taxonomy\Entity\Term::load($term->tid);
       $term = $term->getTranslation($lang);
       $word_array = str_word_count($term->getName(), 1);
+      // Do not need other terms that have no records (for now).
       /*if (!isset($types_by_weight[$term->getWeight()]['has_items'])) {
         $types_by_weight[$term->getWeight()]['has_items'] = 0;
       }
