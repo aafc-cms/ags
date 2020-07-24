@@ -33,6 +33,7 @@ function logCall(funcName, force) {
  * Class to handle the bulletin page.
  */
 var NewsBulletin = function() {
+  var newTab = null;  // Reference to new tab window.
   var movedItem = null;        // movedItem (Draggable)
   var movedItemNodeName = null;        // movedItem (Draggable)
   var movedItemTid = null;     // movedItem (Draggable) tid (term id) .
@@ -138,7 +139,12 @@ var NewsBulletin = function() {
     });
   }
 
+  function resetForm() {
+    jQuery('form#news-bulletin-form-1').removeAttr('data-drupal-form-submit-last');
+  }
+
   function tallySelections() {
+    resetForm();
     NewsBulletin.newsNids = [];
     NewsBulletin.newsTypeArray = [];
     //data-attribute-group:
@@ -240,6 +246,7 @@ var NewsBulletin = function() {
   return {
     init: init,
     newsbulletin: newsbulletin,
+    newTab: newTab,
     movedItem: movedItem,
     movedItemTid: movedItemTid,
     newsTypeArray: newsTypeArray,
