@@ -75,6 +75,7 @@ class NewsBulletinController extends ControllerBase {
     }
     if (!empty($news_type_weights)) {
       $this->setTypeWeights($news_type_weights);
+      $this->setNewsNids([]);
       $tempValuesUpdated = $this->getTempValues();
       return new JsonResponse(['status' => TRUE, 'message' => ['term weights updated ']]);
     }
