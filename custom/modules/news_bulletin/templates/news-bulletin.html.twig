@@ -1,0 +1,62 @@
+{{ attach_library('news_bulletin/bulletins') }}
+
+<!-- HIDDEN DEBUG SECTION
+<br>
+<pre>{#{ dump(types_by_weight) }#}</pre>
+<br>
+<pre>{#{ dump(news_items) }#}</pre>
+ END OF HIDDEN DEBUG SECTION -->
+
+<form action="/en/news-bulletin-email" method="post" id="news-bulletin-form-1" accept-charset="UTF-8" target="_news_email">
+<button target="_news_email" onclick="this.form.target='_news_email';return true;" id="email-button" class="bulletin-button button">News Bulletin Email</button>
+{% set nth_run = 0 %}
+{% set n_idx = 0 %}
+<table class="table table-news-bulletin">
+{% for wkey, valuetype in types_by_weight %}
+  {% if valuetype.has_items %}
+    {% set open_close = 'open' %}
+  {% else %}
+    {% set open_close = 'close' %}
+  {% endif %}
+  {% if open_close == 'open' %}
+  <thead class="news-group type-{{ valuetype.first_word }}" data-attribute-group="{{ valuetype.tid }}">
+    <tr class="news-type-header-row">
+    <th class="glyphicon glyphicon-folder-{{ open_close }} tb-news-group-title">{{ valuetype.name }}</th>
+    <th></th>
+    <th class="th-title">Title</th>
+    <th class="th-from">from</th>
+    <th class="th-summary">Summary</th>
+    </tr>
+  </thead>
+  {% endif %}
+  {% set nth_run = 1 %}
+  {% if open_close == 'closeDISABLED' %}
+  <tbody class="tile-tbody news-group type-{{ valuetype.first_word }}" data-attribute-group="{{ valuetype.tid }}"></tbody>
+  {% endif %}
+  {% if open_close == 'open' %}
+    <tbody class="has-row-data tile-tbody news-group type-{{ valuetype.first_word }} tid-{{ valuetype.tid }}" data-attribute-group="{{ valuetype.tid }}">
+    {% for nkey, newsitem in news_items %}
+    {% if valuetype.tid == newsitem.term_id %}
+    <tr class="drag-this-row value-row type-{{ newsitem.first_word }}" data-nid="{{ newsitem.nid }}" data-group-current="{{ newsitem.term_id }}" data-group-orig="{{ newsitem.term_id }}">
+      <td class="glyphicon glyphicon-move news-bulletin-move bulletin td-spacer"></td>
+      <td>
+        <input data-selector="select-node-{{ n_idx }}" checked="checked" type="checkbox" id="edit-select-node-{{ n_idx }}" name="edit_select_node_form[{{ n_idx }}]" value="{{ newsitem.nid }}" class="form-checkbox form-boolean form-boolean--type-checkbox">
+         <label class="sr-only" for="edit_select_node_form[{{ n_idx }}]">If checked will include "{{ newsitem.title }}" in email template.</label>
+      </td>
+      <td class="bulletin td-news-title">{{ newsitem.title }}</td>
+      <td class="bulletin td-from">{{ newsitem.from }}</td>
+      <td class="bulletin td-summary">{{ newsitem.summary }}</td>
+    </tr>
+    {% set n_idx = n_idx + 1 %}
+    {% endif %}
+    {% endfor %}
+    </tbody>
+  {% endif %}
+{% endfor %}
+</table>
+</form>
+
+
+<script>
+
+</script>

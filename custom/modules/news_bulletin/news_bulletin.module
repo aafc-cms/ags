@@ -1,0 +1,34 @@
+<?php
+
+
+function news_bulletin_theme($existing, $type, $theme, $path) {
+  return [
+    'news_bulletin' => [
+      'variables' => [
+        'news_types' => NULL,
+        'news_items' => NULL,
+        'types_by_weight' => NULL
+      ],
+    ],
+    'news_bulletin_email' => [
+      'variables' => [
+        'news_types' => NULL,
+        'news_items' => NULL,
+        'types_by_weight' => NULL,
+        'news_types_fr' => NULL,
+        'news_items_fr' => NULL,
+        'types_by_weight_fr' => NULL
+      ],
+    ]
+    /*,
+    'node__news' => [
+      'render element' => 'content',
+      'base hook' => 'node',
+      'type' => 'base_theme_engine',
+      'variables' => [
+        'test_var' => NULL,
+        'data' => [],
+      ],
+    ],*/
+  ];
+}

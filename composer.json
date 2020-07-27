@@ -56,6 +56,10 @@
         },
         {
             "type": "path",
+            "url": "custom/modules/news_bulletin"
+        },
+        {
+            "type": "path",
             "url": "custom/modules/wxt_overrides"
         },
         {
@@ -173,9 +177,9 @@
                 "entity_embed-remove_image_attributes_from_div-3086162":
                 "https://www.drupal.org/files/issues/2020-06-15/entity_embed-remove_image_attributes_from_div-3086162-13_0.patch"
             },
-            "drupal/moderated_content_bulk_publish": {
-                "Custom functionality for workflows, bulk send to reviewer.":
-                "https://www.drupal.org/files/issues/2020-06-02/3124868-12.patch"
+            "drupal/jsonapi_views": {
+                "Allow user to decide whether to expose the view with JSONAPI":
+                "https://www.drupal.org/files/issues/2020-06-03/3145281-json-api-views-extender-2.patch"
             },
             "drupal/moderation_sidebar": {
                 "Synchronize moderation states between all translations of the entity":
@@ -225,6 +229,7 @@
         "drush/drush": "^9.0",
         "drupalwxt/wxt": "^3.0.13",
         "entreprise7pro/agri_admin": "*",
+        "entreprise7pro/news_bulletin": "*",
         "entreprise7pro/wxt_overrides": "*",
         "junhuang/idol_feed_api": "*",
         "entreprise7pro/config": "*",
@@ -253,7 +258,9 @@
         "psr/container": "^1.0",
         "wikimedia/composer-merge-plugin": "^1.4",
         "scssphp/scssphp": "^1.1",
-        "drupal/form_options_attributes": "^2.0"
+        "drupal/form_options_attributes": "^2.0",
+        "drupal/jsonapi_explorer": "^1.0",
+        "drupal/jsonapi_views": "1.x-dev"
     },
     "autoload": {
         "classmap": [

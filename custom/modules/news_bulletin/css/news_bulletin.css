@@ -1,0 +1,215 @@
+
+.news-bulletin .row {
+  padding: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.news-bulletin .title {
+  font-size: 14px;
+  padding: 5px 3px 0px 3px;
+  color: #337ab7;
+}
+
+.news-bulletin .description {
+  display: none;
+  font-size: 12px;
+  padding: 0 3px;
+}
+
+.news-bulletin .bulletin-card {
+  display: inline-block;
+  border: 2px solid white;
+  margin-right: 1.5%;
+  vertical-align: top;
+  background-color: white;
+}
+
+.news-bulletin {
+  cursor: pointer;
+}
+
+.news-bulletin .pagination {
+  display: block;
+  text-align: center;
+}
+
+.news-bulletin .bulletin-pager {
+  background-color: white;
+  display: inline-block;
+  padding: 10px;
+}
+
+
+.table-news-bulletin thead.news-group tr.news-type-header-row th.glyphicon.tb-news-group-title::before {
+  font-size: 12px !important;
+}
+
+
+.table-news-bulletin thead.news-group tr.news-type-header-row th {
+  padding: 5px !important;
+}
+
+
+.table-news-bulletin thead.news-group tr.news-type-header-row th.th-title {
+  width: 30% !important;
+}
+
+.table-news-bulletin thead.news-group tr.news-type-header-row th.th-title, th.th-from, th.th-summary {
+  font-weight: normal !important;
+  border-right: 1px solid #c5c5c5;
+  background-color: #f5f5f5;
+}
+
+.newsatworkbulletin div.container form#news-bulletin-form-1  table {
+  border-spacing: 0px;
+  font-size: 12px !important;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+
+.newsatworkbulletin div.container form#news-bulletin-form-1  table td {
+  padding: 0px;
+}
+
+.newsatworkbulletin div.container form#news-bulletin-form-1  table tr th {
+  border-bottom: 0px;
+}
+
+.newsatworkbulletin .table thead  tr  th, .newsatworkbulletin .table  thead  tr  td, 
+.newsatworkbulletin .table tbody  tr  th, .newsatworkbulletin .table  tbody  tr  td, 
+.newsatworkbulletin .table  tfoot  tr  th, .newsatworkbulletin .table  tfoot  tr  td {
+  border-top: 0px;
+}
+
+table.table tr.value-row:hover {
+  box-shadow: 0px 5px 10px 3px rgba(0,0,0,0.12);
+}
+
+.tile {
+  background-color: white;
+  color: #3A3A4D;
+}
+
+
+table.table .glyphicon {
+  display: revert;
+}
+
+thead .tb-news-group-title {
+  overflow-y: visible;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+table .glyphicon-move::before {
+  position: absolute;
+  left: 100px;
+  top: 12px;
+  color: darkgreen;
+  cursor: ns-resize;
+  font-size: x-large;
+  visibility: hidden;/*disable*/
+}
+table .glyphicon-folder-open::before {
+  cursor: ns-resize;
+}
+
+table .glyphicon-folder-open:after {
+  content: "\e068";
+  color: lightgray;
+  cursor: ns-resize;
+  font-size: large;
+  position: absolute;
+  top: 19px;
+  left: -13px;
+}
+
+table .glyphicon-folder-open::before, table .glyphicon-folder-close::before {
+  padding-right: 10px;
+}
+
+.glyphicon-folder-open::before, .glyphicon-folder-close::before {
+  color: orange;
+  font-size: xx-large;
+}
+
+.th-title, .th-summary, .th-from {
+  visibility: hidden;
+}
+
+table.table thead:first-child th:nth-child(2),
+ table.table thead:first-child th:nth-child(3),
+  table.table thead:first-child th:nth-child(4),
+   table.table thead:first-child th:nth-child(5) {
+  visibility: visible !important;
+}
+
+.ajax-progress {
+  display: inline-block;
+  padding: 1px 5px 2px 5px;
+}
+[dir="rtl"] .ajax-progress {
+  float: right;
+}
+.ajax-progress-throbber .throbber {
+  display: inline;
+  padding: 1px 5px 2px;
+  background: transparent url(../../../../core/misc/throbber-active.gif) no-repeat 0 center;
+}
+.ajax-progress-throbber .message {
+  display: inline;
+  padding: 1px 5px 2px;
+  position: absolute;
+}
+tr .ajax-progress-throbber .throbber {
+  margin: 0 2px;
+}
+.ajax-progress-bar {
+  width: 16em;
+}
+
+/* Full screen throbber */
+.ajax-progress-fullscreen {
+  position: fixed;
+  z-index: 1000;
+  top: 48.5%;
+  /* Can't do center:50% middle: 50%, so approximate it for a typical window size. */
+  left: 49%; /* LTR */
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  opacity: 0.5;
+  border-radius: 7px;
+  background-color: #AFAFAF !important;
+  background-image: url(../../../../core/misc/loading-small.gif);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+[dir="rtl"] .ajax-progress-fullscreen {
+  right: 49%;
+  left: auto;
+}
+
+#email-button {
+  position: absolute;
+  top: -47px;
+  left: 260px;
+}
+
+body.newsatworkbulletin .table > thead > tr > th, 
+  .table > thead > tr > td, 
+  .table > tbody > tr > th, 
+  .table > tbody > tr > td, 
+  .table > tfoot > tr > th, 
+  .table > tfoot > tr > td
+{
+  padding-left: 5px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+

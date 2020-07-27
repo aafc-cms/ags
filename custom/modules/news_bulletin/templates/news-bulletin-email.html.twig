@@ -1,0 +1,249 @@
+{{ attach_library('news_bulletin/email-bulletins') }}
+<a name="English"></a>
+<div id="list" class="news-bulletin">
+</div>
+  <table class="headerrow1">
+    <tbody>
+    <tr>
+      <td>
+        <font>EN | <a href="#French">FR</a>
+        </font>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  <table class="headerrow2">
+  <tbody>
+    <tr>
+      <td><img src="http://www.agr.gc.ca/resources/prev/CMS/Internet/News-Nouvelles/computer_sm.png">
+        <br>
+        <font><i>news@work | nouvelles@l'ouvrage</i>
+        </font>
+        <br>
+        <font>WEEKLY NEWSLETTER / BULLETIN HEBDOMADAIRE
+        <br>
+        </font>
+      </td>
+      </tr>
+    </tbody>
+  </table>
+<br>
+
+<div id="news-bulletin-list" class="news-bulletin-test col-xs-12">
+{% for wkey, valuetype in types_by_weight %}
+  {% if valuetype.has_items %}
+    {% set open_close = 'open' %}
+  {% else %}
+    {% set open_close = 'close' %}
+  {% endif %}
+  <div class="news-type news-bulletin-move glyphicon glyphicon-folder-{{ open_close }} type-{{ valuetype.first_word }} col-xs-12" data-attribute-group="{{ valuetype.tid }}">
+    <div class="news-group-title">{{ valuetype.name }}</div>
+  </div>
+  {% if open_close == 'open' %}
+    {% for nkey, newsitem in news_items %}
+    {% if valuetype.tid == newsitem.term_id %}
+    <div class="glyphicon glyphicon-move news-bulletin-move tile col-xs-11 col-md-offset-1">
+      <div class="content type-{{ newsitem.first_word }}" data-nid="{{ newsitem.nid }}" data-group-current="{{ newsitem.term_id }}" data-group-orig="{{ newsitem.term_id }}">
+        <div class="cell news-title">{{ newsitem.title }}</div>
+        <div class="cell from">{{ newsitem.from }}</div>
+        <div class="cell summary">{{ newsitem.summary }}</div>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+  <!--<div class="row pagination">
+    <a class="hidden bulletin-pager" href="#">
+      {% trans %}
+        Show More
+      {% endtrans %}
+    </a>
+  </div>-->
+</div>
+
+
+<table class="newsreleasesstatement">
+  <tr><td><h3>AAFC News Releases and Statements</h3>
+  </td></tr>
+</table>
+<table class="newsreleasesstatementdetails">
+  <tbody>
+    <tr>
+    <td>
+      <img class="flexibleImagesmall" src="http://www.agr.gc.ca/resources/prod/news/images/news_icon_sm.png" alt="AAFC News Releases and Statements">
+    </td>
+    <td>
+      <div>Check out AAFC's latest <a href="http://www.agr.gc.ca/eng/news/news-releases-and-statements/?id=1383076728778">news releases and statements.</a>
+      </div>
+    </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="emplopp">
+  <tr><td><h3>Employment Opportunities</h3>
+  <br>Visit the Internal Employment Opportunities page to find any available acting, assignment and deployment opportunities within AAFC.
+  </td></tr>
+</table>
+<table class="emploppdetails">
+  <tbody>
+    <tr>
+    <td>
+      <a href="/en/internal-employment-opportunities" target="_blank">View Opportunities</a>
+    </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="footer">
+<table>
+  <tbody>
+    <tr>
+      <td class="content-block">
+        <span class="apple-link">
+        <!--<a href="#">Printer Version</a> | -->
+            <a href="/en/news/newswork">news@work main page</a>
+             |
+            <a href="https://collab.agr.gc.ca/br-dg/ccb-dgcc/Lists/bulletins/AllItems.aspx">news@work Bulletins</a>
+             |
+            <a href="/en/news/newswork/submit-article-news-work">Submit a news@work item</a>
+             |
+            <a href="mailto:newsatwork@agr.gc.ca">Contact Us</a>
+          </span>
+          <br>
+          <br>
+           Please check AgriSource daily. Additional news@work articles are posted regularly. For technical difficulties accessing or viewing news@work, please contact the IT Centre (1-855-545-4411 ;
+          <a href="mailto:service@itcentreti.collaboration.gc.ca">service@itcentreti.collaboration.gc.ca</a>
+           ).
+        </td>
+      </tr>
+      <tr>
+        <td class="content-block powered-by"> </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+<a name="French"></a>
+<div id="list" class="news-bulletin">
+</div>
+  <table class="headerrow1">
+    <tbody>
+    <tr>
+      <td>
+        <font><a href="#English">EN</a> | FR
+        </font>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  <table class="headerrow2">
+  <tbody>
+    <tr>
+      <td><img src="http://www.agr.gc.ca/resources/prev/CMS/Internet/News-Nouvelles/computer_sm.png">
+        <br>
+        <font><i>nouvelles@l'ouvrage | news@work</i>
+        </font>
+  `     <br>
+        <font>BULLETIN HEBDOMADAIRE / WEEKLY NEWSLETTER<br>
+        </font>
+      </td>
+      </tr>
+    </tbody>
+  </table>
+<br>
+
+<div id="news-bulletin-list" class="news-bulletin-test col-xs-12">
+{% for wkey, valuetype in types_by_weight_fr %}
+  {% if valuetype.has_items %}
+    {% set open_close = 'open' %}
+  {% else %}
+    {% set open_close = 'close' %}
+  {% endif %}
+  <div class="news-type news-bulletin-move glyphicon glyphicon-folder-{{ open_close }} type-{{ valuetype.first_word }} col-xs-12" data-attribute-group="{{ valuetype.tid }}">
+    <div class="news-group-title">{{ valuetype.name }}</div>
+  </div>
+  {% if open_close == 'open' %}
+    {% for nkey, newsitem in news_items_fr %}
+    {% if valuetype.tid == newsitem.term_id %}
+    <div class="glyphicon glyphicon-move news-bulletin-move tile col-xs-11 col-md-offset-1">
+      <div class="content type-{{ newsitem.first_word }}" data-nid="{{ newsitem.nid }}" data-group-current="{{ newsitem.term_id }}" data-group-orig="{{ newsitem.term_id }}">
+        <div class="cell news-title">{{ newsitem.title }}</div>
+        <div class="cell from">{{ newsitem.from }}</div>
+        <div class="cell summary">{{ newsitem.summary }}</div>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+  <!--<div class="row pagination">
+    <a class="hidden bulletin-pager" href="#">
+      {% trans %}
+        Show More
+      {% endtrans %}
+    </a>
+  </div>-->
+</div>
+
+<table class="newsreleasesstatement">
+  <tr><td><h3>Communiqués et déclarations d'AAC</h3>
+  </td></tr>
+</table>
+<table class="newsreleasesstatementdetails">
+  <tbody>
+    <tr>
+    <td>
+      <img class="flexibleImagesmall" src="http://www.agr.gc.ca/resources/prod/news/images/news_icon_sm.png" alt="AAFC News Releases and Statements">
+    </td>
+    <td>
+      <div>Consultez les plus récents <a href="http://www.agr.gc.ca/fra/nouvelles/communiques-et-declarations/?id=1383076728778">communiqués et déclarations.</a>
+      </div>
+    </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="emplopp">
+  <tr><td><h3>Possibilités d'emplois</h3>
+  <br>Consultez la page Possibilités d'emploi pour prendre connaissance de toutes les occasions de nomination intérimaire, d'affectation et de mutation au sein d'AAC.
+  </td></tr>
+</table>
+<table class="emploppdetails">
+  <tbody>
+    <tr>
+    <td>
+      <a href="/fr/possibilites-demploi" target="_blank">Visualisez les opportunités</a>
+    </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="footer">
+<table>
+  <tbody>
+    <tr>
+      <td class="content-block">
+        <span class="apple-link">
+        <!--<a href="#">Printer Version</a> | -->
+            <a href="/fr/nouvelles/nouvelleslouvrage">Page principale du bulletin nouvelles@l'ouvrage</a>
+             |
+            <a href="https://collab.agr.gc.ca/br-dg/ccb-dgcc/Lists/bulletins/AllItems.aspx">Bulletins de nouvelles@l'ouvrage</a>
+             |
+            <a href="/fr/nouvelles/nouvelleslouvrage/soumettre-un-article-nouvelles-au-travail">Soumettre un article pour nouvelles@l'ouvrage</a>
+             |
+            <a href="mailto:nouvellesalouvrage@agr.gc.ca">Contactez - nous</a>
+          </span>
+          <br>
+          <br>
+          Consultez AgriSource tous les jours. Des articles sont affichés tout au long de la semaine. Si vous éprouvez des difficultés techniques au moment d'accéder ou de visualiser le bulletin nouvelles@l'ouvrage, veuillez communiquer avec le Centre TI (1-855-545-4411;
+          <a href="mailto:service@itcentreti.collaboration.gc.ca">service@itcentreti.collaboration.gc.ca</a>
+           ).
+        </td>
+      </tr>
+      <tr>
+        <td class="content-block powered-by"> </td>
+      </tr>
+  </tbody>
+</table>
+</div>

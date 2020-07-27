@@ -7,11 +7,11 @@ dependencies:
     - field.storage.node.field_from
     - field.storage.node.field_newstype
     - node.type.news
-    - system.menu.main
-    - taxonomy.vocabulary.news_type
   module:
     - datetime
     - node
+    - rest
+    - serialization
     - taxonomy
     - text
     - user
@@ -93,60 +93,6 @@ display:
           separator: ''
           hide_empty: false
       fields:
-        node_bulk_form:
-          id: node_bulk_form
-          table: node
-          field: node_bulk_form
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          action_title: Action
-          include_exclude: include
-          selected_actions:
-            - node_make_sticky_action
-          entity_type: node
-          plugin_id: node_bulk_form
         status:
           id: status
           table: node_field_data
@@ -222,7 +168,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -286,7 +232,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -330,6 +276,68 @@ display:
           type: entity_reference_label
           settings:
             link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_newstype_1:
+          id: field_newstype_1
+          table: node__field_newstype
+          field: field_newstype
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_entity_id
+          settings: {  }
           group_column: target_id
           group_columns: {  }
           group_rows: true
@@ -615,50 +623,10 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: datetime
-        status_1:
-          id: status_1
-          table: node_field_data
-          field: status
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: '1'
-          group: 2
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          entity_field: status
-          plugin_id: boolean
-        current_user_has_roles_1:
-          id: current_user_has_roles_1
+        status_has_role:
+          id: status_has_role
           table: node
-          field: current_user_has_roles
+          field: status_has_role
           relationship: none
           group_type: group
           admin_label: ''
@@ -668,7 +636,9 @@ display:
             creator: creator
             editor: editor
             reviewer: reviewer
-          group: 2
+            news_ccpub: news_ccpub
+            empl_cspub: empl_cspub
+          group: 1
           exposed: false
           expose:
             operator_id: ''
@@ -697,7 +667,7 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           entity_type: node
-          plugin_id: current_user_has_roles
+          plugin_id: status_has_role
       sorts:
         weight:
           id: weight
@@ -751,9 +721,8 @@ display:
         operator: AND
         groups:
           1: AND
-          2: OR
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -764,105 +733,47 @@ display:
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_from'
         - 'config:field.storage.node.field_newstype'
-  block_1:
-    display_plugin: block
-    id: block_1
-    display_title: Block
-    position: 2
+  rest_export_1:
+    display_plugin: rest_export
+    id: rest_export_1
+    display_title: 'News at work bulletin REST'
+    position: 3
     display_options:
       display_extenders:
         metatag_display_extender: {  }
-      block_description: Block_news@work
-    cache_metadata:
-      max-age: 0
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url.query_args
-        - 'user.node_grants:view'
-        - user.permissions
-      tags:
-        - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_from'
-        - 'config:field.storage.node.field_newstype'
-  page_1:
-    display_plugin: page
-    id: page_1
-    display_title: 'News At Work Bulletin'
-    position: 1
-    display_options:
-      display_extenders:
-        metatag_display_extender: {  }
-      path: news-at-work-bulletin
-      display_description: ''
-      menu:
-        type: normal
-        title: 'News At Work Bulletin'
-        description: ''
-        expanded: false
-        parent: 'menu_link_content:38b6946e-a734-4c03-b440-6db4e1622954'
-        weight: 0
-        context: '0'
-        menu_name: main
-      relationships:
-        term_node_tid_1:
-          id: term_node_tid_1
-          table: node_field_data
-          field: term_node_tid
-          relationship: none
-          group_type: group
-          admin_label: term
-          required: false
-          vids:
-            - news_type
-          entity_type: node
-          plugin_id: node_term_data
-      defaults:
-        relationships: false
-        sorts: false
-        query: false
-      sorts:
-        weight:
-          id: weight
-          table: taxonomy_term_field_data
-          field: weight
-          relationship: term_node_tid_1
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-          entity_type: taxonomy_term
-          entity_field: weight
-          plugin_id: standard
-        field_modified_value:
-          id: field_modified_value
-          table: node__field_modified
-          field: field_modified_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-          granularity: second
-          plugin_id: datetime
-      query:
-        type: views_query
+        jsonapi_views:
+          enabled: true
+      path: rest/views/news-bulletin-rest
+      row:
+        type: data_field
         options:
-          disable_sql_rewrite: false
-          distinct: true
-          replica: false
-          query_comment: ''
-          query_tags: {  }
+          field_options:
+            title:
+              alias: ''
+              raw_output: true
+            field_from:
+              alias: ''
+              raw_output: true
+            body:
+              alias: ''
+              raw_output: false
+      style:
+        type: serializer
+        options:
+          formats:
+            json: json
+      display_description: ''
+      pager:
+        type: some
+        options:
+          items_per_page: 20
+          offset: 0
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url.query_args
+        - request_format
         - 'user.node_grants:view'
         - user.permissions
       tags:
