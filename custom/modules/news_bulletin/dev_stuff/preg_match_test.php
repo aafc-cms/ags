@@ -1,4 +1,5 @@
 <?php
+/* https://regex101.com/codegen?language=php */
 $re = '/<drupal-media.*\B<\/drupal-media>/m';
 $str = '
 <ul>
