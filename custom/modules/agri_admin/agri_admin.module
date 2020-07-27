@@ -270,12 +270,12 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
   $current_user_id = $current_user->id();
   $roles = $current_user->getRoles();
   $authored_on = $entity->getCreatedTime();
-  $peer_review_status = $entity->get('field_peer_review')->getString();
-  AgriAdminHelper::addToLog($peer_review_status, TRUE);
-
+//  $peer_review_status = $entity->get('field_peer_review')->getString();
+//  AgriAdminHelper::addToLog($peer_review_status, TRUE);
+/*
   foreach ($roles as $value) {
     $role = $value;
-    if (($role == 'creator' && $peer_review_status != 'peer_reviewed') || $role == 'news_ccpub' || $role == 'empl_cspub') {
+    if (($role == 'creator' &&  empty($peer_review_status)) || $role == 'news_ccpub' || $role == 'empl_cspub') {
       //AgriAdminHelper::addToLog('presave called for ' . $entity->language()->getId() . ' ' . $entity->id(), TRUE);
       $langcode = $entity->language()->getId();
       if ($langcode == 'en') {
@@ -288,10 +288,11 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
       $entity->set('created', time());
     }
   }
-
+ */
   $content_type = $entity->bundle();
 
   if ($content_type == 'page' || $content_type == 'landing_page') {
+    $peer_review_status = $entity->get('field_peer_review')->getString();      
     $changed_time = $entity->getChangedTime();
     $debug_message = 'Node id: '.$entity_id.'; Changed: '.$changed_time;
     $date_issued = $entity->get('field_issued')->getString();
@@ -317,6 +318,25 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
     }
 //    AgriAdminHelper::addToLog($debug_message, TRUE);
   }
+
+
+
+    foreach ($roles as $value) {
+    $role = $value;
+    if (($role == 'creator' &&  empty($peer_review_status)) || $role == 'news_ccpub' || $role == 'empl_cspub') {
+      //AgriAdminHelper::addToLog('presave called for ' . $entity->language()->getId() . ' ' . $entity->id(), TRUE);
+      $langcode = $entity->language()->getId();
+      if ($langcode == 'en') {
+        $entity->getTranslation('fr')->setOwnerId($current_user_id);
+      }
+      else {
+        $entity->getTranslation('en')->setOwnerId($current_user_id);
+      }
+      $entity->setOwnerId($current_user_id);
+      $entity->set('created', time());
+    }
+  }
+
 }
 
 
