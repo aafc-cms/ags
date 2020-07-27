@@ -116,6 +116,7 @@ class NewsBulletinEmailController extends ControllerBase {
         $custom_results[$id]['summary'] = $summary;
         $custom_results[$id]['from'] = $node->get('field_from')->value;
         $custom_results[$id]['nid'] = $node->id();
+        $custom_results[$id]['image'] = $this->convertBodyToImg($node);
         $custom_results[$id]['title'] = $node->getTitle();
         $custom_results[$id]['weight'] = $termweight;
       }
@@ -125,6 +126,21 @@ class NewsBulletinEmailController extends ControllerBase {
     //AgriAdminHelper::addToLog('<pre>object ' . print_r($custom_results, TRUE) . ' </pre>', TRUE);
     return $custom_results;
   }
+
+  public function convertBodyToImg($node) {
+    $render_array = $node->get('body')->view('full');
+    $html_output = \Drupal::service('renderer')->renderRoot($render_array);
+    $regex_img = '/<img.*\B \/>/m';
+
+    preg_match_all($regex_img, $html_output, $matches, PREG_SET_ORDER, 0);
+    if (isset($matches[0][0])) {
+      return $matches[0][0];
+    }
+    else {
+      return NULL;
+    }
+  }
+
 
   private function sortNewsTypeArrayByArray(array $array, array $orderArray) {
       $ordered = array();
