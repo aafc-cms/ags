@@ -1,11 +1,12 @@
 @import 'global/language';
-@import 'components/breadcrumb';
-@import 'components/menu';
-@import 'pages/moderation-dashboard';
 @import 'global/variables';
-@import 'components/node';
-@import 'components/etuf';/* for side by side etuf css tweaks */
+@import 'components/breadcrumb';
 @import 'components/draft-pending-views';
+@import 'components/etuf';/* for side by side etuf css tweaks */
+@import 'components/menu';
+@import 'components/node';
+@import 'components/views/admin_content.scss';
+@import 'pages/moderation-dashboard';
 
 /* glyphicon-copy fix */
 .glyphicon.glyphicon-copy:before {

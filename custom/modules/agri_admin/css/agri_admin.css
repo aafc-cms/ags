@@ -44,11 +44,77 @@ html[lang="en"] body.path-admin table#menu-overview .french-only {
   color: darkred;
 }
 
+/* Put variables here for colors, fonts, etc */
 /* breadcrumb css/scss/sass here */
 body.path-admin #block-claro-content nav.breadcrumb {
   font-size: 1.3rem;
 }
 
+/**** Components Node for unpublished content *****/
+/* Note that drupal-bootstrap-not-cdn.min.css sets the background-color to #fff4f4 for body.is-unpublished */
+.views-row.published-no {
+  background-color: pink;
+  border: 3px solid hotpink;
+}
+
+.views-row.published-no h1 {
+  background-color: pink;
+  border: 3px solid hotpink;
+}
+
+/* Unpublished revision pending to overwrite the published revision */
+.views-row.published-no.pending-draft {
+  background-color: #FFECA9;
+  border: 3px solid orange;
+}
+
+.views-row.published-no.pending-draft h1 {
+  background-color: #FFECA9;
+  border: 3px solid orange;
+}
+
+@media screen and (min-width: 992px) {
+  body.etuf-sbs.nodeaddnews .layout-region-node-main, body.etuf-sbs.nodeaddnews .layout-region-node-footer {
+    width: auto;
+  }
+
+  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-main .js-form-item.form-item,
+  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-footer .js-form-item.form-item {
+    float: inherit !important;
+    width: auto;
+    margin-right: auto;
+  }
+
+  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-main .js-form-item.form-item:nth-child(even),
+  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-footer .js-form-item.form-item:nth-child(even) {
+    float: inherit !important;
+    width: auto;
+    margin-left: auto;
+  }
+
+  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-main .js-form-item.form-item.form-type--textarea {
+    width: auto;
+  }
+
+  body.etuf-sbs.nodeaddnews .layout-region-node-secondary {
+    width: auto;
+  }
+
+  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-footer .js-form-item.form-item.form-item--moderation-state-0-state,
+  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-footer transitionset {
+    float: inherit !important;
+    width: auto;
+    margin-right: auto;
+  }
+
+  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-footer .js-form-item.form-item.form-item--moderation-state-etuf-fr-0-state,
+  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-footer transitionset:nth-child(even) {
+    float: inherit !important;
+    width: auto;
+    margin-left: auto;
+  }
+}
+/* for side by side etuf css tweaks */
 /* Menu css/sass/scss here */
 body.adminstructuremenumanagemain #menu-disabled-links-form,
 body.adminstructuremenumanagesideb #menu-disabled-links-form {
@@ -79,11 +145,6 @@ body.role-is-reviewer .creator-only {
   display: none;
 }
 
-body[class*=moderationdashboard] nav[aria-label=Tabs] {
-  visibility: hidden;
-}
-
-/* Put variables here for colors, fonts, etc */
 /* This comment shows up in css file */
 body.is-reviewer.node-edit.page-node-type-page #edit-advanced .form-item--menu-weight, body.is-reviewer.node-edit.page-node-type-landing-page #edit-advanced .form-item--menu-weight, body.is-reviewer.nodeaddpage #edit-advanced .form-item--menu-weight, body.is-reviewer.nodeaddlanding_page #edit-advanced .form-item--menu-weight,
 body.is-creator.node-edit.page-node-type-page #edit-advanced .form-item--menu-weight,
@@ -262,69 +323,22 @@ body.node-edit .form-item--menu-menu-parent .menu_tree-leve-6 {
   font-size: 16px;
 }
 
-@media screen and (min-width: 992px) {
-  body.etuf-sbs.nodeaddnews .layout-region-node-main, body.etuf-sbs.nodeaddnews .layout-region-node-footer {
-    width: auto;
-  }
-
-  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-main .js-form-item.form-item,
-  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-footer .js-form-item.form-item {
-    float: inherit !important;
-    width: auto;
-    margin-right: auto;
-  }
-
-  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-main .js-form-item.form-item:nth-child(even),
-  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-footer .js-form-item.form-item:nth-child(even) {
-    float: inherit !important;
-    width: auto;
-    margin-left: auto;
-  }
-
-  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-main .js-form-item.form-item.form-type--textarea {
-    width: auto;
-  }
-
-  body.etuf-sbs.nodeaddnews .layout-region-node-secondary {
-    width: auto;
-  }
-
-  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-footer .js-form-item.form-item.form-item--moderation-state-0-state,
-  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-footer transitionset {
-    float: inherit !important;
-    width: auto;
-    margin-right: auto;
-  }
-
-  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-footer .js-form-item.form-item.form-item--moderation-state-etuf-fr-0-state,
-  body.etuf-sbs.nodeaddnews.path-node .layout-region-node-footer transitionset:nth-child(even) {
-    float: inherit !important;
-    width: auto;
-    margin-left: auto;
-  }
+body.path-admin .view-content .form-item--field-tracking-number-value,
+body.path-admin .view-content .form-item--type,
+body.path-admin .view-content .form-item--name {
+  max-width: 200px;
 }
-/* for side by side etuf css tweaks */
-/**** Components Node for unpublished content *****/
-/* Note that drupal-bootstrap-not-cdn.min.css sets the background-color to #fff4f4 for body.is-unpublished */
-.views-row.published-no {
-  background-color: pink;
-  border: 3px solid hotpink;
+body.path-admin .view-content .form-item--nid {
+  max-width: 100px;
+}
+body.path-admin .view-content .form-item--field-subject-target-id,
+body.path-admin .view-content .form-item--field-meta-type-target-id,
+body.path-admin .view-content .form-item--field-newstype-target-id {
+  max-width: 250px;
 }
 
-.views-row.published-no h1 {
-  background-color: pink;
-  border: 3px solid hotpink;
-}
-
-/* Unpublished revision pending to overwrite the published revision */
-.views-row.published-no.pending-draft {
-  background-color: #FFECA9;
-  border: 3px solid orange;
-}
-
-.views-row.published-no.pending-draft h1 {
-  background-color: #FFECA9;
-  border: 3px solid orange;
+body[class*=moderationdashboard] nav[aria-label=Tabs] {
+  visibility: hidden;
 }
 
 /* glyphicon-copy fix */
