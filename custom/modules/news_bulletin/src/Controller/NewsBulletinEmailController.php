@@ -116,6 +116,7 @@ class NewsBulletinEmailController extends ControllerBase {
         $custom_results[$id]['summary'] = $summary;
         $custom_results[$id]['from'] = $node->get('field_from')->value;
         $custom_results[$id]['nid'] = $node->id();
+        $custom_results[$id]['href'] = $this->getUrlForNode($node);
         $custom_results[$id]['image'] = $this->convertBodyToImg($node);
         $custom_results[$id]['title'] = $node->getTitle();
         $custom_results[$id]['weight'] = $termweight;
@@ -127,6 +128,17 @@ class NewsBulletinEmailController extends ControllerBase {
     return $custom_results;
   }
 
+  public function getUrlForNode($node) {
+    $http_host = \Drupal::request()->getSchemeAndHttpHost();
+    $relative = \Drupal::service('path.alias_storage')->load(['source' => '/node/' . $node->id()]);
+    if (isset($relative['alias'])) {
+      $url = $http_host . $relative['alias'];
+    }
+    else {
+      $url = $http_host . '/node/' . $node->id();
+    }
+    return $url;
+  }
   public function convertBodyToImg($node) {
     $render_array = $node->get('body')->view('full');
     $html_output = \Drupal::service('renderer')->renderRoot($render_array);
