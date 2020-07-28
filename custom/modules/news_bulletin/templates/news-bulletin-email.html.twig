@@ -31,28 +31,22 @@
 
 <div id="news-bulletin-list" class="news-bulletin-test col-xs-12">
 {% for wkey, valuetype in types_by_weight %}
-  {% if valuetype.has_items %}
-    {% set open_close = 'open' %}
-  {% else %}
-    {% set open_close = 'close' %}
-  {% endif %}
-  <div class="news-type type-{{ valuetype.first_word }} col-xs-12" data-attribute-group="{{ valuetype.tid }}">
+  <div class="news-type type-{{ valuetype.first_word }} news-type-id-{{ valuetype.tid }} col-xs-12" data-attribute-group="{{ valuetype.tid }}">
     <div class="news-group-title">{{ valuetype.name }}</div>
   </div>
-  {% if open_close == 'open' %}
-    {% for nkey, newsitem in news_items %}
+  {% for nkey, newsitem in news_items %}
     {% if valuetype.tid == newsitem.term_id %}
-    <div class="tile type-{{ valuetype.first_word }}  col-xs-11 col-md-offset-1">
+    <div class="tile news-type-id-{{ valuetype.tid }}  col-xs-11 col-md-offset-1">
       <div class="content type-{{ newsitem.first_word }}" data-nid="{{ newsitem.nid }}" data-group-current="{{ newsitem.term_id }}" data-group-orig="{{ newsitem.term_id }}">
         <div class="cell news-title"><a href="{{ newsitem.href }}">{{ newsitem.title }}</a></div>
         <div class="cell from">{{ newsitem.from }}</div>
-        <div class="cell summary">{{ newsitem.summary }}</div>
         <div class="cell image">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}</div>
+        <div class="cell summary">{{ newsitem.summary }}</div>
       </div>
+      <div class="splitter"></div>
     </div>
     {% endif %}
-    {% endfor %}
-  {% endif %}
+  {% endfor %}
 {% endfor %}
   <!--<div class="row pagination">
     <a class="hidden bulletin-pager" href="#">
@@ -156,28 +150,22 @@
 
 <div id="news-bulletin-list" class="news-bulletin-test col-xs-12">
 {% for wkey, valuetype in types_by_weight_fr %}
-  {% if valuetype.has_items %}
-    {% set open_close = 'open' %}
-  {% else %}
-    {% set open_close = 'close' %}
-  {% endif %}
-  <div class="news-type type-{{ valuetype.first_word }} col-xs-12" data-attribute-group="{{ valuetype.tid }}">
+  <div class="news-type type-{{ valuetype.first_word }} news-type-id-{{ valuetype.tid }} col-xs-12" data-attribute-group="{{ valuetype.tid }}">
     <div class="news-group-title">{{ valuetype.name }}</div>
   </div>
-  {% if open_close == 'open' %}
-    {% for nkey, newsitem in news_items_fr %}
+  {% for nkey, newsitem in news_items_fr %}
     {% if valuetype.tid == newsitem.term_id %}
-    <div class="tile col-xs-11 col-md-offset-1">
-      <div class="content type-{{ newsitem.first_word }}" data-nid="{{ newsitem.nid }}" data-group-current="{{ newsitem.term_id }}" data-group-orig="{{ newsitem.term_id }}">
+    <div class="tile news-type-id-{{ valuetype.tid }}  col-xs-11 col-md-offset-1">
+      <div class="content news-type-id-{{ valuetype.tid  }}" data-nid="{{ newsitem.nid }}" data-group-current="{{ newsitem.term_id }}" data-group-orig="{{ newsitem.term_id }}">
         <div class="cell news-title"><a href="{{ newsitem.href }}">{{ newsitem.title }}</a></div>
         <div class="cell from">{{ newsitem.from }}</div>
-        <div class="cell summary">{{ newsitem.summary }}</div>
         <div class="cell image">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}</div>
+        <div class="cell summary">{{ newsitem.summary }}</div>
       </div>
+      <div class="splitter"></div>
     </div>
     {% endif %}
-    {% endfor %}
-  {% endif %}
+  {% endfor %}
 {% endfor %}
   <!--<div class="row pagination">
     <a class="hidden bulletin-pager" href="#">
