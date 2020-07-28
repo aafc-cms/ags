@@ -712,3 +712,195 @@ function agri_admin_preprocess_breadcrumb(&$variables) {
   }
 }
 
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+
+function agri_admin_preprocess_field_multiple_value_form(&$vars) {
+  if (!\Drupal::currentUser()->isAnonymous()) { return; }
+  // Anonymous only logic below.
+
+  // Remove weight option for multivalue fields.
+  if (isset($vars['table']['#tabledrag'])) {
+    unset($vars['table']['#tabledrag']);
+    array_pop($vars['table']['#header']);
+    foreach ($vars['table']['#rows'] as &$row) {
+      foreach ($row['data'] as $key => $rowrowdata) {
+        if (!$rowrowdata['data']) {
+          unset($row['data'][$key]);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_fieldset_HOOK().
+ */
+
+function agri_admin_preprocess_fieldset(&$variables) {
+  unset($variables['attributes']['required']);
+  unset($variables['attributes']['aria-required']);
+  unset($variables['attributes']['aria-invalid']);
+}
+
+/**
+ * Implements hook_preprocess_select_HOOK().
+ */
+
+function agri_admin_preprocess_select(&$variables) {
+  if (!isset($variables['element']['#field_name'])) { return; }
+  if (\Drupal::currentUser()->isAnonymous()) {
+    if ($variables['element']['#field_name']) {
+      if ($variables['element']['#field_name']== 'field_newstype') {
+        $variables['attributes']['size'] = 1;
+      }
+
+      if ($variables['element']['#field_name']== 'field_to') {
+        $variables['attributes']['size'] = 1;
+      } 
+
+      if ($variables['element']['#field_name']== 'field_branch') {
+        $variables['attributes']['size'] = 1;
+      }
+
+      if ($variables['element']['#field_name']== 'field_class_id') {
+        $variables['attributes']['size'] = 1;
+      }
+  
+      if ($variables['element']['#field_name']== 'field_class_sub') {
+        $variables['attributes']['size'] = 1;
+      } 
+  
+      if ($variables['element']['#field_name']== 'field_class_level') {
+        $variables['attributes']['size'] = 1;
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_form_element_label_HOOK().
+ */
+
+function agri_admin_preprocess_form_element_label(&$variables) {
+  if (\Drupal::currentUser()->isAnonymous()) {
+    if ($variables['attributes']['for']) { 
+      if ($variables['attributes']['for'] == 'edit-advanced' ) {
+        // This squelches w3c error for label that has no element.
+        // Since we have removed edit-advanced section we also adjust its label.
+        unset($variables['element']);
+        unset($variables['attributes']['for']);
+        unset($variables['attributes']['class']);
+        $variables['attributes']['class'] = 'sr-only';
+      }  
+    }
+  }
+}
+
+/**
+ * Implements hook_content_moderation_notification_mail_data_alter().
+ */
+function agri_admin_content_moderation_notification_mail_data_alter(Drupal\Core\Entity\EntityInterface $entity, array &$data) {
+  $entitiyLang = $entity->get('langcode')->value;
+  //avoid sending two emails for the same entity (en and fr) since the French information will be included in the English email
+  if ($entitiyLang == 'en'){
+    $currentModState = $entity->get('moderation_state')->getString();
+    $nType = $entity->bundle();
+    if ($nType == 'news'){
+      if ($currentModState == 'draft'){
+        $newsSubmitterEmail = $entity->get('field_newssubmitteremail')->value;
+        //TODO - replace deepaniw@hotmail.com with aafc.newsatwork-nouvellesalouvrage.aac@canada.ca and ccpub group
+        $data['to'] = ['deepaniw@hotmail.com', $newsSubmitterEmail];
+      }
+      else {
+        $data['to'] = [];
+      }      
+    }
+    elseif ($nType == 'empl'){
+      if ($currentModState == 'draft'){
+        $emplSubmitterEmail = $entity->get('field_employmentrequestoremail')->value;
+        //TODO - replace deepaniw@hotmail.com with aafc.hrcentrerh.aac@canada.ca and cspub group
+        $data['to'] = ['deepaniw@hotmail.com', $emplSubmitterEmail];
+        $emplMessage = "<p>Le français suit</p>
+                        <p>Your request ". "\""."[agri-admin:title]" ."\"". " has been submitted and will be processed for publication on AgriSource by Human Resources within 2 working days.</p>" .
+                        "<p>To preview this opportunity, visit:&nbsp; [agri-admin:url]</p>" . 
+                        "<p>If you have any questions or concerns, please contact your&nbsp;<a data-auth='NotApplicable' 
+                        href='http://intranet.agr.gc.ca/agrisourceprev/AgriDoc.do?id=1548432&amp;lang=eng' rel='noopener noreferrer' 
+                        target='_blank'>Human Resource Advisor, Staffing.</a>
+                        <hr />
+                        <p>Votre demande relative à la possibilité d'emploi «&nbsp;[agri-admin:translation-title]&nbsp;» a été présentée et sera traitée aux fins de publication dans AgriSource par les Ressources humaines dans les deux jours ouvrables.</p>
+                        <p>Pour voir un aperçu de cette possibilité, consultez&nbsp;:&nbsp; [agri-admin:translation-url]</p>" .
+                        "<p>Pour toute question ou préoccupation, veuillez communiquer avec votre&nbsp;<a data-auth='NotApplicable' 
+                        href='http://intranet.agr.gc.ca/agrisourceprev/AgriDoc.do?id=1548428&amp;lang=fra' rel='noopener noreferrer'
+                        target='_blank'>conseiller(ère) en ressources humaines responsable de la dotation.</a>";
+                          
+        $data['params']['subject'] = "Your employment opportunity " . "\"" . "[node:title]" . "\"" ." request has been submitted / Votre demande relative à la possibilité d'emploi «&nbsp;[agri-admin:translation-title]&nbsp;» a été présentée.";
+        $data['params']['message'] = check_markup($emplMessage, 'full_html');
+      }
+      else {
+        $data['to'] = [];
+      }      
+    }
+    //For basic and landing page CT, default email list will be used when publishing happens and no emails will be sent when drafts are created
+    else {
+      if ($currentModState == 'draft'){
+        $data['to'] = [];
+      }      
+    }
+  }
+  if ($entitiyLang == 'fr'){
+    $data['to'] = [];
+  }
+}
+
+/**
+ * Implements hook_token_info().
+ */
+function agri_admin_token_info() {
+  $info = [];
+  $info['types']['agri-admin'] = ['name' => t('Custom Group'), 'description' => t('Custom Group to use in content moderation notification emails')];
+  $info['tokens']['agri-admin']['translation-title'][] = 'A token to extract the translated node title';
+  $info['tokens']['agri-admin']['translation-url'][] = 'A token to extract the translated URL';
+  $info['tokens']['agri-admin']['title'][] = 'A token to extract the current title for news and employment opportunity when using submission form';
+  $info['tokens']['agri-admin']['url'][] = 'A token to extract the current URL for news and employment opportunity when using submission form';
+  return $info;
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function  agri_admin_tokens($type, $tokens, array $data, array $options, \Drupal\Core\Render\BubbleableMetadata $bubbleable_metadata) {
+  $replacements = [];
+  if(isset($data['entity'])){
+    $entity = $data['entity'];
+    if ($entity instanceof \Drupal\node\NodeInterface) {
+      $translated_entity = $entity->getTranslation('fr');
+      $translated_title = $translated_entity->getTitle();
+      $translated_url = $translated_entity->toLink()->toString();
+      $current_title = $entity->getTitle();
+      $current_url = $entity->toLink()->toString();      
+      if ($type == 'agri-admin') {
+        foreach ($tokens as $name => $original) {
+          // Find the desired token by name.
+          switch ($name) {
+            case 'translation-title':
+              $replacements[$original] = $translated_title;
+              break;
+            case 'translation-url':
+              $replacements[$original] = $translated_url;
+              break;
+            case 'title':
+              $replacements[$original] = $current_title;
+              break;
+            case 'url':
+              $replacements[$original] = $current_url;
+              break;
+          }
+        }
+      }
+    }
+  }
+  return $replacements;
+}
