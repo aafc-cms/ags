@@ -116,7 +116,7 @@ class NewsBulletinEmailController extends ControllerBase {
         $custom_results[$id]['summary'] = $summary;
         $custom_results[$id]['from'] = $node->get('field_from')->value;
         $custom_results[$id]['nid'] = $node->id();
-        $custom_results[$id]['href'] = $this->getUrlForNode($node);
+        $custom_results[$id]['href'] = $this->getUrlForNode($node, $lang);
         $custom_results[$id]['image'] = $this->convertBodyToImg($node);
         $custom_results[$id]['title'] = $node->getTitle();
         $custom_results[$id]['weight'] = $termweight;
@@ -128,9 +128,9 @@ class NewsBulletinEmailController extends ControllerBase {
     return $custom_results;
   }
 
-  public function getUrlForNode($node) {
+  public function getUrlForNode($node, $lang) {
     $http_host = \Drupal::request()->getSchemeAndHttpHost();
-    $relative = \Drupal::service('path.alias_storage')->load(['source' => '/node/' . $node->id()]);
+    $relative = \Drupal::service('path.alias_storage')->load(['source' => '/node/' . $node->id(), 'langcode' => $lang]);
     if (isset($relative['alias'])) {
       $url = $http_host . $relative['alias'];
     }
