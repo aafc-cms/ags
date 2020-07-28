@@ -270,25 +270,6 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
   $current_user_id = $current_user->id();
   $roles = $current_user->getRoles();
   $authored_on = $entity->getCreatedTime();
-//  $peer_review_status = $entity->get('field_peer_review')->getString();
-//  AgriAdminHelper::addToLog($peer_review_status, TRUE);
-/*
-  foreach ($roles as $value) {
-    $role = $value;
-    if (($role == 'creator' &&  empty($peer_review_status)) || $role == 'news_ccpub' || $role == 'empl_cspub') {
-      //AgriAdminHelper::addToLog('presave called for ' . $entity->language()->getId() . ' ' . $entity->id(), TRUE);
-      $langcode = $entity->language()->getId();
-      if ($langcode == 'en') {
-        $entity->getTranslation('fr')->setOwnerId($current_user_id);
-      }
-      else {
-        $entity->getTranslation('en')->setOwnerId($current_user_id);
-      }
-      $entity->setOwnerId($current_user_id);
-      $entity->set('created', time());
-    }
-  }
- */
   $content_type = $entity->bundle();
 
   if ($content_type == 'page' || $content_type == 'landing_page') {
@@ -313,18 +294,18 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
       else {
         $entity->set('field_modified', $dt->format('Y-m-d'));
       }
+    }
 
+    if ($moderation_state == 'published' || $moderation_state == 'archived') {
       $entity->set('field_peer_review', '');
     }
 //    AgriAdminHelper::addToLog($debug_message, TRUE);
   }
 
-
-
-    foreach ($roles as $value) {
+  foreach ($roles as $value) {
     $role = $value;
     if (($role == 'creator' &&  empty($peer_review_status)) || $role == 'news_ccpub' || $role == 'empl_cspub') {
-      //AgriAdminHelper::addToLog('presave called for ' . $entity->language()->getId() . ' ' . $entity->id(), TRUE);
+//AgriAdminHelper::addToLog('presave called for ' . $entity->language()->getId() . ' ' . $entity->id(), TRUE);
       $langcode = $entity->language()->getId();
       if ($langcode == 'en') {
         $entity->getTranslation('fr')->setOwnerId($current_user_id);
@@ -503,7 +484,8 @@ function agri_admin_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInte
 
     $moderation_state = $entity->moderation_state->value;
 
-    if ($moderation_state == 'published') {
+    if ($moderation_state == 'published' || $moderation_state == 'archived') {
+      $form['field_peer_review']['#disabled'] = TRUE;
       $form['field_tracking_number']['widget'][0]['value']['#default_value'] = '';
     }
   }
