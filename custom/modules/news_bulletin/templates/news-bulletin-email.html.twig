@@ -36,18 +36,18 @@
   {% else %}
     {% set open_close = 'close' %}
   {% endif %}
-  <div class="news-type news-bulletin-move glyphicon glyphicon-folder-{{ open_close }} type-{{ valuetype.first_word }} col-xs-12" data-attribute-group="{{ valuetype.tid }}">
+  <div class="news-type type-{{ valuetype.first_word }} col-xs-12" data-attribute-group="{{ valuetype.tid }}">
     <div class="news-group-title">{{ valuetype.name }}</div>
   </div>
   {% if open_close == 'open' %}
     {% for nkey, newsitem in news_items %}
     {% if valuetype.tid == newsitem.term_id %}
-    <div class="glyphicon glyphicon-move news-bulletin-move tile col-xs-11 col-md-offset-1">
+    <div class="tile col-xs-11 col-md-offset-1">
       <div class="content type-{{ newsitem.first_word }}" data-nid="{{ newsitem.nid }}" data-group-current="{{ newsitem.term_id }}" data-group-orig="{{ newsitem.term_id }}">
         <div class="cell news-title">{{ newsitem.title }}</div>
         <div class="cell from">{{ newsitem.from }}</div>
-        <div class="cell image">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}</div>
         <div class="cell summary">{{ newsitem.summary }}</div>
+        <div class="cell image">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}</div>
       </div>
     </div>
     {% endif %}
@@ -161,17 +161,18 @@
   {% else %}
     {% set open_close = 'close' %}
   {% endif %}
-  <div class="news-type news-bulletin-move glyphicon glyphicon-folder-{{ open_close }} type-{{ valuetype.first_word }} col-xs-12" data-attribute-group="{{ valuetype.tid }}">
+  <div class="news-type type-{{ valuetype.first_word }} col-xs-12" data-attribute-group="{{ valuetype.tid }}">
     <div class="news-group-title">{{ valuetype.name }}</div>
   </div>
   {% if open_close == 'open' %}
     {% for nkey, newsitem in news_items_fr %}
     {% if valuetype.tid == newsitem.term_id %}
-    <div class="glyphicon glyphicon-move news-bulletin-move tile col-xs-11 col-md-offset-1">
+    <div class="tile col-xs-11 col-md-offset-1">
       <div class="content type-{{ newsitem.first_word }}" data-nid="{{ newsitem.nid }}" data-group-current="{{ newsitem.term_id }}" data-group-orig="{{ newsitem.term_id }}">
         <div class="cell news-title">{{ newsitem.title }}</div>
         <div class="cell from">{{ newsitem.from }}</div>
         <div class="cell summary">{{ newsitem.summary }}</div>
+        <div class="cell image">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}</div>
       </div>
     </div>
     {% endif %}
