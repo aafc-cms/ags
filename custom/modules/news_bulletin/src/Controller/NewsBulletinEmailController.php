@@ -128,14 +128,14 @@ class NewsBulletinEmailController extends ControllerBase {
     return $custom_results;
   }
 
-  public function getUrlForNode($node, $lang) {
+  public function getUrlForNode($node, $lang = 'en') {
     $http_host = \Drupal::request()->getSchemeAndHttpHost();
     $relative = \Drupal::service('path.alias_storage')->load(['source' => '/node/' . $node->id(), 'langcode' => $lang]);
     if (isset($relative['alias'])) {
-      $url = $http_host . $relative['alias'];
+      $url = $http_host . '/' . $lang . $relative['alias'];
     }
     else {
-      $url = $http_host . '/node/' . $node->id();
+      $url = $http_host . '/' . $lang . '/node/' . $node->id();
     }
     return $url;
   }
