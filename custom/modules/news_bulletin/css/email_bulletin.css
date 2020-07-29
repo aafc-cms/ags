@@ -236,6 +236,13 @@ body.newsbulletinemail div#news-bulletin-list  a {
   font-size: 17px;
 }
 
+body.newsbulletinemail div#news-bulletin-list div.cell.image image {
+  height: 100%;
+  max-width: 100%;
+  display: block;
+  margin: auto;
+}
+
 body.newsbulletinemail div#news-bulletin-list div.cell.title,
 body.newsbulletinemail div#news-bulletin-list div.cell.summary,
 body.newsbulletinemail div#news-bulletin-list div.cell.image {
