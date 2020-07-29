@@ -112,13 +112,13 @@ thead .tb-news-group-title {
 
 table .glyphicon-move::before {
   position: absolute;
-  left: 100px;
-  top: 12px;
+  left: 75px;
+  top: -5px;
   color: darkgreen;
   cursor: ns-resize;
-  font-size: x-large;
-  visibility: hidden;/*disable*/
+  font-size: large;
 }
+
 table .glyphicon-folder-open::before {
   cursor: ns-resize;
 }
@@ -155,6 +155,11 @@ table.table thead:first-child th:nth-child(3),
   border-right: 1px solid #c5c5c5;
   vertical-align: middle;
   font-size: medium;
+}
+
+table.table tbody thead {
+  display: none !important;
+  visibility: hidden !important;
 }
 
 .newsatworkbulletin .table thead .tb-news-group-title {
@@ -221,6 +226,10 @@ tr .ajax-progress-throbber .throbber {
   position: absolute;
   top: -47px;
   left: 260px;
+}
+
+body.newsatworkbulletin th.tb-news-group-title {
+  max-width: 80px;
 }
 
 body.newsatworkbulletin .table > thead > tr > th,

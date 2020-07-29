@@ -21,8 +21,8 @@
   {% if open_close == 'open' %}
   <thead class="news-group type-{{ valuetype.first_word }}" data-attribute-group="{{ valuetype.tid }}">
   <tr class="news-type-header-row">
-    <th class="glyphicon glyphicon-folder-{{ open_close }}"></th>
-    <th class="tb-news-group-title">{{ valuetype.name }}</th>
+    <th data-toggle="tooltip" title="{{ valuetype.name }}" data-placement="top" class="glyphicon glyphicon-folder-{{ open_close }}"></th>
+    <th data-toggle="tooltip" title="{{ valuetype.name }}" data-placement="top" class="tb-news-group-title">{{ valuetype.nameshort }}</th>
     <th></th>
     <th class="th-title">Title</th>
     <th class="th-from">from</th>

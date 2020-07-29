@@ -4,7 +4,7 @@
       logCall(arguments.callee.name.toString());
       //logCall('Drupal.behaviors.newsbulletin attach');
       if (context === document) {
-        logCall('Drupal.behaviors.newsbulletin attach context === document');
+        console.log('Drupal.behaviors.newsbulletin attach context === document');
         NewsBulletin.init(); // Initialize only when context === document.
         //below is for the demo.
       } else {
@@ -34,13 +34,18 @@ function logCall(funcName, force) {
  */
 var NewsBulletin = function() {
   var newTab = null;  // Reference to new tab window.
+  var nidCount = 0;
   var nodeCount = 0;
+  var tempNid = null;
   var tempTid = null;
+  var movedNidItem = null;
+  var movedNidNodeName = null;
   var movedItem = null;        // movedItem (Draggable)
   var movedItemNodeName = null;        // movedItem (Draggable)
   var movedItemTid = null;     // movedItem (Draggable) tid (term id) .
   var newsNids = [];
   var newsTypeArray = [];
+  var tidsArray = [];
   var newsbulletin = {
     initialized: false,     // Flag to indicate that this class has been initialized
     lang: 'en',             // language that the content is in
@@ -62,67 +67,62 @@ var NewsBulletin = function() {
       Sortable.create(element, {
         group: "sorting",
         sort: true,
-        filter: 'tbody',
+        //handle: "thead",
+        filter: 'tbody, td',
+        emptyInsertThreshold: 1,
         direction: 'vertical',
         // Element dragging started
         onStart: function (/**Event*/evt) {
-          logCall(arguments.callee.name.toString());
-          //evt.oldIndex;  // element index within parent
-          NewsBulletin.newsTypeArray = []; // Reset the array, important!
-          NewsBulletin.newsNids = []; // Reset the array, important!
+          var movedItem = evt.item;
+          if (movedItem.nodeName == 'THEAD') {
+            console.log('NewsTypesSortable ' + arguments.callee.name.toString());
+            //evt.oldIndex;  // element index within parent
+            NewsBulletin.newsTypeArray = []; // Reset the array, important!
+            NewsBulletin.newsNids = []; // Reset the array, important!
+          }
         },
         onSort: function(evt) {
-          logCall(arguments.callee.name.toString());
           var movedItem = evt.item;
-          NewsBulletin.movedItem = movedItem;
-          NewsBulletin.movedItemNodeName = NewsBulletin.movedItem.nodeName;
-          NewsBulletin.movedItemTid = jQuery(movedItem).attr('data-attribute-group');
-          console.log('movedItemTid ' + NewsBulletin.movedItemTid);
-          var tempItem = jQuery('table tbody.has-row-data').each(function(index, element) {
-            if (jQuery(element).attr('data-attribute-group') == NewsBulletin.movedItemTid) {
-              if (NewsBulletin.movedItemNodeName == 'THEAD') {
-                jQuery(element).detach().insertAfter(NewsBulletin.movedItem);
+          if (movedItem.nodeName == 'THEAD') {
+            NewsBulletin.movedItem = movedItem;
+            NewsBulletin.movedItemNodeName = NewsBulletin.movedItem.nodeName;
+            console.log('NewsTypesSortable ' + arguments.callee.name.toString());
+            NewsBulletin.movedItemTid = jQuery(movedItem).attr('data-attribute-group');
+            console.log('movedItemTid ' + NewsBulletin.movedItemTid);
+            if (jQuery(NewsBulletin.movedItem).parent().nodeName == 'TBODY') {
+              //jQuery(NewsBulletin.movedItem).detach().insertAfter(jQuery(NewsBulletin.movedItem).parent());
+            }
+            var tempItem = jQuery('table tbody.has-row-data').each(function(index, element) {
+              if (jQuery(element).attr('data-attribute-group') == NewsBulletin.movedItemTid) {
+                if (NewsBulletin.movedItemNodeName == 'THEAD') {
+                  jQuery(element).detach().insertAfter(NewsBulletin.movedItem);
+                }
+                console.log('item that was moved is found , the tid=' + NewsBulletin.movedItemTid);
               }
-              console.log('item that was moved is found , the tid=' + NewsBulletin.movedItemTid);
-            }
-            else {
-              // Workaround for a glitch where the other tbody elements are in the wrong order.
-              var tid_other_group = jQuery(element).attr('data-attribute-group');
-              var other_group_element = jQuery("thead[data-attribute-group='" + tid_other_group + "']");
-              jQuery(element).detach().insertAfter(other_group_element);
-            }
-          });
+              else {
+                // Workaround for a glitch where the other tbody elements are in the wrong order.
+                var tid_other_group = jQuery(element).attr('data-attribute-group');
+                var other_group_element = jQuery("thead[data-attribute-group='" + tid_other_group + "']");
+                jQuery(element).detach().insertAfter(other_group_element);
+              }
+            });
 
-          // Enable the ajax throbber / spinner for show busy. (moved)
-          //$(NewsBulletin.movedItem).after(Drupal.theme.ajaxProgressThrobber(Drupal.t('Updating order of groups, one moment please.')));
-          NewsBulletin.setNewsTypeOrder();
-          console.log('NewsBulletin.newsTypeArray=' + NewsBulletin.newsTypeArray.toString());
+            // Enable the ajax throbber / spinner for show busy. (moved)
+            //$(NewsBulletin.movedItem).after(Drupal.theme.ajaxProgressThrobber(Drupal.t('Updating order of groups, one moment please.')));
+            NewsBulletin.setNewsTypeOrder();
+            console.log('NewsBulletin.newsTypeArray=' + NewsBulletin.newsTypeArray.toString());
+          }
+          else {
+            console.log('movedNodeName =' + NewsBulletin.movedItemNodeName + ' therefore no logic to do here, testing 123');
+          }
         }
       });
     });
-    /*
-    var elementsSortable = jQuery(".news-bulletin-test");
-    jQuery(elementsSortable).each(function(index, element) {
-      Sortable.create(element, {
-        group: "sorting",
-        sort: true,
-        direction: 'vertical'
-      });
-    });*/
-
-/*    var groupsSortable = document.getElementById("news-bulletin-list");//[data-attribute-group]
-    Sortable.create(groupsSortable, {
-      group: "sorting",
-      sort: true,
-      draggable: '.glyphicon-move',
-      direction: 'vertical'
-    });
-*/
+    setupNodeSort();
 
     initWhenReady();
     newsbulletin.initialized = true;
-    return;
-
+    return newsbulletin.initialized;
   }
 
   /**
@@ -130,9 +130,9 @@ var NewsBulletin = function() {
    */
   function initWhenReady() {
     logCall(arguments.callee.name.toString()); // Remove this when finished porting.
-    newsbulletin.lang = $('html').attr('lang');
+    newsbulletin.lang = jQuery('html').attr('lang');
     // Activate the show-more button
-    $('table.table input').each(function(index, element) {
+    jQuery('table.table input').each(function(index, element) {
       jQuery(element).click(function() {
         logCall(arguments.callee.name.toString());
         //$(this).after(Drupal.theme.ajaxProgressThrobber(Drupal.t('Updating selections, one moment please.')));
@@ -141,9 +141,55 @@ var NewsBulletin = function() {
     });
   }
 
+  function setupNodeSort() {
+    tallyTids();
+    var tbodyRowsSortable = jQuery("table tbody").each(function(index, element) {
+      setupSortableNodes(element);
+    });
+  }
+
+  function setupSortableNodes(element, nid) {
+    logCall(arguments.callee.name.toString());
+    //console.log('setupSortableNodes nid=' + nid);
+    Sortable.create(element, {
+      group: "sorting",
+      sort: true,
+      direction: 'vertical',
+      // Element dragging started
+      onStart: function (/**Event*/evt) {
+        logCall('setupSortableNodes ' + arguments.callee.name.toString());
+        //evt.oldIndex;  // element index within parent
+      },
+      onSort: function(evt) {
+        logCall('setupSortableNodes ' + arguments.callee.name.toString());
+        var movedItem = evt.item;
+        console.log('movedItemTid ' + movedItem);
+        var tempTest = jQuery(movedItem).attr('data-attribute-group');
+        console.log('joseph temptest=' + tempTest);
+
+        // Enable the ajax throbber / spinner for show busy. (moved)
+        //$(NewsBulletin.movedItem).after(Drupal.theme.ajaxProgressThrobber(Drupal.t('Updating order of groups, one moment please.')));
+        NewsBulletin.setNewsTypeOrder();
+        console.log('NewsBulletin.newsTypeArray=' + NewsBulletin.newsTypeArray.toString());
+      }
+    });
+  }
+
   function resetForm() {
     jQuery('form#news-bulletin-form-1').removeAttr('data-drupal-form-submit-last');
   }
+
+  function tallyTids() {
+    NewsBulletin.tidsArray = [];
+    //data-attribute-group:
+    jQuery('table.table thead').each(function(index, element) {
+      // Build the array of news type tids, assuming each works in element order on DOM.
+      NewsBulletin.nodeCount = 0;
+      NewsBulletin.tempTid = jQuery(element).attr('data-attribute-group');
+      NewsBulletin.tidsArray.push(NewsBulletin.tempTid);
+    });
+  }
+
 
   function tallySelections() {
     resetForm();
@@ -154,7 +200,7 @@ var NewsBulletin = function() {
       // Build the array of news type tids, assuming each works in element order on DOM.
       NewsBulletin.nodeCount = 0;
       NewsBulletin.tempTid = jQuery(element).attr('data-attribute-group');
-      $('table.table input[type=checkbox]:checked').not(':disabled').each(function(indexOfInputElements, inputElement) {
+      jQuery('table.table input[type=checkbox]:checked').not(':disabled').each(function(indexOfInputElements, inputElement) {
         // Build the array of news type tids, assuming each works in element order on DOM.
         if (NewsBulletin.tempTid == jQuery(inputElement).closest('tr').attr('data-group-current')) {
           NewsBulletin.nodeCount++;
@@ -168,44 +214,29 @@ var NewsBulletin = function() {
     });
 
     logCall(arguments.callee.name.toString()); // Remove this when finished porting.
-    $('table.table input[type=checkbox]:checked').not(':disabled').each(function(index, element) {
+    jQuery('table.table input[type=checkbox]:checked').not(':disabled').each(function(index, element) {
       // Build the array of news type tids, assuming each works in element order on DOM.
       NewsBulletin.newsNids.push(jQuery(element).attr('value'));
     });
-    var enabledNodeCount = $('table.table input[type=checkbox]:checked').not(':disabled').length;
+    var enabledNodeCount = jQuery('table.table input[type=checkbox]:checked').not(':disabled').length;
     console.log('enabled news items = ' + enabledNodeCount);
     console.log('NewsBulletin.newsNids = ' + NewsBulletin.newsNids.join());
     console.log('NewsBulletin.newsTypeArray = ' + NewsBulletin.newsTypeArray.join());
   }
 
-  /**
-   * Display a set of video thumbnails
-   */
-  function displayThumbs() {
-    // Tee up the current item.
-    if (newsbulletin.currentBulletin >= 0 && newsbulletin.bulletinList[newsbulletin.currentBulletin]) {
-      $('.news-bulletin .sidebar').append('<h2>' + newsbulletin.bulletinListt[newsbulletin.currentBulletin].title + '</h2><p>' + newsbulletin.bulletinListt[newsbulletin.currentBulletin].description + '</p>');
-      var bid_id = newsbulletin.bulletinListt[newsbulletin.currentBulletin].id;
-      var ajax_url = (newsbulletin.lang == 'fr' ? '/fr' : '/en') + '/rest/views/news-bulletin-rest';
-      logCall('ajax_url =' + ajax_url);
-      $.ajax({
-        url: ajax_url,
-        type: 'GET',
-        dataType: 'json',
-        success: function(data) {
-        },
-        error: function() {
-        }
-      });
-    }
-  }
 
   /**
    * Set order of news types.
    */
   function setNewsTypeOrder() {
-    $('html, body').css("cursor", "wait");
-    $('body').after(Drupal.theme.ajaxProgressIndicatorFullscreen(Drupal.t('Updating order of groups, one moment please.')));
+    jQuery('html, body').css("cursor", "wait");
+    if (Drupal.theme.ajaxProgressIndicatorFullscreen) {
+      jQuery('body').after(Drupal.theme.ajaxProgressIndicatorFullscreen(Drupal.t('Updating order of groups, one moment please.')));
+    }
+    else {
+      console.log('Where is Drupal.theme.ajaxProgressIndicatorFullscreen ?');
+    }
+
     tallySelections();
     logCall(arguments.callee.name.toString()); // Remove this when finished porting.
 
@@ -230,26 +261,31 @@ var NewsBulletin = function() {
     /*      data: {
             'nids': NewsBulletin.newsNids
           }*/
-    $.ajax({
+    jQuery.ajax({
       url: '/news-at-work-bulletin/set_temp_config' + termsParam + nidsParam,
       type: 'GET',
       success: function(response) {
-        logCall(response);
+        console.log(response);
         // Disable the ajax throbber / spinner for show busy.
-        $('html, body').css("cursor", "auto");
-        $('div.ajax-progress').remove(".ajax-progress-throbber"); // Remove the throbber like this.
-        $('div.ajax-progress').remove(".ajax-progress-fullscreen"); // Remove the throbber like this.
-        $('input').each(function(index,element) {
-          $(element).remove(".ajax-progress-throbber"); // Remove the throbber like this.
+        jQuery('html, body').css("cursor", "auto");
+        jQuery('div.ajax-progress').remove(".ajax-progress-throbber"); // Remove the throbber like this.
+        jQuery('div.ajax-progress').remove(".ajax-progress-fullscreen"); // Remove the throbber like this.
+        jQuery('input').each(function(index,element) {
+          jQuery(element).remove(".ajax-progress-throbber"); // Remove the throbber like this.
         });
       },
       error: function(message) {
-        logCall('ajax error');
-        $('html, body').css("cursor", "auto");
-        $('div.ajax-progress').remove(".ajax-progress-throbber"); // Remove the throbber like this.
-        $('div.ajax-progress').remove(".ajax-progress-fullscreen"); // Remove the throbber like this.
+        console.log('ajax error');
+        jQuery('html, body').css("cursor", "auto");
+        jQuery('div.ajax-progress').remove(".ajax-progress-throbber"); // Remove the throbber like this.
+        jQuery('div.ajax-progress').remove(".ajax-progress-fullscreen"); // Remove the throbber like this.
         //$(NewsBulletin.movedItem).after(Drupal.theme.ajaxProgressMessage(Drupal.t('Error with ajax call in setNewsTypeOrder().')));
-        $('table.table').after(Drupal.theme.ajaxProgressMessage(Drupal.t('Error with ajax call in setNewsTypeOrder().')));
+        if (Drupal.theme.ajaxProgressMessage) {
+          jQuery('table.table').after(Drupal.theme.ajaxProgressMessage(Drupal.t('Error with ajax call in setNewsTypeOrder().')));
+        }
+        else {
+          console.log('Where is Drupal.theme.ajaxProgressMessage()?')
+        }
       }
     });
   }
@@ -263,10 +299,15 @@ var NewsBulletin = function() {
     newsbulletin: newsbulletin,
     newTab: newTab,
     nodeCount: nodeCount,
+    nidCount: nidCount,
+    tempNid: tempNid,
     tempTid: tempTid,
     movedItem: movedItem,
     movedItemTid: movedItemTid,
+    movedNidItem: movedNidItem,
+    movedNidNodeName: movedNidNodeName,
     newsTypeArray: newsTypeArray,
+    tidsArray: tidsArray,
     newsNids: newsNids,
     setNewsTypeOrder: setNewsTypeOrder,
     movedItemNodeName: movedItemNodeName
