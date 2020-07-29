@@ -20,14 +20,14 @@
   {% endif %}
   {% if open_close == 'open' %}
   <thead class="news-group type-{{ valuetype.first_word }}" data-attribute-group="{{ valuetype.tid }}">
-    <tr class="news-type-header-row">
+  <tr class="news-type-header-row">
     <th class="glyphicon glyphicon-folder-{{ open_close }}"></th>
     <th class="tb-news-group-title">{{ valuetype.name }}</th>
     <th></th>
     <th class="th-title">Title</th>
     <th class="th-from">from</th>
     <th class="th-summary">Summary</th>
-    </tr>
+  </tr>
   </thead>
   {% endif %}
   {% set nth_run = 1 %}
