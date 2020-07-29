@@ -3,12 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.field_modified
     - field.storage.node.field_peer_review
     - field.storage.node.field_tracking_number
     - user.role.administrator
   module:
     - content_lock
     - content_moderation
+    - datetime
     - node
     - options
     - user
@@ -32,7 +34,7 @@ display:
           role:
             administrator: administrator
       cache:
-        type: tag
+        type: none
         options: {  }
       query:
         type: views_query
@@ -184,7 +186,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Authored by'
+          label: Author
           exclude: false
           alter:
             alter_text: false
@@ -249,7 +251,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Authored on'
+          label: Authored
           exclude: false
           alter:
             alter_text: false
@@ -447,7 +449,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Revision user'
+          label: Revisor
           exclude: false
           alter:
             alter_text: false
@@ -512,7 +514,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Revision create time'
+          label: Revised
           exclude: false
           alter:
             alter_text: false
@@ -572,6 +574,70 @@ display:
           entity_type: node
           entity_field: revision_timestamp
           plugin_id: field
+        field_modified-revision_id:
+          id: field_modified-revision_id
+          table: node_revision__field_modified
+          field: field_modified-revision_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Date Mod'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: medium
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         moderation_state:
           id: moderation_state
           table: node_field_revision
@@ -579,7 +645,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Moderation state'
+          label: 'Mod state'
           exclude: false
           alter:
             alter_text: false
@@ -1020,7 +1086,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Track Num (Historical)'
+          label: 'Track Num'
           exclude: false
           alter:
             alter_text: false
@@ -1417,6 +1483,7 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
+        - 'config:field.storage.node.field_modified'
         - 'config:field.storage.node.field_peer_review'
         - 'config:field.storage.node.field_tracking_number'
         - 'config:workflow_list'
@@ -1440,6 +1507,7 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
+        - 'config:field.storage.node.field_modified'
         - 'config:field.storage.node.field_peer_review'
         - 'config:field.storage.node.field_tracking_number'
         - 'config:workflow_list'
