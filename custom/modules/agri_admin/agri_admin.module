@@ -491,12 +491,7 @@ function agri_admin_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInte
     } 
     elseif ($moderation_state == 'draft' &&  empty($peer_review_status)) {
       // Do not enable peer reviewed.
-      foreach($form['field_peer_review']['widget']['#options'] as $key => $value) {    
-//      AgriAdminHelper::addToLog('<pre>'. print_r(array_keys($form['field_peer_review']['widget']['#options']), TRUE).'</pre>', TRUE);  
-        if ($key == 'peer_reviewed') {
-          $form['field_peer_review']['widget']['#options_attributes'][$key]['disabled'] = 'disabled';
-        }
-      }
+      $form['field_peer_review']['widget']['#options_attributes']['peer_reviewed']['disabled'] = 'disabled';
     }
   }
 }
