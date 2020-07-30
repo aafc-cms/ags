@@ -208,7 +208,7 @@ class NewsBulletinController extends ControllerBase {
       }
       $word_array = str_word_count($term->name, 1);
       $types_by_weight[$term->weight] = [
-        'nameshort' => substr($term->name, 0, 9),
+        'nameshort' => substr($term->name, 0, 25),
         'name' => $term->name,
         'tid' => $term->tid,
         'first_word' => strtolower($word_array[0])

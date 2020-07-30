@@ -58,10 +58,10 @@ class NewsBulletinEmailController extends ControllerBase {
 //      '#type' => 'markup',
       '#theme' => 'news_bulletin_email',
       '#news_types' => $this->getNewsTypes(),
-      '#news_items' => $this->getNewsItems(),
+      '#news_items' => $this->reOrderNodeWeights(),
       '#types_by_weight' => $this->reOrderTypeWeights(),
       '#news_types_fr' => $this->getNewsTypes('fr'),
-      '#news_items_fr' => $this->getNewsItems('fr'),
+      '#news_items_fr' => $this->reOrderNodeWeights('fr'),
       '#types_by_weight_fr' => $this->reOrderTypeWeights('fr')
 //      '#markup' => $this->t('Hello, World!'),
 //      '#attached' => ['library' => ['email_template/bulletins']] // OR add this through the twig template
@@ -151,6 +151,32 @@ class NewsBulletinEmailController extends ControllerBase {
     else {
       return NULL;
     }
+  }
+
+
+  private function sortNewsNodeArrayByArray(array $array, array $orderArray) {
+    $ordered = array();
+    foreach ($orderArray as $key => $value) {
+      foreach ($array as $innerKey => $innerValue) {
+        if ($array[$innerKey]['nid'] == $value) {
+          $ordered[$key] = $array[$innerKey];
+          unset($array[$innerKey]);
+        }
+      }
+    }
+    //AgriAdminHelper::addToLog('<pre>array ' . print_r($array, TRUE) . ' </pre>', TRUE);
+    //AgriAdminHelper::addToLog('<pre>order ' . print_r($orderArray, TRUE) . ' </pre>', TRUE);
+    return $ordered + $array;
+  }
+
+  public function reOrderNodeWeights($lang = 'en') {
+    $unorderedNodes = $this->getNewsItems($lang);
+    $reorderedNodes = $unorderedNodes; // Safe default values.
+    $orderedNodes = $this->getNewsNids($lang);
+    if (!empty($orderedNodes)) {
+      $reorderedNodes = $this->sortNewsNodeArrayByArray($unorderedNodes, $orderedNodes);
+    }
+    return $reorderedNodes;
   }
 
 
