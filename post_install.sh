@@ -35,6 +35,17 @@ configureSettingsFile () {
     echo "\$settings['hash_salt'] = '$hashsalt';" >> $settings_file;
   fi
 
+  if ! grep -q "STRICT_TRANS_TABLES" $settings_file; then
+    echo "`hostname`" > temptesthostname.txt
+    if ! grep -q "ryzen" temptesthostname.txt; then
+      search_str="    'driver' => 'mysql',"
+      new_db_init="    'driver' => 'mysql',\n    'init_commands' => [\n      'sql_mode' => \"SET sql_mode = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'\",\n    ],"
+      sed -i "s/${search_str}/${new_db_init}/g" $settings_file;
+    else
+      echo "This environment does not need the init_commands";
+    fi
+    rm temptesthostname.txt
+  fi
   if ! grep -q "config_split.config_split.dev" $settings_file; then
     printf "Setting up config_split for the first time.";
     chmod 775 html/sites/default;
