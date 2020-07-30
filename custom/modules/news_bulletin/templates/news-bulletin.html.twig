@@ -39,7 +39,7 @@
     {% for nkey, newsitem in news_items %}
     {% if valuetype.tid == newsitem.term_id %}
     <tr class="drag-this-row value-row type-{{ newsitem.first_word }}" data-nid="{{ newsitem.nid }}" data-group-current="{{ newsitem.term_id }}" data-group-orig="{{ newsitem.term_id }}">
-      <td class="glyphicon glyphicon-move news-bulletin-move bulletin td-spacer"></td>
+      <td class="glyphicon news-bulletin-move bulletin td-spacer"></td>
       <td></td>
       <td>
         <input data-selector="select-node-{{ n_idx }}" checked="checked" type="checkbox" id="edit-select-node-{{ n_idx }}" name="edit_select_node_form[{{ n_idx }}]" value="{{ newsitem.nid }}" class="form-checkbox form-boolean form-boolean--type-checkbox">

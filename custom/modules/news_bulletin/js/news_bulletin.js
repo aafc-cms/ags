@@ -33,16 +33,20 @@ function logCall(funcName, force) {
  * Class to handle the bulletin page.
  */
 var NewsBulletin = function() {
+  var firstResult = true;
   var newTab = null;  // Reference to new tab window.
   var nidCount = 0;
   var nodeCount = 0;
   var tempNid = null;
   var tempTid = null;
+  var sourceRowIdx = null;
+  var destRowIdx = null;
   var movedNidItem = null;
   var movedNidNodeName = null;
   var movedItem = null;        // movedItem (Draggable)
   var movedItemNodeName = null;        // movedItem (Draggable)
   var movedItemTid = null;     // movedItem (Draggable) tid (term id) .
+  var nodeTid = null;
   var newsNids = [];
   var newsTypeArray = [];
   var tidsArray = [];
@@ -144,7 +148,15 @@ var NewsBulletin = function() {
   function setupNodeSort() {
     tallyTids();
     var tbodyRowsSortable = jQuery("table tbody").each(function(index, element) {
-      setupSortableNodes(element);
+      if (jQuery(element).find('tr').length > 1) {
+        // Only initialize the sort IF there's more than one row inside the tbody.
+        jQuery(element).find('td.glyphicon').addClass('glyphicon-move');
+        setupSortableNodes(element);
+      }
+      else {
+        // Remove the move icon , nothing to move here.  For UI experience.
+        jQuery(element).find('td.glyphicon-move').removeClass('glyphicon-move');
+      }
     });
   }
 
@@ -161,11 +173,62 @@ var NewsBulletin = function() {
         //evt.oldIndex;  // element index within parent
       },
       onSort: function(evt) {
-        logCall('setupSortableNodes ' + arguments.callee.name.toString());
-        var movedItem = evt.item;
-        console.log('movedItemTid ' + movedItem);
-        var tempTest = jQuery(movedItem).attr('data-attribute-group');
-        console.log('joseph temptest=' + tempTest);
+        logCall('setupSortableNodes(tr rows) ' + arguments.callee.name.toString());
+        NewsBulletin.movedNidNodeName = evt.item.nodeName;
+        if (NewsBulletin.movedNidNodeName == 'TR') {
+          NewsBulletin.sourceRowIdx = 0; // Reset each time.
+          NewsBulletin.destRowIdx = 0; // Reset each time.
+          NewsBulletin.movedNidItem = evt.item;
+          // Make sure nodes stay in their group but allow order to be correct.
+          NewsBulletin.nodeTid = jQuery(NewsBulletin.movedNidItem).attr('data-group-orig');
+          NewsBulletin.tempNid = jQuery(NewsBulletin.movedNidItem).attr('data-nid');
+          var parentElement = jQuery(NewsBulletin.movedNidItem).parent().first();
+          var parentNodeName = '';
+          if (jQuery(parentElement).get(0)) {
+            parentNodeName = jQuery(parentElement).get(0).nodeName;
+          }
+          else if (jQuery(parentElement)[0]) {
+            parentNodeName = jQuery(parentElement)[0].nodeName;
+          }
+          if (parentNodeName == 'TBODY' || parentNodeName == 'TABLE') {
+            var groupTid = jQuery(parentElement).attr('data-attribute-group');
+            if (groupTid != NewsBulletin.nodeTid) {
+              console.log('Incorrect group, must fix by moving this tr element to correct group.');
+              // If the movedItem is not in it's correct group we have to put it in the right group.
+              // And in doing so, either as the first or last row.
+              var correctTbodyElement = jQuery('.tid-' + NewsBulletin.nodeTid + ' tr.value-row').first();
+              var testSourceRowIdx = jQuery('table.table tr.value-row').each(function(indexTrSource, elementTr) {
+                var currentNid = jQuery(elementTr).attr('data-nid');
+                if (currentNid == NewsBulletin.tempNid) {
+                  NewsBulletin.sourceRowIdx = indexTrSource;
+                }
+              });
+              var testDestRowIdx = jQuery('table.table tr.value-row').each(function(indexTr, elementTr) {
+                var testParentTid = jQuery(elementTr).parent().attr('data-attribute-group');
+                var currentNid = jQuery(elementTr).attr('data-nid');
+                if (testParentTid == NewsBulletin.nodeTid && firstResult) {
+                  NewsBulletin.firstResult = false;
+                  NewsBulletin.destRowIdx = indexTr;
+                }
+                if (!NewsBulletin.firstResult && NewsBulletin.sourceRowIdx < NewsBulletin.destRowIdx) {
+                  // Move the element in its correct place in the group.
+                  var firstTargetItem = jQuery('table.table tbody.tid-' + NewsBulletin.nodeTid +' tr.value-row').first().parent();
+                  // Insert the moved item inside the parent of the first tr as the first item (prepentTo).
+                  jQuery(NewsBulletin.movedNidItem).detach().prependTo(firstTargetItem);
+                }
+                else if (!NewsBulletin.firstResult && NewsBulletin.sourceRowIdx > NewsBulletin.destRowIdx) {
+                  // Move the element in its correct place.
+                  var lastTargetItem = jQuery('table.table tbody.tid-' + NewsBulletin.nodeTid +' tr.value-row').last();
+                  jQuery(NewsBulletin.movedNidItem).detach().insertAfter(lastTargetItem);
+                }
+
+              });
+            }
+          }
+        }
+        else {
+          console.log(evt.item.nodeName);
+        }
 
         // Enable the ajax throbber / spinner for show busy. (moved)
         //$(NewsBulletin.movedItem).after(Drupal.theme.ajaxProgressThrobber(Drupal.t('Updating order of groups, one moment please.')));
@@ -302,11 +365,15 @@ var NewsBulletin = function() {
     nidCount: nidCount,
     tempNid: tempNid,
     tempTid: tempTid,
+    firstResult: firstResult,
+    sourceRowIdx: sourceRowIdx,
+    destRowIdx: destRowIdx,
     movedItem: movedItem,
     movedItemTid: movedItemTid,
     movedNidItem: movedNidItem,
     movedNidNodeName: movedNidNodeName,
     newsTypeArray: newsTypeArray,
+    nodeTid: nodeTid,
     tidsArray: tidsArray,
     newsNids: newsNids,
     setNewsTypeOrder: setNewsTypeOrder,
