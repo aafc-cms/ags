@@ -38,7 +38,7 @@
 }
 
 .table-news-bulletin thead.news-group tr.news-type-header-row .tb-news-group-title {
-  padding: 5px 0 0px 10px !important;
+  padding: 0 0 0px 2px;
 }
 
 .table-news-bulletin thead.news-group tr.news-type-header-row th {
@@ -243,4 +243,9 @@ body.newsatworkbulletin .table > thead > tr > th,
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+}
+
+th.tb-news-group-title {
+  padding: 0 !important;
+  padding: 0;
 }
