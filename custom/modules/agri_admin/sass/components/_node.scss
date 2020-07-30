@@ -154,7 +154,9 @@ body.node-edit.user-logged-in.path-node.page-node-type-empl {
 }
 
 /* menu_parent select style */
-body.node-edit .form-item--menu-menu-parent {
+body.node-edit .form-item--menu-menu-parent, 
+body.nodeaddpage .form-item--menu-menu-parent,
+body.nodeaddlanding_page .form-item--menu-menu-parent {
   #edit-menu-menu-parent {
     max-width: 212px !important;
   }
