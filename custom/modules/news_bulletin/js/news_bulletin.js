@@ -23,7 +23,7 @@ function logCall(funcName, force) {
     force = false;
   }
   data[funcName]++;
-  var debug = true; // Debug is disabled.
+  var debug = false; // Debug is disabled.
   if (debug || force) {
     console.log(funcName + ' call:' + data[funcName]);
   }
@@ -79,7 +79,7 @@ var NewsBulletin = function() {
         onStart: function (/**Event*/evt) {
           var movedItem = evt.item;
           if (movedItem.nodeName == 'THEAD') {
-            console.log('NewsTypesSortable ' + arguments.callee.name.toString());
+            // console.log('NewsTypesSortable ' + arguments.callee.name.toString());
             //evt.oldIndex;  // element index within parent
             NewsBulletin.newsTypeArray = []; // Reset the array, important!
             NewsBulletin.newsNids = []; // Reset the array, important!
@@ -87,21 +87,24 @@ var NewsBulletin = function() {
         },
         onSort: function(evt) {
           var movedItem = evt.item;
+          console.log(evt);
           if (movedItem.nodeName == 'THEAD') {
+            if (evt.to.nodeName == 'TBODY') {
+              // Fix yet another glitch in the ui, tbody should not be inserted into tbody.
+              jQuery(movedItem).detach().insertAfter(jQuery(evt.to));
+            }
             NewsBulletin.movedItem = movedItem;
             NewsBulletin.movedItemNodeName = NewsBulletin.movedItem.nodeName;
             console.log('NewsTypesSortable ' + arguments.callee.name.toString());
             NewsBulletin.movedItemTid = jQuery(movedItem).attr('data-attribute-group');
             console.log('movedItemTid ' + NewsBulletin.movedItemTid);
-            if (jQuery(NewsBulletin.movedItem).parent().nodeName == 'TBODY') {
-              //jQuery(NewsBulletin.movedItem).detach().insertAfter(jQuery(NewsBulletin.movedItem).parent());
-            }
+
             var tempItem = jQuery('table tbody.has-row-data').each(function(index, element) {
               if (jQuery(element).attr('data-attribute-group') == NewsBulletin.movedItemTid) {
                 if (NewsBulletin.movedItemNodeName == 'THEAD') {
                   jQuery(element).detach().insertAfter(NewsBulletin.movedItem);
                 }
-                console.log('item that was moved is found , the tid=' + NewsBulletin.movedItemTid);
+                //console.log('item that was moved is found , the tid=' + NewsBulletin.movedItemTid);
               }
               else {
                 // Workaround for a glitch where the other tbody elements are in the wrong order.
@@ -162,7 +165,6 @@ var NewsBulletin = function() {
 
   function setupSortableNodes(element, nid) {
     logCall(arguments.callee.name.toString());
-    //console.log('setupSortableNodes nid=' + nid);
     Sortable.create(element, {
       group: "sorting",
       sort: true,
@@ -233,7 +235,6 @@ var NewsBulletin = function() {
         // Enable the ajax throbber / spinner for show busy. (moved)
         //$(NewsBulletin.movedItem).after(Drupal.theme.ajaxProgressThrobber(Drupal.t('Updating order of groups, one moment please.')));
         NewsBulletin.setNewsTypeOrder();
-        console.log('NewsBulletin.newsTypeArray=' + NewsBulletin.newsTypeArray.toString());
       }
     });
   }
@@ -255,6 +256,7 @@ var NewsBulletin = function() {
 
 
   function tallySelections() {
+    logCall(arguments.callee.name.toString());
     resetForm();
     NewsBulletin.newsNids = [];
     NewsBulletin.newsTypeArray = [];
@@ -276,7 +278,6 @@ var NewsBulletin = function() {
 
     });
 
-    logCall(arguments.callee.name.toString()); // Remove this when finished porting.
     jQuery('table.table input[type=checkbox]:checked').not(':disabled').each(function(index, element) {
       // Build the array of news type tids, assuming each works in element order on DOM.
       NewsBulletin.newsNids.push(jQuery(element).attr('value'));
@@ -328,7 +329,7 @@ var NewsBulletin = function() {
       url: '/news-at-work-bulletin/set_temp_config' + termsParam + nidsParam,
       type: 'GET',
       success: function(response) {
-        console.log(response);
+        //console.log(response);
         // Disable the ajax throbber / spinner for show busy.
         jQuery('html, body').css("cursor", "auto");
         jQuery('div.ajax-progress').remove(".ajax-progress-throbber"); // Remove the throbber like this.
