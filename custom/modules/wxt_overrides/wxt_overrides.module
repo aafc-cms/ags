@@ -56,6 +56,7 @@ function wxt_overrides_page_attachments(array &$page) {
 function wxt_overrides_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
 
   if ($form_id == 'node_landing_page_edit_form' || $form_id == 'node_page_edit_form'  ||
+      $form_id == 'node_landing_page_form'      || $form_id == 'node_page_form'  || 
       $form_id == 'page-node-type-empl'  || $form_id == 'page-node-type-news' ) {
 
     foreach ($form['menu']['link']['menu_parent']['#options'] as $key => &$value) { 
