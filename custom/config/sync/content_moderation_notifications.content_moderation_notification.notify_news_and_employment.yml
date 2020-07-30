@@ -1,0 +1,18 @@
+uuid: 9fed4b32-1faf-474b-b643-e182abed19ea
+langcode: en
+status: true
+dependencies: {  }
+id: notify_news_and_employment
+workflow: editorial
+transitions:
+  create_new_draft: create_new_draft
+roles:
+  news_ccpub: news_ccpub
+author: false
+site_mail: true
+emails: ''
+subject: 'Your article has been submitted to news@work / Votre article a été soumis au coordonnateur de nouvelles@l''ouvrage'
+body:
+  value: "<p><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\"><span style=\"color:black\">La version française suit </span></span></span></p>\r\n\r\n<p><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\"><span style=\"color:black\"></span></span></span><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\"><span style=\"color:black\">The article \"[agri-admin:title]\" was just submitted to news@work. To preview the article, visit: [agri-admin:url]<br />\r\nYour request will be processed shortly. If you have any questions, please email the <a href=\"mailto:newsatwork@agr.gc.ca\" style=\"color:blue; text-decoration:underline\">news@work Coordinator</a> or reply to this message.</span></span></span></p>\r\n\r\n<hr align=\"center\" size=\"2\" width=\"100%\" />\r\n<p><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\"><span style=\"color:black\"></span></span></span><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\"><span style=\"color:black\">L'article « [agri-admin:translation-title] » vient d'être soumis au coordonnateur de nouvelles@l'ouvrage. Pour visualiser l'article, rendez-vous à l'adresse suivante : [agri-admin:translation-url]<br />\r\nNous traiterons votre demande dans les plus brefs délais. Si vous avez des questions, veuillez communiquer avec le coordonnateur de <a href=\"mailto:newsatwork@agr.gc.ca\" style=\"color:blue; text-decoration:underline\">nouvelles@l'ouvrage</a> ou répondre au présent message.</span></span></span></p>\r\n"
+  format: full_html
+label: 'Notify news and employment'

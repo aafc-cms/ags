@@ -326,37 +326,51 @@ body.node-edit.user-logged-in.path-node.page-node-type-empl #edit-group-level-an
 }
 
 /* menu_parent select style */
-body.node-edit .form-item--menu-menu-parent #edit-menu-menu-parent {
+body.node-edit .form-item--menu-menu-parent #edit-menu-menu-parent,
+body.nodeaddpage .form-item--menu-menu-parent #edit-menu-menu-parent,
+body.nodeaddlanding_page .form-item--menu-menu-parent #edit-menu-menu-parent {
   max-width: 212px !important;
 }
-body.node-edit .form-item--menu-menu-parent .menu_tree-leve-1 {
+body.node-edit .form-item--menu-menu-parent .menu_tree-leve-1,
+body.nodeaddpage .form-item--menu-menu-parent .menu_tree-leve-1,
+body.nodeaddlanding_page .form-item--menu-menu-parent .menu_tree-leve-1 {
   padding-left: 15px;
   color: blue;
   font-size: 20px;
 }
-body.node-edit .form-item--menu-menu-parent .menu_tree-leve-2 {
+body.node-edit .form-item--menu-menu-parent .menu_tree-leve-2,
+body.nodeaddpage .form-item--menu-menu-parent .menu_tree-leve-2,
+body.nodeaddlanding_page .form-item--menu-menu-parent .menu_tree-leve-2 {
   padding-left: 30px;
   font-style: italic;
   color: green;
   font-size: 18px;
 }
-body.node-edit .form-item--menu-menu-parent .menu_tree-leve-3 {
+body.node-edit .form-item--menu-menu-parent .menu_tree-leve-3,
+body.nodeaddpage .form-item--menu-menu-parent .menu_tree-leve-3,
+body.nodeaddlanding_page .form-item--menu-menu-parent .menu_tree-leve-3 {
   padding-left: 45px;
   color: #581845;
   font-size: 16px;
 }
-body.node-edit .form-item--menu-menu-parent .menu_tree-leve-4 {
+body.node-edit .form-item--menu-menu-parent .menu_tree-leve-4,
+body.nodeaddpage .form-item--menu-menu-parent .menu_tree-leve-4,
+body.nodeaddlanding_page .form-item--menu-menu-parent .menu_tree-leve-4 {
   padding-left: 60px;
   font-style: italic;
   color: purple;
   font-size: 16px;
 }
-body.node-edit .form-item--menu-menu-parent .menu_tree-leve-5 {
+body.node-edit .form-item--menu-menu-parent .menu_tree-leve-5,
+body.nodeaddpage .form-item--menu-menu-parent .menu_tree-leve-5,
+body.nodeaddlanding_page .form-item--menu-menu-parent .menu_tree-leve-5 {
   padding-left: 75px;
   color: Navy;
   font-size: 16px;
 }
-body.node-edit .form-item--menu-menu-parent .menu_tree-leve-6 {
+body.node-edit .form-item--menu-menu-parent .menu_tree-leve-6,
+body.nodeaddpage .form-item--menu-menu-parent .menu_tree-leve-6,
+body.nodeaddlanding_page .form-item--menu-menu-parent .menu_tree-leve-6 {
   padding-left: 90px;
   font-style: italic;
   color: Olive;
