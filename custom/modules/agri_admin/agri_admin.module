@@ -483,10 +483,24 @@ function agri_admin_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInte
     $form['field_modified']['widget'][0]['#disabled'] = TRUE;
 
     $moderation_state = $entity->moderation_state->value;
+    $peer_review_status = $entity->get('field_peer_review')->getString();
 
     if ($moderation_state == 'published' || $moderation_state == 'archived') {
       $form['field_peer_review']['#disabled'] = TRUE;
       $form['field_tracking_number']['widget'][0]['value']['#default_value'] = '';
+    } 
+    elseif ($moderation_state == 'draft' &&  empty($peer_review_status)) {
+//      AgriAdminHelper::addToLog('do not enable peer reviewed', TRUE);
+//      $form['field_peer_review']['#option_attributes'][2] = array('disabled' => 'true');
+//      unset($form['field_peer_review']['und']['#options'][2]);
+//      $keys = array_keys($form['field_peer_review']['#options_attributes']);
+      foreach($form['field_peer_review']['#options_attributes'] as $key => $value) {    
+//      foreach($keys as $key) {
+	      AgriAdminHelper::addToLog(print_r('Key: '.$key, TRUE), TRUE);  
+
+//        $form['field_peer_review']['#options_attributes']['peer_reviewed']['disabled'] = 'disabled';
+//        AgriAdminHelper::addToLog(print_r('Key2: '.$key, TRUE), TRUE);
+      }
     }
   }
 }
