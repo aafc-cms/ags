@@ -483,14 +483,18 @@ function agri_admin_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInte
     $form['field_modified']['widget'][0]['#disabled'] = TRUE;
 
     $moderation_state = $entity->moderation_state->value;
+    $peer_review_status = $entity->get('field_peer_review')->getString();
 
     if ($moderation_state == 'published' || $moderation_state == 'archived') {
       $form['field_peer_review']['#disabled'] = TRUE;
       $form['field_tracking_number']['widget'][0]['value']['#default_value'] = '';
+    } 
+    elseif ($moderation_state == 'draft' &&  empty($peer_review_status)) {
+      // Do not enable peer reviewed.
+      $form['field_peer_review']['widget']['#options_attributes']['peer_reviewed']['disabled'] = 'disabled';
     }
   }
 }
-
 
 
 /**
