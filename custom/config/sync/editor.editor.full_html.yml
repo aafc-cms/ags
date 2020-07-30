@@ -75,13 +75,13 @@ settings:
     language:
       language_list: un
     codemirror:
-      enable: false
+      enable: true
       startupMode: wysiwyg
       mode: htmlmixed
-      theme: default
+      theme: monokai
       options:
         lineNumbers: true
-        lineWrapping: true
+        lineWrapping: false
         matchBrackets: true
         autoCloseTags: true
         autoCloseBrackets: true
@@ -94,10 +94,10 @@ settings:
     tokenbrowser:
       token_types: {  }
 image_upload:
-  status: false
+  status: true
   scheme: public
   directory: inline-images
-  max_size: ''
+  max_size: '20'
   max_dimensions:
-    width: null
-    height: null
+    width: 2000
+    height: 2000

@@ -115,6 +115,46 @@ body.path-admin #block-claro-content nav.breadcrumb {
   }
 }
 /* for side by side etuf css tweaks */
+.media-library-widget-modal.ui-dialog .ui-dialog-titlebar {
+  padding: 5px 0px 5px 15px;
+}
+.media-library-widget-modal.ui-dialog .ui-dialog-titlebar-close {
+  top: 5px;
+}
+.media-library-widget-modal.ui-dialog .media-library-menu {
+  width: auto;
+  min-width: 120px;
+}
+.media-library-widget-modal.ui-dialog .ui-widget-content.ui-dialog-buttonpane {
+  padding: 0px 15px 0px 20px;
+}
+.media-library-widget-modal.ui-dialog--narrow.media-library-widget-modal {
+  max-width: 90%;
+}
+.media-library-widget-modal .claro-details {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.media-library-widget-modal .media-library-add-form__input-wrapper {
+  padding: 0;
+  margin: 0;
+}
+.media-library-widget-modal .claro-details__wrapper {
+  margin: 0px 0px 0px 15px;
+}
+.media-library-widget-modal .media-library-view .field--name-thumbnail img {
+  height: 120px;
+}
+
+article.align-center .field--item {
+  margin-left: auto;
+  margin-right: auto;
+}
+article.align-center .field--item .img-responsive {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Menu css/sass/scss here */
 body.adminstructuremenumanagemain #menu-disabled-links-form,
 body.adminstructuremenumanagesideb #menu-disabled-links-form {
