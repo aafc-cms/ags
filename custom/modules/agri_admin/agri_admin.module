@@ -283,7 +283,12 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
 //    AgriAdminHelper::addToLog(print_r('Current: '.$current_user, TRUE), TRUE);
 
     if (empty($created_by)) {
-      $entity->set('field_created_by', $current_user->getUsername());
+      if ($entity->isNew()) {
+        $entity->set('field_created_by', $current_user->getUsername());      
+      } else {
+        $admin_username = \Drupal\user\Entity\User::load(1)->getUsername();
+        $entity->set('field_created_by', $admin_username);
+      }
     }
 
     if ($moderation_state == 'published') {
