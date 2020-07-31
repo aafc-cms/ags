@@ -6,6 +6,8 @@ dependencies:
     - field.field.node.page.body
     - field.field.node.page.comment
     - field.field.node.page.field_category
+    - field.field.node.page.field_created_by
+    - field.field.node.page.field_dc_date_created
     - field.field.node.page.field_description
     - field.field.node.page.field_issued
     - field.field.node.page.field_keywords
@@ -346,6 +348,39 @@ third_party_settings:
                 type: list_default
             additional: {  }
             weight: 6
+          225aadcf-e713-4bb9-a35d-2db8cfe5b6f7:
+            uuid: 225aadcf-e713-4bb9-a35d-2db8cfe5b6f7
+            region: top
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:page:field_dc_date_created'
+              formatter:
+                label: above
+                settings:
+                  format_type: medium
+                  timezone_override: ''
+                third_party_settings: {  }
+                type: datetime_default
+            additional: {  }
+            weight: 7
+          3aefe33d-900d-43ce-b254-91c6490b8e75:
+            uuid: 3aefe33d-900d-43ce-b254-91c6490b8e75
+            region: top
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:page:field_created_by'
+              formatter:
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+                type: string
+            additional: {  }
+            weight: 8
         third_party_settings: {  }
     allow_custom: true
   layout_library:
@@ -371,6 +406,23 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: top
+  field_created_by:
+    weight: 15
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: top
+  field_dc_date_created:
+    weight: 14
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
     region: top
   field_description:
     weight: 7

@@ -7,6 +7,8 @@ dependencies:
     - field.field.node.page.body
     - field.field.node.page.comment
     - field.field.node.page.field_category
+    - field.field.node.page.field_created_by
+    - field.field.node.page.field_dc_date_created
     - field.field.node.page.field_description
     - field.field.node.page.field_issued
     - field.field.node.page.field_keywords
@@ -46,6 +48,8 @@ hidden:
   comment: true
   content_moderation_control: true
   field_category: true
+  field_created_by: true
+  field_dc_date_created: true
   field_description: true
   field_issued: true
   field_keywords: true

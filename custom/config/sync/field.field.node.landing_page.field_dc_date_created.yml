@@ -1,0 +1,24 @@
+uuid: 333aa93c-3adb-4309-9d39-f54d57ee9f47
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dc_date_created
+    - node.type.landing_page
+  module:
+    - datetime
+id: node.landing_page.field_dc_date_created
+field_name: field_dc_date_created
+entity_type: node
+bundle: landing_page
+label: dc.date.created
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime
