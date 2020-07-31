@@ -288,7 +288,6 @@ var NewsBulletin = function() {
     console.log('NewsBulletin.newsTypeArray = ' + NewsBulletin.newsTypeArray.join());
   }
 
-
   /**
    * Set order of news types.
    */
@@ -325,8 +324,9 @@ var NewsBulletin = function() {
     /*      data: {
             'nids': NewsBulletin.newsNids
           }*/
+
     jQuery.ajax({
-      url: '/news-at-work-bulletin/set_temp_config' + termsParam + nidsParam,
+      url: window.location.pathname + '/set_temp_config' + termsParam + nidsParam,
       type: 'GET',
       success: function(response) {
         //console.log(response);
