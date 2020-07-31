@@ -5,6 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.landing_page.body
+    - field.field.node.landing_page.field_created_by
+    - field.field.node.landing_page.field_dc_date_created
     - field.field.node.landing_page.field_description
     - field.field.node.landing_page.field_issued
     - field.field.node.landing_page.field_keywords
@@ -463,6 +465,8 @@ content:
     region: content
 hidden:
   body: true
+  field_created_by: true
+  field_dc_date_created: true
   field_description: true
   field_issued: true
   field_keywords: true

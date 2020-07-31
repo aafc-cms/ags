@@ -6,6 +6,8 @@ dependencies:
     - field.field.node.page.body
     - field.field.node.page.comment
     - field.field.node.page.field_category
+    - field.field.node.page.field_created_by
+    - field.field.node.page.field_dc_date_created
     - field.field.node.page.field_description
     - field.field.node.page.field_issued
     - field.field.node.page.field_keywords
@@ -34,10 +36,12 @@ third_party_settings:
       children:
         - field_description
         - field_keywords
+        - field_created_by
+        - field_dc_date_created
         - field_issued
         - field_modified
       parent_name: ''
-      weight: 13
+      weight: 12
       format_type: details_sidebar
       region: content
       format_settings:
@@ -52,7 +56,7 @@ third_party_settings:
       children:
         - field_meta_type
       parent_name: ''
-      weight: 14
+      weight: 13
       format_type: details_sidebar
       region: content
       format_settings:
@@ -101,6 +105,20 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_created_by:
+    weight: 17
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_dc_date_created:
+    weight: 18
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   field_description:
     weight: 15
     settings:
@@ -110,7 +128,7 @@ content:
     type: string_textfield
     region: content
   field_issued:
-    weight: 17
+    weight: 19
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
@@ -137,25 +155,25 @@ content:
     type: options_buttons
     region: content
   field_modified:
-    weight: 18
+    weight: 20
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_peer_review:
-    weight: 28
+    weight: 18
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_subject:
-    weight: 19
+    weight: 27
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
   field_tracking_number:
-    weight: 26
+    weight: 16
     settings:
       size: 60
       placeholder: 'Workflow submissions grouped by this field value.'
@@ -163,7 +181,7 @@ content:
     type: string_textfield
     region: content
   field_update_date_modified:
-    weight: 27
+    weight: 17
     settings:
       display_label: true
     third_party_settings: {  }
