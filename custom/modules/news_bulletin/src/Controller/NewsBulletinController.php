@@ -132,6 +132,12 @@ class NewsBulletinController extends ControllerBase {
    * @return array
    */
   public function content() {
+    if (\Drupal::routeMatch()->getRouteName() == 'news_bulletin.content') {
+      if (\Drupal::currentUser()->isAuthenticated()) {
+        $session_manager = \Drupal::service('session_manager');
+        $session_manager->delete(\Drupal::currentUser()->id());
+      }
+    }
     return [
 //      '#type' => 'markup',
       '#theme' => 'news_bulletin',

@@ -1,107 +1,100 @@
 {{ attach_library('news_bulletin/email-bulletins') }}
+
 <a name="English"></a>
-<div id="list" class="news-bulletin">
+<div id="list-en" class="news-bulletin">
 </div>
-  <table class="headerrow1">
+  <table style="margin-left:auto; margin-right:auto; width: 100%; font-family: Helvetica,Arial,sans-serif;" class="headerrow1">
     <tbody>
     <tr>
-      <td>
-        <font>EN | <a href="#French">FR</a>
-        </font>
+      <td style="text-align: center;">
+        <span class="bulletin-font" style="padding: 5px 0 0 5px; font-size: 12px; font-weight: 700;">EN | <a href="#French">FR</a>
+        </span>
       </td>
     </tr>
     </tbody>
-    </table>
-  <table class="headerrow2">
+  </table>
+  <table style="margin-left:auto; margin-right:auto; width: 100%; font-family: Helvetica,Arial,sans-serif;background-color:#0b72b6;color:white" class="headerrow2">
     <tbody>
       <tr>
-        <td><img src="http://www.agr.gc.ca/resources/prev/CMS/Internet/News-Nouvelles/computer_sm.png">
+        <td style="text-align: center;font-size:24px;"><img alt="Illustration of a computer." src="https://www.agr.gc.ca/resources/prev/CMS/Internet/News-Nouvelles/computer_sm.png">
           <br>
-          <font><i>news@work | nouvelles@l'ouvrage</i></font>
+          <span class="bulletin-font"><i>news@work | nouvelles@l'ouvrage</i></span>
         </td>
       </tr>
       <tr>
-        <td><font>WEEKLY NEWSLETTER / BULLETIN HEBDOMADAIRE</font>
+        <td style="text-align: center;font-size:14px;"><span class="bulletin-font">WEEKLY NEWSLETTER / BULLETIN HEBDOMADAIRE</span>
         </td>
       </tr>
     </tbody>
   </table>
 <br>
 
-<div id="news-bulletin-list" class="news-bulletin-test col-xs-12">
+<div id="news-bulletin-list-en" class="news-bulletin-test col-xs-12" style="position:relative;padding: 0 15px 0 15px;margin-left:auto; margin-right:auto;width:100%;font-family:Helvetica,Arial,sans-serif;" >
 {% for wkey, valuetype in types_by_weight %}
-  <div class="news-type type-{{ valuetype.first_word }} news-type-id-{{ valuetype.tid }} col-xs-12" data-attribute-group="{{ valuetype.tid }}">
-    <div class="news-group-title">{{ valuetype.name }}</div>
+  <div style="padding:10px 10px 0 10px;" class="news-type type-{{ valuetype.first_word }} news-type-id-{{ valuetype.tid }} col-xs-12" data-attribute-group="{{ valuetype.tid }}">
+    <div class="news-group-title" style="font-size:20px;">{{ valuetype.name }}</div>
   </div>
   {% for nkey, newsitem in news_items %}
-    {% if valuetype.tid == newsitem.term_id %}
-    <div class="tile news-type-id-{{ valuetype.tid }}  col-xs-11 col-md-offset-1">
+{##}{% if valuetype.tid == newsitem.term_id %}
+    <div style="margin-left:auto; margin-right:auto;" class="tile news-type-id-{{ valuetype.tid }} col-xs-11 col-md-offset-1">
       <div class="content type-{{ newsitem.first_word }}" data-nid="{{ newsitem.nid }}" data-group-current="{{ newsitem.term_id }}" data-group-orig="{{ newsitem.term_id }}">
-        <div class="cell news-title"><a href="{{ newsitem.href }}">{{ newsitem.title }}</a></div>
-        <div class="cell from">{{ newsitem.from }}</div>
-        <div class="cell image">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}</div>
-        <div class="cell summary">{{ newsitem.summary }}</div>
+        <div style="font-size:17px;" class="cell news-title"><a href="{{ newsitem.href }}">{{ newsitem.title }}</a></div>
+        <div style="font-size:15px;" class="cell from">{{ newsitem.from }}</div>
+        <div class="cell image" style="padding-bottom: 15px;">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}</div>
+        <div style="font-size:15px;" class="cell summary">{{ newsitem.summary }}</div>
       </div>
       <div class="splitter"></div>
     </div>
     {% endif %}
   {% endfor %}
 {% endfor %}
-  <!--<div class="row pagination">
-    <a class="hidden bulletin-pager" href="#">
-      {% trans %}
-        Show More
-      {% endtrans %}
-    </a>
-  </div>-->
 </div>
 
 
-<table class="newsreleasesstatement">
-  <tr><td><h3>AAFC News Releases and Statements</h3>
+<table style="margin-left:auto; margin-right:auto; width: 100%;" class="newsreleasesstatement">
+  <tr><td style="text-align: center;"><h3>AAFC News Releases and Statements</h3>
   </td></tr>
 </table>
 <table class="newsreleasesstatementdetails">
   <tbody>
     <tr>
-    <td>
-      <img class="flexibleImagesmall" src="http://www.agr.gc.ca/resources/prod/news/images/news_icon_sm.png" alt="AAFC News Releases and Statements">
+    <td style="text-align: center;">
+      <img class="flexibleImagesmall" src="https://www.agr.gc.ca/resources/prod/news/images/news_icon_sm.png" alt="AAFC News Releases and Statements">
     </td>
-    <td>
-      <div>Check out AAFC's latest <a href="http://www.agr.gc.ca/eng/news/news-releases-and-statements/?id=1383076728778">news releases and statements.</a>
+    <td style="width=100%;font-size:14px;">
+      <div>Check out AAFC's latest <a href="https://www.agr.gc.ca/eng/news/news-releases-and-statements/?id=1383076728778">news releases and statements.</a>
       </div>
     </td>
     </tr>
   </tbody>
 </table>
 
-<table class="emplopp">
-  <tr><td><h3>Employment Opportunities</h3>
+<table style="margin-left:auto; margin-right:auto; width: 100%;" class="emplopp">
+  <tr><td style="text-align: center;"><h3>Employment Opportunities</h3>
   <br>Visit the Internal Employment Opportunities page to find any available acting, assignment and deployment opportunities within AAFC.
   </td></tr>
 </table>
-<table class="emploppdetails">
+<table style="margin-left:auto; margin-right:auto; width: 100%;" class="emploppdetails">
   <tbody>
     <tr>
-    <td>
-      <a href="/en/internal-employment-opportunities" target="_blank">View Opportunities</a>
+    <td style="text-align: center;">
+      <a style="margin: 0px; padding: 12px 25px; border-radius: 5px; border: 1px solid rgb(52, 152, 219); border-image: none; color: rgb(255, 255, 255); text-transform: capitalize; font-size: 14px; font-weight: bold; text-decoration: none; display: inline-block; cursor: pointer; box-sizing: border-box; background-color: rgb(52, 152, 219);" href="{{ vars_array['base_url'] }}/en/internal-employment-opportunities" target="_blank">View Opportunities</a>
     </td>
     </tr>
   </tbody>
 </table>
 
 <div class="footer">
-<table>
+<table style="margin-left:auto; margin-right:auto; width: 100%;">
   <tbody>
     <tr>
-      <td class="content-block">
+      <td class="content-block" style="text-align: center;">
         <span class="apple-link">
-        <!--<a href="#">Printer Version</a> | -->
-            <a href="/en/news/newswork">news@work main page</a>
+            <a href="{{ vars_array['base_url'] }}/en/news/newswork">news@work main page</a>
              |
-            <a href="https://collab.agr.gc.ca/br-dg/ccb-dgcc/Lists/bulletins/AllItems.aspx">news@work Bulletins</a>
+            <a href="{{ vars_array['base_url'] }}/en/news@work">news@work Bulletins</a>
              |
-            <a href="/en/news/newswork/submit-article-news-work">Submit a news@work item</a>
+            <a href="{{ vars_array['base_url'] }}/en/news/newswork/submit-article-news-work">Submit a news@work item</a>
              |
             <a href="mailto:newsatwork@agr.gc.ca">Contact Us</a>
           </span>
@@ -119,47 +112,47 @@
 </table>
 </div>
 <a name="French"></a>
-<div id="list" class="news-bulletin">
+<div id="list-fr" class="news-bulletin">
 </div>
-  <table class="headerrow1">
+  <table style="margin-left:auto; margin-right:auto; width: 100%; font-family: Helvetica,Arial,sans-serif;" class="headerrow1">
     <tbody>
     <tr>
-      <td>
-        <font><a href="#English">EN</a> | FR
-        </font>
+      <td style="text-align: center;">
+        <span style="margin-left:auto; margin-right:auto; width: 100%;" class="bulletin-font"><a href="#English">EN</a> | FR
+        </span>
       </td>
     </tr>
     </tbody>
     </table>
-  <table class="headerrow2">
+  <table style="margin-left:auto; margin-right:auto; width: 100%; font-family: Helvetica,Arial,sans-serif;background-color:#0b72b6; color: white;" class="headerrow2">
     <tbody>
       <tr>
-        <td><img src="http://www.agr.gc.ca/resources/prev/CMS/Internet/News-Nouvelles/computer_sm.png">
+        <td style="text-align: center;font-size:24px;"><img alt="Illustration d'un ordinateur." src="https://www.agr.gc.ca/resources/prev/CMS/Internet/News-Nouvelles/computer_sm.png">
           <br>
-          <font><i>nouvelles@l'ouvrage | news@work</i></font>
+          <span class="bulletin-font"><i>nouvelles@l'ouvrage | news@work</i></span>
         </td>
       </tr>
       <tr>
-        <td><font>BULLETIN HEBDOMADAIRE / WEEKLY NEWSLETTER<br></font>
+        <td style="text-align: center;font-size:14px;"><span class="bulletin-font">BULLETIN HEBDOMADAIRE / WEEKLY NEWSLETTER<br></span>
         </td>
     </tr>
     </tbody>
   </table>
 <br>
 
-<div id="news-bulletin-list" class="news-bulletin-test col-xs-12">
+<div id="news-bulletin-list-fr" class="news-bulletin-test col-xs-12" style="position:relative;padding: 0 15px 0 15px;margin-left:auto;margin-right:auto;width:100%;font-family: Helvetica,Arial,sans-serif;" >
 {% for wkey, valuetype in types_by_weight_fr %}
-  <div class="news-type type-{{ valuetype.first_word }} news-type-id-{{ valuetype.tid }} col-xs-12" data-attribute-group="{{ valuetype.tid }}">
-    <div class="news-group-title">{{ valuetype.name }}</div>
+  <div style="padding:10px 10px 0 10px;" class="news-type type-{{ valuetype.first_word }} news-type-id-{{ valuetype.tid }} col-xs-12" data-attribute-group="{{ valuetype.tid }}">
+    <div style="font-size:20px;" class="news-group-title">{{ valuetype.name }}</div>
   </div>
   {% for nkey, newsitem in news_items_fr %}
-    {% if valuetype.tid == newsitem.term_id %}
-    <div class="tile news-type-id-{{ valuetype.tid }}  col-xs-11 col-md-offset-1">
+{##}{% if valuetype.tid == newsitem.term_id %}
+    <div style="margin-left:auto; margin-right:auto;" class="tile news-type-id-{{ valuetype.tid }} col-xs-11 col-md-offset-1">
       <div class="content news-type-id-{{ valuetype.tid  }}" data-nid="{{ newsitem.nid }}" data-group-current="{{ newsitem.term_id }}" data-group-orig="{{ newsitem.term_id }}">
-        <div class="cell news-title"><a href="{{ newsitem.href }}">{{ newsitem.title }}</a></div>
-        <div class="cell from">{{ newsitem.from }}</div>
-        <div class="cell image">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}</div>
-        <div class="cell summary">{{ newsitem.summary }}</div>
+        <div style="font-size:17px;" class="cell news-title"><a href="{{ newsitem.href }}">{{ newsitem.title }}</a></div>
+        <div style="font-size:15px;" class="cell from">{{ newsitem.from }}</div>
+        <div class="cell image" style="padding-bottom: 15px;">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}</div>
+        <div style="font-size:15px;" class="cell summary">{{ newsitem.summary }}</div>
       </div>
       <div class="splitter"></div>
     </div>
@@ -175,51 +168,50 @@
   </div>-->
 </div>
 
-<table class="newsreleasesstatement">
+<table style="margin-left:auto; margin-right:auto; width: 100%;" class="newsreleasesstatement">
   <tr><td><h3>Communiqués et déclarations d'AAC</h3>
   </td></tr>
 </table>
-<table class="newsreleasesstatementdetails">
+<table style="margin-left:auto; margin-right:auto; width: 100%;" class="newsreleasesstatementdetails">
   <tbody>
     <tr>
     <td>
-      <img class="flexibleImagesmall" src="http://www.agr.gc.ca/resources/prod/news/images/news_icon_sm.png" alt="AAFC News Releases and Statements">
+      <img class="flexibleImagesmall" src="https://www.agr.gc.ca/resources/prod/news/images/news_icon_sm.png" alt="AAC Nouvelles et Communiqués">
     </td>
-    <td>
-      <div>Consultez les plus récents <a href="http://www.agr.gc.ca/fra/nouvelles/communiques-et-declarations/?id=1383076728778">communiqués et déclarations.</a>
+    <td style="width=100%;font-size:14px;">
+      <div>Consultez les plus récents <a href="https://www.agr.gc.ca/fra/nouvelles/communiques-et-declarations/?id=1383076728778">communiqués et déclarations.</a>
       </div>
     </td>
     </tr>
   </tbody>
 </table>
 
-<table class="emplopp">
+<table style="margin-left:auto; margin-right:auto; width: 100%;" class="emplopp">
   <tr><td><h3>Possibilités d'emplois</h3>
   <br>Consultez la page Possibilités d'emploi pour prendre connaissance de toutes les occasions de nomination intérimaire, d'affectation et de mutation au sein d'AAC.
   </td></tr>
 </table>
-<table class="emploppdetails">
+<table style="margin-left:auto; margin-right:auto; width: 100%;" class="emploppdetails">
   <tbody>
     <tr>
-    <td>
-      <a href="/fr/possibilites-demploi" target="_blank">Visualisez les opportunités</a>
+    <td style="text-align: center; font-size: 14px;">
+      <a style="margin: 0px; padding: 12px 25px; border-radius: 5px; border: 1px solid rgb(52, 152, 219); border-image: none; color: rgb(255, 255, 255); text-transform: capitalize; font-size: 14px; font-weight: bold; text-decoration: none; display: inline-block; cursor: pointer; box-sizing: border-box; background-color: rgb(52, 152, 219);" href="{{ vars_array['base_url'] }}/fr/possibilites-demploi" target="_blank">Visualisez les opportunités</a>
     </td>
     </tr>
   </tbody>
 </table>
 
 <div class="footer">
-<table>
+<table style="margin-left:auto; margin-right:auto; width: 100%;">
   <tbody>
     <tr>
-      <td class="content-block">
+      <td style="text-align: center;" class="content-block">
         <span class="apple-link">
-        <!--<a href="#">Printer Version</a> | -->
-            <a href="/fr/nouvelles/nouvelleslouvrage">Page principale du bulletin nouvelles@l'ouvrage</a>
+            <a href="{{ vars_array['base_url'] }}/fr/nouvelles/nouvelleslouvrage">Page principale du bulletin nouvelles@l'ouvrage</a>
              |
-            <a href="https://collab.agr.gc.ca/br-dg/ccb-dgcc/Lists/bulletins/AllItems.aspx">Bulletins de nouvelles@l'ouvrage</a>
+            <a href="{{ vars_array['base_url'] }}/fr/nouvelles@louvrage">Bulletins de nouvelles@l'ouvrage</a>
              |
-            <a href="/fr/nouvelles/nouvelleslouvrage/soumettre-un-article-nouvelles-au-travail">Soumettre un article pour nouvelles@l'ouvrage</a>
+            <a href="{{ vars_array['base_url'] }}/fr/nouvelles/nouvelleslouvrage/soumettre-un-article-nouvelles-au-travail">Soumettre un article pour nouvelles@l'ouvrage</a>
              |
             <a href="mailto:nouvellesalouvrage@agr.gc.ca">Contactez - nous</a>
           </span>
