@@ -61,8 +61,8 @@
 
 {# Main #}
 {% block main %}
-
-  <div class="{{ container }}">
+<div class="email-container" style="background-color: #F6F6F6">
+  <div class="{{ container }}" style="margin: 0px auto; background-color: #FFFFFF; padding: 10px; display: block; max-width: 580px; box-sizing: border-box;">
     <div class="row">
 
       {# Highlighted #}
@@ -96,14 +96,14 @@
         ]
       %}
       <main role="main" property="mainContentOfPage" {{ content_attributes.addClass(content_classes, 'main-container', 'js-quickedit-main-content') }}>
-      
+
       {# Header #}
 {#      {% if page.header %}
         {% block header %}
           {{ page.header }}
         {% endblock %}
       {% endif %}
-#}      
+#}
       <section>
 
         {# Content #}
@@ -118,6 +118,6 @@
 
     </div>
   </div>
+</div>
 
 {% endblock %}
-
