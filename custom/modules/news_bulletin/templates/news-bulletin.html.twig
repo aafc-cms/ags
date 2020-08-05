@@ -1,12 +1,5 @@
 {{ attach_library('news_bulletin/bulletins') }}
 
-<!-- HIDDEN DEBUG SECTION
-<br>
-<pre>{#{ dump(types_by_weight) }#}</pre>
-<br>
-<pre>{#{ dump(news_items) }#}</pre>
- END OF HIDDEN DEBUG SECTION -->
-
 <form action="/en/news-bulletin-email" method="post" id="news-bulletin-form-1" accept-charset="UTF-8" target="_news_email">
 <button target="_news_email" onclick="this.form.target='_news_email';return true;" id="email-button" class="bulletin-button button">News Bulletin Email</button>
 {% set nth_run = 0 %}
