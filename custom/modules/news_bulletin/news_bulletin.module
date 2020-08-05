@@ -1,6 +1,31 @@
 <?php
 
 
+function news_bulletin_js_alter(&$js, \Drupal\Core\Asset\AttachedAssetsInterface $assets) {
+
+  if (\Drupal::routeMatch()->getRouteName() == 'email_template.content') {
+    // The email news bulletin page needs full url.
+    $http_host = \Drupal::request()->getSchemeAndHttpHost();
+    foreach($js as $key => $value) {
+      $js[$key]['type'] = 'external';
+      $js[$key]['data'] = $http_host . '/' . $js[$key]['data'];
+    }
+  }
+
+}
+
+function news_bulletin_css_alter(array &$css, \Drupal\Core\Asset\AttachedAssetsInterface $assets) {
+
+  if (\Drupal::routeMatch()->getRouteName() == 'email_template.content') {
+    $http_host = \Drupal::request()->getSchemeAndHttpHost();
+
+    foreach($css as $key => $value) {
+      $css[$key]['type'] = 'external';
+      $css[$key]['data'] = $http_host . '/' . $css[$key]['data'];
+    }
+  }
+}
+
 function news_bulletin_theme($existing, $type, $theme, $path) {
   return [
     'news_bulletin' => [
@@ -17,7 +42,8 @@ function news_bulletin_theme($existing, $type, $theme, $path) {
         'types_by_weight' => NULL,
         'news_types_fr' => NULL,
         'news_items_fr' => NULL,
-        'types_by_weight_fr' => NULL
+        'types_by_weight_fr' => NULL,
+        'vars_array' => NULL
       ],
     ]
     /*,
