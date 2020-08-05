@@ -62,10 +62,17 @@ class NewsBulletinEmailController extends ControllerBase {
       '#types_by_weight' => $this->reOrderTypeWeights(),
       '#news_types_fr' => $this->getNewsTypes('fr'),
       '#news_items_fr' => $this->reOrderNodeWeights('fr'),
-      '#types_by_weight_fr' => $this->reOrderTypeWeights('fr')
+      '#types_by_weight_fr' => $this->reOrderTypeWeights('fr'),
+      '#vars_array' => $this->options()
 //      '#markup' => $this->t('Hello, World!'),
 //      '#attached' => ['library' => ['email_template/bulletins']] // OR add this through the twig template
     ];
+  }
+
+  public function options() {
+    $options = [];
+    $options['base_url'] = \Drupal::request()->getSchemeAndHttpHost();
+    return $options;
   }
 
 
@@ -128,6 +135,7 @@ class NewsBulletinEmailController extends ControllerBase {
     return $custom_results;
   }
 
+
   public function getUrlForNode($node, $lang = 'en') {
     $http_host = \Drupal::request()->getSchemeAndHttpHost();
     $relative = \Drupal::service('path.alias_storage')->load(['source' => '/node/' . $node->id(), 'langcode' => $lang]);
@@ -139,14 +147,27 @@ class NewsBulletinEmailController extends ControllerBase {
     }
     return $url;
   }
+
+
   public function convertBodyToImg($node) {
+    // This grabs the rendered body so that we can get embedded images using media browser OR legacy img element.
     $render_array = $node->get('body')->view('full');
     $html_output = \Drupal::service('renderer')->renderRoot($render_array);
     $regex_img = '/<img.*\B \/>/m';
 
     preg_match_all($regex_img, $html_output, $matches, PREG_SET_ORDER, 0);
     if (isset($matches[0][0])) {
-      return $matches[0][0];
+      $image_element = $matches[0][0];
+      $http_host = \Drupal::request()->getSchemeAndHttpHost();
+      $search_for = 'src="/sites/default/files';
+      $replace_with = 'style="margin-left:auto;margin-right:auto;" src="' . $http_host . '/sites/default/files';
+      // Images must be visible via email therefore must have absolute url.
+      $image_element_absolute = str_replace($search_for, $replace_with, $image_element);
+      if (stripos($image_element_absolute, 'alt=') <= 0) {
+        // WCAG fix, img elements must have an alt attribute and it can be empty.
+        $image_element_absolute = str_replace('src=', 'alt="" src=', $image_element_absolute);
+      }
+      return $image_element_absolute;
     }
     else {
       return NULL;
