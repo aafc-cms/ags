@@ -87,14 +87,13 @@ display:
           row_class: 'employmentopportunities-row published-{{ status }} node-{{ nid_1 }}'
           default_row_class: true
           override: true
-          sticky: true
+          sticky: false
           caption: ''
           summary: ''
           description: ''
           columns:
             status: status
             nid: nid
-            nid_1: nid_1
             field_type: field_type
             field_classification: field_classification
             field_branch: field_branch
@@ -110,13 +109,6 @@ display:
               empty_column: false
               responsive: priority-low
             nid:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-low
-            nid_1:
               sortable: false
               default_sort_order: asc
               align: ''
