@@ -71,7 +71,13 @@ class NewsBulletinEmailController extends ControllerBase {
 
   public function options() {
     $options = [];
-    $options['base_url'] = \Drupal::request()->getSchemeAndHttpHost();
+    $base_path = \Drupal::request()->getBasePath();
+    if (empty($base_path)) {
+      $options['base_url'] = \Drupal::request()->getSchemeAndHttpHost();
+    }
+    else {
+      $options['base_url'] = \Drupal::request()->getSchemeAndHttpHost() . '/' . $base_path;
+    }
     return $options;
   }
 
@@ -137,13 +143,17 @@ class NewsBulletinEmailController extends ControllerBase {
 
 
   public function getUrlForNode($node, $lang = 'en') {
-    $http_host = \Drupal::request()->getSchemeAndHttpHost();
+    $host_path = \Drupal::request()->getSchemeAndHttpHost();
+    $base_path = \Drupal::request()->getBasePath();
+    if (strlen($base_path) > 0) {
+      $host_path = $host_path . '/' . $base_path;
+    }
     $relative = \Drupal::service('path.alias_storage')->load(['source' => '/node/' . $node->id(), 'langcode' => $lang]);
     if (isset($relative['alias'])) {
-      $url = $http_host . '/' . $lang . $relative['alias'];
+      $url = $host_path . '/' . $lang . $relative['alias'];
     }
     else {
-      $url = $http_host . '/' . $lang . '/node/' . $node->id();
+      $url = $host_path . '/' . $lang . '/node/' . $node->id();
     }
     return $url;
   }
@@ -158,9 +168,39 @@ class NewsBulletinEmailController extends ControllerBase {
     preg_match_all($regex_img, $html_output, $matches, PREG_SET_ORDER, 0);
     if (isset($matches[0][0])) {
       $image_element = $matches[0][0];
-      $http_host = \Drupal::request()->getSchemeAndHttpHost();
+      // Now get the file resource link.
+      $regex_src = '/src="?\'?(.*)["|\']/m'; // regex101.com.
+      preg_match_all($regex_src, $image_element, $match_src, PREG_SET_ORDER, 0);
+      if (isset($match_src[0][1])) {
+        $public_thing = "public://";
+        $src_path = $match_src[0][1];
+        // Get the original image URI.
+        $file_uri = str_replace('/sites/default/files/', $public_thing, $src_path);
+        $image_style_name = 'courriel';
+        // Load the image style.
+        $style = \Drupal::entityTypeManager()->getStorage('image_style')->load($image_style_name);
+        // Get the styled image derivative.
+        $destination = $style->buildUri($file_uri);
+        // If the derivative doesn't exist yet (as the image style may have been
+        // added post launch), create it.
+        if (!file_exists($destination)) {
+          $style->createDerivative($file_uri, $destination);
+        }
+        $styled_file_uri = file_url_transform_relative($style->buildUrl($file_uri));
+        //AgriAdminHelper::addToLog('<pre>test0 ' . print_r($match_src, TRUE) . ' </pre>', TRUE);//DEBUG, remove this later.
+        //AgriAdminHelper::addToLog('<pre>test1 ' . print_r($file_uri, TRUE) . ' </pre>', TRUE);//DEBUG, remove this later.
+        //AgriAdminHelper::addToLog('<pre>test2 ' . print_r($src_path, TRUE) . ' </pre>', TRUE);//DEBUG, remove this later.
+        $image_element = str_replace($src_path, $styled_file_uri, $image_element);
+      }
+      $host_path = \Drupal::request()->getSchemeAndHttpHost();
+      $base_path = \Drupal::request()->getBasePath();
+      if (strlen($base_path) > 0) {
+        $host_path = $host_path . '/' . $base_path;
+        $search_for = 'src="/' . $base_path . '/sites/default/files';
+        $replace_with = 'style="margin-left:auto;margin-right:auto;" src="' . $host_path . '/sites/default/files';
+      }
       $search_for = 'src="/sites/default/files';
-      $replace_with = 'style="margin-left:auto;margin-right:auto;" src="' . $http_host . '/sites/default/files';
+      $replace_with = 'style="margin-left:auto;margin-right:auto;" src="' . $host_path . '/sites/default/files';
       // Images must be visible via email therefore must have absolute url.
       $image_element_absolute = str_replace($search_for, $replace_with, $image_element);
       if (stripos($image_element_absolute, 'alt=') <= 0) {
@@ -185,7 +225,6 @@ class NewsBulletinEmailController extends ControllerBase {
         }
       }
     }
-    //AgriAdminHelper::addToLog('<pre>array ' . print_r($array, TRUE) . ' </pre>', TRUE);
     //AgriAdminHelper::addToLog('<pre>order ' . print_r($orderArray, TRUE) . ' </pre>', TRUE);
     return $ordered + $array;
   }
