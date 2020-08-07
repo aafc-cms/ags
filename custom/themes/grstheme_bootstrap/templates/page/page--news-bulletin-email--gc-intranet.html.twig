@@ -58,19 +58,11 @@
 #}
 {% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
 
-
 {# Main #}
 {% block main %}
 <div class="email-container" style="background-color: #F6F6F6">
   <div class="{{ container }}" style="margin: 0px auto; background-color: #FFFFFF; padding: 10px; display: block; max-width: 580px; box-sizing: border-box;">
     <div class="row">
-
-      {# Highlighted #}
-      {% if page.highlighted %}
-        {% block highlighted  %}
-          <div class="highlighted">{{ page.highlighted }}</div>
-        {% endblock %}
-      {% endif %}
 
       {# Access Unpublished Links #}
       {% set accessUnpublishedUrl = getHashTag(node.id()) %}
@@ -110,7 +102,6 @@
         {% block content %}
           <a id="main-content"></a>
           {{ page.content }}
-          {{ page.content_footer }}
         {% endblock %}
       </section>
 
