@@ -42,22 +42,22 @@
         <div style="font-size:15px;font-style: italic;padding-bottom:5px;" class="cell from">{{ newsitem.from }}</div>
           <table style="width: 100%; border: 0px;" >
             <tbody>
-              {% if not newsitem.image_narrow %}
-                <tr>  
-                  <td class="cell image" style="text-align:center;padding: 5px 0 5px 0;">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}</td>
-                </tr>
-                <tr>
-                  <td style="font-size:15px;" class="cell summary">{{ newsitem.summary }}</td>
-                </tr>
-              {% else %}
-                <tr>  
-                  <td style="width:75%;padding-top:20px;float:left;font-size:15px;text-align:left;" class="cell summary">
-                  {{ newsitem.summary }}
-                  </td>
-                  <td class="narrow-image" style="float:right;text-align:right;padding:5px 10px 5px 0;">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}
-                  </td>
-                </tr>
-              {% endif %}
+            {% if not newsitem.image_narrow %}
+              <tr>  
+                <td class="cell image" style="text-align:center;padding: 5px 0 5px 0;">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}</td>
+              </tr>
+              <tr>
+                <td style="font-size:15px;" class="cell summary">{{ newsitem.summary }}</td>
+              </tr>
+            {% else %}
+              <tr>  
+                <td style="width:70%;padding-top:20px;float:left;font-size:15px;text-align:left;" class="cell summary">
+                {{ newsitem.summary }}
+                </td>
+                <td class="narrow-image" style="float:right;text-align:right;padding:5px 10px 5px 0;">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}
+                </td>
+              </tr>
+            {% endif %}
             </tbody>
           </table>
       </div>
@@ -171,7 +171,7 @@
   {% for nkey, newsitem in news_items_fr %}
 {##}{% if valuetype.tid == newsitem.term_id %}
     <div style="margin-left:auto;margin-right:auto;padding:10px 10px 0 10px;" class="tile news-type-id-{{ valuetype.tid }}">
-      <div class="content news-type-id-{{ valuetype.tid  }}" data-nid="{{ newsitem.nid }}" data-group-current="{{ newsitem.term_id }}" data-group-orig="{{ newsitem.term_id }}">
+      <div class="content type-{{ newsitem.first_word }}" data-nid="{{ newsitem.nid }}" data-group-current="{{ newsitem.term_id }}" data-group-orig="{{ newsitem.term_id }}">
         <div style="font-size:17px;" class="cell news-title"><a href="{{ newsitem.href }}">{{ newsitem.title }}</a></div>
         <div style="font-size:15px;font-style: italic;padding-bottom:5px;" class="cell from">{{ newsitem.from }}</div>
           <table style="width: 100%; border: 0px;" >
@@ -185,8 +185,8 @@
               </tr>
             {% else %}
               <tr>
-                <td style="width:75%;padding-top:20px;float:left;font-size:15px;text-align:left;" class="cell summary">
-                  {{ newsitem.summary }}
+                <td style="width:70%;padding-top:20px;float:left;font-size:15px;text-align:left;" class="cell summary">
+                {{ newsitem.summary }}
                 </td>
                 <td class="narrow-image" style="float:right;text-align:right;padding:5px 10px 5px 0;">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}
                 </td>
@@ -194,7 +194,7 @@
             {% endif %}
             </tbody>
           </table>
-        </div>
+      </div>
       <div style="width: 100%;padding-bottom: 15px;border-bottom-width: 1px;border-bottom: 1px solid #C8C8C8;background-color: white !important;"></div>
     </div>
     {% endif %}
