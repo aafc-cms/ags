@@ -9,12 +9,15 @@ function news_bulletin_js_alter(&$js, \Drupal\Core\Asset\AttachedAssetsInterface
     $http_path = \Drupal::request()->getBasePath();
     foreach($js as $key => $value) {
       $js[$key]['type'] = 'external';
+      unset($js[$key]); // DO NOT LOAD ANY JAVASCRIPT FOR EMAIL TEMPLATE. // Delete this line to reenable.
+      /*
       if (empty($http_path)) {
         $js[$key]['data'] = $http_host . '/' . $js[$key]['data'];
       }
       else {
         $js[$key]['data'] = $http_host . '/' . $http_path . '/' . $js[$key]['data'];
       }
+      */
     }
   }
 
@@ -28,12 +31,15 @@ function news_bulletin_css_alter(array &$css, \Drupal\Core\Asset\AttachedAssetsI
 
     foreach($css as $key => $value) {
       $css[$key]['type'] = 'external';
+      unset($css[$key]); // DO NOT LOAD ANY CSS FOR EMAIL TEMPLATE, USE INLINE STYLES ONLY.// Delete this line to reenable.
+      /*
       if (empty($http_path)) {
         $css[$key]['data'] = $http_host . '/' . $css[$key]['data'];
       }
       else {
         $css[$key]['data'] = $http_host . '/' . $http_path . '/' . $css[$key]['data'];
       }
+      */
     }
   }
 }

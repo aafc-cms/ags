@@ -1,9 +1,9 @@
 {{ attach_library('news_bulletin/email-bulletins') }}
 
-<a name="English"></a>
+<a id="English"></a>
 <div id="list-en" class="news-bulletin">
 </div>
-  <table style="margin-left:auto; margin-right:auto; width: 100%; font-family: Helvetica,Arial,sans-serif;" class="headerrow1">
+  <table style="margin-left:auto; margin-right:auto;width:100%;font-family: Helvetica,Arial,sans-serif;" class="headerrow1">
     <tbody>
     <tr>
       <td style="text-align: center;">
@@ -29,19 +29,26 @@
   </table>
 <br>
 
-<div id="news-bulletin-list-en" class="news-bulletin-test col-xs-12" style="position:relative;padding: 0 15px 0 15px;margin-left:auto; margin-right:auto;width:100%;font-family:Helvetica,Arial,sans-serif;" >
+<div id="news-bulletin-list-en" class="news-bulletin-test" style="position:relative;padding: 0 15px 0 15px;margin-left:auto; margin-right:auto;width:100%;font-family:Helvetica,Arial,sans-serif;" >
 {% for wkey, valuetype in types_by_weight %}
-  <div style="padding:10px 10px 0 10px;" class="news-type type-{{ valuetype.first_word }} news-type-id-{{ valuetype.tid }} col-xs-12" data-attribute-group="{{ valuetype.tid }}">
+  <div style="padding:10px 10px 0 10px;" class="news-type type-{{ valuetype.first_word }} news-type-id-{{ valuetype.tid }}" data-attribute-group="{{ valuetype.tid }}">
     <div class="news-group-title" style="font-size:20px;">{{ valuetype.name }}</div>
   </div>
   {% for nkey, newsitem in news_items %}
 {##}{% if valuetype.tid == newsitem.term_id %}
-    <div style="margin-left:auto; margin-right:auto;" class="tile news-type-id-{{ valuetype.tid }} col-xs-11 col-md-offset-1">
+    <div style="margin-left:auto;margin-right:auto;padding:10px 10px 0 10px;" class="tile news-type-id-{{ valuetype.tid }}">
       <div class="content type-{{ newsitem.first_word }}" data-nid="{{ newsitem.nid }}" data-group-current="{{ newsitem.term_id }}" data-group-orig="{{ newsitem.term_id }}">
         <div style="font-size:17px;" class="cell news-title"><a href="{{ newsitem.href }}">{{ newsitem.title }}</a></div>
-        <div style="font-size:15px;" class="cell from">{{ newsitem.from }}</div>
-        <div class="cell image" style="padding-bottom: 15px;">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}</div>
+        <div style="font-size:15px;padding-bottom:5px;" class="cell from">{{ newsitem.from }}</div>
+        {% if not newsitem.image_narrow %}
+        <div class="cell image" style="text-align:center;padding: 5px 0 5px 0;">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}</div>
         <div style="font-size:15px;" class="cell summary">{{ newsitem.summary }}</div>
+        {% else %}
+        <div style="width:70%;padding-top:20px;float:left;font-size:15px;text-align:left;" class="cell summary">
+          {{ newsitem.summary }}
+        </div>
+        <div class="narrow-image" style="float:right;text-align:right;padding:5px 10px 5px 0;">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}</div>
+        {% endif %}
       </div>
       <div class="splitter"></div>
     </div>
@@ -51,8 +58,9 @@
 </div>
 
 
-<table style="margin-left:auto; margin-right:auto; width: 100%;" class="newsreleasesstatement">
-  <tr><td style="text-align: center;"><h3>AAFC News Releases and Statements</h3>
+<table style="margin-left:auto;margin-right:auto;width:100%;" class="newsreleasesstatement">
+  <tr><td style="text-align: center;">
+    <h3 style="text-align:left;">AAFC News Releases and Statements</h3>
   </td></tr>
 </table>
 <table class="newsreleasesstatementdetails">
@@ -70,15 +78,19 @@
 </table>
 
 <table style="margin-left:auto; margin-right:auto; width: 100%;" class="emplopp">
-  <tr><td style="text-align: center;"><h3>Employment Opportunities</h3>
+  <tr>
+    <td style="text-align: center;padding-left:5px;">
+      <h3 style="text-align:left;">Employment Opportunities</h3>
   <br>Visit the Internal Employment Opportunities page to find any available acting, assignment and deployment opportunities within AAFC.
   </td></tr>
 </table>
 <table style="margin-left:auto; margin-right:auto; width: 100%;" class="emploppdetails">
   <tbody>
     <tr>
-    <td style="text-align: center;">
-      <a style="margin: 0px; padding: 12px 25px; border-radius: 5px; border: 1px solid rgb(52, 152, 219); border-image: none; color: rgb(255, 255, 255); text-transform: capitalize; font-size: 14px; font-weight: bold; text-decoration: none; display: inline-block; cursor: pointer; box-sizing: border-box; background-color: rgb(52, 152, 219);" href="{{ vars_array['base_url'] }}/en/internal-employment-opportunities" target="_blank">View Opportunities</a>
+    <td style="text-align:center;font-size:14px;padding:15px;">
+      <a style="margin:0px;padding:12px 25px;border-radius:5px;border:1px solid rgb(52, 152, 219);border-image:none;color:white;text-transform:capitalize;font-size:14px;font-weight:bold;text-decoration:none;display:inline-block;cursor:pointer;box-sizing:border-box;background-color:rgb(52, 152, 219);" href="{{ vars_array['base_url'] }}/en/internal-employment-opportunities" target="_blank">
+      View Opportunities
+      </a>
     </td>
     </tr>
   </tbody>
@@ -88,7 +100,7 @@
 <table style="margin-left:auto; margin-right:auto; width: 100%;">
   <tbody>
     <tr>
-      <td class="content-block" style="text-align: center;">
+      <td class="content-block" style="text-align:center;font-family:sans-serif;vertical-align:top;padding-top:10px;padding-bottom:10px;font-size:12px;font-color:#555555">
         <span class="apple-link">
             <a href="{{ vars_array['base_url'] }}/en/news/newswork">news@work main page</a>
              |
@@ -111,14 +123,14 @@
   </tbody>
 </table>
 </div>
-<a name="French"></a>
+<a id="French"></a>
 <div id="list-fr" class="news-bulletin">
 </div>
-  <table style="margin-left:auto; margin-right:auto; width: 100%; font-family: Helvetica,Arial,sans-serif;" class="headerrow1">
+  <table style="margin-left:auto;margin-right:auto;width:100%;font-family:Helvetica,Arial,sans-serif;" class="headerrow1">
     <tbody>
     <tr>
       <td style="text-align: center;">
-        <span style="margin-left:auto; margin-right:auto; width: 100%;" class="bulletin-font"><a href="#English">EN</a> | FR
+        <span style="padding: 5px 0 0 5px; font-size: 12px; font-weight: 700;"><a href="#English">EN</a> | FR
         </span>
       </td>
     </tr>
@@ -140,37 +152,39 @@
   </table>
 <br>
 
-<div id="news-bulletin-list-fr" class="news-bulletin-test col-xs-12" style="position:relative;padding: 0 15px 0 15px;margin-left:auto;margin-right:auto;width:100%;font-family: Helvetica,Arial,sans-serif;" >
+<div id="news-bulletin-list-fr" class="news-bulletin-test" style="position:relative;padding: 0 15px 0 15px;margin-left:auto;margin-right:auto;width:100%;font-family: Helvetica,Arial,sans-serif;" >
 {% for wkey, valuetype in types_by_weight_fr %}
-  <div style="padding:10px 10px 0 10px;" class="news-type type-{{ valuetype.first_word }} news-type-id-{{ valuetype.tid }} col-xs-12" data-attribute-group="{{ valuetype.tid }}">
+  <div style="padding:10px 10px 0 10px;" class="news-type type-{{ valuetype.first_word }} news-type-id-{{ valuetype.tid }}" data-attribute-group="{{ valuetype.tid }}">
     <div style="font-size:20px;" class="news-group-title">{{ valuetype.name }}</div>
   </div>
   {% for nkey, newsitem in news_items_fr %}
 {##}{% if valuetype.tid == newsitem.term_id %}
-    <div style="margin-left:auto; margin-right:auto;" class="tile news-type-id-{{ valuetype.tid }} col-xs-11 col-md-offset-1">
+    <div style="margin-left:auto;margin-right:auto;padding:10px 10px 0 10px;" class="tile news-type-id-{{ valuetype.tid }}">
       <div class="content news-type-id-{{ valuetype.tid  }}" data-nid="{{ newsitem.nid }}" data-group-current="{{ newsitem.term_id }}" data-group-orig="{{ newsitem.term_id }}">
         <div style="font-size:17px;" class="cell news-title"><a href="{{ newsitem.href }}">{{ newsitem.title }}</a></div>
-        <div style="font-size:15px;" class="cell from">{{ newsitem.from }}</div>
-        <div class="cell image" style="padding-bottom: 15px;">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}</div>
+        <div style="font-size:15px;padding-bottom:5px;" class="cell from">{{ newsitem.from }}</div>
+        {% if not newsitem.image_narrow %}
+        <div class="cell image" style="text-align:center;padding: 5px 0 5px 0;">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}</div>
         <div style="font-size:15px;" class="cell summary">{{ newsitem.summary }}</div>
+        {% else %}
+        <div style="width:70%;padding-top:20px;float:left;font-size:15px;text-align:left;" class="cell summary">
+          {{ newsitem.summary }}
+        </div>
+        <div class="narrow-image" style="float:right;text-align:right;padding:5px 10px 5px 0;">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}</div>
+        {% endif %}
       </div>
       <div class="splitter"></div>
     </div>
     {% endif %}
   {% endfor %}
 {% endfor %}
-  <!--<div class="row pagination">
-    <a class="hidden bulletin-pager" href="#">
-      {% trans %}
-        Show More
-      {% endtrans %}
-    </a>
-  </div>-->
 </div>
 
 <table style="margin-left:auto; margin-right:auto; width: 100%;" class="newsreleasesstatement">
-  <tr><td><h3>Communiqués et déclarations d'AAC</h3>
-  </td></tr>
+  <tr>
+    <td><h3 style="font-color:#333333;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin:20px 0 3px 0;">Communiqués et déclarations d'AAC</h3>
+    </td>
+  </tr>
 </table>
 <table style="margin-left:auto; margin-right:auto; width: 100%;" class="newsreleasesstatementdetails">
   <tbody>
@@ -186,16 +200,20 @@
   </tbody>
 </table>
 
-<table style="margin-left:auto; margin-right:auto; width: 100%;" class="emplopp">
-  <tr><td><h3>Possibilités d'emplois</h3>
-  <br>Consultez la page Possibilités d'emploi pour prendre connaissance de toutes les occasions de nomination intérimaire, d'affectation et de mutation au sein d'AAC.
-  </td></tr>
+<table style="margin-top: 30px;margin-left:auto; margin-right:auto; width: 100%;" class="emplopp">
+  <tr>
+    <td style="text-align: center;padding-left:5px;">
+      <h3 style="font-color:#333333;line-height: 125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin:20px 0 3px 0;">Possibilités d'emplois</h3>
+      <br>Consultez la page Possibilités d'emploi pour prendre connaissance de toutes les occasions de nomination intérimaire, d'affectation et de mutation au sein d'AAC.
+    </td>
+  </tr>
 </table>
 <table style="margin-left:auto; margin-right:auto; width: 100%;" class="emploppdetails">
   <tbody>
     <tr>
-    <td style="text-align: center; font-size: 14px;">
-      <a style="margin: 0px; padding: 12px 25px; border-radius: 5px; border: 1px solid rgb(52, 152, 219); border-image: none; color: rgb(255, 255, 255); text-transform: capitalize; font-size: 14px; font-weight: bold; text-decoration: none; display: inline-block; cursor: pointer; box-sizing: border-box; background-color: rgb(52, 152, 219);" href="{{ vars_array['base_url'] }}/fr/possibilites-demploi" target="_blank">Visualisez les opportunités</a>
+    <td style="text-align:center;font-size:14px;padding:15px;">
+      <a style="margin: 0px;padding:12px 25px;border-radius:5px;border:1px solid rgb(52, 152, 219);border-image:none;color:white;text-transform:capitalize;font-size:14px;font-weight:bold;text-decoration:none;display:inline-block;cursor:pointer;box-sizing:border-box;background-color:rgb(52, 152, 219);" href="{{ vars_array['base_url'] }}/fr/possibilites-demploi" target="_blank">
+      Visualisez les opportunités</a>
     </td>
     </tr>
   </tbody>
@@ -205,7 +223,7 @@
 <table style="margin-left:auto; margin-right:auto; width: 100%;">
   <tbody>
     <tr>
-      <td style="text-align: center;" class="content-block">
+      <td class="content-block" style="text-align:center;font-family:sans-serif;vertical-align:top;padding-top:10px;padding-bottom:10px;font-size:12px;font-color:#555555">
         <span class="apple-link">
             <a href="{{ vars_array['base_url'] }}/fr/nouvelles/nouvelleslouvrage">Page principale du bulletin nouvelles@l'ouvrage</a>
              |
