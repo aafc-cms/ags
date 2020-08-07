@@ -2,6 +2,10 @@ uuid: 11dbe139-4c93-48bc-bad2-33c9adfce635
 langcode: en
 status: true
 dependencies:
+  config:
+    - core.entity_view_mode.media.embedded
+    - core.entity_view_mode.media.media_library
+    - core.entity_view_mode.media.thumbnail
   module:
     - editor
     - entity_embed
@@ -48,10 +52,10 @@ filters:
   filter_html:
     id: filter_html
     provider: filter
-    status: false
+    status: true
     weight: -43
     settings:
-      allowed_html: '<a href hreflang> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <s> <sup> <sub> <img src alt data-entity-type data-entity-uuid data-align data-caption> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <hr> <p> <br> <h1> <pre> <drupal-entity data-*>'
+      allowed_html: '<em id="*" name="*"> <strong id="*" name="*"> <cite id="*" name="*" class="*"> <footer id="*" name="*" class="default"><blockquote id="*" name="*" class="*"> <code id="*" name="*"> <ul id="*" name="*" type class="*"> <ol id="*" name="*" start="*" type="*" class="lowerAlpha upperAlpha lowerRoman upperRoman upperRomanDot*"> <li id="*" name="*" class="a* b* c* d* e* f* g* h* i* j* k* l* n* o* q* p* r* s* t* u* v* w* x* y* z* Indent*"> <dl id="*" name="*"> <dt id="*" name="*"> <dd id="*" name="*"> <br> <img id="*" name="*" src="*" alt="*" height="*" width="*" data-entity-type="*" data-entity-uuid="*" data-align data-caption="*" class="*"> <a href="*" id="*" name="*" title="*" target="*" hreflang="*" data-entity-type="*" data-entity-uuid="*" tabindex="*" class="a* b* c* d* e* fa* g* h* i* j* k* m* n* o* q* p* r* s* t* u* v* w* x* y* z* Indent* no-icon* pdf-right* pdf-left*"> <p id="*" name="*" class="default fancy fanciest text-align* Indent*"> <h1 id="*" name="*" class="title default fancy text-align* Indent*"> <h2 id="*" name="*" class="fancy text-align* Indent*"> <h3 id="*" name="*" class="fancy text-align* Indent*"> <h4 id="*" name="*" class="fancy text-align* Indent*"> <h5 id="*" name="*" class="fancy text-align* Indent*"> <h6 id="*" name="*" class="fancy text-align* Indent*"> <sub id="*" name="*"> <sup id="*" name="*"> <table id="*" name="*" class="*"> <thead> <tr id="*" name="*"> <th id="*" name="*" class="*" scope="*"> <tbody> <td id="*" name="*" colspan="*" class="*"> <video id="*" name="*" class="*"> <audio id="*" name="*" class="*"> <b id="*" name="*"> <div id="*" name="*" class="*" id="*" aria-labelledby="*" data-parent="*"> <button id="*" name="*" class="*" aria-controls="*" aria-expanded="*" data-target="*" data-toggle="*" type="*" id="*"> <hr id="*" name="*" class="*"> <figure id="*" name="*" class="*"> <figcaption id="*" name="*" class="*"><span class><drupal-entity data-entity-type data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button alt title><drupal-media data-entity-type data-entity-uuid><pre> '
       filter_html_help: true
       filter_html_nofollow: false
   filter_autop:
@@ -109,9 +113,17 @@ filters:
   media_embed:
     id: media_embed
     provider: media
-    status: false
+    status: true
     weight: 100
     settings:
       default_view_mode: default
-      allowed_media_types: {  }
-      allowed_view_modes: {  }
+      allowed_media_types:
+        audio_file: audio_file
+        document: document
+        image: image
+        video: video
+        video_file: video_file
+      allowed_view_modes:
+        embedded: embedded
+        media_library: media_library
+        thumbnail: thumbnail

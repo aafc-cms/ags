@@ -1,6 +1,13 @@
 /**** Components Node for unpublished content *****/
 /* Note that drupal-bootstrap-not-cdn.min.css sets the background-color to #fff4f4 for body.is-unpublished */
 
+body.user-anonymous {
+  #edit-body-etuf-fr-0-format,
+  #edit-body-0-format {
+    display: none;
+  }
+}
+
 body.user-logged-in.published-no {
   article {
     background-color: pink;

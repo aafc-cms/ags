@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entity_browser.browser.media_browser
     - field.field.node.news.body
     - field.field.node.news.field_description
     - field.field.node.news.field_from
@@ -17,6 +18,7 @@ dependencies:
     - field.field.node.news.field_newsfile2
     - field.field.node.news.field_newsfile3
     - field.field.node.news.field_newsfile4
+    - field.field.node.news.field_newsfile5
     - field.field.node.news.field_newsnotes
     - field.field.node.news.field_newsreviewedby
     - field.field.node.news.field_newssubmitteremail
@@ -33,6 +35,7 @@ dependencies:
   module:
     - content_moderation
     - datetime
+    - entity_browser
     - field_group
     - file
     - telephone
@@ -171,6 +174,7 @@ third_party_settings:
       label: Notes
     group_newsattachedfiles:
       children:
+        - field_newsfile5
         - field_newsfile1
         - field_newsfile2
         - field_newsfile4
@@ -292,33 +296,48 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_newsfile1:
-    weight: 11
+    weight: 33
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
     type: file_generic
     region: content
   field_newsfile2:
-    weight: 12
+    weight: 34
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
     type: file_generic
     region: content
   field_newsfile3:
-    weight: 14
+    weight: 36
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
     type: file_generic
     region: content
   field_newsfile4:
-    weight: 13
+    weight: 35
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
     type: file_generic
     region: content
+  field_newsfile5:
+    type: entity_browser_entity_reference
+    weight: 32
+    settings:
+      entity_browser: media_browser
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: thumbnail
+      open: true
+      field_widget_replace: false
+    region: content
+    third_party_settings: {  }
   field_newsnotes:
     weight: 10
     settings:

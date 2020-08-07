@@ -1,0 +1,16 @@
+
+body.user-anonymous, body.role-is-anonymous {
+  .entity-iframe {
+    .create-embedsearch,
+    .form-item-entity-status-value,
+    .field--name-field-media-in-library,
+    .field--name-field-image-link {
+      display: none;
+    }
+  }
+  .entity-embed-dialog {
+    .form-item-attributes-data-entity-embed-display-settings-image-link {
+      display: none;
+    }
+  }
+}
