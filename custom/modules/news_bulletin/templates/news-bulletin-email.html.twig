@@ -29,7 +29,7 @@
   </table>
 <br>
 
-<div id="news-bulletin-list-en" class="news-bulletin-test" style="position:relative;padding: 0 15px 0 15px;margin-left:auto; margin-right:auto;width:100%;font-family:Helvetica,Arial,sans-serif;" >
+<div id="news-bulletin-list-en" class="news-bulletin-test" style="margin-bottom:40px;position:relative;padding: 0 15px 0 15px;margin-left:auto; margin-right:auto;width:100%;font-family:Helvetica,Arial,sans-serif;" >
 {% for wkey, valuetype in types_by_weight %}
   <div style="padding:10px 10px 0 10px;" class="news-type type-{{ valuetype.first_word }} news-type-id-{{ valuetype.tid }}" data-attribute-group="{{ valuetype.tid }}">
     <div class="news-group-title" style="font-size:20px;">{{ valuetype.name }}</div>
