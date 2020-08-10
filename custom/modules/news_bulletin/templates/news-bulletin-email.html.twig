@@ -29,7 +29,7 @@
   </table>
 <br>
 
-<div id="news-bulletin-list-en" class="news-bulletin-test" style="margin-bottom:40px;position:relative;padding: 0 15px 0 15px;margin-left:auto; margin-right:auto;width:100%;font-family:Helvetica,Arial,sans-serif;" >
+<div id="news-bulletin-list-en" class="news-bulletin-test" style="margin-bottom:0px;position:relative;padding: 0 15px 0 15px;margin-left:auto; margin-right:auto;width:100%;font-family:Helvetica,Arial,sans-serif;" >
 {% for wkey, valuetype in types_by_weight %}
   <div style="padding:10px 10px 0 10px;" class="news-type type-{{ valuetype.first_word }} news-type-id-{{ valuetype.tid }}" data-attribute-group="{{ valuetype.tid }}">
     <div class="news-group-title" style="font-size:20px;">{{ valuetype.name }}</div>
@@ -51,7 +51,7 @@
                 </tr>
               {% else %}
                 <tr>  
-                  <td style="width:75%;padding-top:20px;float:left;font-size:15px;text-align:left;" class="cell summary">
+                  <td style="width:72%;padding-top:20px;float:left;font-size:15px;text-align:left;" class="cell summary">
                   {{ newsitem.summary }}
                   </td>
                   <td class="narrow-image" style="float:right;text-align:right;padding:5px 10px 5px 0;">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}
@@ -69,36 +69,42 @@
 </div>
 
 
-<table style="margin-left:auto;margin-right:auto;width:100%;" class="newsreleasesstatement">
+<table style="margin-left: auto; margin-right: auto; width: 100%; padding-left: 25px;" class="newsreleasesstatement">
   <tr><td style="text-align: center;">
-    <h3 style="text-align:left;">AAFC News Releases and Statements</h3>
+    <h3 style="color: #5F5F5F; line-height: 125%; font-family: Helvetica, Arial, sans-serif; font-size: 20px; font-weight: normal; margin-top: 20px; margin-bottom: 3px; text-align: left;">AAFC News Releases and Statements</h3>
   </td></tr>
 </table>
-<table class="newsreleasesstatementdetails">
+<table class="newsreleasesstatementdetails" style="padding-left: 25px; padding-bottom: 25px;">
   <tbody>
     <tr>
     <td style="text-align: center;">
       <img class="flexibleImagesmall" src="https://www.agr.gc.ca/resources/prod/news/images/news_icon_sm.png" alt="AAFC News Releases and Statements">
     </td>
     <td style="width=100%;font-size:14px;">
-      <div>Check out AAFC's latest <a href="https://www.agr.gc.ca/eng/news/news-releases-and-statements/?id=1383076728778">news releases and statements.</a>
+      <div style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 15px; margin-bottom: 0; color: #5F5F5F; line-height: 135%;">Check out AAFC's latest <a href="https://www.agr.gc.ca/eng/news/news-releases-and-statements/?id=1383076728778">news releases and statements.</a>
       </div>
     </td>
     </tr>
   </tbody>
 </table>
-
-<table style="margin-left:auto; margin-right:auto; width: 100%;" class="emplopp">
+<table style="padding-left: 15px;"  border="0" cellpadding="0"  cellspacing="10" width="100%">
+  <tbody>
+    <tr>
+      <td align="center" valign="top" style="border-top:1px solid #C8C8C8;"></td>
+    </tr>
+    </tbody>
+</table>
+<table style="margin-left:auto; margin-right:auto; width: 100%; padding-left: 25px;" class="emplopp">
   <tr>
-    <td style="text-align: center;padding-left:5px;">
-      <h3 style="text-align:left;">Employment Opportunities</h3>
+    <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">
+      <h3 style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:30px;margin-bottom:3px;text-align:left;">Employment Opportunities</h3>
   <br>Visit the Internal Employment Opportunities page to find any available acting, assignment and deployment opportunities within AAFC.
   </td></tr>
 </table>
-<table style="margin-left:auto; margin-right:auto; width: 100%;" class="emploppdetails">
+<table style="margin-left:auto; margin-right:auto; width: 100%; padding-left: 25px;" class="emploppdetails">
   <tbody>
     <tr>
-    <td style="text-align:center;font-size:14px;padding:15px;">
+    <td style="font-family:sans-serif;text-align:center;font-size:14px;padding:15px;">
       <a style="margin:0px;padding:12px 25px;border-radius:5px;border:1px solid rgb(52, 152, 219);border-image:none;color:white;text-transform:capitalize;font-size:14px;font-weight:bold;text-decoration:none;display:inline-block;cursor:pointer;box-sizing:border-box;background-color:rgb(52, 152, 219);" href="{{ vars_array['base_url'] }}/en/internal-employment-opportunities" target="_blank">
       View Opportunities
       </a>
@@ -185,7 +191,7 @@
               </tr>
             {% else %}
               <tr>
-                <td style="width:75%;padding-top:20px;float:left;font-size:15px;text-align:left;" class="cell summary">
+                <td style="width:72%;padding-top:20px;float:left;font-size:15px;text-align:left;" class="cell summary">
                   {{ newsitem.summary }}
                 </td>
                 <td class="narrow-image" style="float:right;text-align:right;padding:5px 10px 5px 0;">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}
@@ -201,39 +207,44 @@
   {% endfor %}
 {% endfor %}
 </div>
-
-<table style="margin-left:auto; margin-right:auto; width: 100%;" class="newsreleasesstatement">
+<table style="margin-left:auto; margin-right:auto; width: 100%; padding-left: 25px;" class="newsreleasesstatement">
   <tr>
-    <td><h3 style="font-color:#333333;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin:20px 0 3px 0;">Communiqués et déclarations d'AAC</h3>
+    <td><h3 style="color: #5F5F5F; line-height: 125%; font-family: Helvetica,Arial,sans-serif; font-size: 20px; font-weight: normal; margin-top: 20px; margin-bottom: 3px; text-align: left;">Communiqués et déclarations d'AAC</h3>
     </td>
   </tr>
 </table>
-<table style="margin-left:auto; margin-right:auto; width: 100%;" class="newsreleasesstatementdetails">
+<table style="margin-left:auto; margin-right:auto; width: 100%; padding-left: 25px; padding-bottom: 25px;" class="newsreleasesstatementdetails">
   <tbody>
     <tr>
     <td>
       <img class="flexibleImagesmall" src="https://www.agr.gc.ca/resources/prod/news/images/news_icon_sm.png" alt="AAC Nouvelles et Communiqués">
     </td>
     <td style="width=100%;font-size:14px;">
-      <div>Consultez les plus récents <a href="https://www.agr.gc.ca/fra/nouvelles/communiques-et-declarations/?id=1383076728778">communiqués et déclarations.</a>
+      <div style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 15px; margin-bottom: 0; color: #5F5F5F; line-height: 135%;">Consultez les plus récents <a href="https://www.agr.gc.ca/fra/nouvelles/communiques-et-declarations/?id=1383076728778">communiqués et déclarations.</a>
       </div>
     </td>
     </tr>
   </tbody>
 </table>
-
-<table style="margin-top: 30px;margin-left:auto; margin-right:auto; width: 100%;" class="emplopp">
+<table style="padding-left: 15px;"  border="0" cellpadding="0" cellspacing="10" width="100%">
+  <tbody>
+    <tr>
+      <td align="center" valign="top" style="border-top:1px solid #C8C8C8;"></td>
+    </tr>
+    </tbody>
+</table>
+<table style="margin-left:auto; margin-right:auto; width: 100%; padding-left: 25px;" class="emplopp">
   <tr>
-    <td style="text-align: center;padding-left:5px;">
-      <h3 style="font-color:#333333;line-height: 125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin:20px 0 3px 0;">Possibilités d'emplois</h3>
+    <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">
+      <h3 style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:30px;margin-bottom:3px;text-align:left;">Possibilités d'emplois</h3>
       <br>Consultez la page Possibilités d'emploi pour prendre connaissance de toutes les occasions de nomination intérimaire, d'affectation et de mutation au sein d'AAC.
     </td>
   </tr>
 </table>
-<table style="margin-left:auto; margin-right:auto; width: 100%;" class="emploppdetails">
+<table style="margin-left:auto; margin-right:auto; width: 100%; padding-left: 25px;" class="emploppdetails">
   <tbody>
     <tr>
-    <td style="text-align:center;font-size:14px;padding:15px;">
+    <td style="font-family:sans-serif;text-align:center;font-size:14px;padding:15px;">
       <a style="margin: 0px;padding:12px 25px;border-radius:5px;border:1px solid rgb(52, 152, 219);border-image:none;color:white;text-transform:capitalize;font-size:14px;font-weight:bold;text-decoration:none;display:inline-block;cursor:pointer;box-sizing:border-box;background-color:rgb(52, 152, 219);" href="{{ vars_array['base_url'] }}/fr/possibilites-demploi" target="_blank">
       Visualisez les opportunités</a>
     </td>
