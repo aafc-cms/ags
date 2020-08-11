@@ -1,4 +1,4 @@
-{{ attach_library('news_bulletin/email-bulletins') }}
+{#{{ attach_library('news_bulletin/email-bulletins') }}#}
 
 <a id="English"></a>
 <div id="list-en" class="news-bulletin">
@@ -43,14 +43,14 @@
           <table style="width: 100%; border: 0px;" >
             <tbody>
             {% if not newsitem.image_narrow %}
-              <tr>  
+              <tr>
                 <td class="cell image" style="text-align:center;padding: 5px 0 5px 0;">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}</td>
               </tr>
               <tr>
                 <td style="font-size:15px;" class="cell summary">{{ newsitem.summary }}</td>
               </tr>
             {% else %}
-              <tr>  
+              <tr>
                 <td style="width:70%;padding-top:20px;float:left;font-size:15px;text-align:left;" class="cell summary">
                 {{ newsitem.summary }}
                 </td>
@@ -113,11 +113,11 @@
   </tbody>
 </table>
 
-<div class="footer">
+<div class="footer" style="margin-bottom:40px;">
 <table style="margin-left:auto; margin-right:auto; width: 100%;">
   <tbody>
     <tr>
-      <td class="content-block" style="text-align:center;font-family:sans-serif;vertical-align:top;padding-top:10px;padding-bottom:10px;font-size:12px;font-color:#555555">
+      <td class="content-block" style="text-align:center;font-family:sans-serif;vertical-align:top;padding-top:10px;padding-bottom:10px;font-size:12px;">
         <span class="apple-link">
             <a href="{{ vars_array['base_url'] }}/en/news/newswork">news@work main page</a>
              |
@@ -256,7 +256,7 @@
 <table style="margin-left:auto; margin-right:auto; width: 100%;">
   <tbody>
     <tr>
-      <td class="content-block" style="text-align:center;font-family:sans-serif;vertical-align:top;padding-top:10px;padding-bottom:10px;font-size:12px;font-color:#555555">
+      <td class="content-block" style="text-align:center;font-family:sans-serif;vertical-align:top;padding-top:10px;padding-bottom:10px;font-size:12px;">
         <span class="apple-link">
             <a href="{{ vars_array['base_url'] }}/fr/nouvelles/nouvelleslouvrage">Page principale du bulletin nouvelles@l'ouvrage</a>
              |
