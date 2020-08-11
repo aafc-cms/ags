@@ -235,7 +235,7 @@ class NewsBulletinEmailController extends ControllerBase {
       $image_element = $matches[0][0];
       $image_element = $this->stripWidthAndHeight($image_element);
       // Now get the file resource link.
-      $regex_src = '/src="?\'?(.*\.{1}[a-zA-Z][a-zA-Z][a-zA-Z])[\"-\']{1}/m'; // regex101.com.
+      $regex_src = '/src="?\'?(.*\.[a-zA-Z][a-zA-Z][a-zA-Z])/m'; // regex101.com.
       preg_match_all($regex_src, $image_element, $match_src, PREG_SET_ORDER, 0);
       $public_thing = "public://"; // Drupal uses public:// as a placeholder for path/to/sites/default/files.
       $image_style_name = 'courriel'; // The image style machine name.
