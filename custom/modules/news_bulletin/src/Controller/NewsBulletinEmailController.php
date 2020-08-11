@@ -84,14 +84,19 @@ class NewsBulletinEmailController extends ControllerBase {
       $options['base_url'] = \Drupal::request()->getSchemeAndHttpHost();
     }
     else {
-      $options['base_url'] = \Drupal::request()->getSchemeAndHttpHost() . '/' . $base_path;
+      if (stripos($base_path, '/') < 0) {
+        $options['base_url'] = \Drupal::request()->getSchemeAndHttpHost() . '/' . $base_path;
+      }
+      else {
+        $options['base_url'] = \Drupal::request()->getSchemeAndHttpHost() . $base_path;
+      }
     }
     return $options;
   }
 
 
   public function getNewsItems($lang = 'en') {
-
+    $narrow = 0;
     $view = Views::getView('newsatworkbulletin');
 
     $view->setDisplay('rest_export_1');
@@ -105,7 +110,7 @@ class NewsBulletinEmailController extends ControllerBase {
     foreach ($view->result as $id => $result) {
       $node = $result->_entity;
       $nid = $node->id();
-      if (!in_array($nid, $this->getNewsNids())) {
+      if (!in_array($nid, $this->getNewsNids()) && !empty($this->getNewsNids())) {
         continue;
       }
       if ($node->hasTranslation($lang)) {
@@ -117,7 +122,13 @@ class NewsBulletinEmailController extends ControllerBase {
       $termweight = $term->getWeight();
       $summary = $node->get('body')->summary;
       $summary_length = strlen($summary);
-      $max = 110;
+      if ($summary_length < 20) {
+        $summary = $node->get('body')->value;
+        $summary = str_replace('&nbsp;', ' ', $summary);
+        $summary = strip_tags($summary);
+        $summary_length = strlen($summary);
+      }
+      $max = 220;
       if ($summary_length >= $max) {
         $max = strpos($summary, ' ', $max);
         $summary = substr($summary, 0, $max) . ' ...';
@@ -158,7 +169,12 @@ class NewsBulletinEmailController extends ControllerBase {
     $host_path = \Drupal::request()->getSchemeAndHttpHost();
     $base_path = \Drupal::request()->getBasePath();
     if (strlen($base_path) > 0) {
-      $host_path = $host_path . '/' . $base_path;
+      if (stripos(strval($base_path), '/') < 0) {
+        $host_path = $host_path . '/' . $base_path;
+      }
+      else {
+        $host_path = $host_path . $base_path;
+      }
     }
     $relative = \Drupal::service('path.alias_storage')->load(['source' => '/node/' . $node->id(), 'langcode' => $lang]);
     if (isset($relative['alias'])) {
@@ -207,6 +223,8 @@ class NewsBulletinEmailController extends ControllerBase {
   }
 
   public function convertBodyToImg($node, &$narrow = FALSE) {
+    $host_path = \Drupal::request()->getSchemeAndHttpHost();
+    $base_path = \Drupal::request()->getBasePath();
     // This grabs the rendered body so that we can get embedded images using media browser OR legacy img element.
     $render_array = $node->get('body')->view('full');
     $html_output = \Drupal::service('renderer')->renderRoot($render_array);
@@ -224,10 +242,25 @@ class NewsBulletinEmailController extends ControllerBase {
       $style = \Drupal::entityTypeManager()->getStorage('image_style')->load($image_style_name);
       if (isset($match_src[0][1]) && !is_null($style)) {
         $src_path = $match_src[0][1];
+        $pos_dot = strpos($src_path, '.');
+        if (strlen($src_path) > ($pos_dot + 4)) {
+          $src_path = substr($src_path, 0, $pos_dot + 4);
+        }
         // Get the original image URI.
-        $file_uri = str_replace('/sites/default/files/', $public_thing, $src_path);
+        if (stripos($src_path, $base_path) >= 0) {
+          $file_uri = str_replace($base_path . '/sites/default/files/', $public_thing, $src_path);
+        }
+        else {
+          $file_uri = str_replace('/sites/default/files/', $public_thing, $src_path);
+        }
+        $file_uri = urldecode($file_uri);
         $destination_nostyle = \Drupal::service('file_system')->realpath($file_uri);
-        if (file_exists($file_uri)) {
+        if (strlen($base_path) > 0 && !file_exists($file_uri)) {
+          $file_uri = str_replace('/sites/default/files/', $public_thing, $src_path);
+          $file_uri = urldecode($file_uri);
+          $destination_nostyle = \Drupal::service('file_system')->realpath($file_uri);
+        }
+        if (file_exists($file_uri) || file_exists($destination_nostyle)) {
           // Get the image attributes like width/height.
           $return_code = $this->getImageAttributes($file_uri, $img_w, $img_h, $img_alt);
           if ($return_code && ($img_h > $img_w || $img_w < 300 || ((float)$img_w) < ($img_h * 1.55))) {
@@ -246,14 +279,16 @@ class NewsBulletinEmailController extends ControllerBase {
           }
           $styled_file_uri = file_url_transform_relative($style->buildUrl($file_uri));
           $image_element = str_replace($src_path, $styled_file_uri, $image_element);
-          //AgriAdminHelper::addToLog('<pre>test6 ' . print_r($image_element, TRUE) . ' </pre>', TRUE);//DEBUG, remove this later.
         }
       }
-      $host_path = \Drupal::request()->getSchemeAndHttpHost();
-      $base_path = \Drupal::request()->getBasePath();
       if (strlen($base_path) > 0) {
-        $host_path = $host_path . '/' . $base_path;
-        $search_for = 'src="/' . $base_path . '/sites/default/files';
+        if (stripos(strval($base_path), '/') < 0) {
+          $host_path = $host_path . '/' . $base_path;
+        }
+        else {
+          $host_path = $host_path . $base_path;
+        }
+	      $search_for = 'src="' . $base_path . '/sites/default/files';
         if ($narrow) {
           $replace_with = 'src="' . $host_path . '/sites/default/files';
         }
@@ -312,6 +347,10 @@ class NewsBulletinEmailController extends ControllerBase {
 
   private function sortNewsNodeArrayByArray(array $array, array $orderArray) {
     $ordered = array();
+    if (empty($orderArray)) {
+      // Default show all records in default order.
+      return $array;
+    }
     foreach ($orderArray as $key => $value) {
       foreach ($array as $innerKey => $innerValue) {
         if ($array[$innerKey]['nid'] == $value) {
@@ -320,7 +359,6 @@ class NewsBulletinEmailController extends ControllerBase {
         }
       }
     }
-    //AgriAdminHelper::addToLog('<pre>order ' . print_r($orderArray, TRUE) . ' </pre>', TRUE);
     return $ordered + $array;
   }
 
@@ -336,18 +374,16 @@ class NewsBulletinEmailController extends ControllerBase {
 
 
   private function sortNewsTypeArrayByArray(array $array, array $orderArray) {
-      $ordered = array();
-      foreach ($orderArray as $key => $value) {
-        foreach ($array as $innerKey => $innerValue) {
-          if ($array[$innerKey]['tid'] == $value) {
-            $ordered[$key] = $array[$innerKey];
-            unset($array[$innerKey]);
-          }
+    $ordered = array();
+    foreach ($orderArray as $key => $value) {
+      foreach ($array as $innerKey => $innerValue) {
+        if ($array[$innerKey]['tid'] == $value) {
+          $ordered[$key] = $array[$innerKey];
+          unset($array[$innerKey]);
         }
       }
-      //AgriAdminHelper::addToLog('<pre>array ' . print_r($array, TRUE) . ' </pre>', TRUE);
-      //AgriAdminHelper::addToLog('<pre>order ' . print_r($orderArray, TRUE) . ' </pre>', TRUE);
-      return $ordered + $array;
+    }
+    return $ordered + $array;
   }
 
   public function reOrderTypeWeights($lang = 'en') {

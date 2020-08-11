@@ -8,7 +8,6 @@ dependencies:
     - field.storage.node.field_newstype
     - node.type.news
     - system.menu.main
-    - taxonomy.vocabulary.category
     - taxonomy.vocabulary.news_type
   content:
     - 'block_content:basic:be4d3824-c613-4aef-8992-42ba10131caf'
@@ -666,7 +665,7 @@ display:
           admin_label: term
           required: false
           vids:
-            - category
+            - news_type
           entity_type: node
           plugin_id: node_term_data
       arguments: {  }
@@ -780,10 +779,10 @@ display:
           replica: false
           query_comment: ''
           query_tags: {  }
+      rendering_language: '***LANGUAGE_language_interface***'
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
         - 'user.node_grants:view'
