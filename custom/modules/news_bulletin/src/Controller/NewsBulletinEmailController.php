@@ -262,11 +262,23 @@ class NewsBulletinEmailController extends ControllerBase {
         }
         if (file_exists($file_uri) || file_exists($destination_nostyle)) {
           // Get the image attributes like width/height.
+          if (stripos($file_uri, 'styles') >= 0) {
+            // Workaround if the image is already set to an image style, get the original.
+            $regex_style = '/^.*\/public\/(.*\.[a-zA-Z][a-zA-Z][a-zA-Z])/'; // regex101.com.
+            preg_match($regex_style, $image_element, $match_style_src, PREG_OFFSET_CAPTURE, 0);
+            if (isset($match_style_src[1][0])) {
+              $file_uri = $public_thing . $match_style_src[1][0];
+            }
+          }
           $return_code = $this->getImageAttributes($file_uri, $img_w, $img_h, $img_alt);
-          if ($return_code && ($img_h > $img_w || $img_w < 300 || ((float)$img_w) < ($img_h * 1.55))) {
+          if ($return_code && ($img_h > $img_w || $img_w < 300 || ((float)$img_w) < ($img_h * 1.75))) {
             // Narrow image style.
             $narrow = TRUE;
             $image_style_name = 'courriel_narrow'; // The image style machine name.
+          }
+          else {
+            $narrow = FALSE;
+            $image_style_name = 'courriel'; // The image style machine name.
           }
           // Load the image style.
           $style = \Drupal::entityTypeManager()->getStorage('image_style')->load($image_style_name);
