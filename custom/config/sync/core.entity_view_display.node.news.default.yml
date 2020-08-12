@@ -13,10 +13,6 @@ dependencies:
     - field.field.node.news.field_modified
     - field.field.node.news.field_newsapprovedby
     - field.field.node.news.field_newsexpirydate
-    - field.field.node.news.field_newsfile1
-    - field.field.node.news.field_newsfile2
-    - field.field.node.news.field_newsfile3
-    - field.field.node.news.field_newsfile4
     - field.field.node.news.field_newsfile5
     - field.field.node.news.field_newsnotes
     - field.field.node.news.field_newsreviewedby
@@ -32,7 +28,6 @@ dependencies:
     - node.type.news
   module:
     - datetime
-    - file
     - layout_builder
     - layout_builder_restrictions
     - layout_library
@@ -78,38 +73,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: metatag_empty_formatter
-    region: content
-  field_newsfile1:
-    weight: 4
-    label: above
-    settings:
-      use_description_as_link_text: true
-    third_party_settings: {  }
-    type: file_default
-    region: content
-  field_newsfile2:
-    weight: 5
-    label: above
-    settings:
-      use_description_as_link_text: true
-    third_party_settings: {  }
-    type: file_default
-    region: content
-  field_newsfile3:
-    weight: 6
-    label: above
-    settings:
-      use_description_as_link_text: true
-    third_party_settings: {  }
-    type: file_default
-    region: content
-  field_newsfile4:
-    weight: 7
-    label: above
-    settings:
-      use_description_as_link_text: true
-    third_party_settings: {  }
-    type: file_default
     region: content
   field_posted:
     weight: 0
