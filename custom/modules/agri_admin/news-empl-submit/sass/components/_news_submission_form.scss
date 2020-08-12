@@ -12,6 +12,14 @@ body.user-anonymous {
     }
   }
 
+  &.news-article-form-page div#edit-field-newsfile5 div.panel-heading a[href="#edit-field-newsfile5--content"] {
+    display: none !important;
+  }
+
+  &.news-article-form-page div#edit-field-newsfile5--description.help-block {
+    display: none !important;
+  }
+
   &.news-article-form-page div.form-item.js-form-item.form-type-textarea.js-form-type-textarea.form-item-body-etuf-en-0-summary.js-form-item-body-etuf-en-0-summary.form-group {
     display: none !important;
   }
@@ -173,6 +181,14 @@ body.news-article-form-page, body.nodeaddnews.role-is-anonymous.node-add {
   }
 
   .tabbable.tabs-left.vertical-tabs.clearfix {
+    display: none !important;
+  }
+
+  div#edit-field-newsfile5 div.panel-heading a[href="#edit-field-newsfile5--content"] {
+    display: none !important;
+  }
+
+  div#edit-field-newsfile5--description.help-block {
     display: none !important;
   }
 }
