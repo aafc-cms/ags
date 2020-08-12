@@ -481,6 +481,7 @@ display:
         fields: false
         access: false
         cache: false
+        empty: false
       filters:
         latest_revision:
           id: latest_revision
@@ -1076,6 +1077,18 @@ display:
       cache:
         type: none
         options: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: 'There is no draft content.'
+          plugin_id: text_custom
     cache_metadata:
       max-age: -1
       contexts:
@@ -1104,6 +1117,7 @@ display:
         filters: false
         filter_groups: false
         access: false
+        empty: false
       arguments:
         uid:
           id: uid
@@ -1656,6 +1670,18 @@ display:
         options:
           role:
             creator: creator
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: 'There is no draft content.'
+          plugin_id: text_custom
     cache_metadata:
       max-age: -1
       contexts:
@@ -1688,6 +1714,7 @@ display:
         access: false
         cache: false
         sorts: false
+        empty: false
       filters:
         latest_revision:
           id: latest_revision
@@ -2349,6 +2376,18 @@ display:
           entity_type: node
           entity_field: revision_timestamp
           plugin_id: date
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: 'There is no content ready for Peer Review.'
+          plugin_id: text_custom
     cache_metadata:
       max-age: -1
       contexts:

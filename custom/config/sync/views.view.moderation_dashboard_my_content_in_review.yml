@@ -634,6 +634,7 @@ display:
         style: false
         row: false
         title: false
+        empty: false
       filter_groups:
         operator: AND
         groups:
@@ -989,6 +990,18 @@ display:
           separator: '- '
           hide_empty: false
       title: 'My Content ready for Peer Review'
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: 'There is no content waiting for Peer Review.'
+          plugin_id: text_custom
     cache_metadata:
       max-age: -1
       contexts:
