@@ -391,6 +391,20 @@ body.path-admin .view-content .form-item--field-newstype-target-id {
   max-width: 250px;
 }
 
+body.path-admin.admincontentmoderated .view-filters .form-item--field-tracking-number-value,
+body.path-admin.admincontentmoderated .view-filters .form-item--type,
+body.path-admin.admincontentmoderated .view-filters .form-item--name {
+  max-width: 200px;
+}
+body.path-admin.admincontentmoderated .view-filters .form-item--nid {
+  max-width: 100px;
+}
+body.path-admin.admincontentmoderated .view-filters .form-item--field-subject-target-id,
+body.path-admin.admincontentmoderated .view-filters .form-item--field-meta-type-target-id,
+body.path-admin.admincontentmoderated .view-filters .form-item--field-newstype-target-id {
+  max-width: 250px;
+}
+
 body[class*=moderationdashboard] nav[aria-label=Tabs] {
   visibility: hidden;
 }
