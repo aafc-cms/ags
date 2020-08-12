@@ -1420,8 +1420,28 @@ display:
           plugin_id: taxonomy_index_tid
       sorts: {  }
       title: 'Moderated content'
-      header: {  }
-      footer: {  }
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: 'Displaying @start - @end of @total with @per_page items per page.'
+          plugin_id: result
+      footer:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: 'Displaying @start - @end of @total with @per_page items per page.'
+          plugin_id: result
       empty:
         area_text_custom:
           id: area_text_custom
