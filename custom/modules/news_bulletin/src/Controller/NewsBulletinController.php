@@ -134,8 +134,10 @@ class NewsBulletinController extends ControllerBase {
   public function content() {
     if (\Drupal::routeMatch()->getRouteName() == 'news_bulletin.content') {
       if (\Drupal::currentUser()->isAuthenticated()) {
-        $session_manager = \Drupal::service('session_manager');
-        $session_manager->delete(\Drupal::currentUser()->id());
+        // Was doing this to eliminate admin rendering but template changes should have stripped most of that out.
+        // Uncomment the two lines below if we want to force a logout.
+        //$session_manager = \Drupal::service('session_manager');
+        //$session_manager->delete(\Drupal::currentUser()->id());
       }
     }
     return [

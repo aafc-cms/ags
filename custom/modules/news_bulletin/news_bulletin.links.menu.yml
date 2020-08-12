@@ -1,5 +1,10 @@
-pm_video.page:
-  route_name: news_bulletin.page
-  title: News Bulletin
-  parent: admin.navigation
+news_bulletin.page:
+  route_name: news_bulletin.content
+  title: News At Work Bulletin
+  parent: system.admin_content
   weight: -100
+#news_bulletin.email:
+#  route_name: email_template.content
+#  title: News At Work Email Template
+#  parent: system.admin_content
+#  weight: -100

@@ -47,7 +47,7 @@
                 <td class="cell image" style="text-align:center;padding: 5px 0 5px 0;">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}</td>
               </tr>
               <tr>
-                <td style="font-size:15px;" class="cell summary">{{ newsitem.summary }}</td>
+                <td style="font-size:15px;" class="cell summary">{{ newsitem.summary|raw }}</td>
               </tr>
             {% else %}
               <tr>
@@ -187,7 +187,7 @@
                 <td class="cell image" style="text-align:center;padding: 5px 0 5px 0;">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}</td>
               </tr>
               <tr>
-                <td style="font-size:15px;" class="cell summary">{{ newsitem.summary }}</td>
+                <td style="font-size:15px;" class="cell summary">{{ newsitem.summary|raw }}</td>
               </tr>
             {% else %}
               <tr>
