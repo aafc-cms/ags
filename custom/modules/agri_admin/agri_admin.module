@@ -956,7 +956,10 @@ function  agri_admin_tokens($type, $tokens, array $data, array $options, \Drupal
  */
 
 function agri_admin_form_menu_link_content_menu_link_content_form_alter (&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-
+  if ($form_id = 'menu_link_content_menu_link_content_form') {
+    //AgriAdminHelper::addToLog('form_id ' . $form_id, TRUE);
+    $form['#attached']['library'][] = 'agri_admin/menu-navigation-hide-disabled'; // For hiding disabled items adding checkbox.
+  }
   foreach ($form['menu_parent']['#options'] as $key => &$value) {
     if ( strpos($value, '-- ') == 0  ) {
       //$value =  substr($value,0, 3) . 'level 1. ' . substr( $value,3, strlen($value)) ;
