@@ -27,3 +27,14 @@ page:
   css:
     component:
       css3/page-edit.css: {}
+
+menu-navigation-hide-disabled:
+  css:
+    component:
+      css/menu-navigation.css: {}
+  js:
+    js/menu-navigation.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+
