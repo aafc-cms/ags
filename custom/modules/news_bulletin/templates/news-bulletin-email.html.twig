@@ -38,8 +38,8 @@
 {##}{% if valuetype.tid == newsitem.term_id %}
     <div style="margin-left:auto;margin-right:auto;padding:10px 10px 0 10px;" class="tile news-type-id-{{ valuetype.tid }}">
       <div class="content type-{{ newsitem.first_word }}" data-nid="{{ newsitem.nid }}" data-group-current="{{ newsitem.term_id }}" data-group-orig="{{ newsitem.term_id }}">
-        <div style="font-size:17px;" class="cell news-title"><a href="{{ newsitem.href }}">{{ newsitem.title }}</a></div>
-        <div style="font-size:15px;font-style: italic;padding-bottom:5px;" class="cell from">{{ newsitem.from }}</div>
+        <div style="font-size:17px;" class="cell news-title"><a href="{{ newsitem.href }}">{{ newsitem.title|raw }}</a></div>
+        <div style="font-size:15px;font-style: italic;padding-bottom:5px;" class="cell from">{{ newsitem.from|raw }}</div>
           <table style="width: 100%; border: 0px;" >
             <tbody>
             {% if not newsitem.image_narrow %}
@@ -178,8 +178,8 @@
 {##}{% if valuetype.tid == newsitem.term_id %}
     <div style="margin-left:auto;margin-right:auto;padding:10px 10px 0 10px;" class="tile news-type-id-{{ valuetype.tid }}">
       <div class="content type-{{ newsitem.first_word }}" data-nid="{{ newsitem.nid }}" data-group-current="{{ newsitem.term_id }}" data-group-orig="{{ newsitem.term_id }}">
-        <div style="font-size:17px;" class="cell news-title"><a href="{{ newsitem.href }}">{{ newsitem.title }}</a></div>
-        <div style="font-size:15px;font-style: italic;padding-bottom:5px;" class="cell from">{{ newsitem.from }}</div>
+        <div style="font-size:17px;" class="cell news-title"><a href="{{ newsitem.href }}">{{ newsitem.title|raw }}</a></div>
+        <div style="font-size:15px;font-style: italic;padding-bottom:5px;" class="cell from">{{ newsitem.from|raw }}</div>
           <table style="width: 100%; border: 0px;" >
             <tbody>
             {% if not newsitem.image_narrow %}
