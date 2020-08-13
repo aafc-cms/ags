@@ -36,7 +36,7 @@ var MenuNavigation = function() {
     console.log('initialize agri_admin/js/menu-navigation.js');
     // Get the current UI language
     $ = jQuery;
-    lang = $('html').attr('lang');
+    MenuNavigation.lang = $('html').attr('lang');
 
     initializeLinkDisabler();
     initialized = true;
@@ -55,7 +55,8 @@ var MenuNavigation = function() {
       '</form>';
       $('#edit-menu-parent--description').first().append(disabledMenuLinkHtml);
       $('#edit-menu-parent option').each(function(index, element) {
-        if (~$(element).text().indexOf('disabled)')) {
+        var aiguille = MenuNavigation.lang == 'en' ? 'disabled)' : 'désactivé)';
+        if (~$(element).text().indexOf(aiguille)) {
           $(element).hide();
         }
       });
