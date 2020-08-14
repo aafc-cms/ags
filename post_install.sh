@@ -6,7 +6,7 @@ trap "sudo configureSettingsFile" SIGINT SIGTERM
 
 live=0
 if [ -z $1 ]; then
-  echo "dev environment setup.\n";
+  echo "dev environment setup.";
 else
   if [ $1 == "live" ]; then
     echo "live environment setup.";
