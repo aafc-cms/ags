@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ab157ed22181a0b25ec2158ca64afe0b",
+    "content-hash": "64870aa24042aadf439d785246dc9932",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -324,7 +324,7 @@
             "version": "3.5.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:jquery/jquery-dist.git",
+                "url": "https://github.com/jquery/jquery-dist.git",
                 "reference": "4c0e4becb8263bb5b3e6dadc448d8e7305ef8215"
             },
             "dist": {
@@ -4122,9 +4122,10 @@
                     "Node preview block visibility": "https://www.drupal.org/files/issues/2020-06-30/D888-preview_block-2890758-50.patch",
                     "Node preview current language": "https://www.drupal.org/files/issues/2020-06-20/node-preview_current_language-3150728-12.patch",
                     "Language negotiation core fix, needed by access_unpublished and content moderation for forward draft revisions in non default language.": "https://www.drupal.org/files/issues/2019-05-30/drupal-2951294-21-fix-fallback.patch",
-                    "Enter drupal/core patch #2752443 description here": "https://www.drupal.org/files/issues/in_correct_order_and-2752443-1.patch",
+                    "Harden SubProcess process plugin - Please remove this patch prior to upgrading to Drupal 8.9.x or Drupal 9.x.": "https://www.drupal.org/files/issues/2020-07-15/3126063-30.patch",
                     "2869592 - Disabled update module shouldn't produce a status report warning": "https://www.drupal.org/files/issues/2869592-remove-update-warning-7.patch",
                     "2815221 - Add quickedit to the latest-revision route": "https://www.drupal.org/files/issues/2019-11-27/2815221-125.patch",
+                    "Enter drupal/core patch #2752443 description here": "https://www.drupal.org/files/issues/in_correct_order_and-2752443-1.patch",
                     "Enter drupal/core patch #1356276 description here": "https://www.drupal.org/files/issues/2019-12-27/1356276-88x-603.patch",
                     "Enter drupal/core patch #1838234 description here": "https://www.drupal.org/files/issues/2018-09-06/1838234-52.patch",
                     "Enter drupal/core patch #2846485 description here": "https://www.drupal.org/files/issues/2018-04-03/views-multivalue_field_rendering_performance-2846485-23.patch",
@@ -7671,6 +7672,62 @@
             }
         },
         {
+            "name": "drupal/menu_admin_per_menu",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/menu_admin_per_menu.git",
+                "reference": "8.x-1.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/menu_admin_per_menu-8.x-1.3.zip",
+                "reference": "8.x-1.3",
+                "shasum": "cb967bdd9ca6f5692d670d5c7c8d77587e7fd38c"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.3",
+                    "datestamp": "1593436060",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "JeroenT",
+                    "homepage": "https://www.drupal.org/user/2228934"
+                },
+                {
+                    "name": "anrikun",
+                    "homepage": "https://www.drupal.org/user/410199"
+                },
+                {
+                    "name": "jonas139",
+                    "homepage": "https://www.drupal.org/user/2873401"
+                },
+                {
+                    "name": "mkdok",
+                    "homepage": "https://www.drupal.org/user/3308753"
+                }
+            ],
+            "description": "Allows to give roles per menu admin permissions without giving them full administer menu permission.",
+            "homepage": "https://www.drupal.org/project/menu_admin_per_menu",
+            "support": {
+                "source": "https://git.drupalcode.org/project/menu_admin_per_menu"
+            }
+        },
+        {
             "name": "drupal/menu_block",
             "version": "1.6.0",
             "source": {
@@ -11180,7 +11237,12 @@
                         "Enter drupal/core patch #2752443 description here": "https://www.drupal.org/files/issues/in_correct_order_and-2752443-1.patch"
                     }
                 },
-                "patches_applied": []
+                "patches_applied": {
+                    "Change H2 block-title for WxT Language Switcher and WxT Search Form to DIV hidden 3164047": "https://www.drupal.org/files/issues/2020-08-10/change-h2-to-div-hidden-language-switcher-search-blocks-3164047-8.patch",
+                    "Skip Links should be wrapped in a landmark 3164554": "https://www.drupal.org/files/issues/2020-08-11/Skip-Links-should-be-wrapped-in-landmark-3164554-2.patch",
+                    "Main menu generates WCAG errors in Axe tool - <li> elements must be contained in a <ul> or <ol> 3164631": "https://www.drupal.org/files/issues/2020-08-11/main-menu-wcag-axe-errors-li-elements-must-be-contained-in-ul-or-ol-3164631-3.patch",
+                    "Add missing aria-labelledby to menus and drop nav role='navigation' 3164604": "https://www.drupal.org/files/issues/2020-08-11/Add-missing-aria-labelledby-to-menus-and-drop-nav-role-navigation-3164604-2.patch"
+                }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
