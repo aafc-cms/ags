@@ -420,13 +420,6 @@ function _helperUpdateProcess($action, $entity_id, $bundle) {
 
 
 /**
- * Implements hook_form_form_views_form_newsatworkbulletin_page_1_alter().
- */
-function agri_admin_form_views_form_newsatworkbulletin_page_1_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  $form['#attached']['library'][] = 'agri_admin/news-at-work-bulletin'; // For empl submit.
-}
-
-/**
  * Implements hook_form_node_news_form_alter().
  */
 function agri_admin_form_node_news_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
