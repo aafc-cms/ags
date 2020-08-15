@@ -133,7 +133,7 @@ var NewsBulletin = function() {
   }
 
   /**
-   * Initialization phase 2. Waits for the googleApiKey to be set and then continues initialization.
+   * Initialization of click event for input element.
    */
   function initWhenReady() {
     logCall(arguments.callee.name.toString()); // Remove this when finished porting.
