@@ -12,7 +12,7 @@
       }
     }
   };
-})(jQuery, Drupal, drupalSettings);
+}(jQuery, Drupal, drupalSettings));
 
 var data = [];
 function logCall(funcName, force) {
