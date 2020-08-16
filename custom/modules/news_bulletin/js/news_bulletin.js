@@ -87,7 +87,7 @@ var NewsBulletin = function() {
         },
         onSort: function(evt) {
           var movedItem = evt.item;
-          console.log(evt);
+          //console.log(evt);
           if (movedItem.nodeName == 'THEAD') {
             if (evt.to.nodeName == 'TBODY') {
               // Fix yet another glitch in the ui, tbody should not be inserted into tbody.
