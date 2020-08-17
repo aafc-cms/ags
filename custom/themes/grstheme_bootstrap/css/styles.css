@@ -356,6 +356,11 @@ body.page-node-type-news .field--name-body.field--type-text-with-summary.field--
   white-space: pre;
 }
 
+/* line 27, ../sass/components/_news_page.scss */
+body.role-is-anonymous.news-newswork div.js-text-summary-wrapper.text-summary-wrapper, body.nodeaddnews.role-is-anonymous div.js-text-summary-wrapper.text-summary-wrapper {
+  display: none !important;
+}
+
 @media screen and (min-width: 1200px) {
   /* line 3, ../sass/components/_newsblock.scss */
   #block-newswork {
