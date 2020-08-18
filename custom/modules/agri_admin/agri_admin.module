@@ -969,12 +969,12 @@ function  agri_admin_tokens($type, $tokens, array $data, array $options, \Drupal
     $current_url = $entity->toLink()->toString();
 
     $currentLang = \Drupal::languageManager()->getCurrentLanguage();
-    $hashTag = getHashTag($entity, $currentLang);
+    $hashTag = AgriAdminHelper::getHashTag($entity, $currentLang);
     $path = '<a href="'.$hashTag.'">'. $current_title.'</a>';
     $unpublished_url = \Drupal\Core\Render\Markup::create($path);
 
     $transLang = $translated_entity->language();
-    $hashTagTrans = getHashTag($translated_entity, $transLang);
+    $hashTagTrans = AgriAdminHelper::getHashTag($translated_entity, $transLang);
     $transPath = '<a href="'.$hashTagTrans.'">'. $translated_title.'</a>';
     $translated_unpublished_url = \Drupal\Core\Render\Markup::create($transPath);
 

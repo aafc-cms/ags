@@ -3,6 +3,7 @@
 //use Drupal\something\AgriUtils;
 namespace Drupal\agri_admin;
 use Drupal\node\Entity\Node;
+use Drupal\access_unpublished\Entity\AccessToken;
 
 class AgriAdminHelper {
 
@@ -770,6 +771,53 @@ class AgriAdminHelper {
       }
     }
     return FALSE;
+  }
+
+
+  /**
+   * Generates an unpublished hash link to access unpublished content
+   */
+  static public function getHashTag($entity, $lang) {
+    $tokenUrl = '';
+    $manager = \Drupal::service('access_unpublished.access_token_manager');
+    $tokens = '';
+    $tokens = $manager->getAccessTokensByEntity($entity, 'active');
+    $keys = array_map(function (AccessToken $token) {
+      return $token->get('value')->value;
+    }, $tokens);
+    if (empty($keys) || count($keys) < 1) {
+      $sevenDays = 604800;
+      // Create tokens for the entity.
+      $token = AccessToken::create([
+        'entity_type' => $entity->getEntityType()->id(),
+        'entity_id' => $entity->id(),
+        'expire' =>  \Drupal::time()->getRequestTime() + $sevenDays,
+      ]);
+      $token->save();
+      $keys = array($token->get('value')->value);
+    }
+    $countKeys = count($keys);
+    $hashToken = '';
+    if ($countKeys > 0) {
+      $hashToken = array();
+      foreach($keys as $key) {
+        $hashToken[] = $key;
+      }
+      if (isset($hashToken[$countKeys - 1])) {
+        $hashToken = $hashToken[$countKeys - 1];
+      } else {
+        $hashToken = '';
+      }
+    }
+    if (isset($hashToken) && strlen($hashToken) > 5) {
+      $accessTokenManager = \Drupal::service('access_unpublished.access_token_manager');
+      $token = $accessTokenManager->getActiveAccessToken($entity);
+      if ($token) {
+        $absolute = FALSE;
+        $tokenUrl = $accessTokenManager->getAccessTokenUrl($token, $lang, $absolute);
+      }
+    }
+    return $tokenUrl;
   }
 
 
