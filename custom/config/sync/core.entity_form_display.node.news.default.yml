@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entity_browser.browser.media_browser
     - field.field.node.news.body
     - field.field.node.news.field_description
     - field.field.node.news.field_from
@@ -13,10 +14,7 @@ dependencies:
     - field.field.node.news.field_modified
     - field.field.node.news.field_newsapprovedby
     - field.field.node.news.field_newsexpirydate
-    - field.field.node.news.field_newsfile1
-    - field.field.node.news.field_newsfile2
-    - field.field.node.news.field_newsfile3
-    - field.field.node.news.field_newsfile4
+    - field.field.node.news.field_newsfile5
     - field.field.node.news.field_newsnotes
     - field.field.node.news.field_newsreviewedby
     - field.field.node.news.field_newssubmitteremail
@@ -33,8 +31,8 @@ dependencies:
   module:
     - content_moderation
     - datetime
+    - entity_browser
     - field_group
-    - file
     - telephone
     - text
 third_party_settings:
@@ -171,16 +169,13 @@ third_party_settings:
       label: Notes
     group_newsattachedfiles:
       children:
-        - field_newsfile1
-        - field_newsfile2
-        - field_newsfile4
-        - field_newsfile3
+        - field_newsfile5
       parent_name: ''
       weight: 5
       format_type: details
       region: content
       format_settings:
-        description: "<span class=\"english-only\">Click \"Attach files\" to add any photos, graphics, PDFs or other  related files to the article. Review the instructions for <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2903304&amp;lang=eng\" target=\"_blank\">photos, graphics, captions and permissions</a>.</span>\r\n\r\n<span class=\"french-only\">\r\nSi l’article contient des photos, des graphiques, un  fichier en format PDF ou tout autre fichier connexe, cliquez sur « Joindre des fichiers » pour ajouter ces documents. Consultez les <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2911233&amp;lang=fra\" target=\"_blank\">instructions sur photos, les graphiques, les légendes et les autorisations</a>.\r\n</span>"
+        description: "<span class=\"english-only\">Click \"Add media\" to add any photos, graphics, PDFs or other  related files to the article. Review the instructions for <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2903304&amp;lang=eng\" target=\"_blank\">photos, graphics, captions and permissions</a>.</span>\r\n\r\n<span class=\"french-only\">\r\nSi l’article contient des photos, des graphiques, un  fichier en format PDF ou tout autre fichier connexe, cliquez sur « Joindre des médias» pour ajouter ces documents. Consultez les <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2911233&amp;lang=fra\" target=\"_blank\">instructions sur photos, les graphiques, les légendes et les autorisations</a>.\r\n</span>"
         open: true
         required_fields: true
         id: ''
@@ -241,9 +236,9 @@ content:
     weight: 26
     settings:
       rows: 9
-      summary_rows: 3
       placeholder: ''
-      show_summary: false
+      summary_rows: 3
+      show_summary: true
     third_party_settings: {  }
     type: text_textarea_with_summary
     region: content
@@ -291,34 +286,21 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_newsfile1:
-    weight: 11
+  field_newsfile5:
+    type: entity_browser_entity_reference
+    weight: 32
     settings:
-      progress_indicator: throbber
-    third_party_settings: {  }
-    type: file_generic
+      entity_browser: media_browser
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: thumbnail
+      open: true
+      field_widget_replace: false
     region: content
-  field_newsfile2:
-    weight: 12
-    settings:
-      progress_indicator: throbber
     third_party_settings: {  }
-    type: file_generic
-    region: content
-  field_newsfile3:
-    weight: 14
-    settings:
-      progress_indicator: throbber
-    third_party_settings: {  }
-    type: file_generic
-    region: content
-  field_newsfile4:
-    weight: 13
-    settings:
-      progress_indicator: throbber
-    third_party_settings: {  }
-    type: file_generic
-    region: content
   field_newsnotes:
     weight: 10
     settings:

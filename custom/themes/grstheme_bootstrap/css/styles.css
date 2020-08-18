@@ -124,6 +124,12 @@ html[lang=en] nav#wb-sm li a[href$="setlang\=fr"] {
   color: #fff;
 }
 
+/* line 120, ../sass/layouts/_header.scss */
+nav#wb-sm div.pnl-strt.container.nvbar {
+  padding-left: 0px;
+  border-left-width: 0px;
+}
+
 /* Move the footer specific scss (sass/css) here.*/
 /* Move the front page specific scss (sass/css) here.*/
 /* line 4, ../sass/layouts/_front.scss */
@@ -261,43 +267,64 @@ body.page-node-type-empl #block-privacynotice h2.block-title {
   padding-top: 15px !important;
 }
 
+/* line 4, ../sass/components/_iframe.scss */
+body.user-anonymous .entity-iframe .create-embedsearch,
+body.user-anonymous .entity-iframe .form-item-entity-status-value,
+body.user-anonymous .entity-iframe .field--name-field-media-in-library,
+body.user-anonymous .entity-iframe .field--name-field-image-link, body.role-is-anonymous .entity-iframe .create-embedsearch,
+body.role-is-anonymous .entity-iframe .form-item-entity-status-value,
+body.role-is-anonymous .entity-iframe .field--name-field-media-in-library,
+body.role-is-anonymous .entity-iframe .field--name-field-image-link {
+  display: none;
+}
+/* line 12, ../sass/components/_iframe.scss */
+body.user-anonymous .entity-embed-dialog .form-item-attributes-data-entity-embed-display-settings-image-link, body.role-is-anonymous .entity-embed-dialog .form-item-attributes-data-entity-embed-display-settings-image-link {
+  display: none;
+}
+
 /**** Components Node for unpublished content *****/
 /* Note that drupal-bootstrap-not-cdn.min.css sets the background-color to #fff4f4 for body.is-unpublished */
 /* line 5, ../sass/components/_node.scss */
+body.user-anonymous #edit-body-etuf-fr-0-format,
+body.user-anonymous #edit-body-0-format {
+  display: none;
+}
+
+/* line 12, ../sass/components/_node.scss */
 body.user-logged-in.published-no article {
   background-color: pink;
   border: 3px solid hotpink;
 }
-/* line 9, ../sass/components/_node.scss */
+/* line 16, ../sass/components/_node.scss */
 body.user-logged-in.published-no div.region-header h1 {
   background-color: pink;
   border: 3px solid hotpink;
 }
 
 /* The following code will override the body.is-unpublished background-color that drupal sets by default */
-/* line 16, ../sass/components/_node.scss */
+/* line 23, ../sass/components/_node.scss */
 body.is-unpublished {
   background-color: white;
 }
 
 /* Unpublished revision pending to overwrite the published revision */
-/* line 22, ../sass/components/_node.scss */
+/* line 29, ../sass/components/_node.scss */
 body.user-logged-in.published-no.pending-draft article {
   background-color: #FFECA9;
   border: 3px solid orange;
 }
-/* line 26, ../sass/components/_node.scss */
+/* line 33, ../sass/components/_node.scss */
 body.user-logged-in.published-no.pending-draft div.region-header h1 {
   background-color: #FFECA9;
   border: 3px solid orange;
 }
 
-/* line 33, ../sass/components/_node.scss */
+/* line 40, ../sass/components/_node.scss */
 body.user-logged-in.archived article {
   background-color: pink;
   border: 3px solid red;
 }
-/* line 37, ../sass/components/_node.scss */
+/* line 44, ../sass/components/_node.scss */
 body.user-logged-in.archived div.region-header h1 {
   background-color: pink;
   border: 3px solid red;
@@ -327,6 +354,11 @@ body.page-node-type-news .field--name-body .field--label {
 body.page-node-type-news .field--name-body.field--type-text-with-summary.field--label-above.quickedit-field .field--item::before {
   content: "\A";
   white-space: pre;
+}
+
+/* line 27, ../sass/components/_news_page.scss */
+body.role-is-anonymous.news-newswork div.js-text-summary-wrapper.text-summary-wrapper, body.nodeaddnews.role-is-anonymous div.js-text-summary-wrapper.text-summary-wrapper {
+  display: none !important;
 }
 
 @media screen and (min-width: 1200px) {
@@ -595,20 +627,20 @@ body.role-is-anonymous.path-node.published-no .region-header nav.tabs {
 }
 
 /* line 2, ../sass/views/_employmentopportunities_view.scss */
-body.internalemploymentopportuniti tr[role='row'] .sorting-cnt {
+body.internalemploymentopportuniti tr[role='row'] .sorting-cnt, body.possibilitesdemploi tr[role='row'] .sorting-cnt {
   display: none !important;
 }
 /* line 6, ../sass/views/_employmentopportunities_view.scss */
-body.internalemploymentopportuniti .view-content div.table-responsive {
+body.internalemploymentopportuniti .view-content div.table-responsive, body.possibilitesdemploi .view-content div.table-responsive {
   overflow-x: hidden !important;
 }
 /* line 10, ../sass/views/_employmentopportunities_view.scss */
-body.internalemploymentopportuniti button#edit-submit-view-employmentopportunities {
+body.internalemploymentopportuniti button#edit-submit-view-employmentopportunities, body.possibilitesdemploi button#edit-submit-view-employmentopportunities {
   color: #fff;
   background: #007852;
 }
 /* line 15, ../sass/views/_employmentopportunities_view.scss */
-body.internalemploymentopportuniti .view-filters.form-group {
+body.internalemploymentopportuniti .view-filters.form-group, body.possibilitesdemploi .view-filters.form-group {
   min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
@@ -617,25 +649,26 @@ body.internalemploymentopportuniti .view-filters.form-group {
   border-radius: 4px;
 }
 /* line 24, ../sass/views/_employmentopportunities_view.scss */
-body.internalemploymentopportuniti .wb-tables.table.table-hover.table-striped.sticky-enabled.wb-init.wb-tables-inited.dataTable.no-footer.sticky-table {
+body.internalemploymentopportuniti .wb-tables.table.table-hover.table-striped.sticky-enabled.wb-init.wb-tables-inited.dataTable.no-footer.sticky-table, body.possibilitesdemploi .wb-tables.table.table-hover.table-striped.sticky-enabled.wb-init.wb-tables-inited.dataTable.no-footer.sticky-table {
   border: 1px solid #ddd;
 }
 /* line 28, ../sass/views/_employmentopportunities_view.scss */
-body.internalemploymentopportuniti td, body.internalemploymentopportuniti th {
+body.internalemploymentopportuniti td, body.internalemploymentopportuniti th, body.possibilitesdemploi td, body.possibilitesdemploi th {
   border: 1px solid #ddd !important;
   font-size: 87%;
 }
 /* line 33, ../sass/views/_employmentopportunities_view.scss */
-body.internalemploymentopportuniti #view-field-type-table-column {
+body.internalemploymentopportuniti #view-field-type-table-column, body.possibilitesdemploi #view-field-type-table-column {
   width: 136px;
 }
 /* line 37, ../sass/views/_employmentopportunities_view.scss */
-body.internalemploymentopportuniti #view-field-date-closing-table-column, body.internalemploymentopportuniti #view-field-locations-table-column {
+body.internalemploymentopportuniti #view-field-date-closing-table-column, body.internalemploymentopportuniti #view-field-locations-table-column, body.possibilitesdemploi #view-field-date-closing-table-column, body.possibilitesdemploi #view-field-locations-table-column {
   width: 106px;
 }
 /* line 41, ../sass/views/_employmentopportunities_view.scss */
 body.internalemploymentopportuniti #view-field-date-closing-table-column, body.internalemploymentopportuniti #view-field-locations-table-column,
-body.internalemploymentopportuniti #view-field-branch-table-column, body.internalemploymentopportuniti #view-field-open-to-table-column {
+body.internalemploymentopportuniti #view-field-branch-table-column, body.internalemploymentopportuniti #view-field-open-to-table-column, body.possibilitesdemploi #view-field-date-closing-table-column, body.possibilitesdemploi #view-field-locations-table-column,
+body.possibilitesdemploi #view-field-branch-table-column, body.possibilitesdemploi #view-field-open-to-table-column {
   text-decoration: underline;
   text-decoration-thickness: inherit;
 }
@@ -667,49 +700,49 @@ body.newswork .view.view-view-news-work.view-id-view_news_work div.view-content 
   font-size: 24px;
 }
 
-/* line 28, ../sass/styles.scss */
+/* line 29, ../sass/styles.scss */
 html[lang="fr"] .english-only {
   display: none !important;
 }
 
-/* line 32, ../sass/styles.scss */
+/* line 33, ../sass/styles.scss */
 html[lang="en"] .french-only {
   display: none !important;
 }
 
-/* line 36, ../sass/styles.scss */
+/* line 37, ../sass/styles.scss */
 body > div > div.container {
   border-right: 1px solid #99999b;
   border-left: 1px solid #99999b;
 }
 
-/* line 46, ../sass/styles.scss */
+/* line 47, ../sass/styles.scss */
 body.path-frontpage div.region-help section.block-entity-blockmedia {
   padding-right: 0;
   margin-left: 0;
 }
-/* line 51, ../sass/styles.scss */
+/* line 52, ../sass/styles.scss */
 body.path-frontpage article h2:first-child {
   display: none;
 }
-/* line 54, ../sass/styles.scss */
+/* line 55, ../sass/styles.scss */
 body.path-frontpage .carousel-s2 {
   margin-left: -15px !important;
 }
 
-/* line 59, ../sass/styles.scss */
+/* line 60, ../sass/styles.scss */
 .contextual-region .contextual .contextual-links a {
   color: #333 !important;
 }
 
-/* line 63, ../sass/styles.scss */
+/* line 64, ../sass/styles.scss */
 #mb-pnl #edit-submit-container-imprt {
   float: none !important;
   margin-bottom: 0px !important;
 }
 
 /* Canada Government Logo Size */
-/* line 69, ../sass/styles.scss */
+/* line 70, ../sass/styles.scss */
 #agrisource-wmms {
   height: 2.35em;
   margin-top: -8px;
@@ -717,47 +750,47 @@ body.path-frontpage .carousel-s2 {
   top: 0.8em;
 }
 
-/* line 77, ../sass/styles.scss */
+/* line 78, ../sass/styles.scss */
 .region-banner a.name.navbar-brand {
   color: white;
   text-shadow: 0 1px 1px #044062;
   margin-left: 0;
 }
-/* line 83, ../sass/styles.scss */
+/* line 84, ../sass/styles.scss */
 .region-banner p.navbar-text {
   color: white;
 }
 
-/* line 88, ../sass/styles.scss */
+/* line 89, ../sass/styles.scss */
 .navbar-brand {
   text-decoration: none;
   font-size: 1.9em;
   padding-left: 0;
 }
 
-/* line 95, ../sass/styles.scss */
+/* line 96, ../sass/styles.scss */
 #wb-info ul.hide-this, #wb-info a[data-drupal-link-system-path~="contact"] {
   display: none;
 }
 
 /* incresed the padding-left: from 15px to 35px; */
-/* line 101, ../sass/styles.scss */
+/* line 102, ../sass/styles.scss */
 #gc-tctr {
   padding-left: 29px;
   font-weight: 500;
 }
 
-/* line 106, ../sass/styles.scss */
+/* line 107, ../sass/styles.scss */
 section.col-sm-3 ul.list-unstyled {
   font-weight: 500;
 }
 
-/* line 110, ../sass/styles.scss */
+/* line 111, ../sass/styles.scss */
 #wb-bnr {
   background: #007852 !important;
 }
 
-/* line 114, ../sass/styles.scss */
+/* line 115, ../sass/styles.scss */
 #agrisource-wmms {
   margin-top: -2.5em;
   height: 1.9em;
@@ -768,13 +801,13 @@ section.col-sm-3 ul.list-unstyled {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 124, ../sass/styles.scss */
+  /* line 125, ../sass/styles.scss */
   #wb-bnr {
     background-image: -webkit-linear-gradient(#77bc1f, #77bc1f, #007852) !important;
     background-image: linear-gradient(#77bc1f, #77bc1f, #007852) !important;
   }
 
-  /* line 129, ../sass/styles.scss */
+  /* line 130, ../sass/styles.scss */
   .region-banner a.name.navbar-brand {
     padding-top: 5px;
     padding-bottom: 5px;
@@ -782,28 +815,28 @@ section.col-sm-3 ul.list-unstyled {
     height: auto;
   }
 
-  /* line 136, ../sass/styles.scss */
+  /* line 137, ../sass/styles.scss */
   #wb-glb-mn .pnl-btn a {
     font-size: 1.4em;
   }
 
-  /* line 139, ../sass/styles.scss */
+  /* line 140, ../sass/styles.scss */
   #wb-glb-mn .pnl-btn span .glyphicon-th-list {
     padding-left: 0;
   }
 
-  /* line 143, ../sass/styles.scss */
+  /* line 144, ../sass/styles.scss */
   #mb-pnl nav a.mb-item[href*="structure"] {
     display: none;
   }
 
-  /* line 149, ../sass/styles.scss */
+  /* line 150, ../sass/styles.scss */
   section.lng-ofr ul.list-inline a[href*="languageswitcher"] {
     display: none;
   }
 
   /* Canada Government Logo Size */
-  /* line 155, ../sass/styles.scss */
+  /* line 156, ../sass/styles.scss */
   #agrisource-wmms {
     height: 2.35em;
     left: 15px;
@@ -812,61 +845,61 @@ section.col-sm-3 ul.list-unstyled {
     top: -2.2em;
   }
 
-  /* line 162, ../sass/styles.scss */
+  /* line 163, ../sass/styles.scss */
   #wb-bnr {
     background-color: #007852;
     background-image: none;
   }
-  /* line 165, ../sass/styles.scss */
+  /* line 166, ../sass/styles.scss */
   #wb-bnr .container .row.agri-banner-row {
     position: relative;
   }
 }
 @media screen and (max-width: 767px) {
-  /* line 174, ../sass/styles.scss */
+  /* line 175, ../sass/styles.scss */
   body.i18n-fr #mb-pnl .srch-pnl .form-group {
     width: 65%;
   }
 }
 @media screen and (min-width: 768px) {
-  /* line 182, ../sass/styles.scss */
+  /* line 183, ../sass/styles.scss */
   body.i18n-fr #wb-srch-q-imprt {
     width: 100% !important;
   }
 }
 /* End of target french only css */
 @media screen and (min-width: 992px) {
-  /* line 192, ../sass/styles.scss */
+  /* line 193, ../sass/styles.scss */
   a.name.navbar-brand {
     text-shadow: 1px 1px 1px #333;
   }
 
-  /* line 197, ../sass/styles.scss */
+  /* line 198, ../sass/styles.scss */
   body.i18n-fr section.wxt-search-block-form.col-md-4 {
     padding-right: 0 !important;
   }
-  /* line 199, ../sass/styles.scss */
+  /* line 200, ../sass/styles.scss */
   body.i18n-fr section.wxt-search-block-form.col-md-4 .form-type-search {
     max-width: 67%;
   }
 
-  /* line 205, ../sass/styles.scss */
+  /* line 206, ../sass/styles.scss */
   #gcwu-sig {
     margin: 2.8em 0 0.5em 15px;
   }
 
-  /* line 208, ../sass/styles.scss */
+  /* line 209, ../sass/styles.scss */
   footer .container {
     padding-left: 0;
     padding-right: 0;
   }
 
-  /* line 212, ../sass/styles.scss */
+  /* line 213, ../sass/styles.scss */
   .show-this section:first-child {
     padding-left: 5px;
   }
 
-  /* line 216, ../sass/styles.scss */
+  /* line 217, ../sass/styles.scss */
   #wb-bar + .container {
     background: -webkit-gradient(linear, right top, left top, from(#298019), color-stop(#31821d), to(#278019));
     background: -webkit-linear-gradient(right, #278019, #31821d, #278019);
@@ -874,12 +907,12 @@ section.col-sm-3 ul.list-unstyled {
     position: relative;
   }
 }
-/* line 226, ../sass/styles.scss */
+/* line 227, ../sass/styles.scss */
 .icon.glyphicon.glyphicon-log-in {
   min-height: 20px;
 }
 
-/* line 231, ../sass/styles.scss */
+/* line 232, ../sass/styles.scss */
 .region.region-content-footer {
   padding-top: 20px;
 }

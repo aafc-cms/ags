@@ -115,6 +115,46 @@ body.path-admin #block-claro-content nav.breadcrumb {
   }
 }
 /* for side by side etuf css tweaks */
+.media-library-widget-modal.ui-dialog .ui-dialog-titlebar {
+  padding: 5px 0px 5px 15px;
+}
+.media-library-widget-modal.ui-dialog .ui-dialog-titlebar-close {
+  top: 5px;
+}
+.media-library-widget-modal.ui-dialog .media-library-menu {
+  width: auto;
+  min-width: 120px;
+}
+.media-library-widget-modal.ui-dialog .ui-widget-content.ui-dialog-buttonpane {
+  padding: 0px 15px 0px 20px;
+}
+.media-library-widget-modal.ui-dialog--narrow.media-library-widget-modal {
+  max-width: 90%;
+}
+.media-library-widget-modal .claro-details {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.media-library-widget-modal .media-library-add-form__input-wrapper {
+  padding: 0;
+  margin: 0;
+}
+.media-library-widget-modal .claro-details__wrapper {
+  margin: 0px 0px 0px 15px;
+}
+.media-library-widget-modal .media-library-view .field--name-thumbnail img {
+  height: 120px;
+}
+
+article.align-center .field--item {
+  margin-left: auto;
+  margin-right: auto;
+}
+article.align-center .field--item .img-responsive {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Menu css/sass/scss here */
 body.adminstructuremenumanagemain #menu-disabled-links-form,
 body.adminstructuremenumanagesideb #menu-disabled-links-form {
@@ -288,19 +328,22 @@ body.node-edit.user-logged-in.path-node.page-node-type-empl #edit-group-level-an
 /* menu_parent select style */
 body.node-edit .form-item--menu-menu-parent #edit-menu-menu-parent,
 body.nodeaddpage .form-item--menu-menu-parent #edit-menu-menu-parent,
-body.nodeaddlanding_page .form-item--menu-menu-parent #edit-menu-menu-parent {
+body.nodeaddlanding_page .form-item--menu-menu-parent #edit-menu-menu-parent,
+body.adminstructuremenumanagemaina select#edit-menu-parent #edit-menu-menu-parent {
   max-width: 212px !important;
 }
 body.node-edit .form-item--menu-menu-parent .menu_tree-leve-1,
 body.nodeaddpage .form-item--menu-menu-parent .menu_tree-leve-1,
-body.nodeaddlanding_page .form-item--menu-menu-parent .menu_tree-leve-1 {
+body.nodeaddlanding_page .form-item--menu-menu-parent .menu_tree-leve-1,
+body.adminstructuremenumanagemaina select#edit-menu-parent .menu_tree-leve-1 {
   padding-left: 15px;
   color: blue;
   font-size: 20px;
 }
 body.node-edit .form-item--menu-menu-parent .menu_tree-leve-2,
 body.nodeaddpage .form-item--menu-menu-parent .menu_tree-leve-2,
-body.nodeaddlanding_page .form-item--menu-menu-parent .menu_tree-leve-2 {
+body.nodeaddlanding_page .form-item--menu-menu-parent .menu_tree-leve-2,
+body.adminstructuremenumanagemaina select#edit-menu-parent .menu_tree-leve-2 {
   padding-left: 30px;
   font-style: italic;
   color: green;
@@ -308,14 +351,16 @@ body.nodeaddlanding_page .form-item--menu-menu-parent .menu_tree-leve-2 {
 }
 body.node-edit .form-item--menu-menu-parent .menu_tree-leve-3,
 body.nodeaddpage .form-item--menu-menu-parent .menu_tree-leve-3,
-body.nodeaddlanding_page .form-item--menu-menu-parent .menu_tree-leve-3 {
+body.nodeaddlanding_page .form-item--menu-menu-parent .menu_tree-leve-3,
+body.adminstructuremenumanagemaina select#edit-menu-parent .menu_tree-leve-3 {
   padding-left: 45px;
   color: #581845;
   font-size: 16px;
 }
 body.node-edit .form-item--menu-menu-parent .menu_tree-leve-4,
 body.nodeaddpage .form-item--menu-menu-parent .menu_tree-leve-4,
-body.nodeaddlanding_page .form-item--menu-menu-parent .menu_tree-leve-4 {
+body.nodeaddlanding_page .form-item--menu-menu-parent .menu_tree-leve-4,
+body.adminstructuremenumanagemaina select#edit-menu-parent .menu_tree-leve-4 {
   padding-left: 60px;
   font-style: italic;
   color: purple;
@@ -323,18 +368,35 @@ body.nodeaddlanding_page .form-item--menu-menu-parent .menu_tree-leve-4 {
 }
 body.node-edit .form-item--menu-menu-parent .menu_tree-leve-5,
 body.nodeaddpage .form-item--menu-menu-parent .menu_tree-leve-5,
-body.nodeaddlanding_page .form-item--menu-menu-parent .menu_tree-leve-5 {
+body.nodeaddlanding_page .form-item--menu-menu-parent .menu_tree-leve-5,
+body.adminstructuremenumanagemaina select#edit-menu-parent .menu_tree-leve-5 {
   padding-left: 75px;
   color: Navy;
   font-size: 16px;
 }
 body.node-edit .form-item--menu-menu-parent .menu_tree-leve-6,
 body.nodeaddpage .form-item--menu-menu-parent .menu_tree-leve-6,
-body.nodeaddlanding_page .form-item--menu-menu-parent .menu_tree-leve-6 {
+body.nodeaddlanding_page .form-item--menu-menu-parent .menu_tree-leve-6,
+body.adminstructuremenumanagemaina select#edit-menu-parent .menu_tree-leve-6 {
   padding-left: 90px;
   font-style: italic;
   color: Olive;
   font-size: 16px;
+}
+
+body.role-is-creator li.menu-item a[data-drupal-link-system-path*="blog_freetags"],
+body.role-is-news_ccpub li.menu-item a[data-drupal-link-system-path*="blog_freetags"],
+body.role-is-empl_ccpub li.menu-item a[data-drupal-link-system-path*="blog_freetags"],
+body.role-is-reviewer li.menu-item a[data-drupal-link-system-path*="blog_freetags"],
+body.role-is-editor li.menu-item a[data-drupal-link-system-path*="blog_freetags"] {
+  display: none;
+}
+body.role-is-creator table#taxonomy tr[data-drupal-selector*="blog-freetags"],
+body.role-is-news_ccpub table#taxonomy tr[data-drupal-selector*="blog-freetags"],
+body.role-is-empl_ccpub table#taxonomy tr[data-drupal-selector*="blog-freetags"],
+body.role-is-reviewer table#taxonomy tr[data-drupal-selector*="blog-freetags"],
+body.role-is-editor table#taxonomy tr[data-drupal-selector*="blog-freetags"] {
+  display: none;
 }
 
 body.path-admin .view-content .form-item--field-tracking-number-value,
@@ -348,6 +410,23 @@ body.path-admin .view-content .form-item--nid {
 body.path-admin .view-content .form-item--field-subject-target-id,
 body.path-admin .view-content .form-item--field-meta-type-target-id,
 body.path-admin .view-content .form-item--field-newstype-target-id {
+  max-width: 250px;
+}
+
+body.path-admin.admincontentmoderated .view-filters .form-item--field-tracking-number-value,
+body.path-admin.admincontentmoderated .view-filters .form-item--type,
+body.path-admin.admincontentmoderated .view-filters .form-item--name {
+  max-width: 200px;
+}
+body.path-admin.admincontentmoderated .view-filters .form-item--nid {
+  max-width: 100px;
+}
+body.path-admin.admincontentmoderated .view-filters .form-item--langcode {
+  max-width: 160px;
+}
+body.path-admin.admincontentmoderated .view-filters .form-item--field-subject-target-id,
+body.path-admin.admincontentmoderated .view-filters .form-item--field-meta-type-target-id,
+body.path-admin.admincontentmoderated .view-filters .form-item--field-newstype-target-id {
   max-width: 250px;
 }
 

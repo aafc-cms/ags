@@ -23,12 +23,18 @@ agri-empl-news-submit_css:
     component:
       css2/news-empl-submit.css: {}
 
-news-at-work-bulletin:
+page:
   css:
     component:
-      css3/news-at-work-bulletin.css: {}
+      css3/page-edit.css: {}
+
+menu-navigation-hide-disabled:
+  css:
+    component:
+      css/menu-navigation.css: {}
   js:
-    js/news-at-work-bulletin.js: {}
+    js/menu-navigation.js: {}
   dependencies:
     - core/jquery
     - core/drupalSettings
+

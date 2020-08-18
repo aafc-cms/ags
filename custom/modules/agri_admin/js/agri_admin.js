@@ -27,7 +27,7 @@
           }, 500);
 
           //make sure in ETUF the french language is french (it defaults to english if creating node in french UI)
-          if ($('html').attr('lang') == 'fr') {
+          if (Agrisource.lang == 'fr') {
             $('#edit-langcode-0-value option[value="en"]').removeAttr("selected");
             $('#edit-langcode-0-value option[value="fr"]').attr("selected","selected");
           }
@@ -84,7 +84,8 @@
             '</form>';
             $('#edit-menu div.form-type--checkbox').prepend(disabledMenuLinkHtml);
             $('#edit-menu option').each(function(index, element) {
-              if (~$(element).text().indexOf('disabled)')) {
+              var aiguille = Agrisource.lang == 'en' ? 'disabled)' : 'désactivé)';
+              if (~$(element).text().indexOf(aiguille)) {
                 $(element).hide();
               }
             });
@@ -97,7 +98,8 @@
             }
             $("#menu-disabled-links-switch").click(function(e) {
               $('select.menu-parent-select').first().find('option').each(function(index, element) {
-                if ($(element).text().indexOf('isabled)') > 0) {
+                var aiguille = Agrisource.lang == 'en' ? 'disabled)' : 'désactivé)';
+                if (~$(element).text().indexOf(aiguille) > 0) {
                   var is_hidden = $(element).css('display') == 'none';
                   if (is_hidden) {
                     $(element).show();
@@ -151,7 +153,7 @@ var Agrisource = function() {
 
     // Get the current UI language
     $ = jQuery;
-    lang = $('html').attr('lang');
+    Agrisource.lang = $('html').attr('lang');
 
     //Determine the page type
     if ($('body').hasClass('path-frontpage')) {

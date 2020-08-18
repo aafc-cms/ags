@@ -5,6 +5,8 @@ news_bulletin.content:
     _title: 'News At Work Bulletin'
   requirements:
     _permission: 'access content'
+  options:
+    no_cache: 'TRUE'
 news_bulletin.set_temp_config:
   path: '/news-at-work-bulletin/set_temp_config'
   defaults:

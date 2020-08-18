@@ -1,5 +1,5 @@
 /* Please add css here */
-    
+
 @media only screen and (max-width: 480px) {
   .full {
   display: block;
@@ -8,27 +8,37 @@
 }
 
 
-
 body.newsbulletinemail {
-  margin: 0px; 
-  padding: 0px; 
-  line-height: 1.4; 
-  font-family: sans-serif; 
-  font-size: 14px; 
-  -ms-text-size-adjust: 100%; 
-  background-color: #F6F6F6 ; 
-  -webkit-font-smoothing: antialiased; 
+  margin: 0px;
+  padding: 0px;
+  line-height: 1.4;
+  font-family: sans-serif;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  background-color: #F6F6F6 ;
+  -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
 }
 
+body.newsbulletinemail div.container {
+  border-right: 0px;
+  border-left: 0px;
+}
+
 body.newsbulletinemail  table {
-  width: 100%; 
-  border-collapse: separate; 
-  background-color: #F6F6F6; 
-  mso-table-lspace: 0pt; 
+  width: 100%;
+  border-collapse: separate;
+  background-color: #F6F6F6;
+  mso-table-lspace: 0pt;
   mso-table-rspace: 0pt;
 }
 
+body.newsbulletinemail table td {
+  padding: 20px;
+  font-family: sans-serif;
+  vertical-align: top;
+  box-sizing: border-box;
+}
 
 body.newsbulletinemail table.headerrow1 td ,  body.newsbulletinemail table.headerrow2 td {
   text-align: center !important;
@@ -39,53 +49,42 @@ body.newsbulletinemail table.headerrow1 td {
   padding-bottom: 0px;
 }
 
-body.newsbulletinemail table.headerrow2 td {
+body.newsbulletinemail table.headerrow2 tr:first-child td {
+  font-size: 24px;
+  text-align: center !important;
   padding-top: 10px;
+  padding-bottom: 0px;
+}
+
+body.newsbulletinemail table.headerrow2 tr:last-child td {
+  font-size: 14px;
+  text-align: center !important;
+  padding-top: 0px;
   padding-bottom: 10px;
 }
 
-body.newsbulletinemail table td {
-  padding: 20px; 
-  font-family: sans-serif; 
- // font-size: 14px; 
-  vertical-align: top; 
-  box-sizing: border-box;
-}
-
-
-body.newsbulletinemail table.headerrow1 td font {
-  padding-top: 5px; 
-  padding-bottom: 5px; 
-  font-family: Helvetica, Arial, sans-serif; 
-  font-size: 12px !important; 
+body.newsbulletinemail table.headerrow1 td span {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px !important;
   font-weight: bold;
 
 }
 
 
-body.newsbulletinemail table.headerrow2 td font {
-  padding: 5px 24px; 
-  color: rgb(255, 255, 255); 
-  font-family: Helvetica, Arial, sans-serif; 
-  font-size: 25px; 
+body.newsbulletinemail table.headerrow2 td span.bulletin-font {
+  color: rgb(255, 255, 255);
+  font-family: Helvetica, Arial, sans-serif;
   font-weight: normal;
 }
-
-
-body.newsbulletinemail table.headerrow2 td font:last-child {
-  margin: 10px 0px 15px; 
-  font-family: sans-serif; 
-  font-size: 14px; 
-  font-weight: normal;
-}
-
 
 body div.container {
   margin: 0px auto;
-  background-color: #FFFFFF; 
-  padding: 10px; 
-  display: block; 
-  max-width: 580px; 
+  background-color: #FFFFFF;
+  padding: 10px;
+  display: block;
+  max-width: 580px;
   box-sizing: border-box;
 }
 
@@ -98,17 +97,20 @@ body.newsbulletinemail div.container table {
   background-color: #FFFFFF;
 }
 
-body.newsbulletinemail table.newsreleasesstatement td, body.newsbulletinemail table.emplopp td {
-  border-top:1px solid #C8C8C8;
+body.newsbulletinemail table.newsreleasesstatement td {
   padding: 10px;
+}
 
+body.newsbulletinemail table.emplopp td {
+ border-top:1px solid #C8C8C8;
+  padding: 10px;
 }
 
 body.newsbulletinemail table.newsreleasesstatement td  h3, body.newsbulletinemail table.emplopp td  h3 {
   color: #5F5F5F;
   line-height: 125%;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 20px; 
+  font-size: 20px;
   font-weight: normal;
   margin-top: 20px;
   margin-bottom: 3px;
@@ -119,15 +121,20 @@ body.newsbulletinemail table.newsreleasesstatement td  h3, body.newsbulletinemai
 body.newsbulletinemail table.newsreleasesstatementdetails td {
   text-align: left;
   vertical-align: middle;
-  color: rgb(95, 95, 95); 
+  color: rgb(95, 95, 95);
   line-height: 135%;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 15px;
   margin-bottom: 0px;
 }
 
+
+body.newsbulletinemail table.newsreleasesstatementdetails td a {
+  color: #0000ee;
+}
+
 body.newsbulletinemail table.emploppdetails td {
-  border-radius: 5px; 
+  border-radius: 5px;
   text-align: center;
   font-family: sans-serif;
   font-size: 14px;
@@ -137,7 +144,7 @@ body.newsbulletinemail table.emploppdetails td {
 body.newsbulletinemail table.emploppdetails td a {
   margin: 0px;
   padding: 12px 25px;
-  border-radius: 5px; 
+  border-radius: 5px;
   border: 1px solid rgb(52, 152, 219);
   border-image: none; color: rgb(255, 255, 255);
   text-transform: capitalize;
@@ -152,6 +159,7 @@ body.newsbulletinemail table.emploppdetails td a {
 
 body.newsbulletinemail div.footer {
   clear: both;
+  margin-top: 0px;
   padding-top: 10px;
   text-align: center;
   width: 100%;
@@ -183,6 +191,130 @@ body.newsbulletinemail div.footer table td.content-block span.apple-link {
   text-align: center;
 }
 
-#news-bulletin-list {
-  color: black !important;
+body.newsbulletinemail div#news-bulletin-list-en div.news-type-id-26.col-xs-12,
+body.newsbulletinemail div#news-bulletin-list-fr div.news-type-id-26.col-xs-12 {
+  background-color: #f8f8f8;
+  border: 0px;
+  padding: 10px;
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 20px;
+  font-color: #5f5f5f;
+  font-weight: normal;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  padding-bottom: 0px;
+}
+
+body.newsbulletinemail div#news-bulletin-list-en div.tile.news-type-id-26.col-xs-11.col-md-offset-1,
+body.newsbulletinemail div#news-bulletin-list-fr div.tile.news-type-id-26.col-xs-11.col-md-offset-1 {
+  background-color: #f8f8f8;
+  width: 100%;
+  margin-left: 0px;
+  margin-top: 0px;
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 15px;
+  font-color: #5f5f5f;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+body.newsbulletinemail div#news-bulletin-list-en div[data-group-current="26"],
+body.newsbulletinemail div#news-bulletin-list-fr div[data-group-current="26"]  {
+  padding-left: 10px;
+}
+
+body.newsbulletinemail div#news-bulletin-list-en div.cell.from,
+body.newsbulletinemail div#news-bulletin-list-fr div.cell.from {
+  font-style:italic;
+  padding-bottom: 15px;
+}
+
+
+body.newsbulletinemail div#news-bulletin-list-en a,
+body.newsbulletinemail div#news-bulletin-list-fr a {
+  color: #0000ee !important;
+  font-size: 17px;
+}
+
+body.newsbulletinemail div#news-bulletin-list-en div.cell.image img,
+body.newsbulletinemail div#news-bulletin-list-fr div.cell.image img {
+  height: 100%;
+  max-width: 100%;
+  display: block;
+  margin: auto;
+}
+
+body.newsbulletinemail div#news-bulletin-list-en div.cell.title,
+body.newsbulletinemail div#news-bulletin-list-fr div.cell.title,
+body.newsbulletinemail div#news-bulletin-list-en div.cell.summary,
+body.newsbulletinemail div#news-bulletin-list-fr div.cell.summary,
+body.newsbulletinemail div#news-bulletin-list-en div.cell.image,
+body.newsbulletinemail div#news-bulletin-list-fr div.cell.image {
+  padding-bottom: 15px;
+}
+
+body.newsbulletinemail div#news-bulletin-list div.splitter {
+  width: 100%;
+  padding-bottom: 15px;
+  border-bottom-width: 1px;
+  border-bottom: 1px solid #C8C8C8;
+  background-color: white !important;
+}
+
+
+div#news-bulletin-list-en div.news-type-id-21.col-xs-12,
+div#news-bulletin-list-fr div.news-type-id-21.col-xs-12,
+div#news-bulletin-list-en div.news-type-id-22.col-xs-12,
+div#news-bulletin-list-fr div.news-type-id-22.col-xs-12,
+div#news-bulletin-list-en div.news-type-id-23.col-xs-12,
+div#news-bulletin-list-fr div.news-type-id-23.col-xs-12,
+div#news-bulletin-list-en div.news-type-id-24.col-xs-12,
+div#news-bulletin-list-fr div.news-type-id-24.col-xs-12,
+div#news-bulletin-list-en div.news-type-id-25.col-xs-12,
+div#news-bulletin-list-fr div.news-type-id-25.col-xs-12,
+div#news-bulletin-list-en div.news-type-id-27.col-xs-12,
+div#news-bulletin-list-fr div.news-type-id-27.col-xs-12,
+div#news-bulletin-list-en div.news-type-id-28.col-xs-12,
+div#news-bulletin-list-fr div.news-type-id-28.col-xs-12,
+div#news-bulletin-list-en div.news-type-id-111.col-xs-12,
+div#news-bulletin-list-fr div.news-type-id-111.col-xs-12 {
+  border: 0px;
+  padding-left: 0px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 20px;
+  font-color: #5f5f5f;
+  font-weight: normal;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  padding-bottom: 0px;
+}
+
+
+body.newsbulletinemail div#news-bulletin-list-en div.tile.col-xs-11.col-md-offset-1,
+body.newsbulletinemail div#news-bulletin-list-fr div.tile.col-xs-11.col-md-offset-1 {
+  width: 100%;
+  margin-top: 15px;
+  margin-left: 0px;
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 15px;
+  font-color: #5f5f5f;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+
+body.newsbulletinemail table.newsreleasesstatementdetails td:first-child {
+  padding-top: 1px;
+  padding-left: 10px;
+  padding-right: 1px;
+  padding-bottom: 25px;
+}
+
+body.newsbulletinemail table.newsreleasesstatementdetails td:last-child {
+  padding-top: 1px;
+  padding-left: 1px;
+  padding-right: 1px;
+  padding-bottom: 25px;
 }

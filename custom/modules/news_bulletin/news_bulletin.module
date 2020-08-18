@@ -1,6 +1,49 @@
 <?php
 
 
+function news_bulletin_js_alter(&$js, \Drupal\Core\Asset\AttachedAssetsInterface $assets) {
+
+  if (\Drupal::routeMatch()->getRouteName() == 'email_template.content') {
+    // The email news bulletin page needs full url.
+    $http_host = \Drupal::request()->getSchemeAndHttpHost();
+    $http_path = \Drupal::request()->getBasePath();
+    foreach($js as $key => $value) {
+      $js[$key]['type'] = 'external';
+      unset($js[$key]); // DO NOT LOAD ANY JAVASCRIPT FOR EMAIL TEMPLATE. // Delete this line to reenable.
+      /*
+      if (empty($http_path)) {
+        $js[$key]['data'] = $http_host . '/' . $js[$key]['data'];
+      }
+      else {
+        $js[$key]['data'] = $http_host . '/' . $http_path . '/' . $js[$key]['data'];
+      }
+      */
+    }
+  }
+
+}
+
+function news_bulletin_css_alter(array &$css, \Drupal\Core\Asset\AttachedAssetsInterface $assets) {
+
+  if (\Drupal::routeMatch()->getRouteName() == 'email_template.content') {
+    $http_host = \Drupal::request()->getSchemeAndHttpHost();
+    $http_path = \Drupal::request()->getBasePath();
+
+    foreach($css as $key => $value) {
+      $css[$key]['type'] = 'external';
+      unset($css[$key]); // DO NOT LOAD ANY CSS FOR EMAIL TEMPLATE, USE INLINE STYLES ONLY.// Delete this line to reenable.
+      /*
+      if (empty($http_path)) {
+        $css[$key]['data'] = $http_host . '/' . $css[$key]['data'];
+      }
+      else {
+        $css[$key]['data'] = $http_host . '/' . $http_path . '/' . $css[$key]['data'];
+      }
+      */
+    }
+  }
+}
+
 function news_bulletin_theme($existing, $type, $theme, $path) {
   return [
     'news_bulletin' => [
@@ -17,7 +60,8 @@ function news_bulletin_theme($existing, $type, $theme, $path) {
         'types_by_weight' => NULL,
         'news_types_fr' => NULL,
         'news_items_fr' => NULL,
-        'types_by_weight_fr' => NULL
+        'types_by_weight_fr' => NULL,
+        'vars_array' => NULL
       ],
     ]
     /*,

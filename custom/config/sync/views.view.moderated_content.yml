@@ -4,13 +4,20 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_peer_review
+    - field.storage.node.field_tracking_number
+    - taxonomy.vocabulary.aafc_type
+    - taxonomy.vocabulary.category
+    - taxonomy.vocabulary.employment_type
+    - taxonomy.vocabulary.news_type
   enforced:
     module:
       - content_moderation
   module:
+    - content_lock
     - content_moderation
     - node
     - options
+    - taxonomy
     - user
 _core:
   default_config_hash: Kjqf5d4F134C3zua0tXV7LA3m5OEeS_Fowa2dP9kk2I
@@ -33,13 +40,13 @@ display:
         options:
           perm: 'view any unpublished content'
       cache:
-        type: tag
+        type: none
         options: {  }
       query:
         type: views_query
         options:
           disable_sql_rewrite: false
-          distinct: false
+          distinct: true
           replica: false
           query_comment: ''
           query_tags: {  }
@@ -132,6 +139,129 @@ display:
       row:
         type: fields
       fields:
+        node_bulk_form:
+          id: node_bulk_form
+          table: node
+          field: node_bulk_form
+          relationship: nid
+          group_type: group
+          admin_label: ''
+          label: Action
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          action_title: Action
+          include_exclude: include
+          selected_actions:
+            - node_break_lock_action
+            - node_delete_action
+            - publish_latest
+            - unpublish_current
+          entity_type: node
+          plugin_id: node_bulk_form
+        nid:
+          id: nid
+          table: node_field_data
+          field: nid
+          relationship: nid
+          group_type: group
+          admin_label: ''
+          label: Node
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: nid
+          plugin_id: field
         title:
           id: title
           table: node_field_revision
@@ -208,7 +338,7 @@ display:
           exclude: false
           alter:
             alter_text: false
-            text: ''
+            text: '{{ type__target_id }}'
             make_link: false
             path: ''
             absolute: false
@@ -262,11 +392,11 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: field
-        name:
-          id: name
-          table: users_field_data
-          field: name
-          relationship: uid
+        uid:
+          id: uid
+          table: node_field_revision
+          field: uid
+          relationship: none
           group_type: group
           admin_label: ''
           label: Author
@@ -310,11 +440,11 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: user_name
+          click_sort_column: target_id
+          type: entity_reference_label
           settings:
-            link_to_entity: true
-          group_column: value
+            link: false
+          group_column: target_id
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -324,8 +454,8 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: user
-          entity_field: name
+          entity_type: node
+          entity_field: uid
           plugin_id: field
         moderation_state:
           id: moderation_state
@@ -458,57 +588,6 @@ display:
           entity_type: node
           entity_field: changed
           plugin_id: field
-        operations:
-          id: operations
-          table: node_revision
-          field: operations
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Operations
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          destination: true
-          entity_type: node
-          plugin_id: entity_operations
         field_peer_review-revision_id:
           id: field_peer_review-revision_id
           table: node_revision__field_peer_review
@@ -571,32 +650,224 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-      filters:
-        latest_translation_affected_revision:
-          id: latest_translation_affected_revision
-          table: node_revision
-          field: latest_translation_affected_revision
+        field_tracking_number-revision_id:
+          id: field_tracking_number-revision_id
+          table: node_revision__field_tracking_number
+          field: field_tracking_number-revision_id
           relationship: none
           group_type: group
           admin_label: ''
+          label: 'Tracking Number'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        name_1:
+          id: name_1
+          table: users_field_data
+          field: name
+          relationship: uid_1
+          group_type: group
+          admin_label: ''
+          label: 'Locked by'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: user_name
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: user
+          entity_field: name
+          plugin_id: field
+        operations:
+          id: operations
+          table: node_revision
+          field: operations
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Operations
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          destination: true
+          entity_type: node
+          plugin_id: entity_operations
+      filters:
+        nid:
+          id: nid
+          table: node_field_data
+          field: nid
+          relationship: nid
+          group_type: group
+          admin_label: ''
           operator: '='
-          value: ''
+          value:
+            min: ''
+            max: ''
+            value: ''
           group: 1
-          exposed: false
+          exposed: true
           expose:
-            operator_id: ''
-            label: ''
+            operator_id: nid_op
+            label: ID
             description: ''
             use_operator: false
-            operator: ''
-            identifier: ''
+            operator: nid_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: nid
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-            operator_limit_selection: false
-            operator_list: {  }
+              anonymous: '0'
+              administrator: '0'
+              creator: '0'
+              editor: '0'
+              reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -610,7 +881,8 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           entity_type: node
-          plugin_id: latest_translation_affected_revision
+          entity_field: nid
+          plugin_id: numeric
         title:
           id: title
           table: node_field_revision
@@ -653,6 +925,45 @@ display:
           entity_type: node
           entity_field: title
           plugin_id: string
+        latest_translation_affected_revision:
+          id: latest_translation_affected_revision
+          table: node_revision
+          field: latest_translation_affected_revision
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            operator_limit_selection: false
+            operator_list: {  }
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          plugin_id: latest_translation_affected_revision
         type:
           id: type
           table: node_field_data
@@ -711,7 +1022,7 @@ display:
             operator_id: moderation_state_op
             label: 'Moderation state'
             description: ''
-            use_operator: true
+            use_operator: false
             operator: moderation_state_op
             operator_limit_selection: false
             operator_list: {  }
@@ -743,49 +1054,6 @@ display:
             group_items: {  }
           entity_type: node
           plugin_id: moderation_state_filter
-        langcode:
-          id: langcode
-          table: node_field_revision
-          field: langcode
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: in
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: langcode_op
-            label: Language
-            description: ''
-            use_operator: false
-            operator: langcode_op
-            identifier: langcode
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-            reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          entity_field: langcode
-          plugin_id: language
         field_peer_review_value:
           id: field_peer_review_value
           table: node_revision__field_peer_review
@@ -799,9 +1067,9 @@ display:
           exposed: true
           expose:
             operator_id: field_peer_review_value_op
-            label: 'Peer Review (field_peer_review)'
+            label: 'Peer Review Status'
             description: ''
-            use_operator: true
+            use_operator: false
             operator: field_peer_review_value_op
             operator_limit_selection: true
             operator_list:
@@ -835,10 +1103,381 @@ display:
             group_items: {  }
           reduce_duplicates: false
           plugin_id: list_field
+        field_tracking_number_value:
+          id: field_tracking_number_value
+          table: node_revision__field_tracking_number
+          field: field_tracking_number_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_tracking_number_value_op
+            label: 'Tracking Number'
+            description: ''
+            use_operator: false
+            operator: field_tracking_number_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_tracking_number_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              creator: '0'
+              editor: '0'
+              reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        langcode:
+          id: langcode
+          table: node_field_revision
+          field: langcode
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
+          group: 1
+          exposed: true
+          expose:
+            operator_id: langcode_op
+            label: Language
+            description: ''
+            use_operator: false
+            operator: langcode_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: langcode
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              creator: '0'
+              editor: '0'
+              reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: langcode
+          plugin_id: language
+        field_newstype_target_id:
+          id: field_newstype_target_id
+          table: node__field_newstype
+          field: field_newstype_target_id
+          relationship: nid
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_newstype_target_id_op
+            label: Category
+            description: ''
+            use_operator: false
+            operator: field_newstype_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_newstype_target_id
+            required: false
+            remember: true
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              creator: '0'
+              editor: '0'
+              reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: news_type
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_type_target_id:
+          id: field_type_target_id
+          table: node__field_type
+          field: field_type_target_id
+          relationship: nid
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_type_target_id_op
+            label: 'Opportunity Type:'
+            description: ''
+            use_operator: false
+            operator: field_type_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_type_target_id
+            required: false
+            remember: true
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              creator: '0'
+              editor: '0'
+              reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: employment_type
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_subject_target_id:
+          id: field_subject_target_id
+          table: node__field_subject
+          field: field_subject_target_id
+          relationship: nid
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_subject_target_id_op
+            label: 'aafc:subject'
+            description: ''
+            use_operator: false
+            operator: field_subject_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_subject_target_id
+            required: false
+            remember: true
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              creator: '0'
+              editor: '0'
+              reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: category
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_meta_type_target_id:
+          id: field_meta_type_target_id
+          table: node__field_meta_type
+          field: field_meta_type_target_id
+          relationship: nid
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_meta_type_target_id_op
+            label: aafc-dcterms-gctype
+            description: ''
+            use_operator: false
+            operator: field_meta_type_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_meta_type_target_id
+            required: false
+            remember: true
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              creator: '0'
+              editor: '0'
+              reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: aafc_type
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        name:
+          id: name
+          table: users_field_data
+          field: name
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: name_op
+            label: Author
+            description: ''
+            use_operator: false
+            operator: name_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: name
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              creator: '0'
+              editor: '0'
+              reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: user
+          entity_field: name
+          plugin_id: string
       sorts: {  }
       title: 'Moderated content'
-      header: {  }
-      footer: {  }
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: 'Displaying @start - @end of @total with @per_page items per page.'
+          plugin_id: result
+      footer:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: 'Displaying @start - @end of @total with @per_page items per page.'
+          plugin_id: result
       empty:
         area_text_custom:
           id: area_text_custom
@@ -874,6 +1513,26 @@ display:
           entity_type: node
           entity_field: uid
           plugin_id: standard
+        uid_1:
+          id: uid_1
+          table: content_lock
+          field: uid
+          relationship: nid
+          group_type: group
+          admin_label: 'Lock owner'
+          required: false
+          plugin_id: standard
+        nid_1:
+          id: nid_1
+          table: node_field_revision
+          field: nid
+          relationship: none
+          group_type: group
+          admin_label: 'Get the actual content from a content revision.'
+          required: false
+          entity_type: node
+          entity_field: nid
+          plugin_id: standard
       arguments: {  }
       display_extenders: {  }
       filter_groups:
@@ -881,16 +1540,18 @@ display:
         groups:
           1: AND
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
         - 'config:field.storage.node.field_peer_review'
+        - 'config:field.storage.node.field_tracking_number'
         - 'config:workflow_list'
   moderated_content:
     display_plugin: page
@@ -898,18 +1559,21 @@ display:
     display_title: 'Moderated content'
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
       path: admin/content/moderated
       display_description: ''
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
         - 'config:field.storage.node.field_peer_review'
+        - 'config:field.storage.node.field_tracking_number'
         - 'config:workflow_list'

@@ -1,0 +1,4 @@
+services:
+  news_bulletin.NewsBulletinEmailController:
+    class: Drupal\news_bulletin\Controller\NewsBulletinEmailController
+    arguments: ['@database']

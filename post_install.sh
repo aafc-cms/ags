@@ -6,7 +6,7 @@ trap "sudo configureSettingsFile" SIGINT SIGTERM
 
 live=0
 if [ -z $1 ]; then
-  echo "dev environment setup.\n";
+  echo "dev environment setup.";
 else
   if [ $1 == "live" ]; then
     echo "live environment setup.";
@@ -38,9 +38,10 @@ configureSettingsFile () {
   if ! grep -q "STRICT_TRANS_TABLES" $settings_file; then
     echo "`hostname`" > temptesthostname.txt
     if ! grep -q "ryzen" temptesthostname.txt; then
-      search_str="    'driver' => 'mysql',"
-      new_db_init="    'driver' => 'mysql',\n    'init_commands' => [\n      'sql_mode' => \"SET sql_mode = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'\",\n    ],"
-      sed -i "s/${search_str}/${new_db_init}/g" $settings_file;
+      search_str="^( +)'driver' => 'mysql',"
+      new_db_init="\1'driver' => 'mysql',\n    'init_commands' => [\n      'sql_mode' => \"SET sql_mode = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'\",\n    ],"
+      sed -r "s/${search_str}/${new_db_init}/gm" $settings_file > ${settings_file}_temp;
+      cp ${settings_file}_temp ${settings_file}
     else
       echo "This environment does not need the init_commands";
     fi
@@ -72,6 +73,32 @@ configureSettingsFile () {
 configureSettingsFile
 
 cp custom/splash/.htaccess html/.htaccess
+htaccess_file=html/.htaccess
+if ! grep -q "upgrade-insecure-requests" $htaccess_file; then
+  if [ -z $1 ]; then
+    echo "dev environment setup.\n";
+    echo "`hostname`" > temptesthostname.txt
+    if grep -q "ryzen" temptesthostname.txt; then
+      echo "Ensure header always sets Content-Security-Policy.";
+      search_str="^( +)Header always set X-Content-Type-Options nosniff";
+      new_setting="\1Header always set X-Content-Type-Options nosniff\n\1Header always set Content-Security-Policy \"upgrade-insecure-requests;\"\n"
+      sed -r "s/${search_str}/${new_setting}/gm" $htaccess_file > ${htaccess_file}_temp;
+      cp ${htaccess_file}_temp ${htaccess_file}
+    else
+      echo "This environment probably does not need the upgrade-insecure-requests";
+    fi
+    rm temptesthostname.txt
+  else
+    if [ $1 == "live" ]; then
+      echo "Ensure header always sets Content-Security-Policy for live environment.";
+      search_str="^( +)Header always set X-Content-Type-Options nosniff";
+      new_setting="\1Header always set X-Content-Type-Options nosniff\n\1Header always set Content-Security-Policy \"upgrade-insecure-requests;\"\n"
+      sed -r "s/${search_str}/${new_setting}/gm" $htaccess_file > ${htaccess_file}_temp;
+      cp ${htaccess_file}_temp ${htaccess_file}
+    fi
+  fi
+fi
+
 if [ ! -L html/splash.php ]; then
   cd html
   ln -s ../custom/splash/splash.php splash.php

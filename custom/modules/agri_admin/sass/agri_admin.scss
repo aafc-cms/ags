@@ -3,9 +3,13 @@
 @import 'components/breadcrumb';
 @import 'components/draft-pending-views';
 @import 'components/etuf';/* for side by side etuf css tweaks */
+@import 'components/media/browser';
+@import 'components/media/image_display.scss';
 @import 'components/menu';
 @import 'components/node';
+@import 'components/taxonomy/blog-freetags';
 @import 'components/views/admin_content.scss';
+@import 'components/views/admin_content_moderated.scss';
 @import 'pages/moderation-dashboard';
 
 /* glyphicon-copy fix */

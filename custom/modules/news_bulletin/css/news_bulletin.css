@@ -17,14 +17,6 @@
   padding: 0 3px;
 }
 
-.news-bulletin .bulletin-card {
-  display: inline-block;
-  border: 2px solid white;
-  margin-right: 1.5%;
-  vertical-align: top;
-  background-color: white;
-}
-
 .news-bulletin {
   cursor: pointer;
 }
@@ -42,12 +34,15 @@
 
 
 .table-news-bulletin thead.news-group tr.news-type-header-row th.glyphicon.tb-news-group-title::before {
-  font-size: 12px !important;
+  font-size: xx-large;
 }
 
+.table-news-bulletin thead.news-group tr.news-type-header-row .tb-news-group-title {
+  padding: 5px 0 0px 10px !important;
+}
 
 .table-news-bulletin thead.news-group tr.news-type-header-row th {
-  padding: 5px !important;
+/*  padding: 5px !important; */
 }
 
 
@@ -55,11 +50,28 @@
   width: 30% !important;
 }
 
-.table-news-bulletin thead.news-group tr.news-type-header-row th.th-title, th.th-from, th.th-summary {
+.table-news-bulletin thead.news-group tr.news-type-header-row th.th-title,
+.table-news-bulletin thead.news-group tr.news-type-header-row th.th-from {
   font-weight: normal !important;
-  border-right: 1px solid #c5c5c5;
-  background-color: #f5f5f5;
+  text-align: center;
 }
+.table-news-bulletin thead.news-group tr.news-type-header-row th.th-summary {
+  background: rgb(245,245,245);
+  background: linear-gradient(90deg, rgba(245,245,245,1) 75%, rgba(255,255,255,1) 100%);
+}
+
+.table-news-bulletin thead.news-group tr.news-type-header-row th.th-from,
+.table-news-bulletin thead.news-group tr.news-type-header-row th.th-summary {
+  background-color: #f5f5f5;
+  text-align: center;
+  font-weight: normal !important;
+}
+
+.table-news-bulletin thead.news-group tr.news-type-header-row th.th-title {
+  background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 25%);
+}
+
 
 .newsatworkbulletin div.container form#news-bulletin-form-1  table {
   border-spacing: 0px;
@@ -70,6 +82,16 @@
   -webkit-box-sizing: border-box;
 }
 
+.newsatworkbulletin table.table td {
+  position: relative;
+}
+
+.newsatworkbulletin table.table td input {
+  position: absolute;
+  right: 5px;
+  top: -2px;
+  transform: scale(1.2);
+}
 
 .newsatworkbulletin div.container form#news-bulletin-form-1  table td {
   padding: 0px;
@@ -79,9 +101,9 @@
   border-bottom: 0px;
 }
 
-.newsatworkbulletin .table thead  tr  th, .newsatworkbulletin .table  thead  tr  td, 
-.newsatworkbulletin .table tbody  tr  th, .newsatworkbulletin .table  tbody  tr  td, 
-.newsatworkbulletin .table  tfoot  tr  th, .newsatworkbulletin .table  tfoot  tr  td {
+.newsatworkbulletin .table thead tr th, .newsatworkbulletin .table  thead  tr  td,
+.newsatworkbulletin .table tbody tr th, .newsatworkbulletin .table  tbody  tr  td,
+.newsatworkbulletin .table tfoot tr th, .newsatworkbulletin .table  tfoot  tr  td {
   border-top: 0px;
 }
 
@@ -107,29 +129,30 @@ thead .tb-news-group-title {
 
 table .glyphicon-move::before {
   position: absolute;
-  left: 100px;
-  top: 12px;
-  color: darkgreen;
+  left: 75px;
+  top: -5px;
+  color: gray;
   cursor: ns-resize;
-  font-size: x-large;
-  visibility: hidden;/*disable*/
+  font-size: large;
 }
+
 table .glyphicon-folder-open::before {
   cursor: ns-resize;
 }
 
 table .glyphicon-folder-open:after {
   content: "\e068";
-  color: lightgray;
+  color: gray;
   cursor: ns-resize;
   font-size: large;
   position: absolute;
-  top: 19px;
+  top: 13px;
   left: -13px;
 }
 
 table .glyphicon-folder-open::before, table .glyphicon-folder-close::before {
   padding-right: 10px;
+  padding-left: 2px;
 }
 
 .glyphicon-folder-open::before, .glyphicon-folder-close::before {
@@ -141,11 +164,36 @@ table .glyphicon-folder-open::before, table .glyphicon-folder-close::before {
   visibility: hidden;
 }
 
-table.table thead:first-child th:nth-child(2),
- table.table thead:first-child th:nth-child(3),
-  table.table thead:first-child th:nth-child(4),
-   table.table thead:first-child th:nth-child(5) {
+ table.table thead:first-child th:nth-child(4),
+  table.table thead:first-child th:nth-child(5),
+   table.table thead:first-child th:nth-child(6) {
   visibility: visible !important;
+  vertical-align: middle;
+  font-size: medium;
+}
+table.table thead:first-child th:nth-child(4),
+ table.table thead:first-child th:nth-child(5) {
+ border-right: 1px solid #c5c5c5;
+
+}
+
+table.table tbody thead {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.newsatworkbulletin .table thead .tb-news-group-title {
+  font-size: larger;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+table.table thead:not(:first-child) th {
+  border: 0;
+}
+
+.table-news-bulletin thead.news-group:not(:first-child) tr.news-type-header-row th.th-title, th.th-from, th.th-summary {
+  border: 0;
 }
 
 .ajax-progress {
@@ -200,11 +248,15 @@ tr .ajax-progress-throbber .throbber {
   left: 260px;
 }
 
-body.newsatworkbulletin .table > thead > tr > th, 
-  .table > thead > tr > td, 
-  .table > tbody > tr > th, 
-  .table > tbody > tr > td, 
-  .table > tfoot > tr > th, 
+body.newsatworkbulletin th.tb-news-group-title {
+  max-width: 100px;
+}
+
+body.newsatworkbulletin .table > thead > tr > th,
+  .table > thead > tr > td,
+  .table > tbody > tr > th,
+  .table > tbody > tr > td,
+  .table > tfoot > tr > th,
   .table > tfoot > tr > td
 {
   padding-left: 5px;
@@ -212,4 +264,3 @@ body.newsatworkbulletin .table > thead > tr > th,
   padding-top: 0px;
   padding-bottom: 0px;
 }
-

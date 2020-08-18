@@ -132,6 +132,14 @@ class NewsBulletinController extends ControllerBase {
    * @return array
    */
   public function content() {
+    if (\Drupal::routeMatch()->getRouteName() == 'news_bulletin.content') {
+      if (\Drupal::currentUser()->isAuthenticated()) {
+        // Was doing this to eliminate admin rendering but template changes should have stripped most of that out.
+        // Uncomment the two lines below if we want to force a logout.
+        //$session_manager = \Drupal::service('session_manager');
+        //$session_manager->delete(\Drupal::currentUser()->id());
+      }
+    }
     return [
 //      '#type' => 'markup',
       '#theme' => 'news_bulletin',
@@ -208,6 +216,7 @@ class NewsBulletinController extends ControllerBase {
       }
       $word_array = str_word_count($term->name, 1);
       $types_by_weight[$term->weight] = [
+        'nameshort' => substr($term->name, 0, 25),
         'name' => $term->name,
         'tid' => $term->tid,
         'first_word' => strtolower($word_array[0])

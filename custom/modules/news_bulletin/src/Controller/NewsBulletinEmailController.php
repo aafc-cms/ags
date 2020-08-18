@@ -7,23 +7,31 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Drupal\views\Views;
 use Drupal\agri_admin\AgriAdminHelper;
 use Drupal\user\PrivateTempStoreFactory;
+use Drupal\Core\Database\Driver\mysql\Connection;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 
 class NewsBulletinEmailController extends ControllerBase {
 
   protected $tempStore;
+  protected $database;
+  protected $tempWidth; // The image being processed width.
+  protected $tempHeight; // The image being processed height.
 
   // Pass the dependency to the object constructor
-  public function __construct(PrivateTempStoreFactory $temp_store_factory) {
+  public function __construct(PrivateTempStoreFactory $temp_store_factory, Connection $database) {
+    $this->database = $database;
     // For "news_bulletin," any unique namespace will do
     $this->tempStore = $temp_store_factory->get('news_bulletin');
+    $this->tempWidth = 0;
+    $this->tempHeight = 0;
   }
 
   // Uses Symfony's ContainerInterface to declare dependency to be passed to constructor
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('user.private_tempstore')
+      $container->get('user.private_tempstore'),
+      $container->get('database')
     );
   }
 
@@ -58,19 +66,37 @@ class NewsBulletinEmailController extends ControllerBase {
 //      '#type' => 'markup',
       '#theme' => 'news_bulletin_email',
       '#news_types' => $this->getNewsTypes(),
-      '#news_items' => $this->getNewsItems(),
+      '#news_items' => $this->reOrderNodeWeights(),
       '#types_by_weight' => $this->reOrderTypeWeights(),
       '#news_types_fr' => $this->getNewsTypes('fr'),
-      '#news_items_fr' => $this->getNewsItems('fr'),
-      '#types_by_weight_fr' => $this->reOrderTypeWeights('fr')
+      '#news_items_fr' => $this->reOrderNodeWeights('fr'),
+      '#types_by_weight_fr' => $this->reOrderTypeWeights('fr'),
+      '#vars_array' => $this->options()
 //      '#markup' => $this->t('Hello, World!'),
 //      '#attached' => ['library' => ['email_template/bulletins']] // OR add this through the twig template
     ];
   }
 
+  public function options() {
+    $options = [];
+    $base_path = \Drupal::request()->getBasePath();
+    if (empty($base_path)) {
+      $options['base_url'] = \Drupal::request()->getSchemeAndHttpHost();
+    }
+    else {
+      if (stripos($base_path, '/') < 0) {
+        $options['base_url'] = \Drupal::request()->getSchemeAndHttpHost() . '/' . $base_path;
+      }
+      else {
+        $options['base_url'] = \Drupal::request()->getSchemeAndHttpHost() . $base_path;
+      }
+    }
+    return $options;
+  }
+
 
   public function getNewsItems($lang = 'en') {
-
+    $narrow = 0;
     $view = Views::getView('newsatworkbulletin');
 
     $view->setDisplay('rest_export_1');
@@ -84,7 +110,7 @@ class NewsBulletinEmailController extends ControllerBase {
     foreach ($view->result as $id => $result) {
       $node = $result->_entity;
       $nid = $node->id();
-      if (!in_array($nid, $this->getNewsNids())) {
+      if (!in_array($nid, $this->getNewsNids()) && !empty($this->getNewsNids())) {
         continue;
       }
       if ($node->hasTranslation($lang)) {
@@ -96,7 +122,13 @@ class NewsBulletinEmailController extends ControllerBase {
       $termweight = $term->getWeight();
       $summary = $node->get('body')->summary;
       $summary_length = strlen($summary);
-      $max = 110;
+      if ($summary_length < 20) {
+        $summary = $node->get('body')->value;
+        $summary = str_replace('&nbsp;', ' ', $summary);
+        $summary = strip_tags($summary);
+        $summary_length = strlen($summary);
+      }
+      $max = 220;
       if ($summary_length >= $max) {
         $max = strpos($summary, ' ', $max);
         $summary = substr($summary, 0, $max) . ' ...';
@@ -116,6 +148,12 @@ class NewsBulletinEmailController extends ControllerBase {
         $custom_results[$id]['summary'] = $summary;
         $custom_results[$id]['from'] = $node->get('field_from')->value;
         $custom_results[$id]['nid'] = $node->id();
+        $custom_results[$id]['href'] = $this->getUrlForNode($node, $lang);
+        $custom_results[$id]['image'] = $this->convertBodyToImg($node, $narrow);
+        $custom_results[$id]['image_narrow'] = 0;
+        if ($narrow) {
+          $custom_results[$id]['image_narrow'] = 1;
+        }
         $custom_results[$id]['title'] = $node->getTitle();
         $custom_results[$id]['weight'] = $termweight;
       }
@@ -126,19 +164,238 @@ class NewsBulletinEmailController extends ControllerBase {
     return $custom_results;
   }
 
-  private function sortNewsTypeArrayByArray(array $array, array $orderArray) {
-      $ordered = array();
-      foreach ($orderArray as $key => $value) {
-        foreach ($array as $innerKey => $innerValue) {
-          if ($array[$innerKey]['tid'] == $value) {
-            $ordered[$key] = $array[$innerKey];
-            unset($array[$innerKey]);
+
+  public function getUrlForNode($node, $lang = 'en') {
+    $host_path = \Drupal::request()->getSchemeAndHttpHost();
+    $base_path = \Drupal::request()->getBasePath();
+    if (strlen($base_path) > 0) {
+      if (stripos(strval($base_path), '/') < 0) {
+        $host_path = $host_path . '/' . $base_path;
+      }
+      else {
+        $host_path = $host_path . $base_path;
+      }
+    }
+    $relative = \Drupal::service('path.alias_storage')->load(['source' => '/node/' . $node->id(), 'langcode' => $lang]);
+    if (isset($relative['alias'])) {
+      $url = $host_path . '/' . $lang . $relative['alias'];
+    }
+    else {
+      $url = $host_path . '/' . $lang . '/node/' . $node->id();
+    }
+    return $url;
+  }
+
+  public function getImageAttributes($file_uri, &$img_w = 0, &$img_h = 0, &$img_alt = '') {
+    /* Example result:
+    stdClass Object
+    (
+      [uri] => public://2020-02/cue_feb_2020-eng.jpg
+      [fid] => 5
+      [filename] => cue_feb_2020-eng.jpg
+      [image_width] => 876
+      [image_height] => 271
+      [image_alt] => January-February edition of CUE is now available
+    )
+    */
+    //$file_uri = 'public://2020-02/cue_feb_2020-eng.jpg';
+    //$database = \Drupal::database();
+    // Use dependency injection database instead.
+    $query = $this->database->select('file_managed', 'f');
+
+    // Add extra detail to this query object: a condition, fields and a range.
+    $query->innerJoin('media__image', 'mi', 'f.fid = mi.image_target_id');
+    $query->fields('f', ['uri', 'fid', 'filename']);
+    $query->fields('mi', ['image_width', 'image_height', 'image_alt']);
+    $query->condition('f.uri', $file_uri, '=');
+    $query->range(0, 1);
+    $results = $query->execute();
+    if (is_object($results) && count(get_object_vars($results)) > 0) {
+      $result = $results->fetchObject();
+      $img_w = $result->image_width;
+      $img_h = $result->image_height;
+      $img_alt = $result->image_alt;
+      if (is_numeric($img_w) && is_numeric($img_h) && $img_w > 0) {
+        return TRUE;
+      }
+    }
+    return FALSE;
+  }
+
+  public function convertBodyToImg($node, &$narrow = FALSE) {
+    $host_path = \Drupal::request()->getSchemeAndHttpHost();
+    $base_path = \Drupal::request()->getBasePath();
+    // This grabs the rendered body so that we can get embedded images using media browser OR legacy img element.
+    $render_array = $node->get('body')->view('full');
+    $html_output = \Drupal::service('renderer')->renderRoot($render_array);
+    $regex_img = '/<img.*\B \/>/m';
+
+    preg_match_all($regex_img, $html_output, $matches, PREG_SET_ORDER, 0);
+    if (isset($matches[0][0])) {
+      $image_element = $matches[0][0];
+      $image_element = $this->stripWidthAndHeight($image_element);
+      // Now get the file resource link.
+      $regex_src = '/src="?\'?(.*\.[a-zA-Z][a-zA-Z][a-zA-Z])/m'; // regex101.com.
+      preg_match_all($regex_src, $image_element, $match_src, PREG_SET_ORDER, 0);
+      $public_thing = "public://"; // Drupal uses public:// as a placeholder for path/to/sites/default/files.
+      $image_style_name = 'courriel'; // The image style machine name.
+      $style = \Drupal::entityTypeManager()->getStorage('image_style')->load($image_style_name);
+      if (isset($match_src[0][1]) && !is_null($style)) {
+        $src_path = $match_src[0][1];
+        $pos_dot = strpos($src_path, '.');
+        if (strlen($src_path) > ($pos_dot + 4)) {
+          $src_path = substr($src_path, 0, $pos_dot + 4);
+        }
+        // Get the original image URI.
+        if (stripos($src_path, $base_path) >= 0) {
+          $file_uri = str_replace($base_path . '/sites/default/files/', $public_thing, $src_path);
+        }
+        else {
+          $file_uri = str_replace('/sites/default/files/', $public_thing, $src_path);
+        }
+        $file_uri = urldecode($file_uri);
+        $destination_nostyle = \Drupal::service('file_system')->realpath($file_uri);
+        if (strlen($base_path) > 0 && !file_exists($file_uri)) {
+          $file_uri = str_replace('/sites/default/files/', $public_thing, $src_path);
+          $file_uri = urldecode($file_uri);
+          $destination_nostyle = \Drupal::service('file_system')->realpath($file_uri);
+        }
+        if (file_exists($file_uri) || file_exists($destination_nostyle)) {
+          // Get the image attributes like width/height.
+          if (stripos($file_uri, 'styles') >= 0) {
+            // Workaround if the image is already set to an image style, get the original.
+            $regex_style = '/^.*\/public\/(.*\.[a-zA-Z][a-zA-Z][a-zA-Z])/'; // regex101.com.
+            preg_match($regex_style, $image_element, $match_style_src, PREG_OFFSET_CAPTURE, 0);
+            if (isset($match_style_src[1][0])) {
+              $file_uri = $public_thing . $match_style_src[1][0];
+            }
           }
+          $return_code = $this->getImageAttributes($file_uri, $img_w, $img_h, $img_alt);
+          if ($return_code && ($img_h > $img_w || $img_w < 300 || ((float)$img_w) < ($img_h * 1.75))) {
+            // Narrow image style.
+            $narrow = TRUE;
+            $image_style_name = 'courriel_narrow'; // The image style machine name.
+          }
+          else {
+            $narrow = FALSE;
+            $image_style_name = 'courriel'; // The image style machine name.
+          }
+          // Load the image style.
+          $style = \Drupal::entityTypeManager()->getStorage('image_style')->load($image_style_name);
+          // Get the styled image derivative.
+          $destination = $style->buildUri($file_uri);
+          // If the derivative doesn't exist yet (as the image style may have been
+          // added post launch), create it.
+          if (!file_exists($destination) && !is_null($style)) {
+            $style->createDerivative($file_uri, $destination);
+          }
+          $styled_file_uri = file_url_transform_relative($style->buildUrl($file_uri));
+          $image_element = str_replace($src_path, $styled_file_uri, $image_element);
         }
       }
-      //AgriAdminHelper::addToLog('<pre>array ' . print_r($array, TRUE) . ' </pre>', TRUE);
-      //AgriAdminHelper::addToLog('<pre>order ' . print_r($orderArray, TRUE) . ' </pre>', TRUE);
-      return $ordered + $array;
+      if (strlen($base_path) > 0) {
+        if (stripos(strval($base_path), '/') < 0) {
+          $host_path = $host_path . '/' . $base_path;
+        }
+        else {
+          $host_path = $host_path . $base_path;
+        }
+	      $search_for = 'src="' . $base_path . '/sites/default/files';
+        if ($narrow) {
+          $replace_with = 'src="' . $host_path . '/sites/default/files';
+        }
+        else {
+          $replace_with = 'style="margin-left:auto;margin-right:auto;" src="' . $host_path . '/sites/default/files';
+        }
+      }
+      else {
+        $search_for = 'src="/sites/default/files';
+        if ($narrow) {
+          $replace_with = 'src="' . $host_path . '/sites/default/files';
+        }
+        else {
+          $replace_with = 'style="margin-left:auto;margin-right:auto;" src="' . $host_path . '/sites/default/files';
+        }
+      }
+      // Images must be visible via email therefore must have absolute url.
+      $image_element_absolute = str_replace($search_for, $replace_with, $image_element);
+      if (stripos($image_element_absolute, 'alt=') <= 0) {
+        // WCAG fix, img elements must have an alt attribute and it can be empty.
+        $image_element_absolute = str_replace('src=', 'alt="" src=', $image_element_absolute);
+      }
+      return $image_element_absolute;
+    }
+    else {
+      return NULL;
+    }
+  }
+
+
+  private function stripWidthAndHeight($img_element, &$width = 0, &$height = 0) {
+    $regex_value = '/\"?\'?(\d{2,})[\"|\']/m'; // Used for number inside quotes.
+    $this->tempWidth = 0;
+    $this->tempHeight = 0;
+    $regex_width = '/(width="?\'?\d{2,}[\"|\'])/m'; // regex101.com.
+    preg_match_all($regex_width, $img_element, $match_width, PREG_SET_ORDER, 0);
+    if (isset($match_width[0][0]) && stripos($match_width[0][0], 'width') >= 0) {
+      $width = $match_width[0][0];
+      $img_element = str_replace($width, '', $img_element);
+    }
+    $regex_height = '/(height="?\'?\d{2,}[\"|\'])/m'; // regex101.com.
+    preg_match_all($regex_height, $img_element, $match_height, PREG_SET_ORDER, 0);
+    if (isset($match_height[0][0]) && stripos($match_height[0][0], 'width') >= 0) {
+      $height = $match_height[0][0];
+      $img_element = str_replace($height, '', $img_element);
+    }
+    if (!is_numeric($width)) {
+      $width = 0;
+    }
+    if (!is_numeric($height)) {
+      $height = 0;
+    }
+    return $img_element;
+  }
+
+
+  private function sortNewsNodeArrayByArray(array $array, array $orderArray) {
+    $ordered = array();
+    if (empty($orderArray)) {
+      // Default show all records in default order.
+      return $array;
+    }
+    foreach ($orderArray as $key => $value) {
+      foreach ($array as $innerKey => $innerValue) {
+        if ($array[$innerKey]['nid'] == $value) {
+          $ordered[$key] = $array[$innerKey];
+          unset($array[$innerKey]);
+        }
+      }
+    }
+    return $ordered + $array;
+  }
+
+  public function reOrderNodeWeights($lang = 'en') {
+    $unorderedNodes = $this->getNewsItems($lang);
+    $reorderedNodes = $unorderedNodes; // Safe default values.
+    $orderedNodes = $this->getNewsNids($lang);
+    if (!empty($orderedNodes)) {
+      $reorderedNodes = $this->sortNewsNodeArrayByArray($unorderedNodes, $orderedNodes);
+    }
+    return $reorderedNodes;
+  }
+
+
+  private function sortNewsTypeArrayByArray(array $array, array $orderArray) {
+    $ordered = array();
+    foreach ($orderArray as $key => $value) {
+      foreach ($array as $innerKey => $innerValue) {
+        if ($array[$innerKey]['tid'] == $value) {
+          $ordered[$key] = $array[$innerKey];
+          unset($array[$innerKey]);
+        }
+      }
+    }
+    return $ordered + $array;
   }
 
   public function reOrderTypeWeights($lang = 'en') {

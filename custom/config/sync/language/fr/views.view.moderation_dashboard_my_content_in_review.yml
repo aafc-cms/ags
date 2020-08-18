@@ -3,14 +3,29 @@ display:
     display_title: 'My Content Waiting for Review-fr'
     display_options:
       title: 'Mon contenu prêt pour l''examen par les pairs'
+      empty:
+        area_text_custom:
+          content: 'Il n''y a aucun contenu en attente d''examen par les pairs.'
   block_2:
     display_title: 'My Peer Reviewed Content-fr'
     display_options:
       title: 'Mon contenu évalué par les pairs'
+      empty:
+        area_text_custom:
+          content: 'Il n''y a pas de contenu évalué par les pairs'
   block_3:
     display_title: 'My Content With Reviewer-fr'
     display_options:
       title: 'Mon contenu archivé'
+      empty:
+        area_text_custom:
+          content: 'Il n''y a pas de contenu récemment archivé.'
   block_4:
     display_options:
       title: 'Mon contenu publié'
+      empty:
+        area_text_custom:
+          content: 'Il n''y a pas de contenu récemment publié.'
+  default:
+    display_options:
+      title: 'Il n''y a pas de contenu en attente d''examen.'

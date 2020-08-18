@@ -3,10 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_newstype
-    - field.storage.node.field_subject
     - field.storage.node.field_tracking_number
-    - field.storage.node.field_type
     - taxonomy.vocabulary.aafc_type
     - taxonomy.vocabulary.category
     - taxonomy.vocabulary.employment_type
@@ -56,7 +53,7 @@ display:
       pager:
         type: full
         options:
-          items_per_page: 100
+          items_per_page: 25
           offset: 0
           id: 0
           total_pages: null
@@ -66,12 +63,12 @@ display:
             first: '« First'
             last: 'Last »'
           expose:
-            items_per_page: false
+            items_per_page: true
             items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options: '25, 50, 75, 100, 200'
             items_per_page_options_all: false
             items_per_page_options_all_label: '- All -'
-            offset: false
+            offset: true
             offset_label: Offset
           quantity: 9
       style:
@@ -216,7 +213,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: NID
+          label: Node
           exclude: false
           alter:
             alter_text: false
@@ -249,7 +246,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -315,9 +312,6 @@ display:
             click_sort_column: value
             type: number_unformatted
             field_api_classes: 0
-            settings:
-              thousand_separator: ''
-              prefix_suffix: 1
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -500,195 +494,6 @@ display:
           entity_type: user
           entity_field: name
           plugin_id: field
-        field_subject:
-          id: field_subject
-          table: node__field_subject
-          field: field_subject
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: false
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 10
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_newstype:
-          id: field_newstype
-          table: node__field_newstype
-          field: field_newstype
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: false
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_type:
-          id: field_type
-          table: node__field_type
-          field: field_type
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: false
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 3
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
         moderation_state_1:
           id: moderation_state_1
           table: node_field_data
@@ -780,55 +585,6 @@ display:
           plugin_id: field
           entity_type: node
           entity_field: changed
-        nothing:
-          id: nothing
-          table: views
-          field: nothing
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Category
-          exclude: true
-          alter:
-            alter_text: true
-            text: '{{ field_newstype }}{{ field_type }}'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: '{{ field_subject }}'
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
-          plugin_id: custom
         operations:
           id: operations
           table: node
@@ -1436,6 +1192,17 @@ display:
           plugin_id: text_custom
       arguments: {  }
       relationships:
+        vid:
+          id: vid
+          table: node_field_revision
+          field: vid
+          relationship: none
+          group_type: group
+          admin_label: 'Get the actual content from a content revision.'
+          required: false
+          entity_type: node
+          entity_field: vid
+          plugin_id: standard
         uid:
           id: uid
           table: node_field_data
@@ -1447,56 +1214,9 @@ display:
           id: uid_1
           table: content_lock
           field: uid
-          relationship: none
+          relationship: vid
           group_type: group
           admin_label: 'Lock owner'
-          required: false
-          plugin_id: standard
-        field_category:
-          id: field_category
-          table: node__field_category
-          field: field_category
-          relationship: none
-          group_type: group
-          admin_label: 'field_category: Taxonomy term'
-          required: false
-          plugin_id: standard
-        reverse__node__field_newstype:
-          id: reverse__node__field_newstype
-          table: taxonomy_term_field_data
-          field: reverse__node__field_newstype
-          relationship: field_category
-          group_type: group
-          admin_label: field_newstype
-          required: false
-          entity_type: taxonomy_term
-          plugin_id: entity_reverse
-        reverse__node__field_type:
-          id: reverse__node__field_type
-          table: taxonomy_term_field_data
-          field: reverse__node__field_type
-          relationship: field_category
-          group_type: group
-          admin_label: field_type
-          required: false
-          entity_type: taxonomy_term
-          plugin_id: entity_reverse
-        field_type:
-          id: field_type
-          table: node__field_type
-          field: field_type
-          relationship: none
-          group_type: group
-          admin_label: 'field_type: Taxonomy term'
-          required: false
-          plugin_id: standard
-        field_meta_type:
-          id: field_meta_type
-          table: node__field_meta_type
-          field: field_meta_type
-          relationship: none
-          group_type: group
-          admin_label: 'field_meta_type: Taxonomy term'
           required: false
           plugin_id: standard
       show_admin_links: false
@@ -1543,10 +1263,7 @@ display:
         - user.permissions
       max-age: 0
       tags:
-        - 'config:field.storage.node.field_newstype'
-        - 'config:field.storage.node.field_subject'
         - 'config:field.storage.node.field_tracking_number'
-        - 'config:field.storage.node.field_type'
         - 'config:workflow_list'
   page_1:
     display_options:
@@ -1581,8 +1298,5 @@ display:
         - user.permissions
       max-age: 0
       tags:
-        - 'config:field.storage.node.field_newstype'
-        - 'config:field.storage.node.field_subject'
         - 'config:field.storage.node.field_tracking_number'
-        - 'config:field.storage.node.field_type'
         - 'config:workflow_list'

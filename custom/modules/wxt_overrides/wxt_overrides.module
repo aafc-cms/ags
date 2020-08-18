@@ -27,23 +27,23 @@ function wxt_overrides_page_attachments(array &$page) {
     $nid = $node;
   }
   if ($nid == 68 || $nid == 118) {
-    //AgriAdminHelper::addToLog('<pre>' .print_r(array_keys($page), TRUE) . '</pre>', TRUE);
     $library_array = $page['#attached']['library'];
-    foreach ($library_array as $key => $value) {
-      if ($value == 'wxt_library/wet-boew-dev') {
-        unset($page['#attached']['library'][$key]);
-      }
-      if ($value == 'wxt_library/wet-boew') {
-        unset($page['#attached']['library'][$key]);
-      }
+    if (in_array('wxt_library/wet-boew-dev', $page['#attached']['library'])) {
+      $key = array_search('wxt_library/wet-boew-dev', $page['#attached']['library']);
+      unset($page['#attached']['library'][$key]);
+      $page['#attached']['library'][] = 'wxt_overrides/wet-boew-replacement';
     }
-    $page['#attached']['library'][] = 'wxt_overrides/wet-boew-replacement';
-      $DEBUG = false;
-      if ($DEBUG && $fp = fopen('modules/custom/wxt_overrides/js/wb/debug.txt', 'a'))
-      {
-        fwrite($fp, print_r($page, TRUE) . "\n");
-        fclose($fp);
-      }
+    if (in_array('wxt_library/wet-boew', $page['#attached']['library'])) {
+      $key = array_search('wxt_library/wet-boew', $page['#attached']['library']);
+      unset($page['#attached']['library'][$key]);
+      $page['#attached']['library'][] = 'wxt_overrides/wet-boew-replacement';
+    }
+    $DEBUG = false;
+    if ($DEBUG && $fp = fopen('modules/custom/wxt_overrides/js/wb/debug.txt', 'a'))
+    {
+      fwrite($fp, print_r($page, TRUE) . "\n");
+      fclose($fp);
+    }
   }
   return;
 }
@@ -55,11 +55,17 @@ function wxt_overrides_page_attachments(array &$page) {
  */
 function wxt_overrides_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
 
+  /* set the default value for communictaion as meta data subject type */
+  if ( $form_id == 'node_news_edit_form' ) {
+    $communicationid = 38; // communication id =38
+    $form['field_subject']['widget']['#options_attributes'][$communicationid] = ['checked' => 'checked'] ;
+  }
+
   if ($form_id == 'node_landing_page_edit_form' || $form_id == 'node_page_edit_form'  ||
-      $form_id == 'node_landing_page_form'      || $form_id == 'node_page_form'  || 
+      $form_id == 'node_landing_page_form'      || $form_id == 'node_page_form'  ||
       $form_id == 'page-node-type-empl'  || $form_id == 'page-node-type-news' ) {
 
-    foreach ($form['menu']['link']['menu_parent']['#options'] as $key => &$value) { 
+    foreach ($form['menu']['link']['menu_parent']['#options'] as $key => &$value) {
       if ( strpos($value, '-- ') == 0  ) {
         //$value =  substr($value,0, 3) . 'level 1. ' . substr( $value,3, strlen($value)) ;
         $form['menu']['link']['menu_parent']['#options_attributes'][$key]['class'] = ['class'=> 'menu_tree-leve-1'];
@@ -89,7 +95,7 @@ function wxt_overrides_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateI
                   //$value =  substr($value,0, 13) . 'level 6. ' . substr( $value,11, strlen($value)) ;
                   $form['menu']['link']['menu_parent']['#options_attributes'][$key]['class'] = 'menu_tree-leve-6';
                 }
-              }  
+              }
             }
           }
         }

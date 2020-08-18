@@ -1,0 +1,38 @@
+
+.media-library-widget-modal {
+  &.ui-dialog {
+    .ui-dialog-titlebar {
+      padding: 5px 0px 5px 15px;
+    }
+    .ui-dialog-titlebar-close {
+      top: 5px;
+    }
+    .media-library-menu {
+      width: auto;
+      min-width: 120px;
+    }
+    .ui-widget-content.ui-dialog-buttonpane {
+      padding: 0px 15px 0px 20px;
+    }
+  }
+  &.ui-dialog--narrow.media-library-widget-modal {
+    max-width: 90%;
+  }
+  .claro-details {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .media-library-add-form__input-wrapper {
+    padding: 0;
+    margin: 0;
+  }
+  .claro-details__wrapper {
+    margin: 0px 0px 0px 15px;
+  }
+  .media-library-view {
+    .field--name-thumbnail img {
+       height: 120px;
+    }
+  }
+}
+

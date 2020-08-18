@@ -1,0 +1,13 @@
+
+body.role-is-creator,
+body.role-is-news_ccpub,
+body.role-is-empl_ccpub,
+body.role-is-reviewer,
+body.role-is-editor {
+  li.menu-item a[data-drupal-link-system-path*="blog_freetags"] {
+    display:none;
+  }
+  table#taxonomy tr[data-drupal-selector*="blog-freetags"] {
+    display:none;
+  }
+}
