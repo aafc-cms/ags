@@ -4,6 +4,8 @@ use Drupal\Core\Url;
 use Drupal\Core\Link;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\agri_admin\AgriAdminHelper;
+use Drupal\user\Entity\User;
+use Drupal\access_unpublished\Entity\AccessToken;
 
 /**
  * Implements hook_preprocess_html().
@@ -796,36 +798,81 @@ function agri_admin_content_moderation_notification_mail_data_alter(Drupal\Core\
     $nType = $entity->bundle();
     if ($nType == 'news'){
       if ($currentModState == 'draft'){
+        $ids = \Drupal::entityQuery('user')
+        ->condition('status', 1)
+        ->condition('roles', 'news_ccpub')
+        ->execute();
+        $users = User::loadMultiple($ids);
+        foreach ($users as $user) {
+          $data['to'][] = $user->getEmail();
+        }
         $newsSubmitterEmail = $entity->get('field_newssubmitteremail')->value;
-        //TODO - replace deepaniw@hotmail.com with aafc.newsatwork-nouvellesalouvrage.aac@canada.ca and ccpub group
-        $data['to'] = ['deepaniw@hotmail.com', $newsSubmitterEmail];
+        $data['to'][] = $newsSubmitterEmail;
+        //TODO - Add aafc.newsatwork-nouvellesalouvrage.aac@canada.ca
       }
       else {
         $data['to'] = [];
-      }      
+      }
     }
     elseif ($nType == 'empl'){
       if ($currentModState == 'draft'){
+        $ids = \Drupal::entityQuery('user')
+        ->condition('status', 1)
+        ->condition('roles', 'empl_cspub')
+        ->execute();
+        $users = User::loadMultiple($ids);
+        foreach ($users as $user) {
+          $data['to'][] = $user->getEmail();
+        }
         $emplSubmitterEmail = $entity->get('field_employmentrequestoremail')->value;
-        //TODO - replace deepaniw@hotmail.com with aafc.hrcentrerh.aac@canada.ca and cspub group
-        $data['to'] = ['deepaniw@hotmail.com', $emplSubmitterEmail];
+        $data['to'][] = $emplSubmitterEmail;
+        //TODO - Add aafc.hrcentrerh.aac@canada.ca
+        //Get classification information to display in the email
+        $classification   = '';
+        if ($paragraph_field_items =  $entity->get('field_classification')->getValue()) {
+          $paragraph_storage = \Drupal::entityTypeManager()->getStorage('paragraph');
+          // Collect paragraph field's ids.
+          $ids = array_column($paragraph_field_items, 'target_id');
+          // Load all paragraph objects.
+          $paragraphs_objects = $paragraph_storage->loadMultiple($ids);
+          foreach ($paragraphs_objects as $paragraph) {
+            // Get field from the paragraph.
+            $groupval    = $paragraph->get('field_class_id')->value;
+            $subgroupval = $paragraph->get('field_class_sub')->value;
+            $levelval    = $paragraph->get('field_class_level')->value;
+            $tmpText     = '';
+            // Do something with $text...
+            if ($subgroupval) {
+              $tmpText = $groupval.'-'.$subgroupval.'-'.$levelval;
+            }
+            else {
+              $tmpText = $groupval.'-'.$levelval;
+            }
+            if ( strlen($classification) >0 ) {
+              $classification = $classification.', '. $tmpText;
+            }
+            else {
+              $classification = $tmpText;
+            }
+          }
+        }
         $emplMessage = "<p>Le français suit</p>
-                        <p>Your request ". "\""."[agri-admin:title]" ."\"". " has been submitted and will be processed for publication on AgriSource by Human Resources within 2 working days.</p>" .
-                        "<p>To preview this opportunity, visit:&nbsp; [agri-admin:url]</p>" . 
-                        "<p>If you have any questions or concerns, please contact your&nbsp;<a data-auth='NotApplicable' 
-                        href='http://intranet.agr.gc.ca/agrisourceprev/AgriDoc.do?id=1548432&amp;lang=eng' rel='noopener noreferrer' 
-                        target='_blank'>Human Resource Advisor, Staffing.</a>
-                        <hr />
-                        <p>Votre demande relative à la possibilité d'emploi «&nbsp;[agri-admin:translation-title]&nbsp;» a été présentée et sera traitée aux fins de publication dans AgriSource par les Ressources humaines dans les deux jours ouvrables.</p>
-                        <p>Pour voir un aperçu de cette possibilité, consultez&nbsp;:&nbsp; [agri-admin:translation-url]</p>" .
-                        "<p>Pour toute question ou préoccupation, veuillez communiquer avec votre&nbsp;<a data-auth='NotApplicable' 
-                        href='http://intranet.agr.gc.ca/agrisourceprev/AgriDoc.do?id=1548428&amp;lang=fra' rel='noopener noreferrer'
-                        target='_blank'>conseiller(ère) en ressources humaines responsable de la dotation.</a>";
+        <p>Your request ". "\""."<strong>[agri-admin:title]". ": (".$classification.")</strong>". "\"". " has been submitted and will be processed for publication on AgriSource by Human Resources within 2 working days.</p>" .
+        "<p>To preview this opportunity, visit:&nbsp; [agri-admin:unpublished-url]</p>" .
+        "<p>If you have any questions or concerns, please contact your&nbsp;<a data-auth='NotApplicable' 
+         href='http://intranet.agr.gc.ca/agrisourceprev/AgriDoc.do?id=1548432&amp;lang=eng' rel='noopener noreferrer' 
+         target='_blank'>Human Resource Advisor, Staffing.</a>
+         <hr />
+         <p>Votre demande relative à la possibilité d'emploi «&nbsp;<strong>[agri-admin:translation-title]". ": (".$classification.")</strong>&nbsp;» a été présentée et sera traitée aux fins de publication dans AgriSource par les Ressources humaines dans les deux jours ouvrables.</p>
+         <p>Pour voir un aperçu de cette possibilité, consultez&nbsp;:&nbsp; [agri-admin:translation-unpublished-url]</p>" .
+        "<p>Pour toute question ou préoccupation, veuillez communiquer avec votre&nbsp;<a data-auth='NotApplicable' 
+          href='http://intranet.agr.gc.ca/agrisourceprev/AgriDoc.do?id=1548428&amp;lang=fra' rel='noopener noreferrer'
+          target='_blank'>conseiller(ère) en ressources humaines responsable de la dotation.</a>";
                           
         $data['params']['subject'] = "Your employment opportunity " . "\"" . "[node:title]" . "\"" ." request has been submitted / Votre demande relative à la possibilité d'emploi «&nbsp;[agri-admin:translation-title]&nbsp;» a été présentée.";
-        $data['params']['message'] = check_markup($emplMessage, 'full_html');
+        $data['params']['message'] = $emplMessage;
       }
-      else {
+      elseif ($currentModState != 'archived') {
         $data['to'] = [];
       }      
     }
@@ -846,11 +893,13 @@ function agri_admin_content_moderation_notification_mail_data_alter(Drupal\Core\
  */
 function agri_admin_token_info() {
   $info = [];
-  $info['types']['agri-admin'] = ['name' => t('Custom Group'), 'description' => t('Custom Group to use in content moderation notification emails')];
-  $info['tokens']['agri-admin']['translation-title'][] = 'A token to extract the translated node title';
-  $info['tokens']['agri-admin']['translation-url'][] = 'A token to extract the translated URL';
-  $info['tokens']['agri-admin']['title'][] = 'A token to extract the current title for news and employment opportunity when using submission form';
-  $info['tokens']['agri-admin']['url'][] = 'A token to extract the current URL for news and employment opportunity when using submission form';
+  $info['types']['agri-admin'] = ['name' => t('Agri Admin Custom Token'), 'description' => t('Custom Group to use in content moderation notification emails')];
+  $info['tokens']['agri-admin']['translation-title'] = ['name' => t('Translation title'), 'description' => t('A token to extract the translated node title')];
+  $info['tokens']['agri-admin']['translation-url'] = ['name' => t('Translation url'), 'description' => t('A token to extract the translated URL')];
+  $info['tokens']['agri-admin']['title']  = ['name' => 'Title', 'description' => t('A token to extract the current title for news and employment opportunity when using submission form')];
+  $info['tokens']['agri-admin']['url'] = ['name' => t('Url'), 'description' => t('A token to extract the current URL for news and employment opportunity when using submission form')];
+  $info['tokens']['agri-admin']['unpublished-url'] = ['name' => t('Unpublished url'), 'description' => t('A token to extract the unpublished URL for news and employment opportunity for anonymous users')];
+  $info['tokens']['agri-admin']['translation-unpublished-url'] = ['name' => t('Translation unpublished url'), 'description' => t('A token to extract the unpublished French URL for news and employment for anonymous users')];
   return $info;
 }
 
@@ -859,34 +908,93 @@ function agri_admin_token_info() {
  */
 function  agri_admin_tokens($type, $tokens, array $data, array $options, \Drupal\Core\Render\BubbleableMetadata $bubbleable_metadata) {
   $replacements = [];
-  if(isset($data['entity'])){
+  if ($type == 'agri-admin' && isset($data['entity']) && $data['entity'] instanceof \Drupal\node\NodeInterface) {
     $entity = $data['entity'];
-    if ($entity instanceof \Drupal\node\NodeInterface) {
-      $translated_entity = $entity->getTranslation('fr');
-      $translated_title = $translated_entity->getTitle();
-      $translated_url = $translated_entity->toLink()->toString();
-      $current_title = $entity->getTitle();
-      $current_url = $entity->toLink()->toString();      
-      if ($type == 'agri-admin') {
-        foreach ($tokens as $name => $original) {
-          // Find the desired token by name.
-          switch ($name) {
-            case 'translation-title':
-              $replacements[$original] = $translated_title;
-              break;
-            case 'translation-url':
-              $replacements[$original] = $translated_url;
-              break;
-            case 'title':
-              $replacements[$original] = $current_title;
-              break;
-            case 'url':
-              $replacements[$original] = $current_url;
-              break;
-          }
-        }
+    $translated_entity = $entity->getTranslation('fr');
+    $translated_title = $translated_entity->getTitle();
+    $translated_url = $translated_entity->toLink()->toString();
+    $current_title = $entity->getTitle();
+    $current_url = $entity->toLink()->toString();
+
+    $currentLang = \Drupal::languageManager()->getCurrentLanguage();
+    $hashTag = getHashTag($entity, $currentLang);
+    $path = '<a href="'.$hashTag.'">'. $current_title.'</a>';
+    $unpublished_url = \Drupal\Core\Render\Markup::create($path);
+
+    $transLang = $translated_entity->language();
+    $hashTagTrans = getHashTag($translated_entity, $transLang);
+    $transPath = '<a href="'.$hashTagTrans.'">'. $translated_title.'</a>';
+    $translated_unpublished_url = \Drupal\Core\Render\Markup::create($transPath);
+
+    foreach ($tokens as $name => $original) {
+      // Find the desired token by name.
+      switch ($name) {
+        case 'translation-title':
+          $replacements[$original] = $translated_title;
+          break;
+        case 'translation-url':
+          $replacements[$original] = $translated_url;
+          break;
+        case 'title':
+          $replacements[$original] = $current_title;
+          break;
+        case 'url':
+          $replacements[$original] = $current_url;
+          break;
+        case 'unpublished-url':
+          $replacements[$original] = $unpublished_url;
+          break;
+        case 'translation-unpublished-url':
+          $replacements[$original] = $translated_unpublished_url;
+          break;
       }
     }
   }
   return $replacements;
+}
+
+/**
+* Generates an unpublished hash link to access unpublished content
+*/
+function getHashTag($entity, $lang) {
+    $tokenUrl = '';
+    $manager = \Drupal::service('access_unpublished.access_token_manager');
+    $tokens = '';
+    $tokens = $manager->getAccessTokensByEntity($entity, 'active');
+    $keys = array_map(function (AccessToken $token) {
+      return $token->get('value')->value;
+    }, $tokens);
+    if (empty($keys) || count($keys) < 1) {
+      $sevenDays = 604800;
+      // Create tokens for the entity.
+      $token = AccessToken::create([
+        'entity_type' => $entity->getEntityType()->id(),
+        'entity_id' => $entity->id(),
+        'expire' =>  \Drupal::time()->getRequestTime() + $sevenDays,
+      ]);
+      $token->save();
+      $keys = array($token->get('value')->value);
+    }
+    $countKeys = count($keys);
+    $hashToken = '';
+    if ($countKeys > 0) {
+      $hashToken = array();
+      foreach($keys as $key) {
+        $hashToken[] = $key;
+      }
+      if (isset($hashToken[$countKeys - 1])) {
+        $hashToken = $hashToken[$countKeys - 1];
+      } else {
+        $hashToken = '';
+      }
+    }
+    if (isset($hashToken) && strlen($hashToken) > 5) {
+      $accessTokenManager = \Drupal::service('access_unpublished.access_token_manager');
+      $token = $accessTokenManager->getActiveAccessToken($entity);
+      if ($token) {
+        $absolute = FALSE;
+        $tokenUrl = $accessTokenManager->getAccessTokenUrl($token, $lang, $absolute);
+      }
+    }
+  return $tokenUrl;
 }
