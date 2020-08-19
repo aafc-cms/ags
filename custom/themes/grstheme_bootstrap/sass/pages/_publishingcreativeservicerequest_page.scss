@@ -48,12 +48,17 @@ body.form-publishing-and-creative-services.i18n-en {
     }
   }
 
-  div#edit-psrf-resetbutton {
-    padding-top: 25px;
+  div[id^='edit-actions'] {
+    padding-top: 35px;
   }
 
-  button#edit-psrf-resetbutton-submit span {
-    display: none!important;
+  button[id^='edit-actions-reset'] {
+    float: left;
+    margin-right: 25px;
+  }
+
+  button[id^='edit-actions-reset'] span.icon.glyphicon.glyphicon-trash {
+    min-height: 20px;
   }
   
   div.region.region-content-footer {
@@ -63,6 +68,10 @@ body.form-publishing-and-creative-services.i18n-en {
   label[data-drupal-selector='edit-srf-lbl-selectproducts'] {
     font-weight: normal;
     font-style: italic;
+  }
+
+  div.form-textarea-wrapper textarea#edit-srf-mainmessage, div.form-textarea-wrapper textarea#edit-srf-addintionalcomments {
+    width: 100% !important;
   }
 }  
   
@@ -117,14 +126,19 @@ body.form-publishing-and-creative-services.i18n-fr {
     }
   }
 
-  div#edit-psrf-resetbutton {
-    padding-top: 25px;
+  div[id^='edit-actions'] {
+    padding-top: 35px;
   }
 
-  button#edit-psrf-resetbutton-submit span {
-    display: none!important;
+  button[id^='edit-actions-reset'] {
+    float: left;
+    margin-right: 25px;
   }
 
+  button[id^='edit-actions-reset'] span.icon.glyphicon.glyphicon-trash {
+    min-height: 20px;
+  }
+  
   div.region.region-content-footer {
     display: none;
   }
@@ -132,6 +146,10 @@ body.form-publishing-and-creative-services.i18n-fr {
   label[data-drupal-selector='edit-srf-lbl-selectproducts'] {
     font-weight: normal;
     font-style: italic;
+  }
+
+  div.form-textarea-wrapper textarea#edit-srf-mainmessage, div.form-textarea-wrapper textarea#edit-srf-addintionalcomments {
+    width: 100% !important;
   }
 }  
   
