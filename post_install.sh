@@ -26,6 +26,13 @@ configureSettingsFile () {
   fi
 
   settings_file=html/sites/default/settings.php;
+  settings_local_file=html/sites/default/settings.local.php;
+
+  if [ ! -f $settings_local_file ]; then
+    touch $settings_local_file
+    echo "<?php" >> $settings_local_file;
+    echo "" >> $settings_local_file;
+  fi
   if ! grep -q "wxt config_sync_directory" $settings_file; then
     printf "Setting your config sync folder to modules/custom/config\n";
     chmod 664 $settings_file;
@@ -33,6 +40,17 @@ configureSettingsFile () {
     echo "\$settings['config_sync_directory'] = 'modules/custom/config/sync';" >> $settings_file;
     hashsalt=`drush php-eval 'echo \Drupal\Component\Utility\Crypt::randomBytesBase64(55)'`;
     echo "\$settings['hash_salt'] = '$hashsalt';" >> $settings_file;
+  fi
+  if ! grep -q 'sites/default/files/private' $settings_local_file; then
+    if ! grep -q '^if (file_exists($app_root . ''/'' . $site_path . ''/settings.local.php' $settings_file; then
+      echo "";
+      echo "if (file_exists(\$app_root . '/' . \$site_path . '/settings.local.php')) {" >> $settings_file;
+      echo "  include \$app_root . '/' . \$site_path . '/settings.local.php';" >> $settings_file;
+      echo "}" >> $settings_file;
+    fi
+    if ! grep -q 'file_private_path' $settings_local_file; then
+      echo "\$settings['file_private_path'] = 'sites/default/files/private';" >> $settings_local_file;
+    fi
   fi
 
   if ! grep -q "STRICT_TRANS_TABLES" $settings_file; then
