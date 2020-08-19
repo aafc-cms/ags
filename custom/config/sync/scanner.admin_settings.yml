@@ -5,13 +5,17 @@ scanner_published: false
 scanner_pathauto: false
 scanner_language: all
 enabled_content_types:
+  'node:empl': 'node:empl'
   'node:landing_page': 'node:landing_page'
+  'node:news': 'node:news'
   'node:page': 'node:page'
 fields_of_selected_content_type:
+  'node:empl:body': 'node:empl:body'
   'node:landing_page:title': 'node:landing_page:title'
   'node:landing_page:body': 'node:landing_page:body'
   'node:landing_page:field_description': 'node:landing_page:field_description'
   'node:landing_page:field_keywords': 'node:landing_page:field_keywords'
+  'node:news:body': 'node:news:body'
   'node:page:title': 'node:page:title'
   'node:page:body': 'node:page:body'
   'node:page:field_description': 'node:page:field_description'
