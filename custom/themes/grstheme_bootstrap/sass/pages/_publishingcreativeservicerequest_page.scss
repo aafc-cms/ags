@@ -19,11 +19,17 @@ body.form-publishing-and-creative-services.i18n-en {
   }
 
   div.js-form-type-date.form-item-rsf-daterequired {
-    label[for='edit-rsf-daterequired'] {
+    label[for^='edit-rsf-daterequired'] {
       display: block;
     }
   }
   
+  div.js-form-type-tel.form-item-srf-phone {
+    label[for^='edit-srf-phone'] {
+      display: block;
+    }
+  }
+
   div.form-item.form-item-srf-isrequesttoscheduledevent.js-form-item-srf-isrequesttoscheduledevent {
     div.select-wrapper:after {
       right: 90%;
@@ -78,6 +84,11 @@ body.form-publishing-and-creative-services.i18n-en {
   div.form-textarea-wrapper textarea#edit-srf-mainmessage, div.form-textarea-wrapper textarea#edit-srf-addintionalcomments {
     width: 100% !important;
   }
+  
+  .item-list__comma-list li:after {
+    content: "\A";
+    white-space: pre;
+  }
 }  
   
 /* CSS for French page */  
@@ -102,11 +113,17 @@ body.form-publishing-and-creative-services.i18n-fr {
   }
 
   div.js-form-type-date.form-item-rsf-daterequired {
-    label[for='edit-rsf-daterequired'] {
+    label[for^='edit-rsf-daterequired'] {
       display: block;
     }
   }
-  
+ 
+  div.js-form-type-tel.form-item-srf-phone {
+    label[for^='edit-srf-phone'] {
+      display: block;
+    }
+  }
+
   div.form-item.form-item-srf-isrequesttoscheduledevent.js-form-item-srf-isrequesttoscheduledevent {
     div.select-wrapper:after {
       right: 86%;
@@ -155,6 +172,11 @@ body.form-publishing-and-creative-services.i18n-fr {
 
   div.form-textarea-wrapper textarea#edit-srf-mainmessage, div.form-textarea-wrapper textarea#edit-srf-addintionalcomments {
     width: 100% !important;
+  }
+
+  .item-list__comma-list li:after {
+    content: "\A";
+    white-space: pre;
   }
 }  
   
