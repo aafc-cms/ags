@@ -23,6 +23,13 @@ agri-empl-news-submit_css:
     component:
       css2/news-empl-submit.css: {}
 
+agri-empl-news-submit-simple:
+  js:
+    js/agri-empl-or-news-submit-simple.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+
 page:
   css:
     component:

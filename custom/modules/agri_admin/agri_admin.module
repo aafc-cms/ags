@@ -4,6 +4,7 @@ use Drupal\Core\Url;
 use Drupal\Core\Link;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\agri_admin\AgriAdminHelper;
+use Drupal\agri_admin\Utils;
 use Drupal\user\Entity\User;
 use Drupal\access_unpublished\Entity\AccessToken;
 
@@ -426,6 +427,16 @@ function _helperUpdateProcess($action, $entity_id, $bundle) {
  * Implements hook_form_node_news_form_alter().
  */
 function agri_admin_form_node_news_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $route_match = Utils::getRouteName();
+  if ($route_match == 'entity.node.canonical') {
+    $form['#attached']['library'][] = 'agri_admin/agri-empl-news-submit_css'; // For empl submit.
+    if (\Drupal::currentUser()->isAuthenticated()) {
+      $form['#attached']['library'][] = 'agri_admin/agri-empl-news-submit-simple'; // For empl submit.
+    }
+    $form['actions']['preview']['#weight'] = -99;
+    $form['actions']['#weight'] = 10;
+    $form['actions']['submit']['#value'] = t('Submit'); 
+  }
   if (\Drupal::currentUser()->isAnonymous()) {
     // Remove/do not render these form elements from anonymous user.
     $form['revision_log']['#access'] = FALSE;
@@ -450,6 +461,17 @@ function agri_admin_form_node_news_form_alter(&$form, \Drupal\Core\Form\FormStat
  * Implements hook_form_node_empl_form_alter().
  */
 function agri_admin_form_node_empl_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $route_match = Utils::getRouteName();
+  if ($route_match == 'entity.node.canonical') {
+    $form['actions']['preview']['#weight'] = -99;
+    // See js/agri-empl-or-news-submit.js previewInNewTab().
+    if (\Drupal::currentUser()->isAuthenticated()) {
+      $form['#attached']['library'][] = 'agri_admin/agri-empl-news-submit-simple'; // For empl submit.
+    }
+    $form['#attached']['library'][] = 'agri_admin/agri-empl-news-submit_css'; // For empl submit.
+    $form['actions']['#weight'] = 5;
+    $form['actions']['submit']['#value'] = t('Submit Request');
+  }
   if (\Drupal::currentUser()->isAnonymous()) {
     // Remove/do not render these form elements from anonymous user.
     $form['revision_log']['#access'] = FALSE;
