@@ -24,6 +24,12 @@ body.form-publishing-and-creative-services.i18n-en {
     }
   }
   
+  div.js-form-type-tel.form-item-srf-phone {
+    label[for^='edit-srf-phone'] {
+      display: block;
+    }
+  }
+
   div.form-item.form-item-srf-isrequesttoscheduledevent.js-form-item-srf-isrequesttoscheduledevent {
     div.select-wrapper:after {
       right: 90%;
@@ -111,7 +117,13 @@ body.form-publishing-and-creative-services.i18n-fr {
       display: block;
     }
   }
-  
+ 
+  div.js-form-type-tel.form-item-srf-phone {
+    label[for^='edit-srf-phone'] {
+      display: block;
+    }
+  }
+
   div.form-item.form-item-srf-isrequesttoscheduledevent.js-form-item-srf-isrequesttoscheduledevent {
     div.select-wrapper:after {
       right: 86%;
