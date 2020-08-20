@@ -53,16 +53,24 @@
     'clearfix',
   ]
 %}
-{% set length_test = 1 %}
-{% for key in content %}
-  {% if content.key|trim == '' %}
-    {% set length_test = 0 %}
-  {% else %}
-    {% set length_test = 1 %}
-  {% endif %}
-{% endfor %}
+{# plugin_id == 'field_block:node:page:comment' #}
 
-{% if length_test > 0 %}
+{% set has_content_flag = false %}
+{% set has_content_flag_verify = true %}
+
+{% if attribute(content, '#items') is iterable %}
+  {% set items_test = attribute(content, '#items') %}
+  {% if items_test is iterable %}
+    {% for key, item in items_test %}
+      {% if attribute(item, key)|trim|length == 0 %}
+        {% set has_content_flag_verify = false %}
+      {% else %}
+        {% set has_content_flag = true %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endif %}
+{% if has_content_flag or has_content_flag_verify %}
 <section{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {% if label %}
