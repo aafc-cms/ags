@@ -62,7 +62,6 @@
   {% set items_test = attribute(content, '#items') %}
   {% if items_test is iterable %}
     {% for key, item in items_test %}
-      <p class="test"> {{ key }}</p>
       {% if attribute(item, key)|trim|length == 0 %}
         {% set has_content_flag_verify = false %}
       {% else %}
