@@ -17,7 +17,6 @@
         AgriHelper.init();
       }
       else if ($('body').hasClass('node-add') &&
-        $('body').hasClass('role-is-anonymous') &&
         $('#edit-preview').length ) {
         AgriHelper.init();
       }
@@ -39,6 +38,7 @@ var AgriHelper = function() {
     if (initialized) {
       return;
     }
+    syncModerationStates();
     console.log('initialize agri_admin/js/agri-empl-or-news-submit.js');
 
     // Get the current UI language
@@ -67,6 +67,18 @@ var AgriHelper = function() {
 
     initialized = true;
   }
+
+  function syncModerationStates() {
+    if ($('body').hasClass('role-is-authenticated')) {
+      var bothStatus = $("#edit-moderation-state-0-state, #edit-moderation-state-etuf-fr-0-state");
+      //edit-moderation-state-etuf-fr-0-state
+      //edit-moderation-state-0-state
+      bothStatus.change(function(e) {
+        bothStatus.val(this.value); // "this" is the changed one
+      });
+    }
+  }
+
 
   /*
     validate news form and EO form

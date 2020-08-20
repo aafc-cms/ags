@@ -1,4 +1,12 @@
 
+body.node-50.role-is-authenticated {
+  #node-empl-form {
+    .vertical-tabs-panes {
+      border: none !important;
+    }
+  }
+}
+
 body.role-is-anonymous {
   #node-empl-form {
     .vertical-tabs-panes {
@@ -52,7 +60,8 @@ body.role-is-anonymous {
   }
 }
 
-body.nodeaddempl.role-is-anonymous.node-add {
+body.role-is-anonymous.employment-opportunity-request-form-page,
+body.role-is-anonymous.nodeaddempl.node-add {
 //  #wb-cont {
 //    display: none;
 //  }
@@ -62,15 +71,42 @@ body.nodeaddempl.role-is-anonymous.node-add {
   #block-customblock-submitemploymentopportunity .block-title {
     font-size: 34px !important;
   }
-  #block-privacynotice {
+  &.role-is-anonymous #block-privacynotice {
     display: none;
   }
-  button.tabledrag-toggle-weight.btn-sm.btn.btn-default {
+  &.role-is-anonymous button.tabledrag-toggle-weight.btn-sm.btn.btn-default {
     display: none !important;
   }
+  #field-email-add-more-wrapper div.table-responsive button.tabledrag-toggle-weight.btn-sm.btn.btn-default {
+    display: none !important;
+  }    
+
+  #field-email-values td.field-multiple-drag {
+    display: none !important;
+  }
+
+  #edit-group-level-and div.panel-heading {
+    border-bottom: 0px;
+    padding-bottom: 0px;
+    display: none !important;
+  }
+  #edit-group-level-and div.table-responsive button.tabledrag-toggle-weight.btn-sm.btn.btn-default {
+    display: none !important;
+  }
+
+  #edit-field-classification-wrapper a.tabledrag-handle {
+    display: none !important;
+  }     
+
+  #edit-field-classification-0-top.paragraph-type-top.form-group.js-form-wrapper.form-wrapper {
+    display: none !important;
+  }
+
 }
 
-body.role-is-anonymous.employment-opportunity-request-form-page, body.role-is-anonymous.nodeaddempl {
+body.role-is-anonymous.employment-opportunity-request-form-page,
+body.role-is-anonymous.nodeaddempl,
+body.node-50.role-is-authenticated {
   .help-block {
     font-size: 16px;
     color: #333;
@@ -171,18 +207,8 @@ body.role-is-anonymous.employment-opportunity-request-form-page, body.role-is-an
     padding-right: 0px;
   }
 
-  #edit-group-level-and div.panel-heading {
-    border-bottom: 0px;
-    padding-bottom: 0px;
-    display: none !important;
-  }
-
   #edit-group-level-and div.panel-body {
     padding: 0px;
-  }
-
-  #edit-group-level-and div.table-responsive button.tabledrag-toggle-weight.btn-sm.btn.btn-default {
-    display: none !important;
   }
 
   #field-classification-values th.field-label.form-required {
@@ -192,14 +218,6 @@ body.role-is-anonymous.employment-opportunity-request-form-page, body.role-is-an
   #edit-field-classification-wrapper .paragraph-type-top.form-group.js-form-wrapper.form-wrapper {
     float: right !important;
   }  
-
-  #edit-field-classification-wrapper a.tabledrag-handle {
-	display: none !important;
-  }     
-
-  #edit-field-classification-0-top.paragraph-type-top.form-group.js-form-wrapper.form-wrapper {
-	display: none !important;
-  }
 
   &.i18n-en div[class$="-subform-field-class-id form-group"] .select-wrapper:after {
     right: 50% !important;
@@ -245,14 +263,6 @@ body.role-is-anonymous.employment-opportunity-request-form-page, body.role-is-an
     right: 40% !important;
   }
   // end of Classication group 1
-
-  #field-email-add-more-wrapper div.table-responsive button.tabledrag-toggle-weight.btn-sm.btn.btn-default {
-    display: none !important;
-  }    
-
-  #field-email-values td.field-multiple-drag {
-    display: none !important;
-  }
 
   #edit-group-emploppsubitappquestion.panel-default {
     border-color: white;

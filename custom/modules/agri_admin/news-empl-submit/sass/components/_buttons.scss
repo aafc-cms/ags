@@ -1,0 +1,20 @@
+
+body.news-article-form-page,
+body.employment-opportunity-request-form-page,
+body.node-50,
+body.node-49 {
+  .button--small, .btn-default {
+    max-height: 38px;
+  }
+  #edit-submit {
+    display: inline-block;
+    margin-left: 5px;
+  }
+  .preview-wrapper {
+    display: inline-block;
+  }
+  .preview-wrapper .glyphicon-new-window::before {
+    content: "\e164";
+  }
+}
+
