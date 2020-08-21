@@ -72,6 +72,10 @@ body.form-publishing-and-creative-services.i18n-en {
     padding-bottom: 25px;
   }
 
+  button[id^='edit-srf-attachedfiles-remove-button'] span.icon.glyphicon.glyphicon-trash {
+    min-height: 20px;
+  }
+
   div.region.region-content-footer {
     display: none;
   }
@@ -81,13 +85,17 @@ body.form-publishing-and-creative-services.i18n-en {
     font-style: italic;
   }
 
-  div.form-textarea-wrapper textarea#edit-srf-mainmessage, div.form-textarea-wrapper textarea#edit-srf-addintionalcomments {
+  div.form-textarea-wrapper textarea[id^='edit-srf-mainmessage'], div.form-textarea-wrapper textarea[id^='edit-srf-addintionalcomments'] {
     width: 100% !important;
   }
   
   .item-list__comma-list li:after {
     content: "\A";
     white-space: pre;
+  }
+
+  div[id^='edit-srf-html-selectproducts'] {
+    margin-bottom: 0px;
   }
 }  
   
@@ -108,7 +116,7 @@ body.form-publishing-and-creative-services.i18n-fr {
   
   div.form-item.form-item-srf-isnewrequestorexistingproject.js-form-item-srf-isnewrequestorexistingproject {
     div.select-wrapper:after {
-      right: 88%;
+      right: 86%;
     }
   }
 
@@ -161,6 +169,10 @@ body.form-publishing-and-creative-services.i18n-fr {
     min-height: 20px;
   }
   
+  button[id^='edit-srf-attachedfiles-remove-button'] span.icon.glyphicon.glyphicon-trash {
+    min-height: 20px;
+  }
+
   div.region.region-content-footer {
     display: none;
   }
@@ -170,13 +182,17 @@ body.form-publishing-and-creative-services.i18n-fr {
     font-style: italic;
   }
 
-  div.form-textarea-wrapper textarea#edit-srf-mainmessage, div.form-textarea-wrapper textarea#edit-srf-addintionalcomments {
+  div.form-textarea-wrapper textarea[id^='edit-srf-mainmessage'], div.form-textarea-wrapper textarea[id^='edit-srf-addintionalcomments'] {
     width: 100% !important;
   }
 
   .item-list__comma-list li:after {
     content: "\A";
     white-space: pre;
+  }
+
+  div[id^='edit-srf-html-selectproducts'] {
+    margin-bottom: 0px;
   }
 }  
   
