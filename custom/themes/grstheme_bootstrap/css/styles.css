@@ -525,94 +525,110 @@ body.form-publishing-and-creative-services.i18n-en div[id^='edit-psrf-pagefooter
   padding-bottom: 25px;
 }
 /* line 75, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+body.form-publishing-and-creative-services.i18n-en button[id^='edit-srf-attachedfiles-remove-button'] span.icon.glyphicon.glyphicon-trash {
+  min-height: 20px;
+}
+/* line 79, ../sass/pages/_publishingcreativeservicerequest_page.scss */
 body.form-publishing-and-creative-services.i18n-en div.region.region-content-footer {
   display: none;
 }
-/* line 79, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+/* line 83, ../sass/pages/_publishingcreativeservicerequest_page.scss */
 body.form-publishing-and-creative-services.i18n-en label[data-drupal-selector='edit-srf-lbl-selectproducts'] {
   font-weight: normal;
   font-style: italic;
 }
-/* line 84, ../sass/pages/_publishingcreativeservicerequest_page.scss */
-body.form-publishing-and-creative-services.i18n-en div.form-textarea-wrapper textarea#edit-srf-mainmessage, body.form-publishing-and-creative-services.i18n-en div.form-textarea-wrapper textarea#edit-srf-addintionalcomments {
+/* line 88, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+body.form-publishing-and-creative-services.i18n-en div.form-textarea-wrapper textarea[id^='edit-srf-mainmessage'], body.form-publishing-and-creative-services.i18n-en div.form-textarea-wrapper textarea[id^='edit-srf-addintionalcomments'] {
   width: 100% !important;
 }
-/* line 88, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+/* line 92, ../sass/pages/_publishingcreativeservicerequest_page.scss */
 body.form-publishing-and-creative-services.i18n-en .item-list__comma-list li:after {
   content: "\A";
   white-space: pre;
 }
+/* line 97, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+body.form-publishing-and-creative-services.i18n-en div[id^='edit-srf-html-selectproducts'] {
+  margin-bottom: 0px;
+}
 
 /* CSS for French page */
-/* line 96, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+/* line 104, ../sass/pages/_publishingcreativeservicerequest_page.scss */
 body.form-publishing-and-creative-services.i18n-fr h2.webform-section-title {
   font-size: 20.8px;
   font-weight: normal;
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 20px;
 }
-/* line 104, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+/* line 112, ../sass/pages/_publishingcreativeservicerequest_page.scss */
 body.form-publishing-and-creative-services.i18n-fr div.form-item.form-item-srf-branch.js-form-item-srf-branch div.select-wrapper:after {
   right: 59%;
 }
-/* line 110, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+/* line 118, ../sass/pages/_publishingcreativeservicerequest_page.scss */
 body.form-publishing-and-creative-services.i18n-fr div.form-item.form-item-srf-isnewrequestorexistingproject.js-form-item-srf-isnewrequestorexistingproject div.select-wrapper:after {
-  right: 88%;
+  right: 86%;
 }
-/* line 116, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+/* line 124, ../sass/pages/_publishingcreativeservicerequest_page.scss */
 body.form-publishing-and-creative-services.i18n-fr div.js-form-type-date.form-item-rsf-daterequired label[for^='edit-rsf-daterequired'] {
   display: block;
 }
-/* line 122, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+/* line 130, ../sass/pages/_publishingcreativeservicerequest_page.scss */
 body.form-publishing-and-creative-services.i18n-fr div.js-form-type-tel.form-item-srf-phone label[for^='edit-srf-phone'] {
   display: block;
 }
-/* line 128, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+/* line 136, ../sass/pages/_publishingcreativeservicerequest_page.scss */
 body.form-publishing-and-creative-services.i18n-fr div.form-item.form-item-srf-isrequesttoscheduledevent.js-form-item-srf-isrequesttoscheduledevent div.select-wrapper:after {
   right: 86%;
 }
-/* line 134, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+/* line 142, ../sass/pages/_publishingcreativeservicerequest_page.scss */
 body.form-publishing-and-creative-services.i18n-fr div.form-item.form-item-srf-targetaudience.js-form-item-srf-targetaudience div.select-wrapper:after {
   right: 76%;
 }
-/* line 140, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+/* line 148, ../sass/pages/_publishingcreativeservicerequest_page.scss */
 body.form-publishing-and-creative-services.i18n-fr div.form-item.form-item-srf-hascontentpproved.js-form-item-srf-hascontentpproved div.select-wrapper:after {
   right: 86%;
 }
-/* line 146, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+/* line 154, ../sass/pages/_publishingcreativeservicerequest_page.scss */
 body.form-publishing-and-creative-services.i18n-fr div.form-item.form-item-srf-contentfinalizedinenglishandfrench.js-form-item-srf-contentfinalizedinenglishandfrench div.select-wrapper:after {
   right: 86%;
 }
-/* line 151, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+/* line 159, ../sass/pages/_publishingcreativeservicerequest_page.scss */
 body.form-publishing-and-creative-services.i18n-fr div[id^='edit-actions'] {
   padding-top: 35px;
 }
-/* line 155, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+/* line 163, ../sass/pages/_publishingcreativeservicerequest_page.scss */
 body.form-publishing-and-creative-services.i18n-fr button[id^='edit-actions-reset'] {
   float: left;
   margin-right: 25px;
 }
-/* line 160, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+/* line 168, ../sass/pages/_publishingcreativeservicerequest_page.scss */
 body.form-publishing-and-creative-services.i18n-fr button[id^='edit-actions-reset'] span.icon.glyphicon.glyphicon-trash {
   min-height: 20px;
 }
-/* line 164, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+/* line 172, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+body.form-publishing-and-creative-services.i18n-fr button[id^='edit-srf-attachedfiles-remove-button'] span.icon.glyphicon.glyphicon-trash {
+  min-height: 20px;
+}
+/* line 176, ../sass/pages/_publishingcreativeservicerequest_page.scss */
 body.form-publishing-and-creative-services.i18n-fr div.region.region-content-footer {
   display: none;
 }
-/* line 168, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+/* line 180, ../sass/pages/_publishingcreativeservicerequest_page.scss */
 body.form-publishing-and-creative-services.i18n-fr label[data-drupal-selector='edit-srf-lbl-selectproducts'] {
   font-weight: normal;
   font-style: italic;
 }
-/* line 173, ../sass/pages/_publishingcreativeservicerequest_page.scss */
-body.form-publishing-and-creative-services.i18n-fr div.form-textarea-wrapper textarea#edit-srf-mainmessage, body.form-publishing-and-creative-services.i18n-fr div.form-textarea-wrapper textarea#edit-srf-addintionalcomments {
+/* line 185, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+body.form-publishing-and-creative-services.i18n-fr div.form-textarea-wrapper textarea[id^='edit-srf-mainmessage'], body.form-publishing-and-creative-services.i18n-fr div.form-textarea-wrapper textarea[id^='edit-srf-addintionalcomments'] {
   width: 100% !important;
 }
-/* line 177, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+/* line 189, ../sass/pages/_publishingcreativeservicerequest_page.scss */
 body.form-publishing-and-creative-services.i18n-fr .item-list__comma-list li:after {
   content: "\A";
   white-space: pre;
+}
+/* line 194, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+body.form-publishing-and-creative-services.i18n-fr div[id^='edit-srf-html-selectproducts'] {
+  margin-bottom: 0px;
 }
 
 /* line 2, ../sass/anonymous/_restrictions.scss */
