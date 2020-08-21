@@ -77,6 +77,9 @@ var AgrisourceFrontend = function() {
     }
 
     removeStutteringTitleAttribute();
+    $('#wb-glb-mn a.overlay-lnk').click(function(e) {
+      AgrisourceFrontend.removeRoleFromSummary(); // WCAG fix, see agrcms/d8#204 in gitlab.com
+    });
     initialized = true;
   }
 
@@ -92,6 +95,18 @@ var AgrisourceFrontend = function() {
   }
 
 
+  function removeRoleFromSummary() {
+    // WCAG fix see : https://github.com/wet-boew/GCWeb/issues/1716
+    var hrefElements = $('summary.mb-item[role]').each(function(index, element) {
+      var role = $(this).attr('role');
+      $(this).removeAttr('role');
+      $(this).parent().find('li').each(function(idx,el) {
+        $(el).attr('role', 'menuitem');
+      });
+      $(this).closest('li').attr('role', 'menuitem');
+    });
+  }
+
   /**
    * Expose functions and variables
    */
@@ -99,6 +114,7 @@ var AgrisourceFrontend = function() {
     init: init,
     lang: lang,
     page_type: page_type,
+    removeRoleFromSummary: removeRoleFromSummary
   }
 }();
 
