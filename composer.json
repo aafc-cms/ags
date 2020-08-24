@@ -140,6 +140,8 @@
         },
         "patches": {
             "drupal/core": {
+                "wcag remove rel='revision' link attribute":
+                "https://www.drupal.org/files/issues/2020-01-02/2454915-w3c-entity-links.patch",
                 "core views module fix for contextual filter":
                 "https://www.drupal.org/files/issues/2628130-11.patch",
                 "safedelete entity_translation_unified_form form set error squelch noise about #parent element":
@@ -205,7 +207,9 @@
                 "main menu wcag axe errors li elements must be contained in ul or ol 3164631":
                 "https://www.drupal.org/files/issues/2020-08-24/main-menu-wcag-axe-errors-li-elements-must-be-contained-in-ul-or-ol-3164631-9.patch",
                 "Add missing aria-labelledby to breadcrumbs 3166105":
-                "https://www.drupal.org/files/issues/2020-08-19/add-missing-aria-labelledby-to-breadcrumbs-3166105-2.patch"
+                "https://www.drupal.org/files/issues/2020-08-19/add-missing-aria-labelledby-to-breadcrumbs-3166105-2.patch",
+                "wxt_bootstrap wcag - article role AND about is unnecessary":
+                "https://www.drupal.org/files/issues/2020-06-17/wxt_bootstrap-wcag_role_attribute_unnecessary_for_article-3152677-2.patch"
             },
             "drupal/wxt_library": {
                 "WCAG accessibility fix for search form on all wxt based projects.":
