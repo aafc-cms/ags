@@ -76,7 +76,7 @@
   ]
 %}
 {% if logged_in %}
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes)|without('role','about') }}>
 
   {{ title_prefix }}
   {% if label and not page %}
@@ -102,7 +102,7 @@
 
 </article>
 {% else %}
-<section{{ attributes.addClass(classes) }}>
+<section{{ attributes.addClass(classes)|without('role','about') }}>
 
   {{ title_prefix }}
   {% if label and not page %}
