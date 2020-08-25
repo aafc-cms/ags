@@ -101,6 +101,21 @@ body.node-edit.user-logged-in.path-node.page-node-type-empl #edit-group-level-an
   margin-left: 0px;
 }
 
+#node-news-form .form-type-select .select-wrapper {
+  max-width: 261px;
+  min-width: 261px;
+}
+#node-news-form .form-type-select .select-wrapper select {
+  max-width: 261px;
+  min-width: 261px;
+}
+#node-news-form .form-type-select .select-wrapper::after {
+  left: 235px;
+}
+#node-news-form .form-type-select label {
+  display: block;
+}
+
 body.user-anonymous #node-news-form #edit-revision-information, body.user-anonymous #node-news-form a[href="#edit-revision-information"] {
   display: none !important;
 }
