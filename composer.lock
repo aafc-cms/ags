@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e5c2a7b988c1691d47bd3f5e39e2fc68",
+    "content-hash": "c087c9d82d62d77e4d9b1925c28133d4",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -4182,6 +4182,7 @@
                     }
                 },
                 "patches_applied": {
+                    "wcag remove rel='revision' link attribute": "https://www.drupal.org/files/issues/2020-01-02/2454915-w3c-entity-links.patch",
                     "core views module fix for contextual filter": "https://www.drupal.org/files/issues/2628130-11.patch",
                     "safedelete entity_translation_unified_form form set error squelch noise about #parent element": "https://www.drupal.org/files/issues/2019-08-31/3027240-12.patch",
                     "w3c valid self closing source and track tags": "https://www.drupal.org/files/issues/2020-07-13/D89x-self_closing_correct-2857273-13.patch",
@@ -4191,9 +4192,10 @@
                     "Node preview current language": "https://www.drupal.org/files/issues/2020-06-20/node-preview_current_language-3150728-12.patch",
                     "Language negotiation core fix, needed by access_unpublished and content moderation for forward draft revisions in non default language.": "https://www.drupal.org/files/issues/2019-05-30/drupal-2951294-21-fix-fallback.patch",
                     "Harden SubProcess process plugin - Please remove this patch prior to upgrading to Drupal 8.9.x or Drupal 9.x.": "https://www.drupal.org/files/issues/2020-07-15/3126063-30.patch",
+                    "Options module uses '_none' as a special value.": "https://www.drupal.org/files/issues/2020-08-25/1585930-56.patch",
+                    "Enter drupal/core patch #2752443 description here": "https://www.drupal.org/files/issues/in_correct_order_and-2752443-1.patch",
                     "2869592 - Disabled update module shouldn't produce a status report warning": "https://www.drupal.org/files/issues/2869592-remove-update-warning-7.patch",
                     "2815221 - Add quickedit to the latest-revision route": "https://www.drupal.org/files/issues/2019-11-27/2815221-125.patch",
-                    "Enter drupal/core patch #2752443 description here": "https://www.drupal.org/files/issues/in_correct_order_and-2752443-1.patch",
                     "Enter drupal/core patch #1356276 description here": "https://www.drupal.org/files/issues/2019-12-27/1356276-88x-603.patch",
                     "Enter drupal/core patch #1838234 description here": "https://www.drupal.org/files/issues/2018-09-06/1838234-52.patch",
                     "Enter drupal/core patch #2846485 description here": "https://www.drupal.org/files/issues/2018-04-03/views-multivalue_field_rendering_performance-2846485-23.patch",
@@ -9468,7 +9470,7 @@
                     }
                 },
                 "patches_applied": {
-                    "Support field translations for search and replace.": "https://www.drupal.org/files/issues/2020-06-24/scanner-handle_languages_for_fields-3154633-2.patch",
+                    "Support field translations for search and replace and other fixes.": "https://www.drupal.org/files/issues/2020-08-19/scanner-handle_languages_for_fields-3154633-10.patch",
                     "Allow creator role to use the search and replace functionality.": "https://www.drupal.org/files/issues/2020-06-22/scanner-grant_without_administer_nodes-3153873-2.patch"
                 }
             },
@@ -10980,6 +10982,51 @@
             }
         },
         {
+            "name": "drupal/w3c_validator",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/w3c_validator.git",
+                "reference": "8.x-1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/w3c_validator-8.x-1.4.zip",
+                "reference": "8.x-1.4",
+                "shasum": "732b0b35a7cdee89e74ba16b187e408a32682d7a"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9",
+                "rexxars/html-validator": "^2.2.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.4",
+                    "datestamp": "1590655630",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Dom.",
+                    "homepage": "https://www.drupal.org/user/801982"
+                }
+            ],
+            "description": "Validate pages using the W3C Markup Validator.",
+            "homepage": "https://www.drupal.org/project/w3c_validator",
+            "support": {
+                "source": "https://git.drupalcode.org/project/w3c_validator"
+            }
+        },
+        {
             "name": "drupal/warmer",
             "version": "1.2.0",
             "source": {
@@ -11353,9 +11400,10 @@
                 "patches_applied": {
                     "Change H2 block-title for WxT Language Switcher and WxT Search Form to DIV hidden 3164047": "https://www.drupal.org/files/issues/2020-08-10/change-h2-to-div-hidden-language-switcher-search-blocks-3164047-8.patch",
                     "Skip Links should be wrapped in a landmark 3164554": "https://www.drupal.org/files/issues/2020-08-11/Skip-Links-should-be-wrapped-in-landmark-3164554-2.patch",
-                    "Main menu generates WCAG errors in Axe tool - li elements must be contained in a ul or ol 3164631": "https://www.drupal.org/files/issues/2020-08-11/main-menu-wcag-axe-errors-li-elements-must-be-contained-in-ul-or-ol-3164631-3.patch",
                     "Add missing aria-labelledby to menus and drop nav role navigation 3164604": "https://www.drupal.org/files/issues/2020-08-11/Add-missing-aria-labelledby-to-menus-and-drop-nav-role-navigation-3164604-2.patch",
-                    "Add missing aria-labelledby to breadcrumbs 3166105": "https://www.drupal.org/files/issues/2020-08-19/add-missing-aria-labelledby-to-breadcrumbs-3166105-2.patch"
+                    "main menu wcag axe errors li elements must be contained in ul or ol 3164631": "https://www.drupal.org/files/issues/2020-08-24/main-menu-wcag-axe-errors-li-elements-must-be-contained-in-ul-or-ol-3164631-9.patch",
+                    "Add missing aria-labelledby to breadcrumbs 3166105": "https://www.drupal.org/files/issues/2020-08-19/add-missing-aria-labelledby-to-breadcrumbs-3166105-2.patch",
+                    "wxt_bootstrap wcag - article role AND about is unnecessary": "https://www.drupal.org/files/issues/2020-08-24/wxt_bootstrap-wcag_role_and_about_attributes_unnecessary_for_article-3167043-2.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -14350,6 +14398,49 @@
             ],
             "description": "A polyfill for getallheaders.",
             "time": "2019-03-08T08:55:37+00:00"
+        },
+        {
+            "name": "rexxars/html-validator",
+            "version": "2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rexxars/html-validator.git",
+                "reference": "accab9cd2a8176d28bc6646c0f93c0443d1e31ee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rexxars/html-validator/zipball/accab9cd2a8176d28bc6646c0f93c0443d1e31ee",
+                "reference": "accab9cd2a8176d28bc6646c0f93c0443d1e31ee",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^6.2.1|^7.0",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "ext-dom": "*",
+                "phpunit/phpunit": "^5.5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "HtmlValidator": "library"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Espen Hovlandsdal",
+                    "email": "espen@hovlandsdal.com"
+                }
+            ],
+            "description": "Validates HTML using Validator.nu",
+            "time": "2020-06-30T18:25:35+00:00"
         },
         {
             "name": "scssphp/scssphp",
@@ -19912,6 +20003,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2017-11-27T05:48:46+00:00"
         },
         {
@@ -20377,6 +20469,7 @@
             ],
             "description": "FinderFacade is a convenience wrapper for Symfony's Finder component.",
             "homepage": "https://github.com/sebastianbergmann/finder-facade",
+            "abandoned": true,
             "time": "2020-01-16T08:08:45+00:00"
         },
         {
