@@ -1,4 +1,21 @@
 
+#node-news-form {
+  .form-type-select .select-wrapper {
+    max-width: 261px;
+    min-width: 261px;
+  }
+  .form-type-select .select-wrapper select {
+    max-width: 261px;
+    min-width: 261px;
+  }
+  .form-type-select .select-wrapper::after {
+    left: 235px;
+  }
+  .form-type-select label {
+    display: block;
+  }
+}
+
 body.user-anonymous {
   #node-news-form {
     #edit-revision-information, a[href="#edit-revision-information"] {
