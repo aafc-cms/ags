@@ -1,0 +1,42 @@
+uuid: e3de7f3b-da30-449b-b4a9-269b774e6871
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.w500
+    - field.field.media.image.field_image_link
+    - field.field.media.image.field_media_in_library
+    - field.field.media.image.image
+    - image.style.w500
+    - media.type.image
+  module:
+    - image
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+_core:
+  default_config_hash: VLDxfMVPTkd2xvOjFMCh3kWmaOYnd03zggFXuUXQVEY
+id: media.image.w500
+targetEntityType: media
+bundle: image
+mode: w500
+content:
+  image:
+    type: image
+    weight: 0
+    label: hidden
+    settings:
+      image_style: w500
+      image_link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  field_image_link: true
+  field_media_in_library: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true
