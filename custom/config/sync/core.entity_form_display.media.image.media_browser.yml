@@ -7,11 +7,9 @@ dependencies:
     - field.field.media.image.field_image_link
     - field.field.media.image.field_media_in_library
     - field.field.media.image.image
-    - image.style.medium
+    - image.style.thumbnail
     - media.type.image
-    - workflows.workflow.editorial
   module:
-    - content_moderation
     - image
     - lightning_media
     - link
@@ -42,7 +40,7 @@ content:
     type: image_image
     weight: 0
     settings:
-      preview_image_style: medium
+      preview_image_style: thumbnail
       progress_indicator: throbber
     third_party_settings:
       lightning_media:

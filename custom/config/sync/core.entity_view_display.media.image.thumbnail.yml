@@ -7,7 +7,7 @@ dependencies:
     - field.field.media.image.field_image_link
     - field.field.media.image.field_media_in_library
     - field.field.media.image.image
-    - image.style.medium
+    - image.style.thumbnail
     - media.type.image
   module:
     - image
@@ -23,7 +23,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: medium
+      image_style: thumbnail
       image_link: ''
     third_party_settings: {  }
     region: content
