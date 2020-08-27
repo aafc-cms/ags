@@ -4,8 +4,22 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.embedded
-    - core.entity_view_mode.media.media_library
+    - core.entity_view_mode.media.full
+    - core.entity_view_mode.media.linked
     - core.entity_view_mode.media.thumbnail
+    - core.entity_view_mode.media.token
+    - core.entity_view_mode.media.w133
+    - core.entity_view_mode.media.w200
+    - core.entity_view_mode.media.w250
+    - core.entity_view_mode.media.w300
+    - core.entity_view_mode.media.w333
+    - core.entity_view_mode.media.w400
+    - core.entity_view_mode.media.w500
+    - core.entity_view_mode.media.w533
+    - core.entity_view_mode.media.w600
+    - core.entity_view_mode.media.w700
+    - core.entity_view_mode.media.w800
+    - core.entity_view_mode.media.w900
   module:
     - editor
     - entity_embed
@@ -124,6 +138,21 @@ filters:
         video: video
         video_file: video_file
       allowed_view_modes:
+        default: default
         embedded: embedded
-        media_library: media_library
+        full: full
+        linked: linked
         thumbnail: thumbnail
+        token: token
+        w133: w133
+        w200: w200
+        w250: w250
+        w300: w300
+        w333: w333
+        w400: w400
+        w500: w500
+        w533: w533
+        w600: w600
+        w700: w700
+        w800: w800
+        w900: w900
