@@ -17,14 +17,15 @@ settings:
           items:
             - Bold
             - Italic
-            - Superscript
             - Underline
+            - Strike
             - JustifyLeft
             - JustifyCenter
             - JustifyBlock
             - JustifyRight
-            - Strike
             - RemoveFormat
+            - SpecialChar
+            - Superscript
             - Subscript
             - Format
             - Styles
@@ -32,6 +33,7 @@ settings:
             - Indent
             - HorizontalRule
             - Table
+            - Blockquote
         -
           name: Links
           items:
@@ -45,10 +47,7 @@ settings:
         -
           name: Media
           items:
-            - Blockquote
-            - DrupalImage
             - node
-            - media_browser
             - DrupalMediaLibrary
         -
           name: Tools
@@ -62,8 +61,6 @@ settings:
             - Copy
             - Cut
             - Paste
-            - PasteFromWord
-            - PasteText
             - Undo
             - Redo
   plugins:
