@@ -4,16 +4,23 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.embedded
+    - core.entity_view_mode.media.w100
     - core.entity_view_mode.media.w133
+    - core.entity_view_mode.media.w133r320
+    - core.entity_view_mode.media.w133r45
+    - core.entity_view_mode.media.w166
+    - core.entity_view_mode.media.w175
     - core.entity_view_mode.media.w200
     - core.entity_view_mode.media.w250
     - core.entity_view_mode.media.w300
     - core.entity_view_mode.media.w333
     - core.entity_view_mode.media.w400
+    - core.entity_view_mode.media.w50
     - core.entity_view_mode.media.w500
     - core.entity_view_mode.media.w533
     - core.entity_view_mode.media.w600
     - core.entity_view_mode.media.w700
+    - core.entity_view_mode.media.w75
     - core.entity_view_mode.media.w800
     - core.entity_view_mode.media.w900
     - entity_browser.browser.ckeditor_media_browser
@@ -31,16 +38,23 @@ type_settings:
   bundles: {  }
   display_plugins:
     - 'view_mode:media.embedded'
+    - 'view_mode:media.w100'
     - 'view_mode:media.w133'
+    - 'view_mode:media.w133r320'
+    - 'view_mode:media.w133r45'
+    - 'view_mode:media.w166'
+    - 'view_mode:media.w175'
     - 'view_mode:media.w200'
     - 'view_mode:media.w250'
     - 'view_mode:media.w300'
     - 'view_mode:media.w333'
     - 'view_mode:media.w400'
+    - 'view_mode:media.w50'
     - 'view_mode:media.w500'
     - 'view_mode:media.w533'
     - 'view_mode:media.w600'
     - 'view_mode:media.w700'
+    - 'view_mode:media.w75'
     - 'view_mode:media.w800'
     - 'view_mode:media.w900'
     - media_image

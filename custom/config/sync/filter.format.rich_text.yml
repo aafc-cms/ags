@@ -8,19 +8,27 @@ dependencies:
     - core.entity_view_mode.media.linked
     - core.entity_view_mode.media.thumbnail
     - core.entity_view_mode.media.token
+    - core.entity_view_mode.media.w100
     - core.entity_view_mode.media.w133
+    - core.entity_view_mode.media.w133r320
+    - core.entity_view_mode.media.w133r45
+    - core.entity_view_mode.media.w166
+    - core.entity_view_mode.media.w175
     - core.entity_view_mode.media.w200
     - core.entity_view_mode.media.w250
     - core.entity_view_mode.media.w300
     - core.entity_view_mode.media.w333
     - core.entity_view_mode.media.w400
+    - core.entity_view_mode.media.w50
     - core.entity_view_mode.media.w500
     - core.entity_view_mode.media.w533
     - core.entity_view_mode.media.w600
     - core.entity_view_mode.media.w700
+    - core.entity_view_mode.media.w75
     - core.entity_view_mode.media.w800
     - core.entity_view_mode.media.w900
   module:
+    - blazy
     - editor
     - entity_embed
     - linkit
@@ -48,47 +56,47 @@ filters:
   filter_htmlcorrector:
     id: filter_htmlcorrector
     provider: filter
-    status: true
-    weight: -45
+    status: false
+    weight: -49
     settings: {  }
   editor_file_reference:
     id: editor_file_reference
     provider: editor
     status: true
-    weight: -44
+    weight: -45
     settings: {  }
   entity_embed:
     id: entity_embed
     provider: entity_embed
     status: true
-    weight: -44
+    weight: -43
     settings: {  }
   filter_html:
     id: filter_html
     provider: filter
     status: true
-    weight: -43
+    weight: -50
     settings:
-      allowed_html: '<em id="*" name="*"> <strong id="*" name="*"> <cite id="*" name="*" class="*"> <footer id="*" name="*" class="*"><blockquote id="*" name="*" class="*"> <code id="*" name="*" class="*"> <ul id="*" name="*" type class="*"> <ol id="*" name="*" start="*" type="*" class="*"> <li id="*" name="*" class="*"> <dl id="*" name="*" class="*"> <dt id="*" name="*" class="*"> <dd id="*" name="*" class="*"> <br> <img id="*" name="*" src="*" alt="*" height="*" width="*" data-entity-type="*" data-entity-uuid="*" data-align data-caption="*" class="*"> <a href="*" id="*" name="*" title="*" target="*" hreflang="*" data-entity-type="*" data-entity-uuid="*" tabindex="*" class="*"> <p id="*" name="*" class="*"> <h1 id="*" name="*" class="*"> <h2 id="*" name="*" class="*"> <h3 id="*" name="*" class="*"> <h4 id="*" name="*" class="*"> <h5 id="*" name="*" class="*"> <h6 id="*" name="*" class="*"> <sub id="*" name="*"> <sup id="*" name="*"> <table id="*" name="*" class="*"> <thead class="*"> <tr id="*" name="*" class="*"> <th id="*" name="*" class="*" scope="*"> <tbody class="*"> <td id="*" name="*" colspan="*" class="*"> <video id="*" name="*" class="*"> <audio id="*" name="*" class="*"> <b id="*" name="*"> <div id="*" name="*" class="*" id="*" aria-labelledby="*" data-parent="*"> <button id="*" name="*" class="*" aria-controls="*" aria-expanded="*" data-target="*" data-toggle="*" type="*" id="*"> <hr id="*" name="*" class="*"> <figure id="*" name="*" class="*"> <figcaption id="*" name="*" class="*"><span class><drupal-entity data-entity-type data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button alt title><drupal-media data-entity-type data-entity-uuid><section id="*" name="*" class="*"> <pre> '
+      allowed_html: '<em id="*" name="*"> <strong id="*" name="*"> <cite id="*" name="*" class="*"> <footer id="*" name="*" class="*"><blockquote id="*" name="*" class="*"> <code id="*" name="*" class="*"> <ul id="*" name="*" type class="*"> <ol id="*" name="*" start="*" type="*" class="*"> <li id="*" name="*" class="*"> <dl id="*" name="*" class="*"> <dt id="*" name="*" class="*"> <dd id="*" name="*" class="*"> <br> <img id="*" name="*" src="*" alt="*" height="*" width="*" data-entity-type="*" data-entity-uuid="*" data-align data-caption="*" class="*"> <a href="*" id="*" name="*" title="*" target="*" hreflang="*" data-entity-type="*" data-entity-uuid="*" tabindex="*" class="*"> <p id="*" name="*" class="*"> <h1 id="*" name="*" class="*"> <h2 id="*" name="*" class="*"> <h3 id="*" name="*" class="*"> <h4 id="*" name="*" class="*"> <h5 id="*" name="*" class="*"> <h6 id="*" name="*" class="*"> <sub id="*" name="*"> <sup id="*" name="*"> <table id="*" name="*" class="*"> <thead class="*"> <tr id="*" name="*" class="*"> <th id="*" name="*" class="*" scope="*"> <tbody class="*"> <td id="*" name="*" colspan="*" class="*"> <video id="*" name="*" class="*"> <audio id="*" name="*" class="*"> <b id="*" name="*"> <div id="*" name="*" class="*" id="*" aria-labelledby="*" data-parent="*"> <button id="*" name="*" class="*" aria-controls="*" aria-expanded="*" data-target="*" data-toggle="*" type="*" id="*"> <hr id="*" name="*" class="*"> <figure id="*" name="*" class="*"> <figcaption id="*" name="*" class="*"><span class><drupal-entity data-entity-type data-view-mode data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button alt title class><drupal-media data-entity-type data-entity-uuid class data-view-mode data-align data-caption><section id="*" name="*" class="*"> <pre> '
       filter_html_help: true
       filter_html_nofollow: false
   filter_autop:
     id: filter_autop
     provider: filter
     status: false
-    weight: -41
+    weight: -38
     settings: {  }
   filter_html_escape:
     id: filter_html_escape
     provider: filter
     status: false
-    weight: -42
+    weight: -39
     settings: {  }
   filter_html_image_secure:
     id: filter_html_image_secure
     provider: filter
     status: false
-    weight: -39
+    weight: -37
     settings: {  }
   filter_url:
     id: filter_url
@@ -101,34 +109,34 @@ filters:
     id: token_filter
     provider: token_filter
     status: true
-    weight: -49
+    weight: -41
     settings:
       replace_empty: '0'
   url_embed_convert_links:
     id: url_embed_convert_links
     provider: url_embed
     status: false
-    weight: -37
+    weight: -36
     settings:
       url_prefix: ''
   url_embed:
     id: url_embed
     provider: url_embed
-    status: false
-    weight: -38
+    status: true
+    weight: -44
     settings: {  }
   linkit:
     id: linkit
     provider: linkit
     status: true
-    weight: -50
+    weight: -48
     settings:
       title: true
   media_embed:
     id: media_embed
     provider: media
     status: true
-    weight: 100
+    weight: -42
     settings:
       default_view_mode: default
       allowed_media_types:
@@ -144,15 +152,33 @@ filters:
         linked: linked
         thumbnail: thumbnail
         token: token
+        w100: w100
         w133: w133
+        w133r320: w133r320
+        w133r45: w133r45
+        w166: w166
+        w175: w175
         w200: w200
         w250: w250
         w300: w300
         w333: w333
         w400: w400
+        w50: w50
         w500: w500
         w533: w533
         w600: w600
         w700: w700
+        w75: w75
         w800: w800
         w900: w900
+  blazy_filter:
+    id: blazy_filter
+    provider: blazy
+    status: false
+    weight: -35
+    settings:
+      filter_tags:
+        img: img
+        iframe: iframe
+      media_switch: ''
+      use_data_uri: '0'

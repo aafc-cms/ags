@@ -1,0 +1,23 @@
+uuid: e33ca124-293b-42a0-94e0-f0b07c2f22c6
+langcode: en
+status: true
+dependencies: {  }
+name: w133r45
+label: 'width 133px 45 degrees'
+effects:
+  59237ecb-b8ce-412c-b3d2-3de32f38645c:
+    uuid: 59237ecb-b8ce-412c-b3d2-3de32f38645c
+    id: image_scale
+    weight: 1
+    data:
+      width: 133
+      height: null
+      upscale: true
+  812b753f-349d-47d6-b83d-ab4368d4fcba:
+    uuid: 812b753f-349d-47d6-b83d-ab4368d4fcba
+    id: image_rotate
+    weight: 2
+    data:
+      degrees: 45
+      bgcolor: ''
+      random: false

@@ -20,12 +20,24 @@ settings:
             - Bold
             - Italic
             - Strike
-            - Superscript
-            - Subscript
             - '-'
             - RemoveFormat
             - SpecialChar
+            - Superscript
+            - Subscript
+            - JustifyLeft
+            - JustifyCenter
+            - JustifyBlock
+            - JustifyRight
+        -
+          name: 'Block Formatting'
+          items:
+            - Format
             - Styles
+            - Indent
+            - Outdent
+            - Blockquote
+            - Table
         -
           name: Linking
           items:
@@ -39,23 +51,22 @@ settings:
         -
           name: Media
           items:
-            - Blockquote
-            - Table
             - HorizontalRule
-            - media_browser
-        -
-          name: 'Block Formatting'
-          items:
-            - Format
+            - DrupalMediaLibrary
         -
           name: Tools
           items:
             - ShowBlocks
             - Source
         -
-          name: WxT
+          name: Editing
           items:
             - Maximize
+            - Undo
+            - Redo
+            - Copy
+            - Cut
+            - Paste
   plugins:
     stylescombo:
       styles: ''
