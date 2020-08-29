@@ -52,6 +52,7 @@ settings:
           name: Media
           items:
             - HorizontalRule
+            - DrupalImage
             - DrupalMediaLibrary
         -
           name: Tools
@@ -100,5 +101,5 @@ image_upload:
   directory: inline-images
   max_size: ''
   max_dimensions:
-    width: null
+    width: 900
     height: null
