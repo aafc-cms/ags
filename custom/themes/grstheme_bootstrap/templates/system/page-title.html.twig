@@ -5,6 +5,7 @@
  *
  * Available variables:
  * - title_attributes: HTML attributes for the page title element.
+ * - is_front: is this the front page?
  * - title_prefix: Additional output populated by modules, intended to be
  *   displayed in front of the main title tag that appears in the template.
  * - title: The page title, for use in the actual content.
@@ -16,6 +17,10 @@
  * @see template_preprocess_page_title()
  */
 #}
-{% if title %}
+{% if title and is_front %}
   <h1{{ title_attributes.addClass('wb-inv') }} id="wb-cont">{{ title }}</h1>
+{% else %}
+  {% if title %}
+    <h1{{ title_attributes }} id="wb-cont">{{ title }}</h1>
+  {% endif %}
 {% endif %}
