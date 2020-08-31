@@ -16,6 +16,10 @@
  * @see template_preprocess_page_title()
  */
 #}
-{% if title %}
+{% if title and is_front %}
   <h1{{ title_attributes.addClass('wb-inv') }} id="wb-cont">{{ title }}</h1>
+{% else %}
+  {% if title %}
+    <h1{{ title_attributes }} id="wb-cont">{{ title }}</h1>
+  {% endif %}
 {% endif %}
