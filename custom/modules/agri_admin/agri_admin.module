@@ -56,7 +56,96 @@ function agri_admin_page_attachments(array &$page) {
   if ($user->hasPermission('agrisource admin styles')) {
     $page['#attached']['library'][] = 'agri_admin/agri-admin';
   }
-  return;
+
+  // add page meta
+  $route_match = Utils::getRouteName();
+  if ($route_match == 'entity.node.canonical') {
+    $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    $dctermsspatial = [
+        '#tag' => 'meta',
+        '#attributes' => [
+          'property'  => 'dcterms:spatial',
+          'title'     => 'gcregions',
+          'content'   => '',
+        ],
+    ];
+
+    $dctermsaudience = [
+        '#tag' => 'meta',
+        '#attributes' => [
+          'property'  => 'dcterms:audience',
+          'title'     => 'gcaudience',
+          'content'   => '',
+        ],
+    ];
+
+    $dctermsformat = [
+        '#tag' => 'meta',
+        '#attributes' => [
+          'property'  => 'dcterms:format',
+          'title'     => 'gcformat',
+          'content'   => '',
+        ],
+    ];
+
+    $dctermsaccessRights = [
+        '#tag' => 'meta',
+        '#attributes' => [
+          'property'  => 'dcterms:accessRights',
+          'title'     => '',
+          'content'   => '3',
+        ],
+    ];
+
+    if ( $langId == 'en' ) {
+      $dctermslanguage = [
+        '#tag' => 'meta',
+        '#attributes' => [
+          'property'  => 'dcterms:language',
+          'title'     => 'ISO639-2',
+          'content'   => 'eng',
+        ],
+      ];
+
+      $dctermsservice = [
+        '#tag' => 'meta',
+        '#attributes' => [
+          'property'  => 'dcterms:service',
+          'title'     => '',
+          'content'   => 'AAFC_AgriSource',
+        ],
+      ];
+    }
+
+    if ( $langId == 'fr' ) {
+      $dctermslanguage = [
+        '#tag' => 'meta',
+        '#attributes' => [
+          'property'  => 'dcterms:language',
+          'title'     => 'ISO639-2',
+          'content'   => 'frs',
+        ],
+      ];
+
+      $dctermsservice = [
+        '#tag' => 'meta',
+        '#attributes' => [
+          'property'  => 'dcterms:service',
+          'title'     => '',
+          'content'   => 'AAC_AgriSource',
+        ],
+      ];
+    }
+
+    $page['#attached']['html_head'][] = [$dctermslanguage, 'dcterms:language'];
+    $page['#attached']['html_head'][] = [$dctermsspatial, 'dcterms:spatial'];
+    $page['#attached']['html_head'][] = [$dctermsaudience, 'dcterms:audience'];
+    $page['#attached']['html_head'][] = [$dctermsformat, 'dcterms:format'];
+    $page['#attached']['html_head'][] = [$dctermsservice, 'dcterms:service'];
+    $page['#attached']['html_head'][] = [$dctermsaccessRights, 'dcterms:accessRights'];
+  }
+
+  return; 
 }
 
 /**
