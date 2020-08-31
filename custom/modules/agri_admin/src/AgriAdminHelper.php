@@ -4,6 +4,7 @@
 namespace Drupal\agri_admin;
 use Drupal\node\Entity\Node;
 use Drupal\access_unpublished\Entity\AccessToken;
+use Drupal\menu_link_content\Plugin\Menu;
 
 class AgriAdminHelper {
 
@@ -337,6 +338,11 @@ class AgriAdminHelper {
       }
     }
     return FALSE;
+  }
+
+  static public function getMenuLinkFromMlid($mlid) {
+    $menuLink = \Drupal::entityTypeManager()->getStorage('menu_link_content')->load($mlid);
+    return $menuLink;
   }
 
   static public function getMenuIdFromUuid($uuid) {

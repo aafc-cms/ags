@@ -1127,6 +1127,45 @@ function agri_admin_form_menu_link_content_menu_link_content_form_alter (&$form,
     //AgriAdminHelper::addToLog('form_id ' . $form_id, TRUE);
     $form['#attached']['library'][] = 'agri_admin/menu-navigation-hide-disabled'; // For hiding disabled items adding checkbox.
   }
+
+  // TODO: convert this logic into a contrib module, BEGIN MENU EDIT/ADD LINK OPTIMISATION HERE:
+  $route_match = Utils::getRouteName();
+  $current_path = \Drupal::service('path.current')->getPath();
+  // Retrieve an array which contains the path pieces.
+  $path_args = explode('/', $current_path);
+  $menu_link_add_or_edit_optimize = FALSE;
+  $menu_name = '';
+
+  if ($route_match == 'entity.menu.add_link_form' && isset($path_args[6])) {
+    if ($path_args[4] == 'manage' && $path_args[6] == 'add') {
+      $menu_link_add_or_edit_optimize = TRUE;
+      $menu_name = $path_args[5] . ':';
+    }
+  }
+
+  if ($route_match == 'entity.menu_link_content.canonical' && isset($path_args[6])) {
+    if ($path_args[4] == 'item' && $path_args[6] == 'edit' && is_numeric($path_args[5])) {
+      $mlid = $path_args[5];
+      $link = AgriAdminHelper::getMenuLinkFromMlid($mlid);
+      $menu_name = $link->getMenuName() . ':';
+      $current_user = \Drupal::currentUser();
+      $current_user_id = $current_user->id();
+      $roles = $current_user->getRoles();
+      if (!in_array('administrator', $roles)) {
+        // Only non-Administrators should see the optimized menu for menu link EDIT because we want administrators to be able to move this link around if they wish.
+        $menu_link_add_or_edit_optimize = TRUE;
+      }
+    }
+  }
+  if ($menu_link_add_or_edit_optimize) {
+    foreach ($form['menu_parent']['#options'] as $key => &$value) {
+      if (strpos($key, $menu_name) === FALSE) {
+        unset($form['menu_parent']['#options'][$key]);
+      }
+    }
+  }
+  // TODO: END OF MENU EDIT/ADD LINK OPTIMISATION.
+
   foreach ($form['menu_parent']['#options'] as $key => &$value) {
     if ( strpos($value, '-- ') == 0  ) {
       //$value =  substr($value,0, 3) . 'level 1. ' . substr( $value,3, strlen($value)) ;
