@@ -1148,19 +1148,24 @@ function agri_admin_form_menu_link_content_menu_link_content_form_alter (&$form,
       $mlid = $path_args[5];
       $link = AgriAdminHelper::getMenuLinkFromMlid($mlid);
       $menu_name = $link->getMenuName() . ':';
-      $current_user = \Drupal::currentUser();
-      $current_user_id = $current_user->id();
-      $roles = $current_user->getRoles();
-      if (!in_array('administrator', $roles)) {
-        // Only non-Administrators should see the optimized menu for menu link EDIT because we want administrators to be able to move this link around if they wish.
-        $menu_link_add_or_edit_optimize = TRUE;
-      }
+      $menu_link_add_or_edit_optimize = TRUE; // Always disable other menu items, speeds up logic for James logic.
+//      $current_user = \Drupal::currentUser();
+//      $current_user_id = $current_user->id();
+//      $roles = $current_user->getRoles();
+//      if (!in_array('administrator', $roles)) {
+//        // Only non-Administrators should see the optimized menu for menu link EDIT because we want administrators to be able to move this link around if they wish.
+//        $menu_link_add_or_edit_optimize = TRUE;
+//      }
     }
   }
   if ($menu_link_add_or_edit_optimize) {
     foreach ($form['menu_parent']['#options'] as $key => &$value) {
       if (strpos($key, $menu_name) === FALSE) {
         unset($form['menu_parent']['#options'][$key]);
+      }
+      else {
+        // Check lang code, if english, look for 'disabled' value, then if NOT disabled, call logic or function.
+        // Check lang code, if french, look for 'désactivé' value, then if NOT désactivé, call logic or function.
       }
     }
   }

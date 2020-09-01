@@ -345,6 +345,54 @@ class AgriAdminHelper {
     return $menuLink;
   }
 
+
+  static public function isLinkEnglishOnly($id) {
+    if (is_numeric($id)) {
+      $menuLink = self::getMenuLinkFromMlid($id);
+    }
+    else {
+      // $id is not numeric, so it must be uuid.
+      $menuLink = self::getMenuLinkByUuid($id);
+    }
+    $link_attributes = $menuLink->link->options;
+    if (isset($link_attributes['attributes']['class'])) {
+      if (!empty($link_attributes['attributes']['class'])) {
+        foreach($link_attributes['attributes']['class'] as $classname) {
+          if (strpos('nglish-only') > 0) {
+            return TRUE;
+          }
+        }
+      }
+    }
+  }
+
+
+  static public function isLinkFrenchOnly($id) {
+    if (is_numeric($id)) {
+      $menuLink = self::getMenuLinkFromMlid($id);
+    }
+    else {
+      // $id is not numeric, so it must be uuid.
+      $menuLink = self::getMenuLinkByUuid($id);
+    }
+    $link_attributes = $menuLink->link->options;
+    if (isset($link_attributes['attributes']['class'])) {
+      if (!empty($link_attributes['attributes']['class'])) {
+        foreach($link_attributes['attributes']['class'] as $classname) {
+          if (strpos('rench-only') > 0) {
+            return TRUE;
+          }
+        }
+      }
+    }
+  }
+
+
+  static public function getMenuLinkByUuid($uuid) {
+    $menuLink = \Drupal::entityTypeManager()->getStorage('menu_link_content')->loadByProperties(array('uuid'=>$uuid));
+    return $menuLink;
+  }
+
   static public function getMenuIdFromUuid($uuid) {
     static::addToLog(__function__);
     $cleanUuid = str_replace('menu_link_content:', '', $uuid);
