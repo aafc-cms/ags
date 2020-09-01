@@ -7,6 +7,7 @@ dependencies:
     - field.field.media.image.field_image_link
     - field.field.media.image.field_media_in_library
     - field.field.media.image.image
+    - image.style.w133r315
     - media.type.image
   module:
     - image
@@ -27,7 +28,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: ''
+      image_style: w133r315
       image_link: ''
     third_party_settings: {  }
     region: content
