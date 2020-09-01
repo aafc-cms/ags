@@ -1166,24 +1166,25 @@ function agri_admin_form_menu_link_content_menu_link_content_form_alter (&$form,
       else {
         // Check interface lang code, if english, look for 'disabled' value, then if NOT disabled, call logic or function.
         // Check interface lang code, if french, look for 'désactivé' value, then if NOT désactivé, call logic or function.
-        $lang = '';//test
-        if ($lang == 'en' && strpos($value, 'disabled') < 0) {
-          // Call function pass uuid , if returns true then unset;
-          //$return_code = AgriAdminHelper::isLinkFrenchOnly($value);
-          //if ($return_code) {
-          //  unset($form['menu_parent']['#options'][$key]);
-          //}
-          $test='123';
+        $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+        $keyarray = explode (":", $key);
+        if ( sizeof($keyarray) > 2) {
+          $uuid = $keyarray[2];
+          if ($langcode == 'en' && strpos($value, 'disabled') == false) {
+            if ( AgriAdminHelper::isLinkFrenchOnly($uuid)) {
+              AgriAdminHelper::addToLog($value);
+              unset($form['menu_parent']['#options'][$key]);
+            }
+          }
+          else { 
+              if ($langcode == 'fr' && strpos($value, 'désactivé') == false) {
+                 if ( AgriAdminHelper::isLinkEnglishOnly($uuid)) {
+                  unset($form['menu_parent']['#options'][$key]);
+              }     
+            }
+          }
         }
-        else if ($lang == 'fr' && strpos($value, 'désactivé') < 0) {
-          $test='123';
-          // Call function pass uuid , if returns true then unset;
-          //$return_code = AgriAdminHelper::isLinkEnglishOnly($value);
-          //if ($return_code) {
-          //  unset($form['menu_parent']['#options'][$key]);
-          //}
-        }
-      }
+      } 
     }
   }
   // TODO: END OF MENU EDIT/ADD LINK OPTIMISATION.
