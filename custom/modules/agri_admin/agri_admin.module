@@ -1164,8 +1164,22 @@ function agri_admin_form_menu_link_content_menu_link_content_form_alter (&$form,
         unset($form['menu_parent']['#options'][$key]);
       }
       else {
-        // Check lang code, if english, look for 'disabled' value, then if NOT disabled, call logic or function.
-        // Check lang code, if french, look for 'désactivé' value, then if NOT désactivé, call logic or function.
+        // Check interface lang code, if english, look for 'disabled' value, then if NOT disabled, call logic or function.
+        // Check interface lang code, if french, look for 'désactivé' value, then if NOT désactivé, call logic or function.
+        if ($lang == 'en' && strpos($value, 'disabled') < 0) {
+          // Call function pass uuid , if returns true then unset;
+          //$return_code = AgriAdminHelper::isLinkFrenchOnly($value);
+          //if ($return_code) {
+          //  unset($form['menu_parent']['#options'][$key]);
+          //}
+        }
+        else ($lang == 'fr' && strpos($value, 'désactivé') < 0) {
+          // Call function pass uuid , if returns true then unset;
+          //$return_code = AgriAdminHelper::isLinkEnglishOnly($value);
+          //if ($return_code) {
+          //  unset($form['menu_parent']['#options'][$key]);
+          //}
+        }
       }
     }
   }
