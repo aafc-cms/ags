@@ -346,6 +346,12 @@ class AgriAdminHelper {
   }
 
 
+  static public function getMenuLinkByUuid($uuid) {
+    $menuLink = \Drupal::entityTypeManager()->getStorage('menu_link_content')->loadByProperties(array('uuid'=>$uuid));
+    return $menuLink;
+  }
+
+
   static public function isLinkEnglishOnly($id) {
     if (is_numeric($id)) {
       $menuLink = self::getMenuLinkFromMlid($id);
@@ -387,11 +393,6 @@ class AgriAdminHelper {
     }
   }
 
-
-  static public function getMenuLinkByUuid($uuid) {
-    $menuLink = \Drupal::entityTypeManager()->getStorage('menu_link_content')->loadByProperties(array('uuid'=>$uuid));
-    return $menuLink;
-  }
 
   static public function getMenuIdFromUuid($uuid) {
     static::addToLog(__function__);
