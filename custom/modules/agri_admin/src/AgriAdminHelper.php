@@ -347,8 +347,8 @@ class AgriAdminHelper {
 
 
   static public function getMenuLinkByUuid($uuid) {
-    $menuLink = \Drupal::entityTypeManager()->getStorage('menu_link_content')->loadByProperties(array('uuid'=>$uuid));
-    return $menuLink;
+    $menuLinks = \Drupal::entityTypeManager()->getStorage('menu_link_content')->loadByProperties(array('uuid'=>$uuid));
+    return reset($menuLinks);
   }
 
 
