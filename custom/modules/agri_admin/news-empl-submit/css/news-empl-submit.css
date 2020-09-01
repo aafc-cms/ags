@@ -1,15 +1,42 @@
+body.news-article-form-page .button--small, body.news-article-form-page .btn-default,
+body.employment-opportunity-request-form-page .button--small,
+body.employment-opportunity-request-form-page .btn-default,
+body.node-50 .button--small,
+body.node-50 .btn-default,
+body.node-49 .button--small,
+body.node-49 .btn-default {
+  max-height: 38px;
+}
+body.news-article-form-page #edit-submit,
+body.employment-opportunity-request-form-page #edit-submit,
+body.node-50 #edit-submit,
+body.node-49 #edit-submit {
+  display: inline-block;
+  margin-left: 5px;
+}
+body.news-article-form-page .preview-wrapper,
+body.employment-opportunity-request-form-page .preview-wrapper,
+body.node-50 .preview-wrapper,
+body.node-49 .preview-wrapper {
+  display: inline-block;
+}
 body.news-article-form-page .preview-wrapper .glyphicon-new-window::before,
 body.employment-opportunity-request-form-page .preview-wrapper .glyphicon-new-window::before,
 body.node-50 .preview-wrapper .glyphicon-new-window::before,
 body.node-49 .preview-wrapper .glyphicon-new-window::before {
   content: "\e164";
 }
-body.news-article-form-page button[id~="edit-actions-save-modal"], body.news-article-form-page .editor-image-dialog .form-actions button,
-body.employment-opportunity-request-form-page button[id~="edit-actions-save-modal"],
+body.news-article-form-page button[data-drupal-selector*="edit-actions"],
+body.news-article-form-page button[id*="edit-actions-save-modal"],
+body.news-article-form-page .editor-image-dialog .form-actions button,
+body.employment-opportunity-request-form-page button[data-drupal-selector*="edit-actions"],
+body.employment-opportunity-request-form-page button[id*="edit-actions-save-modal"],
 body.employment-opportunity-request-form-page .editor-image-dialog .form-actions button,
-body.node-50 button[id~="edit-actions-save-modal"],
+body.node-50 button[data-drupal-selector*="edit-actions"],
+body.node-50 button[id*="edit-actions-save-modal"],
 body.node-50 .editor-image-dialog .form-actions button,
-body.node-49 button[id~="edit-actions-save-modal"],
+body.node-49 button[data-drupal-selector*="edit-actions"],
+body.node-49 button[id*="edit-actions-save-modal"],
 body.node-49 .editor-image-dialog .form-actions button {
   min-width: 95px !important;
 }

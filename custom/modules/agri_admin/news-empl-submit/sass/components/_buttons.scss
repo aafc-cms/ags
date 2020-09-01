@@ -4,19 +4,21 @@ body.employment-opportunity-request-form-page,
 body.node-50,
 body.node-49 {
   .button--small, .btn-default {
-    //max-height: 38px;
+    max-height: 38px;
   }
   #edit-submit {
-    //display: inline-block;
-    //margin-left: 5px;
+    display: inline-block;
+    margin-left: 5px;
   }
   .preview-wrapper {
-    //display: inline-block;
+    display: inline-block;
   }
   .preview-wrapper .glyphicon-new-window::before {
     content: "\e164";
   }
-  button[id~="edit-actions-save-modal"], .editor-image-dialog .form-actions button {
+  button[data-drupal-selector*="edit-actions"],
+  button[id*="edit-actions-save-modal"],
+  .editor-image-dialog .form-actions button {
     min-width: 95px !important;
   }
 }
