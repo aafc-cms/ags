@@ -768,7 +768,11 @@ class AgriAdminHelper {
 
     $linkNodeId = '';
     foreach ($menu as $item) {
-      if ('entity.node.canonical' == $item->getUrlObject()->getRouteName()) {
+      $route = '';
+      if ($item->getUrlObject()->isRouted()) {
+        $route = $item->getUrlObject()->getRouteName();
+      }
+      if ('entity.node.canonical' == $route && $item->getUrlObject()->isRouted()) {
         $params = $item->getUrlObject()->getRouteParameters();
         $linkNodeId = $params['node'];
 
@@ -781,7 +785,11 @@ class AgriAdminHelper {
             'uuid' => $newUuid,
           ]);
           $parentLink = reset($parentLink);
-          if (isset($parentLink) && !empty($parentLink) && 'entity.node.canonical' == $parentLink->getUrlObject()->getRouteName()) {
+          $route = '';
+          if ($item->getUrlObject()->isRouted()) {
+            $route = $item->getUrlObject()->getRouteName();
+          }
+          if (isset($parentLink) && !empty($parentLink) && 'entity.node.canonical' == $route && $item->getUrlObject()->isRouted()) {
             $parentParams = $parentLink->getUrlObject()->getRouteParameters();
             $parentLinkNodeId = $parentParams['node'];
             if (is_numeric($parentLinkNodeId)) {
