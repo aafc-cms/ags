@@ -368,12 +368,24 @@ body.role-is-anonymous.news-newswork div.js-text-summary-wrapper.text-summary-wr
     position: relative;
   }
 }
+/* line 3, ../sass/components/_search.scss */
+#block-findacolleague #Agrisource-qsBox {
+  max-width: 207px;
+  display: inline-block;
+}
+
+@media screen and (min-width: 992px) {
+  /* line 11, ../sass/components/_search.scss */
+  #block-findacolleague #Agrisource-qsBox {
+    max-width: 76.5%;
+  }
+}
 @media screen and (min-width: 1200px) {
-  /* line 3, ../sass/components/_search.scss */
+  /* line 19, ../sass/components/_search.scss */
   #block-findacolleague #Agrisource-qsBox {
     max-width: 80.5%;
   }
-  /* line 6, ../sass/components/_search.scss */
+  /* line 22, ../sass/components/_search.scss */
   #block-findacolleague button {
     float: right;
   }
