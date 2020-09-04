@@ -157,7 +157,8 @@ body.node-edit.user-logged-in.path-node.page-node-type-empl {
 body.node-edit .form-item--menu-menu-parent, 
 body.nodeaddpage .form-item--menu-menu-parent,
 body.nodeaddlanding_page .form-item--menu-menu-parent,
-body.adminstructuremenumanagemaina select#edit-menu-parent {
+body.adminstructuremenumanagemaina select#edit-menu-parent,
+body[class*="menuitem"] select#edit-menu-parent {
   #edit-menu-menu-parent {
     max-width: 212px !important;
   }
