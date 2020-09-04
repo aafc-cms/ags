@@ -12,6 +12,7 @@
 @import 'components/draft-pending-views';
 @import 'components/employment_opportunity_page';
 @import 'components/blocks/blocks_global';
+@import 'components/_carousel';
 @import 'components/iframe';
 @import 'components/node';
 @import 'components/news_page';
@@ -110,7 +111,7 @@ section.col-sm-3 ul.list-unstyled {
 }
 
 #wb-bnr {
-  background: #007852 !important;
+  background: $agrisource-button-color !important;
 }
 
 #agrisource-wmms {
@@ -162,7 +163,7 @@ section.col-sm-3 ul.list-unstyled {
     top: -2.2em;
   }
   #wb-bnr {
-    background-color: #007852;
+    background-color: $agrisource-button-color;
     background-image: none;
    .container .row.agri-banner-row {
       position: relative;
