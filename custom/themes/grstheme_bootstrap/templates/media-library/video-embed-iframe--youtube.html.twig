@@ -1,0 +1,8 @@
+{#
+/**
+ * @file
+ * Display an iframe with alterable components.
+ */
+#}
+<div class="wb-share" data-wb-share='{{ '{"' }}pnlId": "pnl{{ random(0,1000) }}", "url": "{{ url }}{{ '"}' }}'></div>
+<iframe{{ attributes }}{% if url is not empty %} src="{{ url }}{% if query is not empty %}?{{ query | url_encode }}{% endif %}{% if fragment is not empty %}#{{ fragment }}{% endif %}"{% endif %}></iframe>
