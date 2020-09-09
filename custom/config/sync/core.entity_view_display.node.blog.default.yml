@@ -9,8 +9,23 @@ dependencies:
     - node.type.blog
   module:
     - comment
+    - layout_builder
+    - layout_builder_restrictions
+    - layout_library
     - text
     - user
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+  layout_library:
+    enable: false
+  layout_builder_restrictions:
+    allowed_block_categories: {  }
+    entity_view_mode_restriction:
+      whitelisted_blocks: {  }
+      blacklisted_blocks: {  }
+      allowed_layouts: {  }
 id: node.blog.default
 targetEntityType: node
 bundle: blog
