@@ -1,0 +1,14 @@
+uuid: 16e801b7-0e6f-42ca-a285-a811ebf191c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.pab_admin
+  module:
+    - user
+id: user_remove_role_action.pab_admin
+label: 'Remove the PAB Admin role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: pab_admin
