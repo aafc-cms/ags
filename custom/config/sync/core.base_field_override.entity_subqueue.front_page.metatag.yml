@@ -1,0 +1,18 @@
+uuid: 33d2f1f5-744d-4071-88f8-a0ba801dca89
+langcode: en
+status: true
+dependencies:
+  config:
+    - entityqueue.entity_queue.front_page
+id: entity_subqueue.front_page.metatag
+field_name: metatag
+entity_type: entity_subqueue
+bundle: front_page
+label: Metatags
+description: 'The meta tags for the entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

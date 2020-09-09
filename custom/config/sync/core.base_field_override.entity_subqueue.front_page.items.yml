@@ -1,0 +1,20 @@
+uuid: 86913fb3-a94f-4af5-8f79-4a1b1716667b
+langcode: en
+status: true
+dependencies:
+  config:
+    - entityqueue.entity_queue.front_page
+id: entity_subqueue.front_page.items
+field_name: items
+entity_type: entity_subqueue
+bundle: front_page
+label: Items
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference
