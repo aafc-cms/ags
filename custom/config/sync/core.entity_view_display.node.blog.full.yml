@@ -1,0 +1,38 @@
+uuid: 86ba6dcf-5d41-4ecb-9270-91d10785ba56
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.blog.body
+    - field.field.node.blog.comment
+    - node.type.blog
+  module:
+    - layout_builder
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: node.blog.full
+targetEntityType: node
+bundle: blog
+mode: full
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  comment: true
+  content_moderation_control: true
+  langcode: true
