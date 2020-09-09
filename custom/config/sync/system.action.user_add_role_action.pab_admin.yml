@@ -1,0 +1,14 @@
+uuid: 0620537d-a6be-47a2-a2f0-5ad308a5dccc
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.pab_admin
+  module:
+    - user
+id: user_add_role_action.pab_admin
+label: 'Add the PAB Admin role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: pab_admin
