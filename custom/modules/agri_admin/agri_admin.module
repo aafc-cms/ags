@@ -1250,7 +1250,6 @@ function agri_admin_views_pre_view (ViewExecutable $view, $display_id, $args) {
     $filters['type']['value'] = 'news';
     $view->display_handler->overrideOption('filters', $filters);
   }
-
 }
 
 /**
@@ -1265,18 +1264,17 @@ function agri_admin_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\Form
 
   $user_roles = \Drupal::currentUser()->getRoles();
   if (in_array('empl_cspub', $user_roles) && ($form_id == 'views_exposed_form')) {
-      foreach ($form['type']['#options'] as $key => &$value) {
-        if ($key != 'empl') {
-           unset($form['type']['#options'][$key]);
-        }
+    foreach ($form['type']['#options'] as $key => &$value) {
+      if ($key != 'empl') {
+        unset($form['type']['#options'][$key]);
       }
+    }
   }
 
   if (in_array('news_ccpub', $user_roles) && ($form_id == 'views_exposed_form')) {
-      foreach ($form['type']['#options'] as $key => &$value) {
-        if ($key != 'news') {
-           unset($form['type']['#options'][$key]);
-        }
+    foreach ($form['type']['#options'] as $key => &$value) {
+      if ($key != 'news') {
+        unset($form['type']['#options'][$key]);
       }
     }
   }
