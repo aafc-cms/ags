@@ -26,7 +26,7 @@ function wxt_overrides_page_attachments(array &$page) {
   if (is_string($node) || is_integer($node)) {
     $nid = $node;
   }
-  if ($nid > 0) {
+  if (0 && $nid > 0) {
     $library_array = $page['#attached']['library'];
     if (in_array('wxt_library/wet-boew-dev', $page['#attached']['library'])) {
       $key = array_search('wxt_library/wet-boew-dev', $page['#attached']['library']);

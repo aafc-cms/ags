@@ -117,6 +117,10 @@ if ! grep -q "upgrade-insecure-requests" $htaccess_file; then
   fi
 fi
 
+rm html/libraries/wet-boew/js/wet-boew.js
+rm html/libraries/wet-boew/js/wet-boew.min.js
+ln -s ../../../../custom/modules/wxt_overrides/js/wb/wet-boew.js html/libraries/wet-boew/js/wet-boew.js
+ln -s ../../../../custom/modules/wxt_overrides/js/wb/wet-boew.js html/libraries/wet-boew/js/wet-boew.min.js
 if [ ! -L html/splash.php ]; then
   cd html
   ln -s ../custom/splash/splash.php splash.php
