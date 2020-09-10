@@ -7,6 +7,7 @@ use Drupal\agri_admin\AgriAdminHelper;
 use Drupal\agri_admin\Utils;
 use Drupal\user\Entity\User;
 use Drupal\access_unpublished\Entity\AccessToken;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_preprocess_html().
@@ -1227,3 +1228,49 @@ function agri_admin_form_menu_link_content_menu_link_content_form_alter (&$form,
     }
   }
 }
+
+/**
+ * Implements agri_admin_views_pre_view hook
+ */
+
+function agri_admin_views_pre_view (ViewExecutable $view, $display_id, $args) {
+  if ( $view->id() != 'content' && $view->id() != 'moderated_content' ) {
+    return;
+  }
+
+  $user_roles = \Drupal::currentUser()->getRoles();
+  if (in_array('empl_cspub', $user_roles)) {
+    $filters = $view->getDisplay()->getOption('filters');
+    $filters['type']['value'] = 'empl';
+    $view->display_handler->overrideOption('filters', $filters);
+  }
+}
+
+/**
+ * Implements agri_admin_form_views_exposed_form_alter hook.
+ */
+
+function agri_admin_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $view = $form_state->getStorage('view');
+  if ($view['view']->id() != 'content' && $view['view']->id() != 'moderated_content' ) {
+    return;
+  }
+
+  $user_roles = \Drupal::currentUser()->getRoles();
+  if (in_array('empl_cspub', $user_roles)) {
+    if ($form_id == 'views_exposed_form') {
+      //unset($form['type']['#options']['All']);
+      //unset($form['type']['#options']['page']);
+      //unset($form['type']['#options']['news']);
+      //unset($form['type']['#options']['webform']);
+      //unset($form['type']['#options']['landing_page']);
+      // for loop covers all any new content types
+      foreach ($form['type']['#options'] as $key => &$value) {
+        if ($key != 'empl') {
+           unset($form['type']['#options'][$key]);
+        }
+      }
+    }
+  }
+}
+
