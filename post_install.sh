@@ -100,8 +100,8 @@ if ! grep -q "upgrade-insecure-requests" $htaccess_file; then
       echo "Ensure header always sets Content-Security-Policy. (CURRENTLY DISABLED, check post_install.sh)";
       search_str="^( +)Header always set X-Content-Type-Options nosniff";
       new_setting="\1Header always set X-Content-Type-Options nosniff\n\1Header always set Content-Security-Policy \"upgrade-insecure-requests;\"\n"
-      #sed -r "s/${search_str}/${new_setting}/gm" $htaccess_file > ${htaccess_file}_temp;
-      #cp ${htaccess_file}_temp ${htaccess_file}
+      sed -r "s/${search_str}/${new_setting}/gm" $htaccess_file > ${htaccess_file}_temp;
+      cp ${htaccess_file}_temp ${htaccess_file}
     else
       echo "This environment probably does not need the upgrade-insecure-requests";
     fi
@@ -111,8 +111,8 @@ if ! grep -q "upgrade-insecure-requests" $htaccess_file; then
       echo "Ensure header always sets Content-Security-Policy for live environment. (CURRENTLY DISABLED, check post_install.sh)";
       search_str="^( +)Header always set X-Content-Type-Options nosniff";
       new_setting="\1Header always set X-Content-Type-Options nosniff\n\1Header always set Content-Security-Policy \"upgrade-insecure-requests;\"\n"
-      #sed -r "s/${search_str}/${new_setting}/gm" $htaccess_file > ${htaccess_file}_temp;
-      #cp ${htaccess_file}_temp ${htaccess_file}
+      sed -r "s/${search_str}/${new_setting}/gm" $htaccess_file > ${htaccess_file}_temp;
+      cp ${htaccess_file}_temp ${htaccess_file}
     fi
   fi
 fi
