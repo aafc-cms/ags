@@ -1,0 +1,31 @@
+uuid: 0814c472-0cb5-481e-9611-8ebe965ce07f
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:30e4c971-edb5-48f2-9f12-86589e46b849'
+  module:
+    - block_content
+    - wxt_library
+  theme:
+    - grstheme_bootstrap
+id: idolsearchform
+theme: grstheme_bootstrap
+region: search
+weight: 0
+provider: null
+plugin: 'block_content:30e4c971-edb5-48f2-9f12-86589e46b849'
+settings:
+  id: 'block_content:30e4c971-edb5-48f2-9f12-86589e46b849'
+  label: 'Idol search form'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  panels_title:
+    id: panels_title
+    enabled: 0
+    negate: false
+    context_mapping: {  }
