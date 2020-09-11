@@ -1,0 +1,76 @@
+<?php
+
+
+/**
+ * Handle manual steps for block and content updates via hook_update, automatically update the search en and search fr block.
+ **/
+function wxt_overrides_update_8001() {
+
+  // BEGIN INITIAL CONTENT SETUP FOR THE SUBSCRIBE BLOCK (just above the twitter block).
+  $uuid_search_block = '30e4c971-edb5-48f2-9f12-86589e46b849';
+$search_block_content_english = <<<EOT
+<section class="visible-md visible-lg" id="wb-srch">
+  <h2>Search</h2>
+  <form action="//search-recherche.agr.gc.ca/search-recherche/" class="form-inline" id="quickSearch" method="get" role="search">
+    <div class="form-group"><label for="q">Search website</label>
+      <input class="form-control" id="q" maxlength="150" name="q" size="27" type="search" value="" />
+      <input id="f" name="f" type="hidden" value="KSLANGUAGE:EN" />
+    </div>
+    <button class="btn btn-default" id="wb-srch-sub" type="submit">Search
+    </button>
+  </form>
+</section>
+EOT;
+$search_block_content_francais = <<<EOT
+<section class="visible-md visible-lg" id="wb-srch">
+  <h2>Recherche</h2>
+  <form action="//search-recherche.agr.gc.ca/search-recherche/" class="form-inline" id="quickSearch" method="get" role="search">
+    <div class="form-group"><label for="q">Search website</label>
+      <input class="form-control" id="q" maxlength="150" name="q" size="27" type="search" value="" />
+      <input id="f" name="f" type="hidden" value="KSLANGUAGE:FR" />
+    </div>
+    <button class="btn btn-default" id="wb-srch-sub" type="submit">Recherche
+    </button>
+  </form>
+</section>
+EOT;
+  _block_content_update($uuid_search_block, $search_block_content_english, 'Idol Search Form En', $search_block_content_francais, 'Idol Search Form Block Fr');
+  // END INITIAL CONTENT SETUP FOR THE SUBSCRIBE BLOCK (just above the twitter block).
+
+}
+
+function _block_content_update($uuid, $body_en, $desc_en, $body_fr, $desc_fr) {
+//  $body_en = html_entity_decode($body_en);
+//  $body_fr = html_entity_decode($body_fr);
+  $block_content = \Drupal::service('entity.repository')->loadEntityByUuid('block_content', $uuid);
+  if ($block_content) {
+    $block_content->body->format = 'full_html';
+    $block_content->body->value = $body_en;
+    $block_content->info = $desc_en;
+    $block_content->setSyncing(TRUE);
+    $block_content->save();
+    \Drupal::messenger()->addMessage('Successfully processed block body field for "' . $desc_en . '" uuid=' . $uuid, 'notice', TRUE);
+    \Drupal::logger('new-pm-automation')->notice('Successfully processed block body field for "@type" uuid=%uuid',
+      ['@type' => $desc_en,
+       '%uuid' => $uuid]
+    );
+    if (!$block_content->hasTranslation('fr')) {
+      $block_content->addTranslation('fr');
+    }
+    $block_content_fr = $block_content->getTranslation('fr');
+    $block_content_fr->info = $desc_fr;
+    $block_content_fr->body->format = 'full_html';
+    $block_content_fr->body->value = $body_fr;
+    $block_content_fr->setSyncing(TRUE);
+    $block_content_fr->save();
+    \Drupal::messenger()->addMessage('Successfully processed block body field for "' . $desc_fr . '" uuid=' . $uuid, 'notice', TRUE);
+    \Drupal::logger('new-pm-automation')->notice('Successfully processed block body field for "@type" uuid=%uuid',
+      ['@type' => $desc_fr,
+       '%uuid' => $uuid]
+    );
+  } else {
+    \Drupal::messenger()->addMessage('Unable to find search block by uuid for uuid=' . $uuid, 'warning', TRUE);
+    throw Exception('unable to find search block by uuid ' . $uuid);
+  }
+
+}
