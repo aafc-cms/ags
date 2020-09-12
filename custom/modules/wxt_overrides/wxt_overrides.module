@@ -123,3 +123,31 @@ function wxt_overrides_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateI
     } 
   }
 }
+
+/**
+ * Implements hook_menu_alter().
+ */
+function wxt_overrides_link_alter(&$variables) {
+  $url = $variables['url'];
+
+  // Return early where possible.
+  if (!$url->isRouted()) {
+    return;
+  }
+  else {
+    $route_name = $url->getRouteName();
+    $current_route = \Drupal::routeMatch()->getRouteName();
+    if ($route_name == 'system.admin_content' && $current_route != 'content_moderation.admin_moderated_content') {
+      $variables['text'] = t('Moderated content');
+      $variables['url'] = \Drupal\Core\Url::fromUri('internal:/admin/content/moderated');
+    }
+    elseif ($route_name == 'entity.media.collection' && $current_route != 'view.media_library.page') {
+      $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+      $variables['text'] = 'Media (grid)';
+      if ($langcode == 'fr') {
+        $variables['text'] = 'Médias (Grille)';
+      }
+      $variables['url'] = \Drupal\Core\Url::fromUri('internal:/admin/content/media-grid');
+    }
+  }
+}
