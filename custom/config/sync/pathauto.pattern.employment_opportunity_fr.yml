@@ -8,24 +8,24 @@ dependencies:
 id: employment_opportunity_fr
 label: 'opportunité d''emploi'
 type: 'canonical_entities:node'
-pattern: 'emploi/[node:field_locations:value]/[node:field_date_closing:date:html_date]/[node:title]'
+pattern: 'possibilites-demploi-a-linterne/[node:field_date_closing:date:html_date]/[node:title]'
 selection_criteria:
-  2893b9dc-4c09-4f66-a92f-4926ddd19824:
+  b4c6e3a0-fe04-4e3b-ada4-26f7ed05b46f:
     id: node_type
     bundles:
       empl: empl
     negate: false
     context_mapping:
       node: node
-    uuid: 2893b9dc-4c09-4f66-a92f-4926ddd19824
-  c91d9d03-d93f-4ceb-bd52-d7bcf7a189dc:
+    uuid: b4c6e3a0-fe04-4e3b-ada4-26f7ed05b46f
+  db6e196b-16a0-43cc-9570-2860cc2137e1:
     id: language
     langcodes:
       fr: fr
     negate: false
     context_mapping:
       language: 'node:langcode:language'
-    uuid: c91d9d03-d93f-4ceb-bd52-d7bcf7a189dc
+    uuid: db6e196b-16a0-43cc-9570-2860cc2137e1
 selection_logic: and
 weight: -10
 relationships:
