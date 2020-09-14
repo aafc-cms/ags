@@ -713,6 +713,24 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         $linkNews = Link::createFromRoute(t('News'), 'view.view_news_work.page_1');
       }
       $breadcrumb->addLink($linkNews);
+      $news_at_work = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
+        ->condition('title', 'news@work', '=')
+        ->execute();
+      if (is_array($news_at_work)) {
+        $first_nid = array_shift($news_at_work);
+        $news_at_work = \Drupal\node\Entity\Node::load($first_nid);
+      }
+      if ($news_at_work) {
+        $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
+        if ($news_at_work->hasTranslation($langcode)) {
+          $news_at_work = $news_at_work->getTranslation($langcode);
+        }
+	      $linkNewsatWork = $news_at_work->toLink($news_at_work->getTitle());
+      }
+      else {
+        $linkNewsatWork = Link::createFromRoute(t('News@work'), 'view.view_news_work.page_1');
+      } 
+      $breadcrumb->addLink($linkNewsatWork);
     }
   }
 
@@ -741,7 +759,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
       else {
         $linkHR = Link::createFromRoute(t('Human Resources'), 'view.view_employmentopportunities.page_1');
       }
-      $breadcrumb->addLink($linkHR); 
+      $breadcrumb->addLink($linkHR);
     }
   }
 

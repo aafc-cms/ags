@@ -164,11 +164,15 @@ body.user-anonymous.role-is-anonymous.news-article-form-page div#edit-actions .p
   position: relative;
   padding-top: 0px;
   padding-bottom: 15px;
+  display: inline-block;
 }
 body.user-anonymous.role-is-anonymous.news-article-form-page button#edit-submit, body.user-anonymous.role-is-anonymous.news-article-form-page button#edit-preview, body.user-anonymous.nodeaddnews.role-is-anonymous button#edit-submit, body.user-anonymous.nodeaddnews.role-is-anonymous button#edit-preview {
   background-color: #1b6c1c;
   border-color: #071a07;
   color: #fff;
+}
+body.user-anonymous.role-is-anonymous.news-article-form-page button#edit-submit, body.user-anonymous.nodeaddnews.role-is-anonymous button#edit-submit {
+  margin-left: 5px;
 }
 body.user-anonymous.role-is-anonymous.news-article-form-page #block-grstheme-bootstrap-sharewidgetblock, body.user-anonymous.role-is-anonymous.news-article-form-page #block-grstheme-bootstrap-reportproblemblock, body.user-anonymous.nodeaddnews.role-is-anonymous #block-grstheme-bootstrap-sharewidgetblock, body.user-anonymous.nodeaddnews.role-is-anonymous #block-grstheme-bootstrap-reportproblemblock {
   padding-top: 35px !important;
@@ -179,6 +183,9 @@ body.nodeaddnews.role-is-anonymous.node-add #wb-cont {
 }
 body.nodeaddnews.role-is-anonymous.node-add #block-cutomblock-submitarticlefornewsatwork .block-title {
   font-size: 34px !important;
+}
+body.nodeaddnews.role-is-anonymous.node-add div#edit-group-newsposteddate--content label#edit-field-posted-0-value-date-error {
+  display: block !important;
 }
 
 body.news-article-form-page .help-block, body.nodeaddnews.role-is-anonymous.node-add .help-block {
@@ -196,6 +203,9 @@ body.news-article-form-page .preview-helptext-paragraph, body.nodeaddnews.role-i
 }
 body.news-article-form-page .submit-helptext-paragraph, body.nodeaddnews.role-is-anonymous.node-add .submit-helptext-paragraph {
   float: right !important;
+}
+body.news-article-form-page .select-wrapper label.error, body.nodeaddnews.role-is-anonymous.node-add .select-wrapper label.error {
+  position: absolute;
 }
 body.news-article-form-page #edit-moderation-state-0 .select-wrapper::after, body.nodeaddnews.role-is-anonymous.node-add #edit-moderation-state-0 .select-wrapper::after {
   right: 84%;
@@ -290,7 +300,7 @@ body.news-article-form-page div[id^="edit-field-newsfile5"].help-block, body.nod
   display: none !important;
 }
 
-body.node-50.role-is-authenticated #node-empl-form .vertical-tabs-panes {
+bodr.node-50.role-is-authenticated #node-empl-form .vertical-tabs-panes {
   border: none !important;
 }
 
@@ -309,11 +319,15 @@ body.role-is-anonymous.employment-opportunity-request-form-page div#edit-actions
 body.role-is-anonymous.employment-opportunity-request-form-page div#edit-actions .preview-wrapper, body.role-is-anonymous.nodeaddempl div#edit-actions .preview-wrapper {
   position: relative;
   padding-bottom: 15px;
+  display: inline-block;
 }
 body.role-is-anonymous.employment-opportunity-request-form-page button#edit-submit, body.role-is-anonymous.employment-opportunity-request-form-page button#edit-preview, body.role-is-anonymous.nodeaddempl button#edit-submit, body.role-is-anonymous.nodeaddempl button#edit-preview {
   background-color: #1b6c1c;
   border-color: #071a07;
   color: #fff;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page button#edit-submit, body.role-is-anonymous.nodeaddempl button#edit-submit {
+  margin-left: 5px;
 }
 body.role-is-anonymous.employment-opportunity-request-form-page #block-grstheme-bootstrap-sharewidgetblock, body.role-is-anonymous.employment-opportunity-request-form-page #block-grstheme-bootstrap-reportproblemblock, body.role-is-anonymous.nodeaddempl #block-grstheme-bootstrap-sharewidgetblock, body.role-is-anonymous.nodeaddempl #block-grstheme-bootstrap-reportproblemblock {
   padding-top: 35px !important;
@@ -374,6 +388,11 @@ body.node-50.role-is-authenticated .help-block {
   font-size: 16px;
   color: #333;
 }
+body.role-is-anonymous.employment-opportunity-request-form-page div#edit-group-emplopportunityclosingdate--content label#edit-field-date-closing-0-value-date-error,
+body.role-is-anonymous.nodeaddempl div#edit-group-emplopportunityclosingdate--content label#edit-field-date-closing-0-value-date-error,
+body.node-50.role-is-authenticated div#edit-group-emplopportunityclosingdate--content label#edit-field-date-closing-0-value-date-error {
+  display: block !important;
+}
 body.role-is-anonymous.employment-opportunity-request-form-page #edit-actions, body.role-is-anonymous.employment-opportunity-request-form-page #edit-footer,
 body.role-is-anonymous.nodeaddempl #edit-actions,
 body.role-is-anonymous.nodeaddempl #edit-footer,
@@ -405,6 +424,11 @@ body.role-is-anonymous.employment-opportunity-request-form-page .btn.icon-before
 body.role-is-anonymous.nodeaddempl .btn.icon-before .glyphicon,
 body.node-50.role-is-authenticated .btn.icon-before .glyphicon {
   min-height: 20px;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page.i18n-en .select-wrapper label.error,
+body.role-is-anonymous.nodeaddempl.i18n-en .select-wrapper label.error,
+body.node-50.role-is-authenticated.i18n-en .select-wrapper label.error {
+  position: absolute;
 }
 body.role-is-anonymous.employment-opportunity-request-form-page.i18n-en .field--type-entity-reference .select-wrapper:after,
 body.role-is-anonymous.nodeaddempl.i18n-en .field--type-entity-reference .select-wrapper:after,
@@ -574,6 +598,11 @@ body.role-is-anonymous.nodeaddempl div[class$="-subform-field-class-id form-grou
 body.node-50.role-is-authenticated div[class$="-subform-field-class-id form-group"] {
   float: left !important;
 }
+body.role-is-anonymous.employment-opportunity-request-form-page.i18n-fr .select-wrapper label.error,
+body.role-is-anonymous.nodeaddempl.i18n-fr .select-wrapper label.error,
+body.node-50.role-is-authenticated.i18n-fr .select-wrapper label.error {
+  position: absolute;
+}
 body.role-is-anonymous.employment-opportunity-request-form-page.i18n-fr div[class$="-subform-field-class-id form-group"] .select-wrapper:after,
 body.role-is-anonymous.nodeaddempl.i18n-fr div[class$="-subform-field-class-id form-group"] .select-wrapper:after,
 body.node-50.role-is-authenticated.i18n-fr div[class$="-subform-field-class-id form-group"] .select-wrapper:after {
@@ -607,7 +636,7 @@ body.node-50.role-is-authenticated div[class$="-subform-field-class-level form-g
 body.role-is-anonymous.employment-opportunity-request-form-page.i18n-fr div[class$="-subform-field-class-level form-group"] .select-wrapper:after,
 body.role-is-anonymous.nodeaddempl.i18n-fr div[class$="-subform-field-class-level form-group"] .select-wrapper:after,
 body.node-50.role-is-authenticated.i18n-fr div[class$="-subform-field-class-level form-group"] .select-wrapper:after {
-  right: 40% !important;
+  right: 55% !important;
 }
 body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-emploppsubitappquestion.panel-default,
 body.role-is-anonymous.nodeaddempl #edit-group-emploppsubitappquestion.panel-default,
@@ -854,6 +883,9 @@ body.nodeaddempl.role-is-anonymous #edit-group-level-and div.panel-body {
 body.nodeaddempl.role-is-anonymous #edit-group-level-and div.table-responsive button.tabledrag-toggle-weight.btn-sm.btn.btn-default {
   display: none !important;
 }
+body.nodeaddempl.role-is-anonymous label#edit-field-branch-error ::after {
+  top: 30%;
+}
 body.nodeaddempl.role-is-anonymous #edit-field-classification-wrapper a.tabledrag-handle {
   display: none !important;
 }
@@ -878,11 +910,8 @@ body.nodeaddempl.role-is-anonymous.i18n-en div[class$="-subform-field-class-sub 
 body.nodeaddempl.role-is-anonymous.i18n-fr div[class$="-subform-field-class-sub form-group"] .select-wrapper:after {
   right: 45% !important;
 }
-body.nodeaddempl.role-is-anonymous.i18n-en div[class$="-subform-field-class-level form-group"] .select-wrapper:after {
-  right: 36% !important;
-}
 body.nodeaddempl.role-is-anonymous.i18n-fr div[class$="-subform-field-class-level form-group"] .select-wrapper:after {
-  right: 40% !important;
+  right: 55% !important;
 }
 body.nodeaddempl.role-is-anonymous #field-email-add-more-wrapper div.table-responsive button.tabledrag-toggle-weight.btn-sm.btn.btn-default {
   display: none !important;
@@ -912,6 +941,9 @@ body.nodeaddempl.role-is-anonymous #block-grstheme-bootstrap-reportproblemblock 
 }
 body.nodeaddempl.role-is-anonymous #edit-field-classification-wrapper th.field-label.form-required {
   display: none !important;
+}
+body.nodeaddempl.role-is-anonymous div.form-item--error-message.alert.alert-danger.alert-sm.form-group {
+  color: #a94442;
 }
 
 /*
