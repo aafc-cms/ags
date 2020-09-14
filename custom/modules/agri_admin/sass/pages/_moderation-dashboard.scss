@@ -1,6 +1,13 @@
 
-body[class*=moderationdashboard] nav[aria-label=Tabs]
+body[class*=moderationdashboard] nav[aria-label=Tabs], nav[aria-label=Onglets]
 {
   visibility: hidden;
 }
-
+body[class*=moderationdashboard]{
+  nav.mrgn-tp-md{
+    margin-top: 0px;
+  }
+  nav.mrgn-bttm-md{
+    margin-bottom: 0px;
+  }
+}
