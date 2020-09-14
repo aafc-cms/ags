@@ -46,14 +46,19 @@ body.role-is-anonymous {
     div#edit-actions .preview-wrapper {
       position: relative;
       padding-bottom: 15px;
+      display: inline-block;
     }
 
-   button#edit-submit, button#edit-preview {
+    button#edit-submit, button#edit-preview {
       background-color: #1b6c1c;
       border-color: #071a07;
       color: #fff;
     } 
-  
+
+    button#edit-submit {
+      margin-left: 5px;
+    }
+
     #block-grstheme-bootstrap-sharewidgetblock,#block-grstheme-bootstrap-reportproblemblock {
       padding-top: 35px !important;
     } 
@@ -136,6 +141,10 @@ body.node-50.role-is-authenticated {
     min-height: 20px;
   }
   
+  &.i18n-en .select-wrapper label.error {
+    position: absolute;
+  }
+
   &.i18n-en .field--type-entity-reference .select-wrapper:after {
     right: 69% !important;
   }
@@ -233,6 +242,11 @@ body.node-50.role-is-authenticated {
 
   & div[class$="-subform-field-class-id form-group"] {
     float: left !important;
+  }
+
+  
+  &.i18n-fr .select-wrapper label.error {
+    position: absolute;
   }
 
   &.i18n-fr div[class$="-subform-field-class-id form-group"] .select-wrapper:after {
@@ -550,6 +564,9 @@ body.nodeaddempl.role-is-anonymous {
     display: none !important;
   }
 
+  label#edit-field-branch-error ::after {
+    top: 30%;
+  }
 //  #field-classification-values th.field-label.form-required {
 //    padding-left: 0px;
 //  }
