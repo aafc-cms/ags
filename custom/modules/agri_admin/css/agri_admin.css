@@ -438,14 +438,14 @@ body.path-admin.admincontentmoderated .view-filters .form-item--field-newstype-t
   max-width: 250px;
 }
 
-body[class*=moderationdashboard] nav[aria-label=Tabs], nav[aria-label=Onglets] {
+body[class*=moderationdashboard] nav[aria-label=Tabs],
+body[class*=moderationdashboard] nav[aria-label=Onglets] {
   visibility: hidden;
 }
-
-body[class*=moderationdashboard] nav.mrgn-tp-md {
+body[class*=moderationdashboard] body[class*=moderationdashboard] nav.mrgn-tp-md {
   margin-top: 0px;
 }
-body[class*=moderationdashboard] nav.mrgn-bttm-md {
+body[class*=moderationdashboard] body[class*=moderationdashboard] nav.mrgn-bttm-md {
   margin-bottom: 0px;
 }
 
