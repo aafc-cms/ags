@@ -249,9 +249,13 @@ body.page-node-type-empl .field.field.field--name-field-email .field--label::aft
 body.page-node-type-empl #block-privacynotice h2.block-title {
   display: none;
 }
+/* line 68, ../sass/components/_employment_opportunity_page.scss */
+body.page-node-type-empl label#edit-field-date-closing-0-value-date-error .error {
+  display: block;
+}
 
 /* block-privacynotice */
-/* line 70, ../sass/components/_employment_opportunity_page.scss */
+/* line 75, ../sass/components/_employment_opportunity_page.scss */
 #block-privacynotice {
   padding-left: 15px !important;
   padding-right: 15px !important;
@@ -360,6 +364,10 @@ body.page-node-type-news .field--name-body.field--type-text-with-summary.field--
 /* line 27, ../sass/components/_news_page.scss */
 body.role-is-anonymous.news-newswork div.js-text-summary-wrapper.text-summary-wrapper, body.nodeaddnews.role-is-anonymous div.js-text-summary-wrapper.text-summary-wrapper {
   display: none !important;
+}
+/* line 30, ../sass/components/_news_page.scss */
+body.role-is-anonymous.news-newswork div#edit-group-newsposteddate--content label#edit-field-posted-0-value-date-error, body.nodeaddnews.role-is-anonymous div#edit-group-newsposteddate--content label#edit-field-posted-0-value-date-error {
+  display: block !important;
 }
 
 @media screen and (min-width: 1200px) {

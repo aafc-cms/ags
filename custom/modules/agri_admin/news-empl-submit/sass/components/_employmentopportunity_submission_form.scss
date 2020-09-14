@@ -1,5 +1,5 @@
 
-body.node-50.role-is-authenticated {
+bodr.node-50.role-is-authenticated {
   #node-empl-form {
     .vertical-tabs-panes {
       border: none !important;
@@ -106,7 +106,6 @@ body.role-is-anonymous.nodeaddempl.node-add {
   #edit-field-classification-0-top.paragraph-type-top.form-group.js-form-wrapper.form-wrapper {
     display: none !important;
   }
-
 }
 
 body.role-is-anonymous.employment-opportunity-request-form-page,
@@ -115,6 +114,10 @@ body.node-50.role-is-authenticated {
   .help-block {
     font-size: 16px;
     color: #333;
+  }
+  
+  div#edit-group-emplopportunityclosingdate--content label#edit-field-date-closing-0-value-date-error {
+    display: block !important;
   }
 
   #edit-actions, #edit-footer {

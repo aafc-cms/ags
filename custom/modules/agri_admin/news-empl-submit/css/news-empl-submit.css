@@ -184,6 +184,9 @@ body.nodeaddnews.role-is-anonymous.node-add #wb-cont {
 body.nodeaddnews.role-is-anonymous.node-add #block-cutomblock-submitarticlefornewsatwork .block-title {
   font-size: 34px !important;
 }
+body.nodeaddnews.role-is-anonymous.node-add div#edit-group-newsposteddate--content label#edit-field-posted-0-value-date-error {
+  display: block !important;
+}
 
 body.news-article-form-page .help-block, body.nodeaddnews.role-is-anonymous.node-add .help-block {
   font-size: 16px;
@@ -296,8 +299,11 @@ body.news-article-form-page div[id^="edit-field-newsfile5"] div.panel-heading a[
 body.news-article-form-page div[id^="edit-field-newsfile5"].help-block, body.nodeaddnews.role-is-anonymous.node-add div[id^="edit-field-newsfile5"].help-block {
   display: none !important;
 }
+body.news-article-form-page div#edit-group-newsposteddate--content label#edit-field-posted-0-value-date-error, body.nodeaddnews.role-is-anonymous.node-add div#edit-group-newsposteddate--content label#edit-field-posted-0-value-date-error {
+  display: block !important;
+}
 
-body.node-50.role-is-authenticated #node-empl-form .vertical-tabs-panes {
+bodr.node-50.role-is-authenticated #node-empl-form .vertical-tabs-panes {
   border: none !important;
 }
 
@@ -384,6 +390,11 @@ body.role-is-anonymous.nodeaddempl .help-block,
 body.node-50.role-is-authenticated .help-block {
   font-size: 16px;
   color: #333;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page div#edit-group-emplopportunityclosingdate--content label#edit-field-date-closing-0-value-date-error,
+body.role-is-anonymous.nodeaddempl div#edit-group-emplopportunityclosingdate--content label#edit-field-date-closing-0-value-date-error,
+body.node-50.role-is-authenticated div#edit-group-emplopportunityclosingdate--content label#edit-field-date-closing-0-value-date-error {
+  display: block !important;
 }
 body.role-is-anonymous.employment-opportunity-request-form-page #edit-actions, body.role-is-anonymous.employment-opportunity-request-form-page #edit-footer,
 body.role-is-anonymous.nodeaddempl #edit-actions,
