@@ -277,7 +277,7 @@ body.node-50.role-is-authenticated {
   }
 
   &.i18n-fr div[class$="-subform-field-class-level form-group"] .select-wrapper:after {
-    right: 40% !important;
+    right: 55% !important;
   }
   // end of Classication group 1
 
@@ -612,16 +612,16 @@ body.nodeaddempl.role-is-anonymous {
     right: 45% !important;
   } 
 
-  &.i18n-en div[class$="-subform-field-class-level form-group"] .select-wrapper:after {
-    right: 36% !important;
-  } 
+//  &.i18n-en div[class$="-subform-field-class-level form-group"] .select-wrapper:after {
+//    right: 36% !important;
+//  } 
 
 //  & div[class$="-subform-field-class-level form-group"] {
 //    float: left !important;
 //  }
 
   &.i18n-fr div[class$="-subform-field-class-level form-group"] .select-wrapper:after {
-    right: 40% !important;
+    right: 55% !important;
   }
   // end of Classication group 1
 
@@ -666,6 +666,9 @@ body.nodeaddempl.role-is-anonymous {
     display: none !important;
   }   
 
+  div.form-item--error-message.alert.alert-danger.alert-sm.form-group {
+    color: #a94442;
+  }
 }
 // End of the employment opportunity form 
 

@@ -299,9 +299,6 @@ body.news-article-form-page div[id^="edit-field-newsfile5"] div.panel-heading a[
 body.news-article-form-page div[id^="edit-field-newsfile5"].help-block, body.nodeaddnews.role-is-anonymous.node-add div[id^="edit-field-newsfile5"].help-block {
   display: none !important;
 }
-body.news-article-form-page div#edit-group-newsposteddate--content label#edit-field-posted-0-value-date-error, body.nodeaddnews.role-is-anonymous.node-add div#edit-group-newsposteddate--content label#edit-field-posted-0-value-date-error {
-  display: block !important;
-}
 
 bodr.node-50.role-is-authenticated #node-empl-form .vertical-tabs-panes {
   border: none !important;
@@ -639,7 +636,7 @@ body.node-50.role-is-authenticated div[class$="-subform-field-class-level form-g
 body.role-is-anonymous.employment-opportunity-request-form-page.i18n-fr div[class$="-subform-field-class-level form-group"] .select-wrapper:after,
 body.role-is-anonymous.nodeaddempl.i18n-fr div[class$="-subform-field-class-level form-group"] .select-wrapper:after,
 body.node-50.role-is-authenticated.i18n-fr div[class$="-subform-field-class-level form-group"] .select-wrapper:after {
-  right: 40% !important;
+  right: 55% !important;
 }
 body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-emploppsubitappquestion.panel-default,
 body.role-is-anonymous.nodeaddempl #edit-group-emploppsubitappquestion.panel-default,
@@ -913,11 +910,8 @@ body.nodeaddempl.role-is-anonymous.i18n-en div[class$="-subform-field-class-sub 
 body.nodeaddempl.role-is-anonymous.i18n-fr div[class$="-subform-field-class-sub form-group"] .select-wrapper:after {
   right: 45% !important;
 }
-body.nodeaddempl.role-is-anonymous.i18n-en div[class$="-subform-field-class-level form-group"] .select-wrapper:after {
-  right: 36% !important;
-}
 body.nodeaddempl.role-is-anonymous.i18n-fr div[class$="-subform-field-class-level form-group"] .select-wrapper:after {
-  right: 40% !important;
+  right: 55% !important;
 }
 body.nodeaddempl.role-is-anonymous #field-email-add-more-wrapper div.table-responsive button.tabledrag-toggle-weight.btn-sm.btn.btn-default {
   display: none !important;
@@ -947,6 +941,9 @@ body.nodeaddempl.role-is-anonymous #block-grstheme-bootstrap-reportproblemblock 
 }
 body.nodeaddempl.role-is-anonymous #edit-field-classification-wrapper th.field-label.form-required {
   display: none !important;
+}
+body.nodeaddempl.role-is-anonymous div.form-item--error-message.alert.alert-danger.alert-sm.form-group {
+  color: #a94442;
 }
 
 /*
