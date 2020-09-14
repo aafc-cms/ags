@@ -139,9 +139,12 @@ function wxt_overrides_link_alter(&$variables) {
     //$parent_route = $url->getParentRouteName();
     $current_route = \Drupal::routeMatch()->getRouteName();
     $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
-    $moderated_default = $user->get('field_default_content_mode')->first()->getValue();
+    $moderated_default = $user->get('field_default_content_mode')->first();
     if (!empty($moderated_default)) {
-      $moderated_default = $moderated_default['value'];
+      $moderated_default = $moderated_default->getValue()['value'];
+    }
+    else {
+      $moderated_default = FALSE;
     }
     if ($moderated_default && $route_name == 'content_moderation.admin_moderated_content') {
       $variables['text'] = t('Full');
