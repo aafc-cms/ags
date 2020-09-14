@@ -8,24 +8,24 @@ dependencies:
 id: employment_opportunity
 label: 'employment opportunity'
 type: 'canonical_entities:node'
-pattern: 'internal-employment-opportunities/[node:field_date_closing:date:html_date]/[node:title]'
+pattern: 'internal-employment-opportunities/[node:title]'
 selection_criteria:
-  1872e3a2-b17e-4772-9039-d3cc008f7f1f:
+  7300900a-8aad-4800-897e-3ab8b64e7d16:
     id: node_type
     bundles:
       empl: empl
     negate: false
     context_mapping:
       node: node
-    uuid: 1872e3a2-b17e-4772-9039-d3cc008f7f1f
-  15241ac5-d31f-4849-881a-adb59f08f22f:
+    uuid: 7300900a-8aad-4800-897e-3ab8b64e7d16
+  cbc420f3-f25c-4a17-a831-91bf2264bace:
     id: language
     langcodes:
       en: en
     negate: false
     context_mapping:
       language: 'node:langcode:language'
-    uuid: 15241ac5-d31f-4849-881a-adb59f08f22f
+    uuid: cbc420f3-f25c-4a17-a831-91bf2264bace
 selection_logic: and
 weight: -9
 relationships:

@@ -8,24 +8,24 @@ dependencies:
 id: news
 label: News
 type: 'canonical_entities:node'
-pattern: 'news@work/[node:field_posted:date:html_date]/[node:title]'
+pattern: 'news@work/[node:title]'
 selection_criteria:
-  7a2df2fd-103c-4262-9d2e-dcb622f0ef5e:
+  069d9f9c-ccae-4f99-ad8c-147349285273:
     id: node_type
     bundles:
       news: news
     negate: false
     context_mapping:
       node: node
-    uuid: 7a2df2fd-103c-4262-9d2e-dcb622f0ef5e
-  74957e59-82cb-4a16-be9c-23fb88455c24:
+    uuid: 069d9f9c-ccae-4f99-ad8c-147349285273
+  f27cf267-15a9-425a-b0f7-a7433f075c54:
     id: language
     langcodes:
       en: en
     negate: false
     context_mapping:
       language: 'node:langcode:language'
-    uuid: 74957e59-82cb-4a16-be9c-23fb88455c24
+    uuid: f27cf267-15a9-425a-b0f7-a7433f075c54
 selection_logic: and
 weight: -8
 relationships:
