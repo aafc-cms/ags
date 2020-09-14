@@ -726,7 +726,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         if ($news_at_work->hasTranslation($langcode)) {
           $news_at_work = $news_at_work->getTranslation($langcode);
         }
-	  $linkNewsatWork = $news_at_work->toLink($news_at_work->getTitle());
+	$linkNewsatWork = $news_at_work->toLink($news_at_work->getTitle());
       }
       else {
         $linkNewsatWork = Link::createFromRoute(t('News@work'), 'view.view_news_work.page_1');
@@ -755,7 +755,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         if ($hr->hasTranslation($langcode)) {
           $hr = $hr->getTranslation($langcode);
         }
-	  $linkHR = $hr->toLink(t('Human Resources'));
+	$linkHR = $hr->toLink(t('Human Resources'));
       }
       else {
         $linkHR = Link::createFromRoute(t('Human Resources'), 'view.view_employmentopportunities.page_1');
@@ -782,7 +782,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         if ($news->hasTranslation($langcode)) {
           $news = $news->getTranslation($langcode);
         }
-	  $linkNews = $news->toLink($news->getTitle());
+	$linkNews = $news->toLink($news->getTitle());
       }
       else {
         $linkNews = Link::createFromRoute(t('News'), 'view.view_news_work.page_1');
@@ -801,7 +801,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         if ($news_at_work->hasTranslation($langcode)) {
           $news_at_work = $news_at_work->getTranslation($langcode);
         }
-	  $linkNewsatWork = $news_at_work->toLink($news_at_work->getTitle());
+	$linkNewsatWork = $news_at_work->toLink($news_at_work->getTitle());
       }
       else {
         $linkNewsatWork = Link::createFromRoute(t('News@work'), 'view.view_news_work.page_1');
@@ -828,7 +828,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         if ($hr->hasTranslation($langcode)) {
           $hr = $hr->getTranslation($langcode);
         }
-	      $linkHR = $hr->toLink(t('Human Resources'));
+	$linkHR = $hr->toLink(t('Human Resources'));
       }
       else {
         $linkHR = Link::createFromRoute(t('Human Resources'), 'view.view_employmentopportunities.page_1');
@@ -846,7 +846,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         if ($staffing->hasTranslation($langcode)) {
           $staffing = $staffing->getTranslation($langcode);
         }
-	  $linkStaffing = $staffing->toLink($staffing->getTitle());
+	$linkStaffing = $staffing->toLink($staffing->getTitle());
       }
       else {
         $linkStaffing = Link::createFromRoute(t('Staffing'), 'view.view_employmentopportunities.page_1');
