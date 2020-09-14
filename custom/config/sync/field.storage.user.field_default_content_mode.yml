@@ -1,0 +1,18 @@
+uuid: 501f41ea-e420-4f8f-b488-cf4d785302a0
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_default_content_mode
+field_name: field_default_content_mode
+entity_type: user
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

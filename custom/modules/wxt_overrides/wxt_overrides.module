@@ -136,12 +136,21 @@ function wxt_overrides_link_alter(&$variables) {
   }
   else {
     $route_name = $url->getRouteName();
+    //$parent_route = $url->getParentRouteName();
     $current_route = \Drupal::routeMatch()->getRouteName();
-    if ($route_name == 'system.admin_content' && $current_route != 'content_moderation.admin_moderated_content') {
+    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+    $moderated_default = $user->get('field_default_content_mode')->first()->getValue();
+    if (!empty($moderated_default)) {
+      $moderated_default = $moderated_default['value'];
+    }
+    if ($moderated_default && $route_name == 'content_moderation.admin_moderated_content') {
+      $variables['text'] = t('Full');
+    }
+    else if ($moderated_default && $route_name == 'system.admin_content' && $variables['text'] != 'Overview') {
       $variables['text'] = t('Moderated content');
       $variables['url'] = \Drupal\Core\Url::fromUri('internal:/admin/content/moderated');
     }
-    elseif ($route_name == 'entity.media.collection' && $current_route != 'view.media_library.page') {
+    elseif ($route_name == 'entity.media.collection' && $variables['text'] != 'Table') {
       $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
       $variables['text'] = 'Media (grid)';
       if ($langcode == 'fr') {
