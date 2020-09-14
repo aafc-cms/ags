@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_default_content_mode
     - field.field.user.user.field_first_name
     - field.field.user.user.field_last_name
     - field.field.user.user.user_picture
@@ -28,6 +29,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_default_content_mode:
+    weight: 33
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_first_name:
     type: string_textfield
     weight: 31

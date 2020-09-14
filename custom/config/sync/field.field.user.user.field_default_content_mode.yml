@@ -1,0 +1,24 @@
+uuid: b8a443ba-73bf-433b-9cf0-14eb5a60b012
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_default_content_mode
+  module:
+    - user
+id: user.user.field_default_content_mode
+field_name: field_default_content_mode
+entity_type: user
+bundle: user
+label: 'Always moderated content'
+description: 'Moderated mode will set moderated content as the default mode rather than /admin/content the link will be /admin/content/moderated.  This is a setting that is customizable per user.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Moderated
+  off_label: Content
+field_type: boolean
