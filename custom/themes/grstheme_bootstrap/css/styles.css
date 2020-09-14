@@ -339,33 +339,37 @@ body.user-logged-in.archived div.region-header h1 {
 body.page-node-type-news {
   /* field title float left class */
 }
-/* line 4, ../sass/components/_news_page.scss */
+/* line 5, ../sass/components/_news_page.scss */
 body.page-node-type-news .field--name-field-posted .field--label,
 body.page-node-type-news .field--name-field-to .field--label,
 body.page-node-type-news .field--name-field-from .field--label {
   float: left;
 }
 /* line 10, ../sass/components/_news_page.scss */
+body.page-node-type-news .field--name-field-from {
+  margin-bottom: 15px;
+}
+/* line 14, ../sass/components/_news_page.scss */
 body.page-node-type-news .field--name-field-posted .field--label::after,
 body.page-node-type-news .field--name-field-to .field--label::after,
 body.page-node-type-news .field--name-field-from .field--label::after {
   content: '\00a0\00a0';
 }
-/* line 16, ../sass/components/_news_page.scss */
+/* line 20, ../sass/components/_news_page.scss */
 body.page-node-type-news .field--name-body .field--label {
   display: none;
 }
-/* line 20, ../sass/components/_news_page.scss */
+/* line 24, ../sass/components/_news_page.scss */
 body.page-node-type-news .field--name-body.field--type-text-with-summary.field--label-above.quickedit-field .field--item::before {
   content: "\A";
   white-space: pre;
 }
 
-/* line 27, ../sass/components/_news_page.scss */
+/* line 31, ../sass/components/_news_page.scss */
 body.role-is-anonymous.news-newswork div.js-text-summary-wrapper.text-summary-wrapper, body.nodeaddnews.role-is-anonymous div.js-text-summary-wrapper.text-summary-wrapper {
   display: none !important;
 }
-/* line 30, ../sass/components/_news_page.scss */
+/* line 34, ../sass/components/_news_page.scss */
 body.role-is-anonymous.news-newswork div#edit-group-newsposteddate--content label#edit-field-posted-0-value-date-error, body.nodeaddnews.role-is-anonymous div#edit-group-newsposteddate--content label#edit-field-posted-0-value-date-error {
   display: block !important;
 }

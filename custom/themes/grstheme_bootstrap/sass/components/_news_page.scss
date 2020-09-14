@@ -1,11 +1,15 @@
 
 body.page-node-type-news {
   /* field title float left class */
+  
   .field--name-field-posted .field--label,
   .field--name-field-to .field--label,
   .field--name-field-from .field--label, {
     float: left;
   } 
+  .field--name-field-from {
+    margin-bottom: 15px;
+  }
 
   .field--name-field-posted .field--label::after,
   .field--name-field-to .field--label::after,
