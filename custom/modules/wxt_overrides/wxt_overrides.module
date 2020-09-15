@@ -1,6 +1,8 @@
 <?php
 
+
 use Drupal\agri_admin\AgriAdminHelper;
+
 /**
  * @file
  * Primary module hooks for WxT Overrides module.
@@ -38,13 +40,190 @@ function wxt_overrides_page_attachments(array &$page) {
       unset($page['#attached']['library'][$key]);
       $page['#attached']['library'][] = 'wxt_overrides/wet-boew-replacement';
     }
-    $DEBUG = false;
-    if ($DEBUG && $fp = fopen('modules/custom/wxt_overrides/js/wb/debug.txt', 'a'))
-    {
-      fwrite($fp, print_r($page, TRUE) . "\n");
-      fclose($fp);
+  }
+
+
+  $DEBUG = TRUE;
+  if ($DEBUG && $fp = fopen('modules/custom/wxt_overrides/debug.txt', 'a'))
+  {
+    fwrite($fp, print_r($page, TRUE) . "\n");
+    fclose($fp);
+  }
+
+  // add page meta
+  //$route_match = Utils::getRouteName(); // Alternatively can do this.
+  //if ($route_match == 'entity.node.canonical') {
+  if (isset($page['#attached']['html_head'])) {
+    $metatags_module_head = $page['#attached']['html_head'];
+    foreach($metatags_module_head as $key => $value) {
+      if (isset($value[0]['#attributes']['name'])) {
+        $name = $value[0]['#attributes']['name'];
+        if ($name == 'dcterms.type') {
+          $content = $value[0]['#attributes']['content'];
+          $dctermstype = [
+            '#tag' => 'meta',
+            '#attributes' => [
+              'property'  => 'dcterms:type',
+              'title'     => 'gctype',
+              'content'   => $content,
+            ],
+          ];
+          unset($page['#attached']['html_head'][$key]);
+          // Transfer metatag from default dublincore to aafc/gc custom.
+          $page['#attached']['html_head'][] = [$dctermstype, 'dcterms:type'];
+        }
+        if ($name == 'dcterms.subject') {
+          $content = $value[0]['#attributes']['content'];
+          $aafcsubject = [
+            '#tag' => 'meta',
+            '#attributes' => [
+              'property'  => 'aafc:subject',
+              'title'     => 'aafcsubject',
+              'content'   => $content,
+            ],
+          ];
+          unset($page['#attached']['html_head'][$key]);
+          // Transfer metatag from default dublincore to aafc/gc custom.
+        }
+      }
     }
   }
+
+  if ($node) {
+    $node = \Drupal::routeMatch()->getParameter('node');
+    $type = '';
+    $issued_date = '';
+    $modified_date = '';
+    if ($node->get('field_issued')->first()) {
+      $issued_date = $node->get('field_issued')->first()->date->format('Y-m-d');
+    }
+    if ($node->get('field_modified')->first()) {
+      $modified_date = $node->get('field_modified')->first()->date->format('Y-m-d');
+    }
+    $type = $node->bundle();
+    $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    if ($type == 'page' || $type == 'landing_page') {
+      if ($node->get('field_dc_date_created')->first()) {
+        $issued_date = $node->get('field_dc_date_created')->first()->date->format('Y-m-d');
+      }
+    }
+
+    $dctermsissued = [
+      '#tag' => 'meta',
+      '#attributes' => [
+        'property'  => 'dcterms:issued',
+        'title'     => 'W3CDTF',
+        'content'   => $issued_date,
+      ],
+    ];
+
+    $dctermsmodified = [
+      '#tag' => 'meta',
+      '#attributes' => [
+        'property'  => 'dcterms:modified',
+        'title'     => 'W3CDTF',
+        'content'   => $modified_date,
+      ],
+    ];
+
+    $dctermsmodified = [
+      '#tag' => 'meta',
+      '#attributes' => [
+        'property'  => 'dcterms:modified',
+        'title'     => 'W3CDTF',
+        'content'   => $modified_date,
+      ],
+    ];
+
+    $dctermsspatial = [
+      '#tag' => 'meta',
+      '#attributes' => [
+        'property'  => 'dcterms:spatial',
+        'title'     => 'gcregions',
+        'content'   => '',
+      ],
+    ];
+
+    $dctermsaudience = [
+      '#tag' => 'meta',
+      '#attributes' => [
+        'property'  => 'dcterms:audience',
+        'title'     => 'gcaudience',
+        'content'   => '',
+      ],
+    ];
+
+    $dctermsformat = [
+      '#tag' => 'meta',
+      '#attributes' => [
+        'property'  => 'dcterms:format',
+        'title'     => 'gcformat',
+        'content'   => '',
+      ],
+    ];
+
+    $dctermsaccessRights = [
+      '#tag' => 'meta',
+      '#attributes' => [
+        'property'  => 'dcterms:accessRights',
+        'title'     => '',
+        'content'   => '3',
+      ],
+    ];
+
+    if ( $langId == 'en' ) {
+      $dctermslanguage = [
+        '#tag' => 'meta',
+        '#attributes' => [
+          'property'  => 'dcterms:language',
+          'title'     => 'ISO639-2',
+          'content'   => 'eng',
+        ],
+      ];
+
+      $dctermsservice = [
+        '#tag' => 'meta',
+        '#attributes' => [
+          'property'  => 'dcterms:service',
+          'title'     => '',
+          'content'   => 'AAFC_AgriSource',
+        ],
+      ];
+    }
+
+    if ( $langId == 'fr' ) {
+      $dctermslanguage = [
+        '#tag' => 'meta',
+        '#attributes' => [
+          'property'  => 'dcterms:language',
+          'title'     => 'ISO639-2',
+          'content'   => 'fra',
+        ],
+      ];
+
+      $dctermsservice = [
+        '#tag' => 'meta',
+        '#attributes' => [
+          'property'  => 'dcterms:service',
+          'title'     => '',
+          'content'   => 'AAC_AgriSource',
+        ],
+      ];
+    }
+
+    $page['#attached']['html_head'][] = [$dctermsaccessRights, 'dcterms:accessRights'];
+    $page['#attached']['html_head'][] = [$dctermsaudience, 'dcterms:audience'];
+    $page['#attached']['html_head'][] = [$dctermsformat, 'dcterms:format'];
+    $page['#attached']['html_head'][] = [$dctermsissued, 'dcterms:issued'];
+    $page['#attached']['html_head'][] = [$dctermsmodified, 'dcterms:modified'];
+    $page['#attached']['html_head'][] = [$dctermslanguage, 'dcterms:language'];
+    $page['#attached']['html_head'][] = [$dctermsservice, 'dcterms:service'];
+    $page['#attached']['html_head'][] = [$dctermsspatial, 'dcterms:spatial'];
+    if (isset($aafcsubject) && is_array($aafcsubject)) {
+      $page['#attached']['html_head'][] = [$aafcsubject, 'aafc:subject'];
+    }
+  }
+
   return;
 }
 
