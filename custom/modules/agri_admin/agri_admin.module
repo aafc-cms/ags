@@ -67,58 +67,71 @@ function agri_admin_page_attachments(array &$page) {
     $modified_date = $node->get('field_modified')->first()->date->format('Y-m-d');
     $type = $node->bundle();
     $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    if ($type == 'page' || $type == 'landing_page') {
+      $issued_date = $node->get('field_dc_date_created')->first()->date->format('Y-m-d');
+    }
+
     $dctermsissued = [
-        '#tag' => 'meta',
-        '#attributes' => [
-          'property'  => 'dcterms:issued',
-          'title'     => 'W3CDTF',
-          'content'   => $issued_date,
-        ],
+      '#tag' => 'meta',
+      '#attributes' => [
+        'property'  => 'dcterms:issued',
+        'title'     => 'W3CDTF',
+        'content'   => $issued_date,
+      ],
     ];
 
     $dctermsmodified = [
-        '#tag' => 'meta',
-        '#attributes' => [
-          'property'  => 'dcterms:modified',
-          'title'     => 'W3CDTF',
-          'content'   => $modified_date,
-        ],
+      '#tag' => 'meta',
+      '#attributes' => [
+        'property'  => 'dcterms:modified',
+        'title'     => 'W3CDTF',
+        'content'   => $modified_date,
+      ],
+    ];
+
+    $dctermsmodified = [
+      '#tag' => 'meta',
+      '#attributes' => [
+        'property'  => 'dcterms:modified',
+        'title'     => 'W3CDTF',
+        'content'   => $modified_date,
+      ],
     ];
 
     $dctermsspatial = [
-        '#tag' => 'meta',
-        '#attributes' => [
-          'property'  => 'dcterms:spatial',
-          'title'     => 'gcregions',
-          'content'   => '',
-        ],
+      '#tag' => 'meta',
+      '#attributes' => [
+        'property'  => 'dcterms:spatial',
+        'title'     => 'gcregions',
+        'content'   => '',
+      ],
     ];
 
     $dctermsaudience = [
-        '#tag' => 'meta',
-        '#attributes' => [
-          'property'  => 'dcterms:audience',
-          'title'     => 'gcaudience',
-          'content'   => '',
-        ],
+      '#tag' => 'meta',
+      '#attributes' => [
+        'property'  => 'dcterms:audience',
+        'title'     => 'gcaudience',
+        'content'   => '',
+      ],
     ];
 
     $dctermsformat = [
-        '#tag' => 'meta',
-        '#attributes' => [
-          'property'  => 'dcterms:format',
-          'title'     => 'gcformat',
-          'content'   => '',
-        ],
+      '#tag' => 'meta',
+      '#attributes' => [
+        'property'  => 'dcterms:format',
+        'title'     => 'gcformat',
+        'content'   => '',
+      ],
     ];
 
     $dctermsaccessRights = [
-        '#tag' => 'meta',
-        '#attributes' => [
-          'property'  => 'dcterms:accessRights',
-          'title'     => '',
-          'content'   => '3',
-        ],
+      '#tag' => 'meta',
+      '#attributes' => [
+        'property'  => 'dcterms:accessRights',
+        'title'     => '',
+        'content'   => '3',
+      ],
     ];
 
     if ( $langId == 'en' ) {
