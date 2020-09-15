@@ -19,6 +19,20 @@ agri-empl-news-submit:
     - core/jquery
     - core/drupalSettings
 
+agri-empl-submit:
+  js:
+    js/agri-empl-submit.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+
+agri-news-submit:
+  js:
+    js/agri-news-submit.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+
 agri-empl-news-submit_css:
   css:
     component:

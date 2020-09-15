@@ -430,6 +430,7 @@ function _helperUpdateProcess($action, $entity_id, $bundle) {
 function agri_admin_form_node_news_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   $route_match = Utils::getRouteName();
   if ($route_match == 'entity.node.canonical') {
+    $form['#attached']['library'][] = 'agri_admin/agri-news-submit'; // For empl submit.
     $form['#attached']['library'][] = 'agri_admin/agri-empl-news-submit_css'; // For empl submit.
     if (\Drupal::currentUser()->isAuthenticated()) {
       $form['#attached']['library'][] = 'agri_admin/agri-empl-news-submit-simple'; // For empl submit.
@@ -465,11 +466,11 @@ function agri_admin_form_node_empl_form_alter(&$form, \Drupal\Core\Form\FormStat
   $route_match = Utils::getRouteName();
   if ($route_match == 'entity.node.canonical') {
     $form['actions']['preview']['#weight'] = -99;
-    // See js/agri-empl-or-news-submit.js previewInNewTab().
+    $form['#attached']['library'][] = 'agri_admin/agri-empl-submit'; // For empl submit.
+    $form['#attached']['library'][] = 'agri_admin/agri-empl-news-submit_css'; // For empl submit.
     if (\Drupal::currentUser()->isAuthenticated()) {
       $form['#attached']['library'][] = 'agri_admin/agri-empl-news-submit-simple'; // For empl submit.
     }
-    $form['#attached']['library'][] = 'agri_admin/agri-empl-news-submit_css'; // For empl submit.
     $form['actions']['#weight'] = 5;
     $form['actions']['submit']['#value'] = t('Submit Request');
   }
