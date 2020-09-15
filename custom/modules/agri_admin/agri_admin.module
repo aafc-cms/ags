@@ -61,7 +61,30 @@ function agri_admin_page_attachments(array &$page) {
   // add page meta
   $route_match = Utils::getRouteName();
   if ($route_match == 'entity.node.canonical') {
+    $node = \Drupal::routeMatch()->getParameter('node');
+    $type = '';
+    $issued_date = $node->get('field_issued')->first()->date->format('Y-m-d');
+    $modified_date = $node->get('field_modified')->first()->date->format('Y-m-d');
+    $type = $node->bundle();
     $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    $dctermsissued = [
+        '#tag' => 'meta',
+        '#attributes' => [
+          'property'  => 'dcterms:issued',
+          'title'     => 'W3CDTF',
+          'content'   => $issued_date,
+        ],
+    ];
+
+    $dctermsmodified = [
+        '#tag' => 'meta',
+        '#attributes' => [
+          'property'  => 'dcterms:modified',
+          'title'     => 'W3CDTF',
+          'content'   => $modified_date,
+        ],
+    ];
+
     $dctermsspatial = [
         '#tag' => 'meta',
         '#attributes' => [
@@ -138,12 +161,14 @@ function agri_admin_page_attachments(array &$page) {
       ];
     }
 
-    $page['#attached']['html_head'][] = [$dctermslanguage, 'dcterms:language'];
-    $page['#attached']['html_head'][] = [$dctermsspatial, 'dcterms:spatial'];
+    $page['#attached']['html_head'][] = [$dctermsaccessRights, 'dcterms:accessRights'];
     $page['#attached']['html_head'][] = [$dctermsaudience, 'dcterms:audience'];
     $page['#attached']['html_head'][] = [$dctermsformat, 'dcterms:format'];
+    $page['#attached']['html_head'][] = [$dctermsissued, 'dcterms:issued'];
+    $page['#attached']['html_head'][] = [$dctermsmodified, 'dcterms:modified'];
+    $page['#attached']['html_head'][] = [$dctermslanguage, 'dcterms:language'];
     $page['#attached']['html_head'][] = [$dctermsservice, 'dcterms:service'];
-    $page['#attached']['html_head'][] = [$dctermsaccessRights, 'dcterms:accessRights'];
+    $page['#attached']['html_head'][] = [$dctermsspatial, 'dcterms:spatial'];
   }
 
   return; 
