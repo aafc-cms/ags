@@ -63,8 +63,14 @@ function agri_admin_page_attachments(array &$page) {
   if ($route_match == 'entity.node.canonical') {
     $node = \Drupal::routeMatch()->getParameter('node');
     $type = '';
-    $issued_date = $node->get('field_issued')->first()->date->format('Y-m-d');
-    $modified_date = $node->get('field_modified')->first()->date->format('Y-m-d');
+    $issued_date = '';
+    $modified_date = '';
+    if ($node->get('field_issued')->first()) {
+      $issued_date = $node->get('field_issued')->first()->date->format('Y-m-d');
+    }
+    if ($node->get('field_modified')->first()) {
+      $modified_date = $node->get('field_modified')->first()->date->format('Y-m-d');
+    }
     $type = $node->bundle();
     $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
     if ($type == 'page' || $type == 'landing_page') {
