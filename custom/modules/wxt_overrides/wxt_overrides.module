@@ -2,6 +2,7 @@
 
 
 use Drupal\agri_admin\AgriAdminHelper;
+use Drupal\agri_admin\Utils;
 
 /**
  * @file
@@ -22,28 +23,8 @@ function wxt_overrides_page_attachments(array &$page) {
   if (!isset($node)) {
     return;
   }
-  if (is_object($node)) {
-    $nid = $node->id();
-  }
-  if (is_string($node) || is_integer($node)) {
-    $nid = $node;
-  }
-  if (0 && $nid > 0) {
-    $library_array = $page['#attached']['library'];
-    if (in_array('wxt_library/wet-boew-dev', $page['#attached']['library'])) {
-      $key = array_search('wxt_library/wet-boew-dev', $page['#attached']['library']);
-      unset($page['#attached']['library'][$key]);
-      $page['#attached']['library'][] = 'wxt_overrides/wet-boew-replacement';
-    }
-    if (in_array('wxt_library/wet-boew', $page['#attached']['library'])) {
-      $key = array_search('wxt_library/wet-boew', $page['#attached']['library']);
-      unset($page['#attached']['library'][$key]);
-      $page['#attached']['library'][] = 'wxt_overrides/wet-boew-replacement';
-    }
-  }
 
-
-  $DEBUG = TRUE;
+  $DEBUG = FALSE;
   if ($DEBUG && $fp = fopen('modules/custom/wxt_overrides/debug.txt', 'a'))
   {
     fwrite($fp, print_r($page, TRUE) . "\n");
@@ -51,9 +32,8 @@ function wxt_overrides_page_attachments(array &$page) {
   }
 
   // add page meta
-  //$route_match = Utils::getRouteName(); // Alternatively can do this.
-  //if ($route_match == 'entity.node.canonical') {
-  if (isset($page['#attached']['html_head'])) {
+  $route_match = Utils::getRouteName();
+  if ($route_match == 'entity.node.canonical' && isset($page['#attached']['html_head'])) {
     $metatags_module_head = $page['#attached']['html_head'];
     foreach($metatags_module_head as $key => $value) {
       if (isset($value[0]['#attributes']['name'])) {
@@ -108,6 +88,26 @@ function wxt_overrides_page_attachments(array &$page) {
       }
     }
 
+    if (!isset($dctermstype)) {
+      $dctermstype = [
+        '#tag' => 'meta',
+        '#attributes' => [
+          'property'  => 'dcterms:type',
+          'title'     => 'gctype',
+          'content'   => '',
+        ],
+      ];
+    }
+    if (!isset($aafcsubject)) {
+      $aafcsubject = [
+        '#tag' => 'meta',
+        '#attributes' => [
+          'property'  => 'aafc:subject',
+          'title'     => 'aafcsubject',
+          'content'   => '',
+        ],
+      ];
+    }
     $dctermsissued = [
       '#tag' => 'meta',
       '#attributes' => [
@@ -211,6 +211,7 @@ function wxt_overrides_page_attachments(array &$page) {
       ];
     }
 
+    $page['#attached']['html_head'][] = [$dctermstype, 'dcterms:type'];
     $page['#attached']['html_head'][] = [$dctermsaccessRights, 'dcterms:accessRights'];
     $page['#attached']['html_head'][] = [$dctermsaudience, 'dcterms:audience'];
     $page['#attached']['html_head'][] = [$dctermsformat, 'dcterms:format'];
@@ -219,9 +220,7 @@ function wxt_overrides_page_attachments(array &$page) {
     $page['#attached']['html_head'][] = [$dctermslanguage, 'dcterms:language'];
     $page['#attached']['html_head'][] = [$dctermsservice, 'dcterms:service'];
     $page['#attached']['html_head'][] = [$dctermsspatial, 'dcterms:spatial'];
-    if (isset($aafcsubject) && is_array($aafcsubject)) {
-      $page['#attached']['html_head'][] = [$aafcsubject, 'aafc:subject'];
-    }
+    $page['#attached']['html_head'][] = [$aafcsubject, 'aafc:subject'];
   }
 
   return;
