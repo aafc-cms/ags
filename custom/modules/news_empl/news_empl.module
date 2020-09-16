@@ -1,0 +1,28 @@
+<?php
+
+
+use Drupal\agri_admin\AgriAdminHelper;
+use Drupal\agri_admin\Utils;
+
+/**
+ * @file
+ * Primary module hooks for News-Empl module.
+ *
+ */
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function news_empl_page_attachments(array &$page) {
+  // add page meta
+  $route_match = Utils::getRouteName();
+  if ($route_match == 'entity.node.canonical') {
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if ($node->bundle() == 'empl') {
+      $page['#attached']['library'][] = 'news_empl/empl-node-css';
+    }
+    else if ($node->bundle() == 'news') {
+      $page['#attached']['library'][] = 'news_empl/news-node-css';
+    }
+  }
+}

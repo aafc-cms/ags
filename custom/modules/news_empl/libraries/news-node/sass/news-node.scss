@@ -1,0 +1,9 @@
+
+body.user-anonymous.news.published-no {
+  div.messages__wrapper {
+    div.alert-success em.placeholder a {
+      // Hide the anchor link only when user anonymous published-no and only for the news page.
+      display: none;
+    }
+  }
+}

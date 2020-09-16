@@ -1,0 +1,38 @@
+
+news-node-css:
+  css:
+    component:
+      libraries/news-node/css/news-node.css: {}
+
+empl-node-css:
+  css:
+    component:
+      libraries/empl-node/css/empl-node.css: {}
+
+# Custom module library for general purposes.
+#news_empl:
+#  js:
+#    js/news-empl.js: {}
+#  css:
+#    component:
+#      css/news-empl.css: {}
+#  dependencies:
+#    - core/drupalSettings
+#    - news_empl/jquery-labelauty
+
+# Third-party library (self hosted).
+#jquery-labelauty:
+#  remote: https://github.com/fntneves/jquery-labelauty
+#  version: 1.1.0
+#  license:
+#    name: MIT
+#    url: https://github.com/fntneves/jquery-labelauty/blob/v1.1.0/LICENSE
+#    gpl-compatible: true
+#  js:
+#    /libraries/jquery-labelauty/source/jquery-labelauty.js: {}
+#  css:
+#    component:
+#      /libraries/jquery-labelauty/source/jquery-labelauty.css: {}
+#  dependencies:
+#    - core/jquery
+
