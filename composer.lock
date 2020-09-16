@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fb8bf2dba5a4053dd6804b99d7abcadb",
+    "content-hash": "7eb906efcf0c7927d15322b5128e3743",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -289,7 +289,7 @@
             "version": "v2.3.4",
             "source": {
                 "type": "git",
-                "url": "git@github.com:fengyuanchen/cropper.git",
+                "url": "https://github.com/fengyuanchen/cropper.git",
                 "reference": "30c58b29ee21010e17e58ebab165fbd84285c685"
             },
             "dist": {
@@ -324,7 +324,7 @@
             "version": "3.5.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jquery/jquery-dist.git",
+                "url": "git@github.com:jquery/jquery-dist.git",
                 "reference": "4c0e4becb8263bb5b3e6dadc448d8e7305ef8215"
             },
             "dist": {
@@ -12309,6 +12309,20 @@
             "type": "drupal-custom-module"
         },
         {
+            "name": "entreprise7pro/news_empl",
+            "version": "8.9999999.9999999.9999999-dev",
+            "dist": {
+                "type": "path",
+                "url": "custom/modules/news_empl",
+                "reference": "218afc934d613bc7d067957642e6a585be6b466a",
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "^1.2"
+            },
+            "type": "drupal-custom-module"
+        },
+        {
             "name": "entreprise7pro/wxt_overrides",
             "version": "8.9999999.9999999.9999999-dev",
             "dist": {
@@ -21441,6 +21455,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "entreprise7pro/news_empl": 20,
         "drupal/config_split": 20,
         "drupal/content_moderation_notifications": 20,
         "drupal/formblock": 20,
