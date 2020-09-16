@@ -19,10 +19,18 @@ function news_empl_page_attachments(array &$page) {
   if ($route_match == 'entity.node.canonical') {
     $node = \Drupal::routeMatch()->getParameter('node');
     if ($node->bundle() == 'empl') {
-      $page['#attached']['library'][] = 'news_empl/empl-node-css';
+      //$page['#attached']['library'][] = 'news_empl/empl-node-css'; // Not yet needed.
+      $anonymous = \Drupal::currentUser()->isAnonymous();
+      if ($anonymous) {
+        $page['#attached']['library'][] = 'news_empl/anonymous-empl-node-css';
+      }
     }
     else if ($node->bundle() == 'news') {
-      $page['#attached']['library'][] = 'news_empl/news-node-css';
+      //$page['#attached']['library'][] = 'news_empl/news-node-css'; // Not yet needed.
+      $anonymous = \Drupal::currentUser()->isAnonymous();
+      if ($anonymous) {
+        $page['#attached']['library'][] = 'news_empl/anonymous-news-node-css';
+      }
     }
   }
 }
