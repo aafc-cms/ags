@@ -1,4 +1,16 @@
-body.user-anonymous.empl.published-no div.messages__wrapper div.alert-success em.placeholder a {
+a[href*="internal-employment"] {
+  display: none;
+}
+
+a[href*="internal"] {
+  display: none;
+}
+
+a[href*="opportuni"] {
+  display: none;
+}
+
+body.user-anonymous.path-frontpage div.messages__wrapper div.alert-success em.placeholder a[href*="employment"] {
   display: none;
 }
 

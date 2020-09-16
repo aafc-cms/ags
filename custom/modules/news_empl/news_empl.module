@@ -18,19 +18,17 @@ function news_empl_page_attachments(array &$page) {
   $route_match = Utils::getRouteName();
   if ($route_match == 'entity.node.canonical') {
     $node = \Drupal::routeMatch()->getParameter('node');
+    $anonymous = \Drupal::currentUser()->isAnonymous();
     if ($node->bundle() == 'empl') {
-      //$page['#attached']['library'][] = 'news_empl/empl-node-css'; // Not yet needed.
-      $anonymous = \Drupal::currentUser()->isAnonymous();
-      if ($anonymous) {
-        $page['#attached']['library'][] = 'news_empl/anonymous-empl-node-css';
-      }
+      $page['#attached']['library'][] = 'news_empl/empl-node-css'; // Not yet needed.
     }
     else if ($node->bundle() == 'news') {
-      //$page['#attached']['library'][] = 'news_empl/news-node-css'; // Not yet needed.
-      $anonymous = \Drupal::currentUser()->isAnonymous();
-      if ($anonymous) {
-        $page['#attached']['library'][] = 'news_empl/anonymous-news-node-css';
-      }
+      $page['#attached']['library'][] = 'news_empl/news-node-css'; // Not yet needed.
+    }
+    if ($anonymous && \Drupal::service('path.matcher')->isFrontPage()) {
+      // This actually only affects the front page.
+      $page['#attached']['library'][] = 'news_empl/anonymous-empl-node-css';
+      $page['#attached']['library'][] = 'news_empl/anonymous-news-node-css';
     }
   }
 }
