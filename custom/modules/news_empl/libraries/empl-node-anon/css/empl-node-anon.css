@@ -1,17 +1,6 @@
-a[href*="internal-employment"] {
+body.user-anonymous.home.i18n-en div.messages__wrapper div.alert-success em.placeholder a[href*="/internal-employment"] {
   display: none;
 }
-
-a[href*="internal"] {
+body.user-anonymous.home.i18n-fr div.messages__wrapper div.alert-success em.placeholder a[href*="/fr/possibilites-dempl"] {
   display: none;
 }
-
-a[href*="opportuni"] {
-  display: none;
-}
-
-body.user-anonymous.path-frontpage div.messages__wrapper div.alert-success em.placeholder a[href*="employment"] {
-  display: none;
-}
-
-/*# sourceMappingURL=empl-node-anon.css.map */

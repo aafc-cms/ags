@@ -1,9 +1,19 @@
 
-body.user-anonymous.news.published-no {
-  div.messages__wrapper {
-    div.alert-success em.placeholder a {
-      // Hide the anchor link only when user anonymous published-no and only for the news page.
-      display: none;
+body.user-anonymous.home {
+  &.i18n-en {
+    div.messages__wrapper {
+      div.alert-success em.placeholder a[href*="en/news"] {
+        // Hide the anchor link only when user anonymous published-no and only for the news page.
+        display: none;
+      }
+    }
+  }
+  &.i18n-fr {
+    div.messages__wrapper {
+      div.alert-success em.placeholder a[href*="fr/nouvelles"] {
+        // Hide the anchor link only when user anonymous published-no and only for the news page.
+        display: none;
+      }
     }
   }
 }

@@ -5,8 +5,8 @@ environment = :development
 # If in development (set above), we can turn on the sourcemap file generation.
 # Requires sass 3.3+ and compass 1.0+
 # Determine version from command line: sass --version && compass --version
-#sourcemap = false
-sourcemap = true
+sourcemap = false
+#sourcemap = true
 
 # Alternative development debugging methods
 # If in development (above), we can enable line_comments for FireCompass plugin.
