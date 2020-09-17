@@ -51,7 +51,7 @@ third_party_settings:
         open: true
         required_fields: true
         id: ''
-        classes: submitterContactDetail
+        classes: 'submitterContactDetail never-collapse'
       label: 'Submitter''s contact information'
     group_newsreviewerandapprover:
       children:
@@ -66,7 +66,7 @@ third_party_settings:
         open: true
         required_fields: true
         id: ''
-        classes: ''
+        classes: never-collapse
       label: 'Article approval'
     group_aboutarticle:
       children:
@@ -77,11 +77,11 @@ third_party_settings:
       format_type: details
       region: content
       format_settings:
-        id: ''
-        classes: ''
         description: ''
         open: true
         required_fields: true
+        id: ''
+        classes: never-collapse
       label: 'About the article'
     group_newsarticleheadline:
       children:
@@ -109,7 +109,7 @@ third_party_settings:
         open: true
         required_fields: true
         id: ''
-        classes: ''
+        classes: never-collapse
       label: 'Who will readers see the article has been "Sent By"?'
     group_newsarticle:
       children:
@@ -137,7 +137,7 @@ third_party_settings:
         open: true
         required_fields: true
         id: ''
-        classes: ''
+        classes: never-collapse
       label: 'Translation request number'
     group_newsposteddate:
       children:
@@ -147,11 +147,11 @@ third_party_settings:
       format_type: details
       region: content
       format_settings:
-        id: ''
-        classes: ''
         description: ''
         open: true
         required_fields: true
+        id: ''
+        classes: never-collapse
       label: 'Posting date'
     group_newsnotes:
       children:
@@ -165,7 +165,7 @@ third_party_settings:
         open: true
         required_fields: true
         id: ''
-        classes: ''
+        classes: never-collapse
       label: Notes
     group_newsattachedfiles:
       children:
@@ -179,7 +179,7 @@ third_party_settings:
         open: true
         required_fields: true
         id: ''
-        classes: ''
+        classes: 'never-collapse'
       label: 'Related files'
     group_testingdetailsgroup:
       children:

@@ -32,3 +32,25 @@ function news_empl_page_attachments(array &$page) {
     }
   }
 }
+
+
+/**
+ * Implements hook_form_node_news_form_alter().
+ */
+function news_empl_form_node_news_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $route_match = Utils::getRouteName();
+  if ($route_match == 'entity.node.canonical') {
+    $form['#attached']['library'][] = 'news_empl/news-form'; // Enhance form css.
+  }
+}
+
+
+/**
+ * Implements hook_form_node_empl_form_alter().
+ */
+function news_empl_form_node_empl_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $route_match = Utils::getRouteName();
+  if ($route_match == 'entity.node.canonical') {
+    $form['#attached']['library'][] = 'news_empl/empl-form'; // Enhance form css.
+  }
+}
