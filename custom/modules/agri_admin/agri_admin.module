@@ -58,7 +58,7 @@ function agri_admin_page_attachments(array &$page) {
   if ($user->hasPermission('agrisource admin styles')) {
     $page['#attached']['library'][] = 'agri_admin/agri-admin';
     $current_route = \Drupal::routeMatch()->getRouteName();
-    if ($current_route == 'content_moderation.admin_moderated_content') {
+    if ($current_route == 'content_moderation.admin_moderated_content' || $current_route == 'system.admin_content') {
       $page['#attached']['library'][] = 'agri_admin/legacy-support';
     }
   }
@@ -179,7 +179,7 @@ function agri_admin_preprocess_views_view_field(&$variables) {
     }
   }
 
-  if ($view->id() == 'moderated_content') {
+  if ($view->id() == 'moderated_content' || $view->id() == 'content') {
     $field = $variables['field'];
     if ($field->field == 'nid' || $field->field == 'id') {
       $row = $variables['row'];
