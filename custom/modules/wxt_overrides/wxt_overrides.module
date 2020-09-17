@@ -324,10 +324,7 @@ function wxt_overrides_link_alter(&$variables) {
     else {
       $moderated_default = FALSE;
     }
-    if ($moderated_default && $route_name == 'content_moderation.admin_moderated_content') {
-      $variables['text'] = t('Full');
-    }
-    else if ($current_route == 'system.admin_content' && $variables['text'] == 'Overview') {
+    if ($current_route == 'system.admin_content' && $variables['text'] == 'Overview') {
       return;
     }
     else if ($current_route == 'content_moderation.admin_moderated_content' && $variables['text'] == 'Overview') {
