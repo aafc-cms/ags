@@ -71,6 +71,13 @@ function wxt_overrides_page_attachments(array &$page) {
 
   if ($node) {
     $node = \Drupal::routeMatch()->getParameter('node');
+    if (!$node) {
+      return;
+    }
+    if (is_string($node)) {
+      // Occurs when reverting to a previous version.
+      return;
+    }
     $type = '';
     $issued_date = '';
     $modified_date = '';
