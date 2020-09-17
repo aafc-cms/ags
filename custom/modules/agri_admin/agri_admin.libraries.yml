@@ -61,3 +61,13 @@ menu-navigation-hide-disabled:
     - core/jquery
     - core/drupalSettings
 
+legacy-support:
+  css:
+    component:
+      css/legacy-support.css: {}
+      '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css': { type: external }
+  js:
+    js/legacy-support.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings

@@ -1,0 +1,19 @@
+
+.views-field-nid .legacy-dcr-id {
+  display: none;
+}
+
+.views-field-nid .fa-clipboard {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+}
+
+.views-field-nid .fa-clipboard::before {
+  position: absolute;
+  content: "\f0ea";
+  top: -15px;
+  font-size: larger;
+}
+
+
