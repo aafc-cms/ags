@@ -66,7 +66,7 @@ third_party_settings:
         open: true
         required_fields: true
         id: ''
-        classes: ''
+        classes: never-collapse
       label: 'Opportunity details'
     group_opportunity_approval:
       children:
@@ -80,7 +80,7 @@ third_party_settings:
         open: true
         required_fields: true
         id: ''
-        classes: ''
+        classes: never-collapse
       label: 'Opportunity approval'
     group_opportunitylocation:
       children:
@@ -96,7 +96,7 @@ third_party_settings:
         open: true
         required_fields: true
         id: ''
-        classes: ''
+        classes: never-collapse
       label: 'Where the opportunity is located:'
     group_opportunityopento:
       children:
@@ -111,7 +111,7 @@ third_party_settings:
         open: true
         required_fields: true
         id: ''
-        classes: ''
+        classes: never-collapse
       label: 'Who can apply for this opportunity:'
     group_opportunitydescription:
       children:
@@ -125,7 +125,7 @@ third_party_settings:
         open: true
         required_fields: true
         id: ''
-        classes: ''
+        classes: never-collapse
       label: 'Opportunity Description'
     group_emploppsubitappquestion:
       children:
@@ -140,7 +140,7 @@ third_party_settings:
         open: true
         required_fields: true
         id: ''
-        classes: ''
+        classes: never-collapse
       label: 'Submit applications and questions to'
     group_employmentrequestorinfo:
       children:
@@ -152,10 +152,10 @@ third_party_settings:
       format_type: details
       region: content
       format_settings:
-        id: ''
-        classes: ''
         description: ''
         open: true
+        id: ''
+        classes: never-collapse
         required_fields: false
       label: 'Requestor’s information for Web publishing request'
     group_empladditionalnotes:
@@ -166,11 +166,11 @@ third_party_settings:
       format_type: details
       region: content
       format_settings:
-        id: ''
-        classes: ''
         description: ''
         open: true
         required_fields: true
+        id: ''
+        classes: never-collapse
       label: 'Additional remarks'
     group_emplopportunityclosingdate:
       children:
@@ -180,11 +180,11 @@ third_party_settings:
       format_type: details
       region: content
       format_settings:
-        id: ''
-        classes: ''
         description: ''
         open: true
         required_fields: true
+        id: ''
+        classes: never-collapse
       label: 'Opportunity closing:'
     group_emplaafcmetdatagroup:
       children:

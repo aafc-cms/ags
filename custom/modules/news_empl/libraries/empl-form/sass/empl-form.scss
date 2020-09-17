@@ -1,7 +1,7 @@
 
 body.path-node {
-  .disable-collapse {
-    .collapse {
+  .never-collapse {
+    &.collapse, .collapse {
       display: block;
       visibility: visible;
     }
