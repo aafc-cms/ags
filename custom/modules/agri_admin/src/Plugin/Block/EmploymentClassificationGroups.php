@@ -103,7 +103,9 @@ class  EmploymentClassificationGroups extends BlockBase {
         }
       } 
       // get equivalent flag value
-      $equivalentval = $emplNode->get('field_and_equivalent')->getValue();
+      $equivalentvalarray = $emplNode->get('field_and_equivalent')->getValue();
+      $equivalentvalarray2 = $equivalentvalarray[0] ;
+      $equivalentval = $equivalentvalarray2['value'];
       //$equivalentlbl = $emplNode->get('field_and_equivalent')->getFieldDefinition()->getLabel();
       if ($equivalentval) {
         if ($currentlangId == 'en') {
@@ -114,7 +116,7 @@ class  EmploymentClassificationGroups extends BlockBase {
         }
       }
     }
-
+  
     $classification = '<div class="field--items">'.$classification.'</div>';
 
     $block['content']['#markup'] = $classification;
