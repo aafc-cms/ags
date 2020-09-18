@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1c858eb21ccb69e7e29ba9f104c2ed01",
+    "content-hash": "8e46ee6baf92f11fe25bae2c6edc35b8",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -132,10 +132,10 @@
         },
         {
             "name": "algolia/places",
-            "version": "1.18.2",
+            "version": "1.19.0",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/places.js/-/places.js-1.18.2.tgz",
+                "url": "https://registry.npmjs.org/places.js/-/places.js-1.19.0.tgz",
                 "reference": null,
                 "shasum": null
             },
@@ -201,16 +201,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.154.4",
+            "version": "3.154.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "199a3e1ee89c38251a4a47433560faf5d6a3ef14"
+                "reference": "50b1ef32d51d80f35a691e13c34f67b920765c18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/199a3e1ee89c38251a4a47433560faf5d6a3ef14",
-                "reference": "199a3e1ee89c38251a4a47433560faf5d6a3ef14",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/50b1ef32d51d80f35a691e13c34f67b920765c18",
+                "reference": "50b1ef32d51d80f35a691e13c34f67b920765c18",
                 "shasum": ""
             },
             "require": {
@@ -282,14 +282,14 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-09-16T18:16:18+00:00"
+            "time": "2020-09-17T18:22:25+00:00"
         },
         {
             "name": "bower-asset/cropper",
             "version": "v2.3.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fengyuanchen/cropper.git",
+                "url": "git@github.com:fengyuanchen/cropper.git",
                 "reference": "30c58b29ee21010e17e58ebab165fbd84285c685"
             },
             "dist": {
@@ -480,10 +480,10 @@
         },
         {
             "name": "ckeditor/autogrow",
-            "version": "4.14.0",
+            "version": "4.14.1",
             "dist": {
                 "type": "zip",
-                "url": "https://download.ckeditor.com/autogrow/releases/autogrow_4.14.0.zip",
+                "url": "https://download.ckeditor.com/autogrow/releases/autogrow_4.14.1.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -514,10 +514,10 @@
         },
         {
             "name": "ckeditor/fakeobjects",
-            "version": "4.14.0",
+            "version": "4.14.1",
             "dist": {
                 "type": "zip",
-                "url": "https://download.ckeditor.com/fakeobjects/releases/fakeobjects_4.14.0.zip",
+                "url": "https://download.ckeditor.com/fakeobjects/releases/fakeobjects_4.14.1.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -531,10 +531,10 @@
         },
         {
             "name": "ckeditor/image",
-            "version": "4.14.0",
+            "version": "4.14.1",
             "dist": {
                 "type": "zip",
-                "url": "https://download.ckeditor.com/image/releases/image_4.14.0.zip",
+                "url": "https://download.ckeditor.com/image/releases/image_4.14.1.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -548,10 +548,10 @@
         },
         {
             "name": "ckeditor/link",
-            "version": "4.14.0",
+            "version": "4.14.1",
             "dist": {
                 "type": "zip",
-                "url": "https://download.ckeditor.com/link/releases/link_4.14.0.zip",
+                "url": "https://download.ckeditor.com/link/releases/link_4.14.1.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -565,10 +565,10 @@
         },
         {
             "name": "codemirror/codemirror",
-            "version": "5.53.2",
+            "version": "5.57.0",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/components/codemirror/archive/5.53.2.zip",
+                "url": "https://github.com/components/codemirror/archive/5.57.0.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -3512,20 +3512,23 @@
         },
         {
             "name": "drupal/config_filter",
-            "version": "1.6.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/config_filter.git",
-                "reference": "8.x-1.6"
+                "reference": "8.x-2.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/config_filter-8.x-1.6.zip",
-                "reference": "8.x-1.6",
-                "shasum": "5c95f853c751a5eaa21701b540c463442b1be1e3"
+                "url": "https://ftp.drupal.org/files/projects/config_filter-8.x-2.1.zip",
+                "reference": "8.x-2.1",
+                "shasum": "dddfc3d5be22bf6625764fa0ca1caac524cb51cc"
             },
             "require": {
-                "drupal/core": "^8 || ^9"
+                "drupal/core": "^8.8 || ^9"
+            },
+            "conflict": {
+                "drush/drush": "<10"
             },
             "suggest": {
                 "drupal/config_split": "Split site configuration for different environments."
@@ -3533,8 +3536,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.6",
-                    "datestamp": "1597845156",
+                    "version": "8.x-2.1",
+                    "datestamp": "1597851785",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4728,17 +4731,17 @@
         },
         {
             "name": "drupal/dropzonejs",
-            "version": "2.2.0",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/dropzonejs.git",
-                "reference": "8.x-2.2"
+                "reference": "8.x-2.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/dropzonejs-8.x-2.2.zip",
-                "reference": "8.x-2.2",
-                "shasum": "5853f57293823c71cee6f53a01c94807529c3732"
+                "url": "https://ftp.drupal.org/files/projects/dropzonejs-8.x-2.3.zip",
+                "reference": "8.x-2.3",
+                "shasum": "c145f2560ed31de32ea8938b0c0378765f70e36a"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9"
@@ -4752,8 +4755,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.2",
-                    "datestamp": "1600192553",
+                    "version": "8.x-2.3",
+                    "datestamp": "1600310561",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -11261,6 +11264,9 @@
                     "services": {
                         "drush.services.yml": "^9"
                     }
+                },
+                "patches_applied": {
+                    "webform uuid is not at the top of configuration file": "https://www.drupal.org/files/issues/2020-09-16/3171348-2.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -11922,56 +11928,51 @@
         },
         {
             "name": "drush/drush",
-            "version": "9.7.2",
+            "version": "10.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drush-ops/drush.git",
-                "reference": "ab5e345a72c9187a7d770486a09691f6526826aa"
+                "reference": "802419a6eb0232bdb977788e6a828cd4fa5bdb11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drush-ops/drush/zipball/ab5e345a72c9187a7d770486a09691f6526826aa",
-                "reference": "ab5e345a72c9187a7d770486a09691f6526826aa",
+                "url": "https://api.github.com/repos/drush-ops/drush/zipball/802419a6eb0232bdb977788e6a828cd4fa5bdb11",
+                "reference": "802419a6eb0232bdb977788e6a828cd4fa5bdb11",
                 "shasum": ""
             },
             "require": {
-                "chi-teck/drupal-code-generator": "^1.28.1",
+                "chi-teck/drupal-code-generator": "^1.32.1",
                 "composer/semver": "^1.4",
-                "consolidation/annotated-command": "^2.12",
                 "consolidation/config": "^1.2",
                 "consolidation/filter-via-dot-access-data": "^1",
-                "consolidation/output-formatters": "^3.3.1",
-                "consolidation/robo": "^1.4.6",
+                "consolidation/robo": "^1.4.11 || ^2",
                 "consolidation/site-alias": "^3.0.0@stable",
-                "consolidation/site-process": "^2.0.3",
+                "consolidation/site-process": "^2.1 || ^4",
                 "ext-dom": "*",
                 "grasmash/yaml-expander": "^1.1.1",
+                "guzzlehttp/guzzle": "^6.3",
                 "league/container": "~2",
-                "php": ">=5.6.0",
+                "php": ">=7.1.3",
                 "psr/log": "~1.0",
                 "psy/psysh": "~0.6",
-                "symfony/console": "^3.4",
                 "symfony/event-dispatcher": "^3.4 || ^4.0",
                 "symfony/finder": "^3.4 || ^4.0",
-                "symfony/process": "^3.4",
-                "symfony/var-dumper": "^3.4 || ^4.0",
-                "symfony/yaml": "^3.4",
-                "webflo/drupal-finder": "^1.1",
+                "symfony/var-dumper": "^3.4 || ^4.0 || ^5.0",
+                "symfony/yaml": "^3.4 || ^4.0",
+                "webflo/drupal-finder": "^1.2",
                 "webmozart/path-util": "^2.1.0"
             },
             "require-dev": {
-                "composer/installers": "^1.2",
+                "composer/installers": "^1.7",
                 "cweagans/composer-patches": "~1.0",
+                "david-garcia/phpwhois": "4.3.0",
                 "drupal/alinks": "1.0.0",
-                "drupal/devel": "^2",
-                "drupal/empty_theme": "1.0",
+                "drupal/core-recommended": "^8.8",
                 "g1a/composer-test-scenarios": "^3",
                 "lox/xhprof": "dev-master",
                 "phpunit/phpunit": "^4.8.36 || ^6.1",
                 "squizlabs/php_codesniffer": "^2.7 || ^3",
-                "vlucas/phpdotenv": "^2.4",
-                "webflo/drupal-core-require-dev": "8.7.x-dev",
-                "webflo/drupal-core-strict": "8.7.x-dev"
+                "vlucas/phpdotenv": "^2.4"
             },
             "bin": [
                 "drush"
@@ -12004,21 +12005,8 @@
                         "type:drupal-drush"
                     ]
                 },
-                "scenarios": {
-                    "php5": {
-                        "config": {
-                            "platform": {
-                                "php": "5.6.38"
-                            }
-                        },
-                        "require-dev": {
-                            "webflo/drupal-core-strict": "8.6.x-dev",
-                            "webflo/drupal-core-require-dev": "8.6.x-dev"
-                        }
-                    }
-                },
                 "branch-alias": {
-                    "dev-master": "9.x-dev"
+                    "dev-master": "10.x-dev"
                 }
             },
             "autoload": {
@@ -12067,7 +12055,7 @@
             ],
             "description": "Drush is a command line shell and scripting interface for Drupal, a veritable Swiss Army knife designed to make life easier for those of us who spend some of our working hours hacking away at the command prompt.",
             "homepage": "http://www.drush.org",
-            "time": "2020-02-09T17:29:51+00:00"
+            "time": "2020-08-20T19:27:28+00:00"
         },
         {
             "name": "easyrdf/easyrdf",
@@ -12958,10 +12946,10 @@
         },
         {
             "name": "jquery/inputmask",
-            "version": "5.0.3",
+            "version": "5.0.5",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/RobinHerbots/jquery.inputmask/archive/5.0.3.zip",
+                "url": "https://github.com/RobinHerbots/jquery.inputmask/archive/5.0.5.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -13043,10 +13031,10 @@
         },
         {
             "name": "jquery/timepicker",
-            "version": "1.13.10",
+            "version": "1.13.14",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.13.10.zip",
+                "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.13.14.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -14104,16 +14092,16 @@
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "e878a14a65245fbe78f8080eba03b47c3b705651"
+                "reference": "6a467b8989322d92aa1c8bf2bebcc6e5c2ba55c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/e878a14a65245fbe78f8080eba03b47c3b705651",
-                "reference": "e878a14a65245fbe78f8080eba03b47c3b705651",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/6a467b8989322d92aa1c8bf2bebcc6e5c2ba55c0",
+                "reference": "6a467b8989322d92aa1c8bf2bebcc6e5c2ba55c0",
                 "shasum": ""
             },
             "require": {
@@ -14145,7 +14133,7 @@
                 }
             ],
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
-            "time": "2020-06-27T10:12:23+00:00"
+            "time": "2020-09-17T18:55:26+00:00"
         },
         {
             "name": "phpmailer/phpmailer",
