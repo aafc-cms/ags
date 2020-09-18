@@ -186,6 +186,10 @@ function agri_admin_preprocess_views_view_field(&$variables) {
       $nid = $row->_entity->id();
       // Retrieves a \Drupal\Core\Database\Connection which is a PDO instance
       $connection = Database::getConnection(); // NORMALLY DO NOT USE THIS, use \Drupal::database() instead, only doing this here because of dcr_id for altered table (not a Drupal column).
+      $dcr_id_column_exists = $connection->schema()->fieldExists('node', 'dcr_id');
+      if (!$dcr_id_column_exists) {
+        return;
+      }
       // Retrieves a PDOStatement object
       // http://php.net/manual/en/pdo.prepare.php
       $sth = $connection->select('node', 'n')
