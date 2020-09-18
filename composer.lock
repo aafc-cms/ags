@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8e46ee6baf92f11fe25bae2c6edc35b8",
+    "content-hash": "2da6103b746020050427382079ab0a83",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -3628,11 +3628,17 @@
         },
         {
             "name": "drupal/config_split",
-            "version": "dev-1.x",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/config_split.git",
-                "reference": "598890eeec990e7bfc98b67a6c1862bc02dbf9df"
+                "reference": "8.x-1.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/config_split-8.x-1.5.zip",
+                "reference": "8.x-1.5",
+                "shasum": "ea727dbe5cb4586bbc21afad61db26c65fe5ce49"
             },
             "require": {
                 "drupal/config_filter": "^1||^2",
@@ -3647,15 +3653,12 @@
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
                 "drupal": {
-                    "version": "8.x-1.5-rc3+14-dev",
-                    "datestamp": "1598364257",
+                    "version": "8.x-1.5",
+                    "datestamp": "1599549544",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 },
                 "drush": {
@@ -3697,8 +3700,7 @@
                 "source": "https://git.drupalcode.org/project/config_split",
                 "issues": "https://www.drupal.org/project/issues/config_split",
                 "slack": "https://drupal.slack.com/archives/C45342CDD"
-            },
-            "time": "2020-08-25T14:03:07+00:00"
+            }
         },
         {
             "name": "drupal/config_update",
@@ -21496,7 +21498,6 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "entreprise7pro/news_empl": 20,
-        "drupal/config_split": 20,
         "drupal/content_moderation_notifications": 20,
         "drupal/formblock": 20,
         "drupal/purge": 10,
