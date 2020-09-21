@@ -101,18 +101,18 @@ var AgriHelper = function() {
         $('div#edit-field-type[class="form-checkboxes"] div').last().after('<label id="edit-emplopptypes-0-value-error" for="edit-emplopptypes-0-value-error" style="display: block; color: #a94442;">Employment Opportunity Type(s) is required.</label>');
       }
       // make the validation error be close to the input field
-      $('div#edit-field-type[class="form-checkboxes"] div').last().css({"margin-bottom": "0px;"});
+      $('div#edit-field-type[class="form-checkboxes"] div').last().css({"margin-bottom": "0px"});
     } else
     {
       if (AgriHelper.checkbox_valid && errlblexists) {
         // hide the message
          $('#edit-emplopptypes-0-value-error').hide();
-         $('div#edit-field-type[class="form-checkboxes"] div').last().css({"margin-bottom": "10px;"});
+         $('div#edit-field-type[class="form-checkboxes"] div').last().css({"margin-bottom": "10px"});
       } else {
         if (!AgriHelper.checkbox_valid && errlblexists) {
         //we need to bring it back
           $('#edit-emplopptypes-0-value-error').show();
-          $('div#edit-field-type[class="form-checkboxes"] div').last().css({"margin-bottom": "0px;"});
+          $('div#edit-field-type[class="form-checkboxes"] div').last().css({"margin-bottom": "0px"});
         }
       }
     }
