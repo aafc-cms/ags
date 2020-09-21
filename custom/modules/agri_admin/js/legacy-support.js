@@ -85,7 +85,7 @@ var Legacysupport = function() {
       force = false;
     }
     Legacysupport.data[funcName]++;
-    var debug = true; // Debug is disabled.
+    var debug = false; // Debug is disabled.
     if (debug || force) {
       console.log(funcName + ' call:' + Legacysupport.data[funcName]);
     }
