@@ -61,6 +61,12 @@ body.path-frontpage {
   }
 }
 
+body main {
+  ul, ol {
+    padding-left: 2.5em;
+  }
+}
+
 .contextual-region .contextual .contextual-links a {
   color: #333 !important;
 }
@@ -83,6 +89,7 @@ body.path-frontpage {
     color: white;
     text-shadow: 0 1px 1px #044062;
     margin-left: 0;
+    min-height: 1.75em;
   }
 
   p.navbar-text {
