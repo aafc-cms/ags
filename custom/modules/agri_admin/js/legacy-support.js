@@ -57,7 +57,7 @@ var Legacysupport = function() {
     }
 
     jQuery('form.views-exposed-form .form-item--nid input#edit-nid').keyup(function() {
-      processNidInput(this);
+      processIdInput(this);
     });
     jQuery('form.views-exposed-form .form-item--nid input#edit-nid').blur(function() {
       if (Legacysupport.some_id.toString().length < 13
@@ -66,13 +66,13 @@ var Legacysupport = function() {
       }
     });
 
-    var inputNidElement = jQuery('form.views-exposed-form input#edit-nid');
-    processNidInput(inputNidElement); // Initialize.
+    var inputIdElement = jQuery('form.views-exposed-form input#edit-nid');
+    processIdInput(inputIdElement); // Initialize.
     initialized = true;
   }
 
 
-  function processNidInput(temp_el) {
+  function processIdInput(temp_el) {
     var nid = $(temp_el).val();
     if ($(temp_el).val().length > 0) {
       nid = Number(nid);
@@ -281,6 +281,10 @@ var Legacysupport = function() {
       $('input#edit-nid').parent().find('.fa-clipboard').click(function() {
         Legacysupport.copyDcrId($(this).parent().find('.legacy-dcrid').text());
       });
+      if (Legacysupport.some_id.toString().length < 13
+       && Legacysupport.some_id.toString().length > 1) {
+        jQuery('input#edit-nid').val(Legacysupport.some_id);
+      }
     }
     else {
       jQuery('form.views-exposed-form .form-item--nid label').text('ID');
