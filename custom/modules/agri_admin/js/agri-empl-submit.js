@@ -116,7 +116,7 @@ var AgriHelper = function() {
       }
     }
 
-    return AgriHelper.form_required_valid;
+    //return AgriHelper.form_required_valid;
 
   /*$('select[required="required"]').each(function(index, element) {
       if ($(element).hasClass('form-select')) {
