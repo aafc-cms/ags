@@ -16,7 +16,7 @@ use Drupal\agri_admin\Utils;
 /**
  * Implements hook_page_attachments().
  *
- * Replace the wet-boew library v4.0.35 with v4.0.32 to each page.
+ * Provide aafc metatag elements in the head to each page.
  */
 function wxt_overrides_page_attachments(array &$page) {
   $node = \Drupal::routeMatch()->getRawParameter('node');
