@@ -342,7 +342,7 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
       }
 
       if ($update_date_modified_str == '0') {
-	      $entity->set('changed', strtotime($date_modified));
+        $entity->set('changed', strtotime($date_modified));
       } 
       else {
         $entity->set('field_modified', $dt->format('Y-m-d'));
@@ -408,8 +408,8 @@ function _helperLockingContent($action, $entity_id, $bundle, $entity_obj = NULL)
         }
         if ($role == 'creator') {
           $is_creator = TRUE;
-	  $state = $latest->get('moderation_state')->getString();
-	  $peer_review_status = $latest->get('field_peer_review')->getString();
+          $state = $latest->get('moderation_state')->getString();
+          $peer_review_status = $latest->get('field_peer_review')->getString();
           if ($state == 'draft' && empty($peer_review_status)) {
             $lock_service->locking($entity_id, $latest->language()->getId(), 'edit', $current_user_id, $latest->getEntityTypeId());
             return; // Finished processing.
@@ -704,7 +704,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         if ($hr->hasTranslation($langcode)) {
           $hr = $hr->getTranslation($langcode);
         }
-	$linkHR = $hr->toLink(t('Human Resources'));
+        $linkHR = $hr->toLink(t('Human Resources'));
       }
       else {
         $linkHR = Link::createFromRoute(t('Human Resources'), 'view.view_employmentopportunities.page_1');
@@ -731,7 +731,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         if ($news->hasTranslation($langcode)) {
           $news = $news->getTranslation($langcode);
         }
-	$linkNews = $news->toLink($news->getTitle());
+        $linkNews = $news->toLink($news->getTitle());
       }
       else {
         $linkNews = Link::createFromRoute(t('News'), 'view.view_news_work.page_1');
@@ -750,7 +750,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         if ($news_at_work->hasTranslation($langcode)) {
           $news_at_work = $news_at_work->getTranslation($langcode);
         }
-	$linkNewsatWork = $news_at_work->toLink($news_at_work->getTitle());
+        $linkNewsatWork = $news_at_work->toLink($news_at_work->getTitle());
       }
       else {
         $linkNewsatWork = Link::createFromRoute(t('News@work'), 'view.view_news_work.page_1');
@@ -777,7 +777,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         if ($hr->hasTranslation($langcode)) {
           $hr = $hr->getTranslation($langcode);
         }
-	$linkHR = $hr->toLink(t('Human Resources'));
+        $linkHR = $hr->toLink(t('Human Resources'));
       }
       else {
         $linkHR = Link::createFromRoute(t('Human Resources'), 'view.view_employmentopportunities.page_1');
