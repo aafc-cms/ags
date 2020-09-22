@@ -1,17 +1,17 @@
-uuid: 1563a1b2-e2e8-4e9e-91dc-60adab73b14d
+uuid: 0e55b7e3-bc75-4146-aa4a-127c8d19a559
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_modified
+    - field.storage.node.field_dc_date_created
     - node.type.empl
   module:
     - datetime
-id: node.empl.field_modified
-field_name: field_modified
+id: node.empl.field_dc_date_created
+field_name: field_dc_date_created
 entity_type: node
 bundle: empl
-label: 'dcterms:modified'
+label: dc.date.created
 description: ''
 required: false
 translatable: false
