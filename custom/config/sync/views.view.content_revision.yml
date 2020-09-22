@@ -3,6 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.field_created_by
+    - field.storage.node.field_dc_date_created
+    - field.storage.node.field_issued
     - field.storage.node.field_modified
     - field.storage.node.field_peer_review
     - field.storage.node.field_tracking_number
@@ -768,6 +771,134 @@ display:
           entity_type: node
           entity_field: revision_default
           plugin_id: field
+        field_issued:
+          id: field_issued
+          table: node__field_issued
+          field: field_issued
+          relationship: nid
+          group_type: group
+          admin_label: ''
+          label: 'Issued (Cont)'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: medium
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_issued-revision_id:
+          id: field_issued-revision_id
+          table: node_revision__field_issued
+          field: field_issued-revision_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Issued(Hist)
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: medium
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         vid:
           id: vid
           table: node_field_revision
@@ -834,14 +965,14 @@ display:
           entity_type: node
           entity_field: vid
           plugin_id: field
-        langcode_1:
-          id: langcode_1
-          table: node_field_revision
-          field: langcode
-          relationship: none
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          relationship: nid
           group_type: group
           admin_label: ''
-          label: 'Translation language'
+          label: Is_Published
           exclude: false
           alter:
             alter_text: false
@@ -883,10 +1014,11 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: language
+          type: boolean
           settings:
-            link_to_entity: false
-            native_language: false
+            format: default
+            format_custom_true: ''
+            format_custom_false: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -898,7 +1030,7 @@ display:
           separator: ', '
           field_api_classes: false
           entity_type: node
-          entity_field: langcode
+          entity_field: status
           plugin_id: field
         name:
           id: name
@@ -965,58 +1097,6 @@ display:
           entity_type: user
           entity_field: name
           plugin_id: field
-        timestamp:
-          id: timestamp
-          table: content_lock
-          field: timestamp
-          relationship: nid
-          group_type: group
-          admin_label: ''
-          label: 'Lock Date/Time'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          date_format: medium
-          custom_date_format: ''
-          timezone: ''
-          plugin_id: date
         field_peer_review-revision_id:
           id: field_peer_review-revision_id
           table: node_revision__field_peer_review
@@ -1131,6 +1211,196 @@ display:
           type: string
           settings:
             link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_created_by:
+          id: field_created_by
+          table: node__field_created_by
+          field: field_created_by
+          relationship: nid
+          group_type: group
+          admin_label: ''
+          label: CreatedBy
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_created_by-revision_id:
+          id: field_created_by-revision_id
+          table: node_revision__field_created_by
+          field: field_created_by-revision_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: CreatedBy(Hist)
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_dc_date_created-revision_id:
+          id: field_dc_date_created-revision_id
+          table: node_revision__field_dc_date_created
+          field: field_dc_date_created-revision_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: DateCreated
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: medium
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1344,7 +1614,7 @@ display:
           exposed: true
           expose:
             operator_id: field_peer_review_value_op
-            label: 'Peer Review (field_peer_review)'
+            label: 'Peer Review'
             description: ''
             use_operator: true
             operator: field_peer_review_value_op
@@ -1365,6 +1635,7 @@ display:
               reviewer: '0'
               news_ccpub: '0'
               empl_cspub: '0'
+              pab_admin: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -1380,6 +1651,56 @@ display:
             group_items: {  }
           reduce_duplicates: false
           plugin_id: list_field
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: nid
+          group_type: group
+          admin_label: ''
+          operator: in
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: type_op
+            label: 'Content type'
+            description: ''
+            use_operator: false
+            operator: type_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              creator: '0'
+              editor: '0'
+              reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
+              pab_admin: '0'
+            reduce: false
+            argument: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
         revision_uid:
           id: revision_uid
           table: node_revision
@@ -1485,6 +1806,9 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
+        - 'config:field.storage.node.field_created_by'
+        - 'config:field.storage.node.field_dc_date_created'
+        - 'config:field.storage.node.field_issued'
         - 'config:field.storage.node.field_modified'
         - 'config:field.storage.node.field_peer_review'
         - 'config:field.storage.node.field_tracking_number'
@@ -1509,6 +1833,9 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
+        - 'config:field.storage.node.field_created_by'
+        - 'config:field.storage.node.field_dc_date_created'
+        - 'config:field.storage.node.field_issued'
         - 'config:field.storage.node.field_modified'
         - 'config:field.storage.node.field_peer_review'
         - 'config:field.storage.node.field_tracking_number'

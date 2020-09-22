@@ -1,21 +1,19 @@
-uuid: 6269a62d-7851-4e7f-9641-db53dd06153b
+uuid: 52256cc1-ab91-48da-a6cf-167a435ad60c
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_issued
+    - field.storage.node.field_created_by
     - node.type.empl
-  module:
-    - datetime
-id: node.empl.field_issued
-field_name: field_issued
+id: node.empl.field_created_by
+field_name: field_created_by
 entity_type: node
 bundle: empl
-label: 'dcterms:issued'
+label: 'Created by'
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: datetime
+field_type: string

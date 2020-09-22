@@ -277,12 +277,10 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
   $authored_on = $entity->getCreatedTime();
   $content_type = $entity->bundle();
 
-  if ($content_type == 'page' || $content_type == 'landing_page') {
-    $peer_review_status = $entity->get('field_peer_review')->getString();      
+  if ($content_type == 'page' || $content_type == 'landing_page' || $content_type == 'empl' || $content_type == 'news') {
     $changed_time = $entity->getChangedTime();
     $date_issued = $entity->get('field_issued')->getString();
     $date_modified = $entity->get('field_modified')->getString();
-    $update_date_modified_str = $entity->get('field_update_date_modified')->getString();
     $moderation_state = $entity->moderation_state->value;
     $created_by = $entity->get('field_created_by')->getString();
 //    AgriAdminHelper::addToLog(print_r('Current: '.$current_user, TRUE), TRUE);
@@ -296,6 +294,17 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
       }
     }
 
+    if ($content_type == 'page' || $content_type == 'landing_page') {
+      $update_date_modified_str = $entity->get('field_update_date_modified')->getString();
+      $peer_review_status = $entity->get('field_peer_review')->getString();      
+      if ($moderation_state == 'published' || $moderation_state == 'archived') {
+        $entity->set('field_peer_review', '');
+      }
+    }
+    else {
+      $update_date_modified_str = '2';
+    }
+
     if ($moderation_state == 'published') {
       $dt = new DateTime();
       if (empty($date_issued)) {
@@ -303,17 +312,14 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
       }
 
       if ($update_date_modified_str == '0') {
-	$entity->set('changed', strtotime($date_modified));
+	      $entity->set('changed', strtotime($date_modified));
       } 
       else {
         $entity->set('field_modified', $dt->format('Y-m-d'));
       }
     }
 
-    if ($moderation_state == 'published' || $moderation_state == 'archived') {
-      $entity->set('field_peer_review', '');
-    }
-//    AgriAdminHelper::addToLog($debug_message, TRUE);
+    AgriAdminHelper::addToLog('update_date_modified_str: ' . $update_date_modified_str, TRUE);
   }
 
   foreach ($roles as $value) {
@@ -505,7 +511,7 @@ function agri_admin_form_node_empl_form_alter(&$form, \Drupal\Core\Form\FormStat
 function agri_admin_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   $entity = $form_state->getFormObject()->getEntity();
   $content_type = $entity->bundle();
-  if ($content_type == 'page' || $content_type == 'landing_page') {
+  if ($content_type == 'page' || $content_type == 'landing_page' || $content_type == 'empl' || $content_type == 'news') {
     $form['field_issued']['widget'][0]['#disabled'] = TRUE;
     $form['field_modified']['widget'][0]['#disabled'] = TRUE;
     $form['field_created_by']['widget'][0]['#disabled'] = TRUE;
@@ -558,21 +564,23 @@ function agri_admin_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInte
       $form['field_modified']['#attributes']['class'] = 'hidden-input-box';
     }
 
-    $moderation_state = $entity->moderation_state->value;
-    $peer_review_status = $entity->get('field_peer_review')->getString();
+    if ($content_type == 'page' || $content_type == 'landing_page') {
+      $moderation_state = $entity->moderation_state->value;
+      $peer_review_status = $entity->get('field_peer_review')->getString();
 
-    if ($entity->isNew()) {
-      $form['field_peer_review']['#disabled'] = TRUE;
-    } 
-    elseif ($moderation_state == 'published' || $moderation_state == 'archived') {
+      if ($entity->isNew()) {
         $form['field_peer_review']['#disabled'] = TRUE;
-        $form['field_tracking_number']['widget'][0]['value']['#default_value'] = '';
-    } 
-    elseif ($moderation_state == 'draft' &&  empty($peer_review_status)) {
-      // Do not enable peer reviewed.
-      $form['field_peer_review']['widget']['#options_attributes']['peer_reviewed']['disabled'] = 'disabled';
-    }
-  }// End page/landing_page.
+      } 
+      elseif ($moderation_state == 'published' || $moderation_state == 'archived') {
+          $form['field_peer_review']['#disabled'] = TRUE;
+          $form['field_tracking_number']['widget'][0]['value']['#default_value'] = '';
+      } 
+      elseif ($moderation_state == 'draft' &&  empty($peer_review_status)) {
+        // Do not enable peer reviewed.
+        $form['field_peer_review']['widget']['#options_attributes']['peer_reviewed']['disabled'] = 'disabled';
+      }
+    } //End handle Peer_Review for page/landing_page only.
+  }// End page/landing_page/news/empl.
 }
 
 

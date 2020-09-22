@@ -1,21 +1,19 @@
-uuid: fa63f5f3-1f4d-45a6-9dc2-c8695624137c
+uuid: f3a4441f-954b-4406-a106-57866c139bf9
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_issued
+    - field.storage.node.field_created_by
     - node.type.news
-  module:
-    - datetime
-id: node.news.field_issued
-field_name: field_issued
+id: node.news.field_created_by
+field_name: field_created_by
 entity_type: node
 bundle: news
-label: 'dcterms:issued'
+label: 'Created by'
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: datetime
+field_type: string

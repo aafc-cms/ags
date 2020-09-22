@@ -5,6 +5,8 @@ dependencies:
   config:
     - entity_browser.browser.media_browser
     - field.field.node.news.body
+    - field.field.node.news.field_created_by
+    - field.field.node.news.field_dc_date_created
     - field.field.node.news.field_description
     - field.field.node.news.field_from
     - field.field.node.news.field_issued
@@ -185,6 +187,10 @@ third_party_settings:
       children:
         - field_description
         - field_keywords
+        - field_created_by
+        - field_dc_date_created
+        - field_issued
+        - field_modified
       parent_name: ''
       weight: 13
       format_type: details_sidebar
@@ -242,6 +248,20 @@ content:
     third_party_settings: {  }
     type: text_textarea_with_summary
     region: content
+  field_created_by:
+    weight: 18
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_dc_date_created:
+    weight: 19
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   field_description:
     type: string_textfield
     weight: 16
@@ -258,6 +278,12 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_issued:
+    type: datetime_default
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_keywords:
     type: string_textfield
     weight: 17
@@ -269,6 +295,12 @@ content:
   field_meta_type:
     type: options_buttons
     weight: 16
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_modified:
+    type: datetime_default
+    weight: 21
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -394,9 +426,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  field_issued: true
   field_meta_tags: true
-  field_modified: true
   langcode: true
   path: true
   promote: true

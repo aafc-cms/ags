@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.node.news.body
+    - field.field.node.news.field_created_by
+    - field.field.node.news.field_dc_date_created
     - field.field.node.news.field_description
     - field.field.node.news.field_from
     - field.field.node.news.field_issued
@@ -58,6 +60,23 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_created_by:
+    weight: 10
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_dc_date_created:
+    weight: 9
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_from:
     weight: 2

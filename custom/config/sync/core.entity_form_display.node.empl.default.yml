@@ -7,7 +7,9 @@ dependencies:
     - field.field.node.empl.field_and_equivalent
     - field.field.node.empl.field_branch
     - field.field.node.empl.field_classification
+    - field.field.node.empl.field_created_by
     - field.field.node.empl.field_date_closing
+    - field.field.node.empl.field_dc_date_created
     - field.field.node.empl.field_description
     - field.field.node.empl.field_email
     - field.field.node.empl.field_empladditionalnotes
@@ -188,8 +190,12 @@ third_party_settings:
       label: 'Opportunity closing:'
     group_emplaafcmetdatagroup:
       children:
-        - field_keywords
         - field_description
+        - field_keywords
+        - field_created_by
+        - field_dc_date_created
+        - field_issued
+        - field_modified
       parent_name: ''
       weight: 8
       format_type: details_sidebar
@@ -206,7 +212,7 @@ third_party_settings:
       children:
         - field_meta_type
       parent_name: ''
-      weight: 10
+      weight: 11
       format_type: details_sidebar
       region: content
       format_settings:
@@ -221,7 +227,7 @@ third_party_settings:
       children:
         - field_subject
       parent_name: ''
-      weight: 9
+      weight: 10
       format_type: details_sidebar
       region: content
       format_settings:
@@ -272,8 +278,22 @@ content:
       default_paragraph_type: ''
     third_party_settings: {  }
     region: content
+  field_created_by:
+    weight: 14
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_date_closing:
     weight: 14
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_dc_date_created:
+    weight: 15
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
@@ -325,9 +345,15 @@ content:
     third_party_settings: {  }
     type: telephone_default
     region: content
+  field_issued:
+    type: datetime_default
+    weight: 16
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_keywords:
     type: string_textfield
-    weight: 11
+    weight: 13
     region: content
     settings:
       size: 60
@@ -344,6 +370,12 @@ content:
   field_meta_type:
     type: options_buttons
     weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_modified:
+    type: datetime_default
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -405,9 +437,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  field_issued: true
   field_meta_tags: true
-  field_modified: true
   langcode: true
   path: true
   promote: true
