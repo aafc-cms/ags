@@ -71,6 +71,13 @@ function wxt_overrides_page_attachments(array &$page) {
 
   if ($node) {
     $node = \Drupal::routeMatch()->getParameter('node');
+    if (!$node) {
+      return;
+    }
+    if (is_string($node)) {
+      // Occurs when reverting to a previous version.
+      return;
+    }
     $type = '';
     $issued_date = '';
     $modified_date = '';
@@ -324,14 +331,46 @@ function wxt_overrides_link_alter(&$variables) {
     else {
       $moderated_default = FALSE;
     }
-    if ($moderated_default && $route_name == 'content_moderation.admin_moderated_content') {
-      $variables['text'] = t('Full');
+    if ($current_route == 'system.admin_content' && $variables['text'] == 'Overview') {
+      return;
+    }
+    else if ($current_route == 'content_moderation.admin_moderated_content' && $variables['text'] == 'Overview') {
+      return;
+    }
+    else if ($variables['text'] == 'Overview') {
+      return;
     }
     else if ($moderated_default && $route_name == 'system.admin_content' && $variables['text'] != 'Overview') {
+      $link_options = $url->getOptions();
+      if (isset($link_options['attributes']['class'][1])) {
+        foreach ($link_options['attributes']['class'] as $key => $classname) {
+          if ($classname === 'tabs__link') {
+            return; // Do not manipulate this tabs__link as it is otherwise confusing to the end user.
+          }
+        }
+      }
+      $DEBUG = FALSE;
+      if ($DEBUG && $fp = fopen('modules/custom/wxt_overrides/debug2.txt', 'a'))
+      {
+        //fwrite($fp, print_r(get_class_methods($url), TRUE) . "\n");
+        fwrite($fp, print_r($url->getOptions(), TRUE) . "\n");
+        fclose($fp);
+      }
       $variables['text'] = t('Moderated content');
       $variables['url'] = \Drupal\Core\Url::fromUri('internal:/admin/content/moderated');
     }
-    elseif ($route_name == 'entity.media.collection' && $variables['text'] != 'Table') {
+    else if ($current_route == 'view.media_library.page' && $variables['text'] == 'Table') {
+      return;
+    }
+    else if ($route_name == 'entity.media.collection' && $variables['text'] != 'Table') {
+      $link_options = $url->getOptions();
+      if (isset($link_options['attributes']['class'][1])) {
+        foreach ($link_options['attributes']['class'] as $key => $classname) {
+          if ($classname === 'tabs__link') {
+            return; // Do not manipulate this tabs__link as it is otherwise confusing to the end user.
+          }
+        }
+      }
       $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
       $variables['text'] = 'Media (grid)';
       if ($langcode == 'fr') {

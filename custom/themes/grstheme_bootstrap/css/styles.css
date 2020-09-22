@@ -2,6 +2,13 @@
  * If using a CSS pre-processor, tell it to overwrite this file. If not, place
  * your custom CSS modifications here.
  */
+/* line 2, ../sass/global/_forms.scss */
+fieldset.error .form-checkboxes,
+fieldset.error .form-radios {
+  border: 2px solid red;
+  background-color: #fdf4f2;
+}
+
 /* Move the header specific scss (sass/css) here.*/
 /* line 6, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm.wb-menu li:first-child ul.sm.open {
@@ -366,11 +373,11 @@ body.page-node-type-news .field--name-body.field--type-text-with-summary.field--
 }
 
 /* line 31, ../sass/components/_news_page.scss */
-body.role-is-anonymous.news-newswork div.js-text-summary-wrapper.text-summary-wrapper, body.nodeaddnews.role-is-anonymous div.js-text-summary-wrapper.text-summary-wrapper {
+body.role-is-anonymous.node-49 div.js-text-summary-wrapper.text-summary-wrapper, body.nodeaddnews.role-is-anonymous div.js-text-summary-wrapper.text-summary-wrapper {
   display: none !important;
 }
 /* line 34, ../sass/components/_news_page.scss */
-body.role-is-anonymous.news-newswork div#edit-group-newsposteddate--content label#edit-field-posted-0-value-date-error, body.nodeaddnews.role-is-anonymous div#edit-group-newsposteddate--content label#edit-field-posted-0-value-date-error {
+body.role-is-anonymous.node-49 div#edit-group-newsposteddate--content label#edit-field-posted-0-value-date-error, body.nodeaddnews.role-is-anonymous div#edit-group-newsposteddate--content label#edit-field-posted-0-value-date-error {
   display: block !important;
 }
 
@@ -900,49 +907,54 @@ body.newswork .view.view-view-news-work.view-id-view_news_work div.view-content 
   font-size: 24px;
 }
 
-/* line 32, ../sass/styles.scss */
+/* line 33, ../sass/styles.scss */
 html[lang="fr"] .english-only {
   display: none !important;
 }
 
-/* line 36, ../sass/styles.scss */
+/* line 37, ../sass/styles.scss */
 html[lang="en"] .french-only {
   display: none !important;
 }
 
-/* line 40, ../sass/styles.scss */
+/* line 41, ../sass/styles.scss */
 body > div > div.container {
   border-right: 1px solid #99999b;
   border-left: 1px solid #99999b;
 }
 
-/* line 50, ../sass/styles.scss */
+/* line 51, ../sass/styles.scss */
 body.path-frontpage div.region-help section.block-entity-blockmedia {
   padding-right: 0;
   margin-left: 0;
 }
-/* line 55, ../sass/styles.scss */
+/* line 56, ../sass/styles.scss */
 body.path-frontpage article h2:first-child {
   display: none;
 }
-/* line 58, ../sass/styles.scss */
+/* line 59, ../sass/styles.scss */
 body.path-frontpage .carousel-s2 {
   margin-left: -15px !important;
 }
 
-/* line 63, ../sass/styles.scss */
+/* line 65, ../sass/styles.scss */
+body main ul, body main ol {
+  padding-left: 2.5em;
+}
+
+/* line 70, ../sass/styles.scss */
 .contextual-region .contextual .contextual-links a {
   color: #333 !important;
 }
 
-/* line 67, ../sass/styles.scss */
+/* line 74, ../sass/styles.scss */
 #mb-pnl #edit-submit-container-imprt {
   float: none !important;
   margin-bottom: 0px !important;
 }
 
 /* Canada Government Logo Size */
-/* line 73, ../sass/styles.scss */
+/* line 80, ../sass/styles.scss */
 #agrisource-wmms {
   height: 2.35em;
   margin-top: -8px;
@@ -950,47 +962,48 @@ body.path-frontpage .carousel-s2 {
   top: 0.8em;
 }
 
-/* line 81, ../sass/styles.scss */
+/* line 88, ../sass/styles.scss */
 .region-banner a.name.navbar-brand {
   color: white;
   text-shadow: 0 1px 1px #044062;
   margin-left: 0;
+  min-height: 1.75em;
 }
-/* line 87, ../sass/styles.scss */
+/* line 95, ../sass/styles.scss */
 .region-banner p.navbar-text {
   color: white;
 }
 
-/* line 92, ../sass/styles.scss */
+/* line 100, ../sass/styles.scss */
 .navbar-brand {
   text-decoration: none;
   font-size: 1.9em;
   padding-left: 0;
 }
 
-/* line 99, ../sass/styles.scss */
+/* line 107, ../sass/styles.scss */
 #wb-info ul.hide-this, #wb-info a[data-drupal-link-system-path~="contact"] {
   display: none;
 }
 
 /* incresed the padding-left: from 15px to 35px; */
-/* line 105, ../sass/styles.scss */
+/* line 113, ../sass/styles.scss */
 #gc-tctr {
   padding-left: 29px;
   font-weight: 500;
 }
 
-/* line 110, ../sass/styles.scss */
+/* line 118, ../sass/styles.scss */
 section.col-sm-3 ul.list-unstyled {
   font-weight: 500;
 }
 
-/* line 114, ../sass/styles.scss */
+/* line 122, ../sass/styles.scss */
 #wb-bnr {
   background: #007852 !important;
 }
 
-/* line 118, ../sass/styles.scss */
+/* line 126, ../sass/styles.scss */
 #agrisource-wmms {
   margin-top: -2.5em;
   height: 1.9em;
@@ -1001,13 +1014,13 @@ section.col-sm-3 ul.list-unstyled {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 128, ../sass/styles.scss */
+  /* line 136, ../sass/styles.scss */
   #wb-bnr {
     background-image: -webkit-linear-gradient(#77bc1f, #77bc1f, #007852) !important;
     background-image: linear-gradient(#77bc1f, #77bc1f, #007852) !important;
   }
 
-  /* line 133, ../sass/styles.scss */
+  /* line 141, ../sass/styles.scss */
   .region-banner a.name.navbar-brand {
     padding-top: 5px;
     padding-bottom: 5px;
@@ -1015,28 +1028,28 @@ section.col-sm-3 ul.list-unstyled {
     height: auto;
   }
 
-  /* line 140, ../sass/styles.scss */
+  /* line 148, ../sass/styles.scss */
   #wb-glb-mn .pnl-btn a {
     font-size: 1.4em;
   }
 
-  /* line 143, ../sass/styles.scss */
+  /* line 151, ../sass/styles.scss */
   #wb-glb-mn .pnl-btn span .glyphicon-th-list {
     padding-left: 0;
   }
 
-  /* line 147, ../sass/styles.scss */
+  /* line 155, ../sass/styles.scss */
   #mb-pnl nav a.mb-item[href*="structure"] {
     display: none;
   }
 
-  /* line 153, ../sass/styles.scss */
+  /* line 161, ../sass/styles.scss */
   section.lng-ofr ul.list-inline a[href*="languageswitcher"] {
     display: none;
   }
 
   /* Canada Government Logo Size */
-  /* line 159, ../sass/styles.scss */
+  /* line 167, ../sass/styles.scss */
   #agrisource-wmms {
     height: 2.35em;
     left: 15px;
@@ -1045,61 +1058,61 @@ section.col-sm-3 ul.list-unstyled {
     top: -2.2em;
   }
 
-  /* line 166, ../sass/styles.scss */
+  /* line 174, ../sass/styles.scss */
   #wb-bnr {
     background-color: #007852;
     background-image: none;
   }
-  /* line 169, ../sass/styles.scss */
+  /* line 177, ../sass/styles.scss */
   #wb-bnr .container .row.agri-banner-row {
     position: relative;
   }
 }
 @media screen and (max-width: 767px) {
-  /* line 178, ../sass/styles.scss */
+  /* line 186, ../sass/styles.scss */
   body.i18n-fr #mb-pnl .srch-pnl .form-group {
     width: 65%;
   }
 }
 @media screen and (min-width: 768px) {
-  /* line 186, ../sass/styles.scss */
+  /* line 194, ../sass/styles.scss */
   body.i18n-fr #wb-srch-q-imprt {
     width: 100% !important;
   }
 }
 /* End of target french only css */
 @media screen and (min-width: 992px) {
-  /* line 196, ../sass/styles.scss */
+  /* line 204, ../sass/styles.scss */
   a.name.navbar-brand {
     text-shadow: 1px 1px 1px #333;
   }
 
-  /* line 201, ../sass/styles.scss */
+  /* line 209, ../sass/styles.scss */
   body.i18n-fr section.wxt-search-block-form.col-md-4 {
     padding-right: 0 !important;
   }
-  /* line 203, ../sass/styles.scss */
+  /* line 211, ../sass/styles.scss */
   body.i18n-fr section.wxt-search-block-form.col-md-4 .form-type-search {
     max-width: 67%;
   }
 
-  /* line 209, ../sass/styles.scss */
+  /* line 217, ../sass/styles.scss */
   #gcwu-sig {
     margin: 2.8em 0 0.5em 15px;
   }
 
-  /* line 212, ../sass/styles.scss */
+  /* line 220, ../sass/styles.scss */
   footer .container {
     padding-left: 0;
     padding-right: 0;
   }
 
-  /* line 216, ../sass/styles.scss */
+  /* line 224, ../sass/styles.scss */
   .show-this section:first-child {
     padding-left: 5px;
   }
 
-  /* line 220, ../sass/styles.scss */
+  /* line 228, ../sass/styles.scss */
   #wb-bar + .container {
     background: -webkit-gradient(linear, right top, left top, from(#298019), color-stop(#31821d), to(#278019));
     background: -webkit-linear-gradient(right, #278019, #31821d, #278019);
@@ -1107,12 +1120,12 @@ section.col-sm-3 ul.list-unstyled {
     position: relative;
   }
 }
-/* line 230, ../sass/styles.scss */
+/* line 238, ../sass/styles.scss */
 .icon.glyphicon.glyphicon-log-in {
   min-height: 20px;
 }
 
-/* line 235, ../sass/styles.scss */
+/* line 243, ../sass/styles.scss */
 .region.region-content-footer {
   padding-top: 20px;
 }

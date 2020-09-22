@@ -1,0 +1,37 @@
+
+.views-field-nid .legacy-dcr-id, .views-exposed-form .legacy-dcrid {
+  display: none;
+}
+
+.views-field-nid .fa-clipboard {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+}
+
+.views-field-nid .fa-clipboard::before {
+  position: absolute;
+  content: "\f0ea";
+  top: -15px;
+  font-size: larger;
+}
+
+.views-exposed-form, .views-exposed-form .form-item-nid {
+  position: relative !important;
+}
+
+.views-exposed-form .dcrid.fa.fa-clipboard {
+  position: absolute;
+  top: 15px;
+  left: 85px;
+  font-size: x-large;
+  color: darkorange;
+  display: inline-block;
+}
+
+.views-exposed-form .dcrid.fa.fa-clipboard::before {
+  position: absolute;
+  content: "\f0ea";
+  top: 0px;
+  font-size: larger;
+}

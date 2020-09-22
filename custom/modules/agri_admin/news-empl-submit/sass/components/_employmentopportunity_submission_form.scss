@@ -269,7 +269,7 @@ body.node-50.role-is-authenticated {
   } 
 
   &.i18n-en div[class$="-subform-field-class-level form-group"] .select-wrapper:after {
-    right: 45% !important;
+    right: 25% !important;
   } 
 
   & div[class$="-subform-field-class-level form-group"] {
@@ -277,7 +277,7 @@ body.node-50.role-is-authenticated {
   }
 
   &.i18n-fr div[class$="-subform-field-class-level form-group"] .select-wrapper:after {
-    right: 55% !important;
+    right: 27% !important;
   }
   // end of Classication group 1
 
@@ -318,6 +318,9 @@ body.node-50.role-is-authenticated {
     display: none !important;
   }
 
+  div.form-item--error-message.alert.alert-danger.alert-sm.form-group {
+    color: #a94442;
+  }
 }
 
 body.nodeaddnews.user-anonymous ol.breadcrumb li:last-child, body.nodeaddempl.user-anonymous ol.breadcrumb li:last-child, {

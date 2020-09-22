@@ -66,6 +66,23 @@ body.role-is-creator{
   }
 }
 
+// For the cspub role hide News At Work menu item.
+body.role-is-empl_cspub{ 
+  a[data-drupal-link-system-path="news-at-work-bulletin"]{  
+    display: none;
+  }
+}
+
+// For all the roles except for the admin role hide the schedule a status change link on content edit page.
+body:not(.role-is-administrator){ 
+  transitionset[data-drupal-selector="edit-moderation-state-0-scheduled-transitions"]{  
+    display: none;
+  }
+  transitionset[data-drupal-selector="edit-moderation-state-etuf-fr-0-scheduled-transitions"]{  
+    display: none;
+  }
+}
+
 body.nodeaddempl .field-group-fieldset,
 body.node-edit.page-node-type-empl .field-group-fieldset {
   width: 100% !important;

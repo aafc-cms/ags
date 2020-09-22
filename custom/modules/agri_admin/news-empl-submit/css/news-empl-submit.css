@@ -626,7 +626,7 @@ body.node-50.role-is-authenticated.i18n-fr div[class$="-subform-field-class-sub 
 body.role-is-anonymous.employment-opportunity-request-form-page.i18n-en div[class$="-subform-field-class-level form-group"] .select-wrapper:after,
 body.role-is-anonymous.nodeaddempl.i18n-en div[class$="-subform-field-class-level form-group"] .select-wrapper:after,
 body.node-50.role-is-authenticated.i18n-en div[class$="-subform-field-class-level form-group"] .select-wrapper:after {
-  right: 45% !important;
+  right: 25% !important;
 }
 body.role-is-anonymous.employment-opportunity-request-form-page div[class$="-subform-field-class-level form-group"],
 body.role-is-anonymous.nodeaddempl div[class$="-subform-field-class-level form-group"],
@@ -636,7 +636,7 @@ body.node-50.role-is-authenticated div[class$="-subform-field-class-level form-g
 body.role-is-anonymous.employment-opportunity-request-form-page.i18n-fr div[class$="-subform-field-class-level form-group"] .select-wrapper:after,
 body.role-is-anonymous.nodeaddempl.i18n-fr div[class$="-subform-field-class-level form-group"] .select-wrapper:after,
 body.node-50.role-is-authenticated.i18n-fr div[class$="-subform-field-class-level form-group"] .select-wrapper:after {
-  right: 55% !important;
+  right: 27% !important;
 }
 body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-emploppsubitappquestion.panel-default,
 body.role-is-anonymous.nodeaddempl #edit-group-emploppsubitappquestion.panel-default,
@@ -679,6 +679,11 @@ body.role-is-anonymous.employment-opportunity-request-form-page #edit-field-clas
 body.role-is-anonymous.nodeaddempl #edit-field-classification-wrapper div.paragraph-type-title.form-group.js-form-wrapper.form-wrapper,
 body.node-50.role-is-authenticated #edit-field-classification-wrapper div.paragraph-type-title.form-group.js-form-wrapper.form-wrapper {
   display: none !important;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page div.form-item--error-message.alert.alert-danger.alert-sm.form-group,
+body.role-is-anonymous.nodeaddempl div.form-item--error-message.alert.alert-danger.alert-sm.form-group,
+body.node-50.role-is-authenticated div.form-item--error-message.alert.alert-danger.alert-sm.form-group {
+  color: #a94442;
 }
 
 body.nodeaddnews.user-anonymous ol.breadcrumb li:last-child, body.nodeaddempl.user-anonymous ol.breadcrumb li:last-child {

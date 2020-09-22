@@ -1563,7 +1563,8 @@ display:
           group_type: group
           admin_label: ''
           operator: in
-          value: {  }
+          value:
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
           group: 1
           exposed: true
           expose:
@@ -1585,6 +1586,8 @@ display:
               creator: '0'
               editor: '0'
               reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
             reduce: false
           is_grouped: false
           group_info:

@@ -18,12 +18,17 @@ menu_breadcrumb_menus:
     enabled: 0
     taxattach: 0
     langhandle: 0
-  sidebar-fr:
+  brand:
     weight: 0
     enabled: 0
     taxattach: 0
     langhandle: 0
-  brand:
+  brand-fr:
+    weight: 0
+    enabled: 0
+    taxattach: 0
+    langhandle: 0
+  devel:
     weight: 0
     enabled: 0
     taxattach: 0
@@ -33,7 +38,7 @@ menu_breadcrumb_menus:
     enabled: 0
     taxattach: 0
     langhandle: 0
-  brand-fr:
+  footer-fr:
     weight: 0
     enabled: 0
     taxattach: 0
@@ -48,17 +53,12 @@ menu_breadcrumb_menus:
     enabled: 0
     taxattach: 0
     langhandle: 0
-  footer-fr:
-    weight: 0
-    enabled: 0
-    taxattach: 0
-    langhandle: 0
-  mid-footer-fr:
-    weight: 0
-    enabled: 0
-    taxattach: 0
-    langhandle: 0
   sidebar:
+    weight: 0
+    enabled: 0
+    taxattach: 0
+    langhandle: 0
+  sidebar-fr:
     weight: 0
     enabled: 0
     taxattach: 0
@@ -73,6 +73,14 @@ menu_breadcrumb_menus:
     enabled: 0
     taxattach: 0
     langhandle: 0
+  mid-footer-fr:
+    weight: 0
+    enabled: 0
+    taxattach: 0
+    langhandle: 0
 _core:
   default_config_hash: MWtaH6iqiztF4V37kZZSpw-NZBbZijdlO_xMPIUCibY
-front_title: 1
+front_title: 0
+stop_on_first_match: false
+exclude_disabled_menu_items: 0
+derived_active_trail: false

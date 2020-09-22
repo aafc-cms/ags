@@ -1,12 +1,13 @@
 <?php
 
-use Drupal\Core\Url;
-use Drupal\Core\Link;
-use Drupal\Core\Entity\EntityInterface;
+use Drupal\access_unpublished\Entity\AccessToken;
 use Drupal\agri_admin\AgriAdminHelper;
 use Drupal\agri_admin\Utils;
+use Drupal\Core\Database\Database;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Link;
+use Drupal\Core\Url;
 use Drupal\user\Entity\User;
-use Drupal\access_unpublished\Entity\AccessToken;
 use Drupal\views\ViewExecutable;
 
 /**
@@ -56,6 +57,10 @@ function agri_admin_page_attachments(array &$page) {
   $user = \Drupal::currentUser();
   if ($user->hasPermission('agrisource admin styles')) {
     $page['#attached']['library'][] = 'agri_admin/agri-admin';
+    $current_route = \Drupal::routeMatch()->getRouteName();
+    if ($current_route == 'content_moderation.admin_moderated_content' || $current_route == 'system.admin_content') {
+      $page['#attached']['library'][] = 'agri_admin/legacy-support';
+    }
   }
 }
 
@@ -171,17 +176,42 @@ function agri_admin_preprocess_views_view_field(&$variables) {
           $variables['output'] = Drupal\Core\Render\Markup::create(str_replace($alias, $urlPathToLatest, $variables['output']));
         }
       }
-      // If the above code is crashing, move the debug code higher above and enable it/refactor the debug code.
-      $DEBUG = FALSE;
-      if ($DEBUG && $fp = fopen('debug.txt', 'a'))
-      {
-        fwrite($fp, 'debug=NID=' . $nid . ' ' . print_r(' test', TRUE) . "\n");
-        fwrite($fp, 'debug=test=' . $nid .print_r($field->field, TRUE) . "\n");
-        //fwrite($fp, 'debug=status=' . $nid .print_r(get_object_vars($row->_entity), TRUE));
-        //fwrite($fp, 'debug=object_vars=' . $nid .print_r(get_object_vars($row->_entity), TRUE));
-        //fwrite($fp, 'debug row methods='.print_r(get_class_methods($variables['row']), TRUE));
-        //fwrite($fp, 'debug entity methods='.print_r(get_class_methods($row->_entity), TRUE) . "\n");
-        fclose($fp);
+    }
+  }
+
+  if ($view->id() == 'moderated_content' || $view->id() == 'content') {
+    $field = $variables['field'];
+    if ($field->field == 'nid' || $field->field == 'id') {
+      $row = $variables['row'];
+      $nid = $row->_entity->id();
+      // Retrieves a \Drupal\Core\Database\Connection which is a PDO instance
+      $connection = Database::getConnection(); // NORMALLY DO NOT USE THIS, use \Drupal::database() instead, only doing this here because of dcr_id for altered table (not a Drupal column).
+      $dcr_id_column_exists = $connection->schema()->fieldExists('node', 'dcr_id');
+      if (!$dcr_id_column_exists) {
+        return;
+      }
+      // Retrieves a PDOStatement object
+      // http://php.net/manual/en/pdo.prepare.php
+      $sth = $connection->select('node', 'n')
+          ->fields('n', ['dcr_id'])
+          ->condition('n.nid', $variables['output'], '=');
+
+      // Execute the statement
+      $data = $sth->execute();
+
+      // Get only one result.
+      $result = $data->fetch();
+      $value = $result->dcr_id;
+      if (property_exists($result, 'dcr_id') && isset($result->dcr_id)) {
+        $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+        if ($langcode == 'en') {
+          $variables['output'] = \Drupal\Core\Render\Markup::create("<span class='nid'>" . $variables['output'] . "</span><span class='legacy-dcr-id'>$value</span>" .
+          '<span class="fa fa-clipboard" style="margin-left: 10px" title="Copy dcr_id"></span>');
+        }
+        else {
+          $variables['output'] = \Drupal\Core\Render\Markup::create("<span class='nid'>" . $variables['output'] . "</span><span class='legacy-dcr-id'>$value</span>" .
+          '<span class="fa fa-clipboard" style="margin-left: 10px" title="Copier le dcr_id"></span>');
+        }
       }
     }
   }

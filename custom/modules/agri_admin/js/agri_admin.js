@@ -215,7 +215,7 @@ var Agrisource = function() {
         // Add a copy-link icon to the unpublished link, if one exists
         var access_link = $('a.access-unpublished');
         if (access_link.length > 0) {
-          var spn = $('<span class="glyphicon glyphicon-copy" style="margin-left: 10px" title="'+(lang=='fr'?'Copier le lien':'Copy link')+'"></span>');
+          var spn = $('<span class="glyphicon glyphicon-copy" style="margin-left: 10px" title="'+(Agrisource.lang=='fr'?'Copier le lien':'Copy link')+'"></span>');
           $(access_link).parent().append(spn);
           $(spn).click(function() {
             Agrisource.copyLink(window.location.origin + $(access_link).attr('href'));

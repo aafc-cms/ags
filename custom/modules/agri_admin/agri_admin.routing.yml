@@ -1,0 +1,7 @@
+agri_admin.legacydcr:
+  path: '/admin/legacydcr'
+  defaults:
+#    _title: 'Legacy DCR'
+    _controller: '\Drupal\agri_admin\Controller\LegacySupportController::build'
+  requirements:
+    _permission: 'agrisource admin styles'
