@@ -19,7 +19,7 @@ var Legacysupport = function() {
   var mouse = {x:0, y:0};    // Tracks the mouse position
   var page_type = 'content';
   var data = [];
-  var legacy_id = null;
+  var some_id = null;
   var nids = [];
 
   /**
@@ -59,6 +59,12 @@ var Legacysupport = function() {
     jQuery('form.views-exposed-form .form-item--nid input#edit-nid').keyup(function() {
       processNidInput(this);
     });
+    jQuery('form.views-exposed-form .form-item--nid input#edit-nid').blur(function() {
+      if (Legacysupport.some_id.toString().length < 13
+       && Legacysupport.some_id.toString().length > 1) {
+        jQuery('input#edit-nid').val(Legacysupport.some_id);
+      }
+    });
 
     var inputNidElement = jQuery('form.views-exposed-form input#edit-nid');
     processNidInput(inputNidElement); // Initialize.
@@ -85,7 +91,7 @@ var Legacysupport = function() {
       force = false;
     }
     Legacysupport.data[funcName]++;
-    var debug = false; // Debug is disabled.
+    var debug = true; // Debug is disabled.
     if (debug || force) {
       console.log(funcName + ' call:' + Legacysupport.data[funcName]);
     }
@@ -183,11 +189,14 @@ var Legacysupport = function() {
       url: '/' + Legacysupport.lang + '/admin/legacydcr' + nidsParam,
       type: 'GET',
       success: function(response) {
-        //console.log(response);
+        console.log(response);
         if (typeof response.message !== 'undefined') {
           if (typeof response.message[0] !== 'undefined') {
             var result = response.message[0];
-            if (result.toString().length === 13) {
+            if (result.toString().length == 13) {
+              createCopyButton(result); 
+            }
+            else if (result.toString().length > 1) {
               createCopyButton(result); 
             }
             else {
@@ -249,19 +258,24 @@ var Legacysupport = function() {
   }
 
 
-  function createCopyButton(dcr_id) {
+  function createCopyButton(raw_id) {
     Legacysupport.logCall(arguments.callee.name.toString()); // Remove this when finished porting.
-    if (typeof dcr_id == 'undefined') {
+    if (typeof raw_id == 'undefined') {
       return;
     }
-    Legacysupport.legacy_id = null;
+    Legacysupport.some_id = null;
     removeCopyWidget();
 
-    var dcr = Number(dcr_id);
-    if (dcr > 0) {
-      jQuery('form.views-exposed-form .form-item--nid label').text('ID/DCRID');
-      Legacysupport.legacy_id = dcr;
-      var spn = $('<span class="legacy-dcrid">' + Legacysupport.legacy_id + '</span><span class="dcrid fa fa-clipboard" style="margin-left: 10px" title="'+(Legacysupport.lang=='fr'?'Copier le lien':'Copy link')+'"></span>');
+    var identifier = Number(raw_id);
+    if (identifier > 0) {
+      if (identifier.toString().length < 13) {
+        jQuery('form.views-exposed-form .form-item--nid label').text('(ID)DCRID');
+      }
+      else {
+        jQuery('form.views-exposed-form .form-item--nid label').text('ID(DCRID)');
+      }
+      Legacysupport.some_id = identifier;
+      var spn = $('<span class="legacy-dcrid or-some-id">' + Legacysupport.some_id + '</span><span class="dcrid fa fa-clipboard" style="margin-left: 10px" title="'+(Legacysupport.lang=='fr'?'Copier le lien':'Copy link')+'"></span>');
        
       $('input#edit-nid').parent().append(spn);
       $('input#edit-nid').parent().find('.fa-clipboard').click(function() {
@@ -285,7 +299,7 @@ var Legacysupport = function() {
     logCall: logCall,
     mouse: mouse,
     page_type: page_type,
-    legacy_id: legacy_id,
+    some_id: some_id,
     copyDcrId: copyDcrId,
     removeCopyWidget: removeCopyWidget,
   }
