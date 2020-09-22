@@ -92,9 +92,9 @@ var AgriHelper = function() {
     var errlblexists  = errlbl.length;
     if (!AgriHelper.checkbox_valid && !errlblexists) {
      // inject error label after the last checkbox to place close to the input field
-      var errfieldlbl = '';      
+      var errfieldlbl = ''; 
       if (lang == 'fr') {
-        errfieldlbl = '<label id="edit-emplopptypes-0-value-error" for="edit-emplopptypes-0-value-error" style="display: block; color: #a94442;">Type de possibilité di\'emploi field est requis.</label>';     
+        errfieldlbl = '<label id="edit-emplopptypes-0-value-error" for="edit-emplopptypes-0-value-error" style="display: block; color: #a94442;">Type de possibilité di\'emploi field est requis.</label>';
       } else {
         errfieldlbl = '<label id="edit-emplopptypes-0-value-error" for="edit-emplopptypes-0-value-error" style="display: block; color: #a94442;">Employment Opportunity Type(s) field is required.</label>';
       }
