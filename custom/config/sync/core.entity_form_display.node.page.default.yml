@@ -24,6 +24,7 @@ dependencies:
     - node.type.page
     - workflows.workflow.editorial
   module:
+    - comment
     - content_moderation
     - datetime
     - field_group
@@ -41,7 +42,7 @@ third_party_settings:
         - field_issued
         - field_modified
       parent_name: ''
-      weight: 12
+      weight: 13
       format_type: details_sidebar
       region: content
       format_settings:
@@ -56,7 +57,7 @@ third_party_settings:
       children:
         - field_meta_type
       parent_name: ''
-      weight: 13
+      weight: 14
       format_type: details_sidebar
       region: content
       format_settings:
@@ -99,6 +100,12 @@ content:
       show_summary: false
     third_party_settings: {  }
     region: content
+  comment:
+    type: comment_default
+    weight: 19
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   created:
     type: datetime_timestamp
     weight: 2
@@ -144,7 +151,7 @@ content:
   field_meta_tags:
     type: metatag_firehose
     region: content
-    weight: 10
+    weight: 11
     settings:
       sidebar: true
     third_party_settings: {  }
@@ -189,7 +196,7 @@ content:
     region: content
   langcode:
     type: language_select
-    weight: 9
+    weight: 10
     region: content
     settings:
       include_locked: true
@@ -197,12 +204,12 @@ content:
   layout_selection:
     type: options_select
     region: content
-    weight: 11
+    weight: 12
     settings: {  }
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 8
+    weight: 9
     settings: {  }
     region: content
     third_party_settings: {  }
@@ -221,7 +228,7 @@ content:
     region: content
   status:
     type: boolean_checkbox
-    weight: 7
+    weight: 8
     settings:
       display_label: true
     third_party_settings: {  }
@@ -252,7 +259,6 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
-  comment: true
   field_category: true
   layout_builder__layout: true
   layout_builder__translation: true
