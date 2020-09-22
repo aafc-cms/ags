@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - block_content.type.basic
-    - node.type.blog
     - node.type.empl
     - node.type.landing_page
     - node.type.news
@@ -66,7 +65,6 @@ type_settings:
     block_content:
       - basic
     node:
-      - blog
       - empl
       - landing_page
       - news
