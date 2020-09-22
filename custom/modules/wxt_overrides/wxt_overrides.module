@@ -81,6 +81,9 @@ function wxt_overrides_page_attachments(array &$page) {
     $type = '';
     $issued_date = '';
     $modified_date = '';
+    if (!$node->hasField('field_issued')) {
+      return;
+    }
     if ($node->get('field_issued')->first()) {
       $issued_date = $node->get('field_issued')->first()->date->format('Y-m-d');
     }
