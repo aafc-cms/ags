@@ -302,7 +302,7 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
       }
     }
     else {
-      $update_date_modified_str = '2';
+      $update_date_modified_str = '2'; // just making not zero and different from 1 for debug ease.
     }
 
     if ($moderation_state == 'published') {
@@ -319,7 +319,7 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
       }
     }
 
-    AgriAdminHelper::addToLog('update_date_modified_str: ' . $update_date_modified_str, TRUE);
+//    AgriAdminHelper::addToLog('update_date_modified_str: ' . $update_date_modified_str, TRUE);
   }
 
   foreach ($roles as $value) {
