@@ -39,16 +39,8 @@ class LegacySupportController extends ControllerBase {
     );
   }
 
-  /**
-   * Builds the response.
-   */
-  public function build() {
-    $nid = $this->getIdFromGetParam();
-    // Retrieves a \Drupal\Core\Database\Connection which is a PDO instance
-    $dcr_id_column_exists = $this->connection->schema()->fieldExists('node', 'dcr_id');
-    if (!$dcr_id_column_exists) {
-      return;
-    }
+
+  public function getDcridFromNid($nid) {
     // Retrieves a PDOStatement object
     // http://php.net/manual/en/pdo.prepare.php
     $sth = $this->connection->select('node', 'n')
@@ -60,12 +52,65 @@ class LegacySupportController extends ControllerBase {
 
     // Get only one result.
     $result = $data->fetch();
-    $value = $result->dcr_id;
     if (property_exists($result, 'dcr_id') && isset($result->dcr_id)) {
-      return new JsonResponse(['status' => TRUE, 'message' => [$result->dcr_id]]);
+      $value = $result->dcr_id;
+      return $value;
     }
-    if (empty($dcr_id)) {
+    else {
+      return NULL;
+    }
+  }
+
+  public function getNidFromDcrId($dcrid) {
+    // Retrieves a PDOStatement object
+    // http://php.net/manual/en/pdo.prepare.php
+    $sth = $this->connection->select('node', 'n')
+      ->fields('n', ['nid'])
+      ->condition('n.dcr_id', $dcrid, '=');
+
+    // Execute the statement
+    $data = $sth->execute();
+
+    // Get only one result.
+    $result = $data->fetch();
+    if (property_exists($result, 'nid') && isset($result->nid)) {
+      $value = $result->nid;
+      return $value;
+    }
+    else {
+      return NULL;
+    }
+  }
+
+
+  /**
+   * Builds the response.
+   */
+  public function build() {
+    $id = $this->getIdFromGetParam();
+    if (empty($id)) {
+      return new JsonResponse(['status' => TRUE, 'message' => ['']]); // get out early.
+    }
+    // Retrieves a \Drupal\Core\Database\Connection which is a PDO instance
+    $dcr_id_column_exists = $this->connection->schema()->fieldExists('node', 'dcr_id');
+    if (!$dcr_id_column_exists) {
+      return new JsonResponse(['status' => TRUE, 'message' => ['']]); // get out early.
+    }
+
+    $nid = null;
+    $dcr_id = null;
+    if (strlen($id) < 13) {
+      $id = $this->getDcridFromNid($id);
+    }
+    else if (strlen($id) == 13) {
+      $id = $this->getNidFromDcrId($id);
+    }
+
+    if (empty($id)) {
       return new JsonResponse(['status' => TRUE, 'message' => ['']]);
+    }
+    else {
+      return new JsonResponse(['status' => TRUE, 'message' => [$id]]);
     }
   }
 
