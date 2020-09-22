@@ -80,9 +80,7 @@ var AgriHelper = function() {
     AgriHelper.checkbox_valid = false;
     $('div[id="edit-field-type"]').children().find('input').each(function(index, element) {
       if ($(element).hasClass('form-checkbox')) {
-        console.log($(element).val());
         if ( $(element).prop('checked') && (!AgriHelper.checkbox_valid)) {
-           //console.log('validation is ok');
            AgriHelper.checkbox_valid = true;
         }
       }
@@ -94,12 +92,13 @@ var AgriHelper = function() {
     var errlblexists  = errlbl.length;
     if (!AgriHelper.checkbox_valid && !errlblexists) {
      // inject error label after the last checkbox to place close to the input field
+      var errfieldlbl = '';      
       if (lang == 'fr') {
-     //   errorlbl = "<label class='error' style='display: block; color: #a94442;'>Type de possibilité d'emploi est requis.</label>";
-        $('div#edit-field-type[class="form-checkboxes"] div').last().after('<label id="edit-emplopptypes-0-value-error" for="edit-emplopptypes-0-value-error" style="display: block; color: #a94442;">Type de possibilité di\'emploi est requis.</label>');
+        errfieldlbl = '<label id="edit-emplopptypes-0-value-error" for="edit-emplopptypes-0-value-error" style="display: block; color: #a94442;">Type de possibilité di\'emploi field est requis.</label>';     
       } else {
-        $('div#edit-field-type[class="form-checkboxes"] div').last().after('<label id="edit-emplopptypes-0-value-error" for="edit-emplopptypes-0-value-error" style="display: block; color: #a94442;">Employment Opportunity Type(s) is required.</label>');
+        errfieldlbl = '<label id="edit-emplopptypes-0-value-error" for="edit-emplopptypes-0-value-error" style="display: block; color: #a94442;">Employment Opportunity Type(s) field is required.</label>';
       }
+      $('div#edit-field-type[class="form-checkboxes"] div').last().after(errfieldlbl);
       // make the validation error be close to the input field
       $('div#edit-field-type[class="form-checkboxes"] div').last().css({"margin-bottom": "0px"});
     } else
@@ -116,7 +115,8 @@ var AgriHelper = function() {
         }
       }
     }
-   // return AgriHelper.form_required_valid;
+
+    return AgriHelper.form_required_valid;
 
   /*$('select[required="required"]').each(function(index, element) {
       if ($(element).hasClass('form-select')) {
