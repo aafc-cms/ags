@@ -362,17 +362,18 @@ function wxt_overrides_link_alter(&$variables) {
       $variables['text'] = t('Moderated content');
       $variables['url'] = \Drupal\Core\Url::fromUri('internal:/admin/content/moderated');
     }
-    else if ($current_route == 'view.media_library.page' && $variables['text'] == 'Table') {
+    else if ($variables['text'] == 'Table') {
       return;
     }
-    else if ($route_name == 'entity.media.collection' && $variables['text'] != 'Table') {
+    else if ($route_name == 'entity.media.collection') {
       $link_options = $url->getOptions();
-      if (isset($link_options['attributes']['class'][1])) {
-        foreach ($link_options['attributes']['class'] as $key => $classname) {
-          if ($classname === 'tabs__link') {
-            return; // Do not manipulate this tabs__link as it is otherwise confusing to the end user.
-          }
+      if ($current_route == 'entity.media.collection') {
+        if (in_array('tabs__link', $link_options['attributes']['class'])) {
+          return; // Do not manipulate this tabs__link as it is otherwise confusing to the end user.
         }
+      }
+      if (in_array('tabs__link', $link_options['attributes']['class']) && $variables['text'] == 'Table') {
+        return; // Do not manipulate this tabs__link as it is otherwise confusing to the end user.
       }
       $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
       $variables['text'] = 'Media (grid)';
@@ -383,3 +384,4 @@ function wxt_overrides_link_alter(&$variables) {
     }
   }
 }
+
