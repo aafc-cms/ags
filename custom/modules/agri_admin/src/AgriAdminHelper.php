@@ -360,6 +360,9 @@ class AgriAdminHelper {
       // $id is not numeric, so it must be uuid.
       $menuLink = self::getMenuLinkByUuid($id);
     }
+    if (!$menuLink) {
+      return FALSE;
+    }
     $link_attributes = $menuLink->link->options;
     if (isset($link_attributes['attributes']['class'])) {
       if (!empty($link_attributes['attributes']['class'])) {
