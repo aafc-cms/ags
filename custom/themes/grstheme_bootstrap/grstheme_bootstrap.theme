@@ -75,7 +75,7 @@ function grstheme_bootstrap_preprocess_html(&$variables) {
       $vid = $node_revision->revision_id();
     }
 
-    if ($vid == 0) {
+    if ($vid == 0 && gettype($node_revision) == 'object') {
       // Get the revision id.
       $vid = $nodeLoaded->getRevisionId();
     }
