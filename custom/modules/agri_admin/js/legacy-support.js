@@ -60,10 +60,7 @@ var Legacysupport = function() {
       processIdInput(this);
     });
     jQuery('form.views-exposed-form .form-item--nid input#edit-nid').blur(function() {
-      if (Legacysupport.some_id.toString().length < 13
-       && Legacysupport.some_id.toString().length > 1) {
-        jQuery('input#edit-nid').val(Legacysupport.some_id);
-      }
+      processIdInput(this);
     });
 
     var inputIdElement = jQuery('form.views-exposed-form input#edit-nid');
