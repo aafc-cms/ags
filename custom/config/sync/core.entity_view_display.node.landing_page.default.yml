@@ -3,7 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.comment.default
     - field.field.node.landing_page.body
+    - field.field.node.landing_page.comment
     - field.field.node.landing_page.field_created_by
     - field.field.node.landing_page.field_dc_date_created
     - field.field.node.landing_page.field_description
@@ -22,6 +24,7 @@ dependencies:
     - field.field.node.landing_page.layout_selection
     - node.type.landing_page
   module:
+    - comment
     - datetime
     - layout_builder
     - layout_builder_restrictions
@@ -48,6 +51,15 @@ targetEntityType: node
 bundle: landing_page
 mode: default
 content:
+  comment:
+    weight: 15
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    type: comment_default
+    region: content
   field_created_by:
     weight: 14
     label: above

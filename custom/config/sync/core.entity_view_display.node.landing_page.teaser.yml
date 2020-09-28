@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.landing_page.body
+    - field.field.node.landing_page.comment
     - field.field.node.landing_page.field_created_by
     - field.field.node.landing_page.field_dc_date_created
     - field.field.node.landing_page.field_description
@@ -54,6 +55,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  comment: true
   content_moderation_control: true
   field_created_by: true
   field_dc_date_created: true
