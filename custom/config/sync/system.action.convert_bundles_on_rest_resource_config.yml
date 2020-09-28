@@ -1,0 +1,11 @@
+uuid: 41fb4708-441b-4356-a3b4-3bf2b11754bb
+langcode: en
+status: true
+dependencies:
+  module:
+    - convert_bundles
+id: convert_bundles_on_rest_resource_config
+label: 'Convert REST resource configuration Entity Bundles'
+type: rest_resource_config
+plugin: convert_bundles_action_base
+configuration: {  }
