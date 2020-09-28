@@ -1,0 +1,11 @@
+uuid: 25e945bd-58fa-49d8-af78-bf4d80c38dc5
+langcode: en
+status: true
+dependencies:
+  module:
+    - convert_bundles
+id: convert_bundles_on_entity_subqueue
+label: 'Convert Entity subqueue Entity Bundles'
+type: entity_subqueue
+plugin: convert_bundles_action_base
+configuration: {  }
