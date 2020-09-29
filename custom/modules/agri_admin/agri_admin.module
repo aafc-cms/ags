@@ -534,6 +534,19 @@ function agri_admin_form_node_empl_form_alter(&$form, \Drupal\Core\Form\FormStat
   }
 }
 
+/**
+ * Implements agri_admin_form_submit().
+ */
+function agri_admin_form_newsorempl_submit (array $form, \Drupal\Core\Form\FormStateInterface $form_state){
+  $current_user = \Drupal::currentUser();
+  if ($current_user->isAnonymous()) {
+    $entity = $form_state->getFormObject()->getEntity();
+    $entity->set('status', '0');
+    $entity->save();
+    $front_url = Url::fromRoute('<front>'); 
+    $form_state->setRedirectUrl( $front_url );
+  }
+}
 
 /**
  * Implements hook_form_node_form_alter().
@@ -547,6 +560,17 @@ function agri_admin_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInte
     $form['field_created_by']['widget'][0]['#disabled'] = TRUE;
     $form['field_dc_date_created']['widget'][0]['#disabled'] = TRUE;
     $form['#attached']['library'][] = 'agri_admin/page'; // For page and landing page edit/add css.
+
+    // custom action after the data is submitted.
+    //$form['actions'][$action]['#submit'][] = 'agri_admin_form_submit'i;
+    $current_user = \Drupal::currentUser();
+    if ($current_user->isAnonymous()) {
+      foreach (array_keys($form['actions']) as $action) {
+        if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+          $form['actions'][$action]['#submit'][] = 'agri_admin_form_newsorempl_submit';
+        }
+      }
+    } 
 
 //  AgriAdminHelper::addToLog($debug_message, TRUE);
 //Copying fields to label:
