@@ -373,6 +373,7 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
 
 function _helperLockingContent($action, $entity_id, $bundle, $entity_obj = NULL) {
   global $import_override;
+  $content_type = $entity_obj->bundle();
   if (!isset($import_override) || $import_override == FALSE) {
     if ($action == 'insert' || $action == 'update') {
       $current_user = \Drupal::currentUser();
@@ -409,7 +410,10 @@ function _helperLockingContent($action, $entity_id, $bundle, $entity_obj = NULL)
         if ($role == 'creator') {
           $is_creator = TRUE;
           $state = $latest->get('moderation_state')->getString();
-          $peer_review_status = $latest->get('field_peer_review')->getString();
+          $peer_review_status = '';
+          if ($content_type == 'page' || $content_type == 'landing_page') {
+            $peer_review_status = $latest->get('field_peer_review')->getString();
+          }
           if ($state == 'draft' && empty($peer_review_status)) {
             $lock_service->locking($entity_id, $latest->language()->getId(), 'edit', $current_user_id, $latest->getEntityTypeId());
             return; // Finished processing.
