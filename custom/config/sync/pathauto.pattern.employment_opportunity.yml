@@ -8,24 +8,24 @@ dependencies:
 id: employment_opportunity
 label: 'employment opportunity'
 type: 'canonical_entities:node'
-pattern: 'internal-employment-opportunities/[node:title]'
+pattern: 'human-resources/internal-employment-opportunities/[node:title]'
 selection_criteria:
-  7300900a-8aad-4800-897e-3ab8b64e7d16:
+  43212ce1-f182-471a-afe9-c07d54bb3738:
     id: node_type
     bundles:
       empl: empl
     negate: false
     context_mapping:
       node: node
-    uuid: 7300900a-8aad-4800-897e-3ab8b64e7d16
-  cbc420f3-f25c-4a17-a831-91bf2264bace:
+    uuid: 43212ce1-f182-471a-afe9-c07d54bb3738
+  beb1204e-6442-493c-a319-68c0153012c4:
     id: language
     langcodes:
       en: en
     negate: false
     context_mapping:
       language: 'node:langcode:language'
-    uuid: cbc420f3-f25c-4a17-a831-91bf2264bace
+    uuid: beb1204e-6442-493c-a319-68c0153012c4
 selection_logic: and
 weight: -9
 relationships:
