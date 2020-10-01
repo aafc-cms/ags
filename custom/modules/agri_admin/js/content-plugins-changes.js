@@ -82,7 +82,7 @@ var ContentPluginsChanges = function() {
       force = false;
     }
     ContentPluginsChanges.data[funcName]++;
-    var debug = true; // Debug is disabled.
+    var debug = false; // Debug is disabled.
     if (debug || force) {
       console.log(funcName + ' call:' + ContentPluginsChanges.data[funcName]);
     }
