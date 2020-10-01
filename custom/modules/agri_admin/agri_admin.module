@@ -60,6 +60,7 @@ function agri_admin_page_attachments(array &$page) {
     $current_route = \Drupal::routeMatch()->getRouteName();
     if ($current_route == 'content_moderation.admin_moderated_content' || $current_route == 'system.admin_content') {
       $page['#attached']['library'][] = 'agri_admin/legacy-support';
+      $page['#attached']['library'][] = 'agri_admin/content-plugins-changes';
     }
   }
 }
