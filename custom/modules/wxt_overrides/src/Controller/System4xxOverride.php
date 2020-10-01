@@ -76,7 +76,7 @@ class System4xxOverride extends ControllerBase implements ContainerInjectionInte
         </div>
       </div>
       <p class="mrgn-tp-md customalertmsgfont">' . $this->t("We're sorry you ended up here. Sometimes a page gets moved or deleted, but hopefully we can help you find what you're looking for. What next?") . '</p>
-      <p class="mrgn-tp-md customalertmsgfont">' . $this->t("Return to the ") . '<a href=' .$homelink .'>' . $this->t("home page"). '</a>;</p>
+      <p class="mrgn-tp-md customalertmsgfont">' . $this->t("Return to the ") . '<a href=' .$homelink .'>' . $this->t("home page"). '</a>.</p>
     </div>';
 
     // Lookup our custom 404 content block.
