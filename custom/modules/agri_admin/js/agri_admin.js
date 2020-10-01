@@ -7,7 +7,8 @@
     attach: function (context, settings) {
       if (context == document) {
         Agrisource.init();
-        if ($('body').hasClass('user-logged-in')) {
+        if ($('body').hasClass('user-logged-in') && $('body').hasClass('node-edit') ||
+            $('body').hasClass('user-logged-in') && $('body').hasClass('node-add')) {
           // Check if the actual 'admin' user is logged in, based on the name displayed in the toolbar.
           // There is a small delay before this information is available, so set a timer.
           // If this needs to be based on the admin _role_ instead, then we'll need an API function for that.

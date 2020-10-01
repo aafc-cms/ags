@@ -71,3 +71,13 @@ legacy-support:
   dependencies:
     - core/jquery
     - core/drupalSettings
+
+content-plugins-changes:
+  css:
+    component:
+      css/content-plugins-changes.css: {}
+  js:
+    js/content-plugins-changes.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
