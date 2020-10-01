@@ -60,10 +60,8 @@ class System4xxOverride extends ControllerBase implements ContainerInjectionInte
 
     // 404 Fallback message.
     $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
-    $homelink = '';
-    if ( $langcode == 'en' ) {
-      $homelink = '/en';
-    } else {  $homelink = '/fr'; }
+    $homelink = '/'.$langcode;
+
     $response = '
     <div class="box">
       <div class="row">
