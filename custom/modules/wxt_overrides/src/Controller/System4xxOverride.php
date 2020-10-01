@@ -59,18 +59,22 @@ class System4xxOverride extends ControllerBase implements ContainerInjectionInte
   public function on404() {
 
     // 404 Fallback message.
+    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    $homelink = '/'.$langcode;
+
     $response = '
     <div class="box">
       <div class="row">
-        <div class="col-xs-3 col-sm-2 col-md-2 text-center mrgn-tp-md">
-          <span class="glyphicon glyphicon-warning-sign glyphicon-error"></span>
+        <div class="col-xs-3 col-sm-2 col-md-2 text-center mrgn-tp-md customalertimagesize">
+          <span class="glyphicon glyphicon-warning-sign glyphicon-error customalertimagesize"></span>
         </div>
         <div class="col-xs-9 col-sm-10 col-md-10">
-          <h2 class="mrgn-tp-md">Example for James Yao:' . $this->t("We couldn't find that Web page") . '</h2>
+          <h2 class="mrgn-tp-md customalertheaderfont">' . $this->t("We couldn't find that Web page") . '</h2>
           <p class="pagetag"><strong>' . $this->t('Error 404') . '</strong></p>
         </div>
       </div>
-      <p class="mrgn-tp-md">Example for James Yao:' . $this->t("We're sorry you ended up here. Sometimes a page gets moved or deleted.") . '</p>
+      <p class="mrgn-tp-md customalertmsgfont">' . $this->t("We're sorry you ended up here. Sometimes a page gets moved or deleted, but hopefully we can help you find what you're looking for. What next?") . '</p>
+      <p class="mrgn-tp-md customalertmsgfont">' . $this->t("Return to the ") . '<a href=' .$homelink .'>' . $this->t("home page"). '</a>.</p>
     </div>';
 
     // Lookup our custom 404 content block.
