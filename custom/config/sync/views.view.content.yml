@@ -681,6 +681,7 @@ display:
           admin_label: ''
           operator: in
           value:
+            editorial-draft: editorial-draft
             editorial-published: editorial-published
             editorial-archived: editorial-archived
           group: 1
@@ -689,7 +690,7 @@ display:
             operator_id: moderation_state_op
             label: 'Moderation state'
             description: ''
-            use_operator: false
+            use_operator: true
             operator: moderation_state_op
             operator_limit_selection: false
             operator_list: {  }
@@ -706,6 +707,7 @@ display:
               reviewer: '0'
               news_ccpub: '0'
               empl_cspub: '0'
+              pab_admin: '0'
             reduce: true
           is_grouped: false
           group_info:
