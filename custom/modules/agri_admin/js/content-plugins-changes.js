@@ -43,7 +43,7 @@ var ContentPluginsChanges = function() {
       $(document).on('mousemove', onMouseMove);
 
 
-      // Reorder select items.
+      // Reorder select items (set default and item after).
       $('select#edit-action option').each(function(index, el) {
         if ($(el).attr('value') == 'node_break_lock_action') {
           $("select#edit-action").val("node_break_lock_action"); // set the default action to node break lock action.
@@ -51,15 +51,14 @@ var ContentPluginsChanges = function() {
         }
       });
 
-      // Reorder select items.
+      // Reorder rest of the select items.
       $('select#edit-action option').each(function(index, el) {
         if ($(el).attr('value') == 'convert_bundles_on_node') {
-          //ContentPluginsChanges.temp_element = $(el);
-          $(el).insertAfter($('select option[value=archive_current]'));
+          $(el).insertAfter($('select option[value=unpublish_current]'));
         }
         if ($(el).attr('value') == 'convert_bundles_on_node') {
-          if (!$('body').hasClass('role-is-administrator')) {
-            $(el).attr('disabled', 'disabled');
+          if (!drupalSettings.agrisource.show_restricted_plugins_permissions) {
+            $(el).attr('hidden', 'hidden');
           }
         }
       });

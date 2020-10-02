@@ -61,6 +61,7 @@ function agri_admin_page_attachments(array &$page) {
     if ($current_route == 'content_moderation.admin_moderated_content' || $current_route == 'system.admin_content') {
       $page['#attached']['library'][] = 'agri_admin/legacy-support';
       $page['#attached']['library'][] = 'agri_admin/content-plugins-changes';
+      $page['#attached']['drupalSettings']['agrisource']['show_restricted_plugins_permissions'] = $user->hasPermission('agrisource show restricted plugins');
     }
   }
 }
@@ -325,6 +326,7 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
       }
     }
 
+    $peer_review_status = '';
     if ($content_type == 'page' || $content_type == 'landing_page') {
       $update_date_modified_str = $entity->get('field_update_date_modified')->getString();
       $peer_review_status = $entity->get('field_peer_review')->getString();      
