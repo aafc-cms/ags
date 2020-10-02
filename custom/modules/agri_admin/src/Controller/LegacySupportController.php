@@ -52,7 +52,7 @@ class LegacySupportController extends ControllerBase {
 
     // Get only one result.
     $result = $data->fetch();
-    if (property_exists($result, 'dcr_id') && isset($result->dcr_id)) {
+    if (!empty($result) && property_exists($result, 'dcr_id') && isset($result->dcr_id)) {
       $value = $result->dcr_id;
       return $value;
     }
