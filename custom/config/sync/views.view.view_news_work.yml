@@ -654,7 +654,12 @@ display:
           bypass_access: false
           plugin_id: entity
       footer: {  }
-      empty: {  }
+      empty:
+        messages:
+          id: messages
+          table: views
+          field: messages
+          plugin_id: messages
       relationships:
         term_node_tid:
           id: term_node_tid
@@ -715,7 +720,7 @@ display:
     display_options:
       display_extenders:
         metatag_display_extender: {  }
-      path: news@work
+      path: news/newswork
       display_description: ''
       menu:
         type: normal
@@ -744,6 +749,7 @@ display:
         relationships: false
         sorts: false
         query: false
+        empty: false
       sorts:
         weight:
           id: weight
@@ -781,6 +787,20 @@ display:
           query_comment: ''
           query_tags: {  }
       rendering_language: '***LANGUAGE_language_interface***'
+      empty:
+        entity_block:
+          id: entity_block
+          table: views
+          field: entity_block
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: true
+          target: '13'
+          view_mode: default
+          bypass_access: false
+          plugin_id: entity
     cache_metadata:
       max-age: -1
       contexts:
