@@ -7,25 +7,26 @@
     attach: function (context, settings) {
       if (context == document) {
         Agrisource.init();
-        if ($('body').hasClass('user-logged-in') && $('body').hasClass('node-edit') ||
-            $('body').hasClass('user-logged-in') && $('body').hasClass('node-add')) {
+        if ($('body').hasClass('user-logged-in')) {
           // Check if the actual 'admin' user is logged in, based on the name displayed in the toolbar.
           // There is a small delay before this information is available, so set a timer.
           // If this needs to be based on the admin _role_ instead, then we'll need an API function for that.
-          setTimeout(function() {
-            var user = $('#toolbar-item-user').text();
-            if (user != 'admin') {
-              //$('#edit-field-meta-tags-0').hide(); // Hide the META TAGS tab in the node editor
-              //$('#edit-field-meta-tags-etuf-fr-0').hide(); //because now weh have the ETUF (fr and en form)
-              //$('#edit-author').hide(); //Hide the Authoring Information.
-              //$('#edit-meta-author').hide();
-              //$('#edit-revision-information').hide();
-              //$('#edit-content-translation').hide();
-              $('.js-form-item-promote-value.form-item-promote-value').hide();
-              $('.js-form-item-promote-etuf-fr-value.form-item-promote-etuf-fr-value').hide();
-              console.log('agri_admin hide the promote checkbox on node edit.');
-            }
-          }, 500);
+          if ($('body').hasClass('node-edit') && $('body').hasClass('node-add')) {
+            setTimeout(function() {
+              var user = $('#toolbar-item-user').text();
+              if (user != 'admin') {
+                //$('#edit-field-meta-tags-0').hide(); // Hide the META TAGS tab in the node editor
+                //$('#edit-field-meta-tags-etuf-fr-0').hide(); //because now weh have the ETUF (fr and en form)
+                //$('#edit-author').hide(); //Hide the Authoring Information.
+                //$('#edit-meta-author').hide();
+                //$('#edit-revision-information').hide();
+                //$('#edit-content-translation').hide();
+                $('.js-form-item-promote-value.form-item-promote-value').hide();
+                $('.js-form-item-promote-etuf-fr-value.form-item-promote-etuf-fr-value').hide();
+                console.log('agri_admin hide the promote checkbox on node edit.');
+              }
+            }, 500);
+          }
 
           //make sure in ETUF the french language is french (it defaults to english if creating node in french UI)
           if (Agrisource.lang == 'fr') {
