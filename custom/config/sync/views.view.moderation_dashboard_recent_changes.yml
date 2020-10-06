@@ -7,6 +7,7 @@ dependencies:
     - node.type.page
     - user.role.administrator
     - user.role.creator
+    - user.role.pab_admin
     - workflows.workflow.editorial
   enforced:
     module:
@@ -763,6 +764,7 @@ display:
           role:
             administrator: administrator
             creator: creator
+            pab_admin: pab_admin
       relationships:
         nid:
           id: nid
@@ -1318,6 +1320,7 @@ display:
         options:
           role:
             administrator: administrator
+            pab_admin: pab_admin
       fields:
         nid:
           id: nid
