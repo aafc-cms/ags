@@ -1,8 +1,11 @@
 <?php
 
+
+// Inspired by: https://www.drupal.org/project/bootstrap/issues/2912815
 namespace Drupal\grstheme_bootstrap\Plugin\Preprocess;
 
-use Drupal\bootstrap\Plugin\Preprocess\PreprocessBase;
+use Drupal\bootstrap\Plugin\Preprocess\Breadcrumb as BootstrapBreadcrumb;
+use Drupal\agri_admin\AgriAdminHelper;
 
 use Drupal\bootstrap\Utility\Variables;
 use Drupal\Core\Template\Attribute;
@@ -15,16 +18,16 @@ use Drupal\Core\Url;
  *
  * @BootstrapPreprocess("breadcrumb")
  */
-class Breadcrumb extends PreprocessBase implements PreprocessInterface {
+class Breadcrumb extends BootstrapBreadcrumb {
 
   /**
    * {@inheritdoc}
    */
   public function preprocessVariables(Variables $variables) {
     $breadcrumb = &$variables['breadcrumb'];
-
     // Determine if breadcrumbs should be displayed.
     $breadcrumb_visibility = $this->theme->getSetting('breadcrumb');
+
     if (($breadcrumb_visibility == 0 || ($breadcrumb_visibility == 2 && \Drupal::service('router.admin_context')->isAdminRoute())) || empty($breadcrumb)) {
       $breadcrumb = [];
       return;
@@ -46,26 +49,27 @@ class Breadcrumb extends PreprocessBase implements PreprocessInterface {
       $route_match = \Drupal::routeMatch();
       $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
       $node = \Drupal::routeMatch()->getParameter('node');
-      if (isset($node)) { 
+      if (isset($node)) {
         $nodetype= $node->getType();
-        if ($nodetype != 'page' && $nodetype != 'landing_page') { 
+        if ($nodetype == 'page' || $nodetype == 'landing_page') {
+          if (!empty($page_title)) {
+            $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
+            $nodemenulink = $menu_link_manager->loadLinksByRoute('entity.node.canonical', array('node' => $node->id()));
+            $link = array_pop($nodemenulink);
+            if (!empty($link) && is_object($link)) {
+              $ldefinition = $link->getPluginDefinition();
+              $linktitle = $ldefinition['title'];
+              $breadcrumb[] = [
+                'text' => $linktitle,
+                'attributes' => new Attribute(['class' => ['active']]),
+              ];
+            }
+          }
+        }
+        else {
           if (!empty($page_title)) {
             $breadcrumb[] = [
               'text' => $page_title,
-              'attributes' => new Attribute(['class' => ['active']]),
-            ];
-          }
-        }
-        else{
-          $nodeid = $node ->id();
-          $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
-          $nodemenulink = $menu_link_manager->loadLinksByRoute('entity.node.canonical', array('node' => $nodeid));
-          $link = array_pop($nodemenulink);
-          $ldefinition = $link->getPluginDefinition();
-          $linktitle = $ldefinition['title'];
-          if (!empty($linktitle)) {
-            $breadcrumb[] = [
-              'text' => $linktitle,
               'attributes' => new Attribute(['class' => ['active']]),
             ];
           }
@@ -82,7 +86,8 @@ class Breadcrumb extends PreprocessBase implements PreprocessInterface {
     }
 
     // Add cache context based on url.
-    $variables->addCacheContexts(['url']);
+    $variables->addCacheContexts(['url.path', 'languages']);
   }
 
 }
+
