@@ -56,14 +56,15 @@ class Breadcrumb extends BootstrapBreadcrumb {
             $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
             $nodemenulink = $menu_link_manager->loadLinksByRoute('entity.node.canonical', array('node' => $node->id()));
             $link = array_pop($nodemenulink);
+            $linktitle = $page_title; // Safe default value
             if (!empty($link) && is_object($link)) {
               $ldefinition = $link->getPluginDefinition();
-              $linktitle = $ldefinition['title'];
-              $breadcrumb[] = [
-                'text' => $linktitle,
-                'attributes' => new Attribute(['class' => ['active']]),
-              ];
+              $linktitle = $ldefinition['title']; // The actual menu link title.
             }
+            $breadcrumb[] = [
+              'text' => $linktitle,
+              'attributes' => new Attribute(['class' => ['active']]),
+            ];
           }
         }
         else {
