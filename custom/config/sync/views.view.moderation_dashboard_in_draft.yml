@@ -8,6 +8,7 @@ dependencies:
     - node.type.page
     - user.role.administrator
     - user.role.creator
+    - user.role.pab_admin
     - workflows.workflow.editorial
   module:
     - content_lock
@@ -1074,6 +1075,7 @@ display:
           role:
             administrator: administrator
             creator: creator
+            pab_admin: pab_admin
       cache:
         type: none
         options: {  }
