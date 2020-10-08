@@ -29,12 +29,13 @@ anonymous-empl-node-css:
     component:
       libraries/empl-node-anon/css/empl-node-anon.css: {}
 
-news-empl-node-js:
-  js:
-    libraries/empl-node/js/temporary-hack-replace-with-php-breadcrumb-logic-instead.js: {}
-  dependencies:
-    - core/drupalSettings
-    - core/jquery
+# Disable hack, do not use hacks like this.
+#news-empl-node-js:
+#  js:
+#    libraries/empl-node/js/temporary-hack-replace-with-php-breadcrumb-logic-instead.js: {}
+#  dependencies:
+#    - core/drupalSettings
+#    - core/jquery
 
 # Custom module library for general purposes.
 #news_empl:

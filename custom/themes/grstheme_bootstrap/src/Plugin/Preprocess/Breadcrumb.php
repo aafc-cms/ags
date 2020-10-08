@@ -58,8 +58,7 @@ class Breadcrumb extends BootstrapBreadcrumb {
             $link = array_pop($nodemenulink);
             $linktitle = $page_title; // Safe default value
             if (!empty($link) && is_object($link)) {
-              $ldefinition = $link->getPluginDefinition();
-              $linktitle = $ldefinition['title']; // The actual menu link title.
+              $linktitle = $link->getTitle(); // This gets title in the current language.
             }
             $breadcrumb[] = [
               'text' => $linktitle,
