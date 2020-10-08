@@ -9,16 +9,16 @@ _core:
 id: landing_page
 label: 'Landing page'
 type: 'canonical_entities:node'
-pattern: '[node:menu-link:parent]/[node:menu-link:title]'
+pattern: '[node:menu-link:parents:join-path]/[node:menu-link:title]'
 selection_criteria:
-  24c38fb9-5db7-4707-8ee1-27ec3d7b9221:
+  9ce2d98c-3480-46f0-ae55-aa7caa59525e:
     id: node_type
     bundles:
       landing_page: landing_page
     negate: false
     context_mapping:
       node: node
-    uuid: 24c38fb9-5db7-4707-8ee1-27ec3d7b9221
+    uuid: 9ce2d98c-3480-46f0-ae55-aa7caa59525e
 selection_logic: and
 weight: -5
 relationships:
