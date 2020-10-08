@@ -46,15 +46,17 @@ visibility:
     context_mapping: {  }
   request_path:
     id: request_path
-    pages: "/en/internal-employment-opportunities*\r\n/internal-employment-opportunities*\r\n/fr/possibilites-demploi-a-linterne*\r\n/possibilites-demploi-a-linterne*\r\n/node/preview*\r\n/en/node/preview*\r\n/fr/node/preview*\r\n/en/employment*\r\n/employment*\r\n/fr/emploi*"
+    pages: "/en/human-resources/internal-employment-opportunities*\r\n/human-resources/internal-employment-opportunities*\r\n/fr/ressources-humaines/possibilites-demploi-a-linterne*\r\n/ressources-humaines/possibilites-demploi-a-linterne*\r\n/node/preview*\r\n/en/node/preview*\r\n/fr/node/preview*\r\n/en//human-resources/employment*\r\n/human-resources/employment*\r\n/fr/ressources-humaines/emploi*"
     negate: false
     context_mapping: {  }
   user_role:
     id: user_role
     roles:
       anonymous: anonymous
+      administrator: administrator
       editor: editor
       reviewer: reviewer
+      empl_cspub: empl_cspub
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
