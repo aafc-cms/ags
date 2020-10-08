@@ -26,6 +26,7 @@ var Emplnode = function() {
     if (initialized) {
       return;
     }
+    return; // Hack is disabled DO NOT DO HACKS LIKE THIS!.
 
     // Get the current UI language
     $ = jQuery;
@@ -39,6 +40,7 @@ var Emplnode = function() {
     if (Emplnode.page_type == 'empl') {
       //$(document).on('mousemove', onMouseMove);
 
+      // BEGIN HACK CODE.
       //Replace -- Services and Information with '', should only be Human Resources.
 
       if (Emplnode.lang == 'en') {
@@ -55,6 +57,7 @@ var Emplnode = function() {
           }
         });
       }
+      // END HACK CODE. , this code is no longer needed, don't do this, see agri_admin.module line 750 instead.
     }
 
     initialized = true;

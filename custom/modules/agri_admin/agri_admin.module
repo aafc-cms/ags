@@ -653,7 +653,11 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
   $current_path = \Drupal::service('path.current')->getPath();
   $result = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
   $previousUrl = \Drupal::request()->server->get('HTTP_REFERER');
-  $node = \Drupal::routeMatch()->getParameter('node_preview');
+  $node_preview = \Drupal::routeMatch()->getParameter('node_preview');
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node_preview) {
+    $nType = $node_preview->getType();
+  }
   if ($node) {
     $nType = $node->getType();
   }
@@ -741,6 +745,18 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         $linkHR = Link::createFromRoute(t('Human Resources'), 'view.view_employmentopportunities.page_1');
       }
       $breadcrumb->addLink($linkHR);
+    }
+  }
+  else if (Utils::getRouteName() == 'view.view_employmentopportunities.page_1' || (isset($nType) && $nType == 'empl')) {
+    if ($breadcrumb) {
+      foreach($links as $key => $link) {
+        if ($link->getText() == 'Human Resources – Services and Information') {
+          $link->setText('Human Resources');
+        }
+        else if ($link->getText() == 'Ressources humaines – Services et renseignements') {
+          $link->setText('Ressources humaines');
+        }
+      }
     }
   }
 

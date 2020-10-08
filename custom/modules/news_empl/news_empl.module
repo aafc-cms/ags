@@ -21,7 +21,6 @@ function news_empl_page_attachments(array &$page) {
     $anonymous = \Drupal::currentUser()->isAnonymous();
     if ($node->bundle() == 'empl') {
       $page['#attached']['library'][] = 'news_empl/empl-node-css'; // Not yet needed.
-      $page['#attached']['library'][] = 'news_empl/news-empl-node-js';  // needed.
     }
     else if ($node->bundle() == 'news') {
       $page['#attached']['library'][] = 'news_empl/news-node-css'; // Not yet needed.
