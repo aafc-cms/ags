@@ -856,16 +856,16 @@ body.role-is-anonymous.path-node.published-no .region-header nav.tabs {
 }
 
 /* line 2, ../sass/views/_employmentopportunities_view.scss */
-body[class*='-internal-employment-opportunities'] tr[role='row'] .sorting-cnt {
+body.humanresourcesinternalemploym tr[role='row'] .sorting-cnt, body.ressourceshumainespossibilite tr[role='row'] .sorting-cnt {
   display: none !important;
 }
 /* line 6, ../sass/views/_employmentopportunities_view.scss */
-body[class*='-internal-employment-opportunities'] button#edit-submit-view-employmentopportunities {
+body.humanresourcesinternalemploym button#edit-submit-view-employmentopportunities, body.ressourceshumainespossibilite button#edit-submit-view-employmentopportunities {
   color: #fff;
   background: #007852;
 }
 /* line 11, ../sass/views/_employmentopportunities_view.scss */
-body[class*='-internal-employment-opportunities'] .view-filters.form-group {
+body.humanresourcesinternalemploym .view-filters.form-group, body.ressourceshumainespossibilite .view-filters.form-group {
   min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
@@ -874,25 +874,26 @@ body[class*='-internal-employment-opportunities'] .view-filters.form-group {
   border-radius: 4px;
 }
 /* line 20, ../sass/views/_employmentopportunities_view.scss */
-body[class*='-internal-employment-opportunities'] .wb-tables.table.table-hover.table-striped.sticky-enabled.wb-init.wb-tables-inited.dataTable.no-footer.sticky-table {
+body.humanresourcesinternalemploym .wb-tables.table.table-hover.table-striped.sticky-enabled.wb-init.wb-tables-inited.dataTable.no-footer.sticky-table, body.ressourceshumainespossibilite .wb-tables.table.table-hover.table-striped.sticky-enabled.wb-init.wb-tables-inited.dataTable.no-footer.sticky-table {
   border: 1px solid #ddd;
 }
 /* line 24, ../sass/views/_employmentopportunities_view.scss */
-body[class*='-internal-employment-opportunities'] td, body[class*='-internal-employment-opportunities'] th {
+body.humanresourcesinternalemploym td, body.humanresourcesinternalemploym th, body.ressourceshumainespossibilite td, body.ressourceshumainespossibilite th {
   border: 1px solid #ddd !important;
   font-size: 87%;
 }
 /* line 29, ../sass/views/_employmentopportunities_view.scss */
-body[class*='-internal-employment-opportunities'] #view-field-type-table-column {
+body.humanresourcesinternalemploym #view-field-type-table-column, body.ressourceshumainespossibilite #view-field-type-table-column {
   width: 136px;
 }
 /* line 33, ../sass/views/_employmentopportunities_view.scss */
-body[class*='-internal-employment-opportunities'] #view-field-date-closing-table-column, body[class*='-internal-employment-opportunities'] #view-field-locations-table-column {
+body.humanresourcesinternalemploym #view-field-date-closing-table-column, body.humanresourcesinternalemploym #view-field-locations-table-column, body.ressourceshumainespossibilite #view-field-date-closing-table-column, body.ressourceshumainespossibilite #view-field-locations-table-column {
   width: 106px;
 }
 /* line 37, ../sass/views/_employmentopportunities_view.scss */
-body[class*='-internal-employment-opportunities'] #view-field-date-closing-table-column, body[class*='-internal-employment-opportunities'] #view-field-locations-table-column,
-body[class*='-internal-employment-opportunities'] #view-field-branch-table-column, body[class*='-internal-employment-opportunities'] #view-field-open-to-table-column {
+body.humanresourcesinternalemploym #view-field-date-closing-table-column, body.humanresourcesinternalemploym #view-field-locations-table-column,
+body.humanresourcesinternalemploym #view-field-branch-table-column, body.humanresourcesinternalemploym #view-field-open-to-table-column, body.ressourceshumainespossibilite #view-field-date-closing-table-column, body.ressourceshumainespossibilite #view-field-locations-table-column,
+body.ressourceshumainespossibilite #view-field-branch-table-column, body.ressourceshumainespossibilite #view-field-open-to-table-column {
   text-decoration: underline;
   text-decoration-thickness: inherit;
 }
