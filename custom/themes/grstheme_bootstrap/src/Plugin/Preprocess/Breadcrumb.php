@@ -49,7 +49,7 @@ class Breadcrumb extends BootstrapBreadcrumb {
       $route_match = \Drupal::routeMatch();
       $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
       $node = \Drupal::routeMatch()->getParameter('node');
-      if (isset($node)) {
+      if (isset($node) && is_object($node)) {
         $nodetype= $node->getType();
         if ($nodetype == 'page' || $nodetype == 'landing_page') {
           if (!empty($page_title)) {
