@@ -656,10 +656,11 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
   $previousUrl = \Drupal::request()->server->get('HTTP_REFERER');
   $node_preview = \Drupal::routeMatch()->getParameter('node_preview');
   $node = \Drupal::routeMatch()->getParameter('node');
+  $nType = '';
   if ($node_preview) {
     $nType = $node_preview->getType();
   }
-  if ($node) {
+  if ($node && is_object($node)) {
     $nType = $node->getType();
   }
   if (isset($breadcrumb)) {
