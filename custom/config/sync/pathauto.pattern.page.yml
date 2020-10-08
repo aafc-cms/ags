@@ -9,16 +9,16 @@ _core:
 id: page
 label: 'Internal page'
 type: 'canonical_entities:node'
-pattern: '[node:menu-link:parents:first]/[node:menu-link:parent]/[node:menu-link:title]'
+pattern: '[node:menu-link:parents:join-path]/[node:menu-link:title]'
 selection_criteria:
-  0eaa8652-511f-435c-b397-43777aee2f77:
+  7450eb6d-01ff-420f-9add-140b3b81e84e:
     id: node_type
     bundles:
       page: page
     negate: false
     context_mapping:
       node: node
-    uuid: 0eaa8652-511f-435c-b397-43777aee2f77
+    uuid: 7450eb6d-01ff-420f-9add-140b3b81e84e
 selection_logic: and
 weight: -6
 relationships:
