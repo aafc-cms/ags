@@ -300,6 +300,7 @@ function agri_admin_node_update(Drupal\Core\Entity\EntityInterface $entity) {
  */
 function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
   // Custom code goes here:
+  global $import_override;
   $entity_id = $entity->id();
   // Set Authored by to current user if role is creator except during Peer Review.
   $current_author_id = $entity->getOwnerId();
@@ -344,7 +345,7 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
         $entity->set('field_issued', $dt->format('Y-m-d'));
       }
 
-      if ($update_date_modified_str == '0') {
+      if ($update_date_modified_str == '0' || (isset($import_override) && $import_override)) {
         $entity->set('changed', strtotime($date_modified));
       } 
       else {
