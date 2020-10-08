@@ -660,7 +660,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
   if ($node_preview) {
     $nType = $node_preview->getType();
   }
-  if ($node && is_object($node)) {
+  if (isset($node) && !is_string($node) && is_object($node) && method_exists($node, 'getType') {
     $nType = $node->getType();
   }
   if (isset($breadcrumb)) {
