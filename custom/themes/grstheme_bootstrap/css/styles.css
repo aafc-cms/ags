@@ -856,16 +856,16 @@ body.role-is-anonymous.path-node.published-no .region-header nav.tabs {
 }
 
 /* line 2, ../sass/views/_employmentopportunities_view.scss */
-body.path-internal-employment-opportunities tr[role='row'] .sorting-cnt {
+body[class*='-internal-employment-opportunities'] tr[role='row'] .sorting-cnt {
   display: none !important;
 }
 /* line 6, ../sass/views/_employmentopportunities_view.scss */
-body.path-internal-employment-opportunities button#edit-submit-view-employmentopportunities {
+body[class*='-internal-employment-opportunities'] button#edit-submit-view-employmentopportunities {
   color: #fff;
   background: #007852;
 }
 /* line 11, ../sass/views/_employmentopportunities_view.scss */
-body.path-internal-employment-opportunities .view-filters.form-group {
+body[class*='-internal-employment-opportunities'] .view-filters.form-group {
   min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
@@ -874,25 +874,25 @@ body.path-internal-employment-opportunities .view-filters.form-group {
   border-radius: 4px;
 }
 /* line 20, ../sass/views/_employmentopportunities_view.scss */
-body.path-internal-employment-opportunities .wb-tables.table.table-hover.table-striped.sticky-enabled.wb-init.wb-tables-inited.dataTable.no-footer.sticky-table {
+body[class*='-internal-employment-opportunities'] .wb-tables.table.table-hover.table-striped.sticky-enabled.wb-init.wb-tables-inited.dataTable.no-footer.sticky-table {
   border: 1px solid #ddd;
 }
 /* line 24, ../sass/views/_employmentopportunities_view.scss */
-body.path-internal-employment-opportunities td, body.path-internal-employment-opportunities th {
+body[class*='-internal-employment-opportunities'] td, body[class*='-internal-employment-opportunities'] th {
   border: 1px solid #ddd !important;
   font-size: 87%;
 }
 /* line 29, ../sass/views/_employmentopportunities_view.scss */
-body.path-internal-employment-opportunities #view-field-type-table-column {
+body[class*='-internal-employment-opportunities'] #view-field-type-table-column {
   width: 136px;
 }
 /* line 33, ../sass/views/_employmentopportunities_view.scss */
-body.path-internal-employment-opportunities #view-field-date-closing-table-column, body.path-internal-employment-opportunities #view-field-locations-table-column {
+body[class*='-internal-employment-opportunities'] #view-field-date-closing-table-column, body[class*='-internal-employment-opportunities'] #view-field-locations-table-column {
   width: 106px;
 }
 /* line 37, ../sass/views/_employmentopportunities_view.scss */
-body.path-internal-employment-opportunities #view-field-date-closing-table-column, body.path-internal-employment-opportunities #view-field-locations-table-column,
-body.path-internal-employment-opportunities #view-field-branch-table-column, body.path-internal-employment-opportunities #view-field-open-to-table-column {
+body[class*='-internal-employment-opportunities'] #view-field-date-closing-table-column, body[class*='-internal-employment-opportunities'] #view-field-locations-table-column,
+body[class*='-internal-employment-opportunities'] #view-field-branch-table-column, body[class*='-internal-employment-opportunities'] #view-field-open-to-table-column {
   text-decoration: underline;
   text-decoration-thickness: inherit;
 }
