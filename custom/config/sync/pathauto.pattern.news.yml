@@ -8,24 +8,24 @@ dependencies:
 id: news
 label: News
 type: 'canonical_entities:node'
-pattern: 'news@work/[node:title]'
+pattern: 'news/newswork/[node:title]'
 selection_criteria:
-  069d9f9c-ccae-4f99-ad8c-147349285273:
+  878e6580-af92-48e0-8e4a-9527a9b35129:
     id: node_type
     bundles:
       news: news
     negate: false
     context_mapping:
       node: node
-    uuid: 069d9f9c-ccae-4f99-ad8c-147349285273
-  f27cf267-15a9-425a-b0f7-a7433f075c54:
+    uuid: 878e6580-af92-48e0-8e4a-9527a9b35129
+  c5fa834f-4d88-4b42-96ed-17c6822c57bf:
     id: language
     langcodes:
       en: en
     negate: false
     context_mapping:
       language: 'node:langcode:language'
-    uuid: f27cf267-15a9-425a-b0f7-a7433f075c54
+    uuid: c5fa834f-4d88-4b42-96ed-17c6822c57bf
 selection_logic: and
 weight: -8
 relationships:
