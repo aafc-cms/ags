@@ -60,6 +60,10 @@ var AgrisourceFrontend = function() {
 
     // Get the current UI language
     $ = jQuery;
+    if (AgrisourceFrontend.isIE()) {
+      $('body').addClass('isIE');
+    }
+
     AgrisourceFrontend.lang = $('html').attr('lang');
 
     //Determine the page type
@@ -81,6 +85,19 @@ var AgrisourceFrontend = function() {
       AgrisourceFrontend.removeRoleFromSummary(); // WCAG fix, see agrcms/d8#204 in gitlab.com
     });
     initialized = true;
+  }
+
+
+  function isIE() {
+    if (navigator.appName == 'Microsoft Internet Explorer') {
+      return true;
+    }
+    else if (navigator.appName == 'Netscape') {
+      if (navigator.appVersion.indexOf('Trident') > 0 || navigator.appVersion.indexOf('Edge') > 0) {
+        return true;
+      }
+    }
+    return false;
   }
 
 
@@ -113,6 +130,7 @@ var AgrisourceFrontend = function() {
   return {
     init: init,
     lang: lang,
+    isIE: isIE,
     page_type: page_type,
     removeRoleFromSummary: removeRoleFromSummary
   }
