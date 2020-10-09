@@ -656,12 +656,14 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
   $previousUrl = \Drupal::request()->server->get('HTTP_REFERER');
   $node_preview = \Drupal::routeMatch()->getParameter('node_preview');
   $node = \Drupal::routeMatch()->getParameter('node');
+  $nid = 0;
   $nType = '';
   if ($node_preview) {
     $nType = $node_preview->getType();
   }
   if (isset($node) && !is_string($node) && is_object($node) && method_exists($node, 'getType')) {
     $nType = $node->getType();
+    $nid = $node->id();
   }
   if (isset($breadcrumb)) {
     $links = $breadcrumb->getlinks();
@@ -749,7 +751,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
       $breadcrumb->addLink($linkHR);
     }
   }
-  else if (Utils::getRouteName() == 'view.view_employmentopportunities.page_1' || (isset($nType) && $nType == 'empl')) {
+  else if ($nid == 50 || Utils::getRouteName() == 'view.view_employmentopportunities.page_1' || (isset($nType) && $nType == 'empl')) {
     if ($breadcrumb) {
       foreach($links as $key => $link) {
         if ($link->getText() == 'Human Resources – Services and Information') {
