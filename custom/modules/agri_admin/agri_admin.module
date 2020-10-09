@@ -747,6 +747,10 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         $linkHR = Link::createFromRoute(t('Human Resources'), 'view.view_employmentopportunities.page_1');
       }
       $breadcrumb->addLink($linkHR);
+
+      // manually add the Internal Employment Opportunities view here to match Josep's change
+      $linkview_employmentopportunities = Link::createFromRoute(t('Internal Employment Opportunities'), 'view.view_employmentopportunities.page_1');
+      $breadcrumb->addLink($linkview_employmentopportunities);
     }
   }
   else if (Utils::getRouteName() == 'view.view_employmentopportunities.page_1' || (isset($nType) && $nType == 'empl')) {
