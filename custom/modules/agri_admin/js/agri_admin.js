@@ -157,6 +157,10 @@ var Agrisource = function() {
     $ = jQuery;
     Agrisource.lang = $('html').attr('lang');
 
+    if (Agrisource.isIE()) {
+      $('body').addClass('isIE');
+    }
+
     //Determine the page type
     if ($('body').hasClass('path-frontpage')) {
       Agrisource.page_type = 'front'; // Front page <front> ex, /en or /fr.
@@ -227,6 +231,19 @@ var Agrisource = function() {
     });
 
     initialized = true;
+  }
+
+
+  function isIE() {
+    if (navigator.appName == 'Microsoft Internet Explorer') {
+      return true;
+    }
+    else if (navigator.appName == 'Netscape') {
+      if (navigator.appVersion.indexOf('Trident') > 0 || navigator.appVersion.indexOf('Edge') > 0) {
+        return true;
+      }
+    }
+    return false;
   }
 
 
@@ -328,6 +345,7 @@ var Agrisource = function() {
   return {
     init: init,
     lang: lang,
+    isIE: isIE,
     mouse: mouse,
     page_type: page_type,
     copyLink: copyLink,
