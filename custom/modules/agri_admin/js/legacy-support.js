@@ -170,7 +170,9 @@ var Legacysupport = function() {
       console.log('Where is Drupal.theme.ajaxProgressIndicatorFullscreen ?');
     }
 
-    Legacysupport.logCall(arguments.callee.name.toString()); // Remove this when finished porting.
+    if (!isIE()) {
+      Legacysupport.logCall(arguments.callee.name.toString()); // Remove this when finished porting.
+    }
 
     var nidsParam = '';
     if (Legacysupport.nids.length) {
@@ -244,7 +246,9 @@ var Legacysupport = function() {
 
 
   function removeCopyWidget() {
-    Legacysupport.logCall(arguments.callee.name.toString()); // Remove this when finished porting.
+    if (!isIE()) {
+      Legacysupport.logCall(arguments.callee.name.toString()); // Remove this when finished porting.
+    }
     var nidFontAwesomeSpan = jQuery('form.views-exposed-form .form-item--nid span.fa.fa-clipboard');
     if (typeof nidFontAwesomeSpan !== 'undefined') {
       $(nidFontAwesomeSpan).remove();
@@ -256,7 +260,9 @@ var Legacysupport = function() {
 
 
   function createCopyButton(raw_id) {
-    Legacysupport.logCall(arguments.callee.name.toString()); // Remove this when finished porting.
+    if (!isIE()) {
+      Legacysupport.logCall(arguments.callee.name.toString()); // Remove this when finished porting.
+    }
     if (typeof raw_id == 'undefined') {
       return;
     }
