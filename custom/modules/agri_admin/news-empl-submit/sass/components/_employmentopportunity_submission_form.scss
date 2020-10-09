@@ -497,8 +497,16 @@ body.nodeaddempl.role-is-anonymous {
     right: 69% !important;
   }
 
+  &.i18n-en.isIE .field--type-entity-reference .select-wrapper:after {
+    right: 67% !important;
+  }
+
   &.i18n-fr .field--type-entity-reference .select-wrapper:after {
     right: 59% !important;
+  }
+
+  &.i18n-fr.isIE .field--type-entity-reference .select-wrapper:after {
+    right: 57% !important;
   }
 
   #edit-group-opportunitylocation div.panel-heading, #edit-group-opportunityopento div.panel-heading, 
