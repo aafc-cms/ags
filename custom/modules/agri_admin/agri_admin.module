@@ -302,6 +302,10 @@ function agri_admin_node_update(Drupal\Core\Entity\EntityInterface $entity) {
  * Implements hook_ENTITY_TYPE_presave().
  */
 function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  // Exit early if possible.
+  if ($entity->getEntityType() != 'node') {
+    return;
+  }
   // Custom code goes here:
   global $import_override;
 
@@ -352,15 +356,22 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
       if ($update_date_modified_str == '0' || (isset($import_override) && $import_override)) {
         $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
         // The changed field is translateable, must set value twice, otherwise unexpected issues during import.
-        if ($langcode == 'en') {
-          $entity->getTranslation('fr')->set('changed', strtotime($date_modified));
-          $entity->getTranslation('en')->set('changed', strtotime($date_modified));
+        if ($entity->get('created')->getFieldDefinition()->isTranslatable()) {
+          // For some reason we enabled translation for changed field on this.
+          if ($langcode == 'en') {
+            $entity->getTranslation('fr')->set('changed', strtotime($date_modified));
+            $entity->getTranslation('en')->set('changed', strtotime($date_modified));
+          }
+          else {
+            $entity->getTranslation('en')->set('changed', strtotime($date_modified));
+            $entity->getTranslation('fr')->set('changed', strtotime($date_modified));
+          }
         }
         else {
-          $entity->getTranslation('en')->set('changed', strtotime($date_modified));
-          $entity->getTranslation('fr')->set('changed', strtotime($date_modified));
+          // If translation of this field is disabled make sure still works.
+          $entity->set('changed', strtotime($date_modified));
         }
-      } 
+      }
       else {
         $entity->set('field_modified', $dt->format('Y-m-d'));
       }
@@ -376,12 +387,25 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
       $langcode = $entity->language()->getId();
       if ($langcode == 'en') {
         $entity->getTranslation('fr')->setOwnerId($current_user_id);
+        if ($entity->get('created')->getFieldDefinition()->isTranslatable()) {
+          $entity->getTranslation('fr')->set('changed', time());
+          $entity->getTranslation('en')->set('changed', time());
+        }
+        else {
+          $entity->set('created', time());
+        }
       }
       else {
         $entity->getTranslation('en')->setOwnerId($current_user_id);
+        if ($entity->get('created')->getFieldDefinition()->isTranslatable()) {
+          $entity->getTranslation('en')->set('changed', time());
+          $entity->getTranslation('fr')->set('changed', time());
+        }
+        else {
+          $entity->set('created', time());
+        }
       }
       $entity->setOwnerId($current_user_id);
-      $entity->set('created', time());
     }
   }
 
