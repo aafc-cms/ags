@@ -194,78 +194,83 @@ body.user-logged-in .view-content table.dataTable {
   overflow: hidden;
 }
 
-/* line 4, ../sass/components/_employment_opportunity_page.scss */
+/* line 3, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field--name-field-classification td.field-multiple-drag {
   display: none !important;
 }
-/* line 9, ../sass/components/_employment_opportunity_page.scss */
+/* line 8, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field--name-field-type .field--label {
   float: left;
 }
-/* line 13, ../sass/components/_employment_opportunity_page.scss */
+/* line 12, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field--name-field-type .field--item {
   float: left;
 }
-/* line 17, ../sass/components/_employment_opportunity_page.scss */
+/* line 16, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field--name-field-type .field--label::after {
   content: '\00a0\00a0';
 }
-/* line 21, ../sass/components/_employment_opportunity_page.scss */
+/* line 20, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field--name-field-type .field--item::after {
   content: ',\00a0';
 }
-/* line 26, ../sass/components/_employment_opportunity_page.scss */
+/* line 25, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field--name-field-type .field--item:last-child::after {
   content: '';
 }
-/* line 30, ../sass/components/_employment_opportunity_page.scss */
+/* line 29, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field--name-field-type .field--item:last-child {
   float: none;
 }
-/* line 34, ../sass/components/_employment_opportunity_page.scss */
+/* line 33, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field--name-field-classification .field--label {
   float: left;
 }
-/* line 38, ../sass/components/_employment_opportunity_page.scss */
+/* line 37, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field--name-field-classification .field--label::after {
   content: '\00a0\00a0';
 }
-/* line 42, ../sass/components/_employment_opportunity_page.scss */
+/* line 41, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field.field--name-body.field--type-text-with-summary.field--label-above .field--label::before {
   content: "\A";
   white-space: pre;
 }
-/* line 47, ../sass/components/_employment_opportunity_page.scss */
+/* line 46, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field.field--name-body.field--type-text-with-summary.field--label-above .field--item::before {
   content: "\A";
   white-space: pre;
 }
-/* line 52, ../sass/components/_employment_opportunity_page.scss */
+/* line 51, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field.field--name-body.field--type-text-with-summary.field--label-above .field--label {
   font-size: 24px;
 }
-/* line 56, ../sass/components/_employment_opportunity_page.scss */
+/* line 55, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field.field--name-field-email .field--label {
   float: left;
 }
-/* line 60, ../sass/components/_employment_opportunity_page.scss */
+/* line 59, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field.field.field--name-field-email .field--label::after {
   content: "\00a0\00a0";
 }
-/* line 64, ../sass/components/_employment_opportunity_page.scss */
+/* line 63, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl #block-privacynotice h2.block-title {
   display: none;
 }
-/* line 68, ../sass/components/_employment_opportunity_page.scss */
+/* line 67, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl label#edit-field-date-closing-0-value-date-error .error {
   display: block;
 }
 
 /* block-privacynotice */
-/* line 75, ../sass/components/_employment_opportunity_page.scss */
+/* line 74, ../sass/components/_employment_opportunity_page.scss */
 #block-privacynotice {
   padding-left: 15px !important;
   padding-right: 15px !important;
+}
+
+/* line 79, ../sass/components/_employment_opportunity_page.scss */
+body.page-node-type-empl.isIE .field.field--name-body.field--type-text-with-summary.field--label-above {
+  padding-top: 27px;
 }
 
 /* block-grstheme-bootstrap-reportproblemblock */
