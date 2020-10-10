@@ -92,11 +92,6 @@ function wxt_overrides_page_attachments(array &$page) {
     }
     $type = $node->bundle();
     $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
-    if ($type == 'page' || $type == 'landing_page') {
-      if ($node->get('field_dc_date_created')->first()) {
-        $issued_date = $node->get('field_dc_date_created')->first()->date->format('Y-m-d');
-      }
-    }
 
     if (!isset($dctermstype)) {
       $dctermstype = [
