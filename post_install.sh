@@ -97,7 +97,7 @@ if ! grep -q "upgrade-insecure-requests" $htaccess_file; then
     echo "dev environment setup.\n";
     echo "`hostname`" > temptesthostname.txt
     if grep -q "ryzen" temptesthostname.txt; then
-      echo "Ensure header always sets Content-Security-Policy. (CURRENTLY DISABLED, check post_install.sh)";
+      echo "Ensure header always sets Content-Security-Policy. (check post_install.sh)";
       search_str="^( +)Header always set X-Content-Type-Options nosniff";
       new_setting="\1Header always set X-Content-Type-Options nosniff\n\1Header always set Content-Security-Policy \"upgrade-insecure-requests;\"\n"
       sed -r "s/${search_str}/${new_setting}/gm" $htaccess_file > ${htaccess_file}_temp;
@@ -108,7 +108,7 @@ if ! grep -q "upgrade-insecure-requests" $htaccess_file; then
     rm temptesthostname.txt
   else
     if [ $1 == "live" ]; then
-      echo "Ensure header always sets Content-Security-Policy for live environment. (CURRENTLY DISABLED, check post_install.sh)";
+      echo "Ensure header always sets Content-Security-Policy for live environment. (check post_install.sh)";
       search_str="^( +)Header always set X-Content-Type-Options nosniff";
       new_setting="\1Header always set X-Content-Type-Options nosniff\n\1Header always set Content-Security-Policy \"upgrade-insecure-requests;\"\n"
       sed -r "s/${search_str}/${new_setting}/gm" $htaccess_file > ${htaccess_file}_temp;
