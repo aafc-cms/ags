@@ -5,11 +5,16 @@ dependencies:
   config:
     - core.entity_view_mode.media.embedded
     - core.entity_view_mode.media.w100
+    - core.entity_view_mode.media.w1000
+    - core.entity_view_mode.media.w1200
     - core.entity_view_mode.media.w133
     - core.entity_view_mode.media.w133r320
     - core.entity_view_mode.media.w133r45
+    - core.entity_view_mode.media.w1400
+    - core.entity_view_mode.media.w1600
     - core.entity_view_mode.media.w166
     - core.entity_view_mode.media.w175
+    - core.entity_view_mode.media.w1900
     - core.entity_view_mode.media.w200
     - core.entity_view_mode.media.w250
     - core.entity_view_mode.media.w300
@@ -39,11 +44,16 @@ type_settings:
   display_plugins:
     - 'view_mode:media.embedded'
     - 'view_mode:media.w100'
+    - 'view_mode:media.w1000'
+    - 'view_mode:media.w1200'
     - 'view_mode:media.w133'
     - 'view_mode:media.w133r320'
     - 'view_mode:media.w133r45'
+    - 'view_mode:media.w1400'
+    - 'view_mode:media.w1600'
     - 'view_mode:media.w166'
     - 'view_mode:media.w175'
+    - 'view_mode:media.w1900'
     - 'view_mode:media.w200'
     - 'view_mode:media.w250'
     - 'view_mode:media.w300'
