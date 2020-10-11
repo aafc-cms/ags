@@ -1,29 +1,27 @@
-uuid: 2cabccb7-1ff2-4be2-b5ca-b8f45bc3e7be
+uuid: 0d489ab5-e8f2-4e60-b59f-9bbbf7cf986d
 langcode: en
 status: true
 dependencies:
   module:
     - file
     - node
-_core:
-  default_config_hash: Tt8DtxZ3Nooo0PoWPpJvszA3R_5d8MmpUW7LM_R-BzY
-id: default
-label: Default
-description: 'A default Linkit profile'
+id: urltodocument
+label: UrlToDocument
+description: ''
 matchers:
-  556010a3-e317-48b3-b4ed-854c10f4b950:
-    uuid: 556010a3-e317-48b3-b4ed-854c10f4b950
+  1930989e-6d71-4b03-8310-0f6474b1cdcf:
+    uuid: 1930989e-6d71-4b03-8310-0f6474b1cdcf
     id: 'entity:node'
     weight: 0
     settings:
+      include_unpublished: true
       metadata: 'by [node:author] | [node:created:medium]'
       bundles: {  }
       group_by_bundle: true
-      include_unpublished: true
       substitution_type: canonical
       limit: 100
-  9a7c7a41-ba04-4f65-b4ac-4eeb872cb02e:
-    uuid: 9a7c7a41-ba04-4f65-b4ac-4eeb872cb02e
+  f0629534-a4cb-4f2a-b1a7-086dbb835e68:
+    uuid: f0629534-a4cb-4f2a-b1a7-086dbb835e68
     id: 'entity:file'
     weight: 0
     settings:
