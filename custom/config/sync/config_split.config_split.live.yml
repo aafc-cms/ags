@@ -8,6 +8,9 @@ description: "settings only to be deployed to environments configured as 'live'.
 folder: modules/custom/config/splits/live
 module:
   autologout: 0
+  dblog: 0
+  git_status: 0
+  mailsystem: 0
   password_policy: 0
   password_policy_character_types: 0
   password_policy_characters: 0
@@ -29,13 +32,25 @@ module:
   wxt_ext_password_policy: 0
 theme: {  }
 blacklist:
+  - autologout.role.administrator
+  - autologout.role.creator
+  - autologout.role.editor
+  - autologout.role.empl_cspub
+  - autologout.role.news_ccpub
+  - autologout.role.reviewer
   - autologout.settings
+  - dblog.settings
+  - git_status.settings
+  - mailsystem.settings
   - password_policy.password_policy.wxt_ism_policy_strong
   - password_policy.settings
+  - purge.logger_channels
+  - purge.plugins
   - purge_queuer_coretags.settings
   - smtp.settings
   - swiftmailer.transport
   - system.logging
+  - system.mail
   - system.performance
   - system.site
   - varnish_purger.settings.47e333ca49
@@ -43,4 +58,4 @@ blacklist:
 graylist: {  }
 graylist_dependents: true
 graylist_skip_equal: false
-weight: 0
+weight: -1
