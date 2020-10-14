@@ -84,6 +84,9 @@ var AgrisourceFrontend = function() {
     $('#wb-glb-mn a.overlay-lnk').click(function(e) {
       AgrisourceFrontend.removeRoleFromSummary(); // WCAG fix, see agrcms/d8#204 in gitlab.com
     });
+
+    _satellite.pageBottom();
+
     initialized = true;
   }
 

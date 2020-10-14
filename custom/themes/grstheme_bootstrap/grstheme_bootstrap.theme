@@ -126,7 +126,7 @@ function grstheme_bootstrap_preprocess_html(&$variables) {
 
   }
   // End of logic to grab moderation state and add it to the body class for styling.
-
+  $variables['#attached']['library'][] = 'grstheme_bootstrap/agri-externaljs';
 
 }
 
