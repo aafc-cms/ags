@@ -47,6 +47,7 @@ var AgrisourceFrontend = function() {
   var initialized = false;   // Flag to indicate that this class has been initialized
   var form_required_valid = true; // Flag to indicate that the validation is for the News and EO forms
   var lang = 'en';           // Will be 'en' or 'fr' regardless of how the url segment is formed (currently eng or fra)
+  var delay = 100;           // Delay for initAnalytics, used because some browser clients use ad blockers, lets be friendly.
   var mouse = {x:0, y:0};    // Tracks the mouse position
   var page_type = 'content';
 
@@ -85,11 +86,26 @@ var AgrisourceFrontend = function() {
       AgrisourceFrontend.removeRoleFromSummary(); // WCAG fix, see agrcms/d8#204 in gitlab.com
     });
 
-    _satellite.pageBottom();
+    AgrisourceFrontend.initAnalytics();
 
     initialized = true;
   }
 
+
+  function initAnalytics() {
+    // In case someone is using an ad blocker, let's not crash their javascript.
+    if (typeof(_satellite) === 'undefined') {
+       // This occurs if an adblocker is enabled.
+       if (AgrisourceFrontend.delay < 2000) {
+         // Only try a few times.
+         window.setTimeout(AgrisourceFrontend.initAnalytics, AgrisourceFrontend.delay); /* Checks every (delay) milliseconds*/
+       }
+       AgrisourceFrontend.delay+=500; // Only try a few times.
+    } else {
+      /* Initialize adobe analytics, ad blocker must be disabled.*/
+      _satellite.pageBottom();
+    }
+  }
 
   function isIE() {
     if (navigator.appName == 'Microsoft Internet Explorer') {
@@ -134,6 +150,8 @@ var AgrisourceFrontend = function() {
     init: init,
     lang: lang,
     isIE: isIE,
+    delay: delay,
+    initAnalytics: initAnalytics,
     page_type: page_type,
     removeRoleFromSummary: removeRoleFromSummary
   }
