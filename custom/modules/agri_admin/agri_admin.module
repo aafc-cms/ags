@@ -303,7 +303,7 @@ function agri_admin_node_update(Drupal\Core\Entity\EntityInterface $entity) {
  */
 function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
   // Exit early if possible.
-  if ($entity->getEntityType() != 'node') {
+  if ($entity->getEntityTypeId() != 'node') {
     return;
   }
   // Custom code goes here:
