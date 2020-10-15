@@ -303,7 +303,7 @@ function agri_admin_node_update(Drupal\Core\Entity\EntityInterface $entity) {
  */
 function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
   // Exit early if possible.
-  if ($entity->getEntityType() != 'node') {
+  if ($entity->getEntityTypeId() != 'node') {
     return;
   }
   // Custom code goes here:
@@ -356,7 +356,7 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
       if ($update_date_modified_str == '0' || (isset($import_override) && $import_override)) {
         $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
         // The changed field is translateable, must set value twice, otherwise unexpected issues during import.
-        if ($entity->get('created')->getFieldDefinition()->isTranslatable()) {
+        if ($entity->get('changed')->getFieldDefinition()->isTranslatable()) {
           // For some reason we enabled translation for changed field on this.
           if ($langcode == 'en') {
             $entity->getTranslation('fr')->set('changed', strtotime($date_modified));
@@ -387,28 +387,14 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
       $langcode = $entity->language()->getId();
       if ($langcode == 'en') {
         $entity->getTranslation('fr')->setOwnerId($current_user_id);
-        if ($entity->get('created')->getFieldDefinition()->isTranslatable()) {
-          $entity->getTranslation('fr')->set('changed', time());
-          $entity->getTranslation('en')->set('changed', time());
-        }
-        else {
-          $entity->set('created', time());
-        }
       }
       else {
         $entity->getTranslation('en')->setOwnerId($current_user_id);
-        if ($entity->get('created')->getFieldDefinition()->isTranslatable()) {
-          $entity->getTranslation('en')->set('changed', time());
-          $entity->getTranslation('fr')->set('changed', time());
-        }
-        else {
-          $entity->set('created', time());
-        }
       }
       $entity->setOwnerId($current_user_id);
+      $entity->set('created', time());
     }
   }
-
 }
 
 
