@@ -199,7 +199,7 @@ function agri_admin_preprocess_views_view_field(&$variables) {
         }
         else if ($view->id() == 'content' && $field->field == 'title' || $field->field == 'field_title') {
           $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
-          $urlPathToLatest = '/node/' . $nid . '/latest';
+          $urlPathToLatest = "/$lang/node/$nid/latest";
           // Replace path to node in the field output.
           $variables['output'] = Drupal\Core\Render\Markup::create($variables['output'] . ' <a href="' . $urlPathToLatest . '"><b>( ' . t('Pending Draft') . ' )</b></a>');
         }
