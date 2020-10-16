@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  * If using a CSS pre-processor, tell it to overwrite this file. If not, place
  * your custom CSS modifications here.
@@ -336,15 +337,17 @@ body.user-logged-in.published-no.pending-draft div.region-header h1 {
   border: 3px solid orange;
 }
 
-/* line 40, ../sass/components/_node.scss */
-body.user-logged-in.archived article {
-  background-color: pink;
-  border: 3px solid red;
+/* line 41, ../sass/components/_node.scss */
+body.user-logged-in.archived article,
+body.user-logged-in.archivé article {
+  background-color: blanchedalmond;
+  border: 3px solid saddlebrown;
 }
-/* line 44, ../sass/components/_node.scss */
-body.user-logged-in.archived div.region-header h1 {
-  background-color: pink;
-  border: 3px solid red;
+/* line 45, ../sass/components/_node.scss */
+body.user-logged-in.archived div.region-header h1,
+body.user-logged-in.archivé div.region-header h1 {
+  background-color: blanchedalmond;
+  border: 3px solid saddlebrown;
 }
 
 /* line 2, ../sass/components/_news_page.scss */

@@ -83,7 +83,7 @@ display:
               field: field_newstype
               rendered: true
               rendered_strip: false
-          row_class: 'news-at-work-row published-{{ status }} node-{{ nid }}'
+          row_class: 'news-at-work-row published-{{ status }} node-{{ nid }} {{ moderation_state }}'
           default_row_class: true
       row:
         type: fields
@@ -772,27 +772,12 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          order: DESC
+          order: ASC
           exposed: false
           expose:
             label: ''
           granularity: second
           plugin_id: datetime
-        revision_timestamp:
-          id: revision_timestamp
-          table: node_revision
-          field: revision_timestamp
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: DESC
-          exposed: false
-          expose:
-            label: ''
-          granularity: second
-          entity_type: node
-          entity_field: revision_timestamp
-          plugin_id: date
       query:
         type: views_query
         options:

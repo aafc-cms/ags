@@ -111,9 +111,10 @@ function agri_admin_theme($existing, $type, $theme, $path) {
  * revision field values with latest pending revision field values.
  * This is so we can have themed (orange as example) pending draft rows.
  * to complement the hotpink current draft rows.
- * @TODO: add {{ status }} to a view row.
+ * @TODO: add {{ status }} to a view row (must be yes / no custom boolean not Yes / No , use lowercase in the view field custom.
  * May 14 2020: Added the implementation for customization on
  * Classfication Groups & Postion Title in Employment Opportunities View
+ * Oct 16 2020: Added content view to be supported.
  */
 function agri_admin_preprocess_views_view_field(&$variables) {
   $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
@@ -133,6 +134,7 @@ function agri_admin_preprocess_views_view_field(&$variables) {
   $view = $variables['view'];
   if ($hasPermission &&
        ($view->id() == 'news' ||
+        $view->id() == 'content' ||
         $view->id() == 'view_employmentopportunities' ||
         $view->id() == 'view_news_work')) {
     $field = $variables['field'];
@@ -141,6 +143,7 @@ function agri_admin_preprocess_views_view_field(&$variables) {
     $vid = $row->_entity->getLoadedRevisionId();
     if ($row->_entity->isPublished() && $latestRevision = AgriAdminHelper::getLatestRevisionOnlyIfDraft($nid, $vid)) {
       if ($field->field == 'status') {
+        // This is specifically for the row styling (view -> Format -> settings -> row {{ status }}.
         //title
         //body
         //field_fieldname
@@ -149,6 +152,23 @@ function agri_admin_preprocess_views_view_field(&$variables) {
         //field_title
         $variables['output'] = strtolower($variables['output']);
         $variables['output'] = Drupal\Core\Render\Markup::create(str_replace('yes', 'no pending-draft', $variables['output']));
+      } else if ($field->field == 'moderation_state_1') {
+        // This is specifically for the row styling (view -> Format -> settings -> row {{ moderation_state_1 }}.
+        // Do nothing, for styling purposes, because archived should have another color see css/scss.
+        return;
+      } else if ($field->field == 'moderation_state') {
+        $variables['output'] = $variables['output'] . ' + ' . t('pending draft');
+        return;
+      } else if ($view->id() == 'content' && $field->field == 'name') {
+        // This field needs special treatment.
+        // @TODO: Lakshman will probably notice this, will have to replace content author with revision author.
+        $user = $latestRevision->getRevisionUser();
+        $render_array = ['#markup' => "<a href=\"/" . $lang . "/user/" . $user->id() . "\">" . $user->getUsername() . "</a>" ];
+        $variables['output'] = Utils::render($render_array);
+        return;
+      } else if ($field->field == 'node_bulk_form') {
+        // There is no fieldable field called 'node_bulk_form' this is a vbo field, so skip it.
+        return;
       } else if ($field->field == 'nothing') {
         // There is no fieldable field called 'nothing' this is a views field, so skip it.
         return;
@@ -171,11 +191,17 @@ function agri_admin_preprocess_views_view_field(&$variables) {
         $valuePending = $latestRevision->get($field->field)->value; // Already in current language.
         // Replace characters in the field output.
         $variables['output'] = Drupal\Core\Render\Markup::create(str_replace($valueCurrent, $valuePending, $variables['output']));
-        if ($field->field == 'title' || $field->field == 'field_title') {
+        if ($view->id() != 'content' && $field->field == 'title' || $field->field == 'field_title') {
           $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
           $urlPathToLatest = '/node/' . $nid . '/latest';
           // Replace path to node in the field output.
           $variables['output'] = Drupal\Core\Render\Markup::create(str_replace($alias, $urlPathToLatest, $variables['output']));
+        }
+        else if ($view->id() == 'content' && $field->field == 'title' || $field->field == 'field_title') {
+          $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
+          $urlPathToLatest = "/$lang/node/$nid/latest";
+          // Replace path to node in the field output.
+          $variables['output'] = Drupal\Core\Render\Markup::create($variables['output'] . ' <a href="' . $urlPathToLatest . '"><b>( ' . t('Pending Draft') . ' )</b></a>');
         }
       }
     }
