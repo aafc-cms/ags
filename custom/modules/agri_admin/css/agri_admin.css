@@ -52,23 +52,34 @@ body.path-admin #block-claro-content nav.breadcrumb {
 
 /**** Components Node for unpublished content *****/
 /* Note that drupal-bootstrap-not-cdn.min.css sets the background-color to #fff4f4 for body.is-unpublished */
-.views-row.published-no {
+.views-row.published-no, .views-table tr.published-no {
   background-color: pink;
   border: 3px solid hotpink;
 }
 
-.views-row.published-no h1 {
+.views-row.published-no h1, .views-table tr.published-no h1 {
   background-color: pink;
   border: 3px solid hotpink;
 }
 
 /* Unpublished revision pending to overwrite the published revision */
-.views-row.published-no.pending-draft {
+.views-row.published-no.Archived, .views-table tr.published-no.Archived {
+  background-color: blanchedalmond;
+  border: 3px solid saddlebrown;
+}
+
+.views-row.published-no.Archived h1, .views-table tr.published-no.Archived h1 {
+  background-color: blanchedalmond;
+  border: 3px solid saddlebrown;
+}
+
+/* Unpublished revision pending to overwrite the published revision */
+.views-row.published-no.pending-draft, .views-table tr.published-no.pending-draft {
   background-color: #FFECA9;
   border: 3px solid orange;
 }
 
-.views-row.published-no.pending-draft h1 {
+.views-row.published-no.pending-draft h1, .views-table tr.published-no.pending-draft h1 {
   background-color: #FFECA9;
   border: 3px solid orange;
 }
