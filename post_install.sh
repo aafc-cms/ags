@@ -117,7 +117,8 @@ if ! grep -q "upgrade-insecure-requests" $htaccess_file; then
   fi
 fi
 
-# Commenting out following lines, I believe we have upgraded to wet-boew that no longer has this bug, no need to do this now.
+# Commenting out following lines, I tested and confirmed that have upgraded to wet-boew that no longer has this bug, no need to do this now.
+# @TODO remove the next 4 commented out lines next release.
 #rm html/libraries/wet-boew/js/wet-boew.js
 #rm html/libraries/wet-boew/js/wet-boew.min.js
 #ln -s ../../../../custom/modules/wxt_overrides/js/wb/wet-boew.js html/libraries/wet-boew/js/wet-boew.js
