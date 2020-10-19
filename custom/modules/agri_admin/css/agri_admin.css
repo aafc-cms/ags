@@ -444,6 +444,18 @@ body.path-admin .view-content .form-item--field-meta-type-target-id,
 body.path-admin .view-content .form-item--field-newstype-target-id {
   max-width: 250px;
 }
+body.path-admin .view-content .form-item--revision-timestamp-min,
+body.path-admin .view-content .form-item--field-modified-value-min,
+body.path-admin .view-content .form-item--changed-min {
+  margin: 0.75rem 0.5rem 0 0;
+  max-width: 135px;
+}
+body.path-admin .view-content .form-item--revision-timestamp-max,
+body.path-admin .view-content .form-item--field-modified-value-max,
+body.path-admin .view-content .form-item--changed-max {
+  margin: 0.75rem 0.5rem 0 0;
+  max-width: 120px;
+}
 
 body.path-admin.admincontentmoderated .view-filters .form-item--field-tracking-number-value,
 body.path-admin.admincontentmoderated .view-filters .form-item--type,
