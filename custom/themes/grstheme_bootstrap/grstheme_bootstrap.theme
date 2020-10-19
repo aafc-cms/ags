@@ -126,10 +126,14 @@ function grstheme_bootstrap_preprocess_html(&$variables) {
 
   }
   // End of logic to grab moderation state and add it to the body class for styling.
+  
+  // Adobe Analytics JS library.
   if (\Drupal::currentUser()->isAnonymous()) {
     $variables['#attached']['library'][] = 'grstheme_bootstrap/grstheme-externaladobetmprodjs';
-  } else { $variables['#attached']['library'][] = 'grstheme_bootstrap/grstheme-externaladobetmstagejs';}
-
+  } 
+  else {
+    $variables['#attached']['library'][] = 'grstheme_bootstrap/grstheme-externaladobetmstagingjs';
+  }
 }
 
 
