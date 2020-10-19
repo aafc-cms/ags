@@ -1,0 +1,44 @@
+description: 'Chercher et gérer le contenu.'
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Filtrer
+          reset_button_label: Remet
+          exposed_sorts_label: 'Trier par'
+          text_input_required: 'Sélectionnez un filtre et cliquez sur Appliquer pour voir les résultats'
+          bef:
+            general:
+              secondary_label: 'options avancées'
+      pager:
+        options:
+          tags:
+            previous: '< Précédent'
+            next: 'Prochain ›'
+            first: '« Premier'
+            last: 'Dernier »'
+          expose:
+            items_per_page_label: 'Items par page'
+            offset_label: Décalage
+      fields:
+        title:
+          label: Titre
+        type:
+          label: 'Type de contenu'
+        name:
+          label: Auteur
+      header:
+        result:
+          content: 'Affichage de @start - @end sur @total avec @per_page éléments par page.'
+      filters:
+        revision_timestamp:
+          expose:
+            label: 'Révision créée'
+        changed:
+          expose:
+            label: 'Changé entre'
+  page_1:
+    display_options:
+      tab_options:
+        description: 'Chercher et gérer le contenu'
