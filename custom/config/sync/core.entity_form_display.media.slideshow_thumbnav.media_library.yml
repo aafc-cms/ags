@@ -1,0 +1,30 @@
+uuid: 348f157c-4b8c-4635-bbbb-7c7721bea4aa
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_form_mode.media.media_library
+    - field.field.media.slideshow_thumbnav.field_media_in_library
+    - field.field.media.slideshow_thumbnav.field_media_slideshow
+    - media.type.slideshow_thumbnav
+id: media.slideshow_thumbnav.media_library
+targetEntityType: media
+bundle: slideshow_thumbnav
+mode: media_library
+content:
+  name:
+    type: string_textfield
+    settings:
+      size: 60
+      placeholder: ''
+    weight: 0
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  field_media_in_library: true
+  field_media_slideshow: true
+  langcode: true
+  path: true
+  status: true
+  uid: true

@@ -1,0 +1,29 @@
+uuid: c55ec8ac-5f7e-4c4a-8e9b-086c478a4a44
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.slideshow_thumbnav.field_media_in_library
+    - field.field.media.slideshow_thumbnav.field_media_slideshow
+    - media.type.slideshow_thumbnav
+id: media.slideshow_thumbnav.default
+targetEntityType: media
+bundle: slideshow_thumbnav
+mode: default
+content:
+  field_media_slideshow:
+    label: hidden
+    weight: 0
+    settings:
+      view_mode: agrisource_slideshow_view_mode
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  created: true
+  field_media_in_library: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true
