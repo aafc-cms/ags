@@ -146,6 +146,8 @@
             "drupal/core": {
                 "wcag remove rel='revision' link attribute":
                 "https://www.drupal.org/files/issues/2020-01-02/2454915-w3c-entity-links.patch",
+                "file usage bug fixes":
+                "https://www.drupal.org/files/issues/2020-04-03/2810355-64.patch",
                 "core views module fix for breadcrumb title and page title":
                 "https://www.drupal.org/files/issues/2020-08-06/2716019-99-d88x.patch",
                 "core views module fix for contextual filter":
@@ -303,7 +305,9 @@
         "drupal/convert_bundles": "^1.0",
         "drupal/git_status": "^1.0",
         "drupal/devel": "^4.0",
-        "drupal/better_exposed_filters": "^5.0@beta"
+        "drupal/better_exposed_filters": "^5.0@beta",
+        "drupal/file_delete": "^1.0",
+        "drupal/ultimate_cron": "^2.0@alpha"
     },
     "autoload": {
         "classmap": [

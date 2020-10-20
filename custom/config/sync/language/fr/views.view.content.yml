@@ -34,7 +34,10 @@ display:
       filters:
         revision_timestamp:
           expose:
-            label: 'Révision créée'
+            label: 'Révision entre'
+        field_modified_value:
+          expose:
+            label: 'Modifié entre'
   page_1:
     display_options:
       tab_options:

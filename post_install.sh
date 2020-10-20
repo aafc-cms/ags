@@ -124,9 +124,11 @@ fi
 #ln -s ../../../../custom/modules/wxt_overrides/js/wb/wet-boew.js html/libraries/wet-boew/js/wet-boew.js
 #ln -s ../../../../custom/modules/wxt_overrides/js/wb/wet-boew.js html/libraries/wet-boew/js/wet-boew.min.js
 
-echo "fix jquery inputmask distribution"
-echo "cp html/libraries/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js html/libraries/jquery.inputmask/dist/jquery.inputmask.min.js;"
-      cp html/libraries/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js html/libraries/jquery.inputmask/dist/jquery.inputmask.min.js;
+if [ -d "html/libraries/jquery.inputmask/dist/min" ]; then
+  echo "fix jquery inputmask distribution"
+  echo "cp html/libraries/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js html/libraries/jquery.inputmask/dist/jquery.inputmask.min.js;"
+        cp html/libraries/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js html/libraries/jquery.inputmask/dist/jquery.inputmask.min.js;
+fi
 if [ ! -d "html/libraries/jquery-ui-touch-punch" ]; then
   echo "mkdir html/libraries/jquery-ui-touch-punch;"
         mkdir html/libraries/jquery-ui-touch-punch;
