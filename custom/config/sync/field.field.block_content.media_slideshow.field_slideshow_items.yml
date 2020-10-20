@@ -10,6 +10,7 @@ dependencies:
     - media.type.image
     - media.type.instagram
     - media.type.slideshow
+    - media.type.slideshow_thumbnav
     - media.type.tweet
     - media.type.video
     - media.type.video_file
@@ -29,6 +30,7 @@ settings:
   handler: 'default:media'
   handler_settings:
     target_bundles:
+      slideshow_thumbnav: slideshow_thumbnav
       slideshow: slideshow
       audio_file: audio_file
       document: document
