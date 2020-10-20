@@ -485,6 +485,16 @@ body[class*=moderationdashboard] body[class*=moderationdashboard] nav.mrgn-bttm-
   margin-bottom: 0px;
 }
 
+body.i18n-en[class*=moderationdashboard] div.moderation-dashboard h2 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+body.i18n-fr[class*=moderationdashboard] div.moderation-dashboard h2 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
 /* glyphicon-copy fix */
 .glyphicon.glyphicon-copy:before {
   content: "\e205";
