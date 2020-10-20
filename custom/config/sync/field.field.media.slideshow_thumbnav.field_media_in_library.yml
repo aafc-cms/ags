@@ -1,0 +1,23 @@
+uuid: b184b884-8dba-4e64-99d9-ac3b14183dba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_in_library
+    - media.type.slideshow_thumbnav
+id: media.slideshow_thumbnav.field_media_in_library
+field_name: field_media_in_library
+entity_type: media
+bundle: slideshow_thumbnav
+label: 'Save to my media library'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'Saved to my media library'
+  off_label: 'Not in my media library'
+field_type: boolean

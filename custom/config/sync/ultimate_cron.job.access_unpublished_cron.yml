@@ -1,0 +1,17 @@
+uuid: 4ab87b3a-1d6b-4caa-ab4f-6ed346187fc1
+langcode: en
+status: true
+dependencies:
+  module:
+    - access_unpublished
+title: 'Default cron handler'
+id: access_unpublished_cron
+weight: 0
+module: access_unpublished
+callback: access_unpublished_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

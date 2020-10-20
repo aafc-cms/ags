@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  * If using a CSS pre-processor, tell it to overwrite this file. If not, place
  * your custom CSS modifications here.
@@ -336,15 +337,17 @@ body.user-logged-in.published-no.pending-draft div.region-header h1 {
   border: 3px solid orange;
 }
 
-/* line 40, ../sass/components/_node.scss */
-body.user-logged-in.archived article {
-  background-color: pink;
-  border: 3px solid red;
+/* line 41, ../sass/components/_node.scss */
+body.user-logged-in.archived article,
+body.user-logged-in.archivé article {
+  background-color: blanchedalmond;
+  border: 3px solid saddlebrown;
 }
-/* line 44, ../sass/components/_node.scss */
-body.user-logged-in.archived div.region-header h1 {
-  background-color: pink;
-  border: 3px solid red;
+/* line 45, ../sass/components/_node.scss */
+body.user-logged-in.archived div.region-header h1,
+body.user-logged-in.archivé div.region-header h1 {
+  background-color: blanchedalmond;
+  border: 3px solid saddlebrown;
 }
 
 /* line 2, ../sass/components/_news_page.scss */
@@ -889,13 +892,29 @@ div.view-id-view_employmentopportunities.view-display-id-page_1 td, div.view-id-
 }
 /* line 29, ../sass/views/_employmentopportunities_view.scss */
 div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-type-table-column {
-  width: 136px;
+  width: 12%;
 }
 /* line 33, ../sass/views/_employmentopportunities_view.scss */
-div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-date-closing-table-column, div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-locations-table-column {
-  width: 106px;
+div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-classification-table-column {
+  width: 24%;
 }
 /* line 37, ../sass/views/_employmentopportunities_view.scss */
+div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-branch-table-column {
+  width: 12%;
+}
+/* line 41, ../sass/views/_employmentopportunities_view.scss */
+div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-open-to-table-column {
+  width: 23%;
+}
+/* line 45, ../sass/views/_employmentopportunities_view.scss */
+div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-date-closing-table-column {
+  width: 8%;
+}
+/* line 49, ../sass/views/_employmentopportunities_view.scss */
+div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-locations-table-column {
+  width: 22%;
+}
+/* line 53, ../sass/views/_employmentopportunities_view.scss */
 div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-date-closing-table-column, div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-locations-table-column,
 div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-branch-table-column, div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-open-to-table-column {
   text-decoration: underline;

@@ -13,5 +13,17 @@ body.path-admin {
     .form-item--field-newstype-target-id {
       max-width: 250px;
     }
+    .form-item--revision-timestamp-min,
+    .form-item--field-modified-value-min,
+    .form-item--changed-min {
+      margin: 0.75rem 0.5rem 0 0;
+      max-width: 135px;
+    }
+    .form-item--revision-timestamp-max,
+    .form-item--field-modified-value-max,
+    .form-item--changed-max {
+      margin: 0.75rem 0.5rem 0 0;
+      max-width: 120px;
+    }
   }
 }

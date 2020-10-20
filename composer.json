@@ -146,6 +146,8 @@
             "drupal/core": {
                 "wcag remove rel='revision' link attribute":
                 "https://www.drupal.org/files/issues/2020-01-02/2454915-w3c-entity-links.patch",
+                "file usage bug fixes":
+                "https://www.drupal.org/files/issues/2020-04-03/2810355-64.patch",
                 "core views module fix for breadcrumb title and page title":
                 "https://www.drupal.org/files/issues/2020-08-06/2716019-99-d88x.patch",
                 "core views module fix for contextual filter":
@@ -191,6 +193,10 @@
                 "entity_embed-remove_image_attributes_from_div-3086162":
                 "https://www.drupal.org/files/issues/2020-06-15/entity_embed-remove_image_attributes_from_div-3086162-13_0.patch"
             },
+            "drupal/file_delete": {
+                "Add functionality to immediately delete files and override usage check":
+                "https://www.drupal.org/files/issues/2020-10-20/3115158-6.patch"
+            },
             "drupal/moderated_content_bulk_publish": {
                 "Customize javascript as per Lakshman patch":
                 "https://www.drupal.org/files/issues/2020-10-07/custom_js-3171167-11.patch"
@@ -213,13 +219,13 @@
             },
             "drupal/wxt_bootstrap": {
                 "WCAG - two nav elements when there may be only one li element 3169971":
-                "https://www.drupal.org/files/issues/2020-10-15/WCAG-two-nav-elements-screen-reader-tweak-3169971-5.patch",
+                "https://www.drupal.org/files/issues/2020-10-20/WCAG-two-nav-elements-screen-reader-tweak-3169971-12.patch",
                 "Change H2 block-title for WxT Language Switcher and WxT Search Form to DIV hidden 3164047":
                 "https://www.drupal.org/files/issues/2020-08-10/change-h2-to-div-hidden-language-switcher-search-blocks-3164047-8.patch",
                 "Skip Links should be wrapped in a landmark 3164554":
                 "https://www.drupal.org/files/issues/2020-08-11/Skip-Links-should-be-wrapped-in-landmark-3164554-2.patch",
-                "main menu wcag axe errors li elements must be contained in ul or ol 3164631":
-                "https://www.drupal.org/files/issues/2020-08-24/main-menu-wcag-axe-errors-li-elements-must-be-contained-in-ul-or-ol-3164631-9.patch"
+                "WCAG - Add roles to all menu UL LI and AHREF / LINK 3164631":
+                "https://www.drupal.org/files/issues/2020-10-16/wcag-add-roles-to-all-menu-ul-li-ahref-link-3164631-17.patch"
             },
             "drupal/wxt_library": {
                 "WCAG accessibility fix for search form on all wxt based projects.":
@@ -302,7 +308,10 @@
         "drupal/honeypot": "^2.0.1",
         "drupal/convert_bundles": "^1.0",
         "drupal/git_status": "^1.0",
-        "drupal/devel": "^4.0"
+        "drupal/devel": "^4.0",
+        "drupal/better_exposed_filters": "^5.0@beta",
+        "drupal/file_delete": "^1.0",
+        "drupal/ultimate_cron": "^2.0@alpha"
     },
     "autoload": {
         "classmap": [
