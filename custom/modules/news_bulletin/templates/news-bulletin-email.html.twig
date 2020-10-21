@@ -32,8 +32,12 @@
             </tr>
           </tbody>
         </table>
-        <br>
-
+        <!-- matches the legacy system : space line -->
+        <table border="0" cellpadding="0" cellspacing="10" width="100%">
+          <tr>
+            <td align="center" valign="top" style="border-top:1px solid #C8C8C8;"></td>
+          </tr>
+        </table>
         <div id="news-bulletin-list-en" class="news-bulletin-test" style="margin-bottom:0px;position:relative;padding: 0px 0px 0px 0px;margin-left:auto; margin-right:auto;width:100%;font-family:Helvetica,Arial,sans-serif;" >
           {% for wkey, valuetype in types_by_weight %}
             <div style="padding:10px 10px 0px 0px;" class="news-type type-{{ valuetype.first_word }} news-type-id-{{ valuetype.tid }}" data-attribute-group="{{ valuetype.tid }}">
@@ -229,8 +233,12 @@
             </tr>
           </tbody>
         </table>
-        <br>
-
+        <!-- matches the legacy system : space line -->
+        <table border="0" cellpadding="0" cellspacing="10" width="100%">
+          <tr>
+            <td align="center" valign="top" style="border-top:1px solid #C8C8C8;"></td>
+          </tr>
+        </table>
         <div id="news-bulletin-list-fr" class="news-bulletin" style="position:relative;padding: 0px 0px 0px 0px;margin-left:auto;margin-right:auto;width:100%;font-family: Helvetica,Arial,sans-serif;" >
         {% for wkey, valuetype in types_by_weight_fr %}
           <div style="padding:10px 10px 0px 0px;" class="news-type type-{{ valuetype.first_word }} news-type-id-{{ valuetype.tid }}" data-attribute-group="{{ valuetype.tid }}">
