@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.media.embedded
     - field.field.media.slideshow_thumbnav.field_media_in_library
     - field.field.media.slideshow_thumbnav.field_media_slideshow
+    - field.field.media.slideshow_thumbnav.field_media_thumbs
     - media.type.slideshow_thumbnav
   module:
     - layout_builder
@@ -30,6 +31,7 @@ content:
 hidden:
   created: true
   field_media_in_library: true
+  field_media_thumbs: true
   langcode: true
   name: true
   thumbnail: true

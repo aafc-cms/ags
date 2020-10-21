@@ -1,0 +1,15 @@
+uuid: d8da28bb-f06e-4f8f-89a3-5063bc9ceb49
+langcode: en
+status: true
+dependencies: {  }
+name: agrisource_slideshow_thumbnail
+label: 'Agrisource slideshow thumbnail'
+effects:
+  c1cbbeb2-4f19-41e4-b546-734b9a0ef382:
+    uuid: c1cbbeb2-4f19-41e4-b546-734b9a0ef382
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 140
+      height: 48
+      anchor: center-center

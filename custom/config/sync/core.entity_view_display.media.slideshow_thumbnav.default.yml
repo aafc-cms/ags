@@ -5,7 +5,11 @@ dependencies:
   config:
     - field.field.media.slideshow_thumbnav.field_media_in_library
     - field.field.media.slideshow_thumbnav.field_media_slideshow
+    - field.field.media.slideshow_thumbnav.field_media_thumbs
+    - image.style.agrisource_slideshow_thumbnail
     - media.type.slideshow_thumbnav
+  module:
+    - media
 id: media.slideshow_thumbnav.default
 targetEntityType: media
 bundle: slideshow_thumbnav
@@ -13,12 +17,21 @@ mode: default
 content:
   field_media_slideshow:
     label: hidden
-    weight: 0
+    weight: 1
     settings:
       view_mode: agrisource_slideshow_view_mode
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
+    region: content
+  field_media_thumbs:
+    type: media_thumbnail
+    weight: 0
+    label: hidden
+    settings:
+      image_style: agrisource_slideshow_thumbnail
+      image_link: ''
+    third_party_settings: {  }
     region: content
 hidden:
   created: true

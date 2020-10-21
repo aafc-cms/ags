@@ -3,4 +3,26 @@
   figcaption {
     background-color: $agrisource-carousel-bg;
   }
+  &.show-thumbs {
+    ul[role="tablist"] {
+      bottom: -6px;
+      a {
+        border: 0px;
+        outline: none;
+        border-color: $agrisource-carousel-bg !important;
+        box-shadow: 0 0 5px $agrisource-carousel-bg;
+      }
+      li:focus, a:focus {
+        outline: none;
+        outline: none;
+        outline-offset: none;
+        border-color: $agrisource-carousel-bg !important;
+        box-shadow: 0 0 10px darkgreen;
+      }
+    }
+    .plypause {
+      padding: 0;
+    }
+  }
 }
+

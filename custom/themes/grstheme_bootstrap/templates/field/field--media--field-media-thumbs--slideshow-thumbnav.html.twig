@@ -52,10 +52,12 @@
     label_display == 'visually_hidden' ? 'sr-only',
   ]
 %}
-<div class="tabpanels">
-  {% for item in items %}
-    <div role="tabpanel" id="panel{{ loop.index }}" class="{{ loop.index == 1 ? 'in' : 'out' }} fade">
+<ul role="tablist">
+{% for item in items %}
+  <li class="{{ loop.index == 1 ? 'active' : '' }}">
+    <a href="#panel{{ loop.index }}"><span class="hidden">{{ 'Tabs'|t }} {{ loop.index }}</span>
       {{ item.content }}
-    </div>
-  {% endfor %}
-</div>
+    </a>
+  </li>
+{% endfor %}
+</ul>
