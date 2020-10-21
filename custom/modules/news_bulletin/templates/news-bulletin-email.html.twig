@@ -34,16 +34,38 @@
         </table>
         <br>
 
-        <div id="news-bulletin-list-en" class="news-bulletin-test" style="margin-bottom:0px;position:relative;padding: 0 0px 0 0px;margin-left:auto; margin-right:auto;width:100%;font-family:Helvetica,Arial,sans-serif;" >
+        <div id="news-bulletin-list-en" class="news-bulletin-test" style="margin-bottom:0px;position:relative;padding: 0px 0px 0px 0px;margin-left:auto; margin-right:auto;width:100%;font-family:Helvetica,Arial,sans-serif;" >
           {% for wkey, valuetype in types_by_weight %}
-            <div style="padding:10px 10px 0 10px;" class="news-type type-{{ valuetype.first_word }} news-type-id-{{ valuetype.tid }}" data-attribute-group="{{ valuetype.tid }}">
+            <div style="padding:10px 10px 0px 0px;" class="news-type type-{{ valuetype.first_word }} news-type-id-{{ valuetype.tid }}" data-attribute-group="{{ valuetype.tid }}">
+            <table style="margin-left: 0px;margin-right: auto;padding: 0px 10px 10px 0px;" > 
+              <tbody>
+                <tr>
+                  <td style="color:#5F5F5F; font-family:Helvetica,Arial,sans-serif; font-size:20px; font-weight:normal; margin-top:20px; margin-bottom:3px;text-align:left;">
+                    {{ valuetype.name }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            {#
             <div class="news-group-title" style="font-size:20px;">{{ valuetype.name }}</div>
+            #}
             </div>
             {% for nkey, newsitem in news_items %}
               {##}{% if valuetype.tid == newsitem.term_id %}
-              <div style="margin-left:auto;margin-right:auto;padding:10px 10px 0 10px;" class="tile news-type-id-{{ valuetype.tid }}">
+              <div style="margin-left:auto;margin-right:auto;padding:10px 10px 0px 0px;" class="tile news-type-id-{{ valuetype.tid }}">
                 <div class="content type-{{ newsitem.first_word }}" data-nid="{{ newsitem.nid }}" data-group-current="{{ newsitem.term_id }}" data-group-orig="{{ newsitem.term_id }}">
+                   <table style="margin-left: 0px;margin-right: auto;" >
+                    <tbody>
+                      <tr>
+                        <td style="text-align:left;font-weight:normal;font-family:Helvetica,Arial,sans-serif;font-size:17px;margin-bottom:0px;color:#205478;">
+                          <a href="{{ newsitem.href }}">{{ newsitem.title|raw }}</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table> 
+                  {#
                   <div style="font-size:17px;" class="cell news-title"><a href="{{ newsitem.href }}">{{ newsitem.title|raw }}</a></div>
+                  #}
                   <div style="font-size:15px;font-style: italic;padding-bottom:5px;" class="cell from">{{ newsitem.from|raw }}</div>
                   <table style="width: 100%; border: 0px;" >
                     <tbody>
@@ -66,12 +88,12 @@
                     </tbody>
                   </table>
                 </div>
-               <table border="0" cellpadding="0" cellspacing="10" width="100%">
-                 <tr>
-                     <td align="center" valign="top" style="border-top:1px solid #C8C8C8;"></td>
-                  </tr>
-                </table>
               </div>
+              <table border="0" cellpadding="0" cellspacing="10" width="100%">
+                <tr>
+                  <td align="center" valign="top" style="border-top:1px solid #C8C8C8;"></td>
+                </tr>
+              </table>
               {% endif %}
             {% endfor %}
           {% endfor %}
@@ -209,16 +231,38 @@
         </table>
         <br>
 
-        <div id="news-bulletin-list-fr" class="news-bulletin" style="position:relative;padding: 0 0px 0 0px;margin-left:auto;margin-right:auto;width:100%;font-family: Helvetica,Arial,sans-serif;" >
+        <div id="news-bulletin-list-fr" class="news-bulletin" style="position:relative;padding: 0px 0px 0px 0px;margin-left:auto;margin-right:auto;width:100%;font-family: Helvetica,Arial,sans-serif;" >
         {% for wkey, valuetype in types_by_weight_fr %}
-          <div style="padding:10px 10px 0 10px;" class="news-type type-{{ valuetype.first_word }} news-type-id-{{ valuetype.tid }}" data-attribute-group="{{ valuetype.tid }}">
-            <div style="font-size:20px;" class="news-group-title">{{ valuetype.name }}</div>
+          <div style="padding:10px 10px 0px 0px;" class="news-type type-{{ valuetype.first_word }} news-type-id-{{ valuetype.tid }}" data-attribute-group="{{ valuetype.tid }}">
+            <table style="margin-left: 0px;margin-right: auto;padding: 0px 10px 10px 0px;" > 
+              <tbody>
+                <tr>
+                  <td style="color:#5F5F5F; font-family:Helvetica,Arial,sans-serif; font-size:20px; font-weight:normal; margin-top:20px; margin-bottom:3px;text-align:left;">
+                    {{ valuetype.name }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            {#
+              <div style="font-size:20px;" class="news-group-title">{{ valuetype.name }}</div>
+            #}
           </div>
           {% for nkey, newsitem in news_items_fr %}
           {##}{% if valuetype.tid == newsitem.term_id %}
-          <div style="margin-left:auto;margin-right:auto;padding:10px 10px 0 10px;" class="tile news-type-id-{{ valuetype.tid }}">
+          <div style="margin-left:auto;margin-right:auto;padding:10px 10px 0px 0px;" class="tile news-type-id-{{ valuetype.tid }}">
             <div class="content type-{{ newsitem.first_word }}" data-nid="{{ newsitem.nid }}" data-group-current="{{ newsitem.term_id }}" data-group-orig="{{ newsitem.term_id }}">
+              <table style="margin-left: 0px;margin-right: auto;" >
+                <tbody>
+                  <tr>
+                    <td style="text-align:left;font-weight:normal;font-family:Helvetica,Arial,sans-serif;font-size:17px;margin-bottom:0px;color:#205478;">
+                      <a href="{{ newsitem.href }}">{{ newsitem.title|raw }}</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table> 
+              {#
               <div style="font-size:17px;" class="cell news-title"><a href="{{ newsitem.href }}">{{ newsitem.title|raw }}</a></div>
+              #}
               <div style="font-size:15px;font-style: italic;padding-bottom:5px;" class="cell from">{{ newsitem.from|raw }}</div>
               <table style="width: 100%; border: 0px;" >
                 <tbody>
@@ -241,14 +285,12 @@
                 </tbody>
               </table>
             </div>
-            <table style="padding-left: 15px;" border="0" cellpadding="0" cellspacing="10" width="100%">
-              <tbody>
-                <tr>
-                  <td align="center" valign="top" style="border-top:1px solid #C8C8C8;"></td>
-                </tr>
-              </tbody>
-            </table>
-            </div>
+          </div>
+          <table border="0" cellpadding="0" cellspacing="10" width="100%">
+            <tr>
+              <td align="center" valign="top" style="border-top:1px solid #C8C8C8; padding: 10px 0px 5px 0px;"></td>
+            </tr>
+          </table>
             {% endif %}
           {% endfor %}
         {% endfor %}
