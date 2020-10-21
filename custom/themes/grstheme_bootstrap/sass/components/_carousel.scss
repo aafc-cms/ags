@@ -1,28 +1,47 @@
 
 .carousel-s2 {
+  &.wb-tabs [role="tablist"] > li {
+    margin: 0 !important;
+  }
+  ul[role="tablist"] {
+    & > li {
+      margin: 0;
+    }
+  }
   figcaption {
     background-color: $agrisource-carousel-bg;
   }
   &.show-thumbs {
     ul[role="tablist"] {
       bottom: -6px;
-      a {
-        border: 0px;
-        outline: none;
-        border-color: $agrisource-carousel-bg !important;
-        box-shadow: 0 0 5px $agrisource-carousel-bg;
+      li.active a {
+        border-color: #666;
+        border-style: solid;
+        border-width: 10px;
+        margin-bottom: 1px;
+        padding:0;
       }
       li:focus, a:focus {
-        outline: none;
-        outline: none;
-        outline-offset: none;
-        border-color: $agrisource-carousel-bg !important;
-        box-shadow: 0 0 10px darkgreen;
       }
     }
     .plypause {
       padding: 0;
     }
+  }
+  &.wb-tabs [role="tablist"] > li.active a {
+    border-color: #666;
+    border-style: solid;
+    border-width: 4px 0 0;
+    cursor: default;
+    padding-top: 6px;
+  }
+  &.wb-tabs [role="tablist"] > li a {
+    color: #000;
+    padding: 10px;
+    text-decoration: none;
+  }
+  figure {
+    background: $agrisource-carousel-bg;
   }
 }
 

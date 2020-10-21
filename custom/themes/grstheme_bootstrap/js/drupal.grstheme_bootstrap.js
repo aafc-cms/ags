@@ -88,7 +88,25 @@ var AgrisourceFrontend = function() {
 
     //AgrisourceFrontend.initAnalytics();
 
+    AgrisourceFrontend.initSlideshow();
     initialized = true;
+  }
+
+
+  function initSlideshow() {
+    // Make slideshow items clickable.
+    var tabPanels = $('.carousel-s2').find('.tabpanels');
+    if (typeof tabPanels !== 'undefined') {
+      $(tabPanels).find('figure').each(function(index, element) {
+        var img = $(element).find('img');
+        var href = $(element).find('a').attr('href');
+        if (href) {
+          var a = $('<a/>').attr('href', href);
+          $(img).wrap(a);
+          //console.log(index + ' href=' + href);
+        }
+      });
+    }
   }
 
 
@@ -152,6 +170,7 @@ var AgrisourceFrontend = function() {
     isIE: isIE,
     delay: delay,
     initAnalytics: initAnalytics,
+    initSlideshow: initSlideshow,
     page_type: page_type,
     removeRoleFromSummary: removeRoleFromSummary
   }
