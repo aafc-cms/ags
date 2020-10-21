@@ -204,13 +204,13 @@ function agri_admin_preprocess_views_view_field(&$variables) {
         $valuePending = $latestRevision->get($field->field)->value; // Already in current language.
         // Replace characters in the field output.
         $variables['output'] = Drupal\Core\Render\Markup::create(str_replace($valueCurrent, $valuePending, $variables['output']));
-        if ($view->id() != 'content' && $field->field == 'title' || $field->field == 'field_title') {
+        if ($view->id() != 'content' && ($field->field == 'title' || $field->field == 'field_title')) {
           $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
           $urlPathToLatest = '/node/' . $nid . '/latest';
           // Replace path to node in the field output.
           $variables['output'] = Drupal\Core\Render\Markup::create(str_replace($alias, $urlPathToLatest, $variables['output']));
         }
-        elseif ($view->id() == 'content' && $field->field == 'title' || $field->field == 'field_title') {
+        elseif ($view->id() == 'content' && ($field->field == 'title' || $field->field == 'field_title')) {
           $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
           $urlPathToLatest = "/$lang/node/$nid/latest";
           // Replace path to node in the field output.

@@ -92,7 +92,7 @@ function grstheme_bootstrap_preprocess_html(&$variables) {
       }
       // Get the revisions moderation state.
       $this_revision_state = $this_revision->get('moderation_state')->getString();
-      if ($this_revision_state != 'published' && $this_revision_state != 'archived' && $this_revision_state != 'emergency_publish') {
+      if ($this_revision_state != 'published' && $this_revision_state != 'archived') {
         $published = 'published-no';
         $is_unpublished = 'is-unpublished';
         // Determine if revision is pending-draft (unpublished with previous published revision).
@@ -102,7 +102,8 @@ function grstheme_bootstrap_preprocess_html(&$variables) {
           $is_pending_draft = 'pending-draft';
         }
       }
-      if ($this_revision_state == 'archived' || $this_revision_state == 'archive') {
+      if ($this_revision_state == 'archived') {
+        $published = 'published-no-is-archived';
         $archived = 'archived';
       }
       $nodeType = $this_revision->getType();
