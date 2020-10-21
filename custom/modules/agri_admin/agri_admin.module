@@ -152,40 +152,53 @@ function agri_admin_preprocess_views_view_field(&$variables) {
         //field_title
         $variables['output'] = strtolower($variables['output']);
         $variables['output'] = Drupal\Core\Render\Markup::create(str_replace('yes', 'no pending-draft', $variables['output']));
-      } else if ($field->field == 'moderation_state_1') {
+      }
+      elseif ($field->field == 'operations') {
+        return;
+      }
+      elseif ($field->field == 'moderation_state_1') {
         // This is specifically for the row styling (view -> Format -> settings -> row {{ moderation_state_1 }}.
         // Do nothing, for styling purposes, because archived should have another color see css/scss.
         return;
-      } else if ($field->field == 'moderation_state') {
+      }
+      elseif ($field->field == 'moderation_state') {
         $variables['output'] = $variables['output'] . ' + ' . t('pending draft');
         return;
-      } else if ($view->id() == 'content' && $field->field == 'name') {
+      }
+      elseif ($view->id() == 'content' && $field->field == 'name') {
         // This field needs special treatment.
         // @TODO: Lakshman will probably notice this, will have to replace content author with revision author.
         $user = $latestRevision->getRevisionUser();
         $render_array = ['#markup' => "<a href=\"/" . $lang . "/user/" . $user->id() . "\">" . $user->getUsername() . "</a>" ];
         $variables['output'] = Utils::render($render_array);
         return;
-      } else if ($field->field == 'node_bulk_form') {
+      }
+      elseif ($field->field == 'node_bulk_form') {
         // There is no fieldable field called 'node_bulk_form' this is a vbo field, so skip it.
         return;
-      } else if ($field->field == 'nothing') {
+      }
+      elseif ($field->field == 'nothing') {
         // There is no fieldable field called 'nothing' this is a views field, so skip it.
         return;
-      } else if ($field->field == 'machine_name') {
+      }
+      elseif ($field->field == 'machine_name') {
         // There is no fieldable field called 'machine_name', so skip it.
         return;
-      } else if ($field->field == 'nid') {
+      }
+      elseif ($field->field == 'nid') {
         // There is no fieldable field called 'nid', so skip it.
         return;
-      } else if ($field->field == 'tid') {
+      }
+      elseif ($field->field == 'tid') {
         // There is no fieldable field called 'tid', so skip it.
         return;
-      } else {
+      }
+      else {
         $valueCurrent = '';
         if ($lang == 'fr') {
           $valueCurrent = $row->_entity->getTranslation($lang)->get($field->field)->value;
-        } else {
+        }
+        else {
           $valueCurrent = $row->_entity->get($field->field)->value;
         }
         $valuePending = $latestRevision->get($field->field)->value; // Already in current language.
@@ -197,7 +210,7 @@ function agri_admin_preprocess_views_view_field(&$variables) {
           // Replace path to node in the field output.
           $variables['output'] = Drupal\Core\Render\Markup::create(str_replace($alias, $urlPathToLatest, $variables['output']));
         }
-        else if ($view->id() == 'content' && $field->field == 'title' || $field->field == 'field_title') {
+        elseif ($view->id() == 'content' && $field->field == 'title' || $field->field == 'field_title') {
           $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
           $urlPathToLatest = "/$lang/node/$nid/latest";
           // Replace path to node in the field output.
