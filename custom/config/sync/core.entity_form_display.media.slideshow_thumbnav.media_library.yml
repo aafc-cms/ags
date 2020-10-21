@@ -6,6 +6,7 @@ dependencies:
     - core.entity_form_mode.media.media_library
     - field.field.media.slideshow_thumbnav.field_media_in_library
     - field.field.media.slideshow_thumbnav.field_media_slideshow
+    - field.field.media.slideshow_thumbnav.field_media_thumbs
     - media.type.slideshow_thumbnav
 id: media.slideshow_thumbnav.media_library
 targetEntityType: media
@@ -24,6 +25,7 @@ hidden:
   created: true
   field_media_in_library: true
   field_media_slideshow: true
+  field_media_thumbs: true
   langcode: true
   path: true
   status: true

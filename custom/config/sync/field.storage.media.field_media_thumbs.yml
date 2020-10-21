@@ -1,0 +1,19 @@
+uuid: d4631812-4139-440f-a385-b6e75929581d
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.field_media_thumbs
+field_name: field_media_thumbs
+entity_type: media
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,19 +1,19 @@
-uuid: 7ce31437-13a8-4879-82e6-b5e9c8f85d07
+uuid: 920bb907-6e0c-40f8-bd7b-5a4b61514b9f
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.media.field_media_slideshow
+    - field.storage.media.field_media_thumbs
     - media.type.image
     - media.type.slideshow_thumbnav
-id: media.slideshow_thumbnav.field_media_slideshow
-field_name: field_media_slideshow
+id: media.slideshow_thumbnav.field_media_thumbs
+field_name: field_media_thumbs
 entity_type: media
 bundle: slideshow_thumbnav
-label: 'Slideshow items'
-description: 'Media items that belong to this slideshow.'
+label: 'Slideshow thumbs'
+description: 'Media item thumbs that belong to this slideshow.'
 required: true
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:

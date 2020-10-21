@@ -6,6 +6,7 @@ dependencies:
     - entity_browser.browser.media_browser
     - field.field.media.slideshow_thumbnav.field_media_in_library
     - field.field.media.slideshow_thumbnav.field_media_slideshow
+    - field.field.media.slideshow_thumbnav.field_media_thumbs
     - media.type.slideshow_thumbnav
   module:
     - entity_browser
@@ -17,17 +18,17 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 3
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_media_slideshow:
-    weight: 1
+    weight: 2
     settings:
       entity_browser: media_browser
       field_widget_display: rendered_entity
       field_widget_display_settings:
-        view_mode: default
+        view_mode: thumbnail
       field_widget_edit: true
       field_widget_remove: true
       open: true
@@ -36,6 +37,21 @@ content:
     third_party_settings: {  }
     type: entity_browser_entity_reference
     region: content
+  field_media_thumbs:
+    type: entity_browser_entity_reference
+    weight: 1
+    settings:
+      entity_browser: media_browser
+      field_widget_display: rendered_entity
+      field_widget_display_settings:
+        view_mode: agrisource_slideshow_thumbnail
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_replace: false
+    region: content
+    third_party_settings: {  }
   name:
     type: string_textfield
     weight: 0
@@ -46,7 +62,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -54,12 +70,12 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 100
+    weight: 6
     region: content
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 2
+    weight: 3
     settings:
       match_operator: CONTAINS
       size: 60

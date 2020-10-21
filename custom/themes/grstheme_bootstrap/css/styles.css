@@ -284,6 +284,29 @@ body.page-node-type-empl.isIE .field.field--name-body.field--type-text-with-summ
 .carousel-s2 figcaption {
   background-color: rgba(36, 91, 12, 0.9);
 }
+/* line 7, ../sass/components/_carousel.scss */
+.carousel-s2.show-thumbs ul[role="tablist"] {
+  bottom: -6px;
+}
+/* line 9, ../sass/components/_carousel.scss */
+.carousel-s2.show-thumbs ul[role="tablist"] a {
+  border: 0px;
+  outline: none;
+  border-color: rgba(36, 91, 12, 0.9) !important;
+  box-shadow: 0 0 5px rgba(36, 91, 12, 0.9);
+}
+/* line 15, ../sass/components/_carousel.scss */
+.carousel-s2.show-thumbs ul[role="tablist"] li:focus, .carousel-s2.show-thumbs ul[role="tablist"] a:focus {
+  outline: none;
+  outline: none;
+  outline-offset: none;
+  border-color: rgba(36, 91, 12, 0.9) !important;
+  box-shadow: 0 0 10px darkgreen;
+}
+/* line 23, ../sass/components/_carousel.scss */
+.carousel-s2.show-thumbs .plypause {
+  padding: 0;
+}
 
 /* line 4, ../sass/components/_iframe.scss */
 body.user-anonymous .entity-iframe .create-embedsearch,

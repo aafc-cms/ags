@@ -3,9 +3,13 @@ langcode: en
 status: true
 dependencies:
   module:
+    - crop
     - media_entity_slideshow
+third_party_settings:
+  crop:
+    image_field: null
 id: slideshow_thumbnav
-label: slideshow-thumbnav
+label: 'Slideshow Thumbnav'
 description: 'Slideshow with media thumbnails'
 source: slideshow
 queue_thumbnail_downloads: false
