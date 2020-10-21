@@ -86,7 +86,7 @@ var AgrisourceFrontend = function() {
       AgrisourceFrontend.removeRoleFromSummary(); // WCAG fix, see agrcms/d8#204 in gitlab.com
     });
 
-    AgrisourceFrontend.initAnalytics();
+    //AgrisourceFrontend.initAnalytics();
 
     initialized = true;
   }

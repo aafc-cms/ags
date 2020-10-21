@@ -128,8 +128,13 @@ function grstheme_bootstrap_preprocess_html(&$variables) {
   }
   // End of logic to grab moderation state and add it to the body class for styling.
   
+  $host = \Drupal::request()->getHost();
+  $prod = FALSE;
+  if (stripos($host, 'wip') > 0 || stripos($host, 'grisource.agr.gc.ca') > 0) {
+    $prod = TRUE;
+  }
   // Adobe Analytics JS library.
-  if (\Drupal::currentUser()->isAnonymous()) {
+  if (\Drupal::currentUser()->isAnonymous() && $prod) {
     $variables['#attached']['library'][] = 'grstheme_bootstrap/grstheme-externaladobetmprodjs';
   } 
   else {
