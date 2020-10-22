@@ -9,6 +9,7 @@ use Drupal\Core\Link;
 use Drupal\Core\Url;
 use Drupal\user\Entity\User;
 use Drupal\views\ViewExecutable;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_preprocess_html().
@@ -705,6 +706,29 @@ function agri_admin_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInte
       }
     } //End handle Peer_Review for page/landing_page only.
   }// End page/landing_page/news/empl.
+
+  // Change expiry date field as a required field for node_news_edit_form
+  if ($form_id == 'node_news_edit_form') {
+    $current_user = \Drupal::currentUser();
+    if (\Drupal\user\Entity\User::load(\Drupal::currentUser()->id())->hasRole('news_ccpub')) {
+      if (isset($form['field_newsexpirydate'])) {
+        $form['field_newsexpirydate']['widget'][0]['#required'] = TRUE;
+        $form['field_newsexpirydate']['#required'] = TRUE;
+        $form['field_newsexpirydate']['#element_validate'][] = 'agri_admin_expirydatevalidator';
+      }
+    }
+  }
+}
+
+
+/**
+ * Implements hook_expirydate.
+ * for node_news_edit_form
+ */
+function agri_admin_expirydatevalidator($element, &$form_state) {
+  if ((empty($element['widget'][0]['value']['#value']['date'])) ) {
+     $form_state->setErrorByName('field_newsexpirydate');
+  }
 }
 
 
