@@ -25,6 +25,14 @@ class Breadcrumb extends BootstrapBreadcrumb {
    */
   public function preprocessVariables(Variables $variables) {
     $breadcrumb = &$variables['breadcrumb'];
+
+    //The logic checks if the last menu link text is empty string.
+    // if yes, we remove tehe empty menu link from the breadcrumb
+    $lastlink = end($breadcrumb);
+    if ( $lastlink['text'] == '') {
+      array_pop($breadcrumb);
+    }
+
     // Determine if breadcrumbs should be displayed.
     $breadcrumb_visibility = $this->theme->getSetting('breadcrumb');
 
