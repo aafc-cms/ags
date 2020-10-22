@@ -709,7 +709,7 @@ function agri_admin_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInte
 
   // Change expiry date field as a required field for node_news_edit_form
   if ($form_id == 'node_news_edit_form') {
-    if (\Drupal\user\Entity\User::load(\Drupal::currentUser()->id())->hasRole('news_ccpub')) {
+    if (User::load(\Drupal::currentUser()->id())->hasRole('news_ccpub')) {
       if (isset($form['field_newsexpirydate'])) {
         $form['field_newsexpirydate']['widget'][0]['#required'] = TRUE;
         $form['field_newsexpirydate']['#required'] = TRUE;
