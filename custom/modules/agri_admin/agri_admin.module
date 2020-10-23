@@ -134,6 +134,7 @@ function agri_admin_preprocess_views_view_field(&$variables) {
   $view = $variables['view'];
   if ($hasPermission &&
        ($view->id() == 'news' ||
+        $view->id() == 'newsatwork_for_home_page' ||
         $view->id() == 'content' ||
         $view->id() == 'view_employmentopportunities' ||
         $view->id() == 'view_news_work')) {
