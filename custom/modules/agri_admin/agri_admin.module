@@ -161,7 +161,7 @@ function agri_admin_preprocess_views_view_field(&$variables) {
         // Do nothing, for styling purposes, because archived should have another color see css/scss.
         return;
       }
-      elseif ($field->field == 'moderation_state') {
+      elseif ($view->id() == 'content' && $field->field == 'moderation_state') {
         $variables['output'] = $variables['output'] . ' + ' . t('pending draft');
         return;
       }

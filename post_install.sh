@@ -7,6 +7,7 @@ trap "sudo configureSettingsFile" SIGINT SIGTERM
 live=0
 if [ -z $1 ]; then
   echo "dev environment setup.";
+  sed -i "s+^repository_root: .*$+repository_root: `pwd`+g" custom/config/splits/dev/git_status.settings.yml
 else
   if [ $1 == "live" ]; then
     echo "live environment setup.";
