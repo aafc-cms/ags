@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5e2b6b09fca1534d045cb5d6e5cad474",
+    "content-hash": "383a216405c9d000d0f1a2eb9933c495",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -309,7 +309,7 @@
             "version": "v5.7.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/enyo/dropzone.git",
+                "url": "git@github.com:enyo/dropzone.git",
                 "reference": "78424e9c97b569e698cc9175e9bc424168219162"
             },
             "dist": {
@@ -3725,6 +3725,62 @@
             }
         },
         {
+            "name": "drupal/config_ignore",
+            "version": "dev-2.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/config_ignore.git",
+                "reference": "f651e027aaf5ea3c481a5a3996fdddb018736bc4"
+            },
+            "require": {
+                "drupal/config_filter": "^1 || ^2",
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.2+2-dev",
+                    "datestamp": "1591622669",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Tommy Lynge Jørgensen",
+                    "homepage": "https://www.drupal.org/u/tlyngej",
+                    "email": "tlyngej@gmail.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Fabian Bircher",
+                    "homepage": "https://www.drupal.org/u/bircher",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "tlyngej",
+                    "homepage": "https://www.drupal.org/user/413139"
+                }
+            ],
+            "description": "Ignore certain configuration during import.",
+            "homepage": "http://drupal.org/project/config_ignore",
+            "support": {
+                "source": "http://cgit.drupalcode.org/config_ignore",
+                "issues": "http://drupal.org/project/config_ignore",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
+            },
+            "time": "2020-06-08T13:23:53+00:00"
+        },
+        {
             "name": "drupal/config_rewrite",
             "version": "1.3.0",
             "source": {
@@ -4964,6 +5020,58 @@
             }
         },
         {
+            "name": "drupal/devel_kint_extras",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/devel_kint_extras.git",
+                "reference": "1.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/devel_kint_extras-1.0.0.zip",
+                "reference": "1.0.0",
+                "shasum": "286b5183552cc673fb96de7e3d943a3cfd82ec00"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9",
+                "drupal/devel": "^4.0",
+                "kint-php/kint": "^3.3"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.0",
+                    "datestamp": "1597133801",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Jan Chojnacki",
+                    "homepage": "https://www.drupal.org/u/janchojnacki"
+                },
+                {
+                    "name": "Other contributors",
+                    "homepage": "https://www.drupal.org/node/3164492/committers"
+                }
+            ],
+            "description": "Shows methods and statics available for an object when using Kint with Devel",
+            "homepage": "https://www.drupal.org/project/devel_kint_extras",
+            "support": {
+                "source": "http://git.drupal.org/project/devel_kint_extras.git",
+                "issues": "https://www.drupal.org/project/issues/devel_kint_extras",
+                "chat": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
             "name": "drupal/diff",
             "version": "1.0.0",
             "source": {
@@ -5937,6 +6045,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Add functionality to immediately delete files and override usage check": "https://www.drupal.org/files/issues/2020-10-20/3115158-6.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -9016,7 +9127,7 @@
                     }
                 },
                 "patches_applied": {
-                    "Customize javascript as per Lakshman patch": "https://www.drupal.org/files/issues/2020-10-07/custom_js-3171167-11.patch"
+                    "Customize javascript as per Lakshman patch": "https://www.drupal.org/files/issues/2020-10-21/custom_js-3171167-14.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -12342,7 +12453,7 @@
                     }
                 },
                 "patches_applied": {
-                    "WCAG - two nav elements when there may be only one li element 3169971": "https://www.drupal.org/files/issues/2020-10-15/WCAG-two-nav-elements-screen-reader-tweak-3169971-5.patch",
+                    "WCAG - two nav elements when there may be only one li element 3169971": "https://www.drupal.org/files/issues/2020-10-20/WCAG-two-nav-elements-screen-reader-tweak-3169971-12.patch",
                     "Change H2 block-title for WxT Language Switcher and WxT Search Form to DIV hidden 3164047": "https://www.drupal.org/files/issues/2020-08-10/change-h2-to-div-hidden-language-switcher-search-blocks-3164047-8.patch",
                     "Skip Links should be wrapped in a landmark 3164554": "https://www.drupal.org/files/issues/2020-08-11/Skip-Links-should-be-wrapped-in-landmark-3164554-2.patch",
                     "WCAG - Add roles to all menu UL LI and AHREF / LINK 3164631": "https://www.drupal.org/files/issues/2020-10-16/wcag-add-roles-to-all-menu-ul-li-ahref-link-3164631-17.patch"
@@ -13892,6 +14003,76 @@
                 "composer/installers": "^1.2"
             },
             "type": "drupal-custom-module"
+        },
+        {
+            "name": "kint-php/kint",
+            "version": "3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kint-php/kint.git",
+                "reference": "335ac1bcaf04d87df70d8aa51e8887ba2c6d203b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kint-php/kint/zipball/335ac1bcaf04d87df70d8aa51e8887ba2c6d203b",
+                "reference": "335ac1bcaf04d87df70d8aa51e8887ba2c6d203b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.6"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.0",
+                "phpunit/phpunit": "^4.0",
+                "seld/phar-utils": "^1.0",
+                "symfony/finder": "^2.0 || ^3.0 || ^4.0",
+                "vimeo/psalm": "^3.0"
+            },
+            "suggest": {
+                "ext-ctype": "Simple data type tests",
+                "ext-iconv": "Provides fallback detection for ambiguous legacy string encodings such as the Windows and ISO 8859 code pages",
+                "ext-mbstring": "Provides string encoding detection",
+                "kint-php/kint-js": "Provides a simplified dump to console.log()",
+                "kint-php/kint-twig": "Provides d() and s() functions in twig templates",
+                "symfony/polyfill-ctype": "Replacement for ext-ctype if missing",
+                "symfony/polyfill-iconv": "Replacement for ext-iconv if missing",
+                "symfony/polyfill-mbstring": "Replacement for ext-mbstring if missing"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "init.php"
+                ],
+                "psr-4": {
+                    "Kint\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Vollebregt",
+                    "homepage": "https://github.com/jnvsor"
+                },
+                {
+                    "name": "Rokas Šleinius",
+                    "homepage": "https://github.com/raveren"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/kint-php/kint/graphs/contributors"
+                }
+            ],
+            "description": "Kint - debugging tool for PHP developers",
+            "homepage": "https://kint-php.github.io/kint/",
+            "keywords": [
+                "debug",
+                "kint",
+                "php"
+            ],
+            "time": "2019-10-17T18:05:24+00:00"
         },
         {
             "name": "kub-at/php-simple-html-dom-parser",
@@ -22423,6 +22604,7 @@
         "drupal/smtp": 20,
         "drupal/better_exposed_filters": 10,
         "drupal/ultimate_cron": 15,
+        "drupal/config_ignore": 20,
         "phpmd/phpmd": 0
     },
     "prefer-stable": true,
