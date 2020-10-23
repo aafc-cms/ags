@@ -329,6 +329,9 @@ var Agrisource = function() {
   }
 
 
+  /**
+   * Original sort logic from https://riptutorial.com/jquery/example/11477/sorting-elements .
+   */
   function sortMediaDisplayModes(selector) {
     // '[data-drupal-selector="edit-attributes-data-view-mode"]'
     var mediaStylesList = jQuery(selector);
