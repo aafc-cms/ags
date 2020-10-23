@@ -303,7 +303,17 @@ function wxt_overrides_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateI
           }
         }
       }
-    } 
+    }
+  }
+  $entity = $form_state->getFormObject()->getEntity();
+  $content_type = $entity->bundle();
+  if ($content_type == 'page' || $content_type == 'landing_page' || $content_type == 'empl' || $content_type == 'news') {
+    $other_lang = \Drupal\agri_admin\AgriAdminHelper::getOtherLang();
+    $current_state = $form['moderation_state']['widget'][0]['state']['#default_value'];
+    if ($current_state == 'published') {
+      $form['moderation_state']['widget'][0]['state']['#default_value'] = 'draft';
+      $form['moderation_state'][$other_lang]['widget'][0]['state']['#default_value'] = 'draft';
+    }
   }
 }
 
