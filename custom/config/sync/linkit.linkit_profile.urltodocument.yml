@@ -2,8 +2,11 @@ uuid: 0d489ab5-e8f2-4e60-b59f-9bbbf7cf986d
 langcode: en
 status: true
 dependencies:
+  config:
+    - image.style.small
   module:
     - file
+    - image
     - node
 id: urltodocument
 label: UrlToDocument
@@ -25,12 +28,12 @@ matchers:
     id: 'entity:file'
     weight: 0
     settings:
-      file_extensions: 'docx doc pdf ppt pptx xls xlsx odt zip rtf ods txt mp4 wmv'
+      file_extensions: 'docx doc pdf ppt pptx xls xlsx odt zip rtf ods txt mp4 wmv jpg jpeg png gif bmp'
       file_status: 1
       images:
         show_dimensions: false
-        show_thumbnail: false
-        thumbnail_image_style: null
+        show_thumbnail: true
+        thumbnail_image_style: small
       substitution_type: file
       metadata: 'by [file:owner] [file:name] [file:original:changed]'
       bundles: null
