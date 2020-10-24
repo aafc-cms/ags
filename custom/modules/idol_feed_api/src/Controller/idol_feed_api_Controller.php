@@ -61,10 +61,12 @@ class idol_feed_api_Controller extends ControllerBase {
            case "basic page":
            case "page de destination":
            case "landing page":
+           case "page interne":
             $datatype = "gene-gene";
             break;
            case "titre du poste":
            case "employment opportunity":
+           case "opportunité d'emploi":
 
              $datatype = "empl-empl";
              break;
@@ -86,6 +88,7 @@ class idol_feed_api_Controller extends ControllerBase {
                 break;
               case "dcterms_description":
                 $dcterms_description = $value["#attributes"]["content"];
+                $dcterms_description = htmlentities($dcterms_description, ENT_XML1, 'UTF-8');
                 break;
               case "keywords":
                 $keywords = $value["#attributes"]["content"];
@@ -159,6 +162,7 @@ class idol_feed_api_Controller extends ControllerBase {
                  break;
                case "dcterms_description":
                  $dcterms_description = $value["#attributes"]["content"];
+                 $dcterms_description = htmlentities($dcterms_description, ENT_XML1, 'UTF-8');
                  break;
                case "keywords":
                  $keywords = $value["#attributes"]["content"];
