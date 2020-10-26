@@ -141,6 +141,9 @@ if [ ! -d "html/libraries/jquery-ui-touch-punch" ]; then
         mv jquery.ui.touch-punch.min.js html/libraries/jquery-ui-touch-punch;
 fi
 
+if [ ! -f html/sites.php ]; then
+  rm html/splash.php
+fi
 if [ ! -L html/splash.php ]; then
   cd html
   ln -s ../custom/splash/splash.php splash.php
