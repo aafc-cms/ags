@@ -1,3 +1,16 @@
+<?php
+  $server_name = $_SERVER['SERVER_NAME'];
+  $host = $_SERVER['HTTP_HOST'];
+  $prod = FALSE;
+  if (stripos($host, 'wip') > 0 || stripos($host, 'grisource.agr.gc.ca') > 0) {
+    $prod = TRUE;
+  }
+  // Adobe Analytics JS library.
+  $adobetm='//assets.adobedtm.com/caacec67651710193d2331efef325107c23a0145/satelliteLib-c2082deaf69c358c641c5eb20f94b615dd606662-staging.js';
+  if ($prod) {
+    $adobetm='//assets.adobedtm.com/caacec67651710193d2331efef325107c23a0145/satelliteLib-c2082deaf69c358c641c5eb20f94b615dd606662.js';
+  }
+?>
 <!DOCTYPE html><!--[if lt IE 8]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 7]><!-->
 <html class="no-js" lang="en" dir="ltr">
 <!--<![endif]-->
@@ -33,7 +46,7 @@
 <script src="/sites/default/splash/js/ie8-wet-boew.min.js"></script>
 <![endif]-->
 <noscript><link rel="stylesheet" href="/sites/default/splash/css/noscript.min.css"/></noscript>
-<script src="https://assets.adobedtm.com/caacec67651710193d2331efef325107c23a0145/satelliteLib-c2082deaf69c358c641c5eb20f94b615dd606662.js"></script>
+<script src="<?php print $adobetm ?>"></script>
 </head>
 <body vocab="http://schema.org/" typeof="WebPage">
 <header role="banner" id="wb-bnr">
