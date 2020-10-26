@@ -33,7 +33,7 @@
 <script src="/sites/default/splash/js/ie8-wet-boew.min.js"></script>
 <![endif]-->
 <noscript><link rel="stylesheet" href="/sites/default/splash/css/noscript.min.css"/></noscript>
-<script src="//assets.adobedtm.com/caacec67651710193d2331efef325107c23a0145/satelliteLib-c2082deaf69c358c641c5eb20f94b615dd606662.js"></script>
+<script src="https://assets.adobedtm.com/caacec67651710193d2331efef325107c23a0145/satelliteLib-c2082deaf69c358c641c5eb20f94b615dd606662.js"></script>
 </head>
 <body vocab="http://schema.org/" typeof="WebPage">
 <header role="banner" id="wb-bnr">
