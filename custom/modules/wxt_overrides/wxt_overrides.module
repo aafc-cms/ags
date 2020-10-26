@@ -191,7 +191,7 @@ function wxt_overrides_page_attachments(array &$page) {
         '#attributes' => [
           'property'  => 'dcterms:service',
           'title'     => '',
-          'content'   => 'AAFC-AAC_AgriSource',
+          'content'   => 'AAFC_AgriSource',
         ],
       ];
     }
@@ -211,7 +211,7 @@ function wxt_overrides_page_attachments(array &$page) {
         '#attributes' => [
           'property'  => 'dcterms:service',
           'title'     => '',
-          'content'   => 'AAFC-AAC_AgriSource',
+          'content'   => 'AAC_AgriSource',
         ],
       ];
     }
@@ -237,40 +237,7 @@ function wxt_overrides_page_attachments(array &$page) {
  * Implements hook_form_node_form_alter().
  */
 function wxt_overrides_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  //kint($form);
-/*    AgriAdminHelper::addToLog('form_id ' . $form_id, TRUE);
-    AgriAdminHelper::addToLog('form_keys ' . print_r(array_keys($form), TRUE), TRUE);
-    AgriAdminHelper::addToLog('form_keysm ' . print_r(array_keys($form['moderation_state']), TRUE), TRUE);
-    AgriAdminHelper::addToLog('form_keysmwk <pre> ' . print_r(array_keys($form['moderation_state']['widget']), TRUE) . '</pre>', TRUE);
-    AgriAdminHelper::addToLog('form_keysmwk0 <pre> ' . print_r(array_keys($form['moderation_state']['widget'][0]), TRUE) . '</pre>', TRUE);
-    AgriAdminHelper::addToLog('form_keysmwk0current <pre> ' . print_r(array_keys($form['moderation_state']['widget'][0]['current']), TRUE) . '</pre>', TRUE);
-    AgriAdminHelper::addToLog('form_keysmwk0state <pre> ' . print_r(array_keys($form['moderation_state']['widget'][0]['state']), TRUE) . '</pre>', TRUE);
-    AgriAdminHelper::addToLog('form_keysmwk0stateType <pre> ' . print_r(gettype($form['moderation_state']['widget'][0]['state']), TRUE) . '</pre>', TRUE);
-    AgriAdminHelper::addToLog('form_keysmwk0statedefault <pre> ' . print_r($form['moderation_state']['widget'][0]['state']['#default_value'], TRUE) . '</pre>', TRUE);
-    AgriAdminHelper::addToLog('form_keysFr ' . print_r(gettype($form['moderation_state']['fr']), TRUE), TRUE);
-    AgriAdminHelper::addToLog('form_keysFr <pre>'  . print_r($form['moderation_state']['fr']['widget'][0]['state']['#default_value'], TRUE). '</pre>', TRUE);
-*/
-  if ($form['moderation_state']['widget'][0]['state']['#default_value'] == 'published') {
-    $form['moderation_state']['widget'][0]['state']['#default_value'] = 'draft';
-  }
-  if ($form['moderation_state']['fr']['widget'][0]['state']['#default_value'] == 'published') {
-    $form['moderation_state']['fr']['widget'][0]['state']['#default_value'] = 'draft';
-  }
-//    AgriAdminHelper::addToLog('form_keysmw ' . print_r($form['moderation_state']['widget'], TRUE), TRUE);
-/*form_keysm Array ( [0] =>
-#type [1] => 
-#parents [2] => 
-#attributes [3] => 
-widget [4] =>
-#access [5] => 
-#weight [6] => 
-#cache [7] => 
-#group [8] => 
-fr [9] => 
-#multilingual [10] => 
-#etuf_field_language [11] => 
-#theme_wrappers )
-*/
+
   /* set the default value for communictaion as meta data subject type */
   if ( $form_id == 'node_news_edit_form' ) {
     $communicationid = 38; // communication id =38
