@@ -21,19 +21,19 @@
 <meta content="width=device-width,initial-scale=1" name="viewport">
 <meta name="description" content="Splash page">
 <meta property="description" lang="fr" content="Page d'entrée">
-<meta property="dcterms:creator" content="Agriculture and Agri-Food Canada">
+<meta property="dcterms.creator" content="Agriculture and Agri-Food Canada">
 <meta property="dcterms.creator" lang="fr" content="Agriculture et Agroalimentaire Canada">
-<meta property="dcterms:title" content="AgriSource">
-<meta property="dcterms:title" lang="fr" content="AgriSource">
-<meta property="dcterms:issued" title="W3CDTF" content="2016-12-13">
-<meta property="dcterms:modified" title="W3CDTF" content="">
-<meta property="dcterms:subject" title="scheme" content="Government of Canada, services">
-<meta property="dcterms:subject" lang="fr" title="scheme" content="Gouvernement du Canada, services">
-<meta property="dcterms:language" title="ISO639-2" content="eng">
-<meta property="dcterms:language" lang="fr" title="ISO639-2" content="fra">
+<meta property="dcterms.title" content="AgriSource">
+<meta property="dcterms.title" lang="fr" content="AgriSource">
+<meta property="dcterms.issued" title="W3CDTF" content="2016-12-13">
+<meta property="dcterms.modified" title="W3CDTF" content="">
+<meta property="dcterms.subject" title="scheme" content="Government of Canada, services">
+<meta property="dcterms.subject" lang="fr" title="scheme" content="Gouvernement du Canada, services">
+<meta property="dcterms.language" title="ISO639-2" content="eng">
+<meta property="dcterms.language" lang="fr" title="ISO639-2" content="fra">
 <meta name="robots" content="noindex, follow">
 <meta property="dcterms:service" content="AAFC_AgriSource"/>
-<meta property="dcterms:accessRights" content="3"/>
+<meta property="dcterms.accessRights" content="3"/>
 <!--[if gte IE 8 | !IE ]><!-->
 <link href="/sites/default/splash/img/favicon.ico" rel="icon" type="image/x-icon">
 <link rel="stylesheet" href="/sites/default/splash/css/theme.min.css">
@@ -48,7 +48,7 @@
 <noscript><link rel="stylesheet" href="/sites/default/splash/css/noscript.min.css"/></noscript>
 <script src="<?php print $adobetm ?>"></script>
 </head>
-<body vocab="http://schema.org/" typeof="WebPage">
+<body vocab="https://schema.org/" typeof="WebPage">
 <header role="banner" id="wb-bnr">
 <div class="container">
 <div class="row mrgn-tp-lg mrgn-bttm-lg">
