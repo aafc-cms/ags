@@ -10,6 +10,7 @@ use Drupal\Core\Url;
 use Drupal\user\Entity\User;
 use Drupal\views\ViewExecutable;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Site\Settings;
 
 /**
  * Implements hook_preprocess_html().
@@ -1082,7 +1083,11 @@ function agri_admin_content_moderation_notification_mail_data_alter(Drupal\Core\
         }
         $newsSubmitterEmail = $entity->get('field_newssubmitteremail')->value;
         $data['to'][] = $newsSubmitterEmail;
-        //TODO - Add aafc.newsatwork-nouvellesalouvrage.aac@canada.ca
+        //Get this email from settings.local.php file if specified 
+        //aafc.newsatwork-nouvellesalouvrage.aac@canada.ca on prod 
+        //and aafc.cmswebapps-sgcappsweb.aac@canada.ca on all other environments
+        //In case email is not specified in settings.local.php, only the submitter and the ccpub group will get the email
+        $data['to'][] = Settings::get('news_generic_email');
       }
       else {
         $data['to'] = [];
@@ -1100,7 +1105,11 @@ function agri_admin_content_moderation_notification_mail_data_alter(Drupal\Core\
         }
         $emplSubmitterEmail = $entity->get('field_employmentrequestoremail')->value;
         $data['to'][] = $emplSubmitterEmail;
-        //TODO - Add aafc.hrcentrerh.aac@canada.ca
+        //Get this email from settings.local.php file 
+        //aafc.hrcentrerh.aac@canada.ca on prod 
+        //and aafc.cmswebapps-sgcappsweb.aac@canada.ca on all other environments
+        //In case email is not specified in settings.local.php, only the submitter and the cspub group will get the email
+        $data['to'][] = Settings::get('empl_generic_email');
         //Get classification information to display in the email
         $classification   = '';
         if ($paragraph_field_items =  $entity->get('field_classification')->getValue()) {
