@@ -19,10 +19,6 @@ use Drupal\agri_admin\Utils;
  * Provide aafc metatag elements in the head to each page.
  */
 function wxt_overrides_page_attachments(array &$page) {
-  $node = \Drupal::routeMatch()->getRawParameter('node');
-  if (!isset($node)) {
-    return;
-  }
 
   $DEBUG = FALSE;
   if ($DEBUG && $fp = fopen('modules/custom/wxt_overrides/debug.txt', 'a'))
@@ -31,7 +27,105 @@ function wxt_overrides_page_attachments(array &$page) {
     fclose($fp);
   }
 
-  // add page meta
+  $metatags_module_head = $page['#attached']['html_head'];
+  if (!isset($metatags_module_head)) {
+    return;
+  }
+  $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  // Add page meta.
+  foreach($metatags_module_head as $key => $value) {
+    if (isset($value[0]['#attributes']['name'])) {
+      $name = $value[0]['#attributes']['name'];
+      if ($name == 'dcterms.language') {
+        unset($page['#attached']['html_head'][$key]);
+      }
+      if ($name == 'dcterms.creator') {
+        $content = $value[0]['#attributes']['content'];
+        $dctermscreator = [
+          '#tag' => 'meta',
+          '#attributes' => [
+            'property'  => 'dcterms:creator',
+            'content'   => $content,
+          ],
+        ];
+        unset($page['#attached']['html_head'][$key]);
+        // Transfer metatag from default dublincore to aafc/gc custom.
+        $page['#attached']['html_head'][] = [$dctermscreator, 'dcterms:creator'];
+      }
+      if ($name == 'dcterms.title') {
+        $content = $value[0]['#attributes']['content'];
+        $dctermstitle = [
+          '#tag' => 'meta',
+          '#attributes' => [
+            'property'  => 'dcterms:title',
+            'content'   => $content,
+          ],
+        ];
+        unset($page['#attached']['html_head'][$key]);
+        // Transfer metatag from default dublincore to aafc/gc custom.
+        $page['#attached']['html_head'][] = [$dctermstitle, 'dcterms:title'];
+      }
+    }
+  }
+
+  $dctermsaccessRights = [
+    '#tag' => 'meta',
+    '#attributes' => [
+      'property'  => 'dcterms:accessRights',
+      'content'   => '3',
+    ],
+  ];
+
+  if ( $langId == 'en' ) {
+    $dctermslanguage = [
+      '#tag' => 'meta',
+      '#attributes' => [
+        'property'  => 'dcterms:language',
+        'title'     => 'ISO639-2',
+        'content'   => 'eng',
+      ],
+    ];
+
+    $dctermsservice = [
+      '#tag' => 'meta',
+      '#attributes' => [
+        'property'  => 'dcterms:service',
+        'title'     => '',
+        'content'   => 'AAFC_AgriSource',
+      ],
+    ];
+  }
+
+  if ( $langId == 'fr' ) {
+    $dctermslanguage = [
+      '#tag' => 'meta',
+      '#attributes' => [
+        'property'  => 'dcterms:language',
+        'title'     => 'ISO639-2',
+        'content'   => 'fra',
+      ],
+    ];
+
+    $dctermsservice = [
+      '#tag' => 'meta',
+      '#attributes' => [
+        'property'  => 'dcterms:service',
+        'title'     => '',
+        'content'   => 'AAC_AgriSource',
+      ],
+    ];
+  }
+
+  $page['#attached']['html_head'][] = [$dctermsaccessRights, 'dcterms:accessRights'];
+  $page['#attached']['html_head'][] = [$dctermslanguage, 'dcterms:language'];
+  $page['#attached']['html_head'][] = [$dctermsservice, 'dcterms:service'];
+
+  $node = \Drupal::routeMatch()->getRawParameter('node');
+  if (!isset($node)) {
+    return;
+  }
+
+  // Add page meta.
   $route_match = Utils::getRouteName();
   if ($route_match == 'entity.node.canonical' && isset($page['#attached']['html_head'])) {
     $metatags_module_head = $page['#attached']['html_head'];
@@ -40,6 +134,32 @@ function wxt_overrides_page_attachments(array &$page) {
         $name = $value[0]['#attributes']['name'];
         if ($name == 'dcterms.language') {
           unset($page['#attached']['html_head'][$key]);
+        }
+        if ($name == 'dcterms.creator') {
+          $content = $value[0]['#attributes']['content'];
+          $dctermscreator = [
+            '#tag' => 'meta',
+            '#attributes' => [
+              'property'  => 'dcterms:creator',
+              'content'   => $content,
+            ],
+          ];
+          unset($page['#attached']['html_head'][$key]);
+          // Transfer metatag from default dublincore to aafc/gc custom.
+          $page['#attached']['html_head'][] = [$dctermscreator, 'dcterms:creator'];
+        }
+        if ($name == 'dcterms.title') {
+          $content = $value[0]['#attributes']['content'];
+          $dctermstitle = [
+            '#tag' => 'meta',
+            '#attributes' => [
+              'property'  => 'dcterms:title',
+              'content'   => $content,
+            ],
+          ];
+          unset($page['#attached']['html_head'][$key]);
+          // Transfer metatag from default dublincore to aafc/gc custom.
+          $page['#attached']['html_head'][] = [$dctermstitle, 'dcterms:title'];
         }
         if ($name == 'dcterms.type') {
           $content = $value[0]['#attributes']['content'];
@@ -94,7 +214,6 @@ function wxt_overrides_page_attachments(array &$page) {
       $modified_date = $node->get('field_modified')->first()->date->format('Y-m-d');
     }
     $type = $node->bundle();
-    $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
     if (!isset($dctermstype)) {
       $dctermstype = [
         '#tag' => 'meta',
@@ -169,59 +288,9 @@ function wxt_overrides_page_attachments(array &$page) {
     ],
   ];
 
-  $dctermsaccessRights = [
-    '#tag' => 'meta',
-    '#attributes' => [
-      'property'  => 'dcterms:accessRights',
-      'content'   => '3',
-    ],
-  ];
 
-  if ( $langId == 'en' ) {
-    $dctermslanguage = [
-      '#tag' => 'meta',
-      '#attributes' => [
-        'property'  => 'dcterms:language',
-        'title'     => 'ISO639-2',
-        'content'   => 'eng',
-      ],
-    ];
-
-    $dctermsservice = [
-      '#tag' => 'meta',
-      '#attributes' => [
-        'property'  => 'dcterms:service',
-        'title'     => '',
-        'content'   => 'AAFC_AgriSource',
-      ],
-    ];
-  }
-
-  if ( $langId == 'fr' ) {
-    $dctermslanguage = [
-      '#tag' => 'meta',
-      '#attributes' => [
-        'property'  => 'dcterms:language',
-        'title'     => 'ISO639-2',
-        'content'   => 'fra',
-      ],
-    ];
-
-    $dctermsservice = [
-      '#tag' => 'meta',
-      '#attributes' => [
-        'property'  => 'dcterms:service',
-        'title'     => '',
-        'content'   => 'AAC_AgriSource',
-      ],
-    ];
-  }
-
-  $page['#attached']['html_head'][] = [$dctermsaccessRights, 'dcterms:accessRights'];
   $page['#attached']['html_head'][] = [$dctermsaudience, 'dcterms:audience'];
   $page['#attached']['html_head'][] = [$dctermsformat, 'dcterms:format'];
-  $page['#attached']['html_head'][] = [$dctermslanguage, 'dcterms:language'];
-  $page['#attached']['html_head'][] = [$dctermsservice, 'dcterms:service'];
   $page['#attached']['html_head'][] = [$dctermsspatial, 'dcterms:spatial'];
 
   return;

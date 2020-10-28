@@ -1,2 +1,13 @@
 # Custom module library for general purposes.
 
+error-404:
+  license:
+    name: GPLv2
+    gpl-compatible: true
+  js:
+    js/error-404.js: { preprocess: false, minified: false, weight: -1 }
+  dependencies:
+    - core/jquery
+
+
+
