@@ -60,7 +60,7 @@ function wxt_overrides_page_attachments(array &$page) {
           $aafcsubject = [
             '#tag' => 'meta',
             '#attributes' => [
-              'property'  => 'aafc.subject',
+              'property'  => 'aafc:subject',
               'title'     => 'aafcsubject',
               'content'   => $content,
             ],
@@ -99,7 +99,7 @@ function wxt_overrides_page_attachments(array &$page) {
       $dctermstype = [
         '#tag' => 'meta',
         '#attributes' => [
-          'property'  => 'dcterms.type',
+          'property'  => 'dcterms:type',
           'title'     => 'gctype',
           'content'   => '',
         ],
@@ -110,7 +110,7 @@ function wxt_overrides_page_attachments(array &$page) {
       $aafcsubject = [
         '#tag' => 'meta',
         '#attributes' => [
-          'property'  => 'aafc.subject',
+          'property'  => 'aafc:subject',
           'title'     => 'aafcsubject',
           'content'   => '',
         ],
@@ -120,7 +120,7 @@ function wxt_overrides_page_attachments(array &$page) {
     $dctermsissued = [
       '#tag' => 'meta',
       '#attributes' => [
-        'property'  => 'dcterms.issued',
+        'property'  => 'dcterms:issued',
         'title'     => 'W3CDTF',
         'content'   => $issued_date,
       ],
@@ -129,15 +129,15 @@ function wxt_overrides_page_attachments(array &$page) {
     $dctermsmodified = [
       '#tag' => 'meta',
       '#attributes' => [
-        'property'  => 'dcterms.modified',
+        'property'  => 'dcterms:modified',
         'title'     => 'W3CDTF',
         'content'   => $modified_date,
       ],
     ];
-    $page['#attached']['html_head'][] = [$dctermsissued, 'dcterms.issued'];
-    $page['#attached']['html_head'][] = [$dctermsmodified, 'dcterms.modified'];
-    $page['#attached']['html_head'][] = [$dctermstype, 'dcterms.type'];
-    $page['#attached']['html_head'][] = [$aafcsubject, 'aafc.subject'];
+    $page['#attached']['html_head'][] = [$dctermsissued, 'dcterms:issued'];
+    $page['#attached']['html_head'][] = [$dctermsmodified, 'dcterms:modified'];
+    $page['#attached']['html_head'][] = [$dctermstype, 'dcterms:type'];
+    $page['#attached']['html_head'][] = [$aafcsubject, 'aafc:subject'];
 
   }
 
@@ -145,7 +145,7 @@ function wxt_overrides_page_attachments(array &$page) {
   $dctermsspatial = [
     '#tag' => 'meta',
     '#attributes' => [
-      'property'  => 'dcterms.spatial',
+      'property'  => 'dcterms:spatial',
       'title'     => 'gcregions',
       'content'   => '',
     ],
@@ -154,7 +154,7 @@ function wxt_overrides_page_attachments(array &$page) {
   $dctermsaudience = [
     '#tag' => 'meta',
     '#attributes' => [
-      'property'  => 'dcterms.audience',
+      'property'  => 'dcterms:audience',
       'title'     => 'gcaudience',
       'content'   => '',
     ],
@@ -163,7 +163,7 @@ function wxt_overrides_page_attachments(array &$page) {
   $dctermsformat = [
     '#tag' => 'meta',
     '#attributes' => [
-      'property'  => 'dcterms.format',
+      'property'  => 'dcterms:format',
       'title'     => 'gcformat',
       'content'   => '',
     ],
@@ -172,7 +172,7 @@ function wxt_overrides_page_attachments(array &$page) {
   $dctermsaccessRights = [
     '#tag' => 'meta',
     '#attributes' => [
-      'property'  => 'dcterms.accessRights',
+      'property'  => 'dcterms:accessRights',
       'content'   => '3',
     ],
   ];
@@ -181,7 +181,7 @@ function wxt_overrides_page_attachments(array &$page) {
     $dctermslanguage = [
       '#tag' => 'meta',
       '#attributes' => [
-        'property'  => 'dcterms.language',
+        'property'  => 'dcterms:language',
         'title'     => 'ISO639-2',
         'content'   => 'eng',
       ],
@@ -201,7 +201,7 @@ function wxt_overrides_page_attachments(array &$page) {
     $dctermslanguage = [
       '#tag' => 'meta',
       '#attributes' => [
-        'property'  => 'dcterms.language',
+        'property'  => 'dcterms:language',
         'title'     => 'ISO639-2',
         'content'   => 'fra',
       ],
@@ -217,12 +217,12 @@ function wxt_overrides_page_attachments(array &$page) {
     ];
   }
 
-  $page['#attached']['html_head'][] = [$dctermsaccessRights, 'dcterms.accessRights'];
-  $page['#attached']['html_head'][] = [$dctermsaudience, 'dcterms.audience'];
-  $page['#attached']['html_head'][] = [$dctermsformat, 'dcterms.format'];
-  $page['#attached']['html_head'][] = [$dctermslanguage, 'dcterms.language'];
+  $page['#attached']['html_head'][] = [$dctermsaccessRights, 'dcterms:accessRights'];
+  $page['#attached']['html_head'][] = [$dctermsaudience, 'dcterms:audience'];
+  $page['#attached']['html_head'][] = [$dctermsformat, 'dcterms:format'];
+  $page['#attached']['html_head'][] = [$dctermslanguage, 'dcterms:language'];
   $page['#attached']['html_head'][] = [$dctermsservice, 'dcterms:service'];
-  $page['#attached']['html_head'][] = [$dctermsspatial, 'dcterms.spatial'];
+  $page['#attached']['html_head'][] = [$dctermsspatial, 'dcterms:spatial'];
 
   return;
 }
