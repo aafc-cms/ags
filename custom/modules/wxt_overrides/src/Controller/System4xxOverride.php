@@ -86,7 +86,7 @@ class System4xxOverride extends ControllerBase implements ContainerInjectionInte
       $response = $this->blockViewBuilder->view(reset($block_id));
     }
 
-    return [
+    $block_array = [
       '#type' => 'container',
       '#markup' => render($response),
       '#attributes' => [
@@ -94,6 +94,8 @@ class System4xxOverride extends ControllerBase implements ContainerInjectionInte
       ],
       '#weight' => 0,
     ];
+    $block_array['#attached']['library'][] = 'wxt_overrides/error-404';
+    return $block_array;
   }
 
 }
