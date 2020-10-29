@@ -70,7 +70,7 @@
                   {#
                   <div style="font-size:17px;" class="cell news-title"><a href="{{ newsitem.href }}">{{ newsitem.title|raw }}</a></div>
                   #}
-                  <div style="font-size:15px;font-style: italic;padding-bottom:5px;" class="cell from">{{ newsitem.from|raw }}</div>
+                  <div style="font-size:15px;font-style: italic;padding-bottom:5px;color:#5F5F5F;" class="cell from">{{ newsitem.from|raw }}</div>
                   <table style="width: 100%; border: 0px;" >
                     <tbody>
                       {% if not newsitem.image_narrow %}
@@ -78,11 +78,11 @@
                         <td class="cell image" style="text-align:center;padding: 5px 0 5px 0;">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}</td>
                       </tr>
                       <tr>
-                        <td style="font-size:15px;" class="cell summary">{{ newsitem.summary|raw }}</td>
+                        <td style="font-size:15px;color:#5F5F5F;" class="cell summary">{{ newsitem.summary|raw }}</td>
                       </tr>
                       {% else %}
                       <tr>
-                        <td style="width:70%;padding-top:20px;float:left;font-size:15px;text-align:left;" class="cell summary">
+                        <td style="width:70%;padding-top:20px;float:left;font-size:15px;text-align:left;color:#5F5F5F;" class="cell summary">
                           {{ newsitem.summary }}
                         </td>
                         <td class="narrow-image" style="float:right;text-align:right;padding:5px 10px 5px 0;">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}
@@ -269,7 +269,7 @@
               {#
               <div style="font-size:17px;" class="cell news-title"><a href="{{ newsitem.href }}">{{ newsitem.title|raw }}</a></div>
               #}
-              <div style="font-size:15px;font-style: italic;padding-bottom:5px;" class="cell from">{{ newsitem.from|raw }}</div>
+              <div style="font-size:15px;font-style: italic;padding-bottom:5px;color:#5F5F5F;" class="cell from">{{ newsitem.from|raw }}</div>
               <table style="width: 100%; border: 0px;" >
                 <tbody>
                 {% if not newsitem.image_narrow %}
@@ -277,11 +277,11 @@
                   <td class="cell image" style="text-align:center;padding: 5px 0 5px 0;">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}</td>
                 </tr>
                 <tr>
-                  <td style="font-size:15px;" class="cell summary">{{ newsitem.summary|raw }}</td>
+                  <td style="font-size:15px;color:#5F5F5F;" class="cell summary">{{ newsitem.summary|raw }}</td>
                 </tr>
                 {% else %}
                 <tr>
-                  <td style="width:70%;padding-top:20px;float:left;font-size:15px;text-align:left;" class="cell summary">
+                  <td style="width:70%;padding-top:20px;float:left;font-size:15px;text-align:left;color:#5F5F5F;" class="cell summary">
                   {{ newsitem.summary }}
                   </td>
                   <td class="narrow-image" style="float:right;text-align:right;padding:5px 10px 5px 0;">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}
