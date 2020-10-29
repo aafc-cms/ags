@@ -82,10 +82,10 @@
                       </tr>
                       {% else %}
                       <tr>
-                        <td style="width:70%;padding-top:20px;float:left;font-size:15px;text-align:left;color:#5F5F5F;" class="cell summary">
-                          {{ newsitem.summary }}
+                        <td style="width:70%;padding-top:20px;float:left;font-size:15px;color:#5F5F5F;text-align:left;" class="cell summary">
+                          {{ newsitem.summary|raw }}
                         </td>
-                        <td class="narrow-image" style="float:right;text-align:right;padding:5px 10px 5px 0;">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}
+                        <td class="narrow-image" style="float:right;text-align:right;padding: 5px 10px 5px 0;">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}
                         </td>
                       </tr>
                       {% endif %}
@@ -281,12 +281,12 @@
                 </tr>
                 {% else %}
                 <tr>
-                  <td style="width:70%;padding-top:20px;float:left;font-size:15px;text-align:left;color:#5F5F5F;" class="cell summary">
-                  {{ newsitem.summary }}
+                  <td style="width:70%;padding-top:20px;float:left;font-size:15px;color:#5F5F5F;text-align:left;" class="cell summary">
+                    {{ newsitem.summary|raw }}
                   </td>
-                  <td class="narrow-image" style="float:right;text-align:right;padding:5px 10px 5px 0;">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}
+                  <td class="narrow-image" style="float:right;text-align:right;padding: 5px 10px 5px 0;">{% autoescape false %} {{ newsitem.image|raw }} {% endautoescape %}
                   </td>
-                </tr>
+                </tr> 
                 {% endif %}
                 </tbody>
               </table>
