@@ -319,31 +319,37 @@ class idol_feed_api_Controller extends ControllerBase {
     $categorytypeid = "";
     if($node->get('field_newstype') && $node->get('field_newstype')->first()){
       $newstypeId = $node->get('field_newstype')->first()->getValue()["target_id"];
-
-      switch ($newstypeId) {
-          case 21:
-                $categorytypeid = '1308325693175';
-                break;
-          case 22:
-                $categorytypeid = '1508942999196';
-                break;
-          case 23:
-                $categorytypeid = '1508942999197';
-                break;
-          case 24:
-                $categorytypeid = '1308334182981';
-                break;
-          case 25:
-                $categorytypeid = '1308334182982';
-                break;
-          case 26:
+      $term_name = trim (strtolower(\Drupal\taxonomy\Entity\Term::load($newstypeId)->label()));
+      switch ($term_name) {
+          case "deputy ministers' messages":
                 $categorytypeid = '1308334182983';
                 break;
-          case 27:
+          case "charting the way forward":
+                $categorytypeid = '1591971211315';
+                break;
+          case "pay and benefits":
+                $categorytypeid = '1508942999196';
+                break;
+          case "general":
+                $categorytypeid = '1308325693175';
+                break;
+          case "across the public service":
                 $categorytypeid = '1508942999198';
                 break;
-          case 28:
+          case "events":
+                $categorytypeid = '1308334182981';
+                break;
+          case "gcwcc":
                 $categorytypeid = '1379951494338';
+                break;
+          case "professional development":
+                $categorytypeid = '1508942999197';
+                break;
+          case "isb service notices":
+                $categorytypeid = '1308334182982';
+                break;
+          default:
+                $categorytypeid = $term_name;
                 break;
           //End of category type id mapping
         }
