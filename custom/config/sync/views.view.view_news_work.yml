@@ -829,19 +829,34 @@ display:
           entity_type: taxonomy_term
           entity_field: weight
           plugin_id: standard
-        field_modified_value:
-          id: field_modified_value
-          table: node__field_modified
-          field: field_modified_value
+        field_posted_value:
+          id: field_posted_value
+          table: node__field_posted
+          field: field_posted_value
           relationship: none
           group_type: group
           admin_label: ''
-          order: ASC
+          order: DESC
           exposed: false
           expose:
             label: ''
           granularity: second
           plugin_id: datetime
+        revision_timestamp:
+          id: revision_timestamp
+          table: node_revision
+          field: revision_timestamp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+          entity_type: node
+          entity_field: revision_timestamp
+          plugin_id: date
       query:
         type: views_query
         options:
