@@ -1,0 +1,46 @@
+uuid: ae2f6f0e-80c0-4534-b949-c4d41a64a7de
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.agrisource_slideshow_thumbnail
+    - field.field.media.slideshow_thumbnav.field_media_in_library
+    - field.field.media.slideshow_thumbnav.field_media_slideshow
+    - field.field.media.slideshow_thumbnav.field_media_thumbs
+    - media.type.slideshow_thumbnav
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: media.slideshow_thumbnav.agrisource_slideshow_thumbnail
+targetEntityType: media
+bundle: slideshow_thumbnav
+mode: agrisource_slideshow_thumbnail
+content:
+  field_media_slideshow:
+    label: hidden
+    weight: 1
+    settings:
+      view_mode: agrisource_slideshow_view_mode
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_media_thumbs:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: agrisource_slideshow_thumbnail
+      link: false
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  field_media_in_library: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

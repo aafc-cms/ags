@@ -8,24 +8,24 @@ dependencies:
 id: nouvelles
 label: Nouvelles
 type: 'canonical_entities:node'
-pattern: 'nouvelles@louvrage/[node:title]'
+pattern: 'nouvelles/nouvelleslouvrage/[node:title]'
 selection_criteria:
-  715b0e78-d326-4fc4-b1bf-b0a1209678f4:
+  b54089b5-b83d-4bca-8f03-6c9a76008c06:
     id: node_type
     bundles:
       news: news
     negate: false
     context_mapping:
       node: node
-    uuid: 715b0e78-d326-4fc4-b1bf-b0a1209678f4
-  80613260-fdea-4e45-b7f2-fbf68608cc40:
+    uuid: b54089b5-b83d-4bca-8f03-6c9a76008c06
+  b1c1c3b5-297f-418d-891b-901d0257040c:
     id: language
     langcodes:
       fr: fr
     negate: false
     context_mapping:
       language: 'node:langcode:language'
-    uuid: 80613260-fdea-4e45-b7f2-fbf68608cc40
+    uuid: b1c1c3b5-297f-418d-891b-901d0257040c
 selection_logic: and
 weight: -7
 relationships:

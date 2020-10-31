@@ -1,12 +1,13 @@
 # Custom module library for general purposes.
 
-wet-boew-replacement:
-  remote: http://wet-boew.github.io
+error-404:
   license:
-    name: MIT
+    name: GPLv2
     gpl-compatible: true
   js:
-    js/wb/wet-boew.js: { preprocess: false, minified: false, weight: -1 }
+    js/error-404.js: { preprocess: false, minified: false, weight: -1 }
   dependencies:
     - core/jquery
+
+
 

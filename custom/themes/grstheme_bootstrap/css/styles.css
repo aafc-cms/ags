@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  * If using a CSS pre-processor, tell it to overwrite this file. If not, place
  * your custom CSS modifications here.
@@ -15,96 +16,104 @@ html[lang=en] nav#wb-sm.wb-menu li:first-child ul.sm.open {
   min-width: 17em !important;
 }
 /* line 11, ../sass/layouts/_header.scss */
-html[lang=en] nav#wb-sm.wb-menu li:nth-child(2) ul.sm.open, html[lang=en] nav#wb-sm.wb-menu li:nth-child(3) ul.sm.open, html[lang=en] nav#wb-sm.wb-menu li:nth-child(4) ul.sm.open {
-  min-width: 18em !important;
+html[lang=en] nav#wb-sm.wb-menu li:nth-child(2) ul.sm.open, html[lang=en] nav#wb-sm.wb-menu li:nth-child(3) ul.sm.open {
+  min-width: 19em !important;
 }
 /* line 16, ../sass/layouts/_header.scss */
+html[lang=en] nav#wb-sm.wb-menu li:nth-child(4) ul.sm.open {
+  min-width: 21em !important;
+}
+/* line 21, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm.wb-menu li:nth-child(5) ul.sm.open {
-  min-width: 17em !important;
+  min-width: 18.5em !important;
 }
 
-/* line 24, ../sass/layouts/_header.scss */
+/* line 29, ../sass/layouts/_header.scss */
 html[lang=fr] nav#wb-sm.wb-menu li:first-child ul.sm.open {
   min-width: 16em !important;
 }
-/* line 29, ../sass/layouts/_header.scss */
-html[lang=fr] nav#wb-sm.wb-menu li:nth-child(2) ul.sm.open, html[lang=fr] nav#wb-sm.wb-menu li:nth-child(4) ul.sm.open {
+/* line 34, ../sass/layouts/_header.scss */
+html[lang=fr] nav#wb-sm.wb-menu li:nth-child(2) ul.sm.open {
   min-width: 22em !important;
 }
-/* line 34, ../sass/layouts/_header.scss */
-html[lang=fr] nav#wb-sm.wb-menu li:nth-child(3) ul.sm.open {
-  min-width: 24em !important;
-}
 /* line 39, ../sass/layouts/_header.scss */
+html[lang=fr] nav#wb-sm.wb-menu li:nth-child(4) ul.sm.open {
+  min-width: 22.5em !important;
+}
+/* line 44, ../sass/layouts/_header.scss */
+html[lang=fr] nav#wb-sm.wb-menu li:nth-child(3) ul.sm.open {
+  min-width: 28em !important;
+}
+/* line 49, ../sass/layouts/_header.scss */
 html[lang=fr] nav#wb-sm.wb-menu li:nth-child(5) ul.sm.open {
-  min-width: 20em !important;
+  min-width: 20.9em !important;
 }
 
-/* line 46, ../sass/layouts/_header.scss */
+/* line 56, ../sass/layouts/_header.scss */
 html[lang=fr] nav#wb-sm li a[href*="gc.ca/eng"] {
   display: none;
 }
-/* line 49, ../sass/layouts/_header.scss */
+/* line 59, ../sass/layouts/_header.scss */
 html[lang=fr] nav#wb-sm li a[href*="directInfo/eng"] {
   display: none;
 }
-/* line 52, ../sass/layouts/_header.scss */
+/* line 62, ../sass/layouts/_header.scss */
 html[lang=fr] nav#wb-sm li a[href*="gc.ca/en/GCD"] {
   display: none;
 }
-/* line 55, ../sass/layouts/_header.scss */
+/* line 65, ../sass/layouts/_header.scss */
 html[lang=fr] nav#wb-sm li a[href*="?lang=e"] {
   display: none;
 }
-/* line 58, ../sass/layouts/_header.scss */
+/* line 68, ../sass/layouts/_header.scss */
 html[lang=fr] nav#wb-sm li a[href$=Lang\=E] {
   display: none;
 }
-/* line 61, ../sass/layouts/_header.scss */
+/* line 71, ../sass/layouts/_header.scss */
 html[lang=fr] nav#wb-sm li a[href$="Lang\=en"] {
   display: none;
 }
-/* line 64, ../sass/layouts/_header.scss */
+/* line 74, ../sass/layouts/_header.scss */
 html[lang=fr] nav#wb-sm li a[href$="setlang\=en"] {
   display: none;
 }
 
-/* line 70, ../sass/layouts/_header.scss */
+/* line 80, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm li a[href*="gc.ca/fra"] {
   display: none;
 }
-/* line 73, ../sass/layouts/_header.scss */
+/* line 83, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm li a[href*="directInfo/fra"] {
   display: none;
 }
-/* line 76, ../sass/layouts/_header.scss */
+/* line 86, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm li a[href*="gc.ca/fr/GCA"] {
   display: none;
 }
-/* line 79, ../sass/layouts/_header.scss */
+/* line 89, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm li a[href*="?lang=f"] {
   display: none;
 }
-/* line 82, ../sass/layouts/_header.scss */
+/* line 92, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm li a[href$="Lang\=F"] {
   display: none;
 }
-/* line 85, ../sass/layouts/_header.scss */
+/* line 95, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm li a[href$="Lang\=fr"] {
   display: none;
 }
-/* line 88, ../sass/layouts/_header.scss */
+/* line 98, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm li a[href$="setlang\=fr"] {
   display: none;
 }
 
-/* line 92, ../sass/layouts/_header.scss */
+/* line 102, ../sass/layouts/_header.scss */
 #wb-sm .container.nvbar {
   border-right: 1px solid #59595b;
   border-left: 1px solid #59595b;
 }
 
-/* line 97, ../sass/layouts/_header.scss */
+/* line 107, ../sass/layouts/_header.scss */
 #wb-sm .nvbar {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#939394), to(#96999c));
   background-image: -webkit-linear-gradient(#959a9e, #8f9cab);
@@ -115,23 +124,23 @@ html[lang=en] nav#wb-sm li a[href$="setlang\=fr"] {
   border-top: 1px solid #59595b;
 }
 
-/* line 107, ../sass/layouts/_header.scss */
+/* line 117, ../sass/layouts/_header.scss */
 #wb-sm a {
   background-color: transparent;
 }
 
-/* line 111, ../sass/layouts/_header.scss */
+/* line 121, ../sass/layouts/_header.scss */
 #wb-menu.visible-md.visible-lg.wb-init.wb-menu-inited.wb-navcurr-inite {
   height: 43.344px;
 }
 
-/* line 115, ../sass/layouts/_header.scss */
+/* line 125, ../sass/layouts/_header.scss */
 #wb-sm .nvbar ul.menu > li > a.wb-navcurr, #wb-sm .sm a.wb-navcurr, #wb-sm .sm summary.wb-navcurr, #wb-sm .sm .slflnk a.wb-navcurr {
   background: #58585a;
   color: #fff;
 }
 
-/* line 120, ../sass/layouts/_header.scss */
+/* line 130, ../sass/layouts/_header.scss */
 nav#wb-sm div.pnl-strt.container.nvbar {
   padding-left: 0px;
   border-left-width: 0px;
@@ -194,78 +203,83 @@ body.user-logged-in .view-content table.dataTable {
   overflow: hidden;
 }
 
-/* line 4, ../sass/components/_employment_opportunity_page.scss */
+/* line 3, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field--name-field-classification td.field-multiple-drag {
   display: none !important;
 }
-/* line 9, ../sass/components/_employment_opportunity_page.scss */
+/* line 8, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field--name-field-type .field--label {
   float: left;
 }
-/* line 13, ../sass/components/_employment_opportunity_page.scss */
+/* line 12, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field--name-field-type .field--item {
   float: left;
 }
-/* line 17, ../sass/components/_employment_opportunity_page.scss */
+/* line 16, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field--name-field-type .field--label::after {
   content: '\00a0\00a0';
 }
-/* line 21, ../sass/components/_employment_opportunity_page.scss */
+/* line 20, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field--name-field-type .field--item::after {
   content: ',\00a0';
 }
-/* line 26, ../sass/components/_employment_opportunity_page.scss */
+/* line 25, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field--name-field-type .field--item:last-child::after {
   content: '';
 }
-/* line 30, ../sass/components/_employment_opportunity_page.scss */
+/* line 29, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field--name-field-type .field--item:last-child {
   float: none;
 }
-/* line 34, ../sass/components/_employment_opportunity_page.scss */
+/* line 33, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field--name-field-classification .field--label {
   float: left;
 }
-/* line 38, ../sass/components/_employment_opportunity_page.scss */
+/* line 37, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field--name-field-classification .field--label::after {
   content: '\00a0\00a0';
 }
-/* line 42, ../sass/components/_employment_opportunity_page.scss */
+/* line 41, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field.field--name-body.field--type-text-with-summary.field--label-above .field--label::before {
   content: "\A";
   white-space: pre;
 }
-/* line 47, ../sass/components/_employment_opportunity_page.scss */
+/* line 46, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field.field--name-body.field--type-text-with-summary.field--label-above .field--item::before {
   content: "\A";
   white-space: pre;
 }
-/* line 52, ../sass/components/_employment_opportunity_page.scss */
+/* line 51, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field.field--name-body.field--type-text-with-summary.field--label-above .field--label {
   font-size: 24px;
 }
-/* line 56, ../sass/components/_employment_opportunity_page.scss */
+/* line 55, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field.field--name-field-email .field--label {
   float: left;
 }
-/* line 60, ../sass/components/_employment_opportunity_page.scss */
+/* line 59, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl .field.field.field--name-field-email .field--label::after {
   content: "\00a0\00a0";
 }
-/* line 64, ../sass/components/_employment_opportunity_page.scss */
+/* line 63, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl #block-privacynotice h2.block-title {
   display: none;
 }
-/* line 68, ../sass/components/_employment_opportunity_page.scss */
+/* line 67, ../sass/components/_employment_opportunity_page.scss */
 body.page-node-type-empl label#edit-field-date-closing-0-value-date-error .error {
   display: block;
 }
 
 /* block-privacynotice */
-/* line 75, ../sass/components/_employment_opportunity_page.scss */
+/* line 74, ../sass/components/_employment_opportunity_page.scss */
 #block-privacynotice {
   padding-left: 15px !important;
   padding-right: 15px !important;
+}
+
+/* line 79, ../sass/components/_employment_opportunity_page.scss */
+body.page-node-type-empl.isIE .field.field--name-body.field--type-text-with-summary.field--label-above {
+  padding-top: 27px;
 }
 
 /* block-grstheme-bootstrap-reportproblemblock */
@@ -275,10 +289,58 @@ body.page-node-type-empl label#edit-field-date-closing-0-value-date-error .error
 }
 
 /* line 3, ../sass/components/_carousel.scss */
+.carousel-s2.wb-tabs [role="tablist"] > li {
+  margin: 0 !important;
+}
+/* line 7, ../sass/components/_carousel.scss */
+.carousel-s2 ul[role="tablist"] > li {
+  margin: 0;
+}
+/* line 11, ../sass/components/_carousel.scss */
 .carousel-s2 figcaption {
-  background-color: rgba(36, 91, 12, 0.9);
+  background-color: #007852;
+}
+/* line 16, ../sass/components/_carousel.scss */
+.carousel-s2.show-thumbs ul[role="tablist"] li.active a {
+  border-color: #666;
+  border-style: solid;
+  border-width: 10px;
+  margin-bottom: 1px;
+  padding: 0;
+}
+/* line 26, ../sass/components/_carousel.scss */
+.carousel-s2.show-thumbs .plypause {
+  padding: 0;
+}
+/* line 30, ../sass/components/_carousel.scss */
+.carousel-s2.wb-tabs [role="tablist"] > li.active a {
+  border-color: #666;
+  border-style: solid;
+  border-width: 4px 0 0;
+  cursor: default;
+  padding-top: 6px;
+}
+/* line 37, ../sass/components/_carousel.scss */
+.carousel-s2.wb-tabs [role="tablist"] > li a {
+  color: #000;
+  padding: 10px;
+  text-decoration: none;
+}
+/* line 42, ../sass/components/_carousel.scss */
+.carousel-s2 figure {
+  background: #007852;
 }
 
+@media screen and (min-width: 992px) {
+  /* line 51, ../sass/components/_carousel.scss */
+  .carousel-s2.show-thumbs ul[role=tablist] {
+    bottom: -6px;
+  }
+  /* line 53, ../sass/components/_carousel.scss */
+  .carousel-s2.show-thumbs ul[role=tablist] li[role=presentation] img {
+    width: 120px;
+  }
+}
 /* line 4, ../sass/components/_iframe.scss */
 body.user-anonymous .entity-iframe .create-embedsearch,
 body.user-anonymous .entity-iframe .form-item-entity-status-value,
@@ -331,15 +393,17 @@ body.user-logged-in.published-no.pending-draft div.region-header h1 {
   border: 3px solid orange;
 }
 
-/* line 40, ../sass/components/_node.scss */
-body.user-logged-in.archived article {
-  background-color: pink;
-  border: 3px solid red;
+/* line 41, ../sass/components/_node.scss */
+body.user-logged-in.archived article,
+body.user-logged-in.archivé article {
+  background-color: blanchedalmond;
+  border: 3px solid saddlebrown;
 }
-/* line 44, ../sass/components/_node.scss */
-body.user-logged-in.archived div.region-header h1 {
-  background-color: pink;
-  border: 3px solid red;
+/* line 45, ../sass/components/_node.scss */
+body.user-logged-in.archived div.region-header h1,
+body.user-logged-in.archivé div.region-header h1 {
+  background-color: blanchedalmond;
+  border: 3px solid saddlebrown;
 }
 
 /* line 2, ../sass/components/_news_page.scss */
@@ -884,13 +948,29 @@ div.view-id-view_employmentopportunities.view-display-id-page_1 td, div.view-id-
 }
 /* line 29, ../sass/views/_employmentopportunities_view.scss */
 div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-type-table-column {
-  width: 136px;
+  width: 12%;
 }
 /* line 33, ../sass/views/_employmentopportunities_view.scss */
-div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-date-closing-table-column, div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-locations-table-column {
-  width: 106px;
+div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-classification-table-column {
+  width: 24%;
 }
 /* line 37, ../sass/views/_employmentopportunities_view.scss */
+div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-branch-table-column {
+  width: 12%;
+}
+/* line 41, ../sass/views/_employmentopportunities_view.scss */
+div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-open-to-table-column {
+  width: 23%;
+}
+/* line 45, ../sass/views/_employmentopportunities_view.scss */
+div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-date-closing-table-column {
+  width: 8%;
+}
+/* line 49, ../sass/views/_employmentopportunities_view.scss */
+div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-locations-table-column {
+  width: 22%;
+}
+/* line 53, ../sass/views/_employmentopportunities_view.scss */
 div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-date-closing-table-column, div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-locations-table-column,
 div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-branch-table-column, div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-open-to-table-column {
   text-decoration: underline;
@@ -906,21 +986,21 @@ body.viewnewswork .alert.alert-info {
 }
 
 /* line 8, ../sass/views/_news@work_view.scss */
-body.newswork div.news-at-work-row.views-row, body.newsnewswork div.news-at-work-row.views-row {
+body .view.view-view-news-work div.news-at-work-row.views-row {
   margin-bottom: 20px;
 }
 /* line 10, ../sass/views/_news@work_view.scss */
-body.newswork div.news-at-work-row.views-row div.views-field.views-field-field-from .field-content, body.newsnewswork div.news-at-work-row.views-row div.views-field.views-field-field-from .field-content {
+body .view.view-view-news-work div.news-at-work-row.views-row div.views-field.views-field-field-from .field-content {
   font-style: italic !important;
 }
 
 /* line 15, ../sass/views/_news@work_view.scss */
-body.newswork div.news-at-work-row.views-row:last-child, body.newsnewswork div.news-at-work-row.views-row:last-child {
+body div.news-at-work-row.views-row:last-child, body .view.view-view-news-work div.news-at-work-row.views-row:last-child {
   margin-bottom: 0px;
 }
 
 /* line 19, ../sass/views/_news@work_view.scss */
-body.newswork .view.view-view-news-work.view-id-view_news_work div.view-content h3 {
+body .view.view-view-news-work.view-id-view_news_work div.view-content h3 {
   font-size: 24px;
 }
 
@@ -986,41 +1066,53 @@ body main ul, body main ol {
   margin-left: 0;
   min-height: 1.75em;
 }
-/* line 95, ../sass/styles.scss */
+/* line 93, ../sass/styles.scss */
+.region-banner a.name.navbar-brand:active {
+  text-decoration: underline !important;
+}
+/* line 96, ../sass/styles.scss */
+.region-banner a.name.navbar-brand:focus {
+  text-decoration: underline !important;
+}
+/* line 99, ../sass/styles.scss */
+.region-banner a.name.navbar-brand:hover {
+  text-decoration: underline !important;
+}
+/* line 104, ../sass/styles.scss */
 .region-banner p.navbar-text {
   color: white;
 }
 
-/* line 100, ../sass/styles.scss */
+/* line 109, ../sass/styles.scss */
 .navbar-brand {
   text-decoration: none;
   font-size: 1.9em;
   padding-left: 0;
 }
 
-/* line 107, ../sass/styles.scss */
+/* line 116, ../sass/styles.scss */
 #wb-info ul.hide-this, #wb-info a[data-drupal-link-system-path~="contact"] {
   display: none;
 }
 
 /* incresed the padding-left: from 15px to 35px; */
-/* line 113, ../sass/styles.scss */
+/* line 122, ../sass/styles.scss */
 #gc-tctr {
   padding-left: 29px;
   font-weight: 500;
 }
 
-/* line 118, ../sass/styles.scss */
+/* line 127, ../sass/styles.scss */
 section.col-sm-3 ul.list-unstyled {
   font-weight: 500;
 }
 
-/* line 122, ../sass/styles.scss */
+/* line 131, ../sass/styles.scss */
 #wb-bnr {
   background: #007852 !important;
 }
 
-/* line 126, ../sass/styles.scss */
+/* line 135, ../sass/styles.scss */
 #agrisource-wmms {
   margin-top: -2.5em;
   height: 1.9em;
@@ -1031,13 +1123,13 @@ section.col-sm-3 ul.list-unstyled {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 136, ../sass/styles.scss */
+  /* line 145, ../sass/styles.scss */
   #wb-bnr {
     background-image: -webkit-linear-gradient(#77bc1f, #77bc1f, #007852) !important;
     background-image: linear-gradient(#77bc1f, #77bc1f, #007852) !important;
   }
 
-  /* line 141, ../sass/styles.scss */
+  /* line 150, ../sass/styles.scss */
   .region-banner a.name.navbar-brand {
     padding-top: 5px;
     padding-bottom: 5px;
@@ -1045,28 +1137,28 @@ section.col-sm-3 ul.list-unstyled {
     height: auto;
   }
 
-  /* line 148, ../sass/styles.scss */
+  /* line 157, ../sass/styles.scss */
   #wb-glb-mn .pnl-btn a {
     font-size: 1.4em;
   }
 
-  /* line 151, ../sass/styles.scss */
+  /* line 160, ../sass/styles.scss */
   #wb-glb-mn .pnl-btn span .glyphicon-th-list {
     padding-left: 0;
   }
 
-  /* line 155, ../sass/styles.scss */
+  /* line 164, ../sass/styles.scss */
   #mb-pnl nav a.mb-item[href*="structure"] {
     display: none;
   }
 
-  /* line 161, ../sass/styles.scss */
+  /* line 170, ../sass/styles.scss */
   section.lng-ofr ul.list-inline a[href*="languageswitcher"] {
     display: none;
   }
 
   /* Canada Government Logo Size */
-  /* line 167, ../sass/styles.scss */
+  /* line 176, ../sass/styles.scss */
   #agrisource-wmms {
     height: 2.35em;
     left: 15px;
@@ -1075,61 +1167,61 @@ section.col-sm-3 ul.list-unstyled {
     top: -2.2em;
   }
 
-  /* line 174, ../sass/styles.scss */
+  /* line 183, ../sass/styles.scss */
   #wb-bnr {
     background-color: #007852;
     background-image: none;
   }
-  /* line 177, ../sass/styles.scss */
+  /* line 186, ../sass/styles.scss */
   #wb-bnr .container .row.agri-banner-row {
     position: relative;
   }
 }
 @media screen and (max-width: 767px) {
-  /* line 186, ../sass/styles.scss */
+  /* line 195, ../sass/styles.scss */
   body.i18n-fr #mb-pnl .srch-pnl .form-group {
     width: 65%;
   }
 }
 @media screen and (min-width: 768px) {
-  /* line 194, ../sass/styles.scss */
+  /* line 203, ../sass/styles.scss */
   body.i18n-fr #wb-srch-q-imprt {
     width: 100% !important;
   }
 }
 /* End of target french only css */
 @media screen and (min-width: 992px) {
-  /* line 204, ../sass/styles.scss */
+  /* line 213, ../sass/styles.scss */
   a.name.navbar-brand {
     text-shadow: 1px 1px 1px #333;
   }
 
-  /* line 209, ../sass/styles.scss */
+  /* line 218, ../sass/styles.scss */
   body.i18n-fr section.wxt-search-block-form.col-md-4 {
     padding-right: 0 !important;
   }
-  /* line 211, ../sass/styles.scss */
+  /* line 220, ../sass/styles.scss */
   body.i18n-fr section.wxt-search-block-form.col-md-4 .form-type-search {
     max-width: 67%;
   }
 
-  /* line 217, ../sass/styles.scss */
+  /* line 226, ../sass/styles.scss */
   #gcwu-sig {
     margin: 2.8em 0 0.5em 15px;
   }
 
-  /* line 220, ../sass/styles.scss */
+  /* line 229, ../sass/styles.scss */
   footer .container {
     padding-left: 0;
     padding-right: 0;
   }
 
-  /* line 224, ../sass/styles.scss */
+  /* line 233, ../sass/styles.scss */
   .show-this section:first-child {
     padding-left: 5px;
   }
 
-  /* line 228, ../sass/styles.scss */
+  /* line 237, ../sass/styles.scss */
   #wb-bar + .container {
     background: -webkit-gradient(linear, right top, left top, from(#298019), color-stop(#31821d), to(#278019));
     background: -webkit-linear-gradient(right, #278019, #31821d, #278019);
@@ -1137,12 +1229,12 @@ section.col-sm-3 ul.list-unstyled {
     position: relative;
   }
 }
-/* line 238, ../sass/styles.scss */
+/* line 247, ../sass/styles.scss */
 .icon.glyphicon.glyphicon-log-in {
   min-height: 20px;
 }
 
-/* line 243, ../sass/styles.scss */
+/* line 252, ../sass/styles.scss */
 .region.region-content-footer {
   padding-top: 20px;
 }

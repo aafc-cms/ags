@@ -7,14 +7,19 @@ html[lang=en] nav#wb-sm.wb-menu {
       min-width: 17em !important;
     }
   }
-  li:nth-child(2), li:nth-child(3), li:nth-child(4) {
+  li:nth-child(2), li:nth-child(3) {
     ul.sm.open {
-      min-width: 18em !important;
+      min-width: 19em !important;
+    }
+  }
+  li:nth-child(4) {
+    ul.sm.open {
+      min-width: 21em !important;
     }
   }
   li:nth-child(5) {
     ul.sm.open {
-      min-width: 17em !important;
+      min-width: 18.5em !important;
     }
   }
 }
@@ -25,19 +30,24 @@ html[lang=fr] nav#wb-sm.wb-menu {
       min-width: 16em !important;
     }
   }
-  li:nth-child(2),li:nth-child(4) {
+  li:nth-child(2) {
     ul.sm.open {
       min-width: 22em !important;
     }
   }
+  li:nth-child(4) {
+    ul.sm.open {
+      min-width: 22.5em !important;
+    }
+  }
   li:nth-child(3) {
     ul.sm.open {
-      min-width: 24em !important;
+      min-width: 28em !important;
     }
   }
   li:nth-child(5) {
     ul.sm.open {
-      min-width: 20em !important;
+      min-width: 20.9em !important;
     }
   }
 }

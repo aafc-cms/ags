@@ -14,3 +14,17 @@ body[class*=moderationdashboard] {
     }
   }
 }
+
+body.i18n-en[class*=moderationdashboard] {
+  div.moderation-dashboard h2 {
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+body.i18n-fr[class*=moderationdashboard] {
+  div.moderation-dashboard h2 {
+    font-size: 16px;
+    font-weight: bold;
+  }
+}

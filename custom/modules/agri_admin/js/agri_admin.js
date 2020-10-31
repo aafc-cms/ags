@@ -5,6 +5,8 @@
 (function ($, Drupal, drupalSettings) {
   Drupal.behaviors.agriAdmin = {
     attach: function (context, settings) {
+      Agrisource.sortMediaDisplayModes('[data-drupal-selector="edit-attributes-data-view-mode"]'); // Call this for all attach events.
+      Agrisource.sortMediaDisplayModes('[data-drupal-selector="edit-images-thumbnail-image-style"]'); // Call this for all attach events.
       if (context == document) {
         Agrisource.init();
         if ($('body').hasClass('user-logged-in')) {
@@ -157,6 +159,10 @@ var Agrisource = function() {
     $ = jQuery;
     Agrisource.lang = $('html').attr('lang');
 
+    if (Agrisource.isIE()) {
+      $('body').addClass('isIE');
+    }
+
     //Determine the page type
     if ($('body').hasClass('path-frontpage')) {
       Agrisource.page_type = 'front'; // Front page <front> ex, /en or /fr.
@@ -227,6 +233,19 @@ var Agrisource = function() {
     });
 
     initialized = true;
+  }
+
+
+  function isIE() {
+    if (navigator.appName == 'Microsoft Internet Explorer') {
+      return true;
+    }
+    else if (navigator.appName == 'Netscape') {
+      if (navigator.appVersion.indexOf('Trident') > 0 || navigator.appVersion.indexOf('Edge') > 0) {
+        return true;
+      }
+    }
+    return false;
   }
 
 
@@ -309,16 +328,44 @@ var Agrisource = function() {
     }, 1000);
   }
 
-  function isIE() {
-    if (navigator.appName == 'Microsoft Internet Explorer') {
-      return true;
+
+  /**
+   * Original sort logic from https://riptutorial.com/jquery/example/11477/sorting-elements .
+   */
+  function sortMediaDisplayModes(selector) {
+    // '[data-drupal-selector="edit-attributes-data-view-mode"]'
+    var mediaStylesList = jQuery(selector);
+    if (typeof mediaStylesList == 'undefined') {
+      return;
     }
-    else if (navigator.appName == 'Netscape') {
-      if (navigator.appVersion.indexOf('Trident') > 0 || navigator.appVersion.indexOf('Edge') > 0) {
-        return true;
-      }
+    if (mediaStylesList) {
+      var selected = jQuery(mediaStylesList).find('[selected="selected"]').detach();
+
+      var styles = jQuery(mediaStylesList).children('option');
+      var sortList = Array.prototype.sort.bind(styles);
+
+      sortList(function(a, b) {
+        // Cache inner content from the first element (a) and the next sibling (b)
+        var aText = a.innerText;
+        var bText = b.innerText;
+
+        // Returning -1 will place element `a` before element `b`
+        if ( aText < bText ) {
+          return -1;
+        }
+
+        // Returning 1 will do the opposite
+        if ( aText > bText ) {
+          return 1;
+        }
+
+        // Returning 0 leaves them as-is
+        return 0;
+      });
+      jQuery(mediaStylesList).append(jQuery(styles));
+      jQuery(mediaStylesList).prepend(jQuery(selected));
     }
-    return false;
+
   }
 
 
@@ -328,9 +375,11 @@ var Agrisource = function() {
   return {
     init: init,
     lang: lang,
+    isIE: isIE,
     mouse: mouse,
     page_type: page_type,
     copyLink: copyLink,
+    sortMediaDisplayModes: sortMediaDisplayModes,
   }
 }();
 

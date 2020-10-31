@@ -1,0 +1,38 @@
+uuid: 6faa5763-e00c-4144-9ecd-a09ad08bf2bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.embedded
+    - field.field.media.slideshow_thumbnav.field_media_in_library
+    - field.field.media.slideshow_thumbnav.field_media_slideshow
+    - field.field.media.slideshow_thumbnav.field_media_thumbs
+    - media.type.slideshow_thumbnav
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: media.slideshow_thumbnav.embedded
+targetEntityType: media
+bundle: slideshow_thumbnav
+mode: embedded
+content:
+  field_media_slideshow:
+    label: hidden
+    weight: 0
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  created: true
+  field_media_in_library: true
+  field_media_thumbs: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

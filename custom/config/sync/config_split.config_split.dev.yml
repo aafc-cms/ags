@@ -7,13 +7,17 @@ label: dev
 description: 'dev environment settings.'
 folder: modules/custom/config/splits/dev
 module:
+  dblog: 0
+  git_status: 0
+  mailsystem: 0
   smtp: 0
 theme: {  }
 blacklist:
-  - system.logging
   - smtp.settings
-  - system.site
+  - swiftmailer.transport
+  - system.logging
   - system.performance
+  - system.site
 graylist: {  }
 graylist_dependents: true
 graylist_skip_equal: true

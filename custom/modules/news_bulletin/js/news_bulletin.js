@@ -1,7 +1,9 @@
 (function ($, Drupal, drupalSettings) {
   Drupal.behaviors.newsbulletin = {
     attach: function (context, settings) {
-      logCall(arguments.callee.name.toString());
+      if (!NewsBulletin.isIE()) {
+        logCall(arguments.callee.name.toString());
+      }
       //logCall('Drupal.behaviors.newsbulletin attach');
       if (context === document) {
         console.log('Drupal.behaviors.newsbulletin attach context === document');
@@ -60,7 +62,9 @@ var NewsBulletin = function() {
    * Initialization (one time)
    */
   function init() {
-    logCall(arguments.callee.name.toString()); // Remove this when finished porting.
+    if (!NewsBulletin.isIE()) {
+      logCall(arguments.callee.name.toString()); // Remove this when finished porting.
+    }
     if (newsbulletin.initialized) {
       return;
     }
@@ -95,7 +99,9 @@ var NewsBulletin = function() {
             }
             NewsBulletin.movedItem = movedItem;
             NewsBulletin.movedItemNodeName = NewsBulletin.movedItem.nodeName;
-            console.log('NewsTypesSortable ' + arguments.callee.name.toString());
+            if (!NewsBulletin.isIE()) {
+              console.log('NewsTypesSortable ' + arguments.callee.name.toString());
+            }
             NewsBulletin.movedItemTid = jQuery(movedItem).attr('data-attribute-group');
             console.log('movedItemTid ' + NewsBulletin.movedItemTid);
 
@@ -132,16 +138,33 @@ var NewsBulletin = function() {
     return newsbulletin.initialized;
   }
 
+
+  function isIE() {
+    if (navigator.appName == 'Microsoft Internet Explorer') {
+      return true;
+    }
+    else if (navigator.appName == 'Netscape') {
+      if (navigator.appVersion.indexOf('Trident') > 0 || navigator.appVersion.indexOf('Edge') > 0) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   /**
    * Initialization of click event for input element.
    */
   function initWhenReady() {
-    logCall(arguments.callee.name.toString()); // Remove this when finished porting.
+    if (!NewsBulletin.isIE()) {
+      logCall(arguments.callee.name.toString()); // Remove this when finished porting.
+    }
     newsbulletin.lang = jQuery('html').attr('lang');
     // Activate the show-more button
     jQuery('table.table input').each(function(index, element) {
       jQuery(element).click(function() {
-        logCall(arguments.callee.name.toString());
+        if (!NewsBulletin.isIE()) {
+          logCall(arguments.callee.name.toString());
+        }
         //$(this).after(Drupal.theme.ajaxProgressThrobber(Drupal.t('Updating selections, one moment please.')));
         NewsBulletin.setNewsTypeOrder();
       });
@@ -164,18 +187,24 @@ var NewsBulletin = function() {
   }
 
   function setupSortableNodes(element, nid) {
-    logCall(arguments.callee.name.toString());
+    if (!NewsBulletin.isIE()) {
+      logCall(arguments.callee.name.toString());
+    }
     Sortable.create(element, {
       group: "sorting",
       sort: true,
       direction: 'vertical',
       // Element dragging started
       onStart: function (/**Event*/evt) {
-        logCall('setupSortableNodes ' + arguments.callee.name.toString());
+        if (!NewsBulletin.isIE()) {
+          logCall('setupSortableNodes ' + arguments.callee.name.toString());
+        }
         //evt.oldIndex;  // element index within parent
       },
       onSort: function(evt) {
-        logCall('setupSortableNodes(tr rows) ' + arguments.callee.name.toString());
+        if (!NewsBulletin.isIE()) {
+          logCall('setupSortableNodes(tr rows) ' + arguments.callee.name.toString());
+        }
         NewsBulletin.movedNidNodeName = evt.item.nodeName;
         if (NewsBulletin.movedNidNodeName == 'TR') {
           NewsBulletin.sourceRowIdx = 0; // Reset each time.
@@ -256,7 +285,9 @@ var NewsBulletin = function() {
 
 
   function tallySelections() {
-    logCall(arguments.callee.name.toString());
+    if (!NewsBulletin.isIE()) {
+      logCall(arguments.callee.name.toString());
+    }
     resetForm();
     NewsBulletin.newsNids = [];
     NewsBulletin.newsTypeArray = [];
@@ -301,7 +332,9 @@ var NewsBulletin = function() {
     }
 
     tallySelections();
-    logCall(arguments.callee.name.toString()); // Remove this when finished porting.
+    if (!NewsBulletin.isIE()) {
+      logCall(arguments.callee.name.toString()); // Remove this when finished porting.
+    }
 
     /*  This ajax option works very well instead of ?= and &= if order isn't important.  However order is important so using .join instead.
     data: {
@@ -360,6 +393,7 @@ var NewsBulletin = function() {
    */
   return {
     init: init,
+    isIE: isIE,
     newsbulletin: newsbulletin,
     newTab: newTab,
     nodeCount: nodeCount,

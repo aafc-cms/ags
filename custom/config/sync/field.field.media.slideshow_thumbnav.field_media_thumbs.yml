@@ -1,0 +1,28 @@
+uuid: 920bb907-6e0c-40f8-bd7b-5a4b61514b9f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_thumbs
+    - media.type.image
+    - media.type.slideshow_thumbnav
+id: media.slideshow_thumbnav.field_media_thumbs
+field_name: field_media_thumbs
+entity_type: media
+bundle: slideshow_thumbnav
+label: 'Slideshow thumbs'
+description: 'Media item thumbs that belong to this slideshow.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

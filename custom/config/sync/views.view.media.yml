@@ -5,6 +5,7 @@ dependencies:
   config:
     - image.style.medium
     - image.style.thumbnail
+    - image.style.w166
     - media.type.image
   module:
     - entity_browser
@@ -855,7 +856,17 @@ display:
             label: ''
           granularity: second
       title: Media
-      header: {  }
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: 'Displaying @start - @end of @total'
+          plugin_id: result
       footer: {  }
       empty:
         area_text_custom:
@@ -888,12 +899,13 @@ display:
     display_title: Browser
     position: 2
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
       style:
         type: grid
         options:
           grouping: {  }
-          columns: 4
+          columns: 6
           automatic_width: true
           alignment: horizontal
           col_class_default: true
@@ -954,7 +966,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -965,7 +977,7 @@ display:
           click_sort_column: target_id
           type: image
           settings:
-            image_style: medium
+            image_style: w166
             image_link: ''
           group_column: ''
           group_columns: {  }
@@ -1234,7 +1246,7 @@ display:
           content: 'There are no media items to display.'
           plugin_id: text_custom
       pager:
-        type: infinite_scroll
+        type: full
         options:
           items_per_page: 12
           offset: 0
@@ -1243,6 +1255,8 @@ display:
           tags:
             previous: '‹ Previous'
             next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -1251,9 +1265,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          views_infinite_scroll:
-            button_text: 'Load More'
-            automatically_load_content: false
+          quantity: 9
       display_description: ''
       css_class: eb-media
       arguments:

@@ -683,21 +683,34 @@ display:
           entity_type: taxonomy_term
           entity_field: weight
           plugin_id: standard
-        created:
-          id: created
-          table: node_field_data
-          field: created
-          order: DESC
-          entity_type: node
-          entity_field: created
-          plugin_id: date
+        field_posted_value:
+          id: field_posted_value
+          table: node__field_posted
+          field: field_posted_value
           relationship: none
           group_type: group
           admin_label: ''
+          order: DESC
           exposed: false
           expose:
             label: ''
           granularity: second
+          plugin_id: datetime
+        revision_timestamp:
+          id: revision_timestamp
+          table: node_revision
+          field: revision_timestamp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+          entity_type: node
+          entity_field: revision_timestamp
+          plugin_id: date
       title: 'News @ Work Bulletin - Nouvelles @l''ouvrage'
       header: {  }
       footer: {  }
@@ -766,8 +779,9 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 20
+          items_per_page: 0
           offset: 0
+      rendering_language: '***LANGUAGE_entity_translation***'
     cache_metadata:
       max-age: -1
       contexts:

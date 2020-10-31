@@ -9,6 +9,8 @@ use Drupal\Core\Link;
 use Drupal\Core\Url;
 use Drupal\user\Entity\User;
 use Drupal\views\ViewExecutable;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Site\Settings;
 
 /**
  * Implements hook_preprocess_html().
@@ -111,9 +113,10 @@ function agri_admin_theme($existing, $type, $theme, $path) {
  * revision field values with latest pending revision field values.
  * This is so we can have themed (orange as example) pending draft rows.
  * to complement the hotpink current draft rows.
- * @TODO: add {{ status }} to a view row.
+ * @TODO: add {{ status }} to a view row (must be yes / no custom boolean not Yes / No , use lowercase in the view field custom.
  * May 14 2020: Added the implementation for customization on
  * Classfication Groups & Postion Title in Employment Opportunities View
+ * Oct 16 2020: Added content view to be supported.
  */
 function agri_admin_preprocess_views_view_field(&$variables) {
   $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
@@ -133,6 +136,8 @@ function agri_admin_preprocess_views_view_field(&$variables) {
   $view = $variables['view'];
   if ($hasPermission &&
        ($view->id() == 'news' ||
+        $view->id() == 'newsatwork_for_home_page' ||
+        $view->id() == 'content' ||
         $view->id() == 'view_employmentopportunities' ||
         $view->id() == 'view_news_work')) {
     $field = $variables['field'];
@@ -141,6 +146,7 @@ function agri_admin_preprocess_views_view_field(&$variables) {
     $vid = $row->_entity->getLoadedRevisionId();
     if ($row->_entity->isPublished() && $latestRevision = AgriAdminHelper::getLatestRevisionOnlyIfDraft($nid, $vid)) {
       if ($field->field == 'status') {
+        // This is specifically for the row styling (view -> Format -> settings -> row {{ status }}.
         //title
         //body
         //field_fieldname
@@ -149,33 +155,69 @@ function agri_admin_preprocess_views_view_field(&$variables) {
         //field_title
         $variables['output'] = strtolower($variables['output']);
         $variables['output'] = Drupal\Core\Render\Markup::create(str_replace('yes', 'no pending-draft', $variables['output']));
-      } else if ($field->field == 'nothing') {
+      }
+      elseif ($field->field == 'operations') {
+        return;
+      }
+      elseif ($field->field == 'moderation_state_1') {
+        // This is specifically for the row styling (view -> Format -> settings -> row {{ moderation_state_1 }}.
+        // Do nothing, for styling purposes, because archived should have another color see css/scss.
+        return;
+      }
+      elseif ($view->id() == 'content' && $field->field == 'moderation_state') {
+        $variables['output'] = $variables['output'] . ' + ' . t('pending draft');
+        return;
+      }
+      elseif ($view->id() == 'content' && $field->field == 'name') {
+        // This field needs special treatment.
+        // @TODO: Lakshman will probably notice this, will have to replace content author with revision author.
+        $user = $latestRevision->getRevisionUser();
+        $render_array = ['#markup' => "<a href=\"/" . $lang . "/user/" . $user->id() . "\">" . $user->getUsername() . "</a>" ];
+        $variables['output'] = Utils::render($render_array);
+        return;
+      }
+      elseif ($field->field == 'node_bulk_form') {
+        // There is no fieldable field called 'node_bulk_form' this is a vbo field, so skip it.
+        return;
+      }
+      elseif ($field->field == 'nothing') {
         // There is no fieldable field called 'nothing' this is a views field, so skip it.
         return;
-      } else if ($field->field == 'machine_name') {
+      }
+      elseif ($field->field == 'machine_name') {
         // There is no fieldable field called 'machine_name', so skip it.
         return;
-      } else if ($field->field == 'nid') {
+      }
+      elseif ($field->field == 'nid') {
         // There is no fieldable field called 'nid', so skip it.
         return;
-      } else if ($field->field == 'tid') {
+      }
+      elseif ($field->field == 'tid') {
         // There is no fieldable field called 'tid', so skip it.
         return;
-      } else {
+      }
+      else {
         $valueCurrent = '';
         if ($lang == 'fr') {
           $valueCurrent = $row->_entity->getTranslation($lang)->get($field->field)->value;
-        } else {
+        }
+        else {
           $valueCurrent = $row->_entity->get($field->field)->value;
         }
         $valuePending = $latestRevision->get($field->field)->value; // Already in current language.
         // Replace characters in the field output.
         $variables['output'] = Drupal\Core\Render\Markup::create(str_replace($valueCurrent, $valuePending, $variables['output']));
-        if ($field->field == 'title' || $field->field == 'field_title') {
+        if ($view->id() != 'content' && ($field->field == 'title' || $field->field == 'field_title')) {
           $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
           $urlPathToLatest = '/node/' . $nid . '/latest';
           // Replace path to node in the field output.
           $variables['output'] = Drupal\Core\Render\Markup::create(str_replace($alias, $urlPathToLatest, $variables['output']));
+        }
+        elseif ($view->id() == 'content' && ($field->field == 'title' || $field->field == 'field_title')) {
+          $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
+          $urlPathToLatest = "/$lang/node/$nid/latest";
+          // Replace path to node in the field output.
+          $variables['output'] = Drupal\Core\Render\Markup::create($variables['output'] . ' <a href="' . $urlPathToLatest . '"><b>( ' . t('Pending Draft') . ' )</b></a>');
         }
       }
     }
@@ -290,8 +332,11 @@ function agri_admin_node_update(Drupal\Core\Entity\EntityInterface $entity) {
   $action = 'update';
 //  AgriAdminHelper::addToLog(__function__);
 //  AgriAdminHelper::addToLog(print_r($DEBUG_THIS, TRUE), TRUE);
-  drupal_register_shutdown_function('_helperUpdateProcess', $action, $entity_id, $entity->bundle());
-  drupal_register_shutdown_function('_helperLockingContent', $action, $entity_id, $entity->bundle(), $entity);
+  global $import_override;
+  if (!isset($import_override) || $import_override == FALSE) {
+    drupal_register_shutdown_function('_helperUpdateProcess', $action, $entity_id, $entity->bundle());
+    drupal_register_shutdown_function('_helperLockingContent', $action, $entity_id, $entity->bundle(), $entity);
+  }
 }
 
 
@@ -299,8 +344,13 @@ function agri_admin_node_update(Drupal\Core\Entity\EntityInterface $entity) {
  * Implements hook_ENTITY_TYPE_presave().
  */
 function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  // Exit early if possible.
+  if ($entity->getEntityTypeId() != 'node') {
+    return;
+  }
   // Custom code goes here:
   global $import_override;
+
   $entity_id = $entity->id();
   // Set Authored by to current user if role is creator except during Peer Review.
   $current_author_id = $entity->getOwnerId();
@@ -346,8 +396,24 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
       }
 
       if ($update_date_modified_str == '0' || (isset($import_override) && $import_override)) {
-        $entity->set('changed', strtotime($date_modified));
-      } 
+        $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
+        // The changed field is translateable, must set value twice, otherwise unexpected issues during import.
+        if ($entity->get('changed')->getFieldDefinition()->isTranslatable()) {
+          // For some reason we enabled translation for changed field on this.
+          if ($langcode == 'en') {
+            $entity->getTranslation('fr')->set('changed', strtotime($date_modified));
+            $entity->getTranslation('en')->set('changed', strtotime($date_modified));
+          }
+          else {
+            $entity->getTranslation('en')->set('changed', strtotime($date_modified));
+            $entity->getTranslation('fr')->set('changed', strtotime($date_modified));
+          }
+        }
+        else {
+          // If translation of this field is disabled make sure still works.
+          $entity->set('changed', strtotime($date_modified));
+        }
+      }
       else {
         $entity->set('field_modified', $dt->format('Y-m-d'));
       }
@@ -371,7 +437,6 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
       $entity->set('created', time());
     }
   }
-
 }
 
 
@@ -643,6 +708,28 @@ function agri_admin_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInte
       }
     } //End handle Peer_Review for page/landing_page only.
   }// End page/landing_page/news/empl.
+
+  // Change expiry date field as a required field for node_news_edit_form
+  if ($form_id == 'node_news_edit_form') {
+    if (User::load(\Drupal::currentUser()->id())->hasRole('news_ccpub')) {
+      if (isset($form['field_newsexpirydate'])) {
+        $form['field_newsexpirydate']['widget'][0]['#required'] = TRUE;
+        $form['field_newsexpirydate']['#required'] = TRUE;
+        $form['field_newsexpirydate']['#element_validate'][] = 'agri_admin_expirydatevalidator';
+      }
+    }
+  }
+}
+
+
+/**
+ * Implements hook_expirydate.
+ * for node_news_edit_form
+ */
+function agri_admin_expirydatevalidator($element, &$form_state) {
+  if ((empty($element['widget'][0]['value']['#value']['date'])) ) {
+     $form_state->setErrorByName('field_newsexpirydate');
+  }
 }
 
 
@@ -656,12 +743,14 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
   $previousUrl = \Drupal::request()->server->get('HTTP_REFERER');
   $node_preview = \Drupal::routeMatch()->getParameter('node_preview');
   $node = \Drupal::routeMatch()->getParameter('node');
+  $nid = 0;
   $nType = '';
   if ($node_preview) {
     $nType = $node_preview->getType();
   }
-  if ($node && is_object($node)) {
+  if (isset($node) && !is_string($node) && is_object($node) && method_exists($node, 'getType')) {
     $nType = $node->getType();
+    $nid = $node->id();
   }
   if (isset($breadcrumb)) {
     $links = $breadcrumb->getlinks();
@@ -747,9 +836,13 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         $linkHR = Link::createFromRoute(t('Human Resources'), 'view.view_employmentopportunities.page_1');
       }
       $breadcrumb->addLink($linkHR);
+
+      // manually add the Internal Employment Opportunities view here to match Josep's change
+      $linkview_employmentopportunities = Link::createFromRoute(t('Internal Employment Opportunities'), 'view.view_employmentopportunities.page_1');
+      $breadcrumb->addLink($linkview_employmentopportunities);
     }
   }
-  else if (Utils::getRouteName() == 'view.view_employmentopportunities.page_1' || (isset($nType) && $nType == 'empl')) {
+  else if ($nid == 50 || Utils::getRouteName() == 'view.view_employmentopportunities.page_1' || (isset($nType) && $nType == 'empl')) {
     if ($breadcrumb) {
       foreach($links as $key => $link) {
         if ($link->getText() == 'Human Resources – Services and Information') {
@@ -990,7 +1083,11 @@ function agri_admin_content_moderation_notification_mail_data_alter(Drupal\Core\
         }
         $newsSubmitterEmail = $entity->get('field_newssubmitteremail')->value;
         $data['to'][] = $newsSubmitterEmail;
-        //TODO - Add aafc.newsatwork-nouvellesalouvrage.aac@canada.ca
+        //Get this email from settings.local.php file if specified 
+        //aafc.newsatwork-nouvellesalouvrage.aac@canada.ca on prod 
+        //and aafc.cmswebapps-sgcappsweb.aac@canada.ca on all other environments
+        //In case email is not specified in settings.local.php, only the submitter and the ccpub group will get the email
+        $data['to'][] = Settings::get('news_generic_email');
       }
       else {
         $data['to'] = [];
@@ -1008,7 +1105,11 @@ function agri_admin_content_moderation_notification_mail_data_alter(Drupal\Core\
         }
         $emplSubmitterEmail = $entity->get('field_employmentrequestoremail')->value;
         $data['to'][] = $emplSubmitterEmail;
-        //TODO - Add aafc.hrcentrerh.aac@canada.ca
+        //Get this email from settings.local.php file 
+        //aafc.hrcentrerh.aac@canada.ca on prod 
+        //and aafc.cmswebapps-sgcappsweb.aac@canada.ca on all other environments
+        //In case email is not specified in settings.local.php, only the submitter and the cspub group will get the email
+        $data['to'][] = Settings::get('empl_generic_email');
         //Get classification information to display in the email
         $classification   = '';
         if ($paragraph_field_items =  $entity->get('field_classification')->getValue()) {

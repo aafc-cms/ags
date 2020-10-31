@@ -1,0 +1,41 @@
+uuid: 0d489ab5-e8f2-4e60-b59f-9bbbf7cf986d
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.small
+  module:
+    - file
+    - image
+    - node
+id: urltodocument
+label: UrlToDocument
+description: ''
+matchers:
+  1930989e-6d71-4b03-8310-0f6474b1cdcf:
+    uuid: 1930989e-6d71-4b03-8310-0f6474b1cdcf
+    id: 'entity:node'
+    weight: 0
+    settings:
+      include_unpublished: true
+      metadata: 'by [node:author] | [node:created:medium]'
+      bundles: {  }
+      group_by_bundle: true
+      substitution_type: canonical
+      limit: 100
+  f0629534-a4cb-4f2a-b1a7-086dbb835e68:
+    uuid: f0629534-a4cb-4f2a-b1a7-086dbb835e68
+    id: 'entity:file'
+    weight: 0
+    settings:
+      file_extensions: 'docx doc pdf ppt pptx xls xlsx odt zip rtf ods txt mp4 wmv jpg jpeg png gif bmp'
+      file_status: 1
+      images:
+        show_dimensions: false
+        show_thumbnail: true
+        thumbnail_image_style: small
+      substitution_type: file
+      metadata: 'by [file:owner] [file:name] [file:original:changed]'
+      bundles: null
+      group_by_bundle: null
+      limit: 100

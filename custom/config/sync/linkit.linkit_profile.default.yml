@@ -2,7 +2,11 @@ uuid: 2cabccb7-1ff2-4be2-b5ca-b8f45bc3e7be
 langcode: en
 status: true
 dependencies:
+  config:
+    - image.style.small
   module:
+    - file
+    - image
     - node
 _core:
   default_config_hash: Tt8DtxZ3Nooo0PoWPpJvszA3R_5d8MmpUW7LM_R-BzY
@@ -21,14 +25,19 @@ matchers:
       include_unpublished: true
       substitution_type: canonical
       limit: 100
-  8e7c8305-2e3c-427e-830c-723340e449b7:
-    uuid: 8e7c8305-2e3c-427e-830c-723340e449b7
-    id: 'entity:media'
+  9a7c7a41-ba04-4f65-b4ac-4eeb872cb02e:
+    uuid: 9a7c7a41-ba04-4f65-b4ac-4eeb872cb02e
+    id: 'entity:file'
     weight: 0
     settings:
-      metadata: 'by [media:field_document:entity:owner] [media:field_document:entity:changed]'
-      bundles:
-        document: document
-      group_by_bundle: false
-      substitution_type: media
+      file_extensions: 'docx doc pdf ppt pptx xls xlsx odt zip rtf ods txt mp4 wmv jpg jpeg png gif bmp'
+      file_status: 1
+      images:
+        show_dimensions: false
+        show_thumbnail: true
+        thumbnail_image_style: small
+      substitution_type: file
+      metadata: 'by [file:owner] [file:name] [file:original:changed]'
+      bundles: null
+      group_by_bundle: null
       limit: 100

@@ -1,3 +1,16 @@
+<?php
+  $server_name = $_SERVER['SERVER_NAME'];
+  $host = $_SERVER['HTTP_HOST'];
+  $prod = FALSE;
+  if (stripos($host, 'wip') > 0 || stripos($host, 'grisource.agr.gc.ca') > 0) {
+    $prod = TRUE;
+  }
+  // Adobe Analytics JS library.
+  $adobetm='//assets.adobedtm.com/caacec67651710193d2331efef325107c23a0145/satelliteLib-c2082deaf69c358c641c5eb20f94b615dd606662-staging.js';
+  if ($prod) {
+    $adobetm='//assets.adobedtm.com/caacec67651710193d2331efef325107c23a0145/satelliteLib-c2082deaf69c358c641c5eb20f94b615dd606662.js';
+  }
+?>
 <!DOCTYPE html><!--[if lt IE 8]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 7]><!-->
 <html class="no-js" lang="en" dir="ltr">
 <!--<![endif]-->
@@ -8,19 +21,19 @@
 <meta content="width=device-width,initial-scale=1" name="viewport">
 <meta name="description" content="Splash page">
 <meta property="description" lang="fr" content="Page d'entrée">
-<meta property="dcterms:creator" content="Agriculture and Agri-Food Canada">
+<meta property="dcterms.creator" content="Agriculture and Agri-Food Canada">
 <meta property="dcterms.creator" lang="fr" content="Agriculture et Agroalimentaire Canada">
-<meta property="dcterms:title" content="AgriSource">
-<meta property="dcterms:title" lang="fr" content="AgriSource">
-<meta property="dcterms:issued" title="W3CDTF" content="2016-12-13">
-<meta property="dcterms:modified" title="W3CDTF" content="">
-<meta property="dcterms:subject" title="scheme" content="Government of Canada, services">
-<meta property="dcterms:subject" lang="fr" title="scheme" content="Gouvernement du Canada, services">
-<meta property="dcterms:language" title="ISO639-2" content="eng">
-<meta property="dcterms:language" lang="fr" title="ISO639-2" content="fra">
+<meta property="dcterms.title" content="AgriSource">
+<meta property="dcterms.title" lang="fr" content="AgriSource">
+<meta property="dcterms.issued" title="W3CDTF" content="2016-12-13">
+<meta property="dcterms.modified" title="W3CDTF" content="">
+<meta property="dcterms.subject" title="scheme" content="Government of Canada, services">
+<meta property="dcterms.subject" lang="fr" title="scheme" content="Gouvernement du Canada, services">
+<meta property="dcterms.language" title="ISO639-2" content="eng">
+<meta property="dcterms.language" lang="fr" title="ISO639-2" content="fra">
 <meta name="robots" content="noindex, follow">
 <meta property="dcterms:service" content="AAFC_AgriSource"/>
-<meta property="dcterms:accessRights" content="3"/>
+<meta property="dcterms.accessRights" content="3"/>
 <!--[if gte IE 8 | !IE ]><!-->
 <link href="/sites/default/splash/img/favicon.ico" rel="icon" type="image/x-icon">
 <link rel="stylesheet" href="/sites/default/splash/css/theme.min.css">
@@ -33,9 +46,9 @@
 <script src="/sites/default/splash/js/ie8-wet-boew.min.js"></script>
 <![endif]-->
 <noscript><link rel="stylesheet" href="/sites/default/splash/css/noscript.min.css"/></noscript>
-<script src="//assets.adobedtm.com/caacec67651710193d2331efef325107c23a0145/satelliteLib-c2082deaf69c358c641c5eb20f94b615dd606662.js"></script>
+<script src="<?php print $adobetm ?>"></script>
 </head>
-<body vocab="http://schema.org/" typeof="WebPage">
+<body vocab="https://schema.org/" typeof="WebPage">
 <header role="banner" id="wb-bnr">
 <div class="container">
 <div class="row mrgn-tp-lg mrgn-bttm-lg">

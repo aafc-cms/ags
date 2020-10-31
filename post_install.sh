@@ -7,6 +7,9 @@ trap "sudo configureSettingsFile" SIGINT SIGTERM
 live=0
 if [ -z $1 ]; then
   echo "dev environment setup.";
+  if [ -f html/sites/default/default.settings.php ]; then
+    sed -i "s+^repository_root: .*$+repository_root: `pwd`+g" custom/config/splits/dev/git_status.settings.yml
+  fi
 else
   if [ $1 == "live" ]; then
     echo "live environment setup.";
@@ -97,7 +100,7 @@ if ! grep -q "upgrade-insecure-requests" $htaccess_file; then
     echo "dev environment setup.\n";
     echo "`hostname`" > temptesthostname.txt
     if grep -q "ryzen" temptesthostname.txt; then
-      echo "Ensure header always sets Content-Security-Policy. (CURRENTLY DISABLED, check post_install.sh)";
+      echo "Ensure header always sets Content-Security-Policy. (check post_install.sh)";
       search_str="^( +)Header always set X-Content-Type-Options nosniff";
       new_setting="\1Header always set X-Content-Type-Options nosniff\n\1Header always set Content-Security-Policy \"upgrade-insecure-requests;\"\n"
       sed -r "s/${search_str}/${new_setting}/gm" $htaccess_file > ${htaccess_file}_temp;
@@ -108,7 +111,7 @@ if ! grep -q "upgrade-insecure-requests" $htaccess_file; then
     rm temptesthostname.txt
   else
     if [ $1 == "live" ]; then
-      echo "Ensure header always sets Content-Security-Policy for live environment. (CURRENTLY DISABLED, check post_install.sh)";
+      echo "Ensure header always sets Content-Security-Policy for live environment. (check post_install.sh)";
       search_str="^( +)Header always set X-Content-Type-Options nosniff";
       new_setting="\1Header always set X-Content-Type-Options nosniff\n\1Header always set Content-Security-Policy \"upgrade-insecure-requests;\"\n"
       sed -r "s/${search_str}/${new_setting}/gm" $htaccess_file > ${htaccess_file}_temp;
@@ -117,10 +120,23 @@ if ! grep -q "upgrade-insecure-requests" $htaccess_file; then
   fi
 fi
 
-rm html/libraries/wet-boew/js/wet-boew.js
-rm html/libraries/wet-boew/js/wet-boew.min.js
-ln -s ../../../../custom/modules/wxt_overrides/js/wb/wet-boew.js html/libraries/wet-boew/js/wet-boew.js
-ln -s ../../../../custom/modules/wxt_overrides/js/wb/wet-boew.js html/libraries/wet-boew/js/wet-boew.min.js
+if [ -d "html/libraries/jquery.inputmask/dist/min" ]; then
+  echo "fix jquery inputmask distribution"
+  echo "cp html/libraries/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js html/libraries/jquery.inputmask/dist/jquery.inputmask.min.js;"
+        cp html/libraries/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js html/libraries/jquery.inputmask/dist/jquery.inputmask.min.js;
+fi
+if [ ! -d "html/libraries/jquery-ui-touch-punch" ]; then
+  echo "mkdir html/libraries/jquery-ui-touch-punch;"
+        mkdir html/libraries/jquery-ui-touch-punch;
+  echo "wget https://raw.githubusercontent.com/furf/jquery-ui-touch-punch/master/jquery.ui.touch-punch.min.js;"
+        wget https://raw.githubusercontent.com/furf/jquery-ui-touch-punch/master/jquery.ui.touch-punch.min.js;
+  echo "mv jquery.ui.touch-punch.min.js html/libraries/jquery-ui-touch-punch;"
+        mv jquery.ui.touch-punch.min.js html/libraries/jquery-ui-touch-punch;
+fi
+
+if [ ! -f html/sites.php ]; then
+  rm html/splash.php
+fi
 if [ ! -L html/splash.php ]; then
   cd html
   ln -s ../custom/splash/splash.php splash.php

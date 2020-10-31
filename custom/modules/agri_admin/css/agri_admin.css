@@ -52,23 +52,36 @@ body.path-admin #block-claro-content nav.breadcrumb {
 
 /**** Components Node for unpublished content *****/
 /* Note that drupal-bootstrap-not-cdn.min.css sets the background-color to #fff4f4 for body.is-unpublished */
-.views-row.published-no {
+.views-row.published-no, .views-table tr.published-no {
   background-color: pink;
   border: 3px solid hotpink;
 }
 
-.views-row.published-no h1 {
+.views-row.published-no h1, .views-table tr.published-no h1 {
   background-color: pink;
   border: 3px solid hotpink;
 }
 
 /* Unpublished revision pending to overwrite the published revision */
-.views-row.published-no.pending-draft {
+.views-row.published-no.Archived, .views-table tr.published-no.Archived,
+.views-row.published-no.Archivé, .views-table tr.published-no.Archivé {
+  background-color: blanchedalmond;
+  border: 3px solid saddlebrown;
+}
+
+.views-row.published-no.Archived h1, .views-table tr.published-no.Archived h1,
+.views-row.published-no.Archivé h1, .views-table tr.published-no.Archivé h1 {
+  background-color: blanchedalmond;
+  border: 3px solid saddlebrown;
+}
+
+/* Unpublished revision pending to overwrite the published revision */
+.views-row.published-no.pending-draft, .views-table tr.published-no.pending-draft {
   background-color: #FFECA9;
   border: 3px solid orange;
 }
 
-.views-row.published-no.pending-draft h1 {
+.views-row.published-no.pending-draft h1, .views-table tr.published-no.pending-draft h1 {
   background-color: #FFECA9;
   border: 3px solid orange;
 }
@@ -431,6 +444,18 @@ body.path-admin .view-content .form-item--field-meta-type-target-id,
 body.path-admin .view-content .form-item--field-newstype-target-id {
   max-width: 250px;
 }
+body.path-admin .view-content .form-item--revision-timestamp-min,
+body.path-admin .view-content .form-item--field-modified-value-min,
+body.path-admin .view-content .form-item--changed-min {
+  margin: 0.75rem 0.5rem 0 0;
+  max-width: 135px;
+}
+body.path-admin .view-content .form-item--revision-timestamp-max,
+body.path-admin .view-content .form-item--field-modified-value-max,
+body.path-admin .view-content .form-item--changed-max {
+  margin: 0.75rem 0.5rem 0 0;
+  max-width: 120px;
+}
 
 body.path-admin.admincontentmoderated .view-filters .form-item--field-tracking-number-value,
 body.path-admin.admincontentmoderated .view-filters .form-item--type,
@@ -458,6 +483,16 @@ body[class*=moderationdashboard] body[class*=moderationdashboard] nav.mrgn-tp-md
 }
 body[class*=moderationdashboard] body[class*=moderationdashboard] nav.mrgn-bttm-md {
   margin-bottom: 0px;
+}
+
+body.i18n-en[class*=moderationdashboard] div.moderation-dashboard h2 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+body.i18n-fr[class*=moderationdashboard] div.moderation-dashboard h2 {
+  font-size: 16px;
+  font-weight: bold;
 }
 
 /* glyphicon-copy fix */

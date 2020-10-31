@@ -25,6 +25,14 @@ class Breadcrumb extends BootstrapBreadcrumb {
    */
   public function preprocessVariables(Variables $variables) {
     $breadcrumb = &$variables['breadcrumb'];
+
+    //The logic checks if the last menu link text is empty string.
+    // if yes, we remove tehe empty menu link from the breadcrumb
+    $lastlink = end($breadcrumb);
+    if ( $lastlink['text'] == '') {
+      array_pop($breadcrumb);
+    }
+
     // Determine if breadcrumbs should be displayed.
     $breadcrumb_visibility = $this->theme->getSetting('breadcrumb');
 
@@ -49,7 +57,7 @@ class Breadcrumb extends BootstrapBreadcrumb {
       $route_match = \Drupal::routeMatch();
       $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
       $node = \Drupal::routeMatch()->getParameter('node');
-      if (isset($node) && is_object($node)) {
+      if (isset($node) && !is_string($node) && is_object($node) && method_exists($node, 'getType')) {
         $nodetype= $node->getType();
         if ($nodetype == 'page' || $nodetype == 'landing_page') {
           if (!empty($page_title)) {

@@ -47,6 +47,7 @@ var AgrisourceFrontend = function() {
   var initialized = false;   // Flag to indicate that this class has been initialized
   var form_required_valid = true; // Flag to indicate that the validation is for the News and EO forms
   var lang = 'en';           // Will be 'en' or 'fr' regardless of how the url segment is formed (currently eng or fra)
+  var delay = 100;           // Delay for initAnalytics, used because some browser clients use ad blockers, lets be friendly.
   var mouse = {x:0, y:0};    // Tracks the mouse position
   var page_type = 'content';
 
@@ -60,6 +61,10 @@ var AgrisourceFrontend = function() {
 
     // Get the current UI language
     $ = jQuery;
+    if (AgrisourceFrontend.isIE()) {
+      $('body').addClass('isIE');
+    }
+
     AgrisourceFrontend.lang = $('html').attr('lang');
 
     //Determine the page type
@@ -80,7 +85,56 @@ var AgrisourceFrontend = function() {
     $('#wb-glb-mn a.overlay-lnk').click(function(e) {
       AgrisourceFrontend.removeRoleFromSummary(); // WCAG fix, see agrcms/d8#204 in gitlab.com
     });
+
+    //AgrisourceFrontend.initAnalytics();
+
+    AgrisourceFrontend.initSlideshow();
     initialized = true;
+  }
+
+
+  function initSlideshow() {
+    // Make slideshow items clickable.
+    var tabPanels = $('.carousel-s2').find('.tabpanels');
+    if (typeof tabPanels !== 'undefined') {
+      $(tabPanels).find('figure').each(function(index, element) {
+        var img = $(element).find('img');
+        var href = $(element).find('a').attr('href');
+        if (href) {
+          var a = $('<a/>').attr('href', href);
+          $(img).wrap(a);
+          //console.log(index + ' href=' + href);
+        }
+      });
+    }
+  }
+
+
+  function initAnalytics() {
+    // In case someone is using an ad blocker, let's not crash their javascript.
+    if (typeof(_satellite) === 'undefined') {
+       // This occurs if an adblocker is enabled.
+       if (AgrisourceFrontend.delay < 2000) {
+         // Only try a few times.
+         window.setTimeout(AgrisourceFrontend.initAnalytics, AgrisourceFrontend.delay); /* Checks every (delay) milliseconds*/
+       }
+       AgrisourceFrontend.delay+=500; // Only try a few times.
+    } else {
+      /* Initialize adobe analytics, ad blocker must be disabled.*/
+      _satellite.pageBottom();
+    }
+  }
+
+  function isIE() {
+    if (navigator.appName == 'Microsoft Internet Explorer') {
+      return true;
+    }
+    else if (navigator.appName == 'Netscape') {
+      if (navigator.appVersion.indexOf('Trident') > 0 || navigator.appVersion.indexOf('Edge') > 0) {
+        return true;
+      }
+    }
+    return false;
   }
 
 
@@ -113,6 +167,10 @@ var AgrisourceFrontend = function() {
   return {
     init: init,
     lang: lang,
+    isIE: isIE,
+    delay: delay,
+    initAnalytics: initAnalytics,
+    initSlideshow: initSlideshow,
     page_type: page_type,
     removeRoleFromSummary: removeRoleFromSummary
   }
