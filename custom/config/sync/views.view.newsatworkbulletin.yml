@@ -683,6 +683,19 @@ display:
           entity_type: taxonomy_term
           entity_field: weight
           plugin_id: standard
+        field_posted_value:
+          id: field_posted_value
+          table: node__field_posted
+          field: field_posted_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+          plugin_id: datetime
         created:
           id: created
           table: node_field_data
@@ -766,8 +779,9 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 20
+          items_per_page: 0
           offset: 0
+      rendering_language: '***LANGUAGE_entity_translation***'
     cache_metadata:
       max-age: -1
       contexts:
