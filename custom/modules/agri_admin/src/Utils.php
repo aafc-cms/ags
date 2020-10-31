@@ -182,16 +182,48 @@ class Utils {
   }
 
 
+  static public function getNidFromPath($path = NULL) {
+    if (empty($path)) {
+      return FALSE;
+    }
+
+    $regex = '/[\/]{0,1}(node)\/([0-9]{1,9})/';
+
+    preg_match($regex, $path, $matches, PREG_OFFSET_CAPTURE, 0);
+
+    if (isset($matches[1][0])) {
+      $path_type = $matches[1][0];
+      if ($path_type == 'node') {
+        $nid = $matches[2][0];
+        if (isset($matches[2][0])) {
+          return $nid;
+        }
+      }
+    }
+    return FALSE;
+  }
+
+
   static public function gotoLegacy($path='', $options=array(), $responseCode=null) {
     $query = isset($options['query']) ? $options['query'] : array();
+    $nid = isset($options['nid']) ? $options['nid'] : NULL;
 
-    if (1 || preg_match('#^[[:alpha:]][[:alnum:]]*://#', $path)) {
-      \Drupal\agri_admin\AgriAdminHelper::addToLog($path, TRUE);
+    if (preg_match('#^[[:alpha:]][[:alnum:]]*://#', $path)) {
+      \Drupal\agri_admin\AgriAdminHelper::addToLog('Redirect using a uri'/*, TRUE*/);
       $url = Url::fromUri($path, $options);
     }
     else {
-      \Drupal\agri_admin\AgriAdminHelper::addToLog('test test from route ', TRUE);
-      $url = Url::fromRoute($path, [], $query);
+      if (empty($nid)) {
+        $nid = self::getNidFromPath($path);
+      }
+      if (empty($nid)) {
+        \Drupal\agri_admin\AgriAdminHelper::addToLog('Redirect using a route '/*, TRUE*/);
+        $url = Url::fromRoute($path, [], $query);
+      }
+      else {
+        \Drupal\agri_admin\AgriAdminHelper::addToLog('Redirect using using nid'/*, TRUE*/);
+        $url = Url::fromRoute('entity.node.canonical', ['node' => $nid], $query);
+      }
     }
 
     return static::goto($url->toString(), $responseCode, array(), false);
