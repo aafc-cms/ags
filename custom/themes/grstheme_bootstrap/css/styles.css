@@ -16,96 +16,104 @@ html[lang=en] nav#wb-sm.wb-menu li:first-child ul.sm.open {
   min-width: 17em !important;
 }
 /* line 11, ../sass/layouts/_header.scss */
-html[lang=en] nav#wb-sm.wb-menu li:nth-child(2) ul.sm.open, html[lang=en] nav#wb-sm.wb-menu li:nth-child(3) ul.sm.open, html[lang=en] nav#wb-sm.wb-menu li:nth-child(4) ul.sm.open {
-  min-width: 18em !important;
+html[lang=en] nav#wb-sm.wb-menu li:nth-child(2) ul.sm.open, html[lang=en] nav#wb-sm.wb-menu li:nth-child(3) ul.sm.open {
+  min-width: 19em !important;
 }
 /* line 16, ../sass/layouts/_header.scss */
+html[lang=en] nav#wb-sm.wb-menu li:nth-child(4) ul.sm.open {
+  min-width: 21em !important;
+}
+/* line 21, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm.wb-menu li:nth-child(5) ul.sm.open {
-  min-width: 17em !important;
+  min-width: 18.5em !important;
 }
 
-/* line 24, ../sass/layouts/_header.scss */
+/* line 29, ../sass/layouts/_header.scss */
 html[lang=fr] nav#wb-sm.wb-menu li:first-child ul.sm.open {
   min-width: 16em !important;
 }
-/* line 29, ../sass/layouts/_header.scss */
-html[lang=fr] nav#wb-sm.wb-menu li:nth-child(2) ul.sm.open, html[lang=fr] nav#wb-sm.wb-menu li:nth-child(4) ul.sm.open {
+/* line 34, ../sass/layouts/_header.scss */
+html[lang=fr] nav#wb-sm.wb-menu li:nth-child(2) ul.sm.open {
   min-width: 22em !important;
 }
-/* line 34, ../sass/layouts/_header.scss */
-html[lang=fr] nav#wb-sm.wb-menu li:nth-child(3) ul.sm.open {
-  min-width: 24em !important;
-}
 /* line 39, ../sass/layouts/_header.scss */
+html[lang=fr] nav#wb-sm.wb-menu li:nth-child(4) ul.sm.open {
+  min-width: 22.5em !important;
+}
+/* line 44, ../sass/layouts/_header.scss */
+html[lang=fr] nav#wb-sm.wb-menu li:nth-child(3) ul.sm.open {
+  min-width: 28em !important;
+}
+/* line 49, ../sass/layouts/_header.scss */
 html[lang=fr] nav#wb-sm.wb-menu li:nth-child(5) ul.sm.open {
-  min-width: 20em !important;
+  min-width: 20.9em !important;
 }
 
-/* line 46, ../sass/layouts/_header.scss */
+/* line 56, ../sass/layouts/_header.scss */
 html[lang=fr] nav#wb-sm li a[href*="gc.ca/eng"] {
   display: none;
 }
-/* line 49, ../sass/layouts/_header.scss */
+/* line 59, ../sass/layouts/_header.scss */
 html[lang=fr] nav#wb-sm li a[href*="directInfo/eng"] {
   display: none;
 }
-/* line 52, ../sass/layouts/_header.scss */
+/* line 62, ../sass/layouts/_header.scss */
 html[lang=fr] nav#wb-sm li a[href*="gc.ca/en/GCD"] {
   display: none;
 }
-/* line 55, ../sass/layouts/_header.scss */
+/* line 65, ../sass/layouts/_header.scss */
 html[lang=fr] nav#wb-sm li a[href*="?lang=e"] {
   display: none;
 }
-/* line 58, ../sass/layouts/_header.scss */
+/* line 68, ../sass/layouts/_header.scss */
 html[lang=fr] nav#wb-sm li a[href$=Lang\=E] {
   display: none;
 }
-/* line 61, ../sass/layouts/_header.scss */
+/* line 71, ../sass/layouts/_header.scss */
 html[lang=fr] nav#wb-sm li a[href$="Lang\=en"] {
   display: none;
 }
-/* line 64, ../sass/layouts/_header.scss */
+/* line 74, ../sass/layouts/_header.scss */
 html[lang=fr] nav#wb-sm li a[href$="setlang\=en"] {
   display: none;
 }
 
-/* line 70, ../sass/layouts/_header.scss */
+/* line 80, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm li a[href*="gc.ca/fra"] {
   display: none;
 }
-/* line 73, ../sass/layouts/_header.scss */
+/* line 83, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm li a[href*="directInfo/fra"] {
   display: none;
 }
-/* line 76, ../sass/layouts/_header.scss */
+/* line 86, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm li a[href*="gc.ca/fr/GCA"] {
   display: none;
 }
-/* line 79, ../sass/layouts/_header.scss */
+/* line 89, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm li a[href*="?lang=f"] {
   display: none;
 }
-/* line 82, ../sass/layouts/_header.scss */
+/* line 92, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm li a[href$="Lang\=F"] {
   display: none;
 }
-/* line 85, ../sass/layouts/_header.scss */
+/* line 95, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm li a[href$="Lang\=fr"] {
   display: none;
 }
-/* line 88, ../sass/layouts/_header.scss */
+/* line 98, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm li a[href$="setlang\=fr"] {
   display: none;
 }
 
-/* line 92, ../sass/layouts/_header.scss */
+/* line 102, ../sass/layouts/_header.scss */
 #wb-sm .container.nvbar {
   border-right: 1px solid #59595b;
   border-left: 1px solid #59595b;
 }
 
-/* line 97, ../sass/layouts/_header.scss */
+/* line 107, ../sass/layouts/_header.scss */
 #wb-sm .nvbar {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#939394), to(#96999c));
   background-image: -webkit-linear-gradient(#959a9e, #8f9cab);
@@ -116,23 +124,23 @@ html[lang=en] nav#wb-sm li a[href$="setlang\=fr"] {
   border-top: 1px solid #59595b;
 }
 
-/* line 107, ../sass/layouts/_header.scss */
+/* line 117, ../sass/layouts/_header.scss */
 #wb-sm a {
   background-color: transparent;
 }
 
-/* line 111, ../sass/layouts/_header.scss */
+/* line 121, ../sass/layouts/_header.scss */
 #wb-menu.visible-md.visible-lg.wb-init.wb-menu-inited.wb-navcurr-inite {
   height: 43.344px;
 }
 
-/* line 115, ../sass/layouts/_header.scss */
+/* line 125, ../sass/layouts/_header.scss */
 #wb-sm .nvbar ul.menu > li > a.wb-navcurr, #wb-sm .sm a.wb-navcurr, #wb-sm .sm summary.wb-navcurr, #wb-sm .sm .slflnk a.wb-navcurr {
   background: #58585a;
   color: #fff;
 }
 
-/* line 120, ../sass/layouts/_header.scss */
+/* line 130, ../sass/layouts/_header.scss */
 nav#wb-sm div.pnl-strt.container.nvbar {
   padding-left: 0px;
   border-left-width: 0px;
@@ -292,11 +300,7 @@ body.page-node-type-empl.isIE .field.field--name-body.field--type-text-with-summ
 .carousel-s2 figcaption {
   background-color: #007852;
 }
-/* line 15, ../sass/components/_carousel.scss */
-.carousel-s2.show-thumbs ul[role="tablist"] {
-  bottom: -6px;
-}
-/* line 17, ../sass/components/_carousel.scss */
+/* line 16, ../sass/components/_carousel.scss */
 .carousel-s2.show-thumbs ul[role="tablist"] li.active a {
   border-color: #666;
   border-style: solid;
@@ -304,11 +308,11 @@ body.page-node-type-empl.isIE .field.field--name-body.field--type-text-with-summ
   margin-bottom: 1px;
   padding: 0;
 }
-/* line 27, ../sass/components/_carousel.scss */
+/* line 26, ../sass/components/_carousel.scss */
 .carousel-s2.show-thumbs .plypause {
   padding: 0;
 }
-/* line 31, ../sass/components/_carousel.scss */
+/* line 30, ../sass/components/_carousel.scss */
 .carousel-s2.wb-tabs [role="tablist"] > li.active a {
   border-color: #666;
   border-style: solid;
@@ -316,20 +320,24 @@ body.page-node-type-empl.isIE .field.field--name-body.field--type-text-with-summ
   cursor: default;
   padding-top: 6px;
 }
-/* line 38, ../sass/components/_carousel.scss */
+/* line 37, ../sass/components/_carousel.scss */
 .carousel-s2.wb-tabs [role="tablist"] > li a {
   color: #000;
   padding: 10px;
   text-decoration: none;
 }
-/* line 43, ../sass/components/_carousel.scss */
+/* line 42, ../sass/components/_carousel.scss */
 .carousel-s2 figure {
   background: #007852;
 }
 
 @media screen and (min-width: 992px) {
-  /* line 49, ../sass/components/_carousel.scss */
-  .wb-tabs.carousel-s2.show-thumbs [role=tablist] li[role=presentation] img {
+  /* line 51, ../sass/components/_carousel.scss */
+  .carousel-s2.show-thumbs ul[role=tablist] {
+    bottom: -6px;
+  }
+  /* line 53, ../sass/components/_carousel.scss */
+  .carousel-s2.show-thumbs ul[role=tablist] li[role=presentation] img {
     width: 120px;
   }
 }
