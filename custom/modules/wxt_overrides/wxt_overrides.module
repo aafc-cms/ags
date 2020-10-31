@@ -135,6 +135,19 @@ function wxt_overrides_page_attachments(array &$page) {
         if ($name == 'dcterms.language') {
           unset($page['#attached']['html_head'][$key]);
         }
+        if ($name == 'dcterms.description') {
+          $content = $value[0]['#attributes']['content'];
+          $dctermsdescription = [
+            '#tag' => 'meta',
+            '#attributes' => [
+              'property'  => 'dcterms:description',
+              'content'   => $content,
+            ],
+          ];
+          unset($page['#attached']['html_head'][$key]);
+          // Transfer metatag from default dublincore to aafc/gc custom.
+          $page['#attached']['html_head'][] = [$dctermsdescription, 'dcterms:description'];
+        }
         if ($name == 'dcterms.creator') {
           $content = $value[0]['#attributes']['content'];
           $dctermscreator = [
