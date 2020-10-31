@@ -104,7 +104,7 @@ class System4xxOverride extends ControllerBase implements ContainerInjectionInte
         // Legacy EO submission form dcrid
         Utils::gotoLegacy('/node/50', [], '302'); // The new page.
         break;
-      case '1311865754938':
+      case '1311021442806':
         // Legacy Public Service Request form dcrid
         Utils::gotoLegacy('<front>', [], '302'); // @TODO , find the route for this.
         break;
