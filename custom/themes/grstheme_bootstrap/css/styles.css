@@ -327,6 +327,12 @@ body.page-node-type-empl.isIE .field.field--name-body.field--type-text-with-summ
   background: #007852;
 }
 
+@media screen and (min-width: 992px) {
+  /* line 49, ../sass/components/_carousel.scss */
+  .wb-tabs.carousel-s2.show-thumbs [role=tablist] li[role=presentation] img {
+    width: 120px;
+  }
+}
 /* line 4, ../sass/components/_iframe.scss */
 body.user-anonymous .entity-iframe .create-embedsearch,
 body.user-anonymous .entity-iframe .form-item-entity-status-value,
