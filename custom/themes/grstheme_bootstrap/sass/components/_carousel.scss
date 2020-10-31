@@ -13,7 +13,6 @@
   }
   &.show-thumbs {
     ul[role="tablist"] {
-      bottom: -6px;
       li.active a {
         border-color: #666;
         border-style: solid;
@@ -46,7 +45,15 @@
 }
 
 @media screen and (min-width: 992px) {
-  .wb-tabs.carousel-s2.show-thumbs [role=tablist] li[role=presentation] img {
-      width: 120px;
+
+  .carousel-s2 {
+    &.show-thumbs {
+      ul[role=tablist] {
+        bottom: -6px;
+        li[role=presentation] img {
+          width: 120px;
+        }
+      }
+    }
   }
- }
+}
