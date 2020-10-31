@@ -96,7 +96,7 @@ class System4xxOverride extends ControllerBase implements ContainerInjectionInte
         // Legacy EO dcrid (is a view in Drupal).
         Utils::gotoLegacy('view.view_employmentopportunities.page_1', [], '302'); // The new page.
         break;
-      case '1309887212500':
+      case '1305895655987':
         // Legacy News submission form dcrid
         Utils::gotoLegacy('/node/49', [], '302'); // The new page.
         break;
