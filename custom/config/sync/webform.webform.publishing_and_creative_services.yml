@@ -217,9 +217,9 @@ handlers:
     settings:
       states:
         - completed
-      to_mail: james.yao2@canada.ca
+      to_mail: aafc.publishing-publications.aac@canada.ca
       to_options: {  }
-      cc_mail: ''
+      cc_mail: '[webform_submission:values:srf_email:raw]'
       cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
