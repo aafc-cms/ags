@@ -131,7 +131,7 @@ class System4xxOverride extends ControllerBase implements ContainerInjectionInte
     }
     else {
       $request_uri = \Drupal::request()->getPathInfo();
-      \Drupal\agri_admin\AgriAdminHelper::addToLog($request_uri, TRUE);
+      //\Drupal\agri_admin\AgriAdminHelper::addToLog($request_uri, TRUE);
       if ($request_uri == '/agrisource/index.jsp') {
         Utils::gotoLegacy('<front>', [], '301'); // @TODO , find the route for this.
       }
