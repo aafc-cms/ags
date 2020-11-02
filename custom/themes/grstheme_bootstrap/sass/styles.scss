@@ -142,6 +142,12 @@ section.col-sm-3 ul.list-unstyled {
 }
 
 @media screen and (max-width: 991px) {
+  body.path-frontpage {
+    .carousel-s2 {
+      margin-left: -15px !important;
+      margin-right: -30px;
+    }
+  }
   #wb-bnr {
     background-image: -webkit-linear-gradient(#77bc1f, #77bc1f, #007852) !important;
     background-image: linear-gradient(#77bc1f, #77bc1f, #007852) !important;
