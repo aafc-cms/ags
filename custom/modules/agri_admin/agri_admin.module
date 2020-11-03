@@ -615,7 +615,6 @@ function agri_admin_form_newsorempl_submit (array $form, \Drupal\Core\Form\FormS
   if ($current_user->isAnonymous()) {
     $entity = $form_state->getFormObject()->getEntity();
     $entity->set('moderation_state', 'draft');
-    $entity->save();
     $front_url = Url::fromRoute('<front>'); 
     $form_state->setRedirectUrl( $front_url );
   }
