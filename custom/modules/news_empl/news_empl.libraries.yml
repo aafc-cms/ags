@@ -29,6 +29,13 @@ anonymous-empl-node-css:
     component:
       libraries/empl-node-anon/css/empl-node-anon.css: {}
 
+empl-opp:
+  js:
+    libraries/empl/js/empl-opp.js: {}
+  dependencies:
+    - core/drupalSettings
+    - core/jquery
+
 # Disable hack, do not use hacks like this.
 #news-empl-node-js:
 #  js:

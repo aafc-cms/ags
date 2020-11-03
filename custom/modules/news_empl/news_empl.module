@@ -31,6 +31,10 @@ function news_empl_page_attachments(array &$page) {
       $page['#attached']['library'][] = 'news_empl/anonymous-news-node-css';
     }
   }
+  if ($route_match == 'view.view_employmentopportunities.page_1') {
+    $page['#attached']['library'][] = 'news_empl/empl-opp';
+    //\Drupal\agri_admin\AgriAdminHelper::addToLog($route_match, TRUE);
+  }
 }
 
 
