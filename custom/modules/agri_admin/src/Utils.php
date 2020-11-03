@@ -206,6 +206,7 @@ class Utils {
 
   static public function gotoLegacy($path='', $options=array(), $responseCode=null) {
     $query = isset($options['query']) ? $options['query'] : array();
+    $language = isset($options['language']) ? $options['language'] : \Drupal::languageManager()->getCurrentLanguage();
     $nid = isset($options['nid']) ? $options['nid'] : NULL;
 
     if (preg_match('#^[[:alpha:]][[:alnum:]]*://#', $path)) {
@@ -218,11 +219,11 @@ class Utils {
       }
       if (empty($nid)) {
         \Drupal\agri_admin\AgriAdminHelper::addToLog('Redirect using a route '/*, TRUE*/);
-        $url = Url::fromRoute($path, [], $query);
+        $url = Url::fromRoute($path, [], ['language' => $language]);
       }
       else {
         \Drupal\agri_admin\AgriAdminHelper::addToLog('Redirect using using nid'/*, TRUE*/);
-        $url = Url::fromRoute('entity.node.canonical', ['node' => $nid], $query);
+        $url = Url::fromRoute('entity.node.canonical', ['node' => $nid], ['language' => $language]);
       }
     }
 
