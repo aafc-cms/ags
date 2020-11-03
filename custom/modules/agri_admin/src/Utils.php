@@ -204,7 +204,7 @@ class Utils {
   }
 
 
-  static public function gotoLegacy($path='', $options=array(), $responseCode=null, $lang = 'en') {
+  static public function gotoLegacy($path='', $options=array(), $responseCode=null) {
     $query = isset($options['query']) ? $options['query'] : array();
     $language = isset($options['language']) ? $options['language'] : \Drupal::languageManager()->getCurrentLanguage();
     $nid = isset($options['nid']) ? $options['nid'] : NULL;
