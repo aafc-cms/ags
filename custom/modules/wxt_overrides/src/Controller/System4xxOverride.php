@@ -81,32 +81,32 @@ class System4xxOverride extends ControllerBase implements ContainerInjectionInte
     }
   }
 
-  public function specialNodeFromDcrid($dcrid) {
+  public function specialNodeFromDcrid($dcrid, $language) {
     $dcrid=$dcrid.'';
     switch ($dcrid) {
       case '1287261736402':
         // Legacy Home Page dcrid
-        Utils::gotoLegacy('<front>', [], '301'); // The new page.
+        Utils::gotoLegacy('<front>', ['language' => $language], '301'); // The new page.
         break;
       case '1311865754938':
         // Legacy Newsatwork View dcrid (is a view in Drupal).
-        Utils::gotoLegacy('view.view_news_work.page_1', [], '301'); // The new page.
+        Utils::gotoLegacy('view.view_news_work.page_1', ['language' => $language], '301'); // The new page.
         break;
       case '1309887212500':
         // Legacy EO dcrid (is a view in Drupal).
-        Utils::gotoLegacy('view.view_employmentopportunities.page_1', [], '301'); // The new page.
+        Utils::gotoLegacy('view.view_employmentopportunities.page_1', ['language' => $language], '301'); // The new page.
         break;
       case '1305895655987':
         // Legacy News submission form dcrid
-        Utils::gotoLegacy('/node/49', [], '301'); // The new page.
+        Utils::gotoLegacy('/node/49', ['language' => $language], '301'); // The new page.
         break;
       case '1307986207645':
         // Legacy EO submission form dcrid
-        Utils::gotoLegacy('/node/50', [], '301'); // The new page.
+        Utils::gotoLegacy('/node/50', ['language' => $language], '301'); // The new page.
         break;
       case '1311021442806':
         // Legacy Public Service Request form dcrid
-        Utils::gotoLegacy('<front>', [], '301'); // @TODO , find the route for this.
+        Utils::gotoLegacy('<front>', ['language' => $language], '301'); // @TODO , find the route for this.
         break;
       default:
         break;
@@ -122,18 +122,24 @@ class System4xxOverride extends ControllerBase implements ContainerInjectionInte
    */
   public function on404() {
     $dcrid = \Drupal\Component\Utility\Xss::filter(\Drupal::request()->query->get('id'));
+    $request_uri = \Drupal::request()->getRequestUri();
+    $language = \Drupal::languageManager()->getCurrentLanguage();
+    if (stripos($request_uri, '/fra') !== FALSE) {
+      $language = \Drupal::languageManager()->getLanguage('fr');
+    }
+
     if (strlen($dcrid) == 13 && is_numeric($dcrid)) {
-      $this->specialNodeFromDcrid($dcrid);
+      $this->specialNodeFromDcrid($dcrid, $language);
       $nid = $this->getNidFromDcrId($dcrid);
       if ($nid) {
-        Utils::gotoLegacy('/node/' . $nid, [], '301');
+        Utils::gotoLegacy('/node/' . $nid, ['language' => $language], '301');
       }
     }
     else {
-      $request_uri = \Drupal::request()->getPathInfo();
       //\Drupal\agri_admin\AgriAdminHelper::addToLog($request_uri, TRUE);
-      if ($request_uri == '/agrisource/index.jsp') {
-        Utils::gotoLegacy('<front>', [], '301');
+      $request_path = \Drupal::request()->getPathInfo();
+      if ($request_path == '/agrisource/index.jsp') {
+        Utils::gotoLegacy('<front>', ['language' => $language], '301');
       }
     }
 
