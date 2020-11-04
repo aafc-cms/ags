@@ -5,11 +5,6 @@ body.path-frontpage {
   }
 }
 
-.wb-tabs.carousel-s2.show-thumbs [role=tablist]>li.plypause a {
-  margin-right: -0.3em !important;
-}
-
-
 .carousel-s2 {
   &.wb-tabs [role="tablist"] > li {
     margin: 0 !important;
@@ -53,6 +48,22 @@ body.path-frontpage {
   figure {
     background: $agrisource-carousel-bg;
   }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+
+  .wb-tabs.carousel-s2.show-thumbs [role=tablist]>li.plypause a {
+    margin-right: -0.3em !important;
+  }
+
+  body.i18n-fr .wb-tabs.carousel-s2.show-thumbs [role=tablist]>li.plypause a {
+    margin-right: -0.8em !important;
+  }
+
+  .wb-tabs.carousel-s2.show-thumbs [role=tablist]>li.plypause a[title="Pause"] {
+    margin-right: -0.8em !important;
+  }
+
 }
 
 @media screen and (min-width: 992px) {
