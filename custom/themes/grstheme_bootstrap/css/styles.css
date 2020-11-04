@@ -293,19 +293,24 @@ body.path-frontpage .carousel-s2 {
   margin-left: -15px !important;
 }
 
-/* line 9, ../sass/components/_carousel.scss */
+/* line 8, ../sass/components/_carousel.scss */
+.wb-tabs.carousel-s2 [role=tablist] > li.plypause a {
+  margin-right: 0 !important;
+}
+
+/* line 14, ../sass/components/_carousel.scss */
 .carousel-s2.wb-tabs [role="tablist"] > li {
   margin: 0 !important;
 }
-/* line 13, ../sass/components/_carousel.scss */
+/* line 18, ../sass/components/_carousel.scss */
 .carousel-s2 ul[role="tablist"] > li {
   margin: 0;
 }
-/* line 17, ../sass/components/_carousel.scss */
+/* line 22, ../sass/components/_carousel.scss */
 .carousel-s2 figcaption {
   background-color: #007852;
 }
-/* line 22, ../sass/components/_carousel.scss */
+/* line 27, ../sass/components/_carousel.scss */
 .carousel-s2.show-thumbs ul[role="tablist"] li.active a {
   border-color: #666;
   border-style: solid;
@@ -313,11 +318,11 @@ body.path-frontpage .carousel-s2 {
   margin-bottom: 1px;
   padding: 0;
 }
-/* line 32, ../sass/components/_carousel.scss */
+/* line 37, ../sass/components/_carousel.scss */
 .carousel-s2.show-thumbs .plypause {
   padding: 0;
 }
-/* line 36, ../sass/components/_carousel.scss */
+/* line 41, ../sass/components/_carousel.scss */
 .carousel-s2.wb-tabs [role="tablist"] > li.active a {
   border-color: #666;
   border-style: solid;
@@ -325,40 +330,40 @@ body.path-frontpage .carousel-s2 {
   cursor: default;
   padding-top: 6px;
 }
-/* line 43, ../sass/components/_carousel.scss */
+/* line 48, ../sass/components/_carousel.scss */
 .carousel-s2.wb-tabs [role="tablist"] > li a {
   color: #000;
   padding: 10px;
   text-decoration: none;
 }
-/* line 48, ../sass/components/_carousel.scss */
+/* line 53, ../sass/components/_carousel.scss */
 .carousel-s2 figure {
   background: #007852;
 }
 
 @media screen and (min-width: 992px) {
-  /* line 57, ../sass/components/_carousel.scss */
+  /* line 62, ../sass/components/_carousel.scss */
   .carousel-s2.show-thumbs ul[role=tablist] {
     bottom: -6px;
   }
-  /* line 59, ../sass/components/_carousel.scss */
+  /* line 64, ../sass/components/_carousel.scss */
   .carousel-s2.show-thumbs ul[role=tablist] li[role=presentation] img {
     width: 120px !important;
   }
 }
 @media screen and (max-width: 991px) {
-  /* line 69, ../sass/components/_carousel.scss */
+  /* line 74, ../sass/components/_carousel.scss */
   body.path-frontpage .carousel-s2 {
     margin-left: -15px !important;
     margin-right: -30px;
   }
 }
 @media screen and (min-width: 992px) {
-  /* line 78, ../sass/components/_carousel.scss */
+  /* line 83, ../sass/components/_carousel.scss */
   body.path-frontpage .wb-tabs.carousel-s2.wb-init.show-thumbs {
     padding-bottom: 4em !important;
   }
-  /* line 81, ../sass/components/_carousel.scss */
+  /* line 86, ../sass/components/_carousel.scss */
   body.path-frontpage .wb-tabs.carousel-s2.show-thumbs [role=tablist] > li.plypause a {
     margin-top: 0.2em !important;
   }
