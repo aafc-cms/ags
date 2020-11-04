@@ -108,6 +108,10 @@ class System4xxOverride extends ControllerBase implements ContainerInjectionInte
         // Legacy Public Service Request form dcrid
         Utils::gotoLegacy('<front>', ['language' => $language], '301'); // @TODO , find the route for this.
         break;
+      case '1288028994039':
+        // Legacy Pay, Benefits and Phoenix dcrid (there were two dcrid for this for some reason).
+        Utils::gotoLegacy('/node/76', ['language' => $language], '301'); // The new page.
+        break;
       default:
         break;
     }
