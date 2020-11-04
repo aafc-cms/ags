@@ -12,6 +12,7 @@ use Drupal\views\ViewExecutable;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Site\Settings;
 
+
 /**
  * Implements hook_preprocess_html().
  */
@@ -1071,21 +1072,22 @@ function agri_admin_content_moderation_notification_mail_data_alter(Drupal\Core\
     $currentModState = $entity->get('moderation_state')->getString();
     $nType = $entity->bundle();
     if ($nType == 'news'){
-      if ($currentModState == 'draft'){
-        $ids = \Drupal::entityQuery('user')
-        ->condition('status', 1)
-        ->condition('roles', 'news_ccpub')
-        ->execute();
-        $users = User::loadMultiple($ids);
-        foreach ($users as $user) {
-          $data['to'][] = $user->getEmail();
-        }
-        $newsSubmitterEmail = $entity->get('field_newssubmitteremail')->value;
-        $data['to'][] = $newsSubmitterEmail;
-        //Get this email from settings.local.php file if specified 
-        //aafc.newsatwork-nouvellesalouvrage.aac@canada.ca on prod 
+      //only send the email when the first draft is created
+      if ($currentModState == 'draft' &&  \Drupal::currentUser()->isAnonymous()){
+        $data['to'][] = $entity->get('field_newssubmitteremail')->value;
+        $data['to'][] = $entity->get('field_newsreviewedby')->value;
+        //The following emails will be read from the settings.local.php file if specified 
+        //news_generic_email: aafc.newsatwork-nouvellesalouvrage.aac@canada.ca on prod
         //and aafc.cmswebapps-sgcappsweb.aac@canada.ca on all other environments
-        //In case email is not specified in settings.local.php, only the submitter and the ccpub group will get the email
+        $data['to'][] = Settings::get('news_generic_email');
+        $data['to'][] = Settings::get('comm_advisor_1');
+        $data['to'][] = Settings::get('comm_advisor_2');
+      }
+      elseif ($currentModState == 'published'){
+        //When publishing all recepients specified above will recieve an email except the comm_advisor_2
+        $data['to'][] = $entity->get('field_newssubmitteremail')->value;
+        $data['to'][] = $entity->get('field_newsreviewedby')->value;
+        $data['to'][] = Settings::get('comm_advisor_1');
         $data['to'][] = Settings::get('news_generic_email');
       }
       else {
@@ -1093,21 +1095,12 @@ function agri_admin_content_moderation_notification_mail_data_alter(Drupal\Core\
       }
     }
     elseif ($nType == 'empl'){
-      if ($currentModState == 'draft'){
-        $ids = \Drupal::entityQuery('user')
-        ->condition('status', 1)
-        ->condition('roles', 'empl_cspub')
-        ->execute();
-        $users = User::loadMultiple($ids);
-        foreach ($users as $user) {
-          $data['to'][] = $user->getEmail();
-        }
-        $emplSubmitterEmail = $entity->get('field_employmentrequestoremail')->value;
-        $data['to'][] = $emplSubmitterEmail;
-        //Get this email from settings.local.php file 
-        //aafc.hrcentrerh.aac@canada.ca on prod 
+      //only send the email when the first draft is created
+      if ($currentModState == 'draft' &&  \Drupal::currentUser()->isAnonymous()){
+        $data['to'][] = $entity->get('field_employmentrequestoremail')->value;
+        //The following emails will be read from the settings.local.php file if specified
+        //empl_generic_email: aafc.hrcentrerh.aac@canada.ca on prod
         //and aafc.cmswebapps-sgcappsweb.aac@canada.ca on all other environments
-        //In case email is not specified in settings.local.php, only the submitter and the cspub group will get the email
         $data['to'][] = Settings::get('empl_generic_email');
         //Get classification information to display in the email
         $classification   = '';
