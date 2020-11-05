@@ -5,6 +5,17 @@ printf "execute post_install.sh\n";
 trap "sudo configureSettingsFile" SIGINT SIGTERM
 
 live=0
+if [ -z $ENV_NAME ]; then
+  # Do nothing.
+  sed -i "s+^error_level: .*$+error_level: all+g" custom/config/splits/dev/system.logging.yml
+else
+  if [ $ENV_NAME == "prod" ]; then
+    sed -i "s+^error_level: .*$+error_level: some+g" custom/config/splits/live/system.logging.yml
+  else
+    sed -i "s+^error_level: .*$+error_level: all+g" custom/config/splits/dev/system.logging.yml
+    sed -i "s+^error_level: .*$+error_level: all+g" custom/config/splits/live/system.logging.yml
+  fi
+fi
 if [ -z $1 ]; then
   echo "dev environment setup.";
   if [ -f html/sites/default/default.settings.php ]; then
