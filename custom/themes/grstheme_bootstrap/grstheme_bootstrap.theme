@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\agri_admin\Utils;
+
 /**
  * @file
  * WxT Bootstrap sub-theme.
@@ -8,6 +10,12 @@
  */
 
 function grstheme_bootstrap_preprocess_html(&$variables) {
+  $route_match = Utils::getRouteName();
+  if ($route_match == 'email_template.content') {
+    // Removes the json drupal settings that is added to the page.
+    // The email sending tool doesn't like this part so we're removing it.
+    unset($variables['#attached']); // Not needed for the en/news-bulletin-email page.
+  }
 
   $current_path = \Drupal::service('path.current')->getPath();
   $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
@@ -140,6 +148,8 @@ function grstheme_bootstrap_preprocess_html(&$variables) {
   else {
     $variables['#attached']['library'][] = 'grstheme_bootstrap/grstheme-externaladobetmstagingjs';
   }
+
+
 }
 
 
