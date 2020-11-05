@@ -126,9 +126,10 @@ class System4xxOverride extends ControllerBase implements ContainerInjectionInte
    */
   public function on404() {
     $dcrid = \Drupal\Component\Utility\Xss::filter(\Drupal::request()->query->get('id'));
+    $lang_param = \Drupal\Component\Utility\Xss::filter(\Drupal::request()->query->get('lang'));
     $request_uri = \Drupal::request()->getRequestUri();
     $language = \Drupal::languageManager()->getCurrentLanguage();
-    if (stripos($request_uri, '/fra') !== FALSE) {
+    if ((!empty($lang_param) && $lang_param == 'fra') || stripos($request_uri, '/fra') !== FALSE) {
       $language = \Drupal::languageManager()->getLanguage('fr');
     }
 
