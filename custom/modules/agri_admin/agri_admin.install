@@ -1,5 +1,8 @@
 <?php
 
+use \Drupal\field\Entity\FieldStorageConfig;
+use \Drupal\field\Entity\FieldConfig;
+
 /**
  * @file
  * Install, update and uninstall functions for the Agri Admin module.
@@ -129,3 +132,77 @@ function agri_admin_update_8003() {
 //function agri_admin_update_8004() {
 //  agri_admin_update_8001();
 //}
+
+
+/**
+ * Change node__field_created_by from string 25 to string 100.
+ */
+function agri_admin_update_8004() {
+  $database = \Drupal::database();
+  $table = 'node__field_created_by';
+  $entity_type = 'node';
+  $field_name = 'field_created_by';
+
+  $field_storage = FieldStorageConfig::loadByName($entity_type, $field_name);
+
+  if (is_null($field_storage)) {
+    return;
+  }
+
+  $rows = NULL;
+
+  if ($database->schema()->tableExists($table)) {
+    // The table data to restore after the update is completed.
+    $rows = $database->select($table, 'n')
+      ->fields('n')
+      ->execute()
+      ->fetchAll();
+  }
+
+  $new_fields = array();
+
+  // Use existing field config for new field.
+  foreach ($field_storage->getBundles() as $bundle => $label) {
+    $field = FieldConfig::loadByName($entity_type, $bundle, $field_name);
+    $new_field = $field->toArray();
+    $new_field['field_type'] = 'string';
+    $new_field['settings'] = array();
+
+    $new_fields[] = $new_field;
+  }
+
+  // Deleting field storage which will also delete bundles(fields).
+  $new_field_storage = $field_storage->toArray();
+  $new_field_storage['type'] = 'string';
+  $new_field_storage['settings'] = array(
+    'max_length' => 100,
+    'is_ascii' => FALSE,
+    'case_sensitive' => FALSE,
+  );
+
+  $field_storage->delete();
+
+  // Purge field data now to allow new field and field_storage with same name
+  // to be created. You may need to increase batch size.
+  field_purge_batch(10);
+
+  // Create new field storage.
+  $new_field_storage = FieldStorageConfig::create($new_field_storage);
+  $new_field_storage->save();
+
+  // Create new fields.
+  foreach ($new_fields as $new_field) {
+    $new_field = FieldConfig::create($new_field);
+    $new_field->save();
+  }
+
+  // Restore existing data in the same table.
+  if (!is_null($rows)) {
+    foreach ($rows as $row) {
+      $database->insert($table)
+        ->fields((array) $row)
+        ->execute();
+    }
+  }
+
+}
