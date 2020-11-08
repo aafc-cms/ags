@@ -145,23 +145,37 @@ if [ ! -d "html/libraries/jquery-ui-touch-punch" ]; then
         mv jquery.ui.touch-punch.min.js html/libraries/jquery-ui-touch-punch;
 fi
 
-if [ ! -f html/sites.php ]; then
-  rm html/splash.php
+if [ -f html/splash.php && ! -L html/splash.php]; then
+  echo "rm html/splash.php"
+        rm html/splash.php
 fi
 if [ ! -L html/splash.php ]; then
-  cd html
-  ln -s ../custom/splash/splash.php splash.php
-  cd ..;
+  echo "chmod 775 html"
+        chmod 775 html
+  echo "cd html"
+        cd html
+  echo "ln -s ../custom/splash/splash.php splash.php"
+        ln -s ../custom/splash/splash.php splash.php
+  echo "cd ..;"
+        cd ..;
 fi
 if [ ! -L html/splash-fancy.php ]; then
-  cd html
-  ln -s ../custom/splash/splash-fancy.php splash-fancy.php
-  cd ..;
+  echo "cd html"
+        cd html
+  echo "ln -s ../custom/splash/splash-fancy.php splash-fancy.php"
+        ln -s ../custom/splash/splash-fancy.php splash-fancy.php
+  echo "cd .."
+        cd ..
 fi
 if [ ! -L html/sites/default/splash ]; then
-  pushd html/sites/default;
-  ln -s ../../../custom/splash/sites/default/splash splash
-  popd;
+  echo "chmod 775 html/sites/default"
+        chmod 775 html/sites/default
+  echo "pushd html/sites/default;"
+        pushd html/sites/default;
+  echo "ln -s ../../../custom/splash/sites/default/splash splash"
+        ln -s ../../../custom/splash/sites/default/splash splash
+  echo "popd;"
+        popd;
 fi
 if [ ! -L html/sites/default/splash-fancy ]; then
   pushd html/sites/default;
@@ -190,14 +204,16 @@ then
   echo "Database settings in html/sites/default/settings.php is already configured.";
   dbSetupTest=1;
 else
+  echo "chmod 775 html/sites/default"
+        chmod 775 html/sites/default
   echo "Assuming that the mysql database name is the same as the username.\n";
-  echo "\n";
+  printf "\n";
   read -t 60 -p 'Mysql database Username: default (60 seconds) is: username:' uservar
   read -t 60 -sp 'Mysql database Password: default (60 seconds) is: password:' passvar
   settings_file=html/sites/default/settings.php;
-  echo "\n";
+  printf "\n";
   read -t 2 -p "Confirm username $uservar" confirm
-  echo "\n";
+  printf "\n";
 
   if [ -z $passvar ]; then
     passvar=`whoami`;
@@ -205,6 +221,8 @@ else
   if [ -z $uservar ]; then
     userver=`whoami`;
   fi
+  echo "chmod 664 $settings_file"
+        chmod 664 $settings_file
   echo "\$databases['default']['default'] = array (" >> $settings_file 
   echo "  'database' => '$uservar'," >> $settings_file
   echo "    'username' => '$uservar'," >> $settings_file
@@ -215,5 +233,7 @@ else
   echo "    'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql'," >> $settings_file
   echo "    'driver' => 'mysql'," >> $settings_file
   echo "  );" >> $settings_file
+  echo "chmod 555 html/sites/default"
+        chmod 555 html/sites/default
 fi
 
