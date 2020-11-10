@@ -783,7 +783,11 @@ display:
     position: 1
     display_options:
       display_extenders:
-        metatag_display_extender: {  }
+        metatag_display_extender:
+          metatags:
+            dcterms_title: '[current-page:title]'
+            dcterms_creator: 'Agriculture and Agri-Food Canada'
+            dcterms_subject: 'News at work list of the latest news items.'
       path: news/newswork
       display_description: ''
       menu:
@@ -792,10 +796,9 @@ display:
         description: ''
         expanded: false
         parent: 'menu_link_content:0e1b0de8-f138-4ba7-bb0a-b04cac201684'
-        weight: 1
+        weight: -100
         context: '0'
         menu_name: main
-        enabled: true
       relationships:
         term_node_tid_1:
           id: term_node_tid_1
