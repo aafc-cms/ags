@@ -265,7 +265,14 @@ function agri_admin_preprocess_views_view_field(&$variables) {
     $field = $variables['field'];
     $row = $variables['row'];
     $node = $row->_entity;
-    $translatednode = $node->getTranslation($lang); // fix French Translation issues
+    if ($entity->hasTranslation($lang)) {
+      // Safely get translation.
+      $translatednode = $node->getTranslation($lang); // fix French Translation issues
+    }
+    else {
+      // Failsafe default.
+      $translatednode = $node;
+    }
     $classification   = '';
     if ($field->field =='field_classification' && $node->getType() == 'empl') {
      // if ($row->_entity->get($field->field)->value) {
@@ -402,12 +409,20 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
         if ($entity->get('changed')->getFieldDefinition()->isTranslatable()) {
           // For some reason we enabled translation for changed field on this.
           if ($langcode == 'en') {
-            $entity->getTranslation('fr')->set('changed', strtotime($date_modified));
-            $entity->getTranslation('en')->set('changed', strtotime($date_modified));
+            if ($entity->hasTranslation('fr')) {
+              $entity->getTranslation('fr')->set('changed', strtotime($date_modified));
+            }
+            if ($entity->hasTranslation('en')) {
+              $entity->getTranslation('en')->set('changed', strtotime($date_modified));
+            }
           }
           else {
-            $entity->getTranslation('en')->set('changed', strtotime($date_modified));
-            $entity->getTranslation('fr')->set('changed', strtotime($date_modified));
+            if ($entity->hasTranslation('en')) {
+              $entity->getTranslation('en')->set('changed', strtotime($date_modified));
+            }
+            if ($entity->hasTranslation('fr')) {
+              $entity->getTranslation('fr')->set('changed', strtotime($date_modified));
+            }
           }
         }
         else {
@@ -1185,7 +1200,12 @@ function  agri_admin_tokens($type, $tokens, array $data, array $options, \Drupal
   $replacements = [];
   if ($type == 'agri-admin' && isset($data['entity']) && $data['entity'] instanceof \Drupal\node\NodeInterface) {
     $entity = $data['entity'];
-    $translated_entity = $entity->getTranslation('fr');
+    if ($entity->hasTranslation('fr')) {
+      $translated_entity = $entity->getTranslation('fr');
+    }
+    else {
+      $translated_entity = $entity;
+    }
     $translated_title = $translated_entity->getTitle();
     $translated_url = $translated_entity->toLink()->toString();
     $current_title = $entity->getTitle();

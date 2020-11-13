@@ -1,0 +1,22 @@
+uuid: cb2a598b-37aa-44c9-bd3b-9b2068427934
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.slideshow_thumbnav
+id: media.slideshow_thumbnav.status
+field_name: status
+entity_type: media
+bundle: slideshow_thumbnav
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,18 @@
+uuid: c0f02781-252d-44d8-9056-7cfe8b9979cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.slideshow_thumbnav
+id: media.slideshow_thumbnav.metatag
+field_name: metatag
+entity_type: media
+bundle: slideshow_thumbnav
+label: Metatags
+description: 'The meta tags for the entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map
