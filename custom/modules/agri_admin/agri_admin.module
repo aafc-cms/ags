@@ -265,7 +265,7 @@ function agri_admin_preprocess_views_view_field(&$variables) {
     $field = $variables['field'];
     $row = $variables['row'];
     $node = $row->_entity;
-    if ($entity->hasTranslation($lang)) {
+    if ($node->hasTranslation($lang)) {
       // Safely get translation.
       $translatednode = $node->getTranslation($lang); // fix French Translation issues
     }
