@@ -1,0 +1,20 @@
+uuid: b4fd888c-c14f-4cea-b25f-dc85a34facc6
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.slideshow_thumbnav
+id: media.slideshow_thumbnav.name
+field_name: name
+entity_type: media
+bundle: slideshow_thumbnav
+label: Name
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+field_type: string
