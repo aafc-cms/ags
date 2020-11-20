@@ -44,7 +44,7 @@ body.role-is-reviewer.path-node, body.role-is-creator.path-node {
 }
 
 // For the reviewer and creator role hide help menu.
-body.role-is-reviewer, body.role-is-creator{ 
+body.role-is-reviewer, body.role-is-creator, body.role-is-news_ccpub{ 
   a[data-drupal-link-system-path="admin/help"]{  
     display: none;
   }
