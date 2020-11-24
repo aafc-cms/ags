@@ -339,8 +339,6 @@ function agri_admin_node_insert(Drupal\Core\Entity\EntityInterface $entity) {
  */
 function agri_admin_node_update(Drupal\Core\Entity\EntityInterface $entity) {
   $entity_id = $entity->id();
-
-
   $action = 'update';
 //  AgriAdminHelper::addToLog(__function__);
 //  AgriAdminHelper::addToLog(print_r($DEBUG_THIS, TRUE), TRUE);
@@ -548,6 +546,44 @@ function _helperUpdateProcess($action, $entity_id, $bundle) {
     if ($bundle == 'page') {
       AgriAdminHelper::disableMenuLink(NULL, $entity_id, 'main', TRUE);
       AgriAdminHelper::disableMenuLink(NULL, $entity_id, 'sidebar');
+    }
+
+    if (\Drupal::currentUser()->isAuthenticated()) {
+      $content_type = $bundle;
+      $entity = \Drupal::entityManager()->getStorage('node')->load($entity_id);
+      if ($content_type == 'page') {
+        $moderation_state = $entity->moderation_state->value;
+        if ($moderation_state == 'archived') {
+          if (AgriAdminHelper::menuLinkAction($entity_id, 'main', 'delete')) {
+            AgriAdminHelper::addMessage(t('Menu link deleted for "%type" now "archived" node id: %id', [
+                 '%id' => $entity_id,
+               '%type' => 'Internal page']
+              )
+            );
+          }
+          else {
+            AgriAdminHelper::addMessage(t('Menu link not found for now "archived" %type node id: %id', ['%id' => $entity_id, '%type' => 'page']));
+          }
+        }
+      }
+      if ($content_type == 'landing_page') {
+        $moderation_state = $entity->moderation_state->value;
+        if ($moderation_state == 'archived') {
+          if (AgriAdminHelper::menuLinkAction($entity_id, 'main', 'disable')) {
+            AgriAdminHelper::addMessage(t('Menu link disabled for "%type" now "archived" node id: %id', [
+                 '%id' => $entity_id,
+               '%type' => 'Landing page']
+              )
+            );
+          }
+          else {
+            AgriAdminHelper::addMessage(t('Menu link not found for now "archived" %type node id: %id', ['%id' => $entity_id, '%type' => 'Landing page']));
+          }
+        }
+        if ($moderation_state != 'archived' && AgriAdminHelper::menuLinkExists($entity_id, 'main')) {
+          $result_code = AgriAdminHelper::menuLinkAction($entity_id, 'main', 'enable');
+        }
+      }
     }
   }
 }
@@ -797,7 +833,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
         if (is_array($news)) {
           $first_nid = array_shift($news);
-          $news = \Drupal\node\Entity\Node::load($first_nid);
+          $news = \Drupal::entityManager()->getStorage('node')->load($first_nid);
         }
         if ($news->hasTranslation($langcode)) {
           $news = $news->getTranslation($langcode);
@@ -813,7 +849,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         ->execute();
       if (is_array($news_at_work)) {
         $first_nid = array_shift($news_at_work);
-        $news_at_work = \Drupal\node\Entity\Node::load($first_nid);
+        $news_at_work = \Drupal::entityManager()->getStorage('node')->load($first_nid);
       }
       if ($news_at_work) {
         $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
@@ -844,7 +880,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
         if (is_array($hr)) {
           $first_nid = array_shift($hr);
-          $hr = \Drupal\node\Entity\Node::load($first_nid);
+          $hr = \Drupal::entityManager()->getStorage('node')->load($first_nid);
         }
         if ($hr->hasTranslation($langcode)) {
           $hr = $hr->getTranslation($langcode);
@@ -887,7 +923,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
         if (is_array($news)) {
           $first_nid = array_shift($news);
-          $news = \Drupal\node\Entity\Node::load($first_nid);
+          $news = \Drupal::entityManager()->getStorage('node')->load($first_nid);
         }
         if ($news->hasTranslation($langcode)) {
           $news = $news->getTranslation($langcode);
@@ -904,7 +940,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         ->execute();
       if (is_array($news_at_work)) {
         $first_nid = array_shift($news_at_work);
-        $news_at_work = \Drupal\node\Entity\Node::load($first_nid);
+        $news_at_work = \Drupal::entityManager()->getStorage('node')->load($first_nid);
       }
       if ($news_at_work) {
         $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
@@ -933,7 +969,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
         if (is_array($hr)) {
           $first_nid = array_shift($hr);
-          $hr = \Drupal\node\Entity\Node::load($first_nid);
+          $hr = \Drupal::entityManager()->getStorage('node')->load($first_nid);
         }
         if ($hr->hasTranslation($langcode)) {
           $hr = $hr->getTranslation($langcode);
@@ -949,7 +985,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         ->execute();
       if (is_array($staffing)) {
         $first_nid = array_shift($staffing);
-        $staffing = \Drupal\node\Entity\Node::load($first_nid);
+        $staffing = \Drupal::entityManager()->getStorage('node')->load($first_nid);
       }
       if ($staffing) {
         $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
