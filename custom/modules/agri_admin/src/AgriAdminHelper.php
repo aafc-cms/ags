@@ -152,6 +152,36 @@ class AgriAdminHelper {
     return FALSE;
   }
 
+  /**
+   * $action = disable or delete or enable.
+   */
+  static public function menuLinkAction($nid, $menu_name = 'main', $action = 'disable') {
+    static::addToLog(__function__);
+    $menuLink = \Drupal::entityTypeManager()->getStorage('menu_link_content')
+      ->loadByProperties([
+        'link.uri' => 'entity:node/' . $nid,
+        'menu_name' => $menu_name,
+      ]);
+    $menuLink = reset($menuLink);
+    if (isset($menuLink) && !empty($menuLink)) {
+      static::addToLog('Menu Link Exists,<pre>id=' . print_r($menuLink->id(), TRUE) . '</pre>');
+      if ($action == 'disable') {
+        $menuLink->set('enabled', FALSE);
+        $menuLink->save();
+      }
+      if ($action == 'delete') {
+        $menuLink->delete();
+      }
+      if ($action == 'enable') {
+        $menuLink->set('enabled', TRUE);
+        $menuLink->save();
+      }
+      return TRUE;
+    }
+    static::addToLog($menu_name . ' menu link for nid does not yet exist: nid=<pre>' . print_r($nid, TRUE) . '</pre>');
+    return FALSE;
+  }
+
   static public function menuLinkExists($nid, $menu_name = 'sidebar') {
     static::addToLog(__function__);
     $menuLink = \Drupal::entityTypeManager()->getStorage('menu_link_content')
