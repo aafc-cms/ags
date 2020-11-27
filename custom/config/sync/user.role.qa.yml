@@ -1,0 +1,24 @@
+uuid: 314fff8d-2749-4c00-9b2b-01755db59065
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+third_party_settings:
+  lightning_core:
+    description: 'Verification Team'
+id: qa
+label: QA
+weight: -1
+is_admin: null
+permissions:
+  - 'access panels in-place editing'
+  - 'access site in maintenance mode'
+  - 'access tokens overview'
+  - 'access toolbar'
+  - 'agrisource admin styles'
+  - 'use ipe with page manager'
+  - 'use panels dashboard'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view the administration theme'

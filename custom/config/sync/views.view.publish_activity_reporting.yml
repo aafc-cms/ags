@@ -8,8 +8,8 @@ dependencies:
     - node.type.landing_page
     - node.type.news
     - node.type.page
-    - user.role.administrator
-    - user.role.editor
+    - system.menu.admin
+    - user.role.qa
     - workflows.workflow.editorial
   module:
     - better_exposed_filters
@@ -40,8 +40,7 @@ display:
         type: role
         options:
           role:
-            administrator: administrator
-            editor: editor
+            qa: qa
       cache:
         type: none
         options: {  }
@@ -528,7 +527,7 @@ display:
           relationship: nid
           group_type: group
           admin_label: ''
-          label: '1st Published'
+          label: Old/New
           exclude: false
           alter:
             alter_text: false
@@ -960,7 +959,7 @@ display:
             encoding: utf8
             utf8_bom: '0'
             use_serializer_encode_only: false
-      path: admin/publish_activity.csv
+      path: admin/publish_activity_csv
       filename: ''
       automatic_download: false
       store_in_public_file_directory: false
@@ -1031,6 +1030,20 @@ display:
                   is_secondary: false
       defaults:
         exposed_form: false
+      menu:
+        type: normal
+        title: 'Publish Activity Report'
+        description: 'Generate Publish Activity Report (for Verification team)'
+        expanded: false
+        parent: system.admin
+        weight: 0
+        context: '0'
+        menu_name: admin
+      tab_options:
+        type: normal
+        title: Content
+        description: ''
+        weight: 0
     cache_metadata:
       max-age: -1
       contexts:
