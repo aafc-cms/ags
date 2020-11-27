@@ -144,8 +144,6 @@
         },
         "patches": {
             "drupal/core": {
-                "wcag remove rel='revision' link attribute":
-                "https://www.drupal.org/files/issues/2020-01-02/2454915-w3c-entity-links.patch",
                 "file usage bug fixes":
                 "https://www.drupal.org/files/issues/2020-04-03/2810355-64.patch",
                 "core views module fix for breadcrumb title and page title":
@@ -205,17 +203,11 @@
                 "Bulk media upload should have an option to select the target media entity bundle":
                 "https://www.drupal.org/files/issues/2019-11-29/lightning_bulk_upload_form-3097516-2.patch"
             },
-            "drupal/moderated_content_bulk_publish": {
-                "Customize javascript as per Lakshman patch":
-                "https://www.drupal.org/files/issues/2020-10-21/custom_js-3171167-14.patch"
-            },
             "drupal/moderation_sidebar": {
                 "Synchronize moderation states between all translations of the entity":
                 "https://www.drupal.org/files/issues/2020-06-17/sync_all_translations_states-3143559-18.patch"
             },
             "drupal/token": {
-                "Add current language token.":
-                "https://www.drupal.org/files/issues/2019-03-15/2863200-23.patch",
                 "Token module patch issue 2906445.":
                  "https://www.drupal.org/files/issues/2020-01-04/2906445-token-entity-reference-returns-default-language-5.patch"
             },
@@ -225,19 +217,13 @@
                 "Allow creator role to use the search and replace functionality.":
                 "https://www.drupal.org/files/issues/2020-06-22/scanner-grant_without_administer_nodes-3153873-2.patch"
             },
+            "drupal/views_data_export": {
+                "Allow altering row data for csv export, adds a hook called hook_views_data_export_row_alter":
+                "https://www.drupal.org/files/issues/2020-08-18/views-data-export-row-hook-3015117-7.patch"
+            },
             "drupal/wxt_bootstrap": {
-                "WCAG - two nav elements when there may be only one li element 3169971":
-                "https://www.drupal.org/files/issues/2020-10-20/WCAG-two-nav-elements-screen-reader-tweak-3169971-12.patch",
-                "Change H2 block-title for WxT Language Switcher and WxT Search Form to DIV hidden 3164047":
-                "https://www.drupal.org/files/issues/2020-08-10/change-h2-to-div-hidden-language-switcher-search-blocks-3164047-8.patch",
-                "Skip Links should be wrapped in a landmark 3164554":
-                "https://www.drupal.org/files/issues/2020-08-11/Skip-Links-should-be-wrapped-in-landmark-3164554-2.patch",
                 "WCAG - Add roles to all menu UL LI and AHREF / LINK 3164631":
                 "https://www.drupal.org/files/issues/2020-10-16/wcag-add-roles-to-all-menu-ul-li-ahref-link-3164631-17.patch"
-            },
-            "drupal/wxt_library": {
-                "WCAG accessibility fix for search form on all wxt based projects.":
-                "https://www.drupal.org/files/issues/2020-05-13/wxt_library_3136270-4.patch"
             }
         },
         "patches-ignore": {
@@ -269,7 +255,7 @@
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6.7",
         "oomphinc/composer-installers-extender": "^1.1",
-        "drupalwxt/wxt": "^3.0.14",
+        "drupalwxt/wxt": "^3.0.18",
         "drupal/core-composer-scaffold": "*",
         "drush/drush": "^10.0",
         "entreprise7pro/agri_admin": "*",
