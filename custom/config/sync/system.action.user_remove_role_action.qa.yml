@@ -1,0 +1,14 @@
+uuid: 6bed1388-32b5-465f-b5af-00e0973fd23d
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.qa
+  module:
+    - user
+id: user_remove_role_action.qa
+label: 'Remove the QA role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: qa
