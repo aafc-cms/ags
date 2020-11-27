@@ -66,10 +66,6 @@ function agri_admin_page_attachments(array &$page) {
       $page['#attached']['library'][] = 'agri_admin/content-plugins-changes';
       $page['#attached']['drupalSettings']['agrisource']['show_restricted_plugins_permissions'] = $user->hasPermission('agrisource show restricted plugins');
     }
-    if ($current_route == 'view.publish_activity_reporting.page_1') {
-      // Only load this css for the publish activity reporting view page.
-      $page['#attached']['library'][] = 'agri_admin/publish-activity';
-    }
   }
 }
 

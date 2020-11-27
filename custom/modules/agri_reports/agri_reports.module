@@ -1,5 +1,8 @@
 <?php
 
+use Drupal\agri_admin\AgriAdminHelper;
+use Drupal\agri_admin\Utils;
+
 /**
  * @file
  * Primary module hooks for AgriSource Reports module.
@@ -8,3 +11,12 @@
  * This file is no longer required in Drupal 8.
  * @see https://www.drupal.org/node/2217931
  */
+
+function agri_reports_page_attachments(array &$page) {
+  $current_route = \Drupal::routeMatch()->getRouteName();
+  if ($current_route == 'view.publish_activity_reporting.page_1') {
+    // Only load this css for the publish activity reporting view page.
+    $page['#attached']['library'][] = 'agri_reports/publish-activity';
+  }
+}
+
