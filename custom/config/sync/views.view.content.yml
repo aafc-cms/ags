@@ -1793,6 +1793,9 @@ display:
           selected_actions:
             - archive_current
             - convert_bundles_on_node
+            - node_break_lock_action
+            - node_delete_action
+            - publish_latest
             - unpublish_current
           plugin_id: node_bulk_form
           entity_type: node
