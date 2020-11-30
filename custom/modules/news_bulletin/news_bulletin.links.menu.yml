@@ -1,8 +1,13 @@
 news_bulletin.page:
   route_name: news_bulletin.content
-  title: News At Work Bulletin
+  title: news@work Bulletin (NCR only)
   parent: system.admin_content
   weight: -100
+news_bulletin_nonncr.page:
+  route_name: news_bulletin_nonncr.content
+  title: news@work Bulletin (Outside NCR)
+  parent: system.admin_content
+  weight: -99
 #news_bulletin.email:
 #  route_name: email_template.content
 #  title: News At Work Email Template

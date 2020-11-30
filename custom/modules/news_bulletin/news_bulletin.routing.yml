@@ -2,7 +2,16 @@ news_bulletin.content:
   path: '/news-at-work-bulletin'
   defaults:
     _controller: '\Drupal\news_bulletin\Controller\NewsBulletinController::content'
-    _title: 'News At Work Bulletin'
+    _title: 'new@work Bulletin - NCR only'
+  requirements:
+    _permission: 'access content'
+  options:
+    no_cache: 'TRUE'
+news_bulletin_nonncr.content:
+  path: '//news-at-work-bulletin/outside-ncr'
+  defaults:
+    _controller: '\Drupal\news_bulletin\Controller\NewsBulletinController::content'
+    _title: 'Outside NCR'
   requirements:
     _permission: 'access content'
   options:
@@ -28,3 +37,15 @@ email_template.content:
     _permission: 'access content'
   options:
     no_cache: 'TRUE'
+news_bulletin_nonncr.set_temp_config:
+  path: '/news-at-work-bulletin/outside-ncr/set_temp_config'
+  defaults:
+    _controller: '\Drupal\news_bulletin\Controller\NewsBulletinController::setTempConfig'
+  requirements:
+    _permission: 'access content'
+news_bulletin_nonncr.get_temp_config:
+  path: '/news-at-work-bulletin/outside-ncr/get_temp_config'
+  defaults:
+    _controller: '\Drupal\news_bulletin\Controller\NewsBulletinController::getTempConfig'
+  requirements:
+    _permission: 'access content'

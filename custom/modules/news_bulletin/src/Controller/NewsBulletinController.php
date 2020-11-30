@@ -132,6 +132,7 @@ class NewsBulletinController extends ControllerBase {
    * @return array
    */
   public function content() {
+    $this->tempStore = NULL;
     if (\Drupal::routeMatch()->getRouteName() == 'news_bulletin.content') {
       if (\Drupal::currentUser()->isAuthenticated()) {
         // Was doing this to eliminate admin rendering but template changes should have stripped most of that out.
@@ -140,19 +141,31 @@ class NewsBulletinController extends ControllerBase {
         //$session_manager->delete(\Drupal::currentUser()->id());
       }
     }
-    return [
-//      '#type' => 'markup',
-      '#theme' => 'news_bulletin',
-      '#news_types' => $this->getNewsTypes(),
-      '#news_items' => $this->getNewsItems(),
-      '#types_by_weight' => $this->getTypesByWeight(),
-//      '#markup' => $this->t('Hello, World!'),
-//      '#attached' => ['library' => ['news_bulletin/bulletins']] // OR add this through the twig template
-    ];
+
+    if (\Drupal::routeMatch()->getRouteName() == 'news_bulletin.content') {
+      \Drupal::logger('agri_admin')->notice(" call news_bulletin.content " );
+      return [
+        '#theme' => 'news_bulletin',
+        '#news_types' => $this->getNewsTypes(),
+        '#news_items' => $this->getNewsItems(FALSE),
+        '#types_by_weight' => $this->getTypesByWeight(FALSE),
+      ];
+    }
+    else {
+      if (\Drupal::routeMatch()->getRouteName() == 'news_bulletin_nonncr.content') {
+        \Drupal::logger('agri_admin')->notice(" news_bulletin_nonncr.content" );
+        return [
+          '#theme' => 'news_bulletin',
+          '#news_types' => $this->getNewsTypes(),
+          '#news_items' => $this->getNewsItems(TRUE),
+          '#types_by_weight' => $this->getTypesByWeight(TRUE),
+        ];
+      }
+    }
   }
 
 
-  public function getNewsItems() {
+  public function getNewsItems($outside = FALSE) {
 
     $view = Views::getView('newsatworkbulletin');
 
@@ -178,25 +191,52 @@ class NewsBulletinController extends ControllerBase {
       }
       $nid = $node->id();
       $new_item = true;
-      foreach ($custom_results as $key_test => $value) {
-        // Distinct workaround, view is outputting duplicate nodes.
-        if (isset($custom_results[$key_test]['nid'])) {
-          if ($custom_results[$key_test]['nid'] == $nid) {
-            $new_item = false;
+      $to =  $node->get('field_to')->value;
+      if (( $to == 'ncr' || $to == 'all') && !$outside ) {
+        foreach ($custom_results as $key_test => $value) {
+          // Distinct workaround, view is outputting duplicate nodes.
+          if (isset($custom_results[$key_test]['nid'])) {
+            if ($custom_results[$key_test]['nid'] == $nid) {
+              $new_item = false;
+            }
           }
         }
+        if ($new_item) {
+          $type_name = $node->get('field_newstype')->entity->getName();
+          $word_array = str_word_count($type_name, 1);
+          $custom_results[$id]['first_word'] = strtolower($word_array[0]);
+          $custom_results[$id]['newstype'] = $type_name;
+          $custom_results[$id]['term_id'] = $node->get('field_newstype')->target_id;
+          $custom_results[$id]['summary'] = $summary;
+          $custom_results[$id]['from'] = $node->get('field_from')->value;
+          $custom_results[$id]['nid'] = $node->id();
+          $custom_results[$id]['title'] = $node->getTitle();
+          $custom_results[$id]['weight'] = $termweight;
+        }
       }
-      if ($new_item) {
-        $type_name = $node->get('field_newstype')->entity->getName();
-        $word_array = str_word_count($type_name, 1);
-        $custom_results[$id]['first_word'] = strtolower($word_array[0]);
-        $custom_results[$id]['newstype'] = $type_name;
-        $custom_results[$id]['term_id'] = $node->get('field_newstype')->target_id;
-        $custom_results[$id]['summary'] = $summary;
-        $custom_results[$id]['from'] = $node->get('field_from')->value;
-        $custom_results[$id]['nid'] = $node->id();
-        $custom_results[$id]['title'] = $node->getTitle();
-        $custom_results[$id]['weight'] = $termweight;
+      else {
+        if (( $to == 'other' || $to == 'all') && $outside ) {
+          foreach ($custom_results as $key_test => $value) {
+            // Distinct workaround, view is outputting duplicate nodes.
+            if (isset($custom_results[$key_test]['nid'])) {
+              if ($custom_results[$key_test]['nid'] == $nid) {
+                $new_item = false;
+              }
+            }
+          }
+          if ($new_item) {
+            $type_name = $node->get('field_newstype')->entity->getName();
+            $word_array = str_word_count($type_name, 1);
+            $custom_results[$id]['first_word'] = strtolower($word_array[0]);
+            $custom_results[$id]['newstype'] = $type_name;
+            $custom_results[$id]['term_id'] = $node->get('field_newstype')->target_id;
+            $custom_results[$id]['summary'] = $summary;
+            $custom_results[$id]['from'] = $node->get('field_from')->value;
+            $custom_results[$id]['nid'] = $node->id();
+            $custom_results[$id]['title'] = $node->getTitle();
+            $custom_results[$id]['weight'] = $termweight;
+          }
+        }
       }
     }
 
@@ -205,8 +245,8 @@ class NewsBulletinController extends ControllerBase {
     return $custom_results;
   }
 
-  public function getTypesByWeight() {
-    $news_items = $this->getNewsItems();
+  public function getTypesByWeight($outside = FALSE) {
+    $news_items = $this->getNewsItems($outside );
     $types_by_weight = []; // array.
     $vid = 'news_type';
     $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
