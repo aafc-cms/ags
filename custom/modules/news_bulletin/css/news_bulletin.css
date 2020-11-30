@@ -73,7 +73,8 @@
 }
 
 
-.newsatworkbulletin div.container form#news-bulletin-form-1  table {
+.newsatworkbulletin div.container form#news-bulletin-form-1  table,
+.newsatworkbulletinoutsidencr div.container form#news-bulletin-form-1  table  {
   border-spacing: 0px;
   font-size: 12px !important;
   box-sizing: border-box;
@@ -82,28 +83,35 @@
   -webkit-box-sizing: border-box;
 }
 
-.newsatworkbulletin table.table td {
+.newsatworkbulletin table.table td,
+.newsatworkbulletinoutsidencr table.table td {
   position: relative;
 }
 
-.newsatworkbulletin table.table td input {
+.newsatworkbulletin table.table td input,
+.newsatworkbulletinoutsidencr table.table td input {
   position: absolute;
   right: 5px;
   top: -2px;
   transform: scale(1.2);
 }
 
-.newsatworkbulletin div.container form#news-bulletin-form-1  table td {
+.newsatworkbulletin div.container form#news-bulletin-form-1  table td,
+.newsatworkbulletinoutsidencr div.container form#news-bulletin-form-1  table td {
   padding: 0px;
 }
 
-.newsatworkbulletin div.container form#news-bulletin-form-1  table tr th {
+.newsatworkbulletin div.container form#news-bulletin-form-1  table tr th,
+.newsatworkbulletinoutsidencr div.container form#news-bulletin-form-1  table tr th {
   border-bottom: 0px;
 }
 
 .newsatworkbulletin .table thead tr th, .newsatworkbulletin .table  thead  tr  td,
 .newsatworkbulletin .table tbody tr th, .newsatworkbulletin .table  tbody  tr  td,
-.newsatworkbulletin .table tfoot tr th, .newsatworkbulletin .table  tfoot  tr  td {
+.newsatworkbulletin .table tfoot tr th, .newsatworkbulletin .table  tfoot  tr  td,
+.newsatworkbulletinoutsidencr .table thead tr th, .newsatworkbulletinoutsidencr .table  thead  tr  td,
+.newsatworkbulletinoutsidencr .table tbody tr th, .newsatworkbulletinoutsidencr .table  tbody  tr  td,
+.newsatworkbulletinoutsidencr .table tfoot tr th, .newsatworkbulletinoutsidencr .table  tfoot  tr  td {
   border-top: 0px;
 }
 
@@ -182,7 +190,8 @@ table.table tbody thead {
   visibility: hidden !important;
 }
 
-.newsatworkbulletin .table thead .tb-news-group-title {
+.newsatworkbulletin .table thead .tb-news-group-title,
+.newsatworkbulletinoutsidencr .table thead .tb-news-group-title  {
   font-size: larger;
   font-weight: bold;
   vertical-align: middle;
@@ -248,11 +257,13 @@ tr .ajax-progress-throbber .throbber {
   left: 260px;
 }
 
-body.newsatworkbulletin th.tb-news-group-title {
+body.newsatworkbulletin th.tb-news-group-title ,
+body.newsatworkbulletinoutsidencr th.tb-news-group-title{
   max-width: 100px;
 }
 
 body.newsatworkbulletin .table > thead > tr > th,
+body.newsatworkbulletinoutsidencr .table > thead > tr > th,
   .table > thead > tr > td,
   .table > tbody > tr > th,
   .table > tbody > tr > td,

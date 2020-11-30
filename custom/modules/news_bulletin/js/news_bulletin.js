@@ -134,6 +134,8 @@ var NewsBulletin = function() {
     setupNodeSort();
 
     initWhenReady();
+    //initialized call sort order
+    NewsBulletin.setNewsTypeOrder();
     newsbulletin.initialized = true;
     return newsbulletin.initialized;
   }

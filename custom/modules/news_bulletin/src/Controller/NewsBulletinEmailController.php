@@ -9,6 +9,8 @@ use Drupal\agri_admin\AgriAdminHelper;
 use Drupal\user\PrivateTempStoreFactory;
 use Drupal\Core\Database\Driver\mysql\Connection;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Drupal\Core\Url;
 
 
 class NewsBulletinEmailController extends ControllerBase {
@@ -62,19 +64,34 @@ class NewsBulletinEmailController extends ControllerBase {
    * @return array
    */
   public function content() {
-    return [
-//      '#type' => 'markup',
-      '#theme' => 'news_bulletin_email',
-      '#news_types' => $this->getNewsTypes(),
-      '#news_items' => $this->reOrderNodeWeights(),
-      '#types_by_weight' => $this->reOrderTypeWeights(),
-      '#news_types_fr' => $this->getNewsTypes('fr'),
-      '#news_items_fr' => $this->reOrderNodeWeights('fr'),
-      '#types_by_weight_fr' => $this->reOrderTypeWeights('fr'),
-      '#vars_array' => $this->options()
-//      '#markup' => $this->t('Hello, World!'),
-//      '#attached' => ['library' => ['email_template/bulletins']] // OR add this through the twig template
-    ];
+    $request = \Drupal::request();
+    $referer = $request->headers->get('referer');
+    if (strpos($referer, 'outside-ncr') == false)  {
+      return [
+        '#theme' => 'news_bulletin_email',
+        '#news_types' => $this->getNewsTypes(),
+        '#news_items' => $this->reOrderNodeWeights('en', FALSE),
+        '#types_by_weight' => $this->reOrderTypeWeights('en', FALSE),
+        '#news_types_fr' => $this->getNewsTypes('fr'),
+        '#news_items_fr' => $this->reOrderNodeWeights('fr', FALSE),
+        '#types_by_weight_fr' => $this->reOrderTypeWeights('fr',FALSE),
+        '#vars_array' => $this->options()
+      ];
+    }
+    else {
+      if (strpos($referer, 'outside-ncr') !== false)  {
+        return [
+          '#theme' => 'news_bulletin_email',
+          '#news_types' => $this->getNewsTypes(),
+          '#news_items' => $this->reOrderNodeWeights('en',TRUE),
+          '#types_by_weight' => $this->reOrderTypeWeights('en',TRUE),
+          '#news_types_fr' => $this->getNewsTypes('fr'),
+          '#news_items_fr' => $this->reOrderNodeWeights('fr',TRUE),
+          '#types_by_weight_fr' => $this->reOrderTypeWeights('fr', TRUE),
+          '#vars_array' => $this->options()
+        ];
+      }
+    }
   }
 
   public function options() {
@@ -95,7 +112,7 @@ class NewsBulletinEmailController extends ControllerBase {
   }
 
 
-  public function getNewsItems($lang = 'en') {
+  public function getNewsItems($lang = 'en', $outside = FALSE) {
     $narrow = 0;
     $view = Views::getView('newsatworkbulletin');
 
@@ -134,28 +151,61 @@ class NewsBulletinEmailController extends ControllerBase {
         $summary = substr($summary, 0, $max) . ' ...';
       }
       $new_item = true;
-      foreach ($custom_results as $key_test => $value) {
-        // Distinct workaround, view is outputting duplicate nodes.
-        if (isset($custom_results[$key_test]['nid'])) {
-          if ($custom_results[$key_test]['nid'] == $nid) {
-            $new_item = false;
+      $to =  $node->get('field_to')->value;
+      $title =  $node->get('title')->value;
+      if (( $to == 'ncr' || $to == 'all') && !$outside ) {
+        foreach ($custom_results as $key_test => $value) {
+          // Distinct workaround, view is outputting duplicate nodes.
+          if (isset($custom_results[$key_test]['nid'])) {
+            if ($custom_results[$key_test]['nid'] == $nid) {
+              $new_item = false;
+            }
           }
         }
-      }
-      if ($new_item) {
-        $custom_results[$id]['newstype'] = $node->get('field_newstype')->entity->getName();
-        $custom_results[$id]['term_id'] = $node->get('field_newstype')->target_id;
-        $custom_results[$id]['summary'] = $summary;
-        $custom_results[$id]['from'] = $node->get('field_from')->value;
-        $custom_results[$id]['nid'] = $node->id();
-        $custom_results[$id]['href'] = $this->getUrlForNode($node, $lang);
-        $custom_results[$id]['image'] = $this->convertBodyToImg($node, $narrow);
-        $custom_results[$id]['image_narrow'] = 0;
-        if ($narrow) {
-          $custom_results[$id]['image_narrow'] = 1;
+        if ($new_item) {
+          $custom_results[$id]['newstype'] = $node->get('field_newstype')->entity->getName();
+          $custom_results[$id]['term_id'] = $node->get('field_newstype')->target_id;
+          $custom_results[$id]['summary'] = $summary;
+          $custom_results[$id]['from'] = $node->get('field_from')->value;
+          $custom_results[$id]['nid'] = $node->id();
+          $custom_results[$id]['href'] = $this->getUrlForNode($node, $lang);
+          $custom_results[$id]['image'] = $this->convertBodyToImg($node, $narrow);
+          $custom_results[$id]['image_narrow'] = 0;
+          if ($narrow) {
+            $custom_results[$id]['image_narrow'] = 1;
+          }
+          $custom_results[$id]['title'] = $node->getTitle();
+          $custom_results[$id]['weight'] = $termweight;
         }
-        $custom_results[$id]['title'] = $node->getTitle();
-        $custom_results[$id]['weight'] = $termweight;
+      }
+      else {
+        if (( $to == 'other' || $to == 'all') && $outside ) {
+          $to =  $node->get('field_to')->value;
+          foreach ($custom_results as $key_test => $value) {
+            // Distinct workaround, view is outputting duplicate nodes.
+            if (isset($custom_results[$key_test]['nid'])) {
+              if ($custom_results[$key_test]['nid'] == $nid) {
+                $new_item = false;
+              }
+            }
+          }
+          if ($new_item) {
+            $custom_results[$id]['newstype'] = $node->get('field_newstype')->entity->getName();
+            $custom_results[$id]['term_id'] = $node->get('field_newstype')->target_id;
+            $custom_results[$id]['summary'] = $summary;
+            $custom_results[$id]['from'] = $node->get('field_from')->value;
+            $custom_results[$id]['nid'] = $node->id();
+            $custom_results[$id]['href'] = $this->getUrlForNode($node, $lang);
+            $custom_results[$id]['image'] = $this->convertBodyToImg($node, $narrow);
+            $custom_results[$id]['image_narrow'] = 0;
+            if ($narrow) {
+              $custom_results[$id]['image_narrow'] = 1;
+            }
+            $custom_results[$id]['title'] = $node->getTitle();
+            $custom_results[$id]['weight'] = $termweight;
+          }
+        }
+
       }
     }
 
@@ -374,8 +424,8 @@ class NewsBulletinEmailController extends ControllerBase {
     return $ordered + $array;
   }
 
-  public function reOrderNodeWeights($lang = 'en') {
-    $unorderedNodes = $this->getNewsItems($lang);
+  public function reOrderNodeWeights($lang = 'en', $outside = FALSE) {
+    $unorderedNodes = $this->getNewsItems($lang, $outside);
     $reorderedNodes = $unorderedNodes; // Safe default values.
     $orderedNodes = $this->getNewsNids($lang);
     if (!empty($orderedNodes)) {
@@ -398,8 +448,8 @@ class NewsBulletinEmailController extends ControllerBase {
     return $ordered + $array;
   }
 
-  public function reOrderTypeWeights($lang = 'en') {
-    $unorderedTypes = $this->getTypesByWeight($lang);
+  public function reOrderTypeWeights($lang = 'en', $outside = FALSE) {
+    $unorderedTypes = $this->getTypesByWeight($lang,  $outside);
     $reorderedTypes = $unorderedTypes; // Safe default values.
     //return $unorderedTypes;
 
@@ -410,8 +460,8 @@ class NewsBulletinEmailController extends ControllerBase {
     return $reorderedTypes;
   }
 
-  public function getTypesByWeight($lang = 'en') {
-    $news_items = $this->getNewsItems();
+  public function getTypesByWeight($lang = 'en', $outside = FALSE) {
+    $news_items = $this->getNewsItems($lang ,$outside);
     $types_by_weight = []; // array.
     $vid = 'news_type';
     $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
