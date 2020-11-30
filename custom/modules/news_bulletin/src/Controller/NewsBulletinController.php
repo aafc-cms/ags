@@ -132,7 +132,6 @@ class NewsBulletinController extends ControllerBase {
    * @return array
    */
   public function content() {
-    $this->tempStore = NULL;
     if (\Drupal::routeMatch()->getRouteName() == 'news_bulletin.content') {
       if (\Drupal::currentUser()->isAuthenticated()) {
         // Was doing this to eliminate admin rendering but template changes should have stripped most of that out.
