@@ -366,7 +366,6 @@ var NewsBulletin = function() {
       success: function(response) {
         //console.log(response);
         // Disable the ajax throbber / spinner for show busy.
-        console.log('set_temp_config is DONE!!');
         jQuery('html, body').css("cursor", "auto");
         jQuery('div.ajax-progress').remove(".ajax-progress-throbber"); // Remove the throbber like this.
         jQuery('div.ajax-progress').remove(".ajax-progress-fullscreen"); // Remove the throbber like this.
