@@ -142,7 +142,6 @@ class NewsBulletinController extends ControllerBase {
     }
 
     if (\Drupal::routeMatch()->getRouteName() == 'news_bulletin.content') {
-      \Drupal::logger('agri_admin')->notice(" call news_bulletin.content " );
       return [
         '#theme' => 'news_bulletin',
         '#news_types' => $this->getNewsTypes(),
@@ -152,7 +151,6 @@ class NewsBulletinController extends ControllerBase {
     }
     else {
       if (\Drupal::routeMatch()->getRouteName() == 'news_bulletin_nonncr.content') {
-        \Drupal::logger('agri_admin')->notice(" news_bulletin_nonncr.content" );
         return [
           '#theme' => 'news_bulletin',
           '#news_types' => $this->getNewsTypes(),
