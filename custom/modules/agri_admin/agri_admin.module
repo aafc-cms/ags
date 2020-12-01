@@ -189,6 +189,14 @@ function agri_admin_preprocess_views_view_field(&$variables) {
         // There is no fieldable field called 'machine_name', so skip it.
         return;
       }
+      elseif ($field->field == 'edit_node') {
+        // There is no fieldable field called 'edit_node', so skip it.
+        return;
+      }
+      elseif ($field->field == 'delete_node') {
+        // There is no fieldable field called 'delete_node', so skip it.
+        return;
+      }
       elseif ($field->field == 'nid') {
         // There is no fieldable field called 'nid', so skip it.
         return;
