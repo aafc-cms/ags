@@ -189,6 +189,10 @@
                 "fix array_unique warnings on node/49 page":
                 "https://www.drupal.org/files/issues/2020-09-29/bootstrap-3173776-3.patch"
             },
+            "drupal/content_lock": {
+                "When a user is deleted, his lock crashes the edit page for the content that was locked by the deleted user.":
+                "https://www.drupal.org/files/issues/2018-03-28/error-on-locked-content-by-deleted-user-2956625.2.patch"
+            },
             "drupal/entity_translation_unified_form": {
                 "Support side-by-side interface and sync of moderation state with jquery":
                 "https://www.drupal.org/files/issues/2020-05-12/etuf-sbs-3113998-13.patch"
