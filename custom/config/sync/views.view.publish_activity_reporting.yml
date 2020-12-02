@@ -9,6 +9,7 @@ dependencies:
     - node.type.news
     - node.type.page
     - system.menu.admin
+    - user.role.administrator
     - user.role.qa
     - workflows.workflow.editorial
   module:
@@ -40,6 +41,7 @@ display:
         type: role
         options:
           role:
+            administrator: administrator
             qa: qa
       cache:
         type: none
@@ -504,7 +506,7 @@ display:
           click_sort_column: value
           type: timestamp
           settings:
-            date_format: medium
+            date_format: html_date
             custom_date_format: ''
             timezone: ''
           group_column: value
@@ -527,7 +529,7 @@ display:
           relationship: nid
           group_type: group
           admin_label: ''
-          label: Old/New
+          label: New/Modified
           exclude: false
           alter:
             alter_text: false
@@ -880,11 +882,11 @@ display:
           entity_field: langcode
           plugin_id: language
       sorts:
-        field_issued_value:
-          id: field_issued_value
-          table: node__field_issued
-          field: field_issued_value
-          relationship: nid
+        revision_timestamp:
+          id: revision_timestamp
+          table: node_revision
+          field: revision_timestamp
+          relationship: none
           group_type: group
           admin_label: ''
           order: DESC
@@ -892,7 +894,9 @@ display:
           expose:
             label: ''
           granularity: second
-          plugin_id: datetime
+          entity_type: node
+          entity_field: revision_timestamp
+          plugin_id: date
       title: 'Publish Activity'
       header: {  }
       footer: {  }
@@ -957,7 +961,7 @@ display:
             strip_tags: true
             trim: true
             encoding: utf8
-            utf8_bom: '0'
+            utf8_bom: '1'
             use_serializer_encode_only: false
       path: admin/publish_activity_csv
       filename: ''
@@ -972,11 +976,11 @@ display:
       title: 'Publish Activity Reporting'
       defaults:
         title: false
-      export_limit: 100
+      export_limit: 300
       pager:
         type: some
         options:
-          items_per_page: 100
+          items_per_page: 300
           offset: 0
     cache_metadata:
       max-age: -1

@@ -20,3 +20,54 @@ function agri_reports_page_attachments(array &$page) {
   }
 }
 
+function agri_reports_views_data_export_row_alter(&$row, \Drupal\views\ResultRow $result, \Drupal\views\ViewExecutable $view) {
+  if ($view->id() == 'publish_activity_reporting') {
+    $date_issued = $result->_entity->get('field_issued')->value;
+
+    $row['field_issued'] = '';
+    $values = $view->getExposedInput();
+    if (!empty($values["revision_timestamp"]['min']) && !empty($values["revision_timestamp"]['max'])) {
+      $date_from = $values["revision_timestamp"]['min'];
+      $date_issued_date_only = date('Y-m-d',strtotime($date_issued));
+      $date_from_date_only = date('Y-m-d',strtotime($date_from));
+      if ($date_issued_date_only < $date_from_date_only) {
+        $row['field_issued'] = 'Modified';
+      } 
+      else {
+        $row['field_issued'] = 'New';
+      }
+    }
+  } 
+}
+
+/*
+ * Implements hook_preprocess_views_view_field() for replacing current field values
+ * with calculated values
+ */
+function agri_reports_preprocess_views_view_field(&$variables) {
+  $view = $variables['view'];
+
+  if ($view->id() == 'publish_activity_reporting') {
+    $field = $variables['field'];
+    $row = $variables['row'];
+    $nid = $row->_entity->id();
+    $row_entity = $row->_entity;
+
+    if ($field->field == 'field_issued') {
+      $date_issued = $row_entity->get('field_issued')->value;
+      $variables['output'] = '';
+      $values = $view->getExposedInput();
+      if (!empty($values["revision_timestamp"]['min']) && !empty($values["revision_timestamp"]['max'])) {
+        $date_from = $values["revision_timestamp"]['min'];
+        $date_issued_date_only = date('Y-m-d',strtotime($date_issued));
+        $date_from_date_only = date('Y-m-d',strtotime($date_from));
+        if ($date_issued_date_only < $date_from_date_only) {
+          $variables['output'] = 'Modified';
+        } 
+        else {
+          $variables['output'] = 'New';
+        }
+      }
+    }
+  } 
+}
