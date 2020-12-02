@@ -6,7 +6,12 @@ dependencies:
     - field.storage.node.body
     - node.type.landing_page
   module:
+    - linkchecker
     - text
+third_party_settings:
+  linkchecker:
+    scan: true
+    extractor: html_link_extractor
 _core:
   default_config_hash: rucUkoeuSWIppIt6Yc0z6lvSs21vZoskeQohzXD_FTo
 id: node.landing_page.body
