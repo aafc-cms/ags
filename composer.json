@@ -211,6 +211,14 @@
                 "Bulk media upload should have an option to select the target media entity bundle":
                 "https://www.drupal.org/files/issues/2019-11-29/lightning_bulk_upload_form-3097516-2.patch"
             },
+            "drupal/linkchecker": {
+                "Route entity.linkcheckerlink.canonical does not exist":
+                "https://www.drupal.org/files/issues/2020-08-31/3118940_0.patch",
+                "Add support for Redirect module":
+                "https://www.drupal.org/files/issues/2020-06-17/3058014-27.patch",
+                "Link Extract Issue":
+                "https://www.drupal.org/files/issues/2020-06-08/3132326-9.patch"
+            },
             "drupal/moderation_sidebar": {
                 "Synchronize moderation states between all translations of the entity":
                 "https://www.drupal.org/files/issues/2020-06-17/sync_all_translations_states-3143559-18.patch"
@@ -317,7 +325,8 @@
         "drupal/ultimate_cron": "^2.0@alpha",
         "drupal/config_ignore": "2.x-dev@dev",
         "drupal/devel_kint_extras": "^1.0",
-        "drupal/views_data_export": "^1.0"
+        "drupal/views_data_export": "^1.0",
+        "drupal/linkchecker": "1.x-dev@dev"
     },
     "autoload": {
         "classmap": [
