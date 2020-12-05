@@ -848,14 +848,23 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         $linkNews = Link::createFromRoute(t('News'), 'view.view_news_work.page_1');
       }
       $breadcrumb->addLink($linkNews);
+      // The following query is not necessary if the news@work breadcrumb is a view route, however if it is a node then it is.
+      // During our development cycle news@work was sometimes a node as it was imported this way from legacy.
+      // However the actual news@work page is a view page now.
       $news_at_work = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
         ->condition('title', 'news@work', '=')
         ->execute();
       if (is_array($news_at_work)) {
         $first_nid = array_shift($news_at_work);
-        $news_at_work = \Drupal::entityManager()->getStorage('node')->load($first_nid);
+        if ((is_numeric($first_nid) && $first_nid > 0) || strlen((string) $first_nid) == 36 ) {
+          // The above if statement is to avoid an array_flip warning from core.
+          // If the news@work breadcrumb item is a view page then we should never need to load this.
+          $news_at_work = \Drupal::entityManager()->getStorage('node')->load($first_nid);
+        }
       }
       if ($news_at_work) {
+        // This condition is only true if the news@work breadcrumb item is a node,
+        // however in the current design it is currently a view page.
         $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
         if ($news_at_work->hasTranslation($langcode)) {
           $news_at_work = $news_at_work->getTranslation($langcode);
@@ -939,14 +948,23 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
       }
       $breadcrumb->addLink($linkNews);
       //Dynamically handle the route name for news at work link
+      // The following query is not necessary if the news@work breadcrumb is a view route, however if it is a node then it is.
+      // During our development cycle news@work was sometimes a node as it was imported this way from legacy.
+      // However the actual news@work page is a view page now.
       $news_at_work = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
         ->condition('title', 'news@work', '=')
         ->execute();
       if (is_array($news_at_work)) {
         $first_nid = array_shift($news_at_work);
-        $news_at_work = \Drupal::entityManager()->getStorage('node')->load($first_nid);
+        if ((is_numeric($first_nid) && $first_nid > 0) || strlen((string) $first_nid) == 36 ) {
+          // The above if statement is to avoid an array_flip warning from core.
+          // If the news@work breadcrumb item is a view page then we should never need to load this.
+          $news_at_work = \Drupal::entityManager()->getStorage('node')->load($first_nid);
+        }
       }
       if ($news_at_work) {
+        // This condition is only true if the news@work breadcrumb item is a node,
+        // however in the current design it is currently a view page.
         $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
         if ($news_at_work->hasTranslation($langcode)) {
           $news_at_work = $news_at_work->getTranslation($langcode);
