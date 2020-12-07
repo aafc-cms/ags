@@ -8,6 +8,12 @@
       if (context === document) {
         console.log('Drupal.behaviors.newsbulletin attach context === document');
         NewsBulletin.init(); // Initialize only when context === document.
+        $('.reload-button').on('click', function (e) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          location.href = location.origin + location.pathname;
+          return false;
+        });
         //below is for the demo.
       } else {
         // Functions that need to be called on other attach calls (ex: by ajax) should be added here.
