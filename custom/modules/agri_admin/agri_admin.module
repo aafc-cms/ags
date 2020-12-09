@@ -19,7 +19,7 @@ use Drupal\Core\Site\Settings;
 function agri_admin_preprocess_html(&$variables) {
   $current_path = \Drupal::service('path.current')->getPath();
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
-  $current_path = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+  $current_path = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
   $variables['current_path'] = $current_path;
   $clean_path = preg_replace( '/[\W]/', '', $variables['current_path']);
   if (strlen($clean_path) > 30) {
@@ -217,13 +217,13 @@ function agri_admin_preprocess_views_view_field(&$variables) {
         // Replace characters in the field output.
         $variables['output'] = Drupal\Core\Render\Markup::create(str_replace($valueCurrent, $valuePending, $variables['output']));
         if ($view->id() != 'content' && ($field->field == 'title' || $field->field == 'field_title')) {
-          $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
+          $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$nid);
           $urlPathToLatest = '/node/' . $nid . '/latest';
           // Replace path to node in the field output.
           $variables['output'] = Drupal\Core\Render\Markup::create(str_replace($alias, $urlPathToLatest, $variables['output']));
         }
         elseif ($view->id() == 'content' && ($field->field == 'title' || $field->field == 'field_title')) {
-          $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
+          $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$nid);
           $urlPathToLatest = "/$lang/node/$nid/latest";
           // Replace path to node in the field output.
           $variables['output'] = Drupal\Core\Render\Markup::create($variables['output'] . ' <a href="' . $urlPathToLatest . '"><b>( ' . t('Pending Draft') . ' )</b></a>');
@@ -798,7 +798,7 @@ function agri_admin_expirydatevalidator($element, &$form_state) {
  */
 function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &$breadcrumb, \Drupal\Core\Routing\RouteMatchInterface $route_match, array $context) {
   $current_path = \Drupal::service('path.current')->getPath();
-  $result = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+  $result = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
   $previousUrl = \Drupal::request()->server->get('HTTP_REFERER');
   $node_preview = \Drupal::routeMatch()->getParameter('node_preview');
   $node = \Drupal::routeMatch()->getParameter('node');
@@ -1034,7 +1034,7 @@ function agri_admin_preprocess_breadcrumb(&$variables) {
     $route_match = \Drupal::routeMatch();
     $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
     $current_path = \Drupal::service('path.current')->getPath();
-    $result = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+    $result = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
  
     if (!empty($page_title) && ($result =='/node/add/news') && (\Drupal::currentUser()->isAnonymous())) {
       $variables['breadcrumb'][] = [
