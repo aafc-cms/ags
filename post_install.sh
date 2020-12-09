@@ -243,15 +243,6 @@ if [ ! -L html/modules/contrib/wxt_ext_translation ]; then
   popd
 fi
 
-if [ -d "html/modules/contrib/lightning" ]; then
-  rm html/modules/contrib/lightning -rf
-  rm html/modules/contrib/lightning*.gz -rf
-fi
-pushd html/modules/contrib/
-wget https://ftp.drupal.org/files/projects/lightning-5.1.0.tar.gz
-tar -pxzf lightning-5.1.0.tar.gz
-popd
-
 if [ -d "html/modules/contrib/linkchecker" ]; then
   rm html/modules/contrib/linkchecke* -rf
 fi

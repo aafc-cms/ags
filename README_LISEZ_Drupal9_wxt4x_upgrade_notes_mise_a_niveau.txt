@@ -7,7 +7,7 @@ drush pmu wxt_ext_translation -y;
 
 then checkout the 9.x branch
 
-then :
+like so from your project root:
 
 git checkout 9.x;
 git pull;
