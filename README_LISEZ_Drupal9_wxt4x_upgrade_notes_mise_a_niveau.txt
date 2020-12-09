@@ -9,6 +9,8 @@ then checkout the 9.x branch
 
 then :
 
+git checkout 9.x;
+git pull;
 composer install;
 drush cr;
 drush updb -y;
