@@ -223,7 +223,7 @@ else
   fi
   echo "chmod 664 $settings_file"
         chmod 664 $settings_file
-  echo "\$databases['default']['default'] = array (" >> $settings_file 
+  echo "\$databases['default']['default'] = array (" >> $settings_file
   echo "  'database' => '$uservar'," >> $settings_file
   echo "    'username' => '$uservar'," >> $settings_file
   echo "    'password' => '$passvar'," >> $settings_file
@@ -236,4 +236,45 @@ else
   echo "chmod 555 html/sites/default"
         chmod 555 html/sites/default
 fi
+
+if [ ! -L html/modules/contrib/wxt_ext_translation ]; then
+  pushd html/modules/contrib/
+  ln -s ../../../custom/archives/wxt_ext_translation wxt_ext_translation
+  popd
+fi
+
+if [ -d "html/modules/contrib/linkchecker" ]; then
+  rm html/modules/contrib/linkchecke* -rf
+fi
+pushd html/modules/contrib/
+wget https://ftp.drupal.org/files/projects/linkchecker-8.x-1.x-dev.tar.gz
+tar -pxzf linkchecker-8.x-1.x-dev.tar.gz
+popd
+pushd html/modules/contrib/linkchecker
+wget https://www.drupal.org/files/issues/2020-05-18/3136822-24.patch
+patch -p1 < 3136822-24.patch
+sleep 1
+wget https://www.drupal.org/files/issues/2020-06-08/3132326-9.patch
+patch -p1 < 3132326-9.patch
+sleep 1
+wget https://www.drupal.org/files/issues/2020-08-31/3118940_0.patch
+patch -p1 < 3118940_0.patch
+sleep 1
+wget https://www.drupal.org/files/issues/2020-06-17/3058014-27.patch
+patch -p1 < 3058014-27.patch
+rm linkchecker.info.yml.rej
+sleep 1
+popd
+if [ -d "html/modules/contrib/git_status" ]; then
+  rm html/modules/contrib/git_status* -rf
+fi
+pushd html/modules/contrib/
+wget https://ftp.drupal.org/files/projects/git_status-8.x-1.0-alpha5.tar.gz
+tar -pxzf git_status-8.x-1.0-alpha5.tar.gz
+popd
+pushd html/modules/contrib/git_status
+wget https://www.drupal.org/files/issues/2020-04-20/git_status-drupal_9_readiness-3129221-2.patch
+patch -p1 < git_status-drupal_9_readiness-3129221-2.patch
+sleep 1
+popd
 
