@@ -144,6 +144,33 @@
             "drupal/core": "-p2"
         },
         "patches": {
+            "drupal/core": {
+                "file usage bug fixes":
+                "https://www.drupal.org/files/issues/2020-04-03/2810355-64.patch",
+                "core views module fix for breadcrumb title and page title":
+                "https://www.drupal.org/files/issues/2020-10-14/D9.1-views_titles_in_breadcrumb_and_metatag-2716019-115.patch",
+                "9.x GOOD: Improve wysiwyg entity embed media dialog add label to media hyperlinked to media":
+                "https://www.drupal.org/files/issues/2020-11-11/D9-add_label_and_link_to_EditorMediaDialog-3182027-6.patch",
+                "core views module fix for contextual filter":
+                "https://www.drupal.org/files/issues/2628130-11.patch",
+                "safedelete entity_translation_unified_form form set error squelch noise about #parent element":
+                "https://www.drupal.org/files/issues/2019-08-31/3027240-12.patch",
+                "w3c valid self closing source and track tags":
+                "https://www.drupal.org/files/issues/2020-07-13/D89x-self_closing_correct-2857273-13.patch",
+                "allow field groups to be compatible":
+                "https://www.drupal.org/files/issues/2020-02-05/2546212-119.patch",
+                "remove hreflang attribute from language switcher li element":
+                "https://www.drupal.org/files/issues/2020-08-25/D9-2454289-99.patch",
+                "Node preview block visibility":
+                "https://www.drupal.org/files/issues/2020-07-06/2890758-69.patch",
+                "Node preview current language":
+                "https://www.drupal.org/files/issues/2020-06-20/node-preview_current_language-3150728-12.patch",
+                "Language negotiation core fix, needed by access_unpublished and content moderation for forward draft revisions in non default language.":
+                "https://www.drupal.org/files/issues/2019-05-30/drupal-2951294-21-fix-fallback.patch",
+                "Options module uses '_none' as a special value.":
+                "https://www.drupal.org/files/issues/2020-08-25/1585930-56.patch"
+            },
+
             "drupal/access_unpublished": {
                 "Adds a twig extension for access unpublished hash key link, patch 9.":
                 "https://www.drupal.org/files/issues/2019-11-21/access_unpublished-3054536-9.patch",
@@ -213,6 +240,10 @@
                 }
             },
             "drupalwxt/wxt": {
+                "drupal/core": {
+                    "Dx patch":
+                    "https://www.drupal.org/files/issues/2020-11-25/2998826-by-hctom-evilehk-paulocs-5n00py-chipwa.patch"
+                },
                 "drupal/panels": {
                     "patch desc 2900531":
                     "https://www.drupal.org/files/issues/classes_should_be_array-2900531-2.patch"
