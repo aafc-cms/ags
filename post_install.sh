@@ -199,6 +199,28 @@ fi
 
 dbSetupTest=0
 
+if [ -d "html/modules/contrib/linkchecker" ]; then
+  rm html/modules/contrib/linkchecke* -rf
+fi
+pushd html/modules/contrib/
+wget https://ftp.drupal.org/files/projects/linkchecker-8.x-1.x-dev.tar.gz
+tar -pxzf linkchecker-8.x-1.x-dev.tar.gz
+popd
+pushd html/modules/contrib/linkchecker
+#wget https://www.drupal.org/files/issues/2020-05-18/3136822-24.patch
+#patch -p1 < 3136822-24.patch
+#sleep 1
+wget https://www.drupal.org/files/issues/2020-06-08/3132326-9.patch
+patch -p1 < 3132326-9.patch
+sleep 2
+wget https://www.drupal.org/files/issues/2020-08-31/3118940_0.patch
+patch -p1 < 3118940_0.patch
+sleep 2
+wget https://www.drupal.org/files/issues/2020-06-17/3058014-27.patch
+patch -p1 < 3058014-27.patch >out 2>&1
+popd
+#cat out
+#rm linkchecker.info.yml.rej
 if grep -q "namespace' => 'Drupal" html/sites/default/settings.php
 then
   echo "Database settings in html/sites/default/settings.php is already configured.";
