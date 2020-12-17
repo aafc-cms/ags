@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cac0a87a44c3b8fcd3d4226f6265fe96",
+    "content-hash": "065aafacccc50d64f4424c6efa0733f0",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -8493,6 +8493,68 @@
             "homepage": "https://www.drupal.org/project/link_attributes",
             "support": {
                 "source": "https://git.drupalcode.org/project/link_attributes"
+            }
+        },
+        {
+            "name": "drupal/linkchecker",
+            "version": "1.0.0-alpha1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/linkchecker.git",
+                "reference": "8.x-1.0-alpha1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/linkchecker-8.x-1.0-alpha1.zip",
+                "reference": "8.x-1.0-alpha1",
+                "shasum": "ac87dadfd7d9ba27f36257b88d0f4d19085de630"
+            },
+            "require": {
+                "drupal/core": "^8.8.0 || ^9",
+                "drupal/dynamic_entity_reference": "^1.0 || ^2.0@alpha"
+            },
+            "require-dev": {
+                "drupal/redirect": "^1.6"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-alpha1",
+                    "datestamp": "1608102789",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^9"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "hass",
+                    "homepage": "https://www.drupal.org/u/hass"
+                },
+                {
+                    "name": "See other contributors",
+                    "homepage": "https://www.drupal.org/node/243795/committers"
+                },
+                {
+                    "name": "hass",
+                    "homepage": "https://www.drupal.org/user/85918"
+                }
+            ],
+            "description": "Periodically checks for broken links in node types, blocks and fields and reports the results.",
+            "homepage": "https://www.drupal.org/project/linkchecker",
+            "support": {
+                "source": "https://git.drupal.org/project/linkchecker.git",
+                "issues": "https://www.drupal.org/project/issues/linkchecker"
             }
         },
         {
@@ -22939,6 +23001,7 @@
         "drupal/better_exposed_filters": 10,
         "drupal/ultimate_cron": 15,
         "drupal/config_ignore": 20,
+        "drupal/linkchecker": 15,
         "phpmd/phpmd": 0
     },
     "prefer-stable": true,
