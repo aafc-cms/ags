@@ -1,0 +1,32 @@
+uuid: 8a395f54-0f4b-4b40-b663-e80932228fcf
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+third_party_settings:
+  lightning_core:
+    description: 'For Information Architecture (formerly MDO) team'
+id: ia
+label: IA
+weight: 0
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access site in maintenance mode'
+  - 'access taxonomy overview'
+  - 'access toolbar'
+  - 'access_unpublished taxonomy_term aafc_type'
+  - 'access_unpublished taxonomy_term category'
+  - 'agrisource admin styles'
+  - 'create terms in aafc_type'
+  - 'create terms in category'
+  - 'edit any empl content'
+  - 'edit any landing_page content'
+  - 'edit any news content'
+  - 'edit any page content'
+  - 'moderated content bulk publish'
+  - 'translate aafc_type taxonomy_term'
+  - 'translate category taxonomy_term'
+  - 'use editorial transition publish'
+  - 'view the administration theme'

@@ -778,6 +778,27 @@ function agri_admin_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInte
       }
     }
   }
+
+  $current_user = \Drupal::currentUser();
+  $roles = $current_user->getRoles();
+  foreach ($roles as $role) {
+    if ($role == 'ia') {
+      foreach ($form as $key => $value) {
+        if (isset($value)) {
+          if(strpos($key, '_meta') == false) {
+            if(strpos($key, 'field_') !== false) {
+              $form[$key]['#disabled'] = TRUE;
+            }
+          }
+        }
+      }
+      $form['title']['#disabled'] = TRUE;
+      $form['layout_selection']['#disabled'] = TRUE;
+      $form['field_description']['#disabled'] = FALSE;
+      $form['field_keywords']['#disabled'] = FALSE;
+      $form['field_subject']['#disabled'] = FALSE;
+    }
+  }
 }
 
 
