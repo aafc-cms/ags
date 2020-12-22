@@ -122,6 +122,18 @@ function wxt_overrides_page_attachments(array &$page) {
 
   $node = \Drupal::routeMatch()->getRawParameter('node');
   if (!isset($node)) {
+    $request = \Drupal::request();
+    $route_match = \Drupal::routeMatch();
+    $title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+    $content = $title;
+    $dctermstitle = [
+      '#tag' => 'meta',
+      '#attributes' => [
+        'property'  => 'dcterms:title',
+        'content'   => $content,
+      ],
+    ];
+    $page['#attached']['html_head'][] = [$dctermstitle, 'dcterms:title'];
     return;
   }
 
