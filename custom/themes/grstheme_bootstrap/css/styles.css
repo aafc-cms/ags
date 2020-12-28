@@ -10,6 +10,18 @@ fieldset.error .form-radios {
   background-color: #fdf4f2;
 }
 
+/* line 7, ../sass/global/_forms.scss */
+.select-wrapper select {
+  display: inline-block;
+}
+
+/* line 11, ../sass/global/_forms.scss */
+.select-wrapper:after {
+  position: relative;
+  margin-left: -20px !important;
+  top: 2px;
+}
+
 /* Move the header specific scss (sass/css) here.*/
 /* line 6, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm.wb-menu li:first-child ul.sm.open {
@@ -939,17 +951,15 @@ body.role-is-anonymous.path-node.published-no .region-header nav.tabs {
   background-position: left center;
   background-repeat: no-repeat;
   display: inline-block;
-  min-height: 32px;
-  min-width: 32px;
   padding-left: 35px;
 }
 
-/* line 90, ../sass/legacy/_classes.scss */
+/* line 88, ../sass/legacy/_classes.scss */
 .icon.youtube {
   padding-left: 45px;
 }
 
-/* line 92, ../sass/legacy/_classes.scss */
+/* line 90, ../sass/legacy/_classes.scss */
 .icon.googleplus {
   height: 45px;
   padding-left: 48px;
