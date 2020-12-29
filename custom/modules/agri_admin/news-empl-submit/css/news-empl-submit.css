@@ -190,6 +190,11 @@ body.news-article-form-page .submit-helptext-paragraph, body.nodeaddnews.role-is
 }
 body.news-article-form-page .select-wrapper label.error, body.nodeaddnews.role-is-anonymous.node-add .select-wrapper label.error {
   position: absolute;
+  left: 0;
+  top: 45px;
+}
+body.news-article-form-page form.node-news-form div.form-type-select div.select-wrapper select.error, body.nodeaddnews.role-is-anonymous.node-add form.node-news-form div.form-type-select div.select-wrapper select.error {
+  margin-bottom: 35px;
 }
 body.news-article-form-page .btn.icon-before .glyphicon, body.nodeaddnews.role-is-anonymous.node-add .btn.icon-before .glyphicon {
   min-height: 20px;
@@ -382,10 +387,13 @@ body.node-50.role-is-authenticated .btn.icon-before .glyphicon {
   padding-top: 3px;
   padding-right: 5px;
 }
-body.role-is-anonymous.employment-opportunity-request-form-page.i18n-en .select-wrapper label.error,
-body.role-is-anonymous.nodeaddempl.i18n-en .select-wrapper label.error,
-body.node-50.role-is-authenticated.i18n-en .select-wrapper label.error {
+body.role-is-anonymous.employment-opportunity-request-form-page .select-wrapper label.error,
+body.role-is-anonymous.nodeaddempl .select-wrapper label.error,
+body.node-50.role-is-authenticated .select-wrapper label.error {
   position: absolute;
+  left: 0;
+  top: 35px;
+  margin-bottom: 10px;
 }
 body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunitylocation div.panel-heading, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunityopento div.panel-heading,
 body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-emplopportunityclosingdate div.panel-heading,

@@ -1,11 +1,31 @@
 
 form.webform-submission-form.ajax-submit-prevented {
   div.form-type-select div.select-wrapper {
-    min-height: 75px;
+    margin-bottom: 40px;
     strong.error {
       position: absolute;
+      margin-bottom: 15px;
+      margin-top: 5px;
     }
   }
+}
+form.webform-submission-form.ajax-submit-prevented {
+  div.form-type-date {
+    margin-bottom: 40px;
+    strong.error {
+      position: absolute;
+      margin-bottom: 15px;
+      margin-top: 5px;
+    }
+    img{
+      top: -10px;
+      position: relative;
+    }
+  }
+}
+#edit-srf-phone-error{
+  margin-top: -15px;
+  margin-bottom: 15px;
 }
 
 body.form-publishing-and-creative-services.i18n-en {
@@ -14,18 +34,6 @@ body.form-publishing-and-creative-services.i18n-en {
     font-weight: normal;
     border-bottom: 1px solid #e5e5e5;
     margin-bottom: 20px;
-  }
-
-  div.form-item.form-item-srf-branch.js-form-item-srf-branch {
-    div.select-wrapper:after {
-      right: 69%;
-    }
-  }
-  
-  div.form-item.form-item-srf-isnewrequestorexistingproject.js-form-item-srf-isnewrequestorexistingproject {
-    div.select-wrapper:after {
-      right: 91%;
-    }
   }
 
   div.js-form-type-date.form-item-rsf-daterequired {
@@ -37,31 +45,6 @@ body.form-publishing-and-creative-services.i18n-en {
   div.js-form-type-tel.form-item-srf-phone {
     label[for^='edit-srf-phone'] {
       display: block;
-    }
-  }
-
-  div.form-item.form-item-srf-isrequesttoscheduledevent.js-form-item-srf-isrequesttoscheduledevent {
-    div.select-wrapper:after {
-      right: 90%;
-    }
-  }
-
-  div.form-item.form-item-srf-targetaudience.js-form-item-srf-targetaudience {
-    div.select-wrapper:after {
-      right: 82%;
-    }
-  }
-
-  div.form-item.form-item-srf-hascontentpproved.js-form-item-srf-hascontentpproved,
-  div.form-item.form-item-srf-hascommadvisorapproved.js-form-item-srf-hascommadvisorapproved {
-    div.select-wrapper:after {
-      right: 90%;
-    }
-  }
-
-  div.form-item.form-item-srf-contentfinalizedinenglishandfrench.js-form-item-srf-contentfinalizedinenglishandfrench {
-    div.select-wrapper:after {
-      right: 90%;
     }
   }
 
@@ -119,18 +102,6 @@ body.form-publishing-and-creative-services.i18n-fr {
     margin-bottom: 20px;
   }
 
-  div.form-item.form-item-srf-branch.js-form-item-srf-branch {
-    div.select-wrapper:after {
-      right: 59%;
-    }
-  }
-  
-  div.form-item.form-item-srf-isnewrequestorexistingproject.js-form-item-srf-isnewrequestorexistingproject {
-    div.select-wrapper:after {
-      right: 86%;
-    }
-  }
-
   div.js-form-type-date.form-item-rsf-daterequired {
     label[for^='edit-rsf-daterequired'] {
       display: block;
@@ -140,31 +111,6 @@ body.form-publishing-and-creative-services.i18n-fr {
   div.js-form-type-tel.form-item-srf-phone {
     label[for^='edit-srf-phone'] {
       display: block;
-    }
-  }
-
-  div.form-item.form-item-srf-isrequesttoscheduledevent.js-form-item-srf-isrequesttoscheduledevent {
-    div.select-wrapper:after {
-      right: 86%;
-    }
-  }
-
-  div.form-item.form-item-srf-targetaudience.js-form-item-srf-targetaudience {
-    div.select-wrapper:after {
-      right: 76%;
-    }
-  }
-
-  div.form-item.form-item-srf-hascontentpproved.js-form-item-srf-hascontentpproved,
-  div.form-item.form-item-srf-hascommadvisorapproved.js-form-item-srf-hascommadvisorapproved {
-    div.select-wrapper:after {
-      right: 86%;
-    }
-  }
-
-  div.form-item.form-item-srf-contentfinalizedinenglishandfrench.js-form-item-srf-contentfinalizedinenglishandfrench {
-    div.select-wrapper:after {
-      right: 86%;
     }
   }
 
