@@ -102,6 +102,14 @@ body.news-article-form-page, body.nodeaddnews.role-is-anonymous.node-add {
 
   .select-wrapper label.error {
     position: absolute;
+    left: 0;
+    top: 45px;
+  }
+
+  form.node-news-form {
+    div.form-type-select div.select-wrapper select.error {
+    margin-bottom: 35px;
+    }
   }
 
   .btn.icon-before .glyphicon {

@@ -121,8 +121,11 @@ body.node-50.role-is-authenticated {
     padding-right: 5px;
   }
   
-  &.i18n-en .select-wrapper label.error {
+  .select-wrapper label.error {
     position: absolute;
+    left: 0;
+    top: 35px;
+    margin-bottom: 10px;
   }
 
   #edit-group-opportunitylocation div.panel-heading, #edit-group-opportunityopento div.panel-heading, 
