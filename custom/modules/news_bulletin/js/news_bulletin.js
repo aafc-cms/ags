@@ -14,6 +14,9 @@
           location.href = location.origin + location.pathname;
           return false;
         });
+        if ($("ol.breadcrumb li").length == 3 ) {
+          $("ol.breadcrumb li:nth-child(2)").css("display", "none");
+        }
         //below is for the demo.
       } else {
         // Functions that need to be called on other attach calls (ex: by ajax) should be added here.

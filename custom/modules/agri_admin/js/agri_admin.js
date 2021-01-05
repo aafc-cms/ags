@@ -336,6 +336,7 @@ var Agrisource = function() {
     // '[data-drupal-selector="edit-attributes-data-view-mode"]'
     var mediaStylesList = jQuery(selector);
     if (typeof mediaStylesList == 'undefined') {
+      console.log('sortMediaDisplayModes trying to find mediaStylesList using selector ' + selector);
       return;
     }
     if (mediaStylesList) {

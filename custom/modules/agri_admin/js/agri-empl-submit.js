@@ -15,6 +15,10 @@
       if ($('.block-formblock').length && $('#edit-preview').length) {
         // Only initialize when the formblock becomes available.
         AgriEmplSubmitHelper.init();
+        if (AgriEmplSubmitHelper.page_type == 'add-news-special' || AgriEmplSubmitHelper.page_type == 'add-empl-special') {
+          AgriEmplSubmitHelper.sortMediaDisplayModes('[data-drupal-selector="edit-attributes-data-view-mode"]'); // Call this for all attach events.
+          AgriEmplSubmitHelper.sortMediaDisplayModes('[data-drupal-selector="edit-images-thumbnail-image-style"]'); // Call this for all attach events.
+        }
       }
       else if ($('body').hasClass('node-add') &&
         $('#edit-preview').length ) {
@@ -150,6 +154,46 @@ var AgriEmplSubmitHelper = function() {
   }
 
   /**
+   * Original sort logic from https://riptutorial.com/jquery/example/11477/sorting-elements .
+   */
+  function sortMediaDisplayModes(selector) {
+    // '[data-drupal-selector="edit-attributes-data-view-mode"]'
+    var mediaStylesList = jQuery(selector);
+    if (typeof mediaStylesList == 'undefined') {
+      console.log('anonymous empl form sortMediaDisplayModes trying to find mediaStylesList using selector ' + selector);
+      return;
+    }
+    if (mediaStylesList) {
+      var selected = jQuery(mediaStylesList).find('[selected="selected"]').detach();
+
+      var styles = jQuery(mediaStylesList).children('option');
+      var sortList = Array.prototype.sort.bind(styles);
+
+      sortList(function(a, b) {
+        // Cache inner content from the first element (a) and the next sibling (b)
+        var aText = a.innerText;
+        var bText = b.innerText;
+
+        // Returning -1 will place element `a` before element `b`
+        if ( aText < bText ) {
+          return -1;
+        }
+
+        // Returning 1 will do the opposite
+        if ( aText > bText ) {
+          return 1;
+        }
+
+        // Returning 0 leaves them as-is
+        return 0;
+      });
+      jQuery(mediaStylesList).append(jQuery(styles));
+      jQuery(mediaStylesList).prepend(jQuery(selected));
+    }
+
+  }
+
+  /**
    * Expose functions and variables
    */
   return {
@@ -158,6 +202,7 @@ var AgriEmplSubmitHelper = function() {
     form_required_valid: form_required_valid,
     checkbox_valid: checkbox_valid,
     handleSubmitClickEvent: handleSubmitClickEvent,
+    sortMediaDisplayModes: sortMediaDisplayModes,
     handlePreviewClickEvent: handlePreviewClickEvent,
     page_type: page_type,
   }

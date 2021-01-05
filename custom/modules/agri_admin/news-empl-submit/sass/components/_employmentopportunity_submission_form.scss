@@ -1,8 +1,16 @@
 
-bodr.node-50.role-is-authenticated {
+body.node-50.role-is-authenticated {
   #node-empl-form {
     .vertical-tabs-panes {
       border: none !important;
+    }
+  }
+}
+
+body.node-50 {
+  form.js-media-library-add-form {
+    button.js-form-submit {
+      display: none !important;
     }
   }
 }
@@ -504,10 +512,6 @@ body.nodeaddempl.role-is-anonymous {
   #edit-field-classification-wrapper a.tabledrag-handle {
     display: none !important;
   }
-
-  &.i18n-en div[class$="-subform-field-class-id form-group"] .select-wrapper:after {
-    right: 50% !important;
-  } 
 
   &.i18n-en select[name$="[subform][field_class_id]"] {
      min-width: 168px !important;

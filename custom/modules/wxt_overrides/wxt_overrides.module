@@ -469,7 +469,7 @@ function wxt_overrides_link_alter(&$variables) {
           return; // Do not manipulate this tabs__link as it is otherwise confusing to the end user.
         }
       }
-      if (in_array('tabs__link', $link_options['attributes']['class']) && $variables['text'] == 'Table') {
+      if (isset($link_options['attributes']['class']) && in_array('tabs__link', $link_options['attributes']['class']) && $variables['text'] == 'Table') {
         return; // Do not manipulate this tabs__link as it is otherwise confusing to the end user.
       }
       $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
