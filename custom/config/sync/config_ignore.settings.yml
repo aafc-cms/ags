@@ -1,8 +1,17 @@
 ignored_config_entities:
-  - devel.settings
-  - devel.toolbar.settings
-  - system.menu.devel
   - block.block.media
   - block.block.media_2
+  - devel.settings
+  - devel.toolbar.settings
+  - linkchecker.settings
+  - mailsystem.settings
+  - 'purge.*'
+  - purge_queuer_coretags.settings
+  - swiftmailer.transport
+  - smtp.settings
+  - system.mail
+  - system.menu.devel
+  - 'varnish_purger.*'
+  - warmer.settings
 _core:
   default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk
