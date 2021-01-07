@@ -4,3 +4,15 @@ fieldset.error .form-radios {
    border: 2px solid red;
    background-color: $agrisource-errors;
 }
+.select-wrapper select{
+   display: inline-block;
+}
+
+.select-wrapper:after {
+   position: relative;
+   margin-left: -20px !important;
+   top: 2px;
+}
+body.path-webform .btn-danger{
+   margin-left: 5px;
+}

@@ -36,8 +36,7 @@ body.user-logged-in.published-no.pending-draft {
   }
 }
 
-body.user-logged-in.archived,
-body.user-logged-in.archivé {
+body.user-logged-in[class*='archiv'] {
   article {
     background-color: blanchedalmond;
     border: 3px solid saddlebrown;
@@ -47,4 +46,3 @@ body.user-logged-in.archivé {
     border: 3px solid saddlebrown;
   }
 }
-

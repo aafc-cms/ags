@@ -19,7 +19,7 @@ use Drupal\Core\Site\Settings;
 function agri_admin_preprocess_html(&$variables) {
   $current_path = \Drupal::service('path.current')->getPath();
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
-  $current_path = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+  $current_path = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
   $variables['current_path'] = $current_path;
   $clean_path = preg_replace( '/[\W]/', '', $variables['current_path']);
   if (strlen($clean_path) > 30) {
@@ -173,7 +173,7 @@ function agri_admin_preprocess_views_view_field(&$variables) {
         // This field needs special treatment.
         // @TODO: Lakshman will probably notice this, will have to replace content author with revision author.
         $user = $latestRevision->getRevisionUser();
-        $render_array = ['#markup' => "<a href=\"/" . $lang . "/user/" . $user->id() . "\">" . $user->getUsername() . "</a>" ];
+        $render_array = ['#markup' => "<a href=\"/" . $lang . "/user/" . $user->id() . "\">" . $user->getAccountName() . "</a>" ];
         $variables['output'] = Utils::render($render_array);
         return;
       }
@@ -217,13 +217,13 @@ function agri_admin_preprocess_views_view_field(&$variables) {
         // Replace characters in the field output.
         $variables['output'] = Drupal\Core\Render\Markup::create(str_replace($valueCurrent, $valuePending, $variables['output']));
         if ($view->id() != 'content' && ($field->field == 'title' || $field->field == 'field_title')) {
-          $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
+          $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$nid);
           $urlPathToLatest = '/node/' . $nid . '/latest';
           // Replace path to node in the field output.
           $variables['output'] = Drupal\Core\Render\Markup::create(str_replace($alias, $urlPathToLatest, $variables['output']));
         }
         elseif ($view->id() == 'content' && ($field->field == 'title' || $field->field == 'field_title')) {
-          $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
+          $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$nid);
           $urlPathToLatest = "/$lang/node/$nid/latest";
           // Replace path to node in the field output.
           $variables['output'] = Drupal\Core\Render\Markup::create($variables['output'] . ' <a href="' . $urlPathToLatest . '"><b>( ' . t('Pending Draft') . ' )</b></a>');
@@ -384,9 +384,9 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
 
     if (empty($created_by)) {
       if ($entity->isNew()) {
-        $entity->set('field_created_by', $current_user->getUsername());      
+        $entity->set('field_created_by', $current_user->getAccountName());      
       } else {
-        $admin_username = \Drupal\user\Entity\User::load(1)->getUsername();
+        $admin_username = \Drupal\user\Entity\User::load(1)->getAccountName();
         $entity->set('field_created_by', $admin_username);
       }
     }
@@ -554,7 +554,7 @@ function _helperUpdateProcess($action, $entity_id, $bundle) {
 
     if (\Drupal::currentUser()->isAuthenticated()) {
       $content_type = $bundle;
-      $entity = \Drupal::entityManager()->getStorage('node')->load($entity_id);
+      $entity = \Drupal::entityTypeManager()->getStorage('node')->load($entity_id);
       if ($content_type == 'page') {
         $moderation_state = $entity->moderation_state->value;
         if ($moderation_state == 'archived') {
@@ -778,6 +778,27 @@ function agri_admin_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInte
       }
     }
   }
+
+  $current_user = \Drupal::currentUser();
+  $roles = $current_user->getRoles();
+  foreach ($roles as $role) {
+    if ($role == 'ia') {
+      foreach ($form as $key => $value) {
+        if (isset($value)) {
+          if(strpos($key, '_meta') == false) {
+            if(strpos($key, 'field_') !== false) {
+              $form[$key]['#disabled'] = TRUE;
+            }
+          }
+        }
+      }
+      $form['title']['#disabled'] = TRUE;
+      $form['layout_selection']['#disabled'] = TRUE;
+      $form['field_description']['#disabled'] = FALSE;
+      $form['field_keywords']['#disabled'] = FALSE;
+      $form['field_subject']['#disabled'] = FALSE;
+    }
+  }
 }
 
 
@@ -798,7 +819,7 @@ function agri_admin_expirydatevalidator($element, &$form_state) {
  */
 function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &$breadcrumb, \Drupal\Core\Routing\RouteMatchInterface $route_match, array $context) {
   $current_path = \Drupal::service('path.current')->getPath();
-  $result = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+  $result = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
   $previousUrl = \Drupal::request()->server->get('HTTP_REFERER');
   $node_preview = \Drupal::routeMatch()->getParameter('node_preview');
   $node = \Drupal::routeMatch()->getParameter('node');
@@ -837,7 +858,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
         if (is_array($news)) {
           $first_nid = array_shift($news);
-          $news = \Drupal::entityManager()->getStorage('node')->load($first_nid);
+          $news = \Drupal::entityTypeManager()->getStorage('node')->load($first_nid);
         }
         if ($news->hasTranslation($langcode)) {
           $news = $news->getTranslation($langcode);
@@ -859,7 +880,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         if ((is_numeric($first_nid) && $first_nid > 0) || strlen((string) $first_nid) == 36 ) {
           // The above if statement is to avoid an array_flip warning from core.
           // If the news@work breadcrumb item is a view page then we should never need to load this.
-          $news_at_work = \Drupal::entityManager()->getStorage('node')->load($first_nid);
+          $news_at_work = \Drupal::entityTypeManager()->getStorage('node')->load($first_nid);
         }
       }
       if ($news_at_work) {
@@ -893,7 +914,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
         if (is_array($hr)) {
           $first_nid = array_shift($hr);
-          $hr = \Drupal::entityManager()->getStorage('node')->load($first_nid);
+          $hr = \Drupal::entityTypeManager()->getStorage('node')->load($first_nid);
         }
         if ($hr->hasTranslation($langcode)) {
           $hr = $hr->getTranslation($langcode);
@@ -936,7 +957,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
         if (is_array($news)) {
           $first_nid = array_shift($news);
-          $news = \Drupal::entityManager()->getStorage('node')->load($first_nid);
+          $news = \Drupal::entityTypeManager()->getStorage('node')->load($first_nid);
         }
         if ($news->hasTranslation($langcode)) {
           $news = $news->getTranslation($langcode);
@@ -959,7 +980,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         if ((is_numeric($first_nid) && $first_nid > 0) || strlen((string) $first_nid) == 36 ) {
           // The above if statement is to avoid an array_flip warning from core.
           // If the news@work breadcrumb item is a view page then we should never need to load this.
-          $news_at_work = \Drupal::entityManager()->getStorage('node')->load($first_nid);
+          $news_at_work = \Drupal::entityTypeManager()->getStorage('node')->load($first_nid);
         }
       }
       if ($news_at_work) {
@@ -991,7 +1012,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
         if (is_array($hr)) {
           $first_nid = array_shift($hr);
-          $hr = \Drupal::entityManager()->getStorage('node')->load($first_nid);
+          $hr = \Drupal::entityTypeManager()->getStorage('node')->load($first_nid);
         }
         if ($hr->hasTranslation($langcode)) {
           $hr = $hr->getTranslation($langcode);
@@ -1007,7 +1028,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         ->execute();
       if (is_array($staffing)) {
         $first_nid = array_shift($staffing);
-        $staffing = \Drupal::entityManager()->getStorage('node')->load($first_nid);
+        $staffing = \Drupal::entityTypeManager()->getStorage('node')->load($first_nid);
       }
       if ($staffing) {
         $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
@@ -1034,7 +1055,7 @@ function agri_admin_preprocess_breadcrumb(&$variables) {
     $route_match = \Drupal::routeMatch();
     $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
     $current_path = \Drupal::service('path.current')->getPath();
-    $result = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+    $result = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
  
     if (!empty($page_title) && ($result =='/node/add/news') && (\Drupal::currentUser()->isAnonymous())) {
       $variables['breadcrumb'][] = [

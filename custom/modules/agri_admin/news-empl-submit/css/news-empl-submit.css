@@ -115,19 +115,8 @@ body.node-edit.user-logged-in.path-node.page-node-type-empl #edit-group-level-an
   margin-left: 0px;
 }
 
-#node-news-form .form-type-select .select-wrapper {
-  max-width: 261px;
-  min-width: 261px;
-}
-#node-news-form .form-type-select .select-wrapper select {
-  max-width: 261px;
-  min-width: 261px;
-}
-#node-news-form .form-type-select .select-wrapper::after {
-  left: 235px;
-}
-#node-news-form .form-type-select label {
-  display: block;
+body.node-49 form.js-media-library-add-form button.js-form-submit {
+  display: none !important;
 }
 
 body.user-anonymous #node-news-form #edit-revision-information, body.user-anonymous #node-news-form a[href="#edit-revision-information"] {
@@ -166,11 +155,6 @@ body.user-anonymous.role-is-anonymous.news-article-form-page div#edit-actions .p
   padding-bottom: 15px;
   display: inline-block;
 }
-body.user-anonymous.role-is-anonymous.news-article-form-page button#edit-submit, body.user-anonymous.role-is-anonymous.news-article-form-page button#edit-preview, body.user-anonymous.nodeaddnews.role-is-anonymous button#edit-submit, body.user-anonymous.nodeaddnews.role-is-anonymous button#edit-preview {
-  background-color: #1b6c1c;
-  border-color: #071a07;
-  color: #fff;
-}
 body.user-anonymous.role-is-anonymous.news-article-form-page button#edit-submit, body.user-anonymous.nodeaddnews.role-is-anonymous button#edit-submit {
   margin-left: 5px;
 }
@@ -206,27 +190,17 @@ body.news-article-form-page .submit-helptext-paragraph, body.nodeaddnews.role-is
 }
 body.news-article-form-page .select-wrapper label.error, body.nodeaddnews.role-is-anonymous.node-add .select-wrapper label.error {
   position: absolute;
+  left: 0;
+  top: 45px;
 }
-body.news-article-form-page #edit-moderation-state-0 .select-wrapper::after, body.nodeaddnews.role-is-anonymous.node-add #edit-moderation-state-0 .select-wrapper::after {
-  right: 84%;
-}
-body.news-article-form-page #edit-moderation-state-etuf-fr-0 .select-wrapper::after, body.nodeaddnews.role-is-anonymous.node-add #edit-moderation-state-etuf-fr-0 .select-wrapper::after {
-  right: 84%;
+body.news-article-form-page form.node-news-form div.form-type-select div.select-wrapper select.error, body.nodeaddnews.role-is-anonymous.node-add form.node-news-form div.form-type-select div.select-wrapper select.error {
+  margin-bottom: 35px;
 }
 body.news-article-form-page .btn.icon-before .glyphicon, body.nodeaddnews.role-is-anonymous.node-add .btn.icon-before .glyphicon {
   min-height: 20px;
-}
-body.news-article-form-page.i18n-en .field--type-entity-reference .select-wrapper:after, body.nodeaddnews.role-is-anonymous.node-add.i18n-en .field--type-entity-reference .select-wrapper:after {
-  right: 78% !important;
-}
-body.news-article-form-page.i18n-en .field--type-list-string .select-wrapper:after, body.nodeaddnews.role-is-anonymous.node-add.i18n-en .field--type-list-string .select-wrapper:after {
-  right: 80.5% !important;
-}
-body.news-article-form-page.i18n-fr .field--type-entity-reference .select-wrapper:after, body.nodeaddnews.role-is-anonymous.node-add.i18n-fr .field--type-entity-reference .select-wrapper:after {
-  right: 71% !important;
-}
-body.news-article-form-page.i18n-fr .field--type-list-string .select-wrapper:after, body.nodeaddnews.role-is-anonymous.node-add.i18n-fr .field--type-list-string .select-wrapper:after {
-  right: 80.5% !important;
+  float: left;
+  padding-top: 3px;
+  padding-right: 5px;
 }
 body.news-article-form-page #edit-group-newsreviewerandapprover div a.panel-title, body.news-article-form-page #edit-group-submitter-s-contact-inform div a.panel-title,
 body.news-article-form-page #edit-group-newsposteddate div a.panel-title, body.news-article-form-page #edit-group-newsarticle div a.panel-title,
@@ -300,8 +274,12 @@ body.news-article-form-page div[id^="edit-field-newsfile5"].help-block, body.nod
   display: none !important;
 }
 
-bodr.node-50.role-is-authenticated #node-empl-form .vertical-tabs-panes {
+body.node-50.role-is-authenticated #node-empl-form .vertical-tabs-panes {
   border: none !important;
+}
+
+body.node-50 form.js-media-library-add-form button.js-form-submit {
+  display: none !important;
 }
 
 body.role-is-anonymous #node-empl-form .vertical-tabs-panes {
@@ -320,11 +298,6 @@ body.role-is-anonymous.employment-opportunity-request-form-page div#edit-actions
   position: relative;
   padding-bottom: 15px;
   display: inline-block;
-}
-body.role-is-anonymous.employment-opportunity-request-form-page button#edit-submit, body.role-is-anonymous.employment-opportunity-request-form-page button#edit-preview, body.role-is-anonymous.nodeaddempl button#edit-submit, body.role-is-anonymous.nodeaddempl button#edit-preview {
-  background-color: #1b6c1c;
-  border-color: #071a07;
-  color: #fff;
 }
 body.role-is-anonymous.employment-opportunity-request-form-page button#edit-submit, body.role-is-anonymous.nodeaddempl button#edit-submit {
   margin-left: 5px;
@@ -410,45 +383,21 @@ body.role-is-anonymous.nodeaddempl .preview-helptext-paragraph,
 body.node-50.role-is-authenticated .preview-helptext-paragraph {
   float: right;
 }
-body.role-is-anonymous.employment-opportunity-request-form-page #edit-moderation-state-0 .select-wrapper::after,
-body.role-is-anonymous.nodeaddempl #edit-moderation-state-0 .select-wrapper::after,
-body.node-50.role-is-authenticated #edit-moderation-state-0 .select-wrapper::after {
-  right: 87%;
-}
-body.role-is-anonymous.employment-opportunity-request-form-page #edit-moderation-state-etuf-fr-0 .select-wrapper::after,
-body.role-is-anonymous.nodeaddempl #edit-moderation-state-etuf-fr-0 .select-wrapper::after,
-body.node-50.role-is-authenticated #edit-moderation-state-etuf-fr-0 .select-wrapper::after {
-  right: 87%;
-}
 body.role-is-anonymous.employment-opportunity-request-form-page .btn.icon-before .glyphicon,
 body.role-is-anonymous.nodeaddempl .btn.icon-before .glyphicon,
 body.node-50.role-is-authenticated .btn.icon-before .glyphicon {
   min-height: 20px;
+  float: left;
+  padding-top: 3px;
+  padding-right: 5px;
 }
-body.role-is-anonymous.employment-opportunity-request-form-page.i18n-en .select-wrapper label.error,
-body.role-is-anonymous.nodeaddempl.i18n-en .select-wrapper label.error,
-body.node-50.role-is-authenticated.i18n-en .select-wrapper label.error {
+body.role-is-anonymous.employment-opportunity-request-form-page .select-wrapper label.error,
+body.role-is-anonymous.nodeaddempl .select-wrapper label.error,
+body.node-50.role-is-authenticated .select-wrapper label.error {
   position: absolute;
-}
-body.role-is-anonymous.employment-opportunity-request-form-page.i18n-en .field--type-entity-reference .select-wrapper:after,
-body.role-is-anonymous.nodeaddempl.i18n-en .field--type-entity-reference .select-wrapper:after,
-body.node-50.role-is-authenticated.i18n-en .field--type-entity-reference .select-wrapper:after {
-  right: 69% !important;
-}
-body.role-is-anonymous.employment-opportunity-request-form-page.i18n-en.isIE .field--type-entity-reference .select-wrapper:after,
-body.role-is-anonymous.nodeaddempl.i18n-en.isIE .field--type-entity-reference .select-wrapper:after,
-body.node-50.role-is-authenticated.i18n-en.isIE .field--type-entity-reference .select-wrapper:after {
-  right: 67% !important;
-}
-body.role-is-anonymous.employment-opportunity-request-form-page.i18n-fr .field--type-entity-reference .select-wrapper:after,
-body.role-is-anonymous.nodeaddempl.i18n-fr .field--type-entity-reference .select-wrapper:after,
-body.node-50.role-is-authenticated.i18n-fr .field--type-entity-reference .select-wrapper:after {
-  right: 59% !important;
-}
-body.role-is-anonymous.employment-opportunity-request-form-page.i18n-fr.isIE .field--type-entity-reference .select-wrapper:after,
-body.role-is-anonymous.nodeaddempl.i18n-fr.isIE .field--type-entity-reference .select-wrapper:after,
-body.node-50.role-is-authenticated.i18n-fr.isIE .field--type-entity-reference .select-wrapper:after {
-  right: 57% !important;
+  left: 0;
+  top: 35px;
+  margin-bottom: 10px;
 }
 body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunitylocation div.panel-heading, body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-opportunityopento div.panel-heading,
 body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-emplopportunityclosingdate div.panel-heading,
@@ -588,11 +537,6 @@ body.role-is-anonymous.nodeaddempl #edit-field-classification-wrapper .paragraph
 body.node-50.role-is-authenticated #edit-field-classification-wrapper .paragraph-type-top.form-group.js-form-wrapper.form-wrapper {
   float: right !important;
 }
-body.role-is-anonymous.employment-opportunity-request-form-page.i18n-en div[class$="-subform-field-class-id form-group"] .select-wrapper:after,
-body.role-is-anonymous.nodeaddempl.i18n-en div[class$="-subform-field-class-id form-group"] .select-wrapper:after,
-body.node-50.role-is-authenticated.i18n-en div[class$="-subform-field-class-id form-group"] .select-wrapper:after {
-  right: 50% !important;
-}
 body.role-is-anonymous.employment-opportunity-request-form-page.i18n-en select[name$="[subform][field_class_id]"],
 body.role-is-anonymous.nodeaddempl.i18n-en select[name$="[subform][field_class_id]"],
 body.node-50.role-is-authenticated.i18n-en select[name$="[subform][field_class_id]"] {
@@ -613,40 +557,15 @@ body.role-is-anonymous.nodeaddempl.i18n-fr .select-wrapper label.error,
 body.node-50.role-is-authenticated.i18n-fr .select-wrapper label.error {
   position: absolute;
 }
-body.role-is-anonymous.employment-opportunity-request-form-page.i18n-fr div[class$="-subform-field-class-id form-group"] .select-wrapper:after,
-body.role-is-anonymous.nodeaddempl.i18n-fr div[class$="-subform-field-class-id form-group"] .select-wrapper:after,
-body.node-50.role-is-authenticated.i18n-fr div[class$="-subform-field-class-id form-group"] .select-wrapper:after {
-  right: 52% !important;
-}
-body.role-is-anonymous.employment-opportunity-request-form-page.i18n-en div[class$="-subform-field-class-sub form-group"] .select-wrapper:after,
-body.role-is-anonymous.nodeaddempl.i18n-en div[class$="-subform-field-class-sub form-group"] .select-wrapper:after,
-body.node-50.role-is-authenticated.i18n-en div[class$="-subform-field-class-sub form-group"] .select-wrapper:after {
-  right: 44% !important;
-}
 body.role-is-anonymous.employment-opportunity-request-form-page div[class$="-subform-field-class-sub form-group"],
 body.role-is-anonymous.nodeaddempl div[class$="-subform-field-class-sub form-group"],
 body.node-50.role-is-authenticated div[class$="-subform-field-class-sub form-group"] {
   float: left !important;
 }
-body.role-is-anonymous.employment-opportunity-request-form-page.i18n-fr div[class$="-subform-field-class-sub form-group"] .select-wrapper:after,
-body.role-is-anonymous.nodeaddempl.i18n-fr div[class$="-subform-field-class-sub form-group"] .select-wrapper:after,
-body.node-50.role-is-authenticated.i18n-fr div[class$="-subform-field-class-sub form-group"] .select-wrapper:after {
-  right: 45% !important;
-}
-body.role-is-anonymous.employment-opportunity-request-form-page.i18n-en div[class$="-subform-field-class-level form-group"] .select-wrapper:after,
-body.role-is-anonymous.nodeaddempl.i18n-en div[class$="-subform-field-class-level form-group"] .select-wrapper:after,
-body.node-50.role-is-authenticated.i18n-en div[class$="-subform-field-class-level form-group"] .select-wrapper:after {
-  right: 25% !important;
-}
 body.role-is-anonymous.employment-opportunity-request-form-page div[class$="-subform-field-class-level form-group"],
 body.role-is-anonymous.nodeaddempl div[class$="-subform-field-class-level form-group"],
 body.node-50.role-is-authenticated div[class$="-subform-field-class-level form-group"] {
   float: left !important;
-}
-body.role-is-anonymous.employment-opportunity-request-form-page.i18n-fr div[class$="-subform-field-class-level form-group"] .select-wrapper:after,
-body.role-is-anonymous.nodeaddempl.i18n-fr div[class$="-subform-field-class-level form-group"] .select-wrapper:after,
-body.node-50.role-is-authenticated.i18n-fr div[class$="-subform-field-class-level form-group"] .select-wrapper:after {
-  right: 27% !important;
 }
 body.role-is-anonymous.employment-opportunity-request-form-page #edit-group-emploppsubitappquestion.panel-default,
 body.role-is-anonymous.nodeaddempl #edit-group-emploppsubitappquestion.panel-default,
@@ -721,11 +640,6 @@ body.nodeaddempl.role-is-anonymous div#edit-actions {
 body.nodeaddempl.role-is-anonymous div#edit-actions .preview-wrapper {
   position: relative;
   padding-bottom: 15px;
-}
-body.nodeaddempl.role-is-anonymous button#edit-submit, body.nodeaddempl.role-is-anonymous button#edit-preview {
-  background-color: #1b6c1c;
-  border-color: #071a07;
-  color: #fff;
 }
 body.nodeaddempl.role-is-anonymous #block-grstheme-bootstrap-sharewidgetblock, body.nodeaddempl.role-is-anonymous #block-grstheme-bootstrap-reportproblemblock {
   padding-top: 35px !important;
@@ -819,26 +733,8 @@ body.nodeaddempl.role-is-anonymous .preview-wrapper {
 body.nodeaddempl.role-is-anonymous .preview-helptext-paragraph {
   float: right;
 }
-body.nodeaddempl.role-is-anonymous #edit-moderation-state-0 .select-wrapper::after {
-  right: 87%;
-}
-body.nodeaddempl.role-is-anonymous #edit-moderation-state-etuf-fr-0 .select-wrapper::after {
-  right: 87%;
-}
 body.nodeaddempl.role-is-anonymous .btn.icon-before .glyphicon {
   min-height: 20px;
-}
-body.nodeaddempl.role-is-anonymous.i18n-en .field--type-entity-reference .select-wrapper:after {
-  right: 69% !important;
-}
-body.nodeaddempl.role-is-anonymous.i18n-en.isIE .field--type-entity-reference .select-wrapper:after {
-  right: 66% !important;
-}
-body.nodeaddempl.role-is-anonymous.i18n-fr .field--type-entity-reference .select-wrapper:after {
-  right: 59% !important;
-}
-body.nodeaddempl.role-is-anonymous.i18n-fr.isIE .field--type-entity-reference .select-wrapper:after {
-  right: 56% !important;
 }
 body.nodeaddempl.role-is-anonymous #edit-group-opportunitylocation div.panel-heading, body.nodeaddempl.role-is-anonymous #edit-group-opportunityopento div.panel-heading,
 body.nodeaddempl.role-is-anonymous #edit-group-emplopportunityclosingdate div.panel-heading {
@@ -910,9 +806,6 @@ body.nodeaddempl.role-is-anonymous label#edit-field-branch-error ::after {
 body.nodeaddempl.role-is-anonymous #edit-field-classification-wrapper a.tabledrag-handle {
   display: none !important;
 }
-body.nodeaddempl.role-is-anonymous.i18n-en div[class$="-subform-field-class-id form-group"] .select-wrapper:after {
-  right: 50% !important;
-}
 body.nodeaddempl.role-is-anonymous.i18n-en select[name$="[subform][field_class_id]"] {
   min-width: 168px !important;
 }
@@ -921,18 +814,6 @@ body.nodeaddempl.role-is-anonymous.i18n-fr select[name$="[subform][field_class_i
 }
 body.nodeaddempl.role-is-anonymous div[class$="-subform-field-class-id form-group"] {
   float: left !important;
-}
-body.nodeaddempl.role-is-anonymous.i18n-fr div[class$="-subform-field-class-id form-group"] .select-wrapper:after {
-  right: 52% !important;
-}
-body.nodeaddempl.role-is-anonymous.i18n-en div[class$="-subform-field-class-sub form-group"] .select-wrapper:after {
-  right: 44% !important;
-}
-body.nodeaddempl.role-is-anonymous.i18n-fr div[class$="-subform-field-class-sub form-group"] .select-wrapper:after {
-  right: 45% !important;
-}
-body.nodeaddempl.role-is-anonymous.i18n-fr div[class$="-subform-field-class-level form-group"] .select-wrapper:after {
-  right: 55% !important;
 }
 body.nodeaddempl.role-is-anonymous #field-email-add-more-wrapper div.table-responsive button.tabledrag-toggle-weight.btn-sm.btn.btn-default {
   display: none !important;

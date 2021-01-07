@@ -18,6 +18,10 @@ function agri_reports_page_attachments(array &$page) {
     // Only load this css for the publish activity reporting view page.
     $page['#attached']['library'][] = 'agri_reports/publish-activity';
   }
+  if ($current_route == 'view.publish_activity_for_meta_tags.page_1') {
+    // Only load this css for the publish activity reporting view page.
+    $page['#attached']['library'][] = 'agri_reports/publish-activity-meta';
+  }
 }
 
 function agri_reports_views_data_export_row_alter(&$row, \Drupal\views\ResultRow $result, \Drupal\views\ViewExecutable $view) {
@@ -70,4 +74,25 @@ function agri_reports_preprocess_views_view_field(&$variables) {
       }
     }
   } 
+}
+
+/**
+ * Implements agri_reports_views_pre_view hook.
+ */
+
+function agri_reports_views_pre_view($view, $display_id, &$args) {
+  if ($view->id() == 'publish_activity_for_meta_tags') {
+    $values = $view->getExposedInput();
+    if (!empty($values["revision_timestamp"]['min']) && !empty($values["revision_timestamp"]['max'])) {
+      $date_from = $values["revision_timestamp"]['min'];
+      $values['field_issued_value'] = $date_from;
+      $view->setExposedInput($values);
+    }
+    else {
+      $values["revision_timestamp"]['min'] = ' ';
+      $values["revision_timestamp"]['max'] = ' ';
+      $values['field_issued_value'] = ' ';
+      $view->setExposedInput($values);      
+    }
+  }
 }

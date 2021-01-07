@@ -3,3 +3,14 @@ publish-activity:
     component:
       css/publish_activity.css: {}
 
+
+
+publish-activity-meta:
+  css:
+    component:
+      css/publish_activity_meta.css: {}
+  js:
+    js/agri_reports_meta.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings

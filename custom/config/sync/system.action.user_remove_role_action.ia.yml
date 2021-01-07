@@ -1,0 +1,14 @@
+uuid: 3fcd23a1-3410-4c4d-8c4b-c50e003e00b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.ia
+  module:
+    - user
+id: user_remove_role_action.ia
+label: 'Remove the IA role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: ia

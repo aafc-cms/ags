@@ -22,7 +22,7 @@ function grstheme_bootstrap_preprocess_html(&$variables) {
   $variables['langID'] = $langId;
   $theme = \Drupal\bootstrap\Bootstrap::getTheme();
   $themedir = $theme->getPath();
-  $variables['current_path'] = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+  $variables['current_path'] = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
   // Add class attribute (current role names) to the body class (for styling).
   // Ex: administrator, comms, reviewer, anonymous.
   $roles = \Drupal::currentUser()->getRoles();
@@ -34,7 +34,7 @@ function grstheme_bootstrap_preprocess_html(&$variables) {
   // This section is required for view node identify draft revisions as 'pink'.
   // Corresponding draft pink css is in css/style.scss.
 
-  $variables['current_path'] = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+  $variables['current_path'] = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
   // Add node id to the body class.
   $node = \Drupal::routeMatch()->getParameter('node');
   $node_revision = \Drupal::routeMatch()->getParameter('node_revision');

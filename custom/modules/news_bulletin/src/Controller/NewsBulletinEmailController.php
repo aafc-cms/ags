@@ -6,10 +6,11 @@ use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Drupal\views\Views;
 use Drupal\agri_admin\AgriAdminHelper;
-use Drupal\user\PrivateTempStoreFactory;
+use Drupal\Core\TempStore\PrivateTempStoreFactory;
 use Drupal\Core\Database\Driver\mysql\Connection;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Drupal\path_alias\PathAliasStorage;
 use Drupal\Core\Url;
 
 
@@ -17,23 +18,27 @@ class NewsBulletinEmailController extends ControllerBase {
 
   protected $tempStore;
   protected $database;
+  protected $aliasStorage;
   protected $tempWidth; // The image being processed width.
   protected $tempHeight; // The image being processed height.
 
   // Pass the dependency to the object constructor
-  public function __construct(PrivateTempStoreFactory $temp_store_factory, Connection $database) {
+  public function __construct(PrivateTempStoreFactory $temp_store_factory, Connection $database, PathAliasStorage $aliasStorage) {
     $this->database = $database;
     // For "news_bulletin," any unique namespace will do
     $this->tempStore = $temp_store_factory->get('news_bulletin');
+    $this->aliasStorage = $aliasStorage;
     $this->tempWidth = 0;
     $this->tempHeight = 0;
   }
 
   // Uses Symfony's ContainerInterface to declare dependency to be passed to constructor
   public static function create(ContainerInterface $container) {
+    $etm = $container->get('entity_type.manager');
     return new static(
-      $container->get('user.private_tempstore'),
-      $container->get('database')
+      $container->get('tempstore.private'),
+      $container->get('database'),
+      $etm->getStorage('path_alias')
     );
   }
 
@@ -226,9 +231,9 @@ class NewsBulletinEmailController extends ControllerBase {
         $host_path = $host_path . $base_path;
       }
     }
-    $relative = \Drupal::service('path.alias_storage')->load(['source' => '/node/' . $node->id(), 'langcode' => $lang]);
-    if (isset($relative['alias'])) {
-      $url = $host_path . '/' . $lang . $relative['alias'];
+    $relative = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $node->id(), $lang);
+    if (isset($relative)) {
+      $url = $host_path . '/' . $lang . $relative;
     }
     else {
       $url = $host_path . '/' . $lang . '/node/' . $node->id();

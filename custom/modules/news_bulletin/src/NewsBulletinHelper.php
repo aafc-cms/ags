@@ -10,8 +10,6 @@ class NewsBulletinHelper
   protected static $currentNid = null;
   protected static $titleEn = "";
   protected static $titleFr = "";
-  protected static $youtubeIdEn = "";
-  protected static $youtubeIdFr = "";
   protected static $urlAlias = "";
 
   /**
@@ -131,7 +129,8 @@ class NewsBulletinHelper
 
     if ($count == 0) {
       // The Drupal 8 way of creating an alias:
-      \Drupal::service('path.alias_storage')->save($source, '/' . $alias, $language);
+      $aliasService = \Drupal::service('entity_type.manager')->getStorage('path_alias');
+      $aliasService->save($source, '/' . $alias, $language);
       $count++;
       \Drupal::messenger()->addMessage("success: added url_alias for source: $source to alias: /$alias ", 'status', TRUE);
     }

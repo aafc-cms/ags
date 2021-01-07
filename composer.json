@@ -148,6 +148,8 @@
         },
         "patches": {
             "drupal/core": {
+                "Node previews are cached by dynamic page cache":
+                "https://www.drupal.org/files/issues/2020-04-13/d8_node_preview.patch",
                 "file usage bug fixes":
                 "https://www.drupal.org/files/issues/2020-04-03/2810355-64.patch",
                 "core views module fix for breadcrumb title and page title":
@@ -189,10 +191,6 @@
                 "fix array_unique warnings on node/49 page":
                 "https://www.drupal.org/files/issues/2020-09-29/bootstrap-3173776-3.patch"
             },
-            "drupal/content_lock": {
-                "When a user is deleted, his lock crashes the edit page for the content that was locked by the deleted user.":
-                "https://www.drupal.org/files/issues/2018-03-28/error-on-locked-content-by-deleted-user-2956625.2.patch"
-            },
             "drupal/entity_translation_unified_form": {
                 "Support side-by-side interface and sync of moderation state with jquery":
                 "https://www.drupal.org/files/issues/2020-05-12/etuf-sbs-3113998-13.patch"
@@ -206,18 +204,18 @@
                 "https://www.drupal.org/files/issues/2020-10-20/3115158-6.patch"
             },
             "drupal/lightning_media": {
-                "When a file is bulk uploaded it needs a uid.":
-                "https://www.drupal.org/files/issues/2020-10-29/bulk_fix-3179758-99.patch",
                 "Bulk media upload should have an option to select the target media entity bundle":
                 "https://www.drupal.org/files/issues/2019-11-29/lightning_bulk_upload_form-3097516-2.patch"
             },
             "drupal/linkchecker": {
-                "Route entity.linkcheckerlink.canonical does not exist":
-                "https://www.drupal.org/files/issues/2020-08-31/3118940_0.patch",
-                "Add support for Redirect module":
-                "https://www.drupal.org/files/issues/2020-06-17/3058014-27.patch",
-                "Link Extract Issue":
-                "https://www.drupal.org/files/issues/2020-06-08/3132326-9.patch"
+                "Extraction status":
+                "https://www.drupal.org/files/issues/2020-12-08/3184613-extraction-status.patch",
+                "Broken links view should not show status code -1":
+                "https://www.drupal.org/files/issues/2020-12-17/3118914-4.patch",
+                "Update empty value for last_check field on broken links report":
+                "https://www.drupal.org/files/issues/2020-12-25/3112537-12.patch",
+                "Auto-select extractor if there is only one available":
+                "https://www.drupal.org/files/issues/2020-12-18/3133925-2.patch"
             },
             "drupal/moderation_sidebar": {
                 "Synchronize moderation states between all translations of the entity":
@@ -238,6 +236,8 @@
                 "https://www.drupal.org/files/issues/2020-08-18/views-data-export-row-hook-3015117-7.patch"
             },
             "drupal/wxt_bootstrap": {
+                "WCAG - remove unnecessary roles banner/navigation/main/article/contentinfo":
+                "https://www.drupal.org/files/issues/2020-12-17/wxt_bootstrap-w3c_warnings_unnecessary_roles-3154001-11.patch",
                 "WCAG - Add roles to all menu UL LI and AHREF / LINK 3164631":
                 "https://www.drupal.org/files/issues/2020-10-16/wcag-add-roles-to-all-menu-ul-li-ahref-link-3164631-17.patch"
             }
@@ -267,14 +267,6 @@
         "drupalwxt/wxt": "^3.0.18",
         "drupal/core-composer-scaffold": "*",
         "drush/drush": "^10.0",
-        "entreprise7pro/agri_admin": "*",
-        "entreprise7pro/agri_reports": "*",
-        "entreprise7pro/news_empl": "8.9999999.9999999.9999999-dev",
-        "entreprise7pro/news_bulletin": "*",
-        "entreprise7pro/wxt_overrides": "*",
-        "junhuang/idol_feed_api": "*",
-        "entreprise7pro/config": "*",
-        "entreprise7pro/grstheme_bootstrap": "*",
         "drupal/access_unpublished": "^1.0",
         "drupal/autologout": "^1.3",
         "drupal/bigmenu": "^2.0",
@@ -282,9 +274,9 @@
         "drupal/config_split": "^1.6",
         "drupal/content_lock": "^2.0",
         "drupal/content_moderation_notifications": "3.x-dev",
+        "drupal/dynamic_entity_reference": "^2.0@alpha",
         "drupal/entity_translation_unified_form": "^1.0",
         "drupal/entityqueue": "^1.0",
-        "drupal/formblock": "1.x-dev",
         "drupal/form_options_attributes": "^2.0",
         "drupal/jsonapi_explorer": "^1.0",
         "drupal/link_attributes": "^1.10",
@@ -294,7 +286,7 @@
         "psr/container": "^1.0",
         "scssphp/scssphp": "^1.1",
         "drupal/recreate_block_content": "2.x-dev",
-        "drupal/safedelete": "^1.0",
+        "drupal/safedelete": "^1.0.15",
         "drupal/scanner": "1.x-dev",
         "drupal/sharedemail": "^2.1",
         "drupal/smtp": "1.x-dev",
@@ -318,8 +310,19 @@
         "drupal/config_ignore": "2.x-dev@dev",
         "drupal/devel_kint_extras": "^1.0",
         "drupal/views_data_export": "^1.0",
-        "drupal/linkchecker": "1.x-dev@dev",
-        "drupal/filehash": "^1.4"
+        "drupal/filehash": "^1.4",
+        "drupal/formblock": "^2.0.0-beta2",
+        "drupal/linkchecker": "^1.0@alpha",
+        "entreprise7pro/agri_admin": "*",
+        "entreprise7pro/agri_reports": "*",
+        "entreprise7pro/news_empl": "*",
+        "entreprise7pro/news_bulletin": "*",
+        "entreprise7pro/wxt_overrides": "*",
+        "junhuang/idol_feed_api": "*",
+        "entreprise7pro/config": "*",
+        "entreprise7pro/grstheme_bootstrap": "*",
+        "drupal/libraries": "^3.0@beta",
+        "drupal/jquery_ui_datepicker": "^1.0"
     },
     "autoload": {
         "classmap": [

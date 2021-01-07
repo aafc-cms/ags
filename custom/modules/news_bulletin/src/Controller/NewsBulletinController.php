@@ -6,7 +6,7 @@ use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Drupal\views\Views;
 use Drupal\agri_admin\AgriAdminHelper;
-use Drupal\user\PrivateTempStoreFactory;
+use Drupal\core\TempStore\PrivateTempStoreFactory;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class NewsBulletinController extends ControllerBase {
@@ -22,7 +22,7 @@ class NewsBulletinController extends ControllerBase {
   // Uses Symfony's ContainerInterface to declare dependency to be passed to constructor
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('user.private_tempstore')
+      $container->get('tempstore.private')
     );
   }
 

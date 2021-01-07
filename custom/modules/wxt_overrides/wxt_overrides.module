@@ -122,6 +122,18 @@ function wxt_overrides_page_attachments(array &$page) {
 
   $node = \Drupal::routeMatch()->getRawParameter('node');
   if (!isset($node)) {
+    $request = \Drupal::request();
+    $route_match = \Drupal::routeMatch();
+    $title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+    $content = $title;
+    $dctermstitle = [
+      '#tag' => 'meta',
+      '#attributes' => [
+        'property'  => 'dcterms:title',
+        'content'   => $content,
+      ],
+    ];
+    $page['#attached']['html_head'][] = [$dctermstitle, 'dcterms:title'];
     return;
   }
 
@@ -457,7 +469,7 @@ function wxt_overrides_link_alter(&$variables) {
           return; // Do not manipulate this tabs__link as it is otherwise confusing to the end user.
         }
       }
-      if (in_array('tabs__link', $link_options['attributes']['class']) && $variables['text'] == 'Table') {
+      if (isset($link_options['attributes']['class']) && in_array('tabs__link', $link_options['attributes']['class']) && $variables['text'] == 'Table') {
         return; // Do not manipulate this tabs__link as it is otherwise confusing to the end user.
       }
       $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();

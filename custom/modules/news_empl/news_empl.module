@@ -21,9 +21,11 @@ function news_empl_page_attachments(array &$page) {
     $anonymous = \Drupal::currentUser()->isAnonymous();
     if ($node->bundle() == 'empl') {
       $page['#attached']['library'][] = 'news_empl/empl-node-css'; // Not yet needed.
+      $page['#attached']['library'][] = 'jquery_ui_datepicker/datepicker';// For IE11 support.
     }
     else if ($node->bundle() == 'news') {
       $page['#attached']['library'][] = 'news_empl/news-node-css'; // Not yet needed.
+      $page['#attached']['library'][] = 'jquery_ui_datepicker/datepicker';// For IE11 support.
     }
     if ($anonymous && \Drupal::service('path.matcher')->isFrontPage()) {
       // This actually only affects the front page.
