@@ -3,6 +3,7 @@
 
 use Drupal\agri_admin\AgriAdminHelper;
 use Drupal\agri_admin\Utils;
+use \Drupal\Core\File\FileSystemInterface;
 
 /**
  * @file
@@ -12,6 +13,8 @@ use Drupal\agri_admin\Utils;
  * This file is no longer required in Drupal 8.
  * @see https://www.drupal.org/node/2217931
  */
+
+
 
 /**
  * Implements hook_page_attachments().
@@ -482,3 +485,14 @@ function wxt_overrides_link_alter(&$variables) {
   }
 }
 
+/** 
+function wxt_overrides_cron() {
+  $view = \Drupal\views\Views::getView('broken_links_report');
+  $views_preview = $view->preview('data_export_1');
+  $display = \Drupal::service('renderer')->renderRoot($views_preview);
+  $directory = 'public://linkcheck';
+  $file_system = \Drupal::service('file_system');
+  $file_system->prepareDirectory($directory, FileSystemInterface::CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);
+  $file_system->saveData($display, 'public://linkcheck/links.json', FileSystemInterface::EXISTS_REPLACE);
+}
+*/
