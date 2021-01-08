@@ -203,6 +203,10 @@
                 "Add functionality to immediately delete files and override usage check":
                 "https://www.drupal.org/files/issues/2020-10-20/3115158-6.patch"
             },
+            "drupal/linkit": {
+                "Detect and strip base URL from pasted URLs to increase matching hits":
+                "https://www.drupal.org/files/issues/2020-09-21/3078075-13.patch"
+            },
             "drupal/lightning_media": {
                 "Bulk media upload should have an option to select the target media entity bundle":
                 "https://www.drupal.org/files/issues/2019-11-29/lightning_bulk_upload_form-3097516-2.patch"
@@ -283,6 +287,7 @@
         "drupal/entityqueue": "^1.0",
         "drupal/form_options_attributes": "^2.0",
         "drupal/jsonapi_explorer": "^1.0",
+        "drupal/linkit": "5.0-beta11 as 5.0-beta12",
         "drupal/link_attributes": "^1.10",
         "drupal/memcache": "^2.0",
         "drupal/moderated_content_bulk_publish": "^2.0",

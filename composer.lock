@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ea6752be3730fb060cc99384d2922ac2",
+    "content-hash": "c2c5fc26c1c01e90f451d95d84e1e21f",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -10527,17 +10527,17 @@
         },
         {
             "name": "drupal/safedelete",
-            "version": "1.0.15",
+            "version": "1.0.16",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/safedelete.git",
-                "reference": "1.0.15"
+                "reference": "1.0.16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/safedelete-1.0.15.zip",
-                "reference": "1.0.15",
-                "shasum": "eb34c72948cf2a49253ebe022d6b00061edf4aa4"
+                "url": "https://ftp.drupal.org/files/projects/safedelete-1.0.16.zip",
+                "reference": "1.0.16",
+                "shasum": "7cceb01b28ede61cbfa611f546a05d3bf9fac6b5"
             },
             "require": {
                 "drupal/core": "^8 || ^9",
@@ -10546,8 +10546,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.15",
-                    "datestamp": "1608159668",
+                    "version": "1.0.16",
+                    "datestamp": "1610136145",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -22922,7 +22922,14 @@
             "time": "2020-07-12T23:59:07+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "package": "drupal/linkit",
+            "version": "5.0.0.0-beta11",
+            "alias": "5.0-beta12",
+            "alias_normalized": "5.0.0.0-beta12"
+        }
+    ],
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/content_moderation_notifications": 20,
