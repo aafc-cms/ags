@@ -83,6 +83,9 @@
         "post-root-package-install": [
             "DrupalWxT\\WxT\\ScriptHandler::postCreateProject"
         ],
+        "pre-install-cmd": [
+            "if [ -d html/sites/default ]; then chmod 775 html/sites/default; fi"
+        ],
         "post-install-cmd": [
             "bash post_install.sh"
         ],
