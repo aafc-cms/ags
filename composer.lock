@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2c5fc26c1c01e90f451d95d84e1e21f",
+    "content-hash": "5593559b541e02e47c8476e09be87a3e",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -8494,17 +8494,17 @@
         },
         {
             "name": "drupal/linkit",
-            "version": "5.0.0-beta11",
+            "version": "6.0.0-beta2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/linkit.git",
-                "reference": "8.x-5.0-beta11"
+                "reference": "6.0.0-beta2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/linkit-8.x-5.0-beta11.zip",
-                "reference": "8.x-5.0-beta11",
-                "shasum": "9133a3e61deafdd6a9d5a8b31a1f42e16051ee97"
+                "url": "https://ftp.drupal.org/files/projects/linkit-6.0.0-beta2.zip",
+                "reference": "6.0.0-beta2",
+                "shasum": "388cd47159eef6c505646c7d5a96e7e653439a94"
             },
             "require": {
                 "drupal/core": "^8.7.7 || ^9"
@@ -8515,8 +8515,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-5.0-beta11",
-                    "datestamp": "1591971693",
+                    "version": "6.0.0-beta2",
+                    "datestamp": "1608957496",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -8525,7 +8525,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -22925,9 +22925,9 @@
     "aliases": [
         {
             "package": "drupal/linkit",
-            "version": "5.0.0.0-beta11",
-            "alias": "5.0-beta12",
-            "alias_normalized": "5.0.0.0-beta12"
+            "version": "6.0.0.0-beta2",
+            "alias": "5.0-beta11",
+            "alias_normalized": "5.0.0.0-beta11"
         }
     ],
     "minimum-stability": "dev",
