@@ -35,6 +35,7 @@ var AgriEmplSubmitHelper = function() {
   var lang = 'en';           // Will be 'en' or 'fr' regardless of how the url segment is formed (currently eng or fra)
   var page_type = 'content';
   var checkbox_valid = false;  // Extra flag for processing in anonymous functions.
+  var  all_empl_types_unchecked = true;
 
   /**
    * Initialization
@@ -68,9 +69,41 @@ var AgriEmplSubmitHelper = function() {
     $('#edit-preview').click(function(){ handlePreviewClickEvent();})
     $('#edit-submit').click(function(){ handleSubmitClickEvent();});
 
+    //added checkboxes event handler in init function
+    handleEmplOppTypeCheckboxesEvent();
+
     console.log(AgriEmplSubmitHelper.page_type);
 
     initialized = true;
+  }
+
+
+  /*
+  * Empl Types Checkboxes Event handler to hide/show the validation error message.
+  */
+  function handleEmplOppTypeCheckboxesEvent() {
+    $('div[id="edit-field-type"]').children().find('input').each(function(index, element) {
+      if ($(element).hasClass('form-checkbox')) {
+        $(this).on('change', function () {
+          if ($(this).prop('checked')) {
+            if ($('#edit-emplopptypes-0-value-error').length) {
+              $('#edit-emplopptypes-0-value-error').hide()
+            }
+          }
+          if (!($(this).prop('checked'))) {
+            all_empl_types_unchecked = true;
+            $('div[id="edit-field-type"]').children().find('input').each( function(index, element) {
+              if ($(element).prop('checked')) {
+                all_empl_types_unchecked = false;
+              }
+            });
+            if ($('#edit-emplopptypes-0-value-error').length && all_empl_types_unchecked) {
+              $('#edit-emplopptypes-0-value-error').show();
+            }
+          }
+        });
+      }
+    });
   }
 
   function addSubmitClickHandler() {
@@ -204,6 +237,8 @@ var AgriEmplSubmitHelper = function() {
     handleSubmitClickEvent: handleSubmitClickEvent,
     sortMediaDisplayModes: sortMediaDisplayModes,
     handlePreviewClickEvent: handlePreviewClickEvent,
+    handleEmplOppTypeCheckboxesEvent: handleEmplOppTypeCheckboxesEvent,
+    all_empl_types_unchecked: all_empl_types_unchecked,
     page_type: page_type,
   }
 }();
