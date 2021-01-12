@@ -87,7 +87,7 @@ var AgriEmplSubmitHelper = function() {
         $(this).on('change', function () {
           if ($(this).prop('checked')) {
             if ($('#edit-emplopptypes-0-value-error').length) {
-              $('#edit-emplopptypes-0-value-error').hide()
+              $('#edit-emplopptypes-0-value-error').hide();
             }
           }
           if (!($(this).prop('checked'))) {
