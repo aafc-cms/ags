@@ -1,0 +1,8 @@
+name: linkchecks
+type: module
+description: A helper module, when your server has insufficient network access to do linkchecking.
+package: Custom
+core: 8.x
+core_version_requirement: ^8 || ^9
+dependencies:
+  - linkchecker

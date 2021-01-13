@@ -1,0 +1,7 @@
+linkchecks.settings_form:
+  path: '/admin/config/system/linkchecks'
+  defaults:
+    _title: 'linkchecks settings'
+    _form: 'Drupal\linkchecks\Form\SettingsForm'
+  requirements:
+    _permission: 'administer linkchecks configuration'

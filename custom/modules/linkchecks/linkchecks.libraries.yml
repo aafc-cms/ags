@@ -1,0 +1,10 @@
+# Custom module library for general purposes.
+linkchecks:
+  js:
+    js/linkchecks.js: {}
+  css:
+    component:
+      css/linkchecks.css: {}
+  dependencies:
+    - core/drupalSettings
+    - core/jquery
