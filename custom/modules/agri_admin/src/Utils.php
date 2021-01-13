@@ -395,7 +395,7 @@ class Utils {
   }
 
 
-  static public function checkabsoluteurl($formbody, &$foundabsoluteurl  = FALSE, &$publishpagemsgarray) {
+  static public function checkAbsoluteUrl($formbody, &$foundabsoluteurl  = FALSE, &$publishpagemsgarray) {
     $regex_tokenabspath = '/href=\".*\"/m';
     preg_match_all( $regex_tokenabspath, $formbody , $pathmatches, PREG_SET_ORDER);
     foreach ( $pathmatches as $match) {

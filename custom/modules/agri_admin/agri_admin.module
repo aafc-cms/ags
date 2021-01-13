@@ -898,13 +898,14 @@ function agri_admin_checkpagepublished($formbody, &$foundunpublishingnode = FALS
 function agri_admin_checkabsoluteurl($formbody, &$foundabsoluteurl = FALSE) {
   $absoluteurlmsg = '<p style="color:#e0ac00; font-size:16px;"><strong>Please use Linkit to complete the reference.</strong></p>';
   $absoluteurlmsgarray = array();
-  \Drupal\agri_admin\Utils::checkabsoluteurl($formbody, $foundabsoluteurl, $absoluteurlmsgarray);
+  \Drupal\agri_admin\Utils::checkAbsoluteUrl($formbody, $foundabsoluteurl, $absoluteurlmsgarray);
   if ($foundabsoluteurl) {
     \Drupal::messenger()->addWarning(t($absoluteurlmsg));
     foreach($absoluteurlmsgarray as $msg) {
       \Drupal::messenger()->addWarning(t($msg));
     }
   }
+
   return $foundabsoluteurl;
 }
 
