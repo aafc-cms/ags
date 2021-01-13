@@ -11,6 +11,7 @@ use Drupal\user\Entity\User;
 use Drupal\views\ViewExecutable;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Site\Settings;
+use Drupal\Component\Utility\UrlHelper;
 
 
 /**
@@ -692,7 +693,10 @@ function agri_admin_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInte
     $form['field_created_by']['widget'][0]['#disabled'] = TRUE;
     $form['field_dc_date_created']['widget'][0]['#disabled'] = TRUE;
     $form['#attached']['library'][] = 'agri_admin/page'; // For page and landing page edit/add css.
-
+    //add validation functionality to prevent the broken links or misused linkit before the page is published.
+    if ($content_type == 'page' || $content_type == 'landing_page') {
+      $form['#validate'][] = 'agri_admin_publishpage_referredlinks_validation';
+    }
     // custom action after the data is submitted.
     //$form['actions'][$action]['#submit'][] = 'agri_admin_form_submit'i;
     $current_user = \Drupal::currentUser();
@@ -801,6 +805,150 @@ function agri_admin_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInte
   }
 }
 
+/**
+ * Implements custom validation for checking three cases when the user publishes the page
+ * Case #1: The link contains token
+ * Case #2: The link refers unpublished node
+ * Case #3: The link uses absolute URL path
+ */
+function agri_admin_publishpage_referredlinks_validation(&$form, &$form_state) {
+  $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
+  // default language - body field
+  //Since it is in validation stage, i have to get the body value from $form variable instead of node entity
+  $formbodydefault =$form['body']['widget'][0]['value']['#value'];
+  $formbody2 ="";
+  if ($langcode == 'en') {
+    $formbody2 =$form['body']['fr']['widget'][0]['value']['#value'];
+  }
+  else {
+    $formbody2 =$form['body']['en']['widget'][0]['value']['#value'];
+  }
+  $entity = $form_state->getFormObject()->getEntity();
+  $nType = $entity->bundle();
+
+  // get the moderation state value from form values
+  $formvalues = $form_state->getValues();
+  $tmp = array_pop($formvalues['moderation_state']);
+  $node_mstate = array_pop($tmp);
+  if (( $nType == 'page' || $nType == 'landing_page') && ($node_mstate == 'published')) {
+    $foundtokenhref = FALSE;
+    agri_admin_checkurltoken($formbodydefault, $foundtokenhref);
+    agri_admin_checkurltoken($formbody2, $foundtokenhref);
+
+    // check unpublished node
+    $foundunpublishingnode = FALSE;
+    agri_admin_checkpagepublished($formbodydefault, $foundunpublishingnode);
+    agri_admin_checkpagepublished($formbody2, $foundunpublishingnode);
+
+    // check absolute URL
+    $foundabsoluteurl = FALSE;
+    agri_admin_checkabsoluteurl($formbodydefault, $foundabsoluteurl);
+    agri_admin_checkabsoluteurl($formbody2, $foundabsoluteurl);
+
+    //prevent the user to publish the page.
+    if ($foundtokenhref || $foundunpublishingnode || $foundabsoluteurl) {
+      $form_state->setRebuild();
+    }
+  }
+}
+
+
+/**
+ * Implements check if the href contains token before the user publishes the current page
+ *
+ */
+function agri_admin_checkurltoken($formbody, &$foundtokenhref = FALSE) {
+  // token string pattern
+  $tokenmsg = '<p style="color:#e0ac00; font-size:16px;"><strong>Please remove the token and make sure they are published before you publish the current one. <br/>If the link contains an absolute url, please use Linkit to change the reference to relative URL.</strong></p>';
+  $regex_token = '/href=\".*\?auHash=([a-zA-Z]|[0-9]|[_]|[-]){43}\"/m';
+  preg_match_all( $regex_token, $formbody , $matches,PREG_SET_ORDER);
+  foreach ( $matches as $match_token) {
+    $tokenhref = reset($match_token);
+    if (isset ($tokenhref) && strlen($tokenhref) >20) {
+      if (!$foundtokenhref) {
+        $foundtokenhref = TRUE;
+        \Drupal::messenger()->addWarning(t($tokenmsg));
+      }
+      \Drupal::messenger()->addWarning(t('<ul><li>' . $tokenhref . '</li></ul>'));
+    }
+  }
+  return $foundtokenhref;
+}
+
+
+/**
+ * Implements check if the href page is published before the user publishes the current page
+ *
+ */
+function agri_admin_checkpagepublished($formbody, &$foundunpublishingnode = FALSE) {
+  $unpublishingnodemsg = '<p style="color:#e0ac00; font-size:16px;"><strong>Please publish the identified pages first and then publish the current one.</strong></p>';
+  $regex_mediaobj = "/data-entity-type=\"node\" data-entity-uuid=\"([a-z]|[0-9]){8}-(([0-9]|[a-z]){4}-){3}([0-9]|[a-z]){12}\"/";
+  $regex_uuid = "/([a-z]|[0-9]){8}-(([0-9]|[a-z]){4}-){3}([0-9]|[a-z]){12}/";
+  preg_match_all( $regex_mediaobj, $formbody , $matches, PREG_SET_ORDER);
+  foreach ( $matches as $match) {
+    $node = reset($match);
+    preg_match_all( $regex_uuid, $node, $id_match, PREG_SET_ORDER);
+    $nodeuuid = $id_match[0][0];
+    $nentity = \Drupal::service('entity.repository')->loadEntityByUuid('node', $nodeuuid);
+    $nodeid = $nentity->id();
+    $nmstate = $nentity->get('moderation_state')->getValue();
+    $nmstatetmp = array_pop($nmstate);
+    $nmstateStr = array_pop($nmstatetmp);
+    if ($nmstateStr != 'published') {
+      if (!$foundunpublishingnode ) {
+        $foundunpublishingnode = TRUE;
+        \Drupal::messenger()->addWarning(t($unpublishingnodemsg));
+      }
+      $nodestring = '<ul><li>' . $node . " /node/" . $nodeid . '</li></ul>';
+      \Drupal::messenger()->addWarning(t( $nodestring  ));
+    }
+  }
+  return $foundunpublishingnode;
+}
+
+
+/**
+ * Implements check if the href url is absolute URL before the user publishes the current page
+ *
+ */
+function agri_admin_checkabsoluteurl($formbody, &$foundabsoluteurl = FALSE) {
+  $absoluteurlmsg = '<p style="color:#e0ac00; font-size:16px;"><strong>Please use Linkit to complete the reference.</strong></p>';
+  $regex_tokenabspath = '/href=\".*\"/m';
+  preg_match_all( $regex_tokenabspath, $formbody , $pathmatches, PREG_SET_ORDER);
+  foreach ( $pathmatches as $match) {
+    $hrefpath = reset($match);
+    //ignore the token case
+    $tokenhead = "?auHash=";
+    if (strpos($hrefpath, $tokenhead) == false ) {
+      $path = str_replace("href=\"", "",$hrefpath);
+      $path = str_replace("\"", "",$path);
+      if (UrlHelper::isExternal($path) && UrlHelper::isValid($path, TRUE)) {
+        if (UrlHelper::externalIsLocal($path, \Drupal::request()->getSchemeAndHttpHost())) {
+          $absolutepathstring = $path;
+          $host = parse_url($path, PHP_URL_HOST);
+          $host_end = strpos($path, $host) + strlen($host);
+          $path = substr($path, $host_end);
+          $path = urldecode(trim($path, '/'));
+          $path_args = explode('/', $path);
+          $prefix = array_shift($path_args);
+          $path = '/' . implode('/', $path_args);
+          $nodpath = \Drupal::service('path.alias_manager')->getPathByAlias($path);
+          if(preg_match('/node\/(\d+)/', $nodpath, $matches)) {
+            $hrefnode = \Drupal\node\Entity\Node::load($matches[1]);
+            if (isset ($hrefnode)) {
+              if (!$foundabsoluteurl ) {
+                $foundabsoluteurl = TRUE;
+                \Drupal::messenger()->addWarning(t($absoluteurlmsg));
+              }
+              \Drupal::messenger()->addWarning(t('<ul><li>'  . $absolutepathstring . '</li></ul>'));
+            }
+          }
+        }
+      }
+    }
+  }
+  return $foundabsoluteurl;
+}
 
 /**
  * Implements hook_expirydate.
