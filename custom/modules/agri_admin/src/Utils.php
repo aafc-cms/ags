@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\Core\Url;
 use Drupal\Core\Link;
 use Drupal\Core\Routing\TrustedRedirectResponse;
+use Drupal\Component\Utility\UrlHelper;
 
 
 class Utils {
@@ -350,4 +351,86 @@ class Utils {
   }
 
 
+  static public function checkUrlToken($formbody, &$foundtokenhref = FALSE, &$tokenmsgarray) {
+    $regex_token = '/href=\".*\?auHash=([a-zA-Z]|[0-9]|[_]|[-]){43}\"/m';
+    preg_match_all( $regex_token, $formbody , $matches,PREG_SET_ORDER);
+    foreach ( $matches as $match_token) {
+      $tokenhref = reset($match_token);
+      if (isset ($tokenhref) && strlen($tokenhref) >20) {
+        if (!$foundtokenhref) {
+          $foundtokenhref = TRUE;
+        }
+        $msg = '';
+        $msg = '<ul><li>' . $tokenhref . '</li></ul>';
+        array_push($tokenmsgarray, $msg);
+      }
+    }
+    return $foundtokenhref;
+  }
+
+
+  static public function checkPagePublished($formbody, &$foundunpublishingnode  = FALSE, &$publishpagemsgarray) {
+    $regex_mediaobj = "/data-entity-type=\"node\" data-entity-uuid=\"([a-z]|[0-9]){8}-(([0-9]|[a-z]){4}-){3}([0-9]|[a-z]){12}\"/";
+    $regex_uuid = "/([a-z]|[0-9]){8}-(([0-9]|[a-z]){4}-){3}([0-9]|[a-z]){12}/";
+    preg_match_all( $regex_mediaobj, $formbody , $matches, PREG_SET_ORDER);
+    foreach ( $matches as $match) {
+      $node = reset($match);
+      preg_match_all( $regex_uuid, $node, $id_match, PREG_SET_ORDER);
+      $nodeuuid = $id_match[0][0];
+      $nentity = \Drupal::service('entity.repository')->loadEntityByUuid('node', $nodeuuid);
+      $nodeid = $nentity->id();
+      $nmstate = $nentity->get('moderation_state')->getValue();
+      $nmstatetmp = array_pop($nmstate);
+      $nmstateStr = array_pop($nmstatetmp);
+      if ($nmstateStr != 'published') {
+        if (!$foundunpublishingnode ) {
+          $foundunpublishingnode = TRUE;
+        }
+        $msg = '';
+        $msg = '<ul><li>' . $node . " /node/" . $nodeid . '</li></ul>';
+        array_push($publishpagemsgarray, $msg);
+      }
+    }
+    return $foundunpublishingnode ;
+  }
+
+
+  static public function checkAbsoluteUrl($formbody, &$foundabsoluteurl  = FALSE, &$publishpagemsgarray) {
+    $regex_tokenabspath = '/href=\".*\"/m';
+    preg_match_all( $regex_tokenabspath, $formbody , $pathmatches, PREG_SET_ORDER);
+    foreach ( $pathmatches as $match) {
+      $hrefpath = reset($match);
+      //ignore the token case
+      $tokenhead = "?auHash=";
+      if (strpos($hrefpath, $tokenhead) == false ) {
+        $path = str_replace("href=\"", "",$hrefpath);
+        $path = str_replace("\"", "",$path);
+        if (UrlHelper::isExternal($path) && UrlHelper::isValid($path, TRUE)) {
+          if (UrlHelper::externalIsLocal($path, \Drupal::request()->getSchemeAndHttpHost())) {
+            $absolutepathstring = $path;
+            $host = parse_url($path, PHP_URL_HOST);
+            $host_end = strpos($path, $host) + strlen($host);
+            $path = substr($path, $host_end);
+            $path = urldecode(trim($path, '/'));
+            $path_args = explode('/', $path);
+            $prefix = array_shift($path_args);
+            $path = '/' . implode('/', $path_args);
+            $nodpath = \Drupal::service('path.alias_manager')->getPathByAlias($path);
+            if(preg_match('/node\/(\d+)/', $nodpath, $matches)) {
+              $hrefnode = \Drupal\node\Entity\Node::load($matches[1]);
+              if (isset ($hrefnode)) {
+                if (!$foundabsoluteurl ) {
+                  $foundabsoluteurl = TRUE;
+                }
+                $msg = '';
+                $msg = '<ul><li>'  . $absolutepathstring . '</li></ul>';
+                array_push($publishpagemsgarray, $msg);
+              }
+            }
+          }
+        }
+      }
+    }
+    return $foundabsoluteurl ;
+  }
 }
