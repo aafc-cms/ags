@@ -155,7 +155,9 @@ var Linkchecks = function() {
     if (Linkchecks.linksChecked == -1) {
       Linkchecks.linksChecked = 0;
     }
-    Linkchecks.link = Linkchecks.links[Linkchecks.linksChecked];
+    if (Linkchecks.links.length > Linkchecks.linksChecked) {
+      Linkchecks.link = Linkchecks.links[Linkchecks.linksChecked];
+    }
     var link = Linkchecks.link;
     console.log(Linkchecks.linksChecked);
     console.log(link);
