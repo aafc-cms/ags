@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f1d810abfa9cca294d64d0313718cb60",
+    "content-hash": "da8e7fd8cf0fad5cf7ff0de4a6b4de99",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -13363,6 +13363,22 @@
             }
         },
         {
+            "name": "entreprise7pro/linkchecks",
+            "version": "8.x-dev",
+            "dist": {
+                "type": "path",
+                "url": "custom/modules/linkchecks",
+                "reference": "8837373d95d57fbd14affc5fa3c9d27a8804c2f2"
+            },
+            "require": {
+                "composer/installers": "^1.2"
+            },
+            "type": "drupal-custom-module",
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "entreprise7pro/news_bulletin",
             "version": "8.x-dev",
             "dist": {
@@ -22942,6 +22958,7 @@
         "drupal/ultimate_cron": 15,
         "drupal/config_ignore": 20,
         "drupal/linkchecker": 15,
+        "entreprise7pro/linkchecks": 20,
         "drupal/libraries": 10,
         "phpmd/phpmd": 0
     },
