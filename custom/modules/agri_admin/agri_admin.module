@@ -11,7 +11,6 @@ use Drupal\user\Entity\User;
 use Drupal\views\ViewExecutable;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Site\Settings;
-use Drupal\Component\Utility\UrlHelper;
 
 
 /**
@@ -860,16 +859,12 @@ function agri_admin_publishpage_referredlinks_validation(&$form, &$form_state) {
 function agri_admin_checkurltoken($formbody, &$foundtokenhref = FALSE) {
   // token string pattern
   $tokenmsg = '<p style="color:#e0ac00; font-size:16px;"><strong>Please remove the token and make sure they are published before you publish the current one. <br/>If the link contains an absolute url, please use Linkit to change the reference to relative URL.</strong></p>';
-  $regex_token = '/href=\".*\?auHash=([a-zA-Z]|[0-9]|[_]|[-]){43}\"/m';
-  preg_match_all( $regex_token, $formbody , $matches,PREG_SET_ORDER);
-  foreach ( $matches as $match_token) {
-    $tokenhref = reset($match_token);
-    if (isset ($tokenhref) && strlen($tokenhref) >20) {
-      if (!$foundtokenhref) {
-        $foundtokenhref = TRUE;
-        \Drupal::messenger()->addWarning(t($tokenmsg));
-      }
-      \Drupal::messenger()->addWarning(t('<ul><li>' . $tokenhref . '</li></ul>'));
+  $tokenmsgarray = array();
+  \Drupal\agri_admin\Utils::checkUrlToken($formbody, $foundtokenhref, $tokenmsgarray);
+  if ($foundtokenhref) {
+    \Drupal::messenger()->addWarning(t($tokenmsg));
+    foreach($tokenmsgarray as $msg) {
+      \Drupal::messenger()->addWarning(t($msg));
     }
   }
   return $foundtokenhref;
@@ -884,23 +879,12 @@ function agri_admin_checkpagepublished($formbody, &$foundunpublishingnode = FALS
   $unpublishingnodemsg = '<p style="color:#e0ac00; font-size:16px;"><strong>Please publish the identified pages first and then publish the current one.</strong></p>';
   $regex_mediaobj = "/data-entity-type=\"node\" data-entity-uuid=\"([a-z]|[0-9]){8}-(([0-9]|[a-z]){4}-){3}([0-9]|[a-z]){12}\"/";
   $regex_uuid = "/([a-z]|[0-9]){8}-(([0-9]|[a-z]){4}-){3}([0-9]|[a-z]){12}/";
-  preg_match_all( $regex_mediaobj, $formbody , $matches, PREG_SET_ORDER);
-  foreach ( $matches as $match) {
-    $node = reset($match);
-    preg_match_all( $regex_uuid, $node, $id_match, PREG_SET_ORDER);
-    $nodeuuid = $id_match[0][0];
-    $nentity = \Drupal::service('entity.repository')->loadEntityByUuid('node', $nodeuuid);
-    $nodeid = $nentity->id();
-    $nmstate = $nentity->get('moderation_state')->getValue();
-    $nmstatetmp = array_pop($nmstate);
-    $nmstateStr = array_pop($nmstatetmp);
-    if ($nmstateStr != 'published') {
-      if (!$foundunpublishingnode ) {
-        $foundunpublishingnode = TRUE;
-        \Drupal::messenger()->addWarning(t($unpublishingnodemsg));
-      }
-      $nodestring = '<ul><li>' . $node . " /node/" . $nodeid . '</li></ul>';
-      \Drupal::messenger()->addWarning(t( $nodestring  ));
+  $publishpagemsgarray = array();
+  \Drupal\agri_admin\Utils::checkPagePublished($formbody, $foundunpublishingnode, $publishpagemsgarray);
+  if ($foundunpublishingnode) {
+    \Drupal::messenger()->addWarning(t($unpublishingnodemsg));
+    foreach($publishpagemsgarray as $msg) {
+      \Drupal::messenger()->addWarning(t($msg));
     }
   }
   return $foundunpublishingnode;
@@ -913,38 +897,12 @@ function agri_admin_checkpagepublished($formbody, &$foundunpublishingnode = FALS
  */
 function agri_admin_checkabsoluteurl($formbody, &$foundabsoluteurl = FALSE) {
   $absoluteurlmsg = '<p style="color:#e0ac00; font-size:16px;"><strong>Please use Linkit to complete the reference.</strong></p>';
-  $regex_tokenabspath = '/href=\".*\"/m';
-  preg_match_all( $regex_tokenabspath, $formbody , $pathmatches, PREG_SET_ORDER);
-  foreach ( $pathmatches as $match) {
-    $hrefpath = reset($match);
-    //ignore the token case
-    $tokenhead = "?auHash=";
-    if (strpos($hrefpath, $tokenhead) == false ) {
-      $path = str_replace("href=\"", "",$hrefpath);
-      $path = str_replace("\"", "",$path);
-      if (UrlHelper::isExternal($path) && UrlHelper::isValid($path, TRUE)) {
-        if (UrlHelper::externalIsLocal($path, \Drupal::request()->getSchemeAndHttpHost())) {
-          $absolutepathstring = $path;
-          $host = parse_url($path, PHP_URL_HOST);
-          $host_end = strpos($path, $host) + strlen($host);
-          $path = substr($path, $host_end);
-          $path = urldecode(trim($path, '/'));
-          $path_args = explode('/', $path);
-          $prefix = array_shift($path_args);
-          $path = '/' . implode('/', $path_args);
-          $nodpath = \Drupal::service('path.alias_manager')->getPathByAlias($path);
-          if(preg_match('/node\/(\d+)/', $nodpath, $matches)) {
-            $hrefnode = \Drupal\node\Entity\Node::load($matches[1]);
-            if (isset ($hrefnode)) {
-              if (!$foundabsoluteurl ) {
-                $foundabsoluteurl = TRUE;
-                \Drupal::messenger()->addWarning(t($absoluteurlmsg));
-              }
-              \Drupal::messenger()->addWarning(t('<ul><li>'  . $absolutepathstring . '</li></ul>'));
-            }
-          }
-        }
-      }
+  $absoluteurlmsgarray = array();
+  \Drupal\agri_admin\Utils::checkabsoluteurl($formbody, $foundabsoluteurl, $absoluteurlmsgarray);
+  if ($foundabsoluteurl) {
+    \Drupal::messenger()->addWarning(t($absoluteurlmsg));
+    foreach($absoluteurlmsgarray as $msg) {
+      \Drupal::messenger()->addWarning(t($msg));
     }
   }
   return $foundabsoluteurl;
