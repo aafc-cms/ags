@@ -409,16 +409,14 @@ class Utils {
           if (UrlHelper::externalIsLocal($path, \Drupal::request()->getSchemeAndHttpHost())) {
             $absolutepathstring = $path;
             $base_path = \Drupal::request()->getBasePath();
-            //$base_path ="/qa2"; -- comment for testing purpose
             $host = parse_url($path, PHP_URL_HOST);
-            //$host = "cms-test.agr.gc.ca"; -- comment for testing purpose
             $host_end = strpos($path, $host) + strlen($host) + strlen($base_path);
             $path = substr($path, $host_end);
             $path = urldecode(trim($path, '/'));
             $path_args = explode('/', $path);
             $prefix = array_shift($path_args);
             $path = '/' . implode('/', $path_args);
-            $nodpath = \Drupal::service('path_alias.manager')->getPathByAlias($path);
+            $nodpath = \Drupal::service('path_alias.manager')->getPathByAlias($path,$prefix);
             if(preg_match('/node\/(\d+)/', $nodpath, $matches)) {
               $hrefnode = \Drupal\node\Entity\Node::load($matches[1]);
               if (isset ($hrefnode)) {
