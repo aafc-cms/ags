@@ -391,7 +391,7 @@ class Utils {
         array_push($publishpagemsgarray, $msg);
       }
     }
-    return $foundunpublishingnode ;
+    return $foundunpublishingnode;
   }
 
 
@@ -432,6 +432,6 @@ class Utils {
         }
       }
     }
-    return $foundabsoluteurl ;
+    return $foundabsoluteurl;
   }
 }
