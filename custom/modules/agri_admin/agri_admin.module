@@ -831,18 +831,18 @@ function agri_admin_publishpage_referredlinks_validation(&$form, &$form_state) {
   $node_mstate = array_pop($tmp);
   if (( $nType == 'page' || $nType == 'landing_page') && ($node_mstate == 'published')) {
     $foundtokenhref = FALSE;
-    agri_admin_checkurltoken($formbodydefault, $foundtokenhref);
-    agri_admin_checkurltoken($formbody2, $foundtokenhref);
+    agri_admin_checkurltoken($formbodydefault, $foundtokenhref, $langcode);
+    agri_admin_checkurltoken($formbody2, $foundtokenhref, $langcode);
 
     // check unpublished node
     $foundunpublishingnode = FALSE;
-    agri_admin_checkpagepublished($formbodydefault, $foundunpublishingnode);
-    agri_admin_checkpagepublished($formbody2, $foundunpublishingnode);
+    agri_admin_checkpagepublished($formbodydefault, $foundunpublishingnode, $langcode);
+    agri_admin_checkpagepublished($formbody2, $foundunpublishingnode, $langcode);
 
     // check absolute URL
     $foundabsoluteurl = FALSE;
-    agri_admin_checkabsoluteurl($formbodydefault, $foundabsoluteurl);
-    agri_admin_checkabsoluteurl($formbody2, $foundabsoluteurl);
+    agri_admin_checkabsoluteurl($formbodydefault, $foundabsoluteurl, $langcode);
+    agri_admin_checkabsoluteurl($formbody2, $foundabsoluteurl, $langcode);
 
     //prevent the user to publish the page.
     if ($foundtokenhref || $foundunpublishingnode || $foundabsoluteurl) {
@@ -856,9 +856,15 @@ function agri_admin_publishpage_referredlinks_validation(&$form, &$form_state) {
  * Implements check if the href contains token before the user publishes the current page
  *
  */
-function agri_admin_checkurltoken($formbody, &$foundtokenhref = FALSE) {
+function agri_admin_checkurltoken($formbody, &$foundtokenhref = FALSE, $langcode = 'en') {
   // token string pattern
-  $tokenmsg = '<p style="color:#e0ac00; font-size:16px;"><strong>Please remove the token and make sure they are published before you publish the current one. <br/>If the link contains an absolute url, please use Linkit to change the reference to relative URL.</strong></p>';
+  $tokenmsg = '';
+  if ($langcode == 'en') {
+    $tokenmsg = '<p style="color:#e0ac00; font-size:16px;"><strong>Please remove the token and make sure they are published before you publish the current one. <br/>If the link contains an absolute url, please use Linkit to change the reference to relative URL.</strong></p>';
+  }
+  else {
+    $tokenmsg = '<p style="color:#e0ac00; font-size:16px;"><strong>Veuillez supprimer le jeton et assurez-vous qu\'ils sont publiés avant de publier le jeton actuel. <br/>Si le lien contient une URL absolue, veuillez utiliser Linkit pour modifier la référence en URL relative.</strong></p>';
+  }
   $tokenmsgarray = array();
   \Drupal\agri_admin\Utils::checkUrlToken($formbody, $foundtokenhref, $tokenmsgarray);
   if ($foundtokenhref) {
@@ -875,8 +881,14 @@ function agri_admin_checkurltoken($formbody, &$foundtokenhref = FALSE) {
  * Implements check if the href page is published before the user publishes the current page
  *
  */
-function agri_admin_checkpagepublished($formbody, &$foundunpublishingnode = FALSE) {
-  $unpublishingnodemsg = '<p style="color:#e0ac00; font-size:16px;"><strong>Please publish the identified pages first and then publish the current one.</strong></p>';
+function agri_admin_checkpagepublished($formbody, &$foundunpublishingnode = FALSE, $langcode = 'en') {
+  $unpublishingnodemsg = '';
+  if ($langcode == 'en') {
+    $unpublishingnodemsg = '<p style="color:#e0ac00; font-size:16px;"><strong>Please publish the identified pages first and then publish the current one.</strong></p>';
+  }
+  else {
+    $unpublishingnodemsg = '<p style="color:#e0ac00; font-size:16px;"><strong>Veuillez d\'abord publier les pages identifiées, puis publier la page actuelle.</strong></p>';
+  }
   $regex_mediaobj = "/data-entity-type=\"node\" data-entity-uuid=\"([a-z]|[0-9]){8}-(([0-9]|[a-z]){4}-){3}([0-9]|[a-z]){12}\"/";
   $regex_uuid = "/([a-z]|[0-9]){8}-(([0-9]|[a-z]){4}-){3}([0-9]|[a-z]){12}/";
   $publishpagemsgarray = array();
@@ -895,8 +907,14 @@ function agri_admin_checkpagepublished($formbody, &$foundunpublishingnode = FALS
  * Implements check if the href url is absolute URL before the user publishes the current page
  *
  */
-function agri_admin_checkabsoluteurl($formbody, &$foundabsoluteurl = FALSE) {
-  $absoluteurlmsg = '<p style="color:#e0ac00; font-size:16px;"><strong>Please use Linkit to complete the reference.</strong></p>';
+function agri_admin_checkabsoluteurl($formbody, &$foundabsoluteurl = FALSE, $langcode = 'en') {
+  $absoluteurlmsg ='';
+  if ($langcode == 'en') {
+    $absoluteurlmsg = '<p style="color:#e0ac00; font-size:16px;"><strong>Please use Linkit to complete the reference.</strong></p>';
+  }
+  else {
+    $absoluteurlmsg = '<p style="color:#e0ac00; font-size:16px;"><strong>Veuillez utiliser Linkit pour compléter la référence.</strong></p>';
+  }
   $absoluteurlmsgarray = array();
   \Drupal\agri_admin\Utils::checkAbsoluteUrl($formbody, $foundabsoluteurl, $absoluteurlmsgarray);
   if ($foundabsoluteurl) {
