@@ -153,6 +153,35 @@ class AgriAdminHelper {
   }
 
   /**
+   * Get menu link by nid.
+   * returns first object or FALSE.
+   */
+  static public function getMenuLinkByNid($nid, $menu_name = 'main') {
+    $menuLink = \Drupal::entityTypeManager()->getStorage('menu_link_content')
+      ->loadByProperties([
+        'link.uri' => 'entity:node/' . $nid,
+        'menu_name' => $menu_name,
+    ]);
+    if (isset($menuLink) && !empty($menuLink)) {
+      $menuLink = reset($menuLink);
+      return $menuLink;
+    }
+    else {
+      $menuLink = \Drupal::entityTypeManager()->getStorage('menu_link_content')
+        ->loadByProperties([
+          'link.uri' => 'internal:/node/' . $nid,
+          'menu_name' => $menu_name,
+      ]);
+      if (isset($menuLink) && !empty($menuLink)) {
+        $menuLink = reset($menuLink);
+        return $menuLink;
+      }
+    }
+    return FALSE;
+  }
+
+
+  /**
    * $action = disable or delete or enable.
    */
   static public function menuLinkAction($nid, $menu_name = 'main', $action = 'disable') {
