@@ -68,6 +68,15 @@ class Breadcrumb extends BootstrapBreadcrumb {
             if (!empty($link) && is_object($link)) {
               $linktitle = $link->getTitle(); // This gets title in the current language.
             }
+            else {
+              $menuLink = AgriAdminHelper::getMenuLinkByNid($node->id(), 'main');
+              $lang = AgriAdminHelper::getLang();
+//              \Drupal\agri_admin\AgriAdminHelper::addToLog('debug1 : nid' . $node->id() . $linktitle . '<pre>' . print_r('test serialize($menuLink)',TRUE) . '</pre>' , TRUE);
+              if ($menuLink && $menuLink->hasTranslation($lang)) {
+                $menuLinkFr = $menuLink->getTranslation($lang);
+                $linktitle = $menuLinkFr->getTitle();
+              }
+            }
             $breadcrumb[] = [
               'text' => $linktitle,
               'attributes' => new Attribute(['class' => ['active']]),
