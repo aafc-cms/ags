@@ -22,3 +22,19 @@ function linkchecks_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\Form
     }
   }
 }
+
+
+
+/**
+ * Implements hook_page_attachments().
+ *
+ * Adds the agri-admin libraries to each page.
+ 
+function linkchecks_page_attachments(array &$page) {
+  $page['#attached']['library'][] = 'linkchecks/linkcheckblock';
+  $current_route = \Drupal::routeMatch()->getRouteName();
+        \Drupal\agri_admin\AgriAdminHelper::addToLog($current_route, TRUE);
+      \Drupal\agri_admin\AgriAdminHelper::addMessage($current_route, TRUE);
+  if ($current_route == 'content_moderation.admin_moderated_content' || $current_route == 'system.admin_content') {
+  }
+}*/
