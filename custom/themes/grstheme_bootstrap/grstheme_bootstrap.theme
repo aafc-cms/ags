@@ -340,9 +340,9 @@ function grstheme_bootstrap_preprocess_page(&$vars) {
         $replacement = '<nav class="tabs mrgn-tp-md mrgn-bttm-md" style="display: none;" aria-label="Onglets">';
       }
       $content = $vars['page']['content']['system_main']['#markup'];
-      if ($content) {
+      if (isset($content)) {
         $content = preg_replace($patten, $replacement, $content);
-        if ($content) {
+        if (isset($content)) {
           $vars['page']['content']['system_main']['#markup'] = \Drupal\Core\Render\Markup::create($content);
         }
       }
