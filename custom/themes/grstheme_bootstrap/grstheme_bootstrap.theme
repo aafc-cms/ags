@@ -318,3 +318,34 @@ function grstheme_bootstrap_preprocess_form_element_label(&$variables) {
     }
   }
 }
+
+
+/**
+ * Implements agri_admin_preprocess_page hook.
+ */
+
+function grstheme_bootstrap_preprocess_page(&$vars) {
+  /* hide view and lastest version TABS in the page content */
+  $current_uri = \Drupal::request()->getRequestUri();
+  $regex_token = '/\latest\?auHash=([a-zA-Z]|[0-9]|[_]|[-]){43}/';
+  if (preg_match($regex_token, $current_uri)) {
+    if (\Drupal::currentUser()->isAnonymous() && $vars['page']['#type'] == 'page' ) {
+      $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
+      if ($langId == 'en') {
+        $patten = '/<nav class="tabs mrgn-tp-md mrgn-bttm-md" aria-label="Tabs">/';
+        $replacement = '<nav class="tabs mrgn-tp-md mrgn-bttm-md" style="display: none;" aria-label="Tabs">';
+      }
+      else {
+        $patten = '/<nav class="tabs mrgn-tp-md mrgn-bttm-md" aria-label="Onglets">/';
+        $replacement = '<nav class="tabs mrgn-tp-md mrgn-bttm-md" style="display: none;" aria-label="Onglets">';
+      }
+      $content = $vars['page']['content']['system_main']['#markup'];
+      if ($content) {
+        $content = preg_replace($patten, $replacement, $content);
+        if ($content) {
+          $vars['page']['content']['system_main']['#markup'] = \Drupal\Core\Render\Markup::create($content);
+        }
+      }
+    }
+  }
+}
