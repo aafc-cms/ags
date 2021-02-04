@@ -327,7 +327,7 @@ function grstheme_bootstrap_preprocess_form_element_label(&$variables) {
 function grstheme_bootstrap_preprocess_page(&$vars) {
   /* hide view and lastest version TABS in the page content */
   $current_uri = \Drupal::request()->getRequestUri();
-  $regex_token = '/\latest\?auHash=([a-zA-Z]|[0-9]|[_]|[-]){43}/';
+  $regex_token = '/\/latest\?auHash=([a-zA-Z]|[0-9]|[_]|[-]){43}/';
   if (preg_match($regex_token, $current_uri)) {
     if (\Drupal::currentUser()->isAnonymous() && $vars['page']['#type'] == 'page' ) {
       $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
