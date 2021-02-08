@@ -11,6 +11,8 @@ use Drupal\user\Entity\User;
 use Drupal\views\ViewExecutable;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Site\Settings;
+use Drupal\file\Entity\File;
+use Drupal\file\FileInterface;
 
 
 /**
@@ -122,7 +124,7 @@ function agri_admin_theme($existing, $type, $theme, $path) {
 function agri_admin_preprocess_views_view_field(&$variables) {
   $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $view = $variables['view'];
-  
+
   $hasPermission = FALSE;
   if ($variables['logged_in']) {
     $user = \Drupal::currentUser();
@@ -384,7 +386,7 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
 
     if (empty($created_by)) {
       if ($entity->isNew()) {
-        $entity->set('field_created_by', $current_user->getAccountName());      
+        $entity->set('field_created_by', $current_user->getAccountName());
       } else {
         $admin_username = \Drupal\user\Entity\User::load(1)->getAccountName();
         $entity->set('field_created_by', $admin_username);
@@ -394,7 +396,7 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
     $peer_review_status = '';
     if ($content_type == 'page' || $content_type == 'landing_page') {
       $update_date_modified_str = $entity->get('field_update_date_modified')->getString();
-      $peer_review_status = $entity->get('field_peer_review')->getString();      
+      $peer_review_status = $entity->get('field_peer_review')->getString();
       if ($moderation_state == 'published' || $moderation_state == 'archived') {
         $entity->set('field_peer_review', '');
       }
@@ -606,7 +608,7 @@ function agri_admin_form_node_news_form_alter(&$form, \Drupal\Core\Form\FormStat
     }
     $form['actions']['preview']['#weight'] = -99;
     $form['actions']['#weight'] = 10;
-    $form['actions']['submit']['#value'] = t('Submit'); 
+    $form['actions']['submit']['#value'] = t('Submit');
   }
   if (\Drupal::currentUser()->isAnonymous()) {
     // Remove/do not render these form elements from anonymous user.
@@ -622,7 +624,7 @@ function agri_admin_form_node_news_form_alter(&$form, \Drupal\Core\Form\FormStat
     // See js/agri-empl-or-news-submit.js previewInNewTab().
     $form['#attached']['library'][] = 'agri_admin/agri-empl-news-submit_css'; // For empl submit.
     $form['actions']['#weight'] = 10;
-    $form['actions']['submit']['#value'] = t('Submit'); 
+    $form['actions']['submit']['#value'] = t('Submit');
     //$form['#attributes']['target'] = '_blank';
     //$form['#attributes']['novalidate'] = 'novalidate';
   }
@@ -675,7 +677,7 @@ function agri_admin_form_newsorempl_submit (array $form, \Drupal\Core\Form\FormS
   if ($current_user->isAnonymous()) {
     $entity = $form_state->getFormObject()->getEntity();
     $entity->set('moderation_state', 'draft');
-    $front_url = Url::fromRoute('<front>'); 
+    $front_url = Url::fromRoute('<front>');
     $form_state->setRedirectUrl( $front_url );
   }
 }
@@ -705,7 +707,7 @@ function agri_admin_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInte
           $form['actions'][$action]['#submit'][] = 'agri_admin_form_newsorempl_submit';
         }
       }
-    } 
+    }
 
 //  AgriAdminHelper::addToLog($debug_message, TRUE);
 //Copying fields to label:
@@ -759,11 +761,11 @@ function agri_admin_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInte
 
       if ($entity->isNew()) {
         $form['field_peer_review']['#disabled'] = TRUE;
-      } 
+      }
       elseif ($moderation_state == 'published' || $moderation_state == 'archived') {
           $form['field_peer_review']['#disabled'] = TRUE;
           $form['field_tracking_number']['widget'][0]['value']['#default_value'] = '';
-      } 
+      }
       elseif ($moderation_state == 'draft' &&  empty($peer_review_status)) {
         // Do not enable peer reviewed.
         $form['field_peer_review']['widget']['#options_attributes']['peer_reviewed']['disabled'] = 'disabled';
@@ -1028,7 +1030,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
   if (((strpos($result,'/node/preview/') !==false) && ($nType == 'empl'))
     && (\Drupal::currentUser()->isAnonymous())) {
     if ($breadcrumb) {
-      $links = $breadcrumb->getlinks(); 
+      $links = $breadcrumb->getlinks();
       $breadcrumb = new \Drupal\Core\Breadcrumb\Breadcrumb();
       $breadcrumb->addLink($links[0]);
       // dynamically handle the route name for EO link
@@ -1119,7 +1121,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
       }
       else {
         $linkNewsatWork = Link::createFromRoute(t('News@work'), 'view.view_news_work.page_1');
-      }   
+      }
       $breadcrumb->addLink($linkNewsatWork);
     }
   }
@@ -1164,7 +1166,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
       }
       else {
         $linkStaffing = Link::createFromRoute(t('Staffing'), 'view.view_employmentopportunities.page_1');
-      } 
+      }
       $breadcrumb->addLink($linkStaffing);
     }
   }
@@ -1181,7 +1183,7 @@ function agri_admin_preprocess_breadcrumb(&$variables) {
     $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
     $current_path = \Drupal::service('path.current')->getPath();
     $result = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
- 
+
     if (!empty($page_title) && ($result =='/node/add/news') && (\Drupal::currentUser()->isAnonymous())) {
       $variables['breadcrumb'][] = [
         'text' => t('Submit an article for news at work'),
@@ -1245,7 +1247,7 @@ function agri_admin_preprocess_select(&$variables) {
 
       if ($variables['element']['#field_name']== 'field_to') {
         $variables['attributes']['size'] = 1;
-      } 
+      }
 
       if ($variables['element']['#field_name']== 'field_branch') {
         $variables['attributes']['size'] = 1;
@@ -1254,11 +1256,11 @@ function agri_admin_preprocess_select(&$variables) {
       if ($variables['element']['#field_name']== 'field_class_id') {
         $variables['attributes']['size'] = 1;
       }
-  
+
       if ($variables['element']['#field_name']== 'field_class_sub') {
         $variables['attributes']['size'] = 1;
-      } 
-  
+      }
+
       if ($variables['element']['#field_name']== 'field_class_level') {
         $variables['attributes']['size'] = 1;
       }
@@ -1272,7 +1274,7 @@ function agri_admin_preprocess_select(&$variables) {
 
 function agri_admin_preprocess_form_element_label(&$variables) {
   if (\Drupal::currentUser()->isAnonymous()) {
-    if ($variables['attributes']['for']) { 
+    if ($variables['attributes']['for']) {
       if ($variables['attributes']['for'] == 'edit-advanced' ) {
         // This squelches w3c error for label that has no element.
         // Since we have removed edit-advanced section we also adjust its label.
@@ -1280,7 +1282,7 @@ function agri_admin_preprocess_form_element_label(&$variables) {
         unset($variables['attributes']['for']);
         unset($variables['attributes']['class']);
         $variables['attributes']['class'] = 'sr-only';
-      }  
+      }
     }
   }
 }
@@ -1299,7 +1301,7 @@ function agri_admin_content_moderation_notification_mail_data_alter(Drupal\Core\
       if ($currentModState == 'draft' &&  \Drupal::currentUser()->isAnonymous()){
         $data['to'][] = $entity->get('field_newssubmitteremail')->value;
         $data['to'][] = $entity->get('field_newsreviewedby')->value;
-        //The following emails will be read from the settings.local.php file if specified 
+        //The following emails will be read from the settings.local.php file if specified
         //news_generic_email: aafc.newsatwork-nouvellesalouvrage.aac@canada.ca on prod
         //and aafc.cmswebapps-sgcappsweb.aac@canada.ca on all other environments
         $data['to'][] = Settings::get('news_generic_email');
@@ -1357,28 +1359,28 @@ function agri_admin_content_moderation_notification_mail_data_alter(Drupal\Core\
         $emplMessage = "<p>Le français suit</p>
         <p>Your request ". "\""."<strong>[agri-admin:title]". ": (".$classification.")</strong>". "\"". " has been submitted and will be processed for publication on AgriSource by Human Resources within 2 working days.</p>" .
         "<p>To preview this opportunity, visit:&nbsp; [agri-admin:unpublished-url]</p>" .
-        "<p>If you have any questions or concerns, please contact your&nbsp;<a data-auth='NotApplicable' 
-         href='http://intranet.agr.gc.ca/agrisourceprev/AgriDoc.do?id=1548432&amp;lang=eng' rel='noopener noreferrer' 
+        "<p>If you have any questions or concerns, please contact your&nbsp;<a data-auth='NotApplicable'
+         href='http://intranet.agr.gc.ca/agrisourceprev/AgriDoc.do?id=1548432&amp;lang=eng' rel='noopener noreferrer'
          target='_blank'>Human Resource Advisor, Staffing.</a>
          <hr />
          <p>Votre demande relative à la possibilité d'emploi «&nbsp;<strong>[agri-admin:translation-title]". ": (".$classification.")</strong>&nbsp;» a été présentée et sera traitée aux fins de publication dans AgriSource par les Ressources humaines dans les deux jours ouvrables.</p>
          <p>Pour voir un aperçu de cette possibilité, consultez&nbsp;:&nbsp; [agri-admin:translation-unpublished-url]</p>" .
-        "<p>Pour toute question ou préoccupation, veuillez communiquer avec votre&nbsp;<a data-auth='NotApplicable' 
+        "<p>Pour toute question ou préoccupation, veuillez communiquer avec votre&nbsp;<a data-auth='NotApplicable'
           href='http://intranet.agr.gc.ca/agrisourceprev/AgriDoc.do?id=1548428&amp;lang=fra' rel='noopener noreferrer'
           target='_blank'>conseiller(ère) en ressources humaines responsable de la dotation.</a>";
-                          
+
         $data['params']['subject'] = "Your employment opportunity " . "\"" . "[node:title]" . "\"" ." request has been submitted / Votre demande relative à la possibilité d'emploi «&nbsp;[agri-admin:translation-title]&nbsp;» a été présentée.";
         $data['params']['message'] = $emplMessage;
       }
       elseif ($currentModState != 'archived') {
         $data['to'] = [];
-      }      
+      }
     }
     //For basic and landing page CT, default email list will be used when publishing happens and no emails will be sent when drafts are created
     else {
       if ($currentModState == 'draft'){
         $data['to'] = [];
-      }      
+      }
     }
   }
   if ($entitiyLang == 'fr'){
@@ -1582,7 +1584,7 @@ function agri_admin_views_pre_view (ViewExecutable $view, $display_id, $args) {
     $filters['type']['value'] = 'empl';
     $view->display_handler->overrideOption('filters', $filters);
   }
-    
+
   if (in_array('news_ccpub', $user_roles)) {
     $filters = $view->getDisplay()->getOption('filters');
     $filters['type']['value'] = 'news';
@@ -1618,3 +1620,61 @@ function agri_admin_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\Form
   }
 }
 
+
+/**
+ * Implements hook_file_validate().
+ */
+function agri_admin_file_validate(FileInterface $file) {
+  if (!(\Drupal::config('filehash.settings')->get('dedupe'))) {
+    agri_admin_validate_dedupe_warning($file);
+  }
+}
+
+
+/**
+ * Checks that file is not a duplicate.
+ */
+function agri_admin_validate_dedupe_warning(FileInterface $file) {
+  $warnings = [];
+  $warning = '';
+  $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  if (!$file->id()) {
+    foreach (agri_admin_algos() as $algo) {
+      $query = \Drupal::database()->select('filehash');
+      $query->addField('filehash', 'fid');
+      $query->condition($algo, $file->filehash[$algo]);
+      $query->range(0, 1);
+      if ($fid = $query->execute()->fetchField()) {
+        if (\Drupal::currentUser()->hasPermission('access files overview')) {
+          try {
+            $url = Url::fromRoute('view.files.page_2', ['arg_0' => $fid], ['attributes' => ['target' => '_blank']]);
+            $filename = Link::fromTextAndUrl(File::load($fid)->label(), $url)->toString();
+            $warning =  t('This file has already been uploaded as ' . $filename . '.');
+          }
+          catch (Exception $e) {
+            // Maybe the view was disabled?
+            \Drupal::messenger()->addWarning($e->getMessage(),TRUE);
+          }
+        }
+        else {
+          $warning = t('This file has already been uploaded.');
+        }
+        array_push($warnings, $warning);
+        break;
+      }
+    }
+  }
+  //out put all warning messages
+  foreach($warnings as $msg) {
+    \Drupal::messenger()->addWarning($msg,TRUE);
+  }
+  return [];
+}
+
+
+/**
+ * Returns array of enabled hash algorithms.
+ */
+function agri_admin_algos() {
+  return array_diff(\Drupal::config('filehash.settings')->get('algos'), [0]);
+}
