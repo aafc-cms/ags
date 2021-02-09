@@ -1650,10 +1650,10 @@ function agri_admin_validate_dedupe_warning(FileInterface $file) {
             $url = Url::fromRoute('view.files.page_2', ['arg_0' => $fid], ['attributes' => ['target' => '_blank']]);
             $filename = Link::fromTextAndUrl(File::load($fid)->label(), $url)->toString();
             if ($langId == 'en') {
-              $warning = t('This file has already been uploaded as ' . $filename . '.');
+              $warning = 'This file has already been uploaded as ' . $filename . '.';
             }
             else {
-              $warning = t('Ce fichier a déjà été téléchargé en tant que ' . $filename . '.');
+              $warning = 'Ce fichier a déjà été téléchargé en tant que ' . $filename . '.';
             }
           }
           catch (Exception $e) {
