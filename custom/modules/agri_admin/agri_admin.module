@@ -871,9 +871,11 @@ function agri_admin_checkurltoken($formbody, &$foundtokenhref = FALSE, $langcode
   $tokenmsgarray = array();
   \Drupal\agri_admin\Utils::checkUrlToken($formbody, $foundtokenhref, $tokenmsgarray);
   if ($foundtokenhref) {
-    \Drupal::messenger()->addWarning(t($tokenmsg));
+    $warning = Markup::create($tokenmsg);
+    \Drupal::messenger()->addWarning($warning);
     foreach($tokenmsgarray as $msg) {
-      \Drupal::messenger()->addWarning(t($msg));
+      $warning = Markup::create($msg);
+      \Drupal::messenger()->addWarning($warning);
     }
   }
   return $foundtokenhref;
@@ -897,9 +899,11 @@ function agri_admin_checkpagepublished($formbody, &$foundunpublishingnode = FALS
   $publishpagemsgarray = array();
   \Drupal\agri_admin\Utils::checkPagePublished($formbody, $foundunpublishingnode, $publishpagemsgarray);
   if ($foundunpublishingnode) {
-    \Drupal::messenger()->addWarning(t($unpublishingnodemsg));
+    $warning = Markup::create($unpublishingnodemsg);
+    \Drupal::messenger()->addWarning($warning);
     foreach($publishpagemsgarray as $msg) {
-      \Drupal::messenger()->addWarning(t($msg));
+      $warning = Markup::create($msg);
+      \Drupal::messenger()->addWarning($warning);
     }
   }
   return $foundunpublishingnode;
@@ -921,9 +925,11 @@ function agri_admin_checkabsoluteurl($formbody, &$foundabsoluteurl = FALSE, $lan
   $absoluteurlmsgarray = array();
   \Drupal\agri_admin\Utils::checkAbsoluteUrl($formbody, $foundabsoluteurl, $absoluteurlmsgarray);
   if ($foundabsoluteurl) {
-    \Drupal::messenger()->addWarning(t($absoluteurlmsg));
+    $warning = Markup::create($absoluteurlmsg);
+    \Drupal::messenger()->addWarning($warning);
     foreach($absoluteurlmsgarray as $msg) {
-      \Drupal::messenger()->addWarning(t($msg));
+      $warning = Markup::create($msg);
+      \Drupal::messenger()->addWarning($warning);
     }
   }
 
