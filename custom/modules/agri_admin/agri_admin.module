@@ -1649,7 +1649,12 @@ function agri_admin_validate_dedupe_warning(FileInterface $file) {
           try {
             $url = Url::fromRoute('view.files.page_2', ['arg_0' => $fid], ['attributes' => ['target' => '_blank']]);
             $filename = Link::fromTextAndUrl(File::load($fid)->label(), $url)->toString();
-            $warning =  t('This file has already been uploaded as ' . $filename . '.');
+            if ($langId == 'en') {
+              $warning = 'This file has already been uploaded as ' . $filename . '.';
+            }
+            else {
+              $warning = 'Ce fichier a déjà été téléchargé en tant que ' . $filename . '.';
+            }
           }
           catch (Exception $e) {
             // Maybe the view was disabled?
@@ -1657,7 +1662,12 @@ function agri_admin_validate_dedupe_warning(FileInterface $file) {
           }
         }
         else {
-          $warning = t('This file has already been uploaded.');
+          if ($langId == 'en') {
+            $warning = 'This file has already been uploaded.';
+          }
+          else {
+            $warning = 'Ce fichier a déjà été téléchargé.';
+          }
         }
         array_push($warnings, $warning);
         break;
