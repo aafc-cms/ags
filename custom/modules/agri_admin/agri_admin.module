@@ -14,6 +14,7 @@ use Drupal\Core\Site\Settings;
 use Drupal\file\Entity\File;
 use Drupal\file\FileInterface;
 use Drupal\Core\Render\Markup;
+use Drupal\menu_link_content\Entity\MenuLinkContent;
 
 
 /**
@@ -1175,6 +1176,84 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
         $linkStaffing = Link::createFromRoute(t('Staffing'), 'view.view_employmentopportunities.page_1');
       }
       $breadcrumb->addLink($linkStaffing);
+    }
+  }
+
+  // logic is for rebuilding the Breadcrumb for the preview latest vesrion and authentication user to edit the page
+  $regpath = '/\/node\/([1-9])\d*\/(latest|moderation-history|layout|delete|edit|revisions)/';
+  $regpathlatest = '/\/node\/([1-9])\d*\/(latest|layout)/';
+  $latest_bool = FALSE;
+  if (preg_match($regpathlatest, $result)) {
+    $latest_bool = TRUE;
+  }
+  if (preg_match($regpath, $result )) {
+    $links = $breadcrumb->getlinks();
+    $breadcrumb = new \Drupal\Core\Breadcrumb\Breadcrumb();
+    $breadcrumb->addLink($links[0]);
+    $tmpstr = explode('/', $result);
+    if (isset($tmpstr[2])) {
+      $nid = $tmpstr[2];
+    }
+    $langcode = \Drupal\agri_admin\AgriAdminHelper::getLang();
+    $url_alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'. $nid, $langcode);
+    $aliapthArray = explode('/', $url_alias);
+    if ( $latest_bool) {
+      // do not add the last menu item
+      array_pop($aliapthArray);
+    }
+    $tmpPath = '';
+    array_shift ($aliapthArray);
+    foreach ($aliapthArray as $nodetitle) {
+      $tmpPath =  $tmpPath . '/' . $nodetitle;
+      $path = \Drupal::service('path.alias_manager')->getPathByAlias($tmpPath);
+      $tmpnidarray = explode('/', $path);
+      $nid = $tmpnidarray[2];
+      $linktmp = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
+      $link =  $linktmp;
+      if ($link) {
+        if ($link->hasTranslation($langcode)) {
+          $link = $link->getTranslation($langcode);
+        }
+        // retrieve Menu title based on langcode
+        // i will move the query logic into the util class after the logic is tested on Cloud
+        $system_uri = 'entity:node/' . $nid;
+        $query = \Drupal::database()->select('menu_link_content_data', 'ml_tbl')
+          ->fields('ml_tbl',['title'])
+          ->condition('link__uri', $system_uri)
+          ->condition('langcode',  $langcode)
+          ->condition('menu_name', 'main');
+          $result = $query->execute()->fetchField();
+        if (isset($result)) {
+          $title = $result ;
+        }
+        else {
+          // assign the default node title
+          $title = $link->getTitle();
+        }
+        /* Both approaches below -- I can not get French title by passing langcode and will clear them up after the logic is tested on Cloud
+        $query = \Drupal::entityQuery('menu_link_content')
+          ->condition('link.uri', $system_uri)
+          ->condition('langcode',  $langcode)
+          ->condition('menu_name', 'main');
+        $result = $query->execute();
+        $menu_link_id = (!empty($result)) ? reset($result) : FALSE;
+        $menu_link = MenuLinkContent::load($menu_link_id,$langcode);
+        $menu_link_title = $menu_link->title;
+
+        $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
+        $mresult = $menu_link_manager->loadLinksByRoute('entity.node.canonical', array('node' => $nid));
+        $nodemenu = reset($mresult);
+        kint($nodemenu );
+        $pluginDefinition = $nodemenu->getPluginDefinition($langcode);
+        kint($pluginDefinition);
+        $menutitle = $pluginDefinition['title'];
+        $title  = t('@mytitle', array('@mytitle' => $menutitle));
+        */
+        $linkNew = $link->toLink($title);
+        if (isset ($linkNew)) {
+          $breadcrumb->addLink($linkNew );
+        }
+      }
     }
   }
 }
