@@ -1190,6 +1190,8 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
     $links = $breadcrumb->getlinks();
     $breadcrumb = new \Drupal\Core\Breadcrumb\Breadcrumb();
     $breadcrumb->addLink($links[0]);
+    // www.drupal.org/node/2876622 addCacheContexts for new breadcrumb.
+    $breadcrumb->addCacheContexts(['url.path', 'languages']);
     $tmpstr = explode('/', $result);
     if (isset($tmpstr[2])) {
       $nid = $tmpstr[2];
