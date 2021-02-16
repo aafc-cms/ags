@@ -1223,7 +1223,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
               ->condition('link__uri', $system_uri)
               ->condition('langcode',  $langcode)
               ->condition('menu_name', 'main');
-              $result = $query->execute()->fetchField();
+            $result = $query->execute()->fetchField();
             if (isset($result)) {
               $title = $result ;
             }
