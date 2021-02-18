@@ -1206,7 +1206,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
       array_shift ($aliapthArray);
       foreach ($aliapthArray as $nodetitle) {
         $tmpPath =  $tmpPath . '/' . $nodetitle;
-        $path = \Drupal::service('path.alias_manager')->getPathByAlias($tmpPath);
+        $path = \Drupal::service('path_alias.manager')->getPathByAlias($tmpPath);
         $tmpnidarray = explode('/', $path);
         if (isset($tmpnidarray[2]) && is_numeric($tmpnidarray[2])) {
           $nid = $tmpnidarray[2];
