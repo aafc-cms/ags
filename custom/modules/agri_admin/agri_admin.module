@@ -369,6 +369,36 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
   // Custom code goes here:
   global $import_override;
 
+  $langcode = $entity->language()->getId();
+  $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
+  $menu_links = $menu_link_manager->loadLinksByRoute('entity.node.canonical', array('node' => $entity->id()));
+  $menu_link = reset($menu_links);
+  if ($menu_link) {
+    $parent = $menu_link->getParent( );
+    $parent = $menu_link_manager->createInstance($parent);
+    // get the current menu parent's url in UI
+    $parent_url = $parent->getUrlObject()->toString();
+    $langprefix = '/' . $langcode;
+    // only compares parent's url/part and invalidate cache at the first time save
+    // when current UI langcode == current UI parent menu link's langcode else the second time save, do nothing
+    if (strpos ($parent_url, $langprefix) !== FALSE) {
+      $parent_url = str_replace($langprefix , '', $parent_url);
+      $path = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$entity->id(), $langcode);
+      // remove the last link of the path to get the parent path.
+      $patharray  = explode('/',$path);
+      array_pop($patharray);
+      array_shift ($patharray);
+      $parent_path='';
+      foreach($patharray as $str) {
+        $parent_path = $parent_path . '/' . $str;
+      }
+      if ($parent_url != $parent_path) {
+        \Drupal::service('cache.render')->invalidateAll();
+        \Drupal::service('cache.menu')->invalidateAll();
+      }
+    }
+  }
+
   $entity_id = $entity->id();
   // Set Authored by to current user if role is creator except during Peer Review.
   $current_author_id = $entity->getOwnerId();
@@ -689,6 +719,7 @@ function agri_admin_form_newsorempl_submit (array $form, \Drupal\Core\Form\FormS
  */
 function agri_admin_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   $entity = $form_state->getFormObject()->getEntity();
+
   $content_type = $entity->bundle();
   if ($content_type == 'page' || $content_type == 'landing_page' || $content_type == 'empl' || $content_type == 'news') {
     $form['field_issued']['widget'][0]['#disabled'] = TRUE;
@@ -1218,12 +1249,7 @@ function agri_admin_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &
             // retrieve Menu title based on langcode
             // i will move the query logic into the util class after the logic is tested on Cloud
             $system_uri = 'entity:node/' . $nid;
-            $query = \Drupal::database()->select('menu_link_content_data', 'ml_tbl')
-              ->fields('ml_tbl',['title'])
-              ->condition('link__uri', $system_uri)
-              ->condition('langcode',  $langcode)
-              ->condition('menu_name', 'main');
-            $result = $query->execute()->fetchField();
+            $result = Utils::getMenuItemTitle($system_uri, $langcode);
             if (isset($result)) {
               $title = $result ;
             }

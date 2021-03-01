@@ -434,4 +434,15 @@ class Utils {
     }
     return $foundabsoluteurl;
   }
+
+
+  static public function getMenuItemTitle($link_uri, $langcode  = 'en') {
+    $query = \Drupal::database()->select('menu_link_content_data', 'ml_tbl')
+      ->fields('ml_tbl',['title'])
+      ->condition('link__uri', $link_uri)
+      ->condition('langcode',  $langcode)
+      ->condition('menu_name', 'main');
+    $result = $query->execute()->fetchField();
+    return $result;
+  }
 }
