@@ -10,10 +10,11 @@ weight: 0
 module: linkchecker
 callback: linkchecker_cron
 scheduler:
-  id: simple
+  id: crontab
   configuration:
     rules:
-      - '0+@ */6 * * *'
+      - '0+@ 0 * * 0'
+    catch_up: 0
 launcher:
   id: serial
   configuration:
