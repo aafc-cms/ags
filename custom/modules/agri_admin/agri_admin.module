@@ -373,7 +373,7 @@ function agri_admin_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
   $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
   $menu_links = $menu_link_manager->loadLinksByRoute('entity.node.canonical', array('node' => $entity->id()));
   $menu_link = reset($menu_links);
-  if ($menu_link/* && is_object($menu_link)*/) {
+  if ($menu_link) {
     $parent = $menu_link->getParent();
     if ($parent) {
       $parent = $menu_link_manager->createInstance($parent);
