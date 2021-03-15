@@ -1,14 +1,9 @@
 transport: smtp
 smtp_host: email-smtp.ca-central-1.amazonaws.com
 smtp_port: 587
-smtp_encryption: tls
+smtp_encryption: '0'
 smtp_credential_provider: swiftmailer
 smtp_credentials:
   swiftmailer:
     username: AKIA4DJHEGSUNL4HRXNA
-    password: _CHANGE_PASSWD_
-sendmail_path: /usr/sbin/sendmail
-sendmail_mode: bs
-spool_directory: ''
-_core:
-  default_config_hash: RSNbRD3ekSaZoE19f3eHhm93gKOcD2PtmaAVmV3XMes
+    password: BPN+epK6PVg/K52rIpgfs2IkcWUnXXyrKkJuEI1487CZ
