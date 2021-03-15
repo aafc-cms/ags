@@ -1,9 +1,9 @@
-uuid: 0beb9fb7-c575-48c4-bba0-7e5f4bcc69d0
+uuid: 46c1af65-6b49-4fd1-9894-b1c7faa980a4
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:a499786a-3b20-4157-89a6-2d3a0a0edf06'
+    - 'block_content:basic:6c08b34c-767e-427a-968f-e0dbd4dd0acf'
   module:
     - block_class
     - block_content
@@ -14,15 +14,15 @@ dependencies:
 third_party_settings:
   block_class:
     classes: col-md-3
-id: newswork
+id: covid19
 theme: grstheme_bootstrap
 region: content
-weight: -15
+weight: -14
 provider: null
-plugin: 'block_content:a499786a-3b20-4157-89a6-2d3a0a0edf06'
+plugin: 'block_content:6c08b34c-767e-427a-968f-e0dbd4dd0acf'
 settings:
-  id: 'block_content:a499786a-3b20-4157-89a6-2d3a0a0edf06'
-  label: news@work
+  id: 'block_content:6c08b34c-767e-427a-968f-e0dbd4dd0acf'
+  label: COVID-19
   provider: block_content
   label_display: '0'
   status: true
