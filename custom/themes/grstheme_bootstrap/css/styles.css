@@ -798,6 +798,36 @@ body.form-publishing-and-creative-services.i18n-fr div[id^='edit-srf-html-select
   margin-bottom: 0px;
 }
 
+/* Adjust empty spaces of the validation error text for the Radios button group only*/
+/* line 159, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+div.webform-ajax-form-wrapper div.fieldset-wrapper div[class*="js-webform-radios"] :last-child {
+  margin-bottom: 0px;
+}
+/* line 163, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+div.webform-ajax-form-wrapper div.fieldset-wrapper {
+  margin-bottom: 15px;
+}
+/* line 168, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+div.webform-ajax-form-wrapper div.js-form-type-checkbox.checkbox {
+  margin-bottom: 0px;
+}
+/* line 171, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+div.webform-ajax-form-wrapper div.js-form-type-checkbox.checkbox + strong.error {
+  margin-bottom: 15px;
+}
+/* line 176, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+div.webform-ajax-form-wrapper div.fieldset-wrapper div[class*="js-webform-checkboxes"] :last-child {
+  margin-bottom: 0px !important;
+}
+/* line 179, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+div.webform-ajax-form-wrapper div.fieldset-wrapper div[class*="js-webform-checkboxes"] :last-child + strong.error {
+  margin-bottom: 15px;
+}
+/* line 183, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+div.webform-ajax-form-wrapper div.fieldset-wrapper div[class*="-checkboxes-group-"] {
+  margin-bottom: 10px;
+}
+
 /* line 2, ../sass/anonymous/_restrictions.scss */
 body.role-is-anonymous.path-node.published-yes .region-header nav.tabs,
 body.role-is-anonymous.path-node.published-no .region-header nav.tabs {
