@@ -811,21 +811,21 @@ div.webform-ajax-form-wrapper div.fieldset-wrapper {
 div.webform-ajax-form-wrapper div.js-form-type-checkbox.checkbox {
   margin-bottom: 0px;
 }
-/* line 171, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+/* line 172, ../sass/pages/_publishingcreativeservicerequest_page.scss */
 div.webform-ajax-form-wrapper div.js-form-type-checkbox.checkbox + strong.error {
   margin-bottom: 15px;
 }
-/* line 176, ../sass/pages/_publishingcreativeservicerequest_page.scss */
-div.webform-ajax-form-wrapper div.fieldset-wrapper div[class*="js-webform-checkboxes"] :last-child {
+/* line 177, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+div.webform-ajax-form-wrapper div.fieldset-wrapper div.form-checkboxes div.checkbox {
+  margin-bottom: 10px;
+}
+/* line 181, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+div.webform-ajax-form-wrapper div.fieldset-wrapper div.form-checkboxes :last-child {
   margin-bottom: 0px !important;
 }
-/* line 179, ../sass/pages/_publishingcreativeservicerequest_page.scss */
-div.webform-ajax-form-wrapper div.fieldset-wrapper div[class*="js-webform-checkboxes"] :last-child + strong.error {
+/* line 185, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+div.webform-ajax-form-wrapper div.fieldset-wrapper div.form-checkboxes :last-child + strong.error {
   margin-bottom: 15px;
-}
-/* line 183, ../sass/pages/_publishingcreativeservicerequest_page.scss */
-div.webform-ajax-form-wrapper div.fieldset-wrapper div[class*="-checkboxes-group-"] {
-  margin-bottom: 10px;
 }
 
 /* line 2, ../sass/anonymous/_restrictions.scss */
