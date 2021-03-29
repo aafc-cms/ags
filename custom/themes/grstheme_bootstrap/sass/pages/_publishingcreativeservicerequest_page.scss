@@ -164,23 +164,25 @@ div.webform-ajax-form-wrapper {
     margin-bottom: 15px;
   }
 
-  //for single checkbox only
+ //for single checkbox only
   div.js-form-type-checkbox.checkbox {
     margin-bottom: 0px;
   }
+
   div.js-form-type-checkbox.checkbox + strong.error {
     margin-bottom: 15px;
   }
 
   // checkboxes group
-  div.fieldset-wrapper div[class*="js-webform-checkboxes"] :last-child {
-    margin-bottom: 0px !important;
-  }
-  div.fieldset-wrapper div[class*="js-webform-checkboxes"] :last-child + strong.error {
-    margin-bottom: 15px;
+  div.fieldset-wrapper div.form-checkboxes div.checkbox {
+    margin-bottom: 10px;
   }
 
-  div.fieldset-wrapper div[class*="-checkboxes-group-"] {
-    margin-bottom: 10px;
+  div.fieldset-wrapper div.form-checkboxes :last-child {
+    margin-bottom: 0px !important;
+  }
+
+  div.fieldset-wrapper div.form-checkboxes :last-child + strong.error {
+    margin-bottom: 15px;
   }
 }
