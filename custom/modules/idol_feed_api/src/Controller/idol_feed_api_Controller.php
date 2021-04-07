@@ -62,7 +62,6 @@ class idol_feed_api_Controller extends ControllerBase {
            case "page de destination":
            case "landing page":
            case "page interne":
-           case "internal page":
             $datatype = "gene-gene";
             break;
            case "titre du poste":
