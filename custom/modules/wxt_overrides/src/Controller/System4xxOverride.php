@@ -159,7 +159,7 @@ class System4xxOverride extends ControllerBase implements ContainerInjectionInte
           <span class="glyphicon glyphicon-warning-sign glyphicon-error customalertimagesize"></span>
         </div>
         <div class="col-xs-9 col-sm-10 col-md-10">
-          <h2 class="mrgn-tp-md customalertheaderfont">' . $this->t("We couldn't find that Web page") . '</h2>
+          <h1 id="wb-cont" class="mrgn-tp-md customalertheaderfont">' . $this->t("We couldn't find that Web page") . '</h2>
           <p class="pagetag"><strong>' . $this->t('Error 404') . '</strong></p>
         </div>
       </div>
