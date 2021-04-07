@@ -10576,17 +10576,17 @@
         },
         {
             "name": "drupal/safedelete",
-            "version": "1.0.19",
+            "version": "1.0.20",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/safedelete.git",
-                "reference": "1.0.19"
+                "reference": "1.0.20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/safedelete-1.0.19.zip",
-                "reference": "1.0.19",
-                "shasum": "c5c5be032cec04362a9852de8066be996ce8fdbf"
+                "url": "https://ftp.drupal.org/files/projects/safedelete-1.0.20.zip",
+                "reference": "1.0.20",
+                "shasum": "93bf185222076b3bb130d29dea6e523d687d60f0"
             },
             "require": {
                 "drupal/core": "^8 || ^9",
@@ -10595,8 +10595,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.19",
-                    "datestamp": "1611211055",
+                    "version": "1.0.20",
+                    "datestamp": "1617832911",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -10609,12 +10609,16 @@
             ],
             "authors": [
                 {
-                    "name": "jamesYao",
+                    "name": "jamesyao",
                     "homepage": "https://www.drupal.org/user/3644558"
                 },
                 {
                     "name": "joseph.olstad",
                     "homepage": "https://www.drupal.org/user/1321830"
+                },
+                {
+                    "name": "momo445566",
+                    "homepage": "https://www.drupal.org/user/3663621"
                 }
             ],
             "description": "Safely delete nodes without causing broken links in the node body or other entity body fields.",
