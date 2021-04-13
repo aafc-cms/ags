@@ -1,0 +1,195 @@
+uuid: 7cc814f8-ee4f-478d-a634-12caf61ac837
+langcode: en
+status: open
+dependencies: {  }
+open: null
+close: null
+weight: 0
+uid: 1
+template: false
+archive: false
+id: video_production_request_form
+title: 'Video Production Request Form'
+description: ''
+category: 'Services Request Form'
+elements: "requestername:\n  '#type': textfield\n  '#title': 'Requester’s Name'\n  '#required': true\ntelephone:\n  '#type': tel\n  '#title': Telephone\n  '#required': true\n  '#telephone_validation_format': '2'\n  '#telephone_validation_country': CA\nemail:\n  '#type': email\n  '#title': Email\n  '#required': true\nbranch:\n  '#type': select\n  '#title': Branch\n  '#options':\n    'Canada Agricultural Review Tribunal': 'Canada Agricultural Review Tribunal'\n    'Canadian Dairy Commission': 'Canadian Dairy Commission'\n    'Canadian Grain Commission': 'Canadian Grain Commission'\n    'Farm Credit Canada': 'Farm Credit Canada'\n    'Corporate Management Branch': 'Corporate Management Branch'\n    'Deputy Ministers'' Office': 'Deputy Ministers'' Office'\n    'Farm Products Council of Canada': 'Farm Products Council of Canada'\n    'Human Resources Branch': 'Human Resources Branch'\n    'Information Systems Branch': 'Information Systems Branch'\n    'International Affairs Branch': 'International Affairs Branch'\n    'Legal Services': 'Legal Services'\n    'Market and Industry Services Branch': 'Market and Industry Services Branch'\n    'Office of Audit and Evaluation': 'Office of Audit and Evaluation'\n    'Programs Branch': 'Programs Branch'\n    'Public Affairs Branch': 'Public Affairs Branch'\n    'Research Branch': 'Research Branch'\n    'Science and Technology Branch': 'Science and Technology Branch'\n    'Strategic Policy Branch': 'Strategic Policy Branch'\n  '#sort_options': true\n  '#required': true\nnew_requestorupdateexisting_project_:\n  '#type': radios\n  '#title': 'Is this a new request or an update to an existing project?'\n  '#options':\n    New: New\n    Update: Update\n  '#required': true\nnamedirectorlevelorabovewhowasconsulte:\n  '#type': textfield\n  '#title': 'Please provide the name (Director level or above) who was consulted, or who requested this project'\n  '#required': true\nnameofcommunicationsadvisor:\n  '#type': textfield\n  '#title': 'Please provide the name of the Communications Advisor (from Public Affairs Branch) who was consulted for this project? '\n  '#required': true\nprojectworkingtitle:\n  '#type': textfield\n  '#title': 'Project working title'\n  '#required': true\nduedate:\n  '#type': date\n  '#title': 'Due date'\n  '#required': true\n  '#date_date_min': '+1 days'\n  '#datepicker': true\n  '#datepicker_button': true\nisvideoforevent:\n  '#type': radios\n  '#title': 'Is the video for an event? '\n  '#options':\n    'Yes': 'Yes'\n    'No': 'No'\n  '#required': true\neventdate:\n  '#type': date\n  '#title': 'Event date'\n  '#states':\n    visible:\n      ':input[name=\"isvideoforevent\"]':\n        value: 'Yes'\n    required:\n      ':input[name=\"isvideoforevent\"]':\n        value: 'Yes'\n  '#date_date_min': '+1 days'\n  '#datepicker': true\n  '#datepicker_button': true\ntargetaudience:\n  '#type': checkboxes\n  '#title': 'Target audience'\n  '#options':\n    'AAFC Employees': 'AAFC Employees'\n    'Agricultural Producers': 'Agricultural Producers'\n    Associations: Associations\n    'Educational Institutions': 'Educational Institutions'\n    'Food Exporters': 'Food Exporters'\n    'Food Processors': 'Food Processors'\n    'Foreign Businesses': 'Foreign Businesses'\n    'Foreign Officials': 'Foreign Officials'\n    'General Public - Canada': 'General Public - Canada'\n    'General Public - International': 'General Public - International'\n    Media: Media\n    'Public Servants (other government departments)': 'Public Servants (other government departments)'\n    'Scientific Community': 'Scientific Community'\n    Youth: Youth\n  '#options_all': true\n  '#required': true\nothertargetaudience:\n  '#type': textfield\n  '#title': 'Other Target audience'\npublishingchannels:\n  '#type': checkboxes\n  '#title': 'Publishing channels'\n  '#options':\n    'AAFC Online': 'AAFC Online'\n    AgriSource: AgriSource\n    'YouTube public': 'YouTube public'\n    'YouTube private': 'YouTube private'\n    Facebook: Facebook\n    Twitter: Twitter\n    LinkedIn: LinkedIn\n    'Event or Trade Show': 'Event or Trade Show'\n    'Don’t know – requesting consultation': 'Don’t know – requesting consultation'\n  '#options_all': true\n  '#required': true\notherpublishingchannel:\n  '#type': textfield\n  '#title': 'Other Publishing Channel'\npurpose:\n  '#type': textarea\n  '#title': Purpose\n  '#required': true\nkeymessages:\n  '#type': textarea\n  '#title': 'Key messages'\ncalltoaction:\n  '#type': textarea\n  '#title': 'Call to action'\ndescription:\n  '#type': textarea\n  '#title': Description\n  '#required': true\nadditionallanguagesrequired:\n  '#type': select\n  '#title': 'Additional language(s) required'\n  '#multiple': true\n  '#options': languages\n  '#sort_options': true\n  '#required': true\npidentifydepartmentalpriority:\n  '#type': textarea\n  '#title': 'Please identify which departmental priority your publishing request supports.'\n  '#required': true\ndetailsofanyrelatedproducts:\n  '#type': textarea\n  '#title': 'Please provide details of any related products such as graphics, speeches, reports'\nattachmentdescription:\n  '#type': webform_markup\n  '#display_on': both\n  '#markup': '<strong>Please attach any supporting documentation including your approved communications plan, existing design elements and background information.</strong>'\nattachments:\n  '#type': managed_file\n  '#title': Attachments\n  '#multiple': 7\n  '#uri_scheme': public\nreadvideoproductionservicestandards:\n  '#type': checkbox\n  '#title': '<strong>I have read the <a target=\"_blank\" href=\"https://agrisource.agr.gc.ca/en/branches-and-offices/public-affairs-branch/video-production-services/framework-video-production?auHash=dAuCIjnf3yXUPEeEuM4u3gFmfG8UF2HDYiLZRHRQv2k\">Video Production Service Standards</a>.</strong>'\n  '#title_display': inline\n  '#required': true"
+css: ''
+javascript: ''
+settings:
+  ajax: true
+  ajax_scroll_top: form
+  ajax_progress_type: ''
+  ajax_effect: ''
+  ajax_speed: null
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  page_theme_name: ''
+  form_title: source_entity_webform
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_remote_addr: true
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: true
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  share: false
+  share_node: false
+  share_theme_name: ''
+  share_title: true
+  share_page_body_attributes: {  }
+  submission_label: ''
+  submission_log: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: false
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_progress_states: false
+  wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  wizard_prev_button_label: ''
+  wizard_next_button_label: ''
+  wizard_toggle: true
+  wizard_toggle_show_label: ''
+  wizard_toggle_hide_label: ''
+  preview: 1
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
+  confirmation_type: page
+  confirmation_title: ''
+  confirmation_message: ''
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  confirmation_update: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  results_customize: false
+  token_view: false
+  token_update: false
+  token_delete: false
+  serial_disabled: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers: {  }
+variants: {  }

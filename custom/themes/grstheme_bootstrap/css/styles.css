@@ -799,6 +799,16 @@ body.form-publishing-and-creative-services.i18n-fr div[id^='edit-srf-html-select
 }
 
 /* Adjust empty spaces of the validation error text for the Radios button group only*/
+/* line 158, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+div.webform-ajax-form-wrapper {
+  /*
+  fieldset.webform-type-checkboxes {
+    div.fieldset-wrapper {
+      margin-bottom: 0px;
+    }
+  }
+*/
+}
 /* line 159, ../sass/pages/_publishingcreativeservicerequest_page.scss */
 div.webform-ajax-form-wrapper div.fieldset-wrapper div[class*="js-webform-radios"] :last-child {
   margin-bottom: 0px;
@@ -826,6 +836,39 @@ div.webform-ajax-form-wrapper div.fieldset-wrapper div.form-checkboxes :last-chi
 /* line 185, ../sass/pages/_publishingcreativeservicerequest_page.scss */
 div.webform-ajax-form-wrapper div.fieldset-wrapper div.form-checkboxes :last-child + strong.error {
   margin-bottom: 15px;
+}
+/* line 196, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+div.webform-ajax-form-wrapper div.form-actions {
+  padding-top: 20px;
+}
+/* line 199, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+div.webform-ajax-form-wrapper div.form-actions button[class*="webform-button-"] span.icon.glyphicon {
+  display: none;
+}
+/* line 203, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+div.webform-ajax-form-wrapper div.form-actions button.webform-button--preview,
+div.webform-ajax-form-wrapper div.form-actions button.webform-button--previous {
+  margin-right: 5px;
+}
+/* line 209, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+div.webform-ajax-form-wrapper div.iti.iti--allow-dropdown {
+  display: block;
+}
+/* line 218, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+div.webform-ajax-form-wrapper div.form-textarea-wrapper textarea.form-textarea {
+  min-width: 99%;
+}
+/* line 223, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+div.webform-ajax-form-wrapper .select-wrapper select {
+  max-width: 95%;
+}
+/* line 227, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+div.webform-ajax-form-wrapper input.form-control.hasDatepicker {
+  display: inline-block;
+}
+/* line 231, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+div.webform-ajax-form-wrapper input.form-checkbox.required:before {
+  display: none;
 }
 
 /* line 2, ../sass/anonymous/_restrictions.scss */

@@ -185,4 +185,55 @@ div.webform-ajax-form-wrapper {
   div.fieldset-wrapper div.form-checkboxes :last-child + strong.error {
     margin-bottom: 15px;
   }
+
+  /*
+  fieldset.webform-type-checkboxes {
+    div.fieldset-wrapper {
+      margin-bottom: 0px;
+    }
+  }
+*/
+div.form-actions {
+  padding-top: 20px;
+  button[class*="webform-button-"] {
+    span.icon.glyphicon {
+    display: none;
+    }
+  }
+  button.webform-button--preview,
+    button.webform-button--previous {
+      margin-right: 5px;
+    }
+  }
+
+  div.iti.iti--allow-dropdown {
+    display: block;
+  }
+
+  //input.form-text.form-control.hasDatepicker{
+    //  display: block;
+  // }
+
+  div.form-textarea-wrapper {
+    textarea.form-textarea {
+    min-width: 99%;
+    }
+  }
+
+  .select-wrapper select{
+    max-width: 95%;
+  }
+
+  input.form-control.hasDatepicker {
+    display: inline-block;
+  }
+
+  input.form-checkbox.required:before {
+    display: none;
+  }
+  //label[for*="edit-other"] {
+    //float: left;
+    //font-weight: normal;
+    // padding-right: 10px;
+  // }
 }
