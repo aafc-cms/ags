@@ -113,8 +113,8 @@ settings:
   draft_pending_single_message: ''
   draft_pending_multiple_message: ''
   confirmation_type: page
-  confirmation_title: ''
-  confirmation_message: ''
+  confirmation_title: 'Thank you!'
+  confirmation_message: 'Your request has been forwarded to the Video Production Services team.'
   confirmation_url: ''
   confirmation_attributes: {  }
   confirmation_back: true
@@ -191,5 +191,43 @@ access:
     roles: {  }
     users: {  }
     permissions: {  }
-handlers: {  }
+handlers:
+  email:
+    id: email
+    label: Email
+    notes: ''
+    handler_id: email
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: aafc.video.aac@canada.ca
+      to_options: {  }
+      cc_mail: '[webform_submission:values:email:raw]'
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      subject: ' [webform_submission:source-title]'
+      body: '[webform_submission:values]'
+      excluded_elements:
+        readvideoproductionservicestandards: readvideoproductionservicestandards
+      ignore_access: false
+      exclude_empty: false
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: true
+      attachments: true
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''
+      parameters: {  }
 variants: {  }
