@@ -4,11 +4,15 @@ status: true
 dependencies:
   config:
     - system.menu.admin
+    - user.role.administrator
+    - user.role.creator
   module:
+    - csv_serialization
     - dynamic_entity_reference
     - linkchecker
     - rest
     - serialization
+    - user
     - views_data_export
 _core:
   default_config_hash: hbQDZKtbEqLE392bxv-tRsdXlG5K1kjtxaRaHxEAGYs
@@ -27,8 +31,11 @@ display:
     position: 0
     display_options:
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            administrator: administrator
+            creator: creator
       cache:
         type: tag
         options: {  }
@@ -1255,6 +1262,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags: {  }
   data_export_1:
     display_plugin: data_export
@@ -1270,7 +1278,7 @@ display:
         type: data_export
         options:
           formats:
-            json: json
+            csv: csv
           csv_settings:
             delimiter: ','
             enclosure: '"'
@@ -2103,6 +2111,9 @@ display:
           plugin_id: entity_operations
       defaults:
         fields: false
+      displays:
+        page_1: page_1
+        default: '0'
     cache_metadata:
       max-age: -1
       contexts:
@@ -2110,6 +2121,7 @@ display:
         - 'languages:language_interface'
         - request_format
         - url
+        - user.roles
       tags: {  }
   page_1:
     display_plugin: page
@@ -2117,15 +2129,16 @@ display:
     display_title: Page
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
       path: admin/reports/linkchecker
       menu:
         type: normal
-        title: 'Broken links'
-        description: 'Shows a list of broken links in content.'
+        title: 'Broken link Report'
+        description: 'Shows a broken link report'
         expanded: false
-        parent: system.admin_reports
-        weight: 0
+        parent: system.admin
+        weight: -42
         context: '0'
         menu_name: admin
       tab_options:
@@ -2140,4 +2153,5 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags: {  }
