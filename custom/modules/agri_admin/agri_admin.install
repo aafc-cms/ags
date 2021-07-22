@@ -248,7 +248,7 @@ function agri_admin_update_8005() {
     // langcode = French
     // Load all path alias for this node.
     $alias_objects_f = $path_alias_storage->loadByProperties([
-        'path' => '/node/' . $nid, 'langcode' => 'fr',
+      'path' => '/node/' . $nid, 'langcode' => 'fr',
     ]);
     if (count($alias_objects_f) > 1) {
       //keep the latest revision
