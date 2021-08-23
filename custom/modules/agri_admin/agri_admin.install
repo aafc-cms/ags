@@ -225,9 +225,9 @@ function agri_admin_update_8005() {
   $path_alias_storage = \Drupal::entityTypeManager()->getStorage('path_alias');
   foreach ($nids as $nid) {
     // langcode = en & langcode = fr
-    $actual_alias_e = \Drupal::service('path.alias_manager')
+    $actual_alias_e = \Drupal::service('path_alias.manager')
       ->getAliasByPath('/node/' . $nid, 'en');
-    $actual_alias_f = \Drupal::service('path.alias_manager')
+    $actual_alias_f = \Drupal::service('path_alias.manager')
       ->getAliasByPath('/node/' . $nid, 'fr');
 
     // Load all path alias for this node.

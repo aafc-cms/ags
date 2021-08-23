@@ -1,6 +1,6 @@
 {
     "name": "drupalwxt/site-wxt",
-    "description": "Project template for Drupal 8 sites built with the WxT distribution.",
+    "description": "Project template for Drupal 9 sites built with the WxT distribution.",
     "type": "project",
     "license": "GPL-2.0+",
     "minimum-stability": "dev",
@@ -12,19 +12,16 @@
         "behat/mink-goutte-driver": "*",
         "behat/mink-selenium2-driver": "*",
         "composer/composer": "^1.4",
+        "oomphinc/composer-installers-extender": "^1.1 || ^2",
         "drupal/coder": "^8.3.7",
-        "drupal/console": "~1.9.0",
-        "drupal/drupal-extension": "~3.4.0",
+        "drupal/console": "^1.0",
         "pdepend/pdepend": "2.1.0",
         "phpmd/phpmd": "@stable",
-        "phpunit/phpunit": "^4.8.35 || ^6.1",
         "jcalderonzumba/gastonjs": "~1.0.2",
         "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
         "mikey179/vfsstream": "~1.2",
         "sebastian/phpcpd": "*",
-        "squizlabs/php_codesniffer": "3.*",
-        "symfony/css-selector": "~2.8|~3.0",
-        "symfony/phpunit-bridge": "^3.4.3"
+        "squizlabs/php_codesniffer": "^3.3"
     },
     "config": {
         "secure-http": false,
@@ -157,8 +154,6 @@
             "drupal/core": {
                 "BigPipe when server under heavy load (linkchecks /linkchecker) results in PHP notices":
                 "https://www.drupal.org/files/issues/2021-01-24/3194462.patch",
-                "Performance and usability patch that replaces sansdesordre #3110371":
-                "https://www.drupal.org/files/issues/2020-02-03/3110371-4.patch",
                 "Performance and scalability, do not load disabled menu links on the add/node /edit/node page/route.":
                 "https://www.drupal.org/files/issues/2021-04-21/D9_performance_and_scalability-3202930-6.patch",
                 "Node previews are cached by dynamic page cache":
@@ -166,8 +161,8 @@
                 "file usage bug fixes":
                 "https://www.drupal.org/files/issues/2020-04-03/2810355-64.patch",
                 "core views module fix for breadcrumb title and page title":
-                "https://www.drupal.org/files/issues/2020-10-13/D8.9-views_titles_in_breadcrumb_and_metatag-2716019-120.patch",
-                "Improve wysiwyg entity embed media dialog add label to media hyperlinked to media":
+                "https://www.drupal.org/files/issues/2020-10-14/D9.1-views_titles_in_breadcrumb_and_metatag-2716019-115.patch",
+                "9.x GOOD: Improve wysiwyg entity embed media dialog add label to media hyperlinked to media":
                 "https://www.drupal.org/files/issues/2020-11-11/D9-add_label_and_link_to_EditorMediaDialog-3182027-6.patch",
                 "core views module fix for contextual filter":
                 "https://www.drupal.org/files/issues/2628130-11.patch",
@@ -178,9 +173,7 @@
                 "allow field groups to be compatible":
                 "https://www.drupal.org/files/issues/2020-02-05/2546212-119.patch",
                 "remove hreflang attribute from language switcher li element":
-                "https://www.drupal.org/files/issues/2019-06-05/2454289-82.patch",
-                "Node preview block visibility":
-                "https://www.drupal.org/files/issues/2020-09-29/D896-preview_block-2890758-81.patch",
+                "https://www.drupal.org/files/issues/2020-08-25/D9-2454289-99.patch",
                 "Node preview current language":
                 "https://www.drupal.org/files/issues/2020-06-20/node-preview_current_language-3150728-12.patch",
                 "Language negotiation core fix, needed by access_unpublished and content moderation for forward draft revisions in non default language.":
@@ -193,14 +186,10 @@
                 "https://www.drupal.org/files/issues/2020-01-17/pathauto-3107144-2.patch"
             },
             "drupal/access_unpublished": {
-                "Adds a twig extension for access unpublished hash key link, patch 9.":
-                "https://www.drupal.org/files/issues/2019-11-21/access_unpublished-3054536-9.patch",
-                "Fix token-create while editing a French node":
-                "https://www.drupal.org/files/issues/2019-03-20/access_unpublished-create_per_language_tokens-2958800-3.patch",
-                "Edge case can result in null route - hasPendingRevision() validate for null.":
-                "https://www.drupal.org/files/issues/2019-12-09/access_unpublished-TypeError_hasPendingRevision_null_fix-3099663-2.patch",
-                "Invalid text representation: 7 ERROR when deleting a comment field from a node bundle - issue no. 3214261":
-                "https://www.drupal.org/files/issues/2021-05-16/access_unpublished-prevent_error_when_deleting_a_comment_field_from_a_bundle-3214261-2.patch"
+                "Adds a twig extension for access unpublished hash key link, patch 12.": "https://www.drupal.org/files/issues/2021-05-21/v1.1-access_unpublished-3054536-12.patch",
+                "Fix token-create while editing a French node": "https://www.drupal.org/files/issues/2019-03-20/access_unpublished-create_per_language_tokens-2958800-3.patch",
+                "Edge case can result in null route - hasPendingRevision() validate for null.": "https://www.drupal.org/files/issues/2019-12-09/access_unpublished-TypeError_hasPendingRevision_null_fix-3099663-2.patch",
+                "Invalid text representation: 7 ERROR when deleting a comment field from a node bundle - issue no. 3214261": "https://www.drupal.org/files/issues/2021-05-16/access_unpublished-prevent_error_when_deleting_a_comment_field_from_a_bundle-3214261-2.patch"
             },
             "drupal/bootstrap": {
                 "views submit button name attribute cannot be empty for w3c":
@@ -212,6 +201,10 @@
                 "entity_embed-remove_image_attributes_from_div-3086162":
                 "https://www.drupal.org/files/issues/2020-06-15/entity_embed-remove_image_attributes_from_div-3086162-13_0.patch"
             },
+            "drupal/field_group": {
+                "3111107 - Use patch 10 instead of patch 2.":
+                "https://www.drupal.org/files/issues/2021-08-10/field_group_fix-translations_label_description_2021-08-10.patch"
+            },
             "drupal/file_delete": {
                 "Add functionality to immediately delete files and override usage check":
                 "https://www.drupal.org/files/issues/2020-10-20/3115158-6.patch"
@@ -220,27 +213,15 @@
                 "Detect and strip base URL from pasted URLs to increase matching hits":
                 "https://www.drupal.org/files/issues/2021-02-02/3078075-26.patch"
             },
-            "drupal/lightning_media": {
-                "Bulk media upload should have an option to select the target media entity bundle":
-                "https://www.drupal.org/files/issues/2019-11-29/lightning_bulk_upload_form-3097516-2.patch"
-            },
             "drupal/linkchecker": {
                 "Extraction status":
                 "https://www.drupal.org/files/issues/2020-12-08/3184613-extraction-status.patch",
-                "Broken links view should not show status code -1":
-                "https://www.drupal.org/files/issues/2020-12-17/3118914-4.patch",
                 "Update empty value for last_check field on broken links report":
-                "https://www.drupal.org/files/issues/2020-12-25/3112537-12.patch",
-                "Auto-select extractor if there is only one available":
-                "https://www.drupal.org/files/issues/2020-12-18/3133925-2.patch",
-                "Undefined offset error fix":
-                "https://www.drupal.org/files/issues/2020-08-24/undefined-offset-error-3065045-13.patch",
-                "Linkchecker interval , 2 minute interval for debugging purposes":
-                "https://www.drupal.org/files/issues/2021-05-07/linkchecker-interval_for_debugging-3212816-3.patch",
-                "Allow linkchecker to work in a non-standard environment, provide host and port substitution.":
-                "https://www.drupal.org/files/issues/2021-05-14/3213210_13.patch"
+                "https://www.drupal.org/files/issues/2020-12-25/3112537-12.patch"
             },
             "drupal/moderation_sidebar": {
+                "3194841 - Override patch 3 with patch 7 instead.":
+                "https://www.drupal.org/files/issues/2021-02-22/3194841-discard-draft-7.patch",
                 "Synchronize moderation states between all translations of the entity":
                 "https://www.drupal.org/files/issues/2020-06-17/sync_all_translations_states-3143559-18.patch"
             },
@@ -262,15 +243,11 @@
                 "Save to predictable folder":
                 "https://www.drupal.org/files/issues/2021-01-08/1875456-82.patch"
             },
-            "drupal/webform": {
-                "Radio button validation text is shown in the wrong place of the Webform":
-                "https://www.drupal.org/files/issues/2021-03-26/webform_clientside_validation-3205860-2.patch"
-            },
-            "drupal/wxt_bootstrap": {
-                "WCAG - remove unnecessary roles banner/navigation/main/article/contentinfo":
-                "https://www.drupal.org/files/issues/2020-12-17/wxt_bootstrap-w3c_warnings_unnecessary_roles-3154001-11.patch",
-                "WCAG - Add roles to all menu UL LI and AHREF / LINK 3164631":
-                "https://www.drupal.org/files/issues/2020-10-16/wcag-add-roles-to-all-menu-ul-li-ahref-link-3164631-17.patch"
+            "drupal/page_manager": {
+                "Enter drupal/page_manager patch #2752227 description here":
+                "https://www.drupal.org/files/issues/2018-07-05/page_manager-incorrect-page_title-2752227-32-8.x.4.x.patch",
+                "Enter drupal/page_manager patch #3096408 description here":
+                "https://www.drupal.org/files/issues/2019-11-23/Issue-3096408-Page-Manager-issue-with-conflict-modul.patch"
             }
         },
         "patches-ignore": {
@@ -280,6 +257,28 @@
                     "https://www.drupal.org/files/issues/2019-11-05/1356276-531-8.8.x-4.patch",
                     "2914389 - Allow profiles to exclude dependencies of their parent":
                     "https://www.drupal.org/files/issues/2018-07-09/2914389-8-do-not-test.patch"
+                }
+            },
+            "drupalwxt/wxt": {
+                "drupal/ctools": {
+                    "is in dev patch":
+                    "https://www.drupal.org/files/issues/entityview-cache-metadata-2874176-2.patch"
+                },
+                "drupal/field_group": {
+                    "3111107 - Remove patch , no longer works, override it with patch 10.":
+                    "https://www.drupal.org/files/issues/2020-02-04/3111107-2--fix-translations.patch"
+                },
+                "drupal/moderation_sidebar": {
+                    "3194841 - Override patch 3 with patch 7 instead.":
+                    "https://www.drupal.org/files/issues/2021-02-12/3194841-3.patch"
+                },
+                "drupal/page_manager": {
+                    "3151905 ignore smulvih changes":
+                    "https://www.drupal.org/files/issues/2018-07-05/page_manager-incorrect-page_title-2752227-32-8.x.4.x.patch"
+                },
+                "drupal/panels": {
+                    "patch desc 2900531":
+                    "https://www.drupal.org/files/issues/classes_should_be_array-2900531-2.patch"
                 }
             },
             "drupal/lightning_core": {
@@ -295,9 +294,10 @@
     "require": {
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6.7",
-        "drupalwxt/wxt": "^3.0.18",
-        "drupal/core-composer-scaffold": "*",
+        "drupalwxt/wxt": "4.0.x-dev",
+        "drupal/core-composer-scaffold": "^9",
         "drush/drush": "^10.0",
+        "oomphinc/composer-installers-extender": "^1.1 || ^2",
         "drupal/access_unpublished": "^1.0",
         "drupal/autologout": "^1.3",
         "drupal/bigmenu": "^2.0",
@@ -310,7 +310,7 @@
         "drupal/entityqueue": "^1.0",
         "drupal/form_options_attributes": "^2.0",
         "drupal/jsonapi_explorer": "^1.0",
-        "drupal/linkit": "6.0-beta2 as 5.0-beta11",
+        "drupal/linkit": "6.0-beta2",
         "drupal/link_attributes": "^1.10",
         "drupal/memcache": "^2.0",
         "drupal/moderated_content_bulk_publish": "^2.0",
@@ -318,7 +318,7 @@
         "psr/container": "^1.0",
         "scssphp/scssphp": "^1.1",
         "drupal/recreate_block_content": "2.x-dev",
-        "drupal/safedelete": "^1.0.18",
+        "drupal/safedelete": "^1.0.19",
         "drupal/scanner": "1.x-dev",
         "drupal/sharedemail": "^2.1",
         "drupal/smtp": "1.x-dev",
@@ -347,17 +347,18 @@
         "drupal/linkchecker": "^1.0@alpha",
         "entreprise7pro/agri_admin": "*",
         "entreprise7pro/agri_reports": "*",
-        "entreprise7pro/linkchecks": "8.x-dev",
+        "entreprise7pro/linkchecks": "*",
         "entreprise7pro/news_empl": "*",
         "entreprise7pro/news_bulletin": "*",
         "entreprise7pro/wxt_overrides": "*",
         "junhuang/idol_feed_api": "*",
         "entreprise7pro/config": "*",
         "entreprise7pro/grstheme_bootstrap": "*",
+        "cypresslab/gitelephant": "^4.2",
         "drupal/libraries": "^3.0@beta",
         "drupal/jquery_ui_datepicker": "^1.0",
         "drupal/file_replace": "^1.2",
-        "drupal/view_custom_table": "^1.5"
+        "drupal/view_custom_table": "9.0.x-dev@dev"
     },
     "autoload": {
         "classmap": [
