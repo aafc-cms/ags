@@ -8,7 +8,6 @@ dependencies:
     - block_class
     - system
     - views
-    - wxt_library
   theme:
     - grstheme_bootstrap
 third_party_settings:
@@ -28,11 +27,6 @@ settings:
   views_label: ''
   items_per_page: none
 visibility:
-  panels_title:
-    id: panels_title
-    enabled: 0
-    negate: false
-    context_mapping: {  }
   request_path:
     id: request_path
     pages: '<front>'

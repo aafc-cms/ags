@@ -11,7 +11,6 @@
         "behat/mink-extension": "*",
         "behat/mink-goutte-driver": "*",
         "behat/mink-selenium2-driver": "*",
-        "composer/composer": "^1.4",
         "oomphinc/composer-installers-extender": "^1.1 || ^2",
         "drupal/coder": "^8.3.7",
         "drupal/console": "^1.0",
@@ -156,30 +155,24 @@
                 "https://www.drupal.org/files/issues/2021-01-24/3194462.patch",
                 "Performance and scalability, do not load disabled menu links on the add/node /edit/node page/route.":
                 "https://www.drupal.org/files/issues/2021-04-21/D9_performance_and_scalability-3202930-6.patch",
-                "Node previews are cached by dynamic page cache":
-                "https://www.drupal.org/files/issues/2020-04-13/d8_node_preview.patch",
                 "file usage bug fixes":
                 "https://www.drupal.org/files/issues/2020-04-03/2810355-64.patch",
                 "core views module fix for breadcrumb title and page title":
                 "https://www.drupal.org/files/issues/2020-10-14/D9.1-views_titles_in_breadcrumb_and_metatag-2716019-115.patch",
                 "9.x GOOD: Improve wysiwyg entity embed media dialog add label to media hyperlinked to media":
                 "https://www.drupal.org/files/issues/2020-11-11/D9-add_label_and_link_to_EditorMediaDialog-3182027-6.patch",
-                "core views module fix for contextual filter":
-                "https://www.drupal.org/files/issues/2628130-11.patch",
                 "safedelete entity_translation_unified_form form set error squelch noise about #parent element":
                 "https://www.drupal.org/files/issues/2019-08-31/3027240-12.patch",
                 "w3c valid self closing source and track tags":
                 "https://www.drupal.org/files/issues/2020-07-13/D89x-self_closing_correct-2857273-13.patch",
-                "allow field groups to be compatible":
-                "https://www.drupal.org/files/issues/2020-02-05/2546212-119.patch",
                 "remove hreflang attribute from language switcher li element":
-                "https://www.drupal.org/files/issues/2020-08-25/D9-2454289-99.patch",
+                "https://www.drupal.org/files/issues/2020-12-14/D9-2454289-101.patch",
                 "Node preview current language":
                 "https://www.drupal.org/files/issues/2020-06-20/node-preview_current_language-3150728-12.patch",
                 "Language negotiation core fix, needed by access_unpublished and content moderation for forward draft revisions in non default language.":
-                "https://www.drupal.org/files/issues/2019-05-30/drupal-2951294-21-fix-fallback.patch",
+                "https://www.drupal.org/files/issues/2021-06-29/drupal-fix_fallback-2951294-39.patch",
                 "Options module uses '_none' as a special value.":
-                "https://www.drupal.org/files/issues/2020-08-25/1585930-56.patch"
+                "https://www.drupal.org/files/issues/2021-06-03/1585930-72.patch"
             },
             "drupal/pathauto": {
                 "Duplicate alias entities created with Create a new alias. Leave the existing alias functioning setting":
@@ -284,6 +277,12 @@
             "drupal/lightning_core": {
                 "drupal/core": {
                     "1356276 - Allow profiles to define a base/parent profile and load them in the correct order":
+                    "https://www.drupal.org/files/issues/2020-03-24/1356276-531-9.0.x-9.patch",
+                    "2914389 - Allow profiles to exclude dependencies of their parent":
+                    "https://www.drupal.org/files/issues/2018-07-09/2914389-8-do-not-test.patch",
+                    "overrides for profile and sub profile use 633 instead of 631":
+                    "https://www.drupal.org/files/issues/2020-12-11/1356276-631-by-mpotter-balsama-phenaproxima.patch",
+                    "1356276 - Allow profiles to define a base/parent profile and load them in the correct order":
                     "https://www.drupal.org/files/issues/2019-11-05/1356276-531-8.8.x-4.patch",
                     "2914389 - Allow profiles to exclude dependencies of their parent":
                     "https://www.drupal.org/files/issues/2018-07-09/2914389-8-do-not-test.patch"
@@ -294,7 +293,7 @@
     "require": {
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6.7",
-        "drupalwxt/wxt": "4.0.x-dev",
+        "drupalwxt/wxt": "4.1.x-dev",
         "drupal/core-composer-scaffold": "^9",
         "drush/drush": "^10.0",
         "oomphinc/composer-installers-extender": "^1.1 || ^2",

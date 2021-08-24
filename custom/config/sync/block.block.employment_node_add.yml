@@ -5,7 +5,6 @@ dependencies:
   module:
     - formblock
     - system
-    - wxt_library
   theme:
     - grstheme_bootstrap
 id: employment_node_add
@@ -23,11 +22,6 @@ settings:
   form_mode: default
   show_help: 0
 visibility:
-  panels_title:
-    id: panels_title
-    enabled: 0
-    negate: false
-    context_mapping: {  }
   request_path:
     id: request_path
     pages: "/internal-employment-opportunity-request-form\r\n/formulaire-de-demande-pour-les-possibilites-demploi-a-linterne\r\n/human-resources/staffing/internal-employment-opportunity-request-form\r\n/ressources-humaines/dotation/formulaire-de-demande-pour-les-possibilites-demploi-linterne"

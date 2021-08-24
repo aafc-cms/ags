@@ -7,7 +7,6 @@ dependencies:
   module:
     - node
     - system
-    - wxt_library
   theme:
     - grstheme_bootstrap
 _core:
@@ -34,8 +33,3 @@ visibility:
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
-  panels_title:
-    id: panels_title
-    enabled: 0
-    negate: false
-    context_mapping: {  }

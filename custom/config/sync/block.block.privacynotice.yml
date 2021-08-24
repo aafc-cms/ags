@@ -11,7 +11,6 @@ dependencies:
     - node
     - system
     - user
-    - wxt_library
   theme:
     - grstheme_bootstrap
 third_party_settings:
@@ -39,11 +38,6 @@ visibility:
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
-  panels_title:
-    id: panels_title
-    enabled: 0
-    negate: false
-    context_mapping: {  }
   request_path:
     id: request_path
     pages: "/en/human-resources/internal-employment-opportunities*\r\n/human-resources/internal-employment-opportunities*\r\n/fr/ressources-humaines/possibilites-demploi-a-linterne*\r\n/ressources-humaines/possibilites-demploi-a-linterne*\r\n/node/preview*\r\n/en/node/preview*\r\n/fr/node/preview*\r\n/en//human-resources/employment*\r\n/human-resources/employment*\r\n/fr/ressources-humaines/emploi*"

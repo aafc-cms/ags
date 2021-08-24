@@ -7,7 +7,6 @@ dependencies:
   module:
     - block_class
     - wxt_ext_webform
-    - wxt_library
   theme:
     - grstheme_bootstrap
 third_party_settings:
@@ -37,9 +36,4 @@ settings:
     default_data: ''
     redirect: true
   redirect: true
-visibility:
-  panels_title:
-    id: panels_title
-    enabled: 0
-    negate: false
-    context_mapping: {  }
+visibility: {  }

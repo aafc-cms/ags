@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.media.slideshow.field_media_in_library
+    - field.field.media.slideshow.field_slideshow_style
     - field.field.media.slideshow.slideshow_items
     - media.type.slideshow
 _core:
@@ -25,7 +26,9 @@ content:
 hidden:
   created: true
   field_media_in_library: true
+  field_slideshow_style: true
   langcode: true
   name: true
   thumbnail: true
   uid: true
+  field_slideshow_styles: true

@@ -11,7 +11,6 @@ dependencies:
     - node
     - system
     - user
-    - wxt_library
   theme:
     - grstheme_bootstrap
 third_party_settings:
@@ -58,8 +57,3 @@ visibility:
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
-  panels_title:
-    id: panels_title
-    enabled: 0
-    negate: false
-    context_mapping: {  }

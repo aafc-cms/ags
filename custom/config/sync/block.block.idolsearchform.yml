@@ -6,7 +6,6 @@ dependencies:
     - 'block_content:basic:30e4c971-edb5-48f2-9f12-86589e46b849'
   module:
     - block_content
-    - wxt_library
   theme:
     - grstheme_bootstrap
 id: idolsearchform
@@ -23,9 +22,4 @@ settings:
   status: true
   info: ''
   view_mode: full
-visibility:
-  panels_title:
-    id: panels_title
-    enabled: 0
-    negate: false
-    context_mapping: {  }
+visibility: {  }

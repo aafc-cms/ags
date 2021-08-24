@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_form_mode.media.media_browser
     - field.field.media.slideshow.field_media_in_library
+    - field.field.media.slideshow.field_slideshow_style
     - field.field.media.slideshow.slideshow_items
     - media.type.slideshow
   module:
@@ -36,6 +37,14 @@ content:
     weight: 30
     region: content
     settings: {  }
+    third_party_settings: {  }
+  revision_log_message:
+    type: string_textarea
+    weight: 25
+    settings:
+      rows: 4
+      placeholder: ''
+    region: content
     third_party_settings: {  }
   slideshow_items:
     type: inline_entity_form_complex
@@ -69,4 +78,5 @@ content:
     region: content
 hidden:
   field_media_in_library: true
+  field_slideshow_style: true
   langcode: true

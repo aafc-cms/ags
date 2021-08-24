@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - entity_browser.browser.media_browser
     - field.field.node.news.body
     - field.field.node.news.field_created_by
     - field.field.node.news.field_dc_date_created
@@ -29,12 +28,11 @@ dependencies:
     - field.field.node.news.field_to
     - field.field.node.news.layout_selection
     - node.type.news
-    - workflows.workflow.editorial
   module:
     - content_moderation
     - datetime
-    - entity_browser
     - field_group
+    - media_library
     - telephone
     - text
 third_party_settings:
@@ -319,20 +317,12 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_newsfile5:
-    type: entity_browser_entity_reference
-    weight: 32
+    type: media_library_widget
+    weight: 33
     settings:
-      entity_browser: media_browser
-      field_widget_display: rendered_entity
-      field_widget_edit: true
-      field_widget_remove: true
-      selection_mode: selection_append
-      field_widget_display_settings:
-        view_mode: thumbnail
-      open: true
-      field_widget_replace: false
-    region: content
+      media_types: {  }
     third_party_settings: {  }
+    region: content
   field_newsnotes:
     weight: 10
     settings:

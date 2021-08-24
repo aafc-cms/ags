@@ -6,7 +6,6 @@ dependencies:
     - system.menu.main
   module:
     - system
-    - wxt_library
   theme:
     - grstheme_bootstrap
 _core:
@@ -25,9 +24,4 @@ settings:
   level: 1
   depth: 2
   expand_all_items: false
-visibility:
-  panels_title:
-    id: panels_title
-    enabled: 0
-    negate: false
-    context_mapping: {  }
+visibility: {  }

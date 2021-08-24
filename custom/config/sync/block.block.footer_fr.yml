@@ -8,7 +8,6 @@ dependencies:
     - block_class
     - language
     - menu_block
-    - wxt_library
   theme:
     - grstheme_bootstrap
 third_party_settings:
@@ -37,11 +36,6 @@ settings:
   expand_only_active_trails: 0
   render_parent: false
 visibility:
-  panels_title:
-    id: panels_title
-    enabled: 0
-    negate: false
-    context_mapping: {  }
   language:
     id: language
     langcodes:

@@ -7,7 +7,6 @@ dependencies:
     - entity_block
     - language
     - system
-    - wxt_library
   theme:
     - grstheme_bootstrap
 third_party_settings:
@@ -16,7 +15,7 @@ third_party_settings:
 id: media_2
 theme: grstheme_bootstrap
 region: content
-weight: -16
+weight: -15
 provider: null
 plugin: 'entity_block:media'
 settings:
@@ -37,10 +36,5 @@ visibility:
   request_path:
     id: request_path
     pages: '<front>'
-    negate: false
-    context_mapping: {  }
-  panels_title:
-    id: panels_title
-    enabled: 0
     negate: false
     context_mapping: {  }

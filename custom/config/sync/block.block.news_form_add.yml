@@ -5,7 +5,6 @@ dependencies:
   module:
     - formblock
     - system
-    - wxt_library
   theme:
     - grstheme_bootstrap
 id: news_form_add
@@ -26,10 +25,5 @@ visibility:
   request_path:
     id: request_path
     pages: "/submit-article-news-work\r\n/submit-article-newswork\r\n/soumettre-un-article-nouvelles-au-travail\r\n/fr/soumettre-un-article-nouvelles-au-travail\r\n/news/newswork/submit-article-newswork\r\n/news/newswork/submit-article-news-work\r\n/nouvelles/nouvelleslouvrage/soumission-dun-article-pour-nouvelleslouvrage\r\n/fr/nouvelles/nouvelleslouvrage/soumission-dun-article-pour-nouvelleslouvrage\r\n/nouvelles/nouvelleslouvrage/soumettre-un-article-nouvelles-au-travail\r\n/fr/nouvelles/nouvelleslouvrage/soumettre-un-article-nouvelles-au-travail"
-    negate: false
-    context_mapping: {  }
-  panels_title:
-    id: panels_title
-    enabled: 0
     negate: false
     context_mapping: {  }
