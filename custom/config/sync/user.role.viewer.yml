@@ -1,0 +1,18 @@
+uuid: ca91d8e7-e44a-4855-9cf4-19c5d486bf15
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+third_party_settings:
+  lightning_core:
+    description: 'This role is for viewing drafts, viewing pending-drafts of Internal pages and landing pages.'
+id: viewer
+label: viewer
+weight: 1
+is_admin: null
+permissions:
+  - 'access toolbar'
+  - 'prefer latest content'
+  - 'view any unpublished content'
+  - 'view latest version'

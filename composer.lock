@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bd0014ab9abc713ad67ab2367da426ef",
+    "content-hash": "4d0e021cf51ebaf3da0a9ab9a6999227",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -133,6 +133,22 @@
                 "source": "https://github.com/acquia/lightning/tree/4.1.7"
             },
             "time": "2020-09-16T21:11:58+00:00"
+        },
+        {
+            "name": "agrcmsx/prefer_latest_content",
+            "version": "8.x-dev",
+            "dist": {
+                "type": "path",
+                "url": "custom/modules/prefer_latest_content",
+                "reference": "ea927183dd1545999f09190509ec2ab0e7bc26e1"
+            },
+            "require": {
+                "composer/installers": "^1.2"
+            },
+            "type": "drupal-custom-module",
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "asm89/stack-cors",
@@ -23151,6 +23167,7 @@
         "drupal/ultimate_cron": 15,
         "drupal/config_ignore": 20,
         "drupal/linkchecker": 15,
+        "agrcmsx/prefer_latest_content": 20,
         "entreprise7pro/linkchecks": 20,
         "drupal/libraries": 10,
         "phpmd/phpmd": 0
