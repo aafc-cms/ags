@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "95eb963adae442995532e2c60fdb44bb",
+    "content-hash": "bd0014ab9abc713ad67ab2367da426ef",
     "packages": [
         {
             "name": "acquia/lightning",
@@ -5322,17 +5322,17 @@
         },
         {
             "name": "drupal/dynamic_entity_reference",
-            "version": "2.0.0-alpha14",
+            "version": "1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/dynamic_entity_reference.git",
-                "reference": "8.x-2.0-alpha14"
+                "reference": "8.x-1.12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/dynamic_entity_reference-8.x-2.0-alpha14.zip",
-                "reference": "8.x-2.0-alpha14",
-                "shasum": "7fc9f39fa9e81f87c66f98399420bb3f6dbafc79"
+                "url": "https://ftp.drupal.org/files/projects/dynamic_entity_reference-8.x-1.12.zip",
+                "reference": "8.x-1.12",
+                "shasum": "ee0423f07d962ccd1c1116ac81de3e96f28ac89a"
             },
             "require": {
                 "drupal/core": "^8.7.7 || ^9"
@@ -5343,11 +5343,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.0-alpha14",
-                    "datestamp": "1603517207",
+                    "version": "8.x-1.12",
+                    "datestamp": "1620309082",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -7633,7 +7633,7 @@
             "extra": {
                 "drupal": {
                     "version": "8.x-3.0-beta1",
-                    "datestamp": "1609758293",
+                    "datestamp": "1618261123",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -23144,7 +23144,6 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/content_moderation_notifications": 20,
-        "drupal/dynamic_entity_reference": 15,
         "drupal/recreate_block_content": 20,
         "drupal/scanner": 20,
         "drupal/smtp": 20,
