@@ -1,0 +1,126 @@
+<?php
+
+use \Drupal\prefer_latest_content\Utils;
+/**
+ * @file
+ * Primary module hooks for Prefer Latest Content module.
+ *
+ * @DCG
+ * This file is no longer required in Drupal 8.
+ * @see https://www.drupal.org/node/2217931
+ */
+
+
+/**
+ * Implements hook_page_attachments().
+ *
+ * Provide aafc metatag elements in the head to each page.
+ */
+function prefer_latest_content_page_attachments(array &$page) {
+  if (\Drupal::currentUser()->hasPermission('prefer latest content')) {
+    $page['#attached']['library'][] = 'prefer_latest_content/prefer_latest_content';
+  }
+}
+
+
+/**
+ *
+ **/
+function prefer_latest_content_page(&$variables) {
+  //
+}
+
+/**
+ * Implements hook_preprocess_html().
+ **/
+function prefer_latest_content_preprocess_html(&$variables) {
+  //entity.node.latest_version  // Redirect to this.
+  //entity.node.canonical
+  $route_match = Utils::getRouteName();
+  if (\Drupal::currentUser()->isAnonymous()) {
+    $variables['#cache']['contexts'][] = 'user.roles:anonymous';
+  }
+  if (!$route_match == 'entity.node.latest_version') {
+    if (!\Drupal::currentUser()->isAnonymous()) {
+      $variables['#cache']['contexts'][] = 'user.roles:authenticated';
+    }
+    return;
+  }
+  if (!$route_match == 'entity.node.canonical') {
+    $variables['#cache']['contexts'][] = 'user.roles:anonymous';
+    // Bail out early.
+    return;
+  }
+  if (!\Drupal::currentUser()->hasPermission('prefer latest content')) {
+    if (\Drupal::currentUser()->isAnonymous()) {
+      $variables['#cache']['contexts'][] = 'user.roles:anonymous';
+    }
+    // This functionality is only intended for roles with this permission.
+    return;
+  }
+  $route_match = Utils::getRouteName();
+  $current_user_roles = \Drupal::currentUser()->getRoles();
+
+  // Check if user is an admin.
+  if (in_array('administrator', $current_user_roles)) {
+    // This functionality is not intended for the administrator role.
+    return;
+  }
+  
+  // Ensure the cache varies correctly.
+  // Improve cache behavior.
+  $variables['#cache']['contexts'][] = 'user.roles:authenticated';
+  $variables['#cache']['max-age'] = 0;
+
+  $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  // Begin logic to grab moderation state.
+
+  $node = \Drupal::routeMatch()->getParameter('node');
+  $node_revision = \Drupal::routeMatch()->getParameter('node_revision');
+  $routeMatchParams = \Drupal::routeMatch()->getParameters();
+  $nid = 0;
+  $vid = 0;
+  $revision_is_object = FALSE;
+  $nodeLoaded = 0;
+  $archived = '';
+  if ($node) {
+    // Workaround for https://www.drupal.org/project/drupal/issues/2730631 .
+    // Workaround for inconsistent router behaviour, see comments in issue 2730631.
+    // TODO, follow up on issue 2730631.
+    $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+
+    if (is_string($node) && is_numeric($node)) {
+      $nid = $node;
+    }
+    else if (gettype($node) == 'object') {
+      $nid = $node->id();
+      $vid = $node->getRevisionId();
+      // Load a single node.
+      $nodeLoaded = $node_storage->load($nid);
+    }
+
+    if (is_string($node_revision) && is_numeric($node_revision)) {
+      $vid = $node_revision;
+    }
+
+    if (gettype($node_revision) == 'object') {
+      $revision_is_object = TRUE;
+      $vid = $node_revision->revision_id();
+    }
+
+    if ($vid == 0 && gettype($node_revision) == 'object') {
+      // Get the revision id.
+      $vid = $nodeLoaded->getRevisionId();
+    }
+
+    if ($vid) {
+      if ($nodeLoaded->isPublished() && $latestRevision = Utils::getLatestRevisionOnlyIfDraft($nid, $vid)) {
+        $language = \Drupal::languageManager()->getCurrentLanguage();
+        Utils::gotoLegacy('/node/' . $nid . '/latest', ['language' => $language], '302');
+      }
+    }
+  }
+//  echo $route_match;
+//  die;
+
+}

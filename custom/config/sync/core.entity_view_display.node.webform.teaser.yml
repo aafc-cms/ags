@@ -1,3 +1,4 @@
+uuid: fdf22cb4-44dd-43e0-b5d4-cb01ea63cb45
 langcode: en
 status: true
 dependencies:
@@ -7,15 +8,10 @@ dependencies:
     - field.field.node.webform.webform
     - node.type.webform
   module:
-    - panelizer
     - text
     - user
-third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
+_core:
+  default_config_hash: Ls5l3Xs7-YstJnurxFLKj38Exqr2JMZs1j9YeX1Kh2o
 id: node.webform.teaser
 targetEntityType: node
 bundle: webform
@@ -37,6 +33,3 @@ content:
 hidden:
   langcode: true
   webform: true
-_core:
-  default_config_hash: Ls5l3Xs7-YstJnurxFLKj38Exqr2JMZs1j9YeX1Kh2o
-uuid: fdf22cb4-44dd-43e0-b5d4-cb01ea63cb45
