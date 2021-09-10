@@ -1,5 +1,4 @@
 label: 'Soumissions de webform'
-description: 'Vue par défaut des soumissions de webform.'
 display:
   default:
     display_title: Maître
@@ -50,11 +49,9 @@ display:
             title: Tout
       title: 'Soumissions de webform'
   embed_default:
-    display_title: 'Intégrer : Par défaut'
     display_options:
       display_description: 'Afficher les soumissions.'
   embed_administer:
-    display_title: 'Intégrer : Administrer'
     display_options:
       display_description: 'Administrer les soumissions.'
       fields:
@@ -94,7 +91,6 @@ display:
           expose:
             label: Verrouillé
   embed_manage:
-    display_title: 'Intégrer : Gérer'
     display_options:
       display_description: 'Gérer les soumissions.'
       fields:
@@ -138,9 +134,7 @@ display:
           expose:
             label: Verrouillé
   embed_review:
-    display_title: 'Intégrer : Évaluer'
     display_options:
-      display_description: 'Évaluer les soumissions.'
       fields:
         sid:
           label: '#'
