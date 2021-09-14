@@ -197,14 +197,8 @@
                 "https://www.drupal.org/files/issues/2020-01-17/pathauto-3107144-2.patch"
             },
             "drupal/access_unpublished": {
-                "Adds a twig extension for access unpublished hash key link, patch 9.":
-                "https://www.drupal.org/files/issues/2019-11-21/access_unpublished-3054536-9.patch",
-                "Fix token-create while editing a French node":
-                "https://www.drupal.org/files/issues/2019-03-20/access_unpublished-create_per_language_tokens-2958800-3.patch",
-                "Edge case can result in null route - hasPendingRevision() validate for null.":
-                "https://www.drupal.org/files/issues/2019-12-09/access_unpublished-TypeError_hasPendingRevision_null_fix-3099663-2.patch",
-                "Invalid text representation: 7 ERROR when deleting a comment field from a node bundle - issue no. 3214261":
-                "https://www.drupal.org/files/issues/2021-05-16/access_unpublished-prevent_error_when_deleting_a_comment_field_from_a_bundle-3214261-2.patch"
+              "Adds a twig extension for access unpublished hash key link, patch 12.": "https://www.drupal.org/files/issues/2021-05-21/v1.1-access_unpublished-3054536-12.patch",
+              "Fix token-create while editing a French node": "https://www.drupal.org/files/issues/2019-03-20/access_unpublished-create_per_language_tokens-2958800-3.patch"
             },
             "drupal/bootstrap": {
                 "views submit button name attribute cannot be empty for w3c":
@@ -215,6 +209,9 @@
             "drupal/entity_embed": {
                 "entity_embed-remove_image_attributes_from_div-3086162":
                 "https://www.drupal.org/files/issues/2020-06-15/entity_embed-remove_image_attributes_from_div-3086162-13_0.patch"
+            },
+            "drupal/field_group": {
+              "Patch needed a reroll fix translations for field_group.": "https://www.drupal.org/files/issues/2021-08-10/field_group_fix-translations_label_description_2021-08-10.patch"
             },
             "drupal/file_delete": {
                 "Add functionality to immediately delete files and override usage check":
@@ -229,20 +226,9 @@
                 "https://www.drupal.org/files/issues/2019-11-29/lightning_bulk_upload_form-3097516-2.patch"
             },
             "drupal/linkchecker": {
-                "Extraction status":
-                "https://www.drupal.org/files/issues/2020-12-08/3184613-extraction-status.patch",
-                "Broken links view should not show status code -1":
-                "https://www.drupal.org/files/issues/2020-12-17/3118914-4.patch",
-                "Update empty value for last_check field on broken links report":
-                "https://www.drupal.org/files/issues/2020-12-25/3112537-12.patch",
-                "Auto-select extractor if there is only one available":
-                "https://www.drupal.org/files/issues/2020-12-18/3133925-2.patch",
-                "Undefined offset error fix":
-                "https://www.drupal.org/files/issues/2020-08-24/undefined-offset-error-3065045-13.patch",
-                "Linkchecker interval , 2 minute interval for debugging purposes":
-                "https://www.drupal.org/files/issues/2021-05-07/linkchecker-interval_for_debugging-3212816-3.patch",
-                "Allow linkchecker to work in a non-standard environment, provide host and port substitution.":
-                "https://www.drupal.org/files/issues/2021-05-14/3213210_13.patch"
+               "Extraction status": "https://www.drupal.org/files/issues/2020-12-08/3184613-extraction-status.patch",
+               "Update empty value for last_check field on broken links report": "https://www.drupal.org/files/issues/2020-12-25/3112537-12.patch",
+               "Allow linkchecker to work in a non-standard environment, provide host and port substitution.": "https://www.drupal.org/files/issues/2021-05-14/3213210_13.patch"
             },
             "drupal/moderation_sidebar": {
                 "Synchronize moderation states between all translations of the entity":
@@ -278,6 +264,14 @@
             }
         },
         "patches-ignore": {
+            "drupalwxt/wxt": {
+               "drupal/password_policy": {
+         	  "patch is included now, no longer need to apply it": "https://www.drupal.org/files/issues/2020-03-17/Password-Policy-constraints-summary-character-types-labels-not-translatable-2975694-16.patch"
+	       },
+               "drupal/field_group": {
+         	  "patch is broken, apply a new one above": "https://www.drupal.org/files/issues/2020-02-04/3111107-2--fix-translations.patch"
+	       }
+	    },
             "acquia/lightning": {
                 "drupal/core": {
                     "1356276 - Allow profiles to define a base/parent profile and load them in the correct order":
