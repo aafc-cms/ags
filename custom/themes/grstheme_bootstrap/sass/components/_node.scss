@@ -46,3 +46,64 @@ body.user-logged-in[class*='archiv'] {
     border: 3px solid saddlebrown;
   }
 }
+html:lang(en) body.anonymous.published-no main .field--name-body::before,
+html:lang(en) body.viewer.published-no main .field--name-body::before {
+  content: "Draft Version";
+}
+
+html:lang(fr) body.anonymous.published-no main .field--name-body::before,
+html:lang(fr) body.viewer.published-no main .field--name-body::before {
+    content: "En brouillon";
+}
+
+html:lang(en) body.anonymous.published-no main .field--name-body::before,
+html:lang(fr) body.anonymous.published-no main .field--name-body::before,
+html:lang(en) body.viewer.published-no main .field--name-body::before,
+html:lang(fr) body.viewer.published-no main .field--name-body::before {
+    margin-left: 3em;
+  margin-top: 2.5em;
+  position: fixed;
+  transform: rotate(-45deg);
+  color: #CCC;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  font-size: 400%;
+  opacity: 0.6;
+  z-index: 1;
+  font-weight: bold;
+  text-shadow: 2px 2px #666;
+}
+
+html:lang(en) body.anonymous.pending-draft main .field--name-body::before,
+html:lang(en) body.viewer.pending-draft main .field--name-body::before {
+    content: "Pending Draft";
+}
+
+html:lang(fr) body.anonymous.pending-draft main .field--name-body::before,
+html:lang(fr) body.viewer.pending-draft main .field--name-body::before {
+  content: "Brouillon en attente";
+}
+
+html:lang(en) body.anonymous.pending-draft main .field--name-body::before,
+html:lang(fr) body.anonymous.pending-draft main .field--name-body::before,
+html:lang(en) body.viewer.pending-draft main .field--name-body::before,
+html:lang(fr) body.viewer.pending-draft main .field--name-body::before {
+    margin-left: 3em;
+  margin-top: 2.5em;
+  position: fixed;
+  transform: rotate(-45deg);
+  color: #CCC;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  font-size: 400%;
+  opacity: 0.6;
+  z-index: 1;
+  font-weight: bold;
+  text-shadow: 2px 2px #666;
+}
+
