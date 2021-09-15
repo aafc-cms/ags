@@ -107,3 +107,6 @@ html:lang(fr) body.viewer.pending-draft main .field--name-body::before {
   text-shadow: 2px 2px #666;
 }
 
+body.node20latest #wb-bc {
+  display: none; /* Normally avoid this type of trick but sometimes it's just so much easier */
+}
