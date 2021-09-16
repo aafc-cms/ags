@@ -217,3 +217,14 @@ body[class*="menuitem"] select#edit-menu-parent {
  }
 }
 
+body.node-edit.role-is-authenticated.page-node-type-empl {
+  form.node-empl-edit-form.node-form div.layout-region__content {
+    max-width: 100% !important;
+  }
+}
+
+body.node-edit.role-is-authenticated.page-node-type-news {
+  form.node-news-edit-form.node-form div.layout-region__content {
+    max-width: 100% !important;
+  }
+}

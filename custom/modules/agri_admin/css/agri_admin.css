@@ -416,6 +416,14 @@ body[class*="menuitem"] select#edit-menu-parent .menu_tree-leve-6 {
   font-size: 16px;
 }
 
+body.node-edit.role-is-authenticated.page-node-type-empl form.node-empl-edit-form.node-form div.layout-region__content {
+  max-width: 100% !important;
+}
+
+body.node-edit.role-is-authenticated.page-node-type-news form.node-news-edit-form.node-form div.layout-region__content {
+  max-width: 100% !important;
+}
+
 body.role-is-creator li.menu-item a[data-drupal-link-system-path*="blog_freetags"],
 body.role-is-news_ccpub li.menu-item a[data-drupal-link-system-path*="blog_freetags"],
 body.role-is-empl_ccpub li.menu-item a[data-drupal-link-system-path*="blog_freetags"],
