@@ -56,6 +56,25 @@ html:lang(fr) body.viewer.published-no main .field--name-body::before {
     content: "En brouillon";
 }
 
+html:lang(en) body.anonymous.published-no main .block .field--name-body::before,
+html:lang(en) body.viewer.published-no main .block .field--name-body::before {
+  content: "";
+}
+
+html:lang(fr) body.anonymous.published-no main .block .field--name-body::before,
+html:lang(fr) body.viewer.published-no main .block .field--name-body::before {
+    content: "";
+}
+
+html:lang(en) body.anonymous.published-no main #block-servicesandinformation .field--name-body::before,
+html:lang(en) body.viewer.published-no main #block-servicesandinformation .field--name-body::before {
+  content: "Draft Version";
+}
+
+html:lang(fr) body.anonymous.published-no main #block-servicesandinformation .field--name-body::before,
+html:lang(fr) body.viewer.published-no main #block-servicesandinformation .field--name-body::before {
+    content: "En brouillon";
+}
 html:lang(en) body.anonymous.published-no main .field--name-body::before,
 html:lang(fr) body.anonymous.published-no main .field--name-body::before,
 html:lang(en) body.viewer.published-no main .field--name-body::before,
@@ -84,6 +103,26 @@ html:lang(en) body.viewer.pending-draft main .field--name-body::before {
 
 html:lang(fr) body.anonymous.pending-draft main .field--name-body::before,
 html:lang(fr) body.viewer.pending-draft main .field--name-body::before {
+  content: "Brouillon en attente";
+}
+
+html:lang(en) body.anonymous.pending-draft main .block .field--name-body::before,
+html:lang(en) body.viewer.pending-draft main .block .field--name-body::before {
+    content: "";
+}
+
+html:lang(fr) body.anonymous.pending-draft main .block .field--name-body::before,
+html:lang(fr) body.viewer.pending-draft main .block .field--name-body::before {
+  content: "";
+}
+
+html:lang(en) body.anonymous.pending-draft main #block-servicesandinformation .field--name-body::before,
+html:lang(en) body.viewer.pending-draft main #block-servicesandinformation .field--name-body::before {
+    content: "Pending Draft";
+}
+
+html:lang(fr) body.anonymous.pending-draft main #block-servicesandinformation .field--name-body::before,
+html:lang(fr) body.viewer.pending-draft main #block-servicesandinformation .field--name-body::before {
   content: "Brouillon en attente";
 }
 
