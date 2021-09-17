@@ -476,6 +476,30 @@ html:lang(fr) body.viewer.published-no main .field--name-body::before {
 }
 
 /* line 59, ../sass/components/_node.scss */
+html:lang(en) body.anonymous.published-no main .block .field--name-body::before,
+html:lang(en) body.viewer.published-no main .block .field--name-body::before {
+  content: "";
+}
+
+/* line 64, ../sass/components/_node.scss */
+html:lang(fr) body.anonymous.published-no main .block .field--name-body::before,
+html:lang(fr) body.viewer.published-no main .block .field--name-body::before {
+  content: "";
+}
+
+/* line 69, ../sass/components/_node.scss */
+html:lang(en) body.anonymous.published-no main #block-servicesandinformation .field--name-body::before,
+html:lang(en) body.viewer.published-no main #block-servicesandinformation .field--name-body::before {
+  content: "Draft Version";
+}
+
+/* line 74, ../sass/components/_node.scss */
+html:lang(fr) body.anonymous.published-no main #block-servicesandinformation .field--name-body::before,
+html:lang(fr) body.viewer.published-no main #block-servicesandinformation .field--name-body::before {
+  content: "En brouillon";
+}
+
+/* line 78, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.published-no main .field--name-body::before,
 html:lang(fr) body.anonymous.published-no main .field--name-body::before,
 html:lang(en) body.viewer.published-no main .field--name-body::before,
@@ -497,19 +521,43 @@ html:lang(fr) body.viewer.published-no main .field--name-body::before {
   text-shadow: 2px 2px #666;
 }
 
-/* line 80, ../sass/components/_node.scss */
+/* line 99, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.pending-draft main .field--name-body::before,
 html:lang(en) body.viewer.pending-draft main .field--name-body::before {
   content: "Pending Draft";
 }
 
-/* line 85, ../sass/components/_node.scss */
+/* line 104, ../sass/components/_node.scss */
 html:lang(fr) body.anonymous.pending-draft main .field--name-body::before,
 html:lang(fr) body.viewer.pending-draft main .field--name-body::before {
   content: "Brouillon en attente";
 }
 
-/* line 90, ../sass/components/_node.scss */
+/* line 109, ../sass/components/_node.scss */
+html:lang(en) body.anonymous.pending-draft main .block .field--name-body::before,
+html:lang(en) body.viewer.pending-draft main .block .field--name-body::before {
+  content: "";
+}
+
+/* line 114, ../sass/components/_node.scss */
+html:lang(fr) body.anonymous.pending-draft main .block .field--name-body::before,
+html:lang(fr) body.viewer.pending-draft main .block .field--name-body::before {
+  content: "";
+}
+
+/* line 119, ../sass/components/_node.scss */
+html:lang(en) body.anonymous.pending-draft main #block-servicesandinformation .field--name-body::before,
+html:lang(en) body.viewer.pending-draft main #block-servicesandinformation .field--name-body::before {
+  content: "Pending Draft";
+}
+
+/* line 124, ../sass/components/_node.scss */
+html:lang(fr) body.anonymous.pending-draft main #block-servicesandinformation .field--name-body::before,
+html:lang(fr) body.viewer.pending-draft main #block-servicesandinformation .field--name-body::before {
+  content: "Brouillon en attente";
+}
+
+/* line 129, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.pending-draft main .field--name-body::before,
 html:lang(fr) body.anonymous.pending-draft main .field--name-body::before,
 html:lang(en) body.viewer.pending-draft main .field--name-body::before,
