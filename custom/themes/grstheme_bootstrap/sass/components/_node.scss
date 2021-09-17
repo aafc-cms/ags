@@ -107,6 +107,37 @@ html:lang(fr) body.viewer.pending-draft main .field--name-body::before {
   text-shadow: 2px 2px #666;
 }
 
+html:lang(en) body.anonymous.published-no-is-archived main .field--name-body::before,
+html:lang(en) body.viewer.published-no-is-archived main .field--name-body::before {
+  content: "Archived Version";
+}
+
+html:lang(fr) body.anonymous.published-no-is-archived main .field--name-body::before,
+html:lang(fr) body.viewer.published-no-is-archived main .field--name-body::before {
+    content: "Version archivee";
+}
+
+html:lang(en) body.anonymous.published-no-is-archived main .field--name-body::before,
+html:lang(fr) body.anonymous.published-no-is-archived main .field--name-body::before,
+html:lang(en) body.viewer.published-no-is-archived main .field--name-body::before,
+html:lang(fr) body.viewer.published-no-is-archived main .field--name-body::before {
+    margin-left: 3em;
+  margin-top: 2.5em;
+  position: fixed;
+  transform: rotate(-45deg);
+  color: #CCC;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  font-size: 400%;
+  opacity: 0.6;
+  z-index: 1;
+  font-weight: bold;
+  text-shadow: 2px 2px #666;
+}
+
 body.node20latest #wb-bc {
   display: none; /* Normally avoid this type of trick but sometimes it's just so much easier */ 
 }
