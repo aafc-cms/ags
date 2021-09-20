@@ -98,11 +98,15 @@ html:lang(fr) body.viewer.published-no main .field--name-body::before {
 }
 
 html:lang(en) body.anonymous.pending-draft main .field--name-body::before,
+html:lang(en) body.anonymous.pending-draft main .block.block-layout-builder .field--name-body::before,
+html:lang(en) body.viewer.pending-draft main .block.block-layout-builder .field--name-body::before,
 html:lang(en) body.viewer.pending-draft main .field--name-body::before {
     content: "Pending Draft";
 }
 
 html:lang(fr) body.anonymous.pending-draft main .field--name-body::before,
+html:lang(fr) body.anonymous.pending-draft main .block.block-layout-builder .field--name-body::before,
+html:lang(fr) body.viewer.pending-draft main .block.block-layout-builder .field--name-body::before,
 html:lang(fr) body.viewer.pending-draft main .field--name-body::before {
   content: "Brouillon en attente";
 }
@@ -148,20 +152,23 @@ html:lang(fr) body.viewer.pending-draft main .field--name-body::before {
 }
 
 html:lang(en) body.anonymous.published-no-is-archived main .field--name-body::before,
+html:lang(en) body.anonymous.published-no-is-archived main .block.block-layout-builder .field--name-body::before,
+html:lang(en) body.viewer.published-no-is-archived main .block.block-layout-builder .field--name-body::before,
 html:lang(en) body.viewer.published-no-is-archived main .field--name-body::before {
   content: "Archived Version";
 }
 
-html:lang(fr) body.anonymous.published-no-is-archived main .field--name-body::before,
-html:lang(fr) body.viewer.published-no-is-archived main .field--name-body::before {
+html:lang(fr) body.anonymous.published-no-is-archived main .block.block-layout-builder .field--name-body::before,
+html:lang(fr) body.viewer.published-no-is-archived main .block.block-layout-builder .field--name-body::before {
     content: "Version archivée";
+    content: "Version archivee";
 }
 
 html:lang(en) body.anonymous.published-no-is-archived main .field--name-body::before,
 html:lang(fr) body.anonymous.published-no-is-archived main .field--name-body::before,
 html:lang(en) body.viewer.published-no-is-archived main .field--name-body::before,
 html:lang(fr) body.viewer.published-no-is-archived main .field--name-body::before {
-    margin-left: 3em;
+  margin-left: 3em;
   margin-top: 2.5em;
   position: fixed;
   transform: rotate(-45deg);
