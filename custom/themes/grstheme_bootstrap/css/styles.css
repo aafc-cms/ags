@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  * If using a CSS pre-processor, tell it to overwrite this file. If not, place
  * your custom CSS modifications here.
@@ -417,89 +418,89 @@ body.user-anonymous .entity-embed-dialog .form-item-attributes-data-entity-embed
 
 /**** Components Node for unpublished content *****/
 /* Note that drupal-bootstrap-not-cdn.min.css sets the background-color to #fff4f4 for body.is-unpublished */
-/* line 5, ../sass/components/_node.scss */
+/* line 6, ../sass/components/_node.scss */
 body.user-anonymous #edit-body-etuf-fr-0-format,
 body.user-anonymous #edit-body-0-format {
   display: none;
 }
 
-/* line 12, ../sass/components/_node.scss */
+/* line 13, ../sass/components/_node.scss */
 body.user-logged-in.published-no article {
   background-color: pink;
   border: 3px solid hotpink;
 }
-/* line 16, ../sass/components/_node.scss */
+/* line 17, ../sass/components/_node.scss */
 body.user-logged-in.published-no div.region-header h1 {
   background-color: pink;
   border: 3px solid hotpink;
 }
 
 /* The following code will override the body.is-unpublished background-color that drupal sets by default */
-/* line 23, ../sass/components/_node.scss */
+/* line 24, ../sass/components/_node.scss */
 body.is-unpublished {
   background-color: white;
 }
 
 /* Unpublished revision pending to overwrite the published revision */
-/* line 29, ../sass/components/_node.scss */
+/* line 30, ../sass/components/_node.scss */
 body.user-logged-in.published-no.pending-draft article {
   background-color: #FFECA9;
   border: 3px solid orange;
 }
-/* line 33, ../sass/components/_node.scss */
+/* line 34, ../sass/components/_node.scss */
 body.user-logged-in.published-no.pending-draft div.region-header h1 {
   background-color: #FFECA9;
   border: 3px solid orange;
 }
 
-/* line 40, ../sass/components/_node.scss */
+/* line 41, ../sass/components/_node.scss */
 body.user-logged-in[class*='archiv'] article {
   background-color: blanchedalmond;
   border: 3px solid saddlebrown;
 }
-/* line 44, ../sass/components/_node.scss */
+/* line 45, ../sass/components/_node.scss */
 body.user-logged-in[class*='archiv'] div.region-header h1 {
   background-color: blanchedalmond;
   border: 3px solid saddlebrown;
 }
 
-/* line 49, ../sass/components/_node.scss */
+/* line 50, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.published-no main .field--name-body::before,
 html:lang(en) body.viewer.published-no main .field--name-body::before {
   content: "Draft Version";
 }
 
-/* line 54, ../sass/components/_node.scss */
+/* line 55, ../sass/components/_node.scss */
 html:lang(fr) body.anonymous.published-no main .field--name-body::before,
 html:lang(fr) body.viewer.published-no main .field--name-body::before {
   content: "En brouillon";
 }
 
-/* line 59, ../sass/components/_node.scss */
+/* line 60, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.published-no main .block .field--name-body::before,
 html:lang(en) body.viewer.published-no main .block .field--name-body::before {
   content: "";
 }
 
-/* line 64, ../sass/components/_node.scss */
+/* line 65, ../sass/components/_node.scss */
 html:lang(fr) body.anonymous.published-no main .block .field--name-body::before,
 html:lang(fr) body.viewer.published-no main .block .field--name-body::before {
   content: "";
 }
 
-/* line 69, ../sass/components/_node.scss */
+/* line 70, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.published-no main #block-servicesandinformation .field--name-body::before,
 html:lang(en) body.viewer.published-no main #block-servicesandinformation .field--name-body::before {
   content: "Draft Version";
 }
 
-/* line 74, ../sass/components/_node.scss */
+/* line 75, ../sass/components/_node.scss */
 html:lang(fr) body.anonymous.published-no main #block-servicesandinformation .field--name-body::before,
 html:lang(fr) body.viewer.published-no main #block-servicesandinformation .field--name-body::before {
   content: "En brouillon";
 }
 
-/* line 78, ../sass/components/_node.scss */
+/* line 79, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.published-no main .field--name-body::before,
 html:lang(fr) body.anonymous.published-no main .field--name-body::before,
 html:lang(en) body.viewer.published-no main .field--name-body::before,
@@ -521,43 +522,43 @@ html:lang(fr) body.viewer.published-no main .field--name-body::before {
   text-shadow: 2px 2px #666;
 }
 
-/* line 99, ../sass/components/_node.scss */
+/* line 100, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.pending-draft main .field--name-body::before,
 html:lang(en) body.viewer.pending-draft main .field--name-body::before {
   content: "Pending Draft";
 }
 
-/* line 104, ../sass/components/_node.scss */
+/* line 105, ../sass/components/_node.scss */
 html:lang(fr) body.anonymous.pending-draft main .field--name-body::before,
 html:lang(fr) body.viewer.pending-draft main .field--name-body::before {
   content: "Brouillon en attente";
 }
 
-/* line 109, ../sass/components/_node.scss */
+/* line 110, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.pending-draft main .block .field--name-body::before,
 html:lang(en) body.viewer.pending-draft main .block .field--name-body::before {
   content: "";
 }
 
-/* line 114, ../sass/components/_node.scss */
+/* line 115, ../sass/components/_node.scss */
 html:lang(fr) body.anonymous.pending-draft main .block .field--name-body::before,
 html:lang(fr) body.viewer.pending-draft main .block .field--name-body::before {
   content: "";
 }
 
-/* line 119, ../sass/components/_node.scss */
+/* line 120, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.pending-draft main #block-servicesandinformation .field--name-body::before,
 html:lang(en) body.viewer.pending-draft main #block-servicesandinformation .field--name-body::before {
   content: "Pending Draft";
 }
 
-/* line 124, ../sass/components/_node.scss */
+/* line 125, ../sass/components/_node.scss */
 html:lang(fr) body.anonymous.pending-draft main #block-servicesandinformation .field--name-body::before,
 html:lang(fr) body.viewer.pending-draft main #block-servicesandinformation .field--name-body::before {
   content: "Brouillon en attente";
 }
 
-/* line 129, ../sass/components/_node.scss */
+/* line 130, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.pending-draft main .field--name-body::before,
 html:lang(fr) body.anonymous.pending-draft main .field--name-body::before,
 html:lang(en) body.viewer.pending-draft main .field--name-body::before,
@@ -578,19 +579,19 @@ html:lang(fr) body.viewer.pending-draft main .field--name-body::before {
   text-shadow: 2px 2px #666;
 }
 
-/* line 110, ../sass/components/_node.scss */
+/* line 150, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.published-no-is-archived main .field--name-body::before,
 html:lang(en) body.viewer.published-no-is-archived main .field--name-body::before {
   content: "Archived Version";
 }
 
-/* line 115, ../sass/components/_node.scss */
+/* line 155, ../sass/components/_node.scss */
 html:lang(fr) body.anonymous.published-no-is-archived main .field--name-body::before,
 html:lang(fr) body.viewer.published-no-is-archived main .field--name-body::before {
-  content: "Version archivee";
+  content: "Version archivée";
 }
 
-/* line 120, ../sass/components/_node.scss */
+/* line 160, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.published-no-is-archived main .field--name-body::before,
 html:lang(fr) body.anonymous.published-no-is-archived main .field--name-body::before,
 html:lang(en) body.viewer.published-no-is-archived main .field--name-body::before,
@@ -612,7 +613,7 @@ html:lang(fr) body.viewer.published-no-is-archived main .field--name-body::befor
   text-shadow: 2px 2px #666;
 }
 
-/* line 141, ../sass/components/_node.scss */
+/* line 181, ../sass/components/_node.scss */
 body.node20latest #wb-bc {
   display: none;
   /* Normally avoid this type of trick but sometimes it's just so much easier */

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**** Components Node for unpublished content *****/
 /* Note that drupal-bootstrap-not-cdn.min.css sets the background-color to #fff4f4 for body.is-unpublished */
 
@@ -153,7 +154,7 @@ html:lang(en) body.viewer.published-no-is-archived main .field--name-body::befor
 
 html:lang(fr) body.anonymous.published-no-is-archived main .field--name-body::before,
 html:lang(fr) body.viewer.published-no-is-archived main .field--name-body::before {
-    content: "Version archivee";
+    content: "Version archivée";
 }
 
 html:lang(en) body.anonymous.published-no-is-archived main .field--name-body::before,
