@@ -17,6 +17,11 @@ function grstheme_bootstrap_preprocess_html(&$variables) {
     unset($variables['#attached']); // Not needed for the en/news-bulletin-email page.
   }
 
+  $variables['four_oh_four'] = FALSE;
+  if ($route_match == 'system.404') {
+    $variables['four_oh_four'] = TRUE;
+  }
+
   $current_path = \Drupal::service('path.current')->getPath();
   $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $variables['langID'] = $langId;
