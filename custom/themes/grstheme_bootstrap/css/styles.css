@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  * If using a CSS pre-processor, tell it to overwrite this file. If not, place
  * your custom CSS modifications here.
@@ -489,17 +490,21 @@ html:lang(fr) body.viewer.published-no main .block .field--name-body::before {
 
 /* line 69, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.published-no main #block-servicesandinformation .field--name-body::before,
+html:lang(en) body.anonymous.published-no main .block.block-layout-builder .field--name-body::before,
+html:lang(en) body.viewer.published-no main .block.block-layout-builder .field--name-body::before,
 html:lang(en) body.viewer.published-no main #block-servicesandinformation .field--name-body::before {
   content: "Draft Version";
 }
 
-/* line 74, ../sass/components/_node.scss */
+/* line 76, ../sass/components/_node.scss */
 html:lang(fr) body.anonymous.published-no main #block-servicesandinformation .field--name-body::before,
+html:lang(fr) body.anonymous.published-no main .block.block-layout-builder .field--name-body::before,
+html:lang(fr) body.viewer.published-no main .block.block-layout-builder .field--name-body::before,
 html:lang(fr) body.viewer.published-no main #block-servicesandinformation .field--name-body::before {
   content: "En brouillon";
 }
 
-/* line 78, ../sass/components/_node.scss */
+/* line 82, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.published-no main .field--name-body::before,
 html:lang(fr) body.anonymous.published-no main .field--name-body::before,
 html:lang(en) body.viewer.published-no main .field--name-body::before,
@@ -521,47 +526,39 @@ html:lang(fr) body.viewer.published-no main .field--name-body::before {
   text-shadow: 2px 2px #666;
 }
 
-/* line 99, ../sass/components/_node.scss */
+/* line 103, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.pending-draft main .field--name-body::before,
 html:lang(en) body.anonymous.pending-draft main .block.block-layout-builder .field--name-body::before,
 html:lang(en) body.viewer.pending-draft main .block.block-layout-builder .field--name-body::before,
+html:lang(en) body.anonymous.pending-draft main #block-servicesandinformation .field--name-body::before,
+html:lang(en) body.viewer.pending-draft main #block-servicesandinformation .field--name-body::before,
 html:lang(en) body.viewer.pending-draft main .field--name-body::before {
   content: "Pending Draft";
 }
 
-/* line 106, ../sass/components/_node.scss */
+/* line 112, ../sass/components/_node.scss */
 html:lang(fr) body.anonymous.pending-draft main .field--name-body::before,
 html:lang(fr) body.anonymous.pending-draft main .block.block-layout-builder .field--name-body::before,
 html:lang(fr) body.viewer.pending-draft main .block.block-layout-builder .field--name-body::before,
+html:lang(fr) body.anonymous.pending-draft main #block-servicesandinformation .field--name-body::before,
+html:lang(fr) body.viewer.pending-draft main #block-servicesandinformation .field--name-body::before,
 html:lang(fr) body.viewer.pending-draft main .field--name-body::before {
   content: "Brouillon en attente";
 }
 
-/* line 113, ../sass/components/_node.scss */
+/* line 121, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.pending-draft main .block .field--name-body::before,
 html:lang(en) body.viewer.pending-draft main .block .field--name-body::before {
   content: "";
 }
 
-/* line 118, ../sass/components/_node.scss */
+/* line 126, ../sass/components/_node.scss */
 html:lang(fr) body.anonymous.pending-draft main .block .field--name-body::before,
 html:lang(fr) body.viewer.pending-draft main .block .field--name-body::before {
   content: "";
 }
 
-/* line 123, ../sass/components/_node.scss */
-html:lang(en) body.anonymous.pending-draft main #block-servicesandinformation .field--name-body::before,
-html:lang(en) body.viewer.pending-draft main #block-servicesandinformation .field--name-body::before {
-  content: "Pending Draft";
-}
-
-/* line 128, ../sass/components/_node.scss */
-html:lang(fr) body.anonymous.pending-draft main #block-servicesandinformation .field--name-body::before,
-html:lang(fr) body.viewer.pending-draft main #block-servicesandinformation .field--name-body::before {
-  content: "Brouillon en attente";
-}
-
-/* line 133, ../sass/components/_node.scss */
+/* line 131, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.pending-draft main .field--name-body::before,
 html:lang(fr) body.anonymous.pending-draft main .field--name-body::before,
 html:lang(en) body.viewer.pending-draft main .field--name-body::before,
@@ -582,7 +579,7 @@ html:lang(fr) body.viewer.pending-draft main .field--name-body::before {
   text-shadow: 2px 2px #666;
 }
 
-/* line 153, ../sass/components/_node.scss */
+/* line 151, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.published-no-is-archived main .field--name-body::before,
 html:lang(en) body.anonymous.published-no-is-archived main .block.block-layout-builder .field--name-body::before,
 html:lang(en) body.viewer.published-no-is-archived main .block.block-layout-builder .field--name-body::before,
@@ -590,14 +587,15 @@ html:lang(en) body.viewer.published-no-is-archived main .field--name-body::befor
   content: "Archived Version";
 }
 
-/* line 160, ../sass/components/_node.scss */
+/* line 158, ../sass/components/_node.scss */
 html:lang(fr) body.anonymous.published-no-is-archived main .field--name-body::before,
 html:lang(fr) body.anonymous.published-no-is-archived main .block.block-layout-builder .field--name-body::before,
-html:lang(fr) body.viewer.published-no-is-archived main .block.block-layout-builder .field--name-body::before {
-  content: "Version archivee";
+html:lang(fr) body.viewer.published-no-is-archived main .block.block-layout-builder .field--name-body::before,
+html:lang(fr) body.viewer.published-no-is-archived main .field--name-body::before {
+  content: "Version archivée";
 }
 
-/* line 166, ../sass/components/_node.scss */
+/* line 165, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.published-no-is-archived main .field--name-body::before,
 html:lang(fr) body.anonymous.published-no-is-archived main .field--name-body::before,
 html:lang(en) body.viewer.published-no-is-archived main .field--name-body::before,
@@ -619,7 +617,7 @@ html:lang(fr) body.viewer.published-no-is-archived main .field--name-body::befor
   text-shadow: 2px 2px #666;
 }
 
-/* line 187, ../sass/components/_node.scss */
+/* line 186, ../sass/components/_node.scss */
 body.node20latest #wb-bc {
   display: none;
   /* Normally avoid this type of trick but sometimes it's just so much easier */
