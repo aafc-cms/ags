@@ -490,17 +490,21 @@ html:lang(fr) body.viewer.published-no main .block .field--name-body::before {
 
 /* line 70, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.published-no main #block-servicesandinformation .field--name-body::before,
+html:lang(en) body.anonymous.published-no main .block.block-layout-builder .field--name-body::before,
+html:lang(en) body.viewer.published-no main .block.block-layout-builder .field--name-body::before,
 html:lang(en) body.viewer.published-no main #block-servicesandinformation .field--name-body::before {
   content: "Draft Version";
 }
 
-/* line 75, ../sass/components/_node.scss */
+/* line 77, ../sass/components/_node.scss */
 html:lang(fr) body.anonymous.published-no main #block-servicesandinformation .field--name-body::before,
+html:lang(fr) body.anonymous.published-no main .block.block-layout-builder .field--name-body::before,
+html:lang(fr) body.viewer.published-no main .block.block-layout-builder .field--name-body::before,
 html:lang(fr) body.viewer.published-no main #block-servicesandinformation .field--name-body::before {
   content: "En brouillon";
 }
 
-/* line 79, ../sass/components/_node.scss */
+/* line 83, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.published-no main .field--name-body::before,
 html:lang(fr) body.anonymous.published-no main .field--name-body::before,
 html:lang(en) body.viewer.published-no main .field--name-body::before,
@@ -522,47 +526,39 @@ html:lang(fr) body.viewer.published-no main .field--name-body::before {
   text-shadow: 2px 2px #666;
 }
 
-/* line 100, ../sass/components/_node.scss */
+/* line 104, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.pending-draft main .field--name-body::before,
 html:lang(en) body.anonymous.pending-draft main .block.block-layout-builder .field--name-body::before,
 html:lang(en) body.viewer.pending-draft main .block.block-layout-builder .field--name-body::before,
+html:lang(en) body.anonymous.pending-draft main #block-servicesandinformation .field--name-body::before,
+html:lang(en) body.viewer.pending-draft main #block-servicesandinformation .field--name-body::before,
 html:lang(en) body.viewer.pending-draft main .field--name-body::before {
   content: "Pending Draft";
 }
 
-/* line 107, ../sass/components/_node.scss */
+/* line 113, ../sass/components/_node.scss */
 html:lang(fr) body.anonymous.pending-draft main .field--name-body::before,
 html:lang(fr) body.anonymous.pending-draft main .block.block-layout-builder .field--name-body::before,
 html:lang(fr) body.viewer.pending-draft main .block.block-layout-builder .field--name-body::before,
+html:lang(fr) body.anonymous.pending-draft main #block-servicesandinformation .field--name-body::before,
+html:lang(fr) body.viewer.pending-draft main #block-servicesandinformation .field--name-body::before,
 html:lang(fr) body.viewer.pending-draft main .field--name-body::before {
   content: "Brouillon en attente";
 }
 
-/* line 114, ../sass/components/_node.scss */
+/* line 122, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.pending-draft main .block .field--name-body::before,
 html:lang(en) body.viewer.pending-draft main .block .field--name-body::before {
   content: "";
 }
 
-/* line 119, ../sass/components/_node.scss */
+/* line 127, ../sass/components/_node.scss */
 html:lang(fr) body.anonymous.pending-draft main .block .field--name-body::before,
 html:lang(fr) body.viewer.pending-draft main .block .field--name-body::before {
   content: "";
 }
 
-/* line 124, ../sass/components/_node.scss */
-html:lang(en) body.anonymous.pending-draft main #block-servicesandinformation .field--name-body::before,
-html:lang(en) body.viewer.pending-draft main #block-servicesandinformation .field--name-body::before {
-  content: "Pending Draft";
-}
-
-/* line 129, ../sass/components/_node.scss */
-html:lang(fr) body.anonymous.pending-draft main #block-servicesandinformation .field--name-body::before,
-html:lang(fr) body.viewer.pending-draft main #block-servicesandinformation .field--name-body::before {
-  content: "Brouillon en attente";
-}
-
-/* line 134, ../sass/components/_node.scss */
+/* line 132, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.pending-draft main .field--name-body::before,
 html:lang(fr) body.anonymous.pending-draft main .field--name-body::before,
 html:lang(en) body.viewer.pending-draft main .field--name-body::before,
@@ -583,7 +579,7 @@ html:lang(fr) body.viewer.pending-draft main .field--name-body::before {
   text-shadow: 2px 2px #666;
 }
 
-/* line 154, ../sass/components/_node.scss */
+/* line 152, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.published-no-is-archived main .field--name-body::before,
 html:lang(en) body.anonymous.published-no-is-archived main .block.block-layout-builder .field--name-body::before,
 html:lang(en) body.viewer.published-no-is-archived main .block.block-layout-builder .field--name-body::before,
@@ -591,14 +587,13 @@ html:lang(en) body.viewer.published-no-is-archived main .field--name-body::befor
   content: "Archived Version";
 }
 
-/* line 161, ../sass/components/_node.scss */
+/* line 159, ../sass/components/_node.scss */
 html:lang(fr) body.anonymous.published-no-is-archived main .block.block-layout-builder .field--name-body::before,
 html:lang(fr) body.viewer.published-no-is-archived main .block.block-layout-builder .field--name-body::before {
   content: "Version archivée";
-  content: "Version archivee";
 }
 
-/* line 167, ../sass/components/_node.scss */
+/* line 164, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.published-no-is-archived main .field--name-body::before,
 html:lang(fr) body.anonymous.published-no-is-archived main .field--name-body::before,
 html:lang(en) body.viewer.published-no-is-archived main .field--name-body::before,
@@ -620,7 +615,7 @@ html:lang(fr) body.viewer.published-no-is-archived main .field--name-body::befor
   text-shadow: 2px 2px #666;
 }
 
-/* line 188, ../sass/components/_node.scss */
+/* line 185, ../sass/components/_node.scss */
 body.node20latest #wb-bc {
   display: none;
   /* Normally avoid this type of trick but sometimes it's just so much easier */
