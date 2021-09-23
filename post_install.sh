@@ -74,6 +74,7 @@ configureSettingsFile () {
       #new_db_init="\1'driver' => 'mysql',\n    'init_commands' => [\n      'sql_mode' => \"SET sql_mode = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'\",\n    ],"
       #sed -r "s/${search_str}/${new_db_init}/gm" $settings_file > ${settings_file}_temp;
       #cp ${settings_file}_temp ${settings_file}
+      echo "";
     else
       echo "This environment does not need the init_commands";
     fi
@@ -91,10 +92,12 @@ configureSettingsFile () {
     #chmod 775 html/sites/default;
     #chmod 664 $settings_file;
     #./post_install_helper.php "force_split=live";
+    echo "";
   else
     #chmod 775 html/sites/default;
     #chmod 664 $settings_file;
     #./post_install_helper.php "force_split=dev";
+    echo "";
   fi
 
   # Fix previously configured environments.
