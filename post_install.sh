@@ -70,10 +70,10 @@ configureSettingsFile () {
   if ! grep -q "STRICT_TRANS_TABLES" $settings_file; then
     echo "`hostname`" > temptesthostname.txt
     if ! grep -q "ryzen" temptesthostname.txt; then
-      search_str="^( +)'driver' => 'mysql',"
-      new_db_init="\1'driver' => 'mysql',\n    'init_commands' => [\n      'sql_mode' => \"SET sql_mode = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'\",\n    ],"
-      sed -r "s/${search_str}/${new_db_init}/gm" $settings_file > ${settings_file}_temp;
-      cp ${settings_file}_temp ${settings_file}
+      #search_str="^( +)'driver' => 'mysql',"
+      #new_db_init="\1'driver' => 'mysql',\n    'init_commands' => [\n      'sql_mode' => \"SET sql_mode = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'\",\n    ],"
+      #sed -r "s/${search_str}/${new_db_init}/gm" $settings_file > ${settings_file}_temp;
+      #cp ${settings_file}_temp ${settings_file}
     else
       echo "This environment does not need the init_commands";
     fi
@@ -81,20 +81,20 @@ configureSettingsFile () {
   fi
   if ! grep -q "config_split.config_split.dev" $settings_file; then
     printf "Setting up config_split for the first time.";
-    chmod 775 html/sites/default;
-    chmod 664 $settings_file;
-    echo "\$config['config_split.config_split.dev']['status'] = TRUE; #config split DEV, do not remove this" >> $settings_file;
-    echo "\$config['config_split.config_split.live']['status'] = FALSE; #config split LIVE, do not remove this" >> $settings_file;
+    #chmod 775 html/sites/default;
+    #chmod 664 $settings_file;
+    #echo "\$config['config_split.config_split.dev']['status'] = TRUE; #config split DEV, do not remove this" >> $settings_file;
+    #echo "\$config['config_split.config_split.live']['status'] = FALSE; #config split LIVE, do not remove this" >> $settings_file;
   fi
 
   if [ $live -eq 1 ]; then
-    chmod 775 html/sites/default;
-    chmod 664 $settings_file;
-    ./post_install_helper.php "force_split=live";
+    #chmod 775 html/sites/default;
+    #chmod 664 $settings_file;
+    #./post_install_helper.php "force_split=live";
   else
-    chmod 775 html/sites/default;
-    chmod 664 $settings_file;
-    ./post_install_helper.php "force_split=dev";
+    #chmod 775 html/sites/default;
+    #chmod 664 $settings_file;
+    #./post_install_helper.php "force_split=dev";
   fi
 
   # Fix previously configured environments.
