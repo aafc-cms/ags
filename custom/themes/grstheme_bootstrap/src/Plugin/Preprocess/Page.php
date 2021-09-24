@@ -3,6 +3,7 @@
 namespace Drupal\grstheme_bootstrap\Plugin\Preprocess;
 
 use Drupal\bootstrap\Plugin\Preprocess\Page as BootstrapPage;
+use Drupal\node\Entity\Node;
 
 /**
  * Pre-processes variables for the "page" theme hook.
@@ -32,6 +33,25 @@ class Page extends BootstrapPage {
     $variables['language_prefix'] = $language_prefix[$language];
     $variables['library_path'] = $library_path;
 
+    // WxT homepage special handling for container-fluid.
+    if (!empty($variables['node'])) {
+      $node = $variables['node'];
+
+      if (is_numeric($node)) {
+        $node = Node::load($node);
+      }
+
+      if ($node->hasField('layout_builder__layout')) {
+        $field = $node->layout_builder__layout;
+        if ($field->count() > 0) {
+          $layout = $field->getSection(0)->getLayoutId();
+          if ($layout === 'wxt_homepage') {
+            $variables['wxt_homepage'] = TRUE;
+          }
+        }
+      }
+    }
+
     // Visibility settings.
     $pages = $this->theme->getSetting('wxt_search_box');
     $path = \Drupal::service('path.current')->getPath();
@@ -42,7 +62,7 @@ class Page extends BootstrapPage {
     }
 
     // Footer Navigation (gcweb).
-    if ($wxt_active == 'gcweb' || $wxt_active == 'gcweb_legacy' || $wxt_active == 'gcwu_fegc') {
+    if ($wxt_active == 'gcweb' || $wxt_active == 'gcweb_legacy' || $wxt_active == 'gcwu_fegc' || $wxt_active == 'gc_intranet') {
       // CDN handling.
       $gcweb_cdn = $this->theme->getSetting('wxt_gcweb_cdn');
       $gcweb_cdn_url = $this->theme->getSetting('wxt_gcweb_cdn_cmm');
@@ -77,7 +97,7 @@ class Page extends BootstrapPage {
       $variables['logo_bottom_svg'] = $library_path . '/assets/wmms-blk' . '.png';
       $variables['logo_bottom_svg'] = $library_path . '/assets/wmms-blk' . '.svg';
     }
-    elseif ($wxt_active == 'gc_intranet') {
+    elseif ($wxt_active == 'gc_intranet' || $wxt_active == 'gc_intranet_legacy') {
       $variables['logo_svg'] = $agrisource_theme_path . '/images/sig-' . $language . '.gif';
       $variables['logo_canada_svg'] = $agrisource_theme_path . '/images/logo-canada.svg';
     }
