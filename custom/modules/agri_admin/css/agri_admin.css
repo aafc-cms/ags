@@ -128,6 +128,11 @@ body.path-admin #block-claro-content nav.breadcrumb {
   }
 }
 /* for side by side etuf css tweaks */
+body.path-admin #ui-datepicker-div, body.path-admin .ui-datepicker-header, body.path-admin .ui-datepicker.ui-widget-content {
+  border: 1px solid #a6a6a6;
+  background-color: white;
+}
+
 .media-library-widget-modal.ui-dialog .ui-dialog-titlebar {
   padding: 5px 0px 5px 15px;
 }
@@ -463,6 +468,18 @@ body.path-admin .view-content .form-item--field-modified-value-max,
 body.path-admin .view-content .form-item--changed-max {
   margin: 0.75rem 0.5rem 0 0;
   max-width: 120px;
+}
+body.path-admin .view-content #edit-revision-timestamp-wrapper,
+body.path-admin .view-content #edit-field-modified-value-wrapper {
+  position: relative;
+  margin-top: 2.35em;
+  margin-right: 8px;
+}
+body.path-admin .view-content #edit-revision-timestamp-wrapper legend span.fieldset__label,
+body.path-admin .view-content #edit-field-modified-value-wrapper legend span.fieldset__label {
+  position: absolute;
+  top: -2.5em;
+  color: #222330;
 }
 
 body.path-admin.admincontentmoderated .view-filters .form-item--field-tracking-number-value,
