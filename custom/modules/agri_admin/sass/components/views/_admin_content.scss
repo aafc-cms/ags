@@ -25,5 +25,18 @@ body.path-admin {
       margin: 0.75rem 0.5rem 0 0;
       max-width: 120px;
     }
+    #edit-revision-timestamp-wrapper,
+    #edit-field-modified-value-wrapper {
+      position: relative;
+      margin-top: 2.35em;
+      margin-right: 8px;
+    }
+
+    #edit-revision-timestamp-wrapper legend span.fieldset__label,
+    #edit-field-modified-value-wrapper legend span.fieldset__label {
+      position: absolute;
+      top: -2.5em;
+      color: #222330;
+    }
   }
 }
