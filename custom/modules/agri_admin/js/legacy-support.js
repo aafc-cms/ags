@@ -21,6 +21,7 @@ var Legacysupport = function() {
   var data = [];
   var some_id = null;
   var nids = [];
+  var base_url = '';
 
   /**
    * Initialization
@@ -30,6 +31,7 @@ var Legacysupport = function() {
       return;
     }
 
+    Legacysupport.base_url = drupalSettings.agrisource.base_url;
     // Get the current UI language
     $ = jQuery;
     Legacysupport.lang = $('html').attr('lang');
@@ -185,7 +187,7 @@ var Legacysupport = function() {
     }*/
 
     jQuery.ajax({
-      url: '/' + Legacysupport.lang + '/admin/legacydcr' + nidsParam,
+      url: Legacysupport.base_url + '/' + Legacysupport.lang + '/admin/legacydcr' + nidsParam,
       type: 'GET',
       success: function(response) {
         console.log(response);
@@ -301,6 +303,7 @@ var Legacysupport = function() {
   return {
     init: init,
     lang: lang,
+    base_url: base_url,
     data: data,
     nids: nids,
     logCall: logCall,
