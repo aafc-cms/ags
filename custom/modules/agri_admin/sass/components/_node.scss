@@ -1,4 +1,4 @@
-
+@charset "UTF-8";
 /* This comment shows up in css file */
 // This comment line does NOT compile into the css file.
 // Hide fields on BasicPage and LandingPage add - edit forms.
@@ -68,7 +68,7 @@ body.role-is-creator{
 
 // For the cspub role hide News At Work menu item.
 body.role-is-empl_cspub{ 
-  a[data-drupal-link-system-path="news-at-work-bulletin"]{  
+  a[data-drupal-link-system-path="news-at-work-bulletin"], a[data-drupal-link-system-path="news-at-work-bulletin/outside-ncr"] { 
     display: none;
   }
 }
