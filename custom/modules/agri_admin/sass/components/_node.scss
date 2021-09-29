@@ -68,7 +68,7 @@ body.role-is-creator{
 
 // For the cspub role hide News At Work menu item.
 body.role-is-empl_cspub{ 
-  a[data-drupal-link-system-path="news-at-work-bulletin"]{  
+  a[data-drupal-link-system-path="news-at-work-bulletin"], a[data-drupal-link-system-path="news-at-work-bulletin/outside-ncr"] { 
     display: none;
   }
 }
