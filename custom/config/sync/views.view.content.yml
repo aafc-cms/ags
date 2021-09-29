@@ -1641,8 +1641,8 @@ display:
           entity_type: node
           entity_field: nid
           plugin_id: numeric
-        type:
-          id: type
+        type_1:
+          id: type_1
           table: node_field_data
           field: type
           relationship: none
@@ -1653,12 +1653,14 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: type_op
+            operator_id: type_1_op
             label: 'Content type'
             description: ''
             use_operator: false
-            operator: type_op
-            identifier: type
+            operator: type_1_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: type_1
             required: false
             remember: false
             multiple: false
@@ -1666,9 +1668,17 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+              creator: '0'
+              editor: '0'
+              reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
+              pab_admin: '0'
+              qa: '0'
+              ia: '0'
+              viewer: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
+            argument: ''
           is_grouped: false
           group_info:
             label: ''
@@ -1681,9 +1691,9 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          plugin_id: bundle
           entity_type: node
           entity_field: type
+          plugin_id: bundle
         title:
           id: title
           table: node_field_data
