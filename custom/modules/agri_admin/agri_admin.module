@@ -1702,6 +1702,11 @@ function agri_admin_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\Form
     return;
   }
 
+  if (isset($form['type']['#options'])) {
+    // Ensure that "- Any -" is 'first', and the other type options are in alphanum order.
+    ksort($form['type']['#options']);
+  }
+
   $user_roles = \Drupal::currentUser()->getRoles();
   if (in_array('empl_cspub', $user_roles) && ($form_id == 'views_exposed_form')) {
     foreach ($form['type']['#options'] as $key => &$value) {
