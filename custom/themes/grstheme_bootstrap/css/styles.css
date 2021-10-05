@@ -588,12 +588,14 @@ html:lang(en) body.viewer.published-no-is-archived main .field--name-body::befor
 }
 
 /* line 159, ../sass/components/_node.scss */
+html:lang(fr) body.anonymous.published-no-is-archived main .field--name-body::before,
 html:lang(fr) body.anonymous.published-no-is-archived main .block.block-layout-builder .field--name-body::before,
-html:lang(fr) body.viewer.published-no-is-archived main .block.block-layout-builder .field--name-body::before {
+html:lang(fr) body.viewer.published-no-is-archived main .block.block-layout-builder .field--name-body::before,
+html:lang(fr) body.viewer.published-no-is-archived main .field--name-body::before {
   content: "Version archivée";
 }
 
-/* line 164, ../sass/components/_node.scss */
+/* line 166, ../sass/components/_node.scss */
 html:lang(en) body.anonymous.published-no-is-archived main .field--name-body::before,
 html:lang(fr) body.anonymous.published-no-is-archived main .field--name-body::before,
 html:lang(en) body.viewer.published-no-is-archived main .field--name-body::before,
@@ -615,7 +617,7 @@ html:lang(fr) body.viewer.published-no-is-archived main .field--name-body::befor
   text-shadow: 2px 2px #666;
 }
 
-/* line 185, ../sass/components/_node.scss */
+/* line 187, ../sass/components/_node.scss */
 body.node20latest #wb-bc {
   display: none;
   /* Normally avoid this type of trick but sometimes it's just so much easier */

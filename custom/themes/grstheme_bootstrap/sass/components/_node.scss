@@ -156,8 +156,10 @@ html:lang(en) body.viewer.published-no-is-archived main .field--name-body::befor
   content: "Archived Version";
 }
 
+html:lang(fr) body.anonymous.published-no-is-archived main .field--name-body::before,
 html:lang(fr) body.anonymous.published-no-is-archived main .block.block-layout-builder .field--name-body::before,
-html:lang(fr) body.viewer.published-no-is-archived main .block.block-layout-builder .field--name-body::before {
+html:lang(fr) body.viewer.published-no-is-archived main .block.block-layout-builder .field--name-body::before,
+html:lang(fr) body.viewer.published-no-is-archived main .field--name-body::before {
     content: "Version archivée";
 }
 
