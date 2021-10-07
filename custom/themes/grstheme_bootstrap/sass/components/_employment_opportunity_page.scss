@@ -84,3 +84,11 @@ body.page-node-type-empl.isIE  .field.field--name-body.field--type-text-with-sum
   padding-top: 27px;
 }
 
+/** Drupal 9 improvement **/
+body.node-50.employment-opportunity-request-form-page {
+  div.field--name-field-classification {
+    div.select-wrapper {
+      width: 100%;
+    }
+  }
+}
