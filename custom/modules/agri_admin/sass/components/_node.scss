@@ -221,6 +221,11 @@ body.node-edit.role-is-authenticated.page-node-type-empl {
   form.node-empl-edit-form.node-form div.layout-region__content {
     max-width: 100% !important;
   }
+  table[id^="field-classification-values"].field-multiple-table {
+    label.form-item__label {
+      margin-top: 20px !important;
+    }
+  }
 }
 
 body.node-edit.role-is-authenticated.page-node-type-news {
