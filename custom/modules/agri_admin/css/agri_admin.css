@@ -477,12 +477,16 @@ body.path-admin .view-content #edit-field-modified-value-wrapper {
   position: relative;
   margin-top: 2.35em;
   margin-right: 8px;
+  padding-bottom: inherit;
 }
 body.path-admin .view-content #edit-revision-timestamp-wrapper legend span.fieldset__label,
 body.path-admin .view-content #edit-field-modified-value-wrapper legend span.fieldset__label {
   position: absolute;
   top: -2.5em;
   color: #222330;
+}
+body.path-admin .view-filters #edit-revision-timestamp-wrapper .form-item, body.path-admin .view-filters #edit-field-modified-value-wrapper .form-item {
+  float: left;
 }
 
 body.path-admin.admincontentmoderated .view-filters .form-item--field-tracking-number-value,
