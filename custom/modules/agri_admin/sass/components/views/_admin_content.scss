@@ -31,6 +31,7 @@ body.path-admin {
       position: relative;
       margin-top: 2.35em;
       margin-right: 8px;
+      padding-bottom: inherit;
     }
 
     #edit-revision-timestamp-wrapper legend span.fieldset__label,
@@ -38,6 +39,13 @@ body.path-admin {
       position: absolute;
       top: -2.5em;
       color: #222330;
+    }
+  }
+  .view-filters {
+    #edit-revision-timestamp-wrapper, #edit-field-modified-value-wrapper {
+      .form-item {
+        float: left;
+      }		
     }
   }
 }
