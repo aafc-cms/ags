@@ -238,10 +238,6 @@
                 "Synchronize moderation states between all translations of the entity":
                 "https://www.drupal.org/files/issues/2020-06-17/sync_all_translations_states-3143559-18.patch"
             },
-            "drupal/purge": {
-                "Fix and prevent nasty 500 server errors when using varnish_purge_tags and varnish_purge.":
-                 "https://www.drupal.org/files/issues/2020-11-19/2976480-no-cache-and-dynamic-page-cache-9.patch"
-            },
             "drupal/token": {
                 "Token module patch issue 2906445.":
                  "https://www.drupal.org/files/issues/2020-01-04/2906445-token-entity-reference-returns-default-language-5.patch"
@@ -317,7 +313,7 @@
         "drupal/link_attributes": "^1.10",
         "drupal/memcache": "^2.0",
         "drupal/moderated_content_bulk_publish": "^2.0",
-        "drupal/purge": "^3.0",
+        "drupal/purge": "3.0",
         "psr/container": "^1.0",
         "scssphp/scssphp": "^1.1",
         "drupal/recreate_block_content": "2.x-dev",
