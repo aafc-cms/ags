@@ -19,7 +19,8 @@ source:
       name: homepage
       title: Canada.ca
       language: en
-      body: "<p>The official website of the Government of Canada.</p>\n"
+      body: |
+        <p>The official website of the Government of Canada.</p>
       alias: /homepage
       queue: front_page
       metatags:
@@ -136,7 +137,8 @@ source:
       name: topic
       title: '[Theme title]'
       language: en
-      body: "<p>1-2 sentences that describe the topics and top tasks that can be accessed on this page.</p>\n"
+      body: |
+        <p>1-2 sentences that describe the topics and top tasks that can be accessed on this page.</p>
       alias: /topic
       queue: topic_page
       metatags:

@@ -353,7 +353,14 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<section class=\"gc-nttvs\">\n<a href=\"{{ field_image_link }}\" class=\"gl-features\">\n{{ field_spotlight_media }} \n<h4>{{ info }}</h4>\n</a>\n{{ body }}\n</section>"
+            text: |-
+              <section class="gc-nttvs">
+              <a href="{{ field_image_link }}" class="gl-features">
+              {{ field_spotlight_media }} 
+              <h4>{{ info }}</h4>
+              </a>
+              {{ body }}
+              </section>
             make_link: false
             path: ''
             absolute: false

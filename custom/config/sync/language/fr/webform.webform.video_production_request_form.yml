@@ -1,5 +1,95 @@
 title: 'Formulaire de demande des services de production vidéo'
-elements: "requestername:\n  '#title': 'Nom du demandeur'\ntelephone:\n  '#title': Téléphone\nemail:\n  '#title': Courriel\nbranch:\n  '#title': 'Direction général'\n  '#options':\n    'Canada Agricultural Review Tribunal': 'La Commission de révision agricole du Canada'\n    'Canadian Dairy Commission': 'La Commission canadienne du lait'\n    'Canadian Grain Commission': 'La Commission canadienne des grains'\n    'Farm Credit Canada': 'Financement agricole Canada'\n    'Corporate Management Branch': 'Direction générale de la gestion intégrée'\n    'Deputy Ministers'' Office': 'Bureau du sous-ministre'\n    'Farm Products Council of Canada': 'Conseil des produits agricoles du Canada'\n    'Human Resources Branch': 'Direction générale des ressources humaines'\n    'Information Systems Branch': 'Direction générale des systèmes d''information'\n    'International Affairs Branch': 'Direction générales des affaires internationales'\n    'Legal Services': 'Services juridiques'\n    'Market and Industry Services Branch': 'Direction générale des services à l''industrie et aux marchés'\n    'Office of Audit and Evaluation': 'Bureau de la vérification et de l''évaluation'\n    'Programs Branch': 'Direction générale des programmes'\n    'Public Affairs Branch': 'Direction générale des affaires publiques'\n    'Research Branch': 'Direction générale de la recherche'\n    'Science and Technology Branch': 'Direction générale des sciences et de la technologie'\n    'Strategic Policy Branch': 'Direction générale des politiques stratégiques'\nnew_requestorupdateexisting_project_:\n  '#title': 'S''agit-il d''une nouvelle demande ou d''une mise à jour d''un projet existant?'\n  '#options':\n    New: Nouvelle\n    Update: 'Mise à jour'\nnamedirectorlevelorabovewhowasconsulte:\n  '#title': 'Veuillez indiquer le nom de la personne (niveau directeur/directrice ou supérieur) qui a été consulté, ou qui a demandé ce projet.'\nnameofcommunicationsadvisor:\n  '#title': 'Veuillez indiquer le nom du conseiller en communication (de la Direction générale des affaires publiques) qui a été consulté pour ce projet.'\nprojectworkingtitle:\n  '#title': 'Titre provisoire du projet'\nduedate:\n  '#title': 'Date d''échéance'\nisvideoforevent:\n  '#title': 'La vidéo est-elle destinée à un événement?'\n  '#options':\n    'Yes': Oui\n    'No': Non\neventdate:\n  '#title': 'Date de l''événement'\ntargetaudience:\n  '#title': 'Public cible'\n  '#options':\n    'AAFC Employees': 'Employés d''AAC'\n    'Agricultural Producers': 'Producteurs agricoles'\n    'Educational Institutions': 'Établissements d''enseignement'\n    'Food Exporters': 'Exportateurs de produits alimentaires'\n    'Food Processors': 'Transformateurs alimentaires'\n    'Foreign Businesses': 'Entreprises étrangères'\n    'Foreign Officials': 'Fonctionnaires étrangers'\n    Media: Médias\n    'Public Servants (other government departments)': 'Fonctionnaires - autres ministères'\n    'Scientific Community': 'Communauté scientifique'\n    Youth: Jeunes\nothertargetaudience:\n  '#title': 'Autre public cible'\npublishingchannels:\n  '#title': 'Les canaux de publication'\n  '#options':\n    'AAFC Online': 'AAC en direct'\n    'YouTube private': 'YouTube privé'\n    'Event or Trade Show': 'Événement ou salon professionnel'\n    'Don’t know – requesting consultation': 'Ne sait pas - demande de consultation'\notherpublishingchannel:\n  '#title': 'Autre canal de publication'\npurpose:\n  '#title': Objectif\nkeymessages:\n  '#title': 'Messages clés'\ncalltoaction:\n  '#title': 'Appel à l’action'\nadditionallanguagesrequired:\n  '#title': 'Langue(s) supplémentaire(s) requise(s)'\npidentifydepartmentalpriority:\n  '#title': 'Veuillez indiquer quelle est la priorité ministérielle qu’appuie votre demande de publication.'\ndetailsofanyrelatedproducts:\n  '#title': 'Veuillez fournir des détails sur tout produit connexe tel que des graphiques, des discours, des rapports.'\nattachmentdescription:\n  '#markup': '<strong>Veuillez joindre toute documentation à l''appui de votre demande, y compris votre plan de communication approuvé, des éléments de conception et toutes informations offrants du contexte.</strong>'\nattachments:\n  '#title': 'Pièces jointes'\nreadvideoproductionservicestandards:\n  '#title': '<strong>J''ai lu  <a target=\"_blank\" href=\"https://agrisource.agr.gc.ca/fr/directions-generales-et-bureaux/direction-generale-des-affaires-publiques/services-production-video/cadre-pour-production-video?auHash=dAuCIjnf3yXUPEeEuM4u3gFmfG8UF2HDYiLZRHRQv2k\">les normes de service de production vidéo</a>.</strong>'\n"
+elements: |
+  requestername:
+    '#title': 'Nom du demandeur'
+  telephone:
+    '#title': Téléphone
+  email:
+    '#title': Courriel
+  branch:
+    '#title': 'Direction général'
+    '#options':
+      'Canada Agricultural Review Tribunal': 'La Commission de révision agricole du Canada'
+      'Canadian Dairy Commission': 'La Commission canadienne du lait'
+      'Canadian Grain Commission': 'La Commission canadienne des grains'
+      'Farm Credit Canada': 'Financement agricole Canada'
+      'Corporate Management Branch': 'Direction générale de la gestion intégrée'
+      'Deputy Ministers'' Office': 'Bureau du sous-ministre'
+      'Farm Products Council of Canada': 'Conseil des produits agricoles du Canada'
+      'Human Resources Branch': 'Direction générale des ressources humaines'
+      'Information Systems Branch': 'Direction générale des systèmes d''information'
+      'International Affairs Branch': 'Direction générales des affaires internationales'
+      'Legal Services': 'Services juridiques'
+      'Market and Industry Services Branch': 'Direction générale des services à l''industrie et aux marchés'
+      'Office of Audit and Evaluation': 'Bureau de la vérification et de l''évaluation'
+      'Programs Branch': 'Direction générale des programmes'
+      'Public Affairs Branch': 'Direction générale des affaires publiques'
+      'Research Branch': 'Direction générale de la recherche'
+      'Science and Technology Branch': 'Direction générale des sciences et de la technologie'
+      'Strategic Policy Branch': 'Direction générale des politiques stratégiques'
+  new_requestorupdateexisting_project_:
+    '#title': 'S''agit-il d''une nouvelle demande ou d''une mise à jour d''un projet existant?'
+    '#options':
+      New: Nouvelle
+      Update: 'Mise à jour'
+  namedirectorlevelorabovewhowasconsulte:
+    '#title': 'Veuillez indiquer le nom de la personne (niveau directeur/directrice ou supérieur) qui a été consulté, ou qui a demandé ce projet.'
+  nameofcommunicationsadvisor:
+    '#title': 'Veuillez indiquer le nom du conseiller en communication (de la Direction générale des affaires publiques) qui a été consulté pour ce projet.'
+  projectworkingtitle:
+    '#title': 'Titre provisoire du projet'
+  duedate:
+    '#title': 'Date d''échéance'
+  isvideoforevent:
+    '#title': 'La vidéo est-elle destinée à un événement?'
+    '#options':
+      'Yes': Oui
+      'No': Non
+  eventdate:
+    '#title': 'Date de l''événement'
+  targetaudience:
+    '#title': 'Public cible'
+    '#options':
+      'AAFC Employees': 'Employés d''AAC'
+      'Agricultural Producers': 'Producteurs agricoles'
+      'Educational Institutions': 'Établissements d''enseignement'
+      'Food Exporters': 'Exportateurs de produits alimentaires'
+      'Food Processors': 'Transformateurs alimentaires'
+      'Foreign Businesses': 'Entreprises étrangères'
+      'Foreign Officials': 'Fonctionnaires étrangers'
+      Media: Médias
+      'Public Servants (other government departments)': 'Fonctionnaires - autres ministères'
+      'Scientific Community': 'Communauté scientifique'
+      Youth: Jeunes
+  othertargetaudience:
+    '#title': 'Autre public cible'
+  publishingchannels:
+    '#title': 'Les canaux de publication'
+    '#options':
+      'AAFC Online': 'AAC en direct'
+      'YouTube private': 'YouTube privé'
+      'Event or Trade Show': 'Événement ou salon professionnel'
+      'Don’t know – requesting consultation': 'Ne sait pas - demande de consultation'
+  otherpublishingchannel:
+    '#title': 'Autre canal de publication'
+  purpose:
+    '#title': Objectif
+  keymessages:
+    '#title': 'Messages clés'
+  calltoaction:
+    '#title': 'Appel à l’action'
+  additionallanguagesrequired:
+    '#title': 'Langue(s) supplémentaire(s) requise(s)'
+  pidentifydepartmentalpriority:
+    '#title': 'Veuillez indiquer quelle est la priorité ministérielle qu’appuie votre demande de publication.'
+  detailsofanyrelatedproducts:
+    '#title': 'Veuillez fournir des détails sur tout produit connexe tel que des graphiques, des discours, des rapports.'
+  attachmentdescription:
+    '#markup': '<strong>Veuillez joindre toute documentation à l''appui de votre demande, y compris votre plan de communication approuvé, des éléments de conception et toutes informations offrants du contexte.</strong>'
+  attachments:
+    '#title': 'Pièces jointes'
+  readvideoproductionservicestandards:
+    '#title': '<strong>J''ai lu  <a target="_blank" href="https://agrisource.agr.gc.ca/fr/directions-generales-et-bureaux/direction-generale-des-affaires-publiques/services-production-video/cadre-pour-production-video?auHash=dAuCIjnf3yXUPEeEuM4u3gFmfG8UF2HDYiLZRHRQv2k">les normes de service de production vidéo</a>.</strong>'
 settings:
   confirmation_title: Merci!
   confirmation_message: 'Votre demande a été transmise à l’équipe de Services de production vidéo.'
