@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "12c4600340cb39f831524978de25d5ca",
+    "content-hash": "83fe8540699f58b817837a9d198312f0",
     "packages": [
         {
             "name": "agrcmsx/prefer_latest_content",
@@ -5845,6 +5845,58 @@
             "homepage": "https://www.drupal.org/project/file_replace",
             "support": {
                 "source": "https://git.drupalcode.org/project/file_replace"
+            }
+        },
+        {
+            "name": "drupal/filebrowser",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/filebrowser.git",
+                "reference": "3.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/filebrowser-3.0.0.zip",
+                "reference": "3.0.0",
+                "shasum": "342374aa77abfb25cc91f492130c2ec675493c29"
+            },
+            "require": {
+                "drupal/core": "^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.0.0",
+                    "datestamp": "1624604007",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "clivesj",
+                    "homepage": "https://www.drupal.org/user/129340"
+                },
+                {
+                    "name": "harshkundaliya",
+                    "homepage": "https://www.drupal.org/user/3619314"
+                },
+                {
+                    "name": "kuhikar",
+                    "homepage": "https://www.drupal.org/user/3241981"
+                }
+            ],
+            "description": "Provides FTP-like browsing capabilities.",
+            "homepage": "https://www.drupal.org/project/filebrowser",
+            "support": {
+                "source": "https://git.drupalcode.org/project/filebrowser"
             }
         },
         {

@@ -1,0 +1,29 @@
+filebrowser:
+  folder_path_encoded: ''
+  rights:
+    explore_subdirs: 1
+    download_archive: 1
+    create_folders: 1
+    download_manager: private
+    force_download: 0
+    forbidden_files: "descript.ion\r\nfile.bbs\r\n*.git\r\n*.svn"
+    whitelist: ''
+  uploads:
+    enabled: 1
+    allow_overwrite: 1
+    accepted: 'jpg jpeg png gif svg txt doc docx pdf mp3'
+  presentation:
+    default_view: list-view
+    encoding: UTF-8
+    hide_extension: 0
+    visible_columns:
+      icon: icon
+      created: created
+      size: size
+      mimetype: mimetype
+      description: description
+      name: name
+    default_sort: name
+    default_sort_order: asc
+_core:
+  default_config_hash: aZOIbJ0mDVxn0sGK6oSzaAVD92j7hTr5amHC4n9DCPg
