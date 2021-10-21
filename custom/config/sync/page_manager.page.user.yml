@@ -15,7 +15,9 @@ access_logic: and
 access_conditions:
   -
     id: request_path
-    pages: "/user/login\n/user/register"
+    pages: |-
+      /user/login
+      /user/register
     negate: true
     context_mapping: {  }
 parameters:

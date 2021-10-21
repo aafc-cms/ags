@@ -12,7 +12,171 @@ id: video_production_request_form
 title: 'Video Production Request Form'
 description: ''
 category: 'Services Request Form'
-elements: "requestername:\n  '#type': textfield\n  '#title': 'Requester’s Name'\n  '#required': true\ntelephone:\n  '#type': tel\n  '#title': Telephone\n  '#required': true\n  '#telephone_validation_format': '2'\n  '#telephone_validation_country': CA\nemail:\n  '#type': email\n  '#title': Email\n  '#required': true\nbranch:\n  '#type': select\n  '#title': Branch\n  '#options':\n    'Canada Agricultural Review Tribunal': 'Canada Agricultural Review Tribunal'\n    'Canadian Dairy Commission': 'Canadian Dairy Commission'\n    'Canadian Grain Commission': 'Canadian Grain Commission'\n    'Farm Credit Canada': 'Farm Credit Canada'\n    'Corporate Management Branch': 'Corporate Management Branch'\n    'Deputy Ministers'' Office': 'Deputy Ministers'' Office'\n    'Farm Products Council of Canada': 'Farm Products Council of Canada'\n    'Human Resources Branch': 'Human Resources Branch'\n    'Information Systems Branch': 'Information Systems Branch'\n    'International Affairs Branch': 'International Affairs Branch'\n    'Legal Services': 'Legal Services'\n    'Market and Industry Services Branch': 'Market and Industry Services Branch'\n    'Office of Audit and Evaluation': 'Office of Audit and Evaluation'\n    'Programs Branch': 'Programs Branch'\n    'Public Affairs Branch': 'Public Affairs Branch'\n    'Research Branch': 'Research Branch'\n    'Science and Technology Branch': 'Science and Technology Branch'\n    'Strategic Policy Branch': 'Strategic Policy Branch'\n  '#sort_options': true\n  '#required': true\nnew_requestorupdateexisting_project_:\n  '#type': radios\n  '#title': 'Is this a new request or an update to an existing project?'\n  '#options':\n    New: New\n    Update: Update\n  '#required': true\nnamedirectorlevelorabovewhowasconsulte:\n  '#type': textfield\n  '#title': 'Please provide the name (Director level or above) who was consulted, or who requested this project.'\n  '#required': true\nnameofcommunicationsadvisor:\n  '#type': textfield\n  '#title': 'Please provide the name of the Communications Advisor (from Public Affairs Branch) who was consulted for this project?'\n  '#required': true\nprojectworkingtitle:\n  '#type': textfield\n  '#title': 'Project working title'\n  '#required': true\nduedate:\n  '#type': date\n  '#title': 'Due date'\n  '#required': true\n  '#date_date_min': '+1 days'\n  '#datepicker': true\n  '#datepicker_button': true\nisvideoforevent:\n  '#type': radios\n  '#title': 'Is the video for an event? '\n  '#options':\n    'Yes': 'Yes'\n    'No': 'No'\n  '#required': true\neventdate:\n  '#type': date\n  '#title': 'Event date'\n  '#states':\n    visible:\n      ':input[name=\"isvideoforevent\"]':\n        value: 'Yes'\n    required:\n      ':input[name=\"isvideoforevent\"]':\n        value: 'Yes'\n  '#date_date_min': '+1 days'\n  '#datepicker': true\n  '#datepicker_button': true\ntargetaudience:\n  '#type': checkboxes\n  '#title': 'Target audience'\n  '#options':\n    'AAFC Employees': 'AAFC Employees'\n    'Agricultural Producers': 'Agricultural Producers'\n    Associations: Associations\n    'Educational Institutions': 'Educational Institutions'\n    'Food Exporters': 'Food Exporters'\n    'Food Processors': 'Food Processors'\n    'Foreign Businesses': 'Foreign Businesses'\n    'Foreign Officials': 'Foreign Officials'\n    'General Public - Canada': 'General Public - Canada'\n    'General Public - International': 'General Public - International'\n    Media: Media\n    'Public Servants (other government departments)': 'Public Servants (other government departments)'\n    'Scientific Community': 'Scientific Community'\n    Youth: Youth\n  '#options_all': true\n  '#required': true\nothertargetaudience:\n  '#type': textfield\n  '#title': 'Other Target audience'\npublishingchannels:\n  '#type': checkboxes\n  '#title': 'Publishing channels'\n  '#options':\n    'AAFC Online': 'AAFC Online'\n    AgriSource: AgriSource\n    'YouTube public': 'YouTube public'\n    'YouTube private': 'YouTube private'\n    Facebook: Facebook\n    Twitter: Twitter\n    LinkedIn: LinkedIn\n    'Event or Trade Show': 'Event or Trade Show'\n    'Don’t know – requesting consultation': 'Don’t know – requesting consultation'\n  '#options_all': true\n  '#required': true\notherpublishingchannel:\n  '#type': textfield\n  '#title': 'Other Publishing Channel'\npurpose:\n  '#type': textarea\n  '#title': Purpose\n  '#required': true\nkeymessages:\n  '#type': textarea\n  '#title': 'Key messages'\ncalltoaction:\n  '#type': textarea\n  '#title': 'Call to action'\ndescription:\n  '#type': textarea\n  '#title': Description\n  '#required': true\nadditionallanguagesrequired:\n  '#type': textarea\n  '#title': 'Additional language(s) required'\n  '#required': true\npidentifydepartmentalpriority:\n  '#type': textarea\n  '#title': 'Please identify which departmental priority your publishing request supports.'\n  '#required': true\ndetailsofanyrelatedproducts:\n  '#type': textarea\n  '#title': 'Please provide details of any related products such as graphics, speeches, reports.'\nattachmentdescription:\n  '#type': webform_markup\n  '#display_on': both\n  '#markup': '<strong>Please attach any supporting documentation including your approved communications plan, existing design elements and background information.</strong>'\nattachments:\n  '#type': managed_file\n  '#title': Attachments\n  '#multiple': 7\n  '#uri_scheme': public\nreadvideoproductionservicestandards:\n  '#type': checkbox\n  '#title': '<strong>I have read the <a target=\"_blank\" href=\"https://agrisource.agr.gc.ca/en/branches-and-offices/public-affairs-branch/video-production-services/framework-video-production?auHash=dAuCIjnf3yXUPEeEuM4u3gFmfG8UF2HDYiLZRHRQv2k\">Video Production Service Standards</a>.</strong>'\n  '#title_display': inline\n  '#required': true"
+elements: |-
+  requestername:
+    '#type': textfield
+    '#title': 'Requester’s Name'
+    '#required': true
+  telephone:
+    '#type': tel
+    '#title': Telephone
+    '#required': true
+    '#telephone_validation_format': '2'
+    '#telephone_validation_country': CA
+  email:
+    '#type': email
+    '#title': Email
+    '#required': true
+  branch:
+    '#type': select
+    '#title': Branch
+    '#options':
+      'Canada Agricultural Review Tribunal': 'Canada Agricultural Review Tribunal'
+      'Canadian Dairy Commission': 'Canadian Dairy Commission'
+      'Canadian Grain Commission': 'Canadian Grain Commission'
+      'Farm Credit Canada': 'Farm Credit Canada'
+      'Corporate Management Branch': 'Corporate Management Branch'
+      'Deputy Ministers'' Office': 'Deputy Ministers'' Office'
+      'Farm Products Council of Canada': 'Farm Products Council of Canada'
+      'Human Resources Branch': 'Human Resources Branch'
+      'Information Systems Branch': 'Information Systems Branch'
+      'International Affairs Branch': 'International Affairs Branch'
+      'Legal Services': 'Legal Services'
+      'Market and Industry Services Branch': 'Market and Industry Services Branch'
+      'Office of Audit and Evaluation': 'Office of Audit and Evaluation'
+      'Programs Branch': 'Programs Branch'
+      'Public Affairs Branch': 'Public Affairs Branch'
+      'Research Branch': 'Research Branch'
+      'Science and Technology Branch': 'Science and Technology Branch'
+      'Strategic Policy Branch': 'Strategic Policy Branch'
+    '#sort_options': true
+    '#required': true
+  new_requestorupdateexisting_project_:
+    '#type': radios
+    '#title': 'Is this a new request or an update to an existing project?'
+    '#options':
+      New: New
+      Update: Update
+    '#required': true
+  namedirectorlevelorabovewhowasconsulte:
+    '#type': textfield
+    '#title': 'Please provide the name (Director level or above) who was consulted, or who requested this project.'
+    '#required': true
+  nameofcommunicationsadvisor:
+    '#type': textfield
+    '#title': 'Please provide the name of the Communications Advisor (from Public Affairs Branch) who was consulted for this project?'
+    '#required': true
+  projectworkingtitle:
+    '#type': textfield
+    '#title': 'Project working title'
+    '#required': true
+  duedate:
+    '#type': date
+    '#title': 'Due date'
+    '#required': true
+    '#date_date_min': '+1 days'
+    '#datepicker': true
+    '#datepicker_button': true
+  isvideoforevent:
+    '#type': radios
+    '#title': 'Is the video for an event? '
+    '#options':
+      'Yes': 'Yes'
+      'No': 'No'
+    '#required': true
+  eventdate:
+    '#type': date
+    '#title': 'Event date'
+    '#states':
+      visible:
+        ':input[name="isvideoforevent"]':
+          value: 'Yes'
+      required:
+        ':input[name="isvideoforevent"]':
+          value: 'Yes'
+    '#date_date_min': '+1 days'
+    '#datepicker': true
+    '#datepicker_button': true
+  targetaudience:
+    '#type': checkboxes
+    '#title': 'Target audience'
+    '#options':
+      'AAFC Employees': 'AAFC Employees'
+      'Agricultural Producers': 'Agricultural Producers'
+      Associations: Associations
+      'Educational Institutions': 'Educational Institutions'
+      'Food Exporters': 'Food Exporters'
+      'Food Processors': 'Food Processors'
+      'Foreign Businesses': 'Foreign Businesses'
+      'Foreign Officials': 'Foreign Officials'
+      'General Public - Canada': 'General Public - Canada'
+      'General Public - International': 'General Public - International'
+      Media: Media
+      'Public Servants (other government departments)': 'Public Servants (other government departments)'
+      'Scientific Community': 'Scientific Community'
+      Youth: Youth
+    '#options_all': true
+    '#required': true
+  othertargetaudience:
+    '#type': textfield
+    '#title': 'Other Target audience'
+  publishingchannels:
+    '#type': checkboxes
+    '#title': 'Publishing channels'
+    '#options':
+      'AAFC Online': 'AAFC Online'
+      AgriSource: AgriSource
+      'YouTube public': 'YouTube public'
+      'YouTube private': 'YouTube private'
+      Facebook: Facebook
+      Twitter: Twitter
+      LinkedIn: LinkedIn
+      'Event or Trade Show': 'Event or Trade Show'
+      'Don’t know – requesting consultation': 'Don’t know – requesting consultation'
+    '#options_all': true
+    '#required': true
+  otherpublishingchannel:
+    '#type': textfield
+    '#title': 'Other Publishing Channel'
+  purpose:
+    '#type': textarea
+    '#title': Purpose
+    '#required': true
+  keymessages:
+    '#type': textarea
+    '#title': 'Key messages'
+  calltoaction:
+    '#type': textarea
+    '#title': 'Call to action'
+  description:
+    '#type': textarea
+    '#title': Description
+    '#required': true
+  additionallanguagesrequired:
+    '#type': textarea
+    '#title': 'Additional language(s) required'
+    '#required': true
+  pidentifydepartmentalpriority:
+    '#type': textarea
+    '#title': 'Please identify which departmental priority your publishing request supports.'
+    '#required': true
+  detailsofanyrelatedproducts:
+    '#type': textarea
+    '#title': 'Please provide details of any related products such as graphics, speeches, reports.'
+  attachmentdescription:
+    '#type': webform_markup
+    '#display_on': both
+    '#markup': '<strong>Please attach any supporting documentation including your approved communications plan, existing design elements and background information.</strong>'
+  attachments:
+    '#type': managed_file
+    '#title': Attachments
+    '#multiple': 7
+    '#uri_scheme': public
+  readvideoproductionservicestandards:
+    '#type': checkbox
+    '#title': '<strong>I have read the <a target="_blank" href="https://agrisource.agr.gc.ca/en/branches-and-offices/public-affairs-branch/video-production-services/framework-video-production?auHash=dAuCIjnf3yXUPEeEuM4u3gFmfG8UF2HDYiLZRHRQv2k">Video Production Service Standards</a>.</strong>'
+    '#title_display': inline
+    '#required': true
 css: ''
 javascript: ''
 settings:

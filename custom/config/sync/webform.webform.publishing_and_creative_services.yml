@@ -12,7 +12,272 @@ id: publishing_and_creative_services
 title: 'Publishing and Creative Services Request Form'
 description: "<p>The information provided below will help initiate your publishing project. Once submitted, Publishing and Creative Services will contact you within two business days.</p>\r\n\r\n<p>If you leave this page before submitting your form, the information will be lost.</p>"
 category: 'Services Request Form'
-elements: "psrf_pagedescription:\n  '#type': processed_text\n  '#text': |\n    <p>The information provided below will help initiate your publishing project. Once submitted, Publishing and Creative Services will contact you within two business days.</p>\n    \n    <p>If you leave this page before submitting your form, the information will be lost.</p>\n    \n  '#format': full_html\npsrf_section_networkusername:\n  '#type': webform_section\n  '#title': 'Network User Name'\n  srf_networkusername:\n    '#type': textfield\n    '#title': 'Network User Name'\npsrf_section_contactinformation:\n  '#type': webform_section\n  '#title': 'Contact Information'\n  srf_name:\n    '#type': textfield\n    '#title': Name\n    '#required': true\n  srf_phone:\n    '#type': tel\n    '#title': Phone\n    '#required': true\n    '#international': true\n    '#international_initial_country': CA\n    '#telephone_validation_format': '2'\n    '#telephone_validation_country': CA\n  srf_email:\n    '#type': email\n    '#title': Email\n    '#required': true\n  srf_branch:\n    '#type': webform_term_select\n    '#title': Branch\n    '#required': true\n    '#vocabulary': branch\n    '#breadcrumb_delimiter': ''\npsrf_section_requestdetails:\n  '#type': webform_section\n  '#title': 'Request Details'\n  srf_isnewrequestorexistingproject:\n    '#type': select\n    '#title': 'Is this a new request or an update to an existing project?'\n    '#options':\n      New: New\n      Update: Update\n    '#required': true\n  is_your_project_submission_related_to_any_other_request_already_:\n    '#type': select\n    '#title': 'Is your project submission related to any other request already in production?'\n    '#options':\n      'Yes': 'Yes'\n      'No': 'No'\n    '#required': true\n  if_so_please_provide_the_project_number_:\n    '#type': textfield\n    '#title': 'If so please provide the project number'\n    '#required': true\n    '#states':\n      visible:\n        ':input[name=\"is_your_project_submission_related_to_any_other_request_already_\"]':\n          value: 'Yes'\n  and_name_of_communications_advisor:\n    '#type': textfield\n    '#title': 'and name of communications advisor'\n    '#states':\n      visible:\n        ':input[name=\"is_your_project_submission_related_to_any_other_request_already_\"]':\n          value: 'Yes'\n    '#required': true\n  rsf_projecttitle:\n    '#type': textfield\n    '#title': 'Project Title'\n    '#required': true\n  rsf_daterequired:\n    '#type': date\n    '#title': 'Date Required'\n    '#required': true\n    '#date_date_min': '+2 days'\n    '#datepicker': true\n    '#datepicker_button': true\n  srf_isrequesttoscheduledevent:\n    '#type': select\n    '#title': 'Is the request tied to a scheduled event?'\n    '#options': yes_no\n    '#required': true\n  srf_departmentalpriority:\n    '#type': textfield\n    '#title': 'Please identify which departmental priority your publishing request supports'\n    '#required': true\n  srf_mainmessage:\n    '#type': textarea\n    '#title': 'What is the main message you wish to communicate?'\n    '#required': true\n  srf_targetaudience:\n    '#type': select\n    '#title': 'Target Audience'\n    '#options':\n      'AAFC Employees': 'AAFC Employees'\n      'Agri-Food Industry': 'Agri-Food Industry'\n      Consumers: Consumers\n      'Educational Institution': 'Educational Institution'\n      'General Public': 'General Public'\n      International: International\n      Media: Media\n      Producers: Producers\n      'Scientific Community': 'Scientific Community'\n      Youth: Youth\n    '#sort_options': true\n    '#required': true\n  srf_hascommadvisorapproved:\n    '#type': select\n    '#title': 'Has your Communications Advisor approved this project?'\n    '#options':\n      'Yes': 'Yes'\n      'No': 'No'\n    '#required': true\npsrf_section_productsrequired:\n  '#type': webform_section\n  '#title': 'Products Required'\n  srf_html_selectproducts:\n    '#type': webform_markup\n    '#display_on': both\n    '#markup': 'Please select the products you require from the list below.'\n  srf_product:\n    '#type': checkboxes\n    '#title': Product\n    '#options':\n      'AAFC# / ISBN # / ISSN #</': 'AAFC# / ISBN # / ISSN #</'\n      'Advertisement / Public Notice': 'Advertisement / Public Notice'\n      'Advice / Info / Inquiry': 'Advice / Info / Inquiry'\n      'Banner Stand': 'Banner Stand'\n      Binder: Binder\n      Book: Book\n      Booklet: Booklet\n      Calendar: Calendar\n      Certificate: Certificate\n      'Copyright Request': 'Copyright Request'\n      'Cover Page': 'Cover Page'\n      'Display Case': 'Display Case'\n      'Exhibit Display': 'Exhibit Display'\n      'Fact Sheet': 'Fact Sheet'\n      'Graphic Design': 'Graphic Design'\n      Guide: Guide\n      Handbook: Handbook\n      Illustration: Illustration\n      'Information Card': 'Information Card'\n      'Kit Folder': 'Kit Folder'\n      Map: Map\n      'Minister’s Message': 'Minister’s Message'\n      Newsletter: Newsletter\n      Pamphlet: Pamphlet\n      'Photo Research': 'Photo Research'\n      'Photography Services': 'Photography Services'\n      'Podium Sign': 'Podium Sign'\n      Poster: Poster\n      'Promotional Item': 'Promotional Item'\n      Report: Report\n      Signage: Signage\n      'Social Media': 'Social Media'\n      Template: Template\n      'Visual Identifier': 'Visual Identifier'\n      'Website Graphics': 'Website Graphics'\n    '#sort_options': true\n    '#required': true\npsrf_section_additionalcomments:\n  '#type': webform_section\n  '#title': 'Additional Comments'\n  srf_addintionalcomments:\n    '#type': textarea\n    '#title': 'Please provide a brief description of the product(s) required including any additional information or special comments'\npsrf_section_content_approval:\n  '#type': webform_section\n  '#title': 'Content Approval'\n  srf_hascontentpproved:\n    '#type': select\n    '#title': 'Has the content been approved'\n    '#options':\n      'Yes': 'Yes'\n      'No': 'No'\n    '#required': true\n  srf_html_approvernametitle:\n    '#type': webform_markup\n    '#states':\n      visible:\n        ':input[name=\"srf_hascontentpproved\"]':\n          value: 'Yes'\n      invisible:\n        ':input[name=\"srf_hascontentpproved\"]':\n          '!value': 'Yes'\n    '#markup': 'Please enter the name and title of the person who has approved the content:'\n  srf_approvername:\n    '#type': textfield\n    '#title': Name\n    '#required': true\n    '#states':\n      visible:\n        ':input[name=\"srf_hascontentpproved\"]':\n          value: 'Yes'\n      invisible:\n        ':input[name=\"srf_hascontentpproved\"]':\n          '!value': 'Yes'\n  srf_approvertitle:\n    '#type': textfield\n    '#title': Title\n    '#required': true\n    '#states':\n      visible:\n        ':input[name=\"srf_hascontentpproved\"]':\n          value: 'Yes'\n      invisible:\n        ':input[name=\"srf_hascontentpproved\"]':\n          '!value': 'Yes'\n  srf_contentfinalizedinenglishandfrench:\n    '#type': select\n    '#title': 'Has the content been finalized in both English and French?'\n    '#options': yes_no\n    '#required': true\n  level_of_approval_required:\n    '#type': select\n    '#title': 'Level of approval required'\n    '#options':\n      Director: Director\n      DG: DG\n      ADM: ADM\n      DM: DM\n      MINO: MINO\n    '#required': true\nattach_communication_plan:\n  '#type': webform_section\n  '#title': 'Please attach any supporting documentation including your approved communications plan, existing visuals and background information:'\n  psrf_section_attachments:\n    '#type': details\n    '#title': Attachments\n    '#open': true\n    psrf_details_attachallfiles:\n      '#type': details\n      '#title': 'Please attach all files required for this request:'\n      srf_attachedfiles:\n        '#type': managed_file\n        '#title': 'Attached Files'\n        '#multiple': 6\n        '#uri_scheme': public\n    psrf_attachmentdescription:\n      '#type': processed_text\n      '#text': '<i>Attach English and French TXT, DOC, DOCX, WPD, HTML, PDF, XML, JPG, JPEG, GIF, BMP, CSS, ZIP, XLS, AVI, MPG, MPEG, PNG, PPT files related to this request. If more than 6 files need to be attached, please use a ZIP utility to archive them and then submit the ZIP file.</i>'\n      '#format': full_html\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': Submit\n  '#reset__label': Reset\n  '#reset__attributes':\n    class:\n      - ''\npsrf_pagefootermessage:\n  '#type': processed_text\n  '#text': |\n    <p>Please note: Once this form is completed and received in the Publishing inbox, a project officer will contact you within two business days.\n     </p>\n      \n    \n  '#format': full_html"
+elements: |-
+  psrf_pagedescription:
+    '#type': processed_text
+    '#text': |
+      <p>The information provided below will help initiate your publishing project. Once submitted, Publishing and Creative Services will contact you within two business days.</p>
+      
+      <p>If you leave this page before submitting your form, the information will be lost.</p>
+      
+    '#format': full_html
+  psrf_section_networkusername:
+    '#type': webform_section
+    '#title': 'Network User Name'
+    srf_networkusername:
+      '#type': textfield
+      '#title': 'Network User Name'
+  psrf_section_contactinformation:
+    '#type': webform_section
+    '#title': 'Contact Information'
+    srf_name:
+      '#type': textfield
+      '#title': Name
+      '#required': true
+    srf_phone:
+      '#type': tel
+      '#title': Phone
+      '#required': true
+      '#international': true
+      '#international_initial_country': CA
+      '#telephone_validation_format': '2'
+      '#telephone_validation_country': CA
+    srf_email:
+      '#type': email
+      '#title': Email
+      '#required': true
+    srf_branch:
+      '#type': webform_term_select
+      '#title': Branch
+      '#required': true
+      '#vocabulary': branch
+      '#breadcrumb_delimiter': ''
+  psrf_section_requestdetails:
+    '#type': webform_section
+    '#title': 'Request Details'
+    srf_isnewrequestorexistingproject:
+      '#type': select
+      '#title': 'Is this a new request or an update to an existing project?'
+      '#options':
+        New: New
+        Update: Update
+      '#required': true
+    is_your_project_submission_related_to_any_other_request_already_:
+      '#type': select
+      '#title': 'Is your project submission related to any other request already in production?'
+      '#options':
+        'Yes': 'Yes'
+        'No': 'No'
+      '#required': true
+    if_so_please_provide_the_project_number_:
+      '#type': textfield
+      '#title': 'If so please provide the project number'
+      '#required': true
+      '#states':
+        visible:
+          ':input[name="is_your_project_submission_related_to_any_other_request_already_"]':
+            value: 'Yes'
+    and_name_of_communications_advisor:
+      '#type': textfield
+      '#title': 'and name of communications advisor'
+      '#states':
+        visible:
+          ':input[name="is_your_project_submission_related_to_any_other_request_already_"]':
+            value: 'Yes'
+      '#required': true
+    rsf_projecttitle:
+      '#type': textfield
+      '#title': 'Project Title'
+      '#required': true
+    rsf_daterequired:
+      '#type': date
+      '#title': 'Date Required'
+      '#required': true
+      '#date_date_min': '+2 days'
+      '#datepicker': true
+      '#datepicker_button': true
+    srf_isrequesttoscheduledevent:
+      '#type': select
+      '#title': 'Is the request tied to a scheduled event?'
+      '#options': yes_no
+      '#required': true
+    srf_departmentalpriority:
+      '#type': textfield
+      '#title': 'Please identify which departmental priority your publishing request supports'
+      '#required': true
+    srf_mainmessage:
+      '#type': textarea
+      '#title': 'What is the main message you wish to communicate?'
+      '#required': true
+    srf_targetaudience:
+      '#type': select
+      '#title': 'Target Audience'
+      '#options':
+        'AAFC Employees': 'AAFC Employees'
+        'Agri-Food Industry': 'Agri-Food Industry'
+        Consumers: Consumers
+        'Educational Institution': 'Educational Institution'
+        'General Public': 'General Public'
+        International: International
+        Media: Media
+        Producers: Producers
+        'Scientific Community': 'Scientific Community'
+        Youth: Youth
+      '#sort_options': true
+      '#required': true
+    srf_hascommadvisorapproved:
+      '#type': select
+      '#title': 'Has your Communications Advisor approved this project?'
+      '#options':
+        'Yes': 'Yes'
+        'No': 'No'
+      '#required': true
+  psrf_section_productsrequired:
+    '#type': webform_section
+    '#title': 'Products Required'
+    srf_html_selectproducts:
+      '#type': webform_markup
+      '#display_on': both
+      '#markup': 'Please select the products you require from the list below.'
+    srf_product:
+      '#type': checkboxes
+      '#title': Product
+      '#options':
+        'AAFC# / ISBN # / ISSN #</': 'AAFC# / ISBN # / ISSN #</'
+        'Advertisement / Public Notice': 'Advertisement / Public Notice'
+        'Advice / Info / Inquiry': 'Advice / Info / Inquiry'
+        'Banner Stand': 'Banner Stand'
+        Binder: Binder
+        Book: Book
+        Booklet: Booklet
+        Calendar: Calendar
+        Certificate: Certificate
+        'Copyright Request': 'Copyright Request'
+        'Cover Page': 'Cover Page'
+        'Display Case': 'Display Case'
+        'Exhibit Display': 'Exhibit Display'
+        'Fact Sheet': 'Fact Sheet'
+        'Graphic Design': 'Graphic Design'
+        Guide: Guide
+        Handbook: Handbook
+        Illustration: Illustration
+        'Information Card': 'Information Card'
+        'Kit Folder': 'Kit Folder'
+        Map: Map
+        'Minister’s Message': 'Minister’s Message'
+        Newsletter: Newsletter
+        Pamphlet: Pamphlet
+        'Photo Research': 'Photo Research'
+        'Photography Services': 'Photography Services'
+        'Podium Sign': 'Podium Sign'
+        Poster: Poster
+        'Promotional Item': 'Promotional Item'
+        Report: Report
+        Signage: Signage
+        'Social Media': 'Social Media'
+        Template: Template
+        'Visual Identifier': 'Visual Identifier'
+        'Website Graphics': 'Website Graphics'
+      '#sort_options': true
+      '#required': true
+  psrf_section_additionalcomments:
+    '#type': webform_section
+    '#title': 'Additional Comments'
+    srf_addintionalcomments:
+      '#type': textarea
+      '#title': 'Please provide a brief description of the product(s) required including any additional information or special comments'
+  psrf_section_content_approval:
+    '#type': webform_section
+    '#title': 'Content Approval'
+    srf_hascontentpproved:
+      '#type': select
+      '#title': 'Has the content been approved'
+      '#options':
+        'Yes': 'Yes'
+        'No': 'No'
+      '#required': true
+    srf_html_approvernametitle:
+      '#type': webform_markup
+      '#states':
+        visible:
+          ':input[name="srf_hascontentpproved"]':
+            value: 'Yes'
+        invisible:
+          ':input[name="srf_hascontentpproved"]':
+            '!value': 'Yes'
+      '#markup': 'Please enter the name and title of the person who has approved the content:'
+    srf_approvername:
+      '#type': textfield
+      '#title': Name
+      '#required': true
+      '#states':
+        visible:
+          ':input[name="srf_hascontentpproved"]':
+            value: 'Yes'
+        invisible:
+          ':input[name="srf_hascontentpproved"]':
+            '!value': 'Yes'
+    srf_approvertitle:
+      '#type': textfield
+      '#title': Title
+      '#required': true
+      '#states':
+        visible:
+          ':input[name="srf_hascontentpproved"]':
+            value: 'Yes'
+        invisible:
+          ':input[name="srf_hascontentpproved"]':
+            '!value': 'Yes'
+    srf_contentfinalizedinenglishandfrench:
+      '#type': select
+      '#title': 'Has the content been finalized in both English and French?'
+      '#options': yes_no
+      '#required': true
+    level_of_approval_required:
+      '#type': select
+      '#title': 'Level of approval required'
+      '#options':
+        Director: Director
+        DG: DG
+        ADM: ADM
+        DM: DM
+        MINO: MINO
+      '#required': true
+  attach_communication_plan:
+    '#type': webform_section
+    '#title': 'Please attach any supporting documentation including your approved communications plan, existing visuals and background information:'
+    psrf_section_attachments:
+      '#type': details
+      '#title': Attachments
+      '#open': true
+      psrf_details_attachallfiles:
+        '#type': details
+        '#title': 'Please attach all files required for this request:'
+        srf_attachedfiles:
+          '#type': managed_file
+          '#title': 'Attached Files'
+          '#multiple': 6
+          '#uri_scheme': public
+      psrf_attachmentdescription:
+        '#type': processed_text
+        '#text': '<i>Attach English and French TXT, DOC, DOCX, WPD, HTML, PDF, XML, JPG, JPEG, GIF, BMP, CSS, ZIP, XLS, AVI, MPG, MPEG, PNG, PPT files related to this request. If more than 6 files need to be attached, please use a ZIP utility to archive them and then submit the ZIP file.</i>'
+        '#format': full_html
+  actions:
+    '#type': webform_actions
+    '#title': 'Submit button(s)'
+    '#submit__label': Submit
+    '#reset__label': Reset
+    '#reset__attributes':
+      class:
+        - ''
+  psrf_pagefootermessage:
+    '#type': processed_text
+    '#text': |
+      <p>Please note: Once this form is completed and received in the Publishing inbox, a project officer will contact you within two business days.
+       </p>
+        
+      
+    '#format': full_html
 css: ''
 javascript: ''
 settings:

@@ -25,6 +25,5 @@ tips:
     label: 'WxT Library'
     body: 'This setting will change the rendered templates provided by WxT Bootstrap to the chosen theme.'
     weight: 2
-    location: bottom
-    attributes:
-      data-id: edit-wxt-library
+    selector: '#edit-wxt-library'
+    position: bottom-start
