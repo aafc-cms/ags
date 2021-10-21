@@ -1,0 +1,28 @@
+uuid: 85998c23-0de3-48d1-96f4-aab58ba8293e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.dir_listing
+  enforced:
+    module:
+      - filebrowser
+  module:
+    - text
+_core:
+  default_config_hash: yAJpEEQovDC6VIlYdi2qk8xAGaDJkXshQbuFlnUoBzM
+id: node.dir_listing.body
+field_name: body
+entity_type: node
+bundle: dir_listing
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary
