@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "83fe8540699f58b817837a9d198312f0",
+    "content-hash": "a921fa0cfaccaa093b76d39fd75ad5a2",
     "packages": [
         {
             "name": "agrcmsx/prefer_latest_content",
@@ -11508,26 +11508,29 @@
         },
         {
             "name": "drupal/view_custom_table",
-            "version": "dev-9.0.x",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/view_custom_table.git",
-                "reference": "793a4a79a51c43028d6913ac1b79e63a8b2b364b"
+                "reference": "8.x-1.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/view_custom_table-8.x-1.6.zip",
+                "reference": "8.x-1.6",
+                "shasum": "b2da2d83a5235fb41584718e85812f357c4b2919"
             },
             "require": {
-                "drupal/core": "9.x"
+                "drupal/core": "^8 || ^9"
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-9.0.x": "9.0.x-dev"
-                },
                 "drupal": {
-                    "version": "9.0.x-dev",
-                    "datestamp": "1592223980",
+                    "version": "8.x-1.6",
+                    "datestamp": "1634913568",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -11536,6 +11539,10 @@
                 "GPL-2.0-or-later"
             ],
             "authors": [
+                {
+                    "name": "joseph.olstad",
+                    "homepage": "https://www.drupal.org/user/1321830"
+                },
                 {
                     "name": "sagar_cis",
                     "homepage": "https://www.drupal.org/user/3487653"
@@ -21399,7 +21406,6 @@
         "drupal/recreate_block_content": 20,
         "drupal/scanner": 20,
         "drupal/smtp": 20,
-        "drupal/view_custom_table": 20,
         "drupal/ultimate_cron": 15,
         "phpmd/phpmd": 0
     },
