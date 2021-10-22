@@ -4,6 +4,11 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_modified
+    - node.type.empl
+    - node.type.landing_page
+    - node.type.news
+    - node.type.page
+    - node.type.webform
     - taxonomy.vocabulary.aafc_type
     - taxonomy.vocabulary.category
     - taxonomy.vocabulary.employment_type
@@ -1649,7 +1654,12 @@ display:
           group_type: group
           admin_label: ''
           operator: in
-          value: {  }
+          value:
+            empl: empl
+            page: page
+            landing_page: landing_page
+            news: news
+            webform: webform
           group: 1
           exposed: true
           expose:
@@ -1677,7 +1687,7 @@ display:
               qa: '0'
               ia: '0'
               viewer: '0'
-            reduce: false
+            reduce: true
             argument: ''
           is_grouped: false
           group_info:
