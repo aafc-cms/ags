@@ -5,6 +5,11 @@ dependencies:
   config:
     - field.storage.node.field_peer_review
     - field.storage.node.field_tracking_number
+    - node.type.empl
+    - node.type.landing_page
+    - node.type.news
+    - node.type.page
+    - node.type.webform
     - taxonomy.vocabulary.aafc_type
     - taxonomy.vocabulary.category
     - taxonomy.vocabulary.employment_type
@@ -986,7 +991,12 @@ display:
           group_type: group
           admin_label: ''
           operator: in
-          value: {  }
+          value:
+            empl: empl
+            page: page
+            landing_page: landing_page
+            news: news
+            webform: webform
           group: 1
           exposed: true
           expose:
@@ -995,6 +1005,8 @@ display:
             description: ''
             use_operator: false
             operator: type_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: type
             required: false
             remember: false
@@ -1003,9 +1015,17 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
-            reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
+              creator: '0'
+              editor: '0'
+              reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
+              pab_admin: '0'
+              qa: '0'
+              ia: '0'
+              viewer: '0'
+            reduce: true
+            argument: ''
           is_grouped: false
           group_info:
             label: ''
