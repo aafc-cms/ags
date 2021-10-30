@@ -158,23 +158,9 @@ function agri_admin_preprocess_views_view_field(&$variables) {
     if ($view->id() == 'moderated_content') {
       if ($field->field == 'moderation_state') {
         $moderationState = $row->_entity->get('moderation_state')->getString();
-        if($moderationState == 'draft') {
-          $LatestRevision = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($vid);
-          $node = $row->_entity;
-          $revisionIds = \Drupal::entityTypeManager()->getStorage('node')->revisionIds($node);
-          $RevisionIdCount = count($revisionIds);
-          $hasPendingRevision = false;
-          for($i = $RevisionIdCount-1; $i >= 0; --$i) {
-            $ThisRevision = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($revisionIds[$i]);
-            $RevisionModerationState = $ThisRevision->get('moderation_state')->getString();
-            if($RevisionModerationState == 'archived') {
-              break;
-            } elseif ($RevisionModerationState == 'published') {
-              $hasPendingRevision = true;
-              break;
-            }
-          }
-          if($hasPendingRevision) {
+        if ($moderationState == 'draft') {
+          $node = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
+          if ($node->isPublished()) {
             $variables['output'] = t('pending draft');
           }
         }
