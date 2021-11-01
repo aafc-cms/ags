@@ -145,12 +145,42 @@ function agri_admin_preprocess_views_view_field(&$variables) {
        ($view->id() == 'news' ||
         $view->id() == 'newsatwork_for_home_page' ||
         $view->id() == 'content' ||
+        $view->id() == 'moderated_content' ||  // added for Moderated Content view related code block below.
         $view->id() == 'view_employmentopportunities' ||
         $view->id() == 'view_news_work')) {
     $field = $variables['field'];
     $row = $variables['row'];
     $nid = $row->_entity->id();
     $vid = $row->_entity->getLoadedRevisionId();
+
+    // This IF block only for Moderated Content view. Returning after this block ends since the rest of the code currently does not apply to this view.
+    if ($view->id() == 'moderated_content') {
+      if ($field->field == 'moderation_state') {
+        $moderationState = $row->_entity->get('moderation_state')->getString();
+        if($moderationState == 'draft') {
+          $LatestRevision = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($vid);
+          $node = $row->_entity;
+          $revisionIds = \Drupal::entityTypeManager()->getStorage('node')->revisionIds($node);
+          $RevisionIdCount = count($revisionIds);
+          $hasPendingRevision = false;
+          for($i = $RevisionIdCount-1; $i >= 0; --$i) {
+            $ThisRevision = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($revisionIds[$i]);
+            $RevisionModerationState = $ThisRevision->get('moderation_state')->getString();
+            if($RevisionModerationState == 'archived') {
+              break;
+            } elseif ($RevisionModerationState == 'published') {
+              $hasPendingRevision = true;
+              break;
+            }
+          }
+          if($hasPendingRevision) {
+            $variables['output'] = t('pending draft');
+          }
+        }
+      }
+      return;
+    }
+
     if ($row->_entity->isPublished() && $latestRevision = AgriAdminHelper::getLatestRevisionOnlyIfDraft($nid, $vid)) {
       if ($field->field == 'status') {
         // This is specifically for the row styling (view -> Format -> settings -> row {{ status }}.
