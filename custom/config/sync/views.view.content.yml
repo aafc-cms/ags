@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_modified
+    - node.type.dir_listing
     - node.type.empl
     - node.type.landing_page
     - node.type.news
@@ -1655,6 +1656,8 @@ display:
           admin_label: ''
           operator: in
           value:
+            all: all
+            dir_listing: dir_listing
             empl: empl
             page: page
             landing_page: landing_page
