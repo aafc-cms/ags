@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_peer_review
     - field.storage.node.field_tracking_number
+    - node.type.dir_listing
     - node.type.empl
     - node.type.landing_page
     - node.type.news
@@ -992,6 +993,7 @@ display:
           admin_label: ''
           operator: in
           value:
+            dir_listing: dir_listing
             empl: empl
             page: page
             landing_page: landing_page

@@ -1700,10 +1700,9 @@ function agri_admin_form_menu_link_content_menu_link_content_form_alter (&$form,
 }
 
 /**
- * Implements agri_admin_views_pre_view hook
+ * Implements agri_admin_views_pre_render() hook.
  */
-
-function agri_admin_views_pre_view (ViewExecutable $view, $display_id, $args) {
+function agri_admin_views_pre_render(ViewExecutable $view) {
   if ( $view->id() != 'content' && $view->id() != 'moderated_content' ) {
     return;
   }
@@ -1725,7 +1724,6 @@ function agri_admin_views_pre_view (ViewExecutable $view, $display_id, $args) {
 /**
  * Implements agri_admin_form_views_exposed_form_alter hook.
  */
-
 function agri_admin_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   $view = $form_state->getStorage('view');
   if ($view['view']->id() != 'content' && $view['view']->id() != 'moderated_content' ) {
@@ -1739,17 +1737,31 @@ function agri_admin_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\Form
 
   $user_roles = \Drupal::currentUser()->getRoles();
   if (in_array('empl_cspub', $user_roles) && ($form_id == 'views_exposed_form')) {
+    // Solve Drupal 9 being more strict about allowed filter values, must also set input in Drupal 9.
+    $input = $form_state->getUserInput();
+    $input['type'] = 'empl';
+    $form_state->setUserInput($input);
     foreach ($form['type']['#options'] as $key => &$value) {
       if ($key != 'empl') {
         unset($form['type']['#options'][$key]);
+      }
+      else {
+        $form['type']['#default_value'] = $value;
       }
     }
   }
 
   if (in_array('news_ccpub', $user_roles) && ($form_id == 'views_exposed_form')) {
+    // Solve Drupal 9 being more strict about allowed filter values, must also set input in Drupal 9.
+    $input = $form_state->getUserInput();
+    $input['type'] = 'news';
+    $form_state->setUserInput($input);
     foreach ($form['type']['#options'] as $key => &$value) {
       if ($key != 'news') {
         unset($form['type']['#options'][$key]);
+      }
+      else {
+        $form['type']['#default_value'] = $key;
       }
     }
   }
