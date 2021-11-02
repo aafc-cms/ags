@@ -23,6 +23,11 @@ type_settings:
       weight: 5
       published: false
       default_revision: true
+    delete:
+      published: false
+      default_revision: false
+      label: Delete
+      weight: 6
     draft:
       label: Draft
       published: false
@@ -55,6 +60,12 @@ type_settings:
         - archived
         - draft
         - published
+    delete:
+      label: Delete
+      from:
+        - archived
+      to: delete
+      weight: 5
     publish:
       label: Publish
       to: published
