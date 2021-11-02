@@ -758,8 +758,8 @@ function agri_admin_form_page_submit (array $form, \Drupal\Core\Form\FormStateIn
   $entity = $form_state->getFormObject()->getEntity();
   $moderation_state = $entity->moderation_state->value;
   if ($moderation_state == 'delete') {
-    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
     $language = \Drupal::languageManager()->getCurrentLanguage();
+    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
     $url = Url::fromRoute('<front>', [], ['language' => $language]);
     $title = $entity->getTitle();
     $msg = t('The archived page <em class="placeholder" hreflang="' . $langcode . '"> %title</em> has been deleted.',['%title' => $title]);
