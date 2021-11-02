@@ -15,6 +15,7 @@ use Drupal\file\Entity\File;
 use Drupal\file\FileInterface;
 use Drupal\Core\Render\Markup;
 use Drupal\menu_link_content\Entity\MenuLinkContent;
+use Drupal\node\Entity\Node;
 
 
 /**
@@ -624,36 +625,40 @@ function _helperUpdateProcess($action, $entity_id, $bundle) {
       $content_type = $bundle;
       $entity = \Drupal::entityTypeManager()->getStorage('node')->load($entity_id);
       if ($content_type == 'page') {
-        $moderation_state = $entity->moderation_state->value;
-        if ($moderation_state == 'archived') {
-          if (AgriAdminHelper::menuLinkAction($entity_id, 'main', 'delete')) {
-            AgriAdminHelper::addMessage(t('Menu link deleted for "%type" now "archived" node id: %id', [
-                 '%id' => $entity_id,
-               '%type' => 'Internal page']
-              )
-            );
-          }
-          else {
-            AgriAdminHelper::addMessage(t('Menu link not found for now "archived" %type node id: %id', ['%id' => $entity_id, '%type' => 'page']));
+        if (isset($entity->moderation_state)) {
+          $moderation_state = $entity->moderation_state->value;
+          if ($moderation_state == 'archived') {
+            if (AgriAdminHelper::menuLinkAction($entity_id, 'main', 'delete')) {
+              AgriAdminHelper::addMessage(t('Menu link deleted for "%type" now "archived" node id: %id', [
+                  '%id' => $entity_id,
+                '%type' => 'Internal page']
+                )
+              );
+            }
+            else {
+              AgriAdminHelper::addMessage(t('Menu link not found for now "archived" %type node id: %id', ['%id' => $entity_id, '%type' => 'page']));
+            }
           }
         }
       }
       if ($content_type == 'landing_page') {
-        $moderation_state = $entity->moderation_state->value;
-        if ($moderation_state == 'archived') {
-          if (AgriAdminHelper::menuLinkAction($entity_id, 'main', 'disable')) {
-            AgriAdminHelper::addMessage(t('Menu link disabled for "%type" now "archived" node id: %id', [
-                 '%id' => $entity_id,
-               '%type' => 'Landing page']
-              )
-            );
+        if (isset($entity->moderation_state)) {
+          $moderation_state = $entity->moderation_state->value;
+          if ($moderation_state == 'archived') {
+            if (AgriAdminHelper::menuLinkAction($entity_id, 'main', 'disable')) {
+              AgriAdminHelper::addMessage(t('Menu link disabled for "%type" now "archived" node id: %id', [
+                  '%id' => $entity_id,
+                '%type' => 'Landing page']
+                )
+              );
+            }
+            else {
+              AgriAdminHelper::addMessage(t('Menu link not found for now "archived" %type node id: %id', ['%id' => $entity_id, '%type' => 'Landing page']));
+            }
           }
-          else {
-            AgriAdminHelper::addMessage(t('Menu link not found for now "archived" %type node id: %id', ['%id' => $entity_id, '%type' => 'Landing page']));
+          if ($moderation_state != 'archived' && AgriAdminHelper::menuLinkExists($entity_id, 'main')) {
+            $result_code = AgriAdminHelper::menuLinkAction($entity_id, 'main', 'enable');
           }
-        }
-        if ($moderation_state != 'archived' && AgriAdminHelper::menuLinkExists($entity_id, 'main')) {
-          $result_code = AgriAdminHelper::menuLinkAction($entity_id, 'main', 'enable');
         }
       }
     }
@@ -749,6 +754,32 @@ function agri_admin_form_newsorempl_submit (array $form, \Drupal\Core\Form\FormS
 }
 
 /**
+ * Implements agri_admin_form_page_submit().
+ * only call for internal page or landing page with archived moderation state.
+ */
+function agri_admin_form_page_submit (array $form, \Drupal\Core\Form\FormStateInterface $form_state){
+  $current_user = \Drupal::currentUser();
+  $entity = $form_state->getFormObject()->getEntity();
+  $view_url_string = $entity->toUrl()->toString();
+  $moderation_state = $entity->moderation_state->value;
+  $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $nid = $entity->id();
+  if ($moderation_state == 'delete') {
+    $language = \Drupal::languageManager()->getCurrentLanguage();
+    $url = Url::fromRoute('<front>', [], ['language' => $language]);
+    $node = Node::load($nid);
+    if (isset($node)) {
+      $node->delete();
+      \Drupal::messenger()->deleteAll();
+      $title = $entity->getTitle();
+      $msg = t('The archived page <em class="placeholder" hreflang="' . $langcode . '"> %title</em> has been deleted.',['%title' => $title]);
+      \Drupal::messenger()->addStatus(['#markup' => $msg]);
+      $form_state->setRedirectUrl($url);
+    }
+  }
+}
+
+/**
  * Implements hook_form_node_form_alter().
  */
 function agri_admin_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
@@ -764,6 +795,10 @@ function agri_admin_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInte
     //add validation functionality to prevent the broken links or misused linkit before the page is published.
     if ($content_type == 'page' || $content_type == 'landing_page') {
       $form['#validate'][] = 'agri_admin_publishpage_referredlinks_validation';
+      $moderation_state = $entity->moderation_state->value;
+      if ($moderation_state == 'archived') {
+        $form['actions']['submit']['#submit'][] = 'agri_admin_form_page_submit';
+      }
     }
     // custom action after the data is submitted.
     //$form['actions'][$action]['#submit'][] = 'agri_admin_form_submit'i;
