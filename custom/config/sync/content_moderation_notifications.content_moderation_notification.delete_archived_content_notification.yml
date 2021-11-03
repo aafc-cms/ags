@@ -1,0 +1,19 @@
+uuid: 8cc642ed-cbe1-431e-a65e-6d8c9ae4a6de
+langcode: en
+status: true
+dependencies: {  }
+id: delete_archived_content_notification
+workflow: editorial
+transitions:
+  delete: delete
+roles:
+  administrator: administrator
+  pab_admin: pab_admin
+author: true
+site_mail: true
+emails: aafc.cmswebapps-sgcappsweb.aac@agr.gc.ca
+subject: '[node:field_tracking_number][Content deleted - Contenu supprimé]'
+body:
+  value: "<p>Content has been deleted.</p>\r\n\r\n<p>Workflow: Editorial<br />\r\nTracking Number: [node:field_tracking_number]<br />\r\nEnvironment: [site:url-abs]<br />\r\nPage:&nbsp;[agri-admin:url]</p>\r\n\r\n<hr align=\"center\" size=\"2\" width=\"100%\" />\r\n<p>Le contenu a été supprimé.</p>\r\n\r\n<p>Flux des travaux: Editorial<br />\r\nNuméro de suivi: [node:field_tracking_number]<br />\r\nEnvironnement: [site:url-abs]<br />\r\nPage: [agri-admin:translation-url]</p>\r\n"
+  format: full_html
+label: 'Delete the archived content notification'
