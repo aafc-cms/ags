@@ -625,36 +625,40 @@ function _helperUpdateProcess($action, $entity_id, $bundle) {
       $content_type = $bundle;
       $entity = \Drupal::entityTypeManager()->getStorage('node')->load($entity_id);
       if ($content_type == 'page') {
-        $moderation_state = $entity->moderation_state->value;
-        if ($moderation_state == 'archived') {
-          if (AgriAdminHelper::menuLinkAction($entity_id, 'main', 'delete')) {
-            AgriAdminHelper::addMessage(t('Menu link deleted for "%type" now "archived" node id: %id', [
-                 '%id' => $entity_id,
-               '%type' => 'Internal page']
-              )
-            );
-          }
-          else {
-            AgriAdminHelper::addMessage(t('Menu link not found for now "archived" %type node id: %id', ['%id' => $entity_id, '%type' => 'page']));
+        if (isset($entity->moderation_state)) {
+          $moderation_state = $entity->moderation_state->value;
+          if ($moderation_state == 'archived') {
+            if (AgriAdminHelper::menuLinkAction($entity_id, 'main', 'delete')) {
+              AgriAdminHelper::addMessage(t('Menu link deleted for "%type" now "archived" node id: %id', [
+                  '%id' => $entity_id,
+                '%type' => 'Internal page']
+                )
+              );
+            }
+            else {
+              AgriAdminHelper::addMessage(t('Menu link not found for now "archived" %type node id: %id', ['%id' => $entity_id, '%type' => 'page']));
+            }
           }
         }
       }
       if ($content_type == 'landing_page') {
-        $moderation_state = $entity->moderation_state->value;
-        if ($moderation_state == 'archived') {
-          if (AgriAdminHelper::menuLinkAction($entity_id, 'main', 'disable')) {
-            AgriAdminHelper::addMessage(t('Menu link disabled for "%type" now "archived" node id: %id', [
-                 '%id' => $entity_id,
-               '%type' => 'Landing page']
-              )
-            );
+        if (isset($entity->moderation_state)) {
+          $moderation_state = $entity->moderation_state->value;
+          if ($moderation_state == 'archived') {
+            if (AgriAdminHelper::menuLinkAction($entity_id, 'main', 'disable')) {
+              AgriAdminHelper::addMessage(t('Menu link disabled for "%type" now "archived" node id: %id', [
+                  '%id' => $entity_id,
+                '%type' => 'Landing page']
+                )
+              );
+            }
+            else {
+              AgriAdminHelper::addMessage(t('Menu link not found for now "archived" %type node id: %id', ['%id' => $entity_id, '%type' => 'Landing page']));
+            }
           }
-          else {
-            AgriAdminHelper::addMessage(t('Menu link not found for now "archived" %type node id: %id', ['%id' => $entity_id, '%type' => 'Landing page']));
+          if ($moderation_state != 'archived' && AgriAdminHelper::menuLinkExists($entity_id, 'main')) {
+            $result_code = AgriAdminHelper::menuLinkAction($entity_id, 'main', 'enable');
           }
-        }
-        if ($moderation_state != 'archived' && AgriAdminHelper::menuLinkExists($entity_id, 'main')) {
-          $result_code = AgriAdminHelper::menuLinkAction($entity_id, 'main', 'enable');
         }
       }
     }
