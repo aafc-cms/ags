@@ -6,6 +6,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require-dev": {
+        "agrcms/behatags": "^1.0.0",
         "behat/behat": "^3.0",
         "behat/mink": "~1.7",
         "behat/mink-extension": "*",
@@ -33,6 +34,19 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "agrcms/behatags",
+                "version": "1.0.3",
+                "type": "agrcms-library",
+                "source": {
+                    "url": "https://gitlab.w3usine.com/qa/behatags.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
         },
         {
             "type": "composer",
@@ -88,7 +102,10 @@
             "DrupalWxT\\WxT\\ScriptHandler::postCreateProject"
         ],
         "pre-install-cmd": [
-            "if [ -d html/sites/default ]; then chmod 775 html/sites/default; fi"
+            "if [ -d html/sites/default ]; then chmod 775 html/sites/default; fi;"
+        ],
+        "pre-update-cmd": [
+            "if [ -d tests/behatags ]; then rm tests/behatags/.gitignore -f; fi;"
         ],
         "post-install-cmd": [
             "bash post_install.sh"
@@ -115,6 +132,7 @@
           "bower-asset",
           "npm-asset",
           "custom-module",
+          "agrcms-library",
           "custom-theme"
         ],
         "installer-paths": {
@@ -133,6 +151,9 @@
             ],
             "html/modules/contrib/{$name}": [
                 "type:drupal-module"
+            ],
+            "tests/{$name}": [
+               "type:agrcms-library"
             ],
             "html/profiles/{$name}": [
                 "type:drupal-profile"
