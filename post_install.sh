@@ -82,21 +82,21 @@ configureSettingsFile () {
   fi
   if ! grep -q "config_split.config_split.dev" $settings_file; then
     printf "Setting up config_split for the first time.";
-    #chmod 775 html/sites/default;
-    #chmod 664 $settings_file;
-    #echo "\$config['config_split.config_split.dev']['status'] = TRUE; #config split DEV, do not remove this" >> $settings_file;
-    #echo "\$config['config_split.config_split.live']['status'] = FALSE; #config split LIVE, do not remove this" >> $settings_file;
+    chmod 775 html/sites/default;
+    chmod 664 $settings_file;
+    echo "\$config['config_split.config_split.dev']['status'] = TRUE; #config split DEV, do not remove this" >> $settings_file;
+    echo "\$config['config_split.config_split.live']['status'] = FALSE; #config split LIVE, do not remove this" >> $settings_file;
   fi
 
   if [ $live -eq 1 ]; then
-    #chmod 775 html/sites/default;
-    #chmod 664 $settings_file;
-    #./post_install_helper.php "force_split=live";
+    chmod 775 html/sites/default;
+    chmod 664 $settings_file;
+    ./post_install_helper.php "force_split=live";
     echo "";
   else
-    #chmod 775 html/sites/default;
-    #chmod 664 $settings_file;
-    #./post_install_helper.php "force_split=dev";
+    chmod 775 html/sites/default;
+    chmod 664 $settings_file;
+    ./post_install_helper.php "force_split=dev";
     echo "";
   fi
 
