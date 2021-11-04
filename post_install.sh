@@ -4,6 +4,11 @@ printf "execute post_install.sh\n";
 
 trap "sudo configureSettingsFile" SIGINT SIGTERM
 
+RED='\033[0;31m'
+VERT='\033[0;32m'
+BOLD='\033[1m' # BOLD
+NC='\033[0m' # No Color
+
 live=0
 if [ -z $ENV_NAME ]; then
   # Do nothing.
@@ -240,3 +245,66 @@ else
         chmod 555 html/sites/default
 fi
 
+echo ""
+echo "**** behatags setup/verifications ****"
+echo ""
+echo "pushd tests/behatags"
+      pushd tests/behatags
+echo "composer install;"
+      composer install;
+echo "pushd vendor;"
+      pushd vendor;
+#set -x;
+#echo "if ! patch -R -p1 -s -f --dry-run < ../gherkin_language_french.patch; then"
+      if ! patch -R -p1 -s -f --dry-run < ../gherkin_language_french.patch; then
+echo "  patch -p1 < ../gherkin_language_french.patch";
+        patch -p1 < ../gherkin_language_french.patch
+      fi
+#echo "if ! patch -R -p1 -s -f --dry-run < ../Selenium2Driver_firefox_acceptInsecureCerts.patch; then"
+      if ! patch -R -p1 -s -f --dry-run < ../Selenium2Driver_firefox_acceptInsecureCerts.patch; then
+echo "  patch -p1 < ../Selenium2Driver_firefox_acceptInsecureCerts.patch";
+        patch -p1 < ../Selenium2Driver_firefox_acceptInsecureCerts.patch
+      fi
+echo "popd;"
+      popd;
+#set +x;
+current_branch=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+
+if [ ! -f ".gitignore" ]; then
+  echo "vendor" > .gitignore
+  if [[ "$current_branch" == "master" ]]; then
+    if [ -z "$(git status --untracked-files=no --porcelain)" ]; then 
+      echo "git pull;"
+            git pull;
+    else
+      echo "git stash;"
+            git stash;
+      echo "git pull;"
+            git pull;
+      echo "git stash pop;"
+            git stash pop;
+    fi
+  else
+    echo "YOUR CURRENT BEHAT BRANCH IS NOT \"master\", IT IS: \"$current_branch\", therefore skipping git pull";
+  fi
+fi
+echo "popd;"
+      popd;
+echo ""
+
+if [ ! -d "/tmp/debug-chrome" ]; then
+  mkdir /tmp/debug-chrome
+fi
+if [ ! -d "/tmp/debug-phantomjs" ]; then
+  mkdir /tmp/debug-phantomjs
+fi
+if [ ! -d "/tmp/behat-downloads" ]; then
+  mkdir /tmp/behat-downloads
+fi
+#if ! command -v phantomjs &> /dev/null
+#then
+#    echo "phantomjs is not currently installed, to install it run this script:"
+#    echo "sudo bash post_install_other.sh";
+#fi
+
+echo "**** End behatags setup/verifications ****"
