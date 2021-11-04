@@ -752,7 +752,7 @@ function agri_admin_form_page_submit (array $form, \Drupal\Core\Form\FormStateIn
     $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
     $url = Url::fromRoute('<front>', [], ['language' => $language]);
     $title = $entity->getTitle();
-    $msg = t('The archived page <em class="placeholder" hreflang="' . $langcode . '"> %title</em> has been deleted.',['%title' => $title]);
+    $msg = t('The archived content <em class="placeholder" hreflang="' . $langcode . '"> %title</em> has been deleted.',['%title' => $title]);
     $nid = $entity->id();
     $node = Node::load($nid);
     if (isset($node)) {
@@ -781,10 +781,11 @@ function agri_admin_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInte
     //add validation functionality to prevent the broken links or misused linkit before the page is published.
     if ($content_type == 'page' || $content_type == 'landing_page') {
       $form['#validate'][] = 'agri_admin_publishpage_referredlinks_validation';
-      $moderation_state = $entity->moderation_state->value;
-      if ($moderation_state == 'archived') {
-        $form['actions']['submit']['#submit'][] = 'agri_admin_form_page_submit';
-      }
+    }
+    //Attached agri_admin_form_page_submit event handler to page, landing page, empl and news
+    $moderation_state = $entity->moderation_state->value;
+    if ($moderation_state == 'archived') {
+      $form['actions']['submit']['#submit'][] = 'agri_admin_form_page_submit';
     }
     // custom action after the data is submitted.
     //$form['actions'][$action]['#submit'][] = 'agri_admin_form_submit'i;
