@@ -291,10 +291,20 @@ fi
 echo "popd;"
       popd;
 echo ""
-if ! command -v phantomjs &> /dev/null
-then
-    echo "phantomjs is not currently installed, to install it run this script:"
-    echo "sudo bash post_install_other.sh";
+
+if [ ! -d "/tmp/debug-chrome" ]; then
+  mkdir /tmp/debug-chrome
 fi
+if [ ! -d "/tmp/debug-phantomjs" ]; then
+  mkdir /tmp/debug-phantomjs
+fi
+if [ ! -d "/tmp/behat-downloads" ]; then
+  mkdir /tmp/behat-downloads
+fi
+#if ! command -v phantomjs &> /dev/null
+#then
+#    echo "phantomjs is not currently installed, to install it run this script:"
+#    echo "sudo bash post_install_other.sh";
+#fi
 
 echo "**** End behatags setup/verifications ****"
