@@ -319,19 +319,6 @@ display:
           suffix: ''
           plugin_id: numeric
       filters:
-        status:
-          value: '1'
-          table: path_alias
-          field: status
-          plugin_id: boolean
-          entity_type: path_alias
-          entity_field: status
-          id: status
-          expose:
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-          group: 1
         path:
           id: path
           table: path_alias
