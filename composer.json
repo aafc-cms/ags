@@ -102,7 +102,7 @@
             "DrupalWxT\\WxT\\ScriptHandler::postCreateProject"
         ],
         "pre-install-cmd": [
-            "if [ -d html/sites/default ]; then chmod 775 html/sites/default; fi;"
+            "if [ -d html/sites/default ]; then chmod 775 html/sites/default; fi; if [ -d tests/behatags ]; then rm tests/behatags/.gitignore -f; fi;"
         ],
         "pre-update-cmd": [
             "if [ -d tests/behatags ]; then rm tests/behatags/.gitignore -f; fi;"
