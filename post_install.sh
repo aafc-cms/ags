@@ -274,6 +274,7 @@ if [ ! -f ".gitignore" ]; then
   echo "vendor" > .gitignore
   if [[ "$current_branch" == "master" ]]; then
     if [ -z "$(git status --untracked-files=no --porcelain)" ]; then 
+	    git config http.sslVerify false;
       echo "git pull;"
             git pull;
     else
