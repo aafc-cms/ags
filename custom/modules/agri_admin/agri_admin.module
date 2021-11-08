@@ -1426,7 +1426,7 @@ function agri_admin_preprocess_select(&$variables) {
 
 function agri_admin_preprocess_form_element_label(&$variables) {
   if (\Drupal::currentUser()->isAnonymous()) {
-    if ($variables['attributes']['for']) {
+    if (isset($variables['attributes']['for'])) {
       if ($variables['attributes']['for'] == 'edit-advanced' ) {
         // This squelches w3c error for label that has no element.
         // Since we have removed edit-advanced section we also adjust its label.
