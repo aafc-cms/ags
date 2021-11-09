@@ -269,15 +269,36 @@ echo "popd;"
       popd;
 #set +x;
 current_branch=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+current_upstream_url=`git remote get-url $(git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD)|cut -d/ -f1)`;
+echo $current_upstream_url
+if [[ "$current_upstream_url" == "https://gitlab.w3usine.com/qa/behatags.git" ]]; then
+  if git ls-remote --exit-code origin &>/dev/null; then
+    echo "git remote set-url origin https://gitlab.com/agrcms/behatags.git"
+          git remote set-url origin https://gitlab.com/agrcms/behatags.git
+  else
+    echo "behat package is using origin remote https://gitlab.com/agrcms/behatags.git";
+  fi
+
+  if git ls-remote --exit-code composer &>/dev/null; then
+    echo "git remote set-url composer https://gitlab.com/agrcms/behatags.git"
+          git remote set-url composer https://gitlab.com/agrcms/behatags.git
+  else
+    echo "behat package is using composer remote https://gitlab.com/agrcms/behatags.git";
+  fi
+
+else
+  echo "The correct behatags repository remote is currently in place https://gitlab.com/agrcms/behatags.git";
+fi
 
 if [ ! -f ".gitignore" ]; then
   echo "vendor" > .gitignore
   if [[ "$current_branch" == "master" ]]; then
     if [ -z "$(git status --untracked-files=no --porcelain)" ]; then 
-	    git config http.sslVerify false;
+      # Repo is clean.
       echo "git pull;"
             git pull;
     else
+      # Repo is not clean
       echo "git stash;"
             git stash;
       echo "git pull;"
