@@ -966,75 +966,65 @@ body.form-publishing-and-creative-services.i18n-fr div[id^='edit-srf-html-select
 }
 
 /* Adjust empty spaces of the validation error text for the Radios button group only*/
-/* line 159, ../sass/pages/_publishingcreativeservicerequest_page.scss */
-div.webform-ajax-form-wrapper {
-  /*
-  fieldset.webform-type-checkboxes {
-    div.fieldset-wrapper {
-      margin-bottom: 0px;
-    }
-  }
-*/
-}
 /* line 160, ../sass/pages/_publishingcreativeservicerequest_page.scss */
-div.webform-ajax-form-wrapper div.fieldset-wrapper div[class*="js-webform-radios"] :last-child {
+form.webform-submission-publishing-and-creative-services-form div.fieldset-wrapper div[class*="js-webform-radios"] :last-child {
   margin-bottom: 0px;
 }
 /* line 164, ../sass/pages/_publishingcreativeservicerequest_page.scss */
-div.webform-ajax-form-wrapper div.fieldset-wrapper {
+form.webform-submission-publishing-and-creative-services-form div.fieldset-wrapper {
   margin-bottom: 15px;
 }
 /* line 169, ../sass/pages/_publishingcreativeservicerequest_page.scss */
-div.webform-ajax-form-wrapper div.js-form-type-checkbox.checkbox {
+form.webform-submission-publishing-and-creative-services-form div.js-form-type-checkbox.checkbox {
   margin-bottom: 0px;
 }
 /* line 173, ../sass/pages/_publishingcreativeservicerequest_page.scss */
-div.webform-ajax-form-wrapper div.js-form-type-checkbox.checkbox + strong.error {
+form.webform-submission-publishing-and-creative-services-form div.js-form-type-checkbox.checkbox + strong.error {
   margin-bottom: 15px;
 }
 /* line 178, ../sass/pages/_publishingcreativeservicerequest_page.scss */
-div.webform-ajax-form-wrapper div.fieldset-wrapper div.form-checkboxes div.checkbox {
+form.webform-submission-publishing-and-creative-services-form div.fieldset-wrapper div.form-checkboxes div.checkbox {
   margin-bottom: 10px;
 }
 /* line 182, ../sass/pages/_publishingcreativeservicerequest_page.scss */
-div.webform-ajax-form-wrapper div.fieldset-wrapper div.form-checkboxes :last-child {
+form.webform-submission-publishing-and-creative-services-form div.fieldset-wrapper div.form-checkboxes :last-child {
   margin-bottom: 0px !important;
 }
 /* line 186, ../sass/pages/_publishingcreativeservicerequest_page.scss */
-div.webform-ajax-form-wrapper div.fieldset-wrapper div.form-checkboxes :last-child + strong.error {
+form.webform-submission-publishing-and-creative-services-form div.fieldset-wrapper div.form-checkboxes :last-child + strong.error {
   margin-bottom: 15px;
 }
-/* line 197, ../sass/pages/_publishingcreativeservicerequest_page.scss */
-div.webform-ajax-form-wrapper div.form-actions {
+/* line 191, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+form.webform-submission-publishing-and-creative-services-form div.form-actions {
   padding-top: 20px;
 }
-/* line 200, ../sass/pages/_publishingcreativeservicerequest_page.scss */
-div.webform-ajax-form-wrapper div.form-actions button[class*="webform-button-"] span.icon.glyphicon {
+/* line 194, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+form.webform-submission-publishing-and-creative-services-form div.form-actions button[class*="webform-button-"] span.icon.glyphicon {
   display: none;
 }
-/* line 204, ../sass/pages/_publishingcreativeservicerequest_page.scss */
-div.webform-ajax-form-wrapper div.form-actions button.webform-button--preview,
-div.webform-ajax-form-wrapper div.form-actions button.webform-button--previous {
+/* line 199, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+form.webform-submission-publishing-and-creative-services-form div.form-actions button.webform-button--preview,
+form.webform-submission-publishing-and-creative-services-form div.form-actions button.webform-button--previous {
   margin-right: 5px;
 }
-/* line 210, ../sass/pages/_publishingcreativeservicerequest_page.scss */
-div.webform-ajax-form-wrapper div.iti.iti--allow-dropdown {
+/* line 205, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+form.webform-submission-publishing-and-creative-services-form div.iti.iti--allow-dropdown {
   display: block;
 }
-/* line 219, ../sass/pages/_publishingcreativeservicerequest_page.scss */
-div.webform-ajax-form-wrapper div.form-textarea-wrapper textarea.form-textarea {
+/* line 214, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+form.webform-submission-publishing-and-creative-services-form div.form-textarea-wrapper textarea.form-textarea {
   min-width: 99%;
 }
-/* line 224, ../sass/pages/_publishingcreativeservicerequest_page.scss */
-div.webform-ajax-form-wrapper .select-wrapper select {
+/* line 219, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+form.webform-submission-publishing-and-creative-services-form .select-wrapper select {
   max-width: 95%;
 }
-/* line 228, ../sass/pages/_publishingcreativeservicerequest_page.scss */
-div.webform-ajax-form-wrapper input.form-control.hasDatepicker {
+/* line 223, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+form.webform-submission-publishing-and-creative-services-form input.form-control.hasDatepicker {
   display: inline-block;
 }
-/* line 232, ../sass/pages/_publishingcreativeservicerequest_page.scss */
-div.webform-ajax-form-wrapper input.form-checkbox.required:before {
+/* line 227, ../sass/pages/_publishingcreativeservicerequest_page.scss */
+form.webform-submission-publishing-and-creative-services-form input.form-checkbox.required:before {
   display: none;
 }
 
