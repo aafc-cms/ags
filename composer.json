@@ -39,7 +39,7 @@
             "type": "package",
             "package": {
                 "name": "agrcms/behatags",
-                "version": "1.0.3",
+                "version": "1.0.4",
                 "type": "agrcms-library",
                 "source": {
                     "url": "https://gitlab.com/agrcms/behatags.git",
@@ -102,13 +102,13 @@
             "DrupalWxT\\WxT\\ScriptHandler::postCreateProject"
         ],
         "pre-install-cmd": [
-            "if [ -d html/sites/default ]; then chmod 775 html/sites/default; fi; if [ -d tests/behatags ]; then rm tests/behatags/.gitignore -f; fi;"
+            "if [ -d html/sites/default ]; then chmod 775 html/sites/default; fi; rm tests/behatags/.gitignore -f;"
         ],
         "pre-update-cmd": [
-            "if [ -d tests/behatags ]; then rm tests/behatags/.gitignore -f; fi;"
+            "rm tests/behatags/.gitignore -f;"
         ],
         "post-install-cmd": [
-            "bash post_install.sh"
+            "rm tests/behatags/.gitignore -f;bash post_install.sh"
         ],
         "post-update-cmd": [
             "bash post_install.sh"
