@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "13013b667ad33462c7f3807143f5971e",
+    "content-hash": "391f3829371751fd65d8e23534d3a5bc",
     "packages": [
         {
             "name": "agrcmsx/prefer_latest_content",
@@ -3941,16 +3941,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "9.2.7",
+            "version": "9.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "ce3220458c7a744bb00e9436e48d8e644e134576"
+                "reference": "b40ae04a0a8a8a0952e77da7545de5ee8fa40757"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/ce3220458c7a744bb00e9436e48d8e644e134576",
-                "reference": "ce3220458c7a744bb00e9436e48d8e644e134576",
+                "url": "https://api.github.com/repos/drupal/core/zipball/b40ae04a0a8a8a0952e77da7545de5ee8fa40757",
+                "reference": "b40ae04a0a8a8a0952e77da7545de5ee8fa40757",
                 "shasum": ""
             },
             "require": {
@@ -4189,9 +4189,9 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/9.2.7"
+                "source": "https://github.com/drupal/core/tree/9.2.8"
             },
-            "time": "2021-10-06T10:34:39+00:00"
+            "time": "2021-11-03T17:25:16+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
@@ -8113,17 +8113,17 @@
         },
         {
             "name": "drupal/linkit",
-            "version": "6.0.0-beta2",
+            "version": "6.0.0-beta3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/linkit.git",
-                "reference": "6.0.0-beta2"
+                "reference": "6.0.0-beta3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/linkit-6.0.0-beta2.zip",
-                "reference": "6.0.0-beta2",
-                "shasum": "388cd47159eef6c505646c7d5a96e7e653439a94"
+                "url": "https://ftp.drupal.org/files/projects/linkit-6.0.0-beta3.zip",
+                "reference": "6.0.0-beta3",
+                "shasum": "39a5bf54cbc88324d788a573df7b3fecf7622065"
             },
             "require": {
                 "drupal/core": "^8.7.7 || ^9"
@@ -8134,8 +8134,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "6.0.0-beta2",
-                    "datestamp": "1632933683",
+                    "version": "6.0.0-beta3",
+                    "datestamp": "1632946984",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -21408,9 +21408,15 @@
     "aliases": [
         {
             "package": "drupal/core",
-            "version": "9.2.7.0",
+            "version": "9.2.8.0",
             "alias": "9.1.13",
             "alias_normalized": "9.1.13.0"
+        },
+        {
+            "package": "drupal/linkit",
+            "version": "6.0.0.0-beta3",
+            "alias": "6.0-beta2",
+            "alias_normalized": "6.0.0.0-beta2"
         }
     ],
     "minimum-stability": "dev",

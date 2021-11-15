@@ -3,12 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entity_browser.browser.media_browser
     - field.field.media.slideshow.field_media_in_library
     - field.field.media.slideshow.field_slideshow_style
     - field.field.media.slideshow.slideshow_items
     - media.type.slideshow
   module:
-    - media_library
+    - entity_browser
     - path
 _core:
   default_config_hash: Y6Ht9gcAfHdEuDh5ZEl8sexi7t8126_zEOzUSaSfamU
@@ -19,13 +20,13 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 3
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     region: content
   field_slideshow_style:
     type: options_select
-    weight: 2
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -39,30 +40,38 @@ content:
     region: content
   path:
     type: path
-    weight: 30
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   revision_log_message:
     type: string_textarea
-    weight: 25
+    weight: 5
     settings:
       rows: 4
       placeholder: ''
     region: content
     third_party_settings: {  }
   slideshow_items:
-    type: media_library_widget
-    weight: 101
+    type: entity_browser_entity_reference
+    weight: 1
     settings:
-      media_types: {  }
+      entity_browser: media_browser
+      field_widget_display: rendered_entity
+      field_widget_display_settings:
+        view_mode: thumbnail
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_replace: false
     third_party_settings: {  }
     region: content
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 100
+    weight: 7
     region: content
     third_party_settings: {  }
   uid:
@@ -77,5 +86,4 @@ content:
     region: content
 hidden:
   field_media_in_library: true
-  field_slideshow_style: true
   langcode: true
