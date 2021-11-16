@@ -9,6 +9,7 @@ dependencies:
     - media.type.slideshow
   module:
     - media_library
+    - media_library_edit
     - path
 _core:
   default_config_hash: Y6Ht9gcAfHdEuDh5ZEl8sexi7t8126_zEOzUSaSfamU
@@ -56,7 +57,9 @@ content:
     weight: 101
     settings:
       media_types: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      media_library_edit:
+        show_edit: '1'
     region: content
   status:
     type: boolean_checkbox
@@ -77,5 +80,4 @@ content:
     region: content
 hidden:
   field_media_in_library: true
-  field_slideshow_style: true
   langcode: true

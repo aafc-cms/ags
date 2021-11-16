@@ -1,3 +1,4 @@
+label: 'Broken link report'
 display:
   default:
     display_title: Maître
@@ -22,6 +23,7 @@ display:
             offset_label: Décalage
       fields:
         entity_field:
+          label: 'Entity field'
           separator: ', '
         entity_langcode:
           label: 'Langue de l''entité'
@@ -30,6 +32,7 @@ display:
           label: URL
           separator: ', '
         last_check:
+          label: 'Last checked'
           separator: ', '
         method:
           label: Méthode
@@ -64,8 +67,13 @@ display:
         entity_langcode:
           expose:
             label: 'Langue de l''entité'
+      title: 'Broken link report'
       footer:
         result:
           content: 'Affichage de @start à @end sur @total'
   page_1:
     display_title: Page
+    display_options:
+      menu:
+        title: 'Broken link Report'
+        description: 'Shows a broken link report'
