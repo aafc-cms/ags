@@ -1842,7 +1842,7 @@ function agri_admin_validate_dedupe_warning(FileInterface $file) {
       }
     }
   }
-  //out put all warning messages
+  // Ouput all warning messages.
   foreach($warnings as $msg) {
     \Drupal::messenger()->addWarning($msg,TRUE);
   }
@@ -1882,7 +1882,8 @@ function agri_admin_form_alter(&$form, FormStateInterface $form_state, $form_id)
     }
     $media = \Drupal\media\Entity\Media::load($mid);
     $show_button = TRUE;
-    if ($mid === '3342' || $mid === '3346') {  // Slideshow ThumbNav Ids
+    if ($mid === '3342' || $mid === '3346') {
+      // Slideshow ThumbNav Ids
       $show_button = FALSE;
     }
     if (!$show_button) {
