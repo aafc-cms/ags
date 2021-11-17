@@ -1877,7 +1877,8 @@ function agri_admin_form_alter(&$form, FormStateInterface $form_state, $form_id)
       $mid = $arg[$index_arg];
     }
     else {
-      // This should never happen.return;
+      // This should never happen.
+      return;
     }
     $media = \Drupal\media\Entity\Media::load($mid);
     $show_button = TRUE;
@@ -1887,7 +1888,7 @@ function agri_admin_form_alter(&$form, FormStateInterface $form_state, $form_id)
     if (!$show_button) {
       $media_name = $media->getName();
       \Drupal::messenger()->addMessage(t('"%title" cannot be deleted because it is required for proper SlideShow functionality!', ['%title' => $media_name]), 'error', TRUE);
-        $form['actions']['submit']['#attributes'] = ['disabled' => $show_button ? 'enabled' : 'disabled'];
+      $form['actions']['submit']['#attributes'] = ['disabled' => $show_button ? 'enabled' : 'disabled'];
     }
   }
 }
