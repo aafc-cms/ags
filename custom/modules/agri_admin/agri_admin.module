@@ -1856,3 +1856,56 @@ function agri_admin_validate_dedupe_warning(FileInterface $file) {
 function agri_admin_algos() {
   return array_diff(\Drupal::config('filehash.settings')->get('algos'), [0]);
 }
+
+ /**
+ * Implements hook_form_alter().
+ */
+function agri_admin_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (strpos($form_id, 'media') !== FALSE && strpos($form_id, 'delete') !== FALSE) {
+    $path = \Drupal::request()->getpathInfo();
+    $arg = explode('/', $path);
+    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    $index_arg = 0;
+    $idx = 0;
+    foreach ($arg as $segment) {
+      if (is_numeric($segment) && !is_bool($segment)) {
+        $index_arg = $idx;
+      }
+      $idx++;
+    }
+    if (isset($arg[$index_arg]) && is_numeric($arg[$index_arg])) {
+      $mid = $arg[$index_arg];
+    }
+    else {
+      // This should never happen.return;
+    }
+    $media = \Drupal\media\Entity\Media::load($mid);
+    $show_button = TRUE;
+    if ($mid === '3342' || $mid === '3346') {  // Slideshow ThumbNav Ids
+      $show_button = FALSE;
+    }
+    if (!$show_button) {
+      $media_name = $media->getName();
+      \Drupal::messenger()->addMessage(t('"%title" cannot be deleted because it is required for proper SlideShow functionality!', ['%title' => $media_name]), 'error', TRUE);
+        $form['actions']['submit']['#attributes'] = ['disabled' => $show_button ? 'enabled' : 'disabled'];
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_type_predelete().
+ */
+function agri_admin_media_predelete(\Drupal\Core\Entity\EntityInterface $entity) {
+  $id = $entity->id();
+  if ($id === '3342' || $id === '3346') {  // Slideshow ThumbNav Ids
+    $entity_type = $entity->getEntityTypeId();
+    $id = $entity->id();
+// This message does not seem to work inside this function...
+    \Drupal::messenger()->addMessage(t('"%title" cannot be deleted because it is required for proper SlideShow functionality!', [
+      '%title' => $entity->getName()]), 'error', TRUE);
+
+    $response = new \Symfony\Component\HttpFoundation\RedirectResponse(Url::fromUri('internal:/' . $entity_type . '/' . $id . '/edit')->toString());
+    $response->send();
+    exit;
+  }
+}
