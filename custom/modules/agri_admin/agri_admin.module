@@ -1898,10 +1898,11 @@ function agri_admin_form_alter(&$form, FormStateInterface $form_state, $form_id)
  */
 function agri_admin_media_predelete(\Drupal\Core\Entity\EntityInterface $entity) {
   $id = $entity->id();
-  if ($id === '3342' || $id === '3346') {  // Slideshow ThumbNav Ids
+  if ($id === '3342' || $id === '3346') {
+    // Slideshow ThumbNav Ids
     $entity_type = $entity->getEntityTypeId();
     $id = $entity->id();
-// This message does not seem to work inside this function...
+    // This message does not seem to work inside this function.
     \Drupal::messenger()->addMessage(t('"%title" cannot be deleted because it is required for proper SlideShow functionality!', [
       '%title' => $entity->getName()]), 'error', TRUE);
 
