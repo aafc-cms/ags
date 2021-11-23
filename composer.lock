@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "447e2f92b78a18fb02220785bc1a4b42",
+    "content-hash": "cbdff8a2011f4c23c557adae2d0f2d11",
     "packages": [
         {
             "name": "agrcmsx/prefer_latest_content",
@@ -4989,6 +4989,63 @@
             "homepage": "https://www.drupal.org/project/embed",
             "support": {
                 "source": "https://git.drupalcode.org/project/embed"
+            }
+        },
+        {
+            "name": "drupal/embed_block",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/embed_block.git",
+                "reference": "612f6b401faadfd4504fd48032da26d34fef8201"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.x-dev",
+                    "datestamp": "1581684715",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Claudiu Cristea",
+                    "homepage": "https://www.drupal.org/u/claudiu.cristea",
+                    "role": "maintainer"
+                },
+                {
+                    "name": "idimopoulos",
+                    "homepage": "https://www.drupal.org/user/2578708"
+                },
+                {
+                    "name": "pfrenssen",
+                    "homepage": "https://www.drupal.org/user/382067"
+                }
+            ],
+            "description": "Allows embedding blocks into content by using a text filter.",
+            "homepage": "https://www.drupal.org/project/embed_block",
+            "keywords": [
+                "Drupal",
+                "block",
+                "embed",
+                "filter"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/embed_block",
+                "issues": "https://www.drupal.org/project/issues/embed_block"
             }
         },
         {
@@ -21537,6 +21594,7 @@
         "drupal/scanner": 20,
         "drupal/smtp": 20,
         "drupal/ultimate_cron": 15,
+        "drupal/embed_block": 20,
         "phpmd/phpmd": 0
     },
     "prefer-stable": true,
