@@ -276,6 +276,10 @@
                 "Enter drupal/page_manager patch #3096408 description here":
                 "https://www.drupal.org/files/issues/2019-11-23/Issue-3096408-Page-Manager-issue-with-conflict-modul.patch"
             },
+            "drupal/embed_block": {
+                "3225938 - Added CKEDITOR plugin functionality":
+                "https://git.drupalcode.org/project/embed_block/-/merge_requests/2.diff"
+            },
             "drupal/filebrowser": {
                 "Warning filesize:stat failed/filetype:Lstat failed/filectime:stat failed for a symlink":
                 "https://www.drupal.org/files/issues/2021-10-22/filesize-statfailed-3245404-02.patch"
@@ -404,7 +408,8 @@
         "psr/container": "1.1.1",
         "scssphp/scssphp": "^1.1",
         "drupal/media_library_edit": "^2.1",
-        "drupal/webform_translation_permissions": "^1.1"
+        "drupal/webform_translation_permissions": "^1.1",
+        "drupal/embed_block": "1.x-dev"
     },
     "autoload": {
         "classmap": [

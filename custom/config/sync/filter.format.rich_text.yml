@@ -38,8 +38,10 @@ dependencies:
     - entity_embed
     - linkit
     - media
+    - slick
     - token_filter
     - url_embed
+    - wxt_ext_editor
 _core:
   default_config_hash: LQ7Z_f1qIeAP7aiyHGBwlgjdsAHzwISN1_6-Dvv_fVY
 name: 'Rich Text'
@@ -82,7 +84,7 @@ filters:
     status: true
     weight: -50
     settings:
-      allowed_html: '<em id="*" name="*"> <strong id="*" name="*"> <cite id="*" name="*" class="*"> <footer id="*" name="*" class="*" role><blockquote id="*" name="*" class="*"> <code id="*" name="*" class="*"> <ul id="*" name="*" type class="*" role> <ol id="*" name="*" start="*" type="*" class="*" role> <li id="*" name="*" class="*"> <dl id="*" name="*" class="*"> <dt id="*" name="*" class="*"> <dd id="*" name="*" class="*"> <br> <img id="*" name="*" src="*" alt="*" height="*" width="*" data-entity-type="*" data-entity-uuid="*" data-align data-caption="*" class="*" typeof> <a href="*" id="*" name="*" title="*" target="*" hreflang="*" data-entity-type="*" data-entity-uuid="*" tabindex="*" class="*" role> <p id="*" name="*" class="*"> <h1 id="*" name="*" class="*" role> <h2 id="*" name="*" class="*" role> <h3 id="*" name="*" class="*" role> <h4 id="*" name="*" class="*" role> <h5 id="*" name="*" class="*" role> <h6 id="*" name="*" class="*" role> <sub id="*" name="*"> <sup id="*" name="*"> <table id="*" name="*" class="*" role> <thead class="*" role> <tr id="*" name="*" class="*" role="*"> <th id="*" name="*" class="*" scope="*" role> <tbody class="*" role> <td id="*" name="*" colspan="*" class="*" role> <video id="*" name="*" class="*" role> <audio id="*" name="*" class="*" role> <b id="*" name="*"> <div id="*" name="*" class="*" id="*" aria-labelledby="*" data-parent="*" role> <button id="*" name="*" class="*" aria-controls="*" aria-expanded="*" data-target="*" data-toggle="*" type="*" id="*"> <hr id="*" name="*" class="*"> <figure id="*" name="*" class="*" role> <figcaption id="*" name="*" class="*" role><span class role><drupal-entity data-entity-type data-view-mode data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button alt title class><drupal-media data-entity-type data-entity-uuid class data-view-mode data-align data-caption role><section id="*" name="*" class="*" role> <pre> '
+      allowed_html: '<em id name> <strong id name> <cite id name class="*"> <footer id name role class="*"> <blockquote id name class="*"> <code id name class="*"> <ul id name role type class="*"> <ol id name role type start class="*"> <li id name class="*"> <dl id name class="*"> <dt id name class="*"> <dd id name class="*"> <br> <img id name src alt data-entity-type data-entity-uuid data-align data-caption typeof width height class="*"> <a href id name title target hreflang data-entity-type data-entity-uuid tabindex role class="*"> <p id name class="*"> <h1 id name role class="*"> <h2 id name role class="*"> <h3 id name role class="*"> <h4 id name role class="*"> <h5 id name role class="*"> <h6 id name role class="*"> <sub id name> <sup id name> <table id name role class="*"> <thead role class="*"> <tr id name role class="*"> <th id name scope role class="*"> <tbody role class="*"> <td id name colspan role class="*"> <video id name role class="*"> <audio id name role class="*"> <b id name> <div id name aria-labelledby data-parent role class="*"> <button id name aria-controls aria-expanded data-target data-toggle type class="*"> <hr id name class="*"> <figure id name role class="*"> <figcaption id name role class="*"> <span role class=""> <drupal-entity data-entity-type data-view-mode data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button alt title class=""> <section id name role class="*"> <pre> <s> <caption> <tfoot> <drupal-media data-entity-type data-entity-uuid data-view-mode data-align data-caption role alt title class="">'
       filter_html_help: true
       filter_html_nofollow: false
   filter_autop:
@@ -191,4 +193,50 @@ filters:
         img: img
         iframe: iframe
       media_switch: ''
+      hybrid_style: ''
+      box_style: ''
+      box_caption: ''
       use_data_uri: '0'
+  slick_filter:
+    id: slick_filter
+    provider: slick
+    status: false
+    weight: 4
+    settings:
+      optionset: default
+      skin: ''
+      background: false
+      layout: ''
+      optionset_thumbnail: ''
+      skin_thumbnail: ''
+      thumbnail_position: ''
+      thumbnail_caption: ''
+      image_style: ''
+      thumbnail_style: ''
+      responsive_image_style: ''
+      thumbnail_effect: ''
+      media_switch: ''
+      ratio: ''
+      override: false
+      overridables:
+        arrows: '0'
+        autoplay: '0'
+        dots: '0'
+        draggable: '0'
+        infinite: '0'
+        mouseWheel: '0'
+        randomize: '0'
+        variableWidth: '0'
+  wxt_add_table_attribute_filter:
+    id: wxt_add_table_attribute_filter
+    provider: wxt_ext_editor
+    status: false
+    weight: 0
+    settings:
+      responsive: '1'
+      replace_classes: '1'
+      replace_all_classes: '1'
+      classes: 'wb-tables table'
+      whitelist_classes: ''
+      add_datatable_attribute: '0'
+      datatable_options: ''
