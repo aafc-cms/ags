@@ -35,6 +35,7 @@ dependencies:
   module:
     - blazy
     - editor
+    - embed_block
     - entity_embed
     - linkit
     - media
@@ -240,3 +241,9 @@ filters:
       whitelist_classes: ''
       add_datatable_attribute: '0'
       datatable_options: ''
+  embed_block:
+    id: embed_block
+    provider: embed_block
+    status: true
+    weight: 0
+    settings: {  }
