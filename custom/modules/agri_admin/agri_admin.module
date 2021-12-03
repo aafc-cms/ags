@@ -1882,13 +1882,13 @@ function agri_admin_form_alter(&$form, FormStateInterface $form_state, $form_id)
       return;
     }
     $media = \Drupal\media\Entity\Media::load($mid);
+    $media_name = $media->getName();
+
     $show_button = TRUE;
-    if ($mid === '3342' || $mid === '3346') {
-      // Slideshow ThumbNav Ids
+    if (strpos($media_name, 'Home Slideshow Thumbnav') !== FALSE) {
       $show_button = FALSE;
     }
     if (!$show_button) {
-      $media_name = $media->getName();
       \Drupal::messenger()->addMessage(t('"%title" cannot be deleted because it is required for proper SlideShow functionality!', ['%title' => $media_name]), 'error', TRUE);
       $form['actions']['submit']['#attributes'] = ['disabled' => $show_button ? 'enabled' : 'disabled'];
     }
@@ -1899,14 +1899,13 @@ function agri_admin_form_alter(&$form, FormStateInterface $form_state, $form_id)
  * Implements hook_entity_type_predelete().
  */
 function agri_admin_media_predelete(\Drupal\Core\Entity\EntityInterface $entity) {
-  $id = $entity->id();
-  if ($id === '3342' || $id === '3346') {
-    // Slideshow ThumbNav Ids
+  $media_name = $entity->getName();
+  if (strpos($media_name, 'Home Slideshow Thumbnav') !== FALSE) {
     $entity_type = $entity->getEntityTypeId();
     $id = $entity->id();
     // This message does not seem to work inside this function.
     \Drupal::messenger()->addMessage(t('"%title" cannot be deleted because it is required for proper SlideShow functionality!', [
-      '%title' => $entity->getName()]), 'error', TRUE);
+      '%title' => $media_name]), 'error', TRUE);
 
     $response = new \Symfony\Component\HttpFoundation\RedirectResponse(Url::fromUri('internal:/' . $entity_type . '/' . $id . '/edit')->toString());
     $response->send();
