@@ -2,10 +2,10 @@
 
 namespace Drupal\agri_admin\Controller;
 
+use Drupal\Component\Utility\Xss;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Database\Connection;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Drupal\agri_admin\AgriAdminHelper;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -39,7 +39,9 @@ class LegacySupportController extends ControllerBase {
     );
   }
 
-
+  /**
+   *
+   */
   public function getDcridFromNid($nid) {
     // Retrieves a PDOStatement object
     // http://php.net/manual/en/pdo.prepare.php
@@ -47,7 +49,7 @@ class LegacySupportController extends ControllerBase {
       ->fields('n', ['dcr_id'])
       ->condition('n.nid', $nid, '=');
 
-    // Execute the statement
+    // Execute the statement.
     $data = $sth->execute();
 
     // Get only one result.
@@ -61,6 +63,9 @@ class LegacySupportController extends ControllerBase {
     }
   }
 
+  /**
+   *
+   */
   public function getNidFromDcrId($dcrid) {
     // Retrieves a PDOStatement object
     // http://php.net/manual/en/pdo.prepare.php
@@ -68,7 +73,7 @@ class LegacySupportController extends ControllerBase {
       ->fields('n', ['nid'])
       ->condition('n.dcr_id', $dcrid, '=');
 
-    // Execute the statement
+    // Execute the statement.
     $data = $sth->execute();
 
     // Get only one result.
@@ -82,27 +87,28 @@ class LegacySupportController extends ControllerBase {
     }
   }
 
-
   /**
    * Builds the response.
    */
   public function build() {
     $id = $this->getIdFromGetParam();
     if (empty($id)) {
-      return new JsonResponse(['status' => TRUE, 'message' => ['']]); // get out early.
+      // Get out early.
+      return new JsonResponse(['status' => TRUE, 'message' => ['']]);
     }
-    // Retrieves a \Drupal\Core\Database\Connection which is a PDO instance
+    // Retrieves a \Drupal\Core\Database\Connection which is a PDO instance.
     $dcr_id_column_exists = $this->connection->schema()->fieldExists('node', 'dcr_id');
     if (!$dcr_id_column_exists) {
-      return new JsonResponse(['status' => TRUE, 'message' => ['']]); // get out early.
+      // Get out early.
+      return new JsonResponse(['status' => TRUE, 'message' => ['']]);
     }
 
-    $nid = null;
-    $dcr_id = null;
+    $nid = NULL;
+    $dcr_id = NULL;
     if (strlen($id) < 13) {
       $id = $this->getDcridFromNid($id);
     }
-    else if (strlen($id) == 13) {
+    elseif (strlen($id) == 13) {
       $id = $this->getNidFromDcrId($id);
     }
 
@@ -114,7 +120,6 @@ class LegacySupportController extends ControllerBase {
     }
   }
 
-
   /**
    * Get the nids from the _GET param (validate it).
    */
@@ -122,7 +127,7 @@ class LegacySupportController extends ControllerBase {
     $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
 
     // Handle array() parameter like [].
-    $nids = \Drupal\Component\Utility\Xss::filter(\Drupal::request()->query->get('nids'));
+    $nids = Xss::filter(\Drupal::request()->query->get('nids'));
     if (!is_array($nids) || (!isset($nids) || empty($nids))) {
       $nids = [];
     }
@@ -136,7 +141,7 @@ class LegacySupportController extends ControllerBase {
       }
     }
     if (!empty($nids)) {
-      foreach($nids as $nid) {
+      foreach ($nids as $nid) {
         if (!is_numeric($nid)) {
           return NULL;
         }
@@ -146,7 +151,8 @@ class LegacySupportController extends ControllerBase {
     if (empty($nids)) {
       return NULL;
     }
-    return reset($nids); // Just return first one.
+    // Just return first one.
+    return reset($nids);
   }
 
 }

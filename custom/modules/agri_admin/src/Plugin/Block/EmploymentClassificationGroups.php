@@ -2,15 +2,11 @@
 
 namespace Drupal\agri_admin\Plugin\Block;
 
-
-use Drupal;
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Session\AccountInterface;
 
 use Drupal\Core\Block\BlockBase;
-use Drupal\node\Entity\Node;
-
 
 /**
  * Provides an employment classification groups block.
@@ -20,13 +16,16 @@ use Drupal\node\Entity\Node;
  *   admin_label = @Translation("Employment Classification Groups Display"),
  * )
  */
-class  EmploymentClassificationGroups extends BlockBase {
+class EmploymentClassificationGroups extends BlockBase {
 
+  /**
+   *
+   */
   protected function getNode(&$ispreview_node) {
     $node = \Drupal::routeMatch()->getParameter('node');
     if (!is_object($node)) {
       $node = \Drupal::routeMatch()->getParameter('node_preview');
-      $ispreview_node = true;
+      $ispreview_node = TRUE;
     }
     if ($node) {
       if (is_string($node) && is_numeric($node)) {
@@ -36,42 +35,42 @@ class  EmploymentClassificationGroups extends BlockBase {
         $vid = NULL;
         $node = self::_latest_revision($nid, $vid);
       }
-      else if (gettype($node) == 'object') {
+      elseif (gettype($node) == 'object') {
         $nid = $node->id();
       }
       if ($node->getType() == 'empl') {
         return $node;
       }
     }
-    return false;
+    return FALSE;
   }
 
- /**
-  * {@inheritdoc}
-  */
+  /**
+   * {@inheritdoc}
+   */
   public function build() {
-    $ispreview_node = false;
-    $config = $this->getConfiguration(); 
+    $ispreview_node = FALSE;
+    $config = $this->getConfiguration();
     $block['#id'] = $config['id'];
     $block['#title'] = 'Employment Classification Groups';
     $block['content']['results']['#type'] = 'markup';
 
-    $current_language = Drupal::languageManager()->getCurrentLanguage();
+    $current_language = \Drupal::languageManager()->getCurrentLanguage();
     $currentlangId    = $current_language->getId();
     $classification   = '';
 
-    $emplNode =  $this->getNode($ispreview_node);
+    $emplNode = $this->getNode($ispreview_node);
     if (!$emplNode) {
       $block['content']['#markup'] = $classification;
       return $block;
     }
 
     if ($ispreview_node) {
-      // Logic for preview node
+      // Logic for preview node.
       $paragraphs_objects = $emplNode->get('field_classification')->referencedEntities();
     }
     else {
-      $paragraph_field_items = $emplNode->get('field_classification')->getValue(); 
+      $paragraph_field_items = $emplNode->get('field_classification')->getValue();
       $paragraph_storage = \Drupal::entityTypeManager()->getStorage('paragraph');
       // Collect paragraph field's ids.
       $ids = array_column($paragraph_field_items, 'target_id');
@@ -80,44 +79,44 @@ class  EmploymentClassificationGroups extends BlockBase {
     }
 
     /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
-    if ($paragraphs_objects) { 
+    if ($paragraphs_objects) {
       foreach ($paragraphs_objects as $paragraph) {
-      // Get field from the paragraph.
+        // Get field from the paragraph.
         $groupval    = $paragraph->get('field_class_id')->value;
         $subgroupval = $paragraph->get('field_class_sub')->value;
         $levelval    = $paragraph->get('field_class_level')->value;
         $tmpText     = '';
         // Do something with $text...
         if ($subgroupval) {
-          $tmpText = $groupval.'-'.$subgroupval.'-'.$levelval;
+          $tmpText = $groupval . '-' . $subgroupval . '-' . $levelval;
         }
         else {
-          $tmpText = $groupval.'-'.$levelval;
+          $tmpText = $groupval . '-' . $levelval;
         }
 
-        if ( strlen($classification) >0 ) {
-            $classification = $classification.', '. $tmpText;
+        if (strlen($classification) > 0) {
+          $classification = $classification . ', ' . $tmpText;
         }
         else {
           $classification = $tmpText;
         }
-      } 
-      // get equivalent flag value
+      }
+      // Get equivalent flag value.
       $equivalentvalarray = $emplNode->get('field_and_equivalent')->getValue();
-      $equivalentvalarray2 = $equivalentvalarray[0] ;
+      $equivalentvalarray2 = $equivalentvalarray[0];
       $equivalentval = $equivalentvalarray2['value'];
-      //$equivalentlbl = $emplNode->get('field_and_equivalent')->getFieldDefinition()->getLabel();
+      // $equivalentlbl = $emplNode->get('field_and_equivalent')->getFieldDefinition()->getLabel();
       if ($equivalentval) {
         if ($currentlangId == 'en') {
-          $classification = $classification.' and equivalent';
+          $classification = $classification . ' and equivalent';
         }
         else {
-          $classification = $classification.' et équivalent';
+          $classification = $classification . ' et équivalent';
         }
       }
     }
-  
-    $classification = '<div class="field--items">'.$classification.'</div>';
+
+    $classification = '<div class="field--items">' . $classification . '</div>';
 
     $block['content']['#markup'] = $classification;
     return $block;
@@ -171,7 +170,7 @@ class  EmploymentClassificationGroups extends BlockBase {
     $config = $this->getConfiguration();
     return $form;
   }
-	
+
   /**
    * {@inheritdoc}
    */
