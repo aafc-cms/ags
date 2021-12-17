@@ -12,6 +12,11 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class PathProcessorAgriAdmin implements InboundPathProcessorInterface, OutboundPathProcessorInterface {
 
+  /**
+   * The unixtime timestamp.
+   *
+   * @var int
+   */
   public $unixtime = NULL;
 
   /**

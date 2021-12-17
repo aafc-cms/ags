@@ -1,6 +1,5 @@
 <?php
 
-// Use Drupal\something\AgriUtils;.
 namespace Drupal\agri_admin;
 
 use Drupal\menu_link_content\Entity\MenuLinkContent;
@@ -8,19 +7,19 @@ use Drupal\node\Entity\Node;
 use Drupal\access_unpublished\Entity\AccessToken;
 
 /**
- *
+ * Helper class that provides useful functions that may be used more than once.
  */
 class AgriAdminHelper {
 
   /**
-   *
+   * Add a message to the page.
    */
   public static function addMessage($message, $type = 'notice', $force = TRUE) {
     \Drupal::messenger()->addMessage($message, $type, $force);
   }
 
   /**
-   *
+   * Log something to the dblog (drush wd-show to see it).
    */
   public static function addToLog($message, $debug = FALSE) {
     // $debug = false;
@@ -30,7 +29,7 @@ class AgriAdminHelper {
   }
 
   /**
-   *
+   * Automatically translate menu links in french if not already translated.
    */
   public static function postCreateOrUpdateAutoTranslate($action, $entity_id, $bundle) {
     $menu_link_array = [];
@@ -48,7 +47,7 @@ class AgriAdminHelper {
   }
 
   /**
-   *
+   * Is called from the hook_update() function to do post update processing on a node.
    */
   public static function postUpdateProcess($action, $entity_id, $bundle, $disable_menu_link = FALSE) {
     static::addToLog(__function__);
@@ -67,7 +66,7 @@ class AgriAdminHelper {
   }
 
   /**
-   *
+   * Used during imports, might not be needed anymore.
    */
   public static function postImportProcess($action, $entity_id, $bundle, $disable_menu_link = FALSE) {
     static::addToLog(__function__);
@@ -97,14 +96,14 @@ class AgriAdminHelper {
   }
 
   /**
-   *
+   * Retrieve the lang code for the current ui interface language.
    */
   public static function getLang() {
     return \Drupal::languageManager()->getCurrentLanguage()->getId();
   }
 
   /**
-   *
+   * Retrieve the other official language langcodes.
    */
   public static function getOtherLang() {
     // Get the list of all languages.
@@ -117,14 +116,14 @@ class AgriAdminHelper {
   }
 
   /**
-   *
+   * Hide internal page menu links from the ui.
    */
   public static function disableMenuLinkByNid($nid, $menu_name = 'main') {
     return self::disableMenuLink(NULL, $nid, $menu_name, TRUE);
   }
 
   /**
-   *
+   * Verify if the menu link exists for a specific nid.
    */
   public static function legacyMenuLinkExists($menu_name, $ts_nid, $lang) {
     static::addToLog(__function__ . '(' . $menu_name . ', ' . $ts_nid . ', ' . $lang . ')');
@@ -132,7 +131,12 @@ class AgriAdminHelper {
     $sql = "SELECT ml.uuid as uuid FROM menu_link_content as ml inner join menu_tree as mt on mt.id = concat('menu_link_content:', ml.uuid) " .
     " WHERE mt.menu_name = :menuname and ml.ts_nid = :tsnid  and ml.langcode = :lang";
     // $sql = "SELECT uuid FROM menu_link_content WHERE menu_name = :menuname AND ts_nid = :tsnid AND langcode = :lang";
-    $result = $database->query($sql, [':menuname' => $menu_name, ':tsnid' => $ts_nid, ':lang' => $lang]);
+    $result = $database->query($sql, [
+      ':menuname' => $menu_name,
+      ':tsnid' => $ts_nid,
+      ':lang' => $lang,
+    ]
+    );
     $uuid = '';
     if ($result) {
       while ($row = $result->fetchAssoc()) {
@@ -185,7 +189,9 @@ class AgriAdminHelper {
 
   /**
    * Get menu link by nid.
-   * returns first object or FALSE.
+   *
+   * @return mixed
+   *   Returns FALSE if menu link not found, otherwise the MenuLink object.
    */
   public static function getMenuLinkByNid($nid, $menu_name = 'main') {
     $menuLink = \Drupal::entityTypeManager()->getStorage('menu_link_content')
@@ -212,7 +218,7 @@ class AgriAdminHelper {
   }
 
   /**
-   * $action = disable or delete or enable.
+   * Enable or disable menu links depending on the action param.
    */
   public static function menuLinkAction($nid, $menu_name = 'main', $action = 'disable') {
     static::addToLog(__function__);
@@ -242,7 +248,10 @@ class AgriAdminHelper {
   }
 
   /**
+   * Verify if the node has a menu link for a particular menu.
    *
+   * @return bool
+   *   Return TRUE if the menu link exists for a given node id.
    */
   public static function menuLinkExists($nid, $menu_name = 'sidebar') {
     static::addToLog(__function__);
@@ -261,7 +270,7 @@ class AgriAdminHelper {
   }
 
   /**
-   *
+   * Verify if the menu link for the specified language exists or not.
    */
   public static function menuLinkByLanguageExists($nid, $menu_name = 'sidebar', $lang = 'en') {
     static::addToLog(__function__);
@@ -281,7 +290,7 @@ class AgriAdminHelper {
   }
 
   /**
-   *
+   * Retrieve the menu link uuid.
    */
   public static function getMenuUuidFromNidAndMenuName($nid, $menu_name) {
     static::addToLog(__function__);
@@ -302,7 +311,7 @@ class AgriAdminHelper {
   }
 
   /**
-   *
+   * Retrieve the menu link uuid for the specified mlid and language.
    */
   public static function getUuidFromId($id, $lang) {
     static::addToLog(__function__ . ' lang=' . $lang);
@@ -321,7 +330,7 @@ class AgriAdminHelper {
   }
 
   /**
-   *
+   * This was used during the initial import of the content from teamsite.
    */
   public static function updateNodeLegacyIds($nid, $ts_nid, $ts_pnid, $dcr_id) {
     // For teamsite import organising.
@@ -338,7 +347,7 @@ class AgriAdminHelper {
   }
 
   /**
-   *
+   * Update the dcrid for a specified mlid and dcrid and lang, for teamsite imported content (deprecated).
    */
   public static function updateDcrId($menuid, $dcr_id, $lang) {
     // For teamsite import organising.
@@ -354,7 +363,7 @@ class AgriAdminHelper {
   }
 
   /**
-   *
+   * Update parent teamsite parent teamsite id (deprecated Teamsite content).
    */
   public static function updateTsPnid($menuid, $ts_pnid, $lang = 'en') {
     // For teamsite import organising.
@@ -370,7 +379,7 @@ class AgriAdminHelper {
   }
 
   /**
-   *
+   * Update teamsite node id (deprecated Teamsite content).
    */
   public static function updateTsNid($menuid, $ts_nid, $lang) {
     // For teamsite import organising.
@@ -386,13 +395,20 @@ class AgriAdminHelper {
   }
 
   /**
+   * Verify if a menulink has a teamsite nid.
    *
+   * @return bool
+   *   If a given menu link has a teamsite nid, return TRUE else FALSE.
    */
   public static function hasTsNid($menuid, $lang = 'en') {
     // static::addToLog(__function__);
     $database = \Drupal::database();
     $sql = "SELECT id, ts_nid FROM menu_link_content WHERE id = :menuid and langcode = :language";
-    $result = $database->query($sql, [':menuid' => $menuid, ':language' => $lang]);
+    $result = $database->query($sql, [
+      ':menuid' => $menuid,
+      ':language' => $lang,
+    ]
+    );
     if ($result) {
       while ($row = $result->fetchAssoc()) {
         // $row['column']
@@ -406,7 +422,7 @@ class AgriAdminHelper {
   }
 
   /**
-   *
+   * Determines if the teamsite id was previously imported or not (used during migration from teamsite).
    */
   public static function tsNidPreviouslyImported($ts_nid, $lang = 'en') {
     // static::addToLog(__function__);
@@ -415,10 +431,6 @@ class AgriAdminHelper {
     $result = $database->query($sql, [':tsnid' => $ts_nid, ':language' => $lang]);
     if ($result) {
       while ($row = $result->fetchAssoc()) {
-        // $row['column']
-        /*        if (!isset($row['ts_nid']) || is_null($row['ts_nid'])) {
-        return FALSE;
-        }*/
         return TRUE;
       }
     }
@@ -426,7 +438,6 @@ class AgriAdminHelper {
     $result = $database->query($sql, [':tsnid' => $ts_nid, ':language' => $lang]);
     if ($result) {
       while ($row = $result->fetchAssoc()) {
-        // $row['column']
         if (!isset($row['ts_nid']) || is_null($row['ts_nid'])) {
           return FALSE;
         }
@@ -437,7 +448,7 @@ class AgriAdminHelper {
   }
 
   /**
-   *
+   * Was the dcrid previously imported?  Used only during migration from teamsite to Drupal.
    */
   public static function dcrIdPreviouslyImported($dcr_id, $lang = 'en') {
     // static::addToLog(__function__);
@@ -457,7 +468,7 @@ class AgriAdminHelper {
   }
 
   /**
-   *
+   * Retrieve the menu link from mlid.
    */
   public static function getMenuLinkFromMlid($mlid) {
     $menuLink = \Drupal::entityTypeManager()->getStorage('menu_link_content')->load($mlid);
@@ -465,7 +476,7 @@ class AgriAdminHelper {
   }
 
   /**
-   *
+   * Retrieve the menu link from uuid.
    */
   public static function getMenuLinkByUuid($uuid) {
     $menuLinks = \Drupal::entityTypeManager()->getStorage('menu_link_content')->loadByProperties(['uuid' => $uuid]);
@@ -473,7 +484,10 @@ class AgriAdminHelper {
   }
 
   /**
+   * Does the link with given id have the english-only class?
    *
+   * @return bool
+   *   If a link has the english-only class then return TRUE else FALSE.
    */
   public static function isLinkEnglishOnly($id) {
     if (is_numeric($id)) {
@@ -499,7 +513,10 @@ class AgriAdminHelper {
   }
 
   /**
+   * Does the link with given id have the french-only class?
    *
+   * @return bool
+   *   If a link has the french-only class then return TRUE else FALSE.
    */
   public static function isLinkFrenchOnly($id) {
     if (is_numeric($id)) {
@@ -530,7 +547,7 @@ class AgriAdminHelper {
   }
 
   /**
-   *
+   * Retrieve the mlid using the uuid.
    */
   public static function getMenuIdFromUuid($uuid) {
     static::addToLog(__function__);
@@ -551,14 +568,20 @@ class AgriAdminHelper {
   }
 
   /**
-   *
+   * Retrieve the node id from the mlid.
    */
   public static function getNidFromMenuLinkContentId($mlid, $menu_name = 'main', $lang = 'en') {
     static::addToLog(__function__);
     static::addToLog('Search for nid from id:' . $mlid);
     $database = \Drupal::database();
     $sql = "SELECT link__uri FROM menu_link_content_data WHERE langcode = :lang and external = :external and menu_name = :menuname and id = :mlid";
-    $result = $database->query($sql, [':lang' => $lang, ':external' => 0, ':menuname' => $menu_name, ':mlid' => $mlid]);
+    $result = $database->query($sql, [
+      ':lang' => $lang,
+      ':external' => 0,
+      ':menuname' => $menu_name,
+      ':mlid' => $mlid,
+    ]
+    );
     if ($result) {
       while ($row = $result->fetchAssoc()) {
         // $row['column']
@@ -678,7 +701,7 @@ class AgriAdminHelper {
   }
 
   /**
-   *
+   * Create an internal (basic page/internal page) menu link.
    */
   public static function createInternalLegacyMenuLink($nid, $ts_nid, $ts_pnid, $dcr_id, $menu_name = 'main', $lang = 'en', $title_en = NULL, $title_fr = NULL, $disable_menu_link = FALSE) {
     static::addToLog(__function__ . ' : ' . $lang);
@@ -723,7 +746,8 @@ class AgriAdminHelper {
           $menu_link->addTranslation('fr', ['title' => $titleFr]);
           static::addToLog(__function__ . '** JOSEPH TEST ************added french translation for menu title=' . $titleFr);
           $returnCode = $menu_link->save();
-          // No need to update the ts_nid/ts_pnid/dcr_id for the translation of internal links, the menu link is english even for links that are translated.
+          // No need to update the ts_nid/ts_pnid/dcr_id for the translation of internal links.
+          // The menu link is english even for links that are translated.
         }
         if ($returnCode) {
           $id = $menu_link->id();
@@ -739,12 +763,13 @@ class AgriAdminHelper {
         static::addToLog(__function__ . ' link for nid=' . $nid . ' or ts_nid=' . $ts_nid . ' already exists ************English');
       }
     }
-    // No french internal links, they are translated instead, this is the best way to do it, ask Joseph if you have questions.
+    // No french internal links, they are translated instead.
+    // This is the best way to do it, ask Joseph if you have questions.
     return FALSE;
   }
 
   /**
-   *
+   * Create the first menu item during import.
    */
   public static function createTopLevelInternalMenuItem($nid, $menu_name = 'sidebar', $ts_nid = NULL, $ts_pnid = NULL, $dcr_id = NULL, $title_en = NULL, $title_fr = NULL) {
     static::addToLog(__function__);
@@ -890,7 +915,7 @@ class AgriAdminHelper {
   }
 
   /**
-   *
+   * Translate a link using the node title translated value if none exist.
    */
   public static function translateLinkIfNotTranslated($nid, $menu_name = 'main') {
 
@@ -979,7 +1004,15 @@ class AgriAdminHelper {
   }
 
   /**
+   * Retrieve the latest revision if it is a draft.
    *
+   * $nid (int)
+   *   Node id.
+   * $vid (int)
+   *   Revision id by reference.
+   *
+   * @return mixed
+   *   Return FALSE if there is no draft revision or node otherwise the vid (revision id).
    */
   public static function getLatestRevisionOnlyIfDraft($nid, &$vid) {
     $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
@@ -1058,7 +1091,12 @@ class AgriAdminHelper {
   }
 
   /**
+   * Retrieve the latest revision if possible.
    *
+   * $nid (int)
+   *   Node id.
+   * $vid (int)
+   *   Revision id by reference.
    */
   public static function getLatestRevision($nid, &$vid) {
     $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
