@@ -3,12 +3,12 @@
 namespace Drupal\agri_admin;
 
 /**
- *
+ * Return a rendered block by id for custom code.
  */
 class UtilsBlock {
 
   /**
-   *
+   * Implements getRenderArray().
    */
   public static function getRenderArray($id, $overrides = NULL) {
     static $defaults = [
@@ -83,13 +83,22 @@ class UtilsBlock {
   }
 
   /**
+   * Implements getRendered().
    *
+   * @param int $id
+   *   The id of the block.
+   * @param array $options
+   *   The options array.
+   *
+   * @return mixed
+   *   Returns bool or \Drupal\Component\Render\MarkupInterface (the rendered HTML).
    */
-  public static function getRendered($id, $options = NULL) {
+  public static function getRendered(int $id, array $options = NULL) {
     $rendered = FALSE;
 
     if (($renderArray = static::getRenderArray($id, $options))) {
-      // Passing false into this function prevents a bubbling of attached assets break in line 138 of core/lib/Drupal/Core/Render/Renderer.php.
+      // Passing false into this function prevents a bubbling of attached assets.
+      // Otherwise would break in line 138 of core/lib/Drupal/Core/Render/Renderer.php.
       $rendered = Utils::render($renderArray, FALSE);
     }
 

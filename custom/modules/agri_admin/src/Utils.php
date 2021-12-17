@@ -361,8 +361,16 @@ class Utils {
 
   /**
    * Process a renderArray into html.
+   *
+   * @param array $renderArray
+   *   The render array.
+   * @param bool $root
+   *   Not sure what this parameter is.
+   *
+   * @return mixed
+   *   Returns bool or \Drupal\Component\Render\MarkupInterface (the rendered HTML).
    */
-  public static function render($renderArray, $root = TRUE) {
+  public static function render(array $renderArray, bool $root = TRUE) {
     if (is_array($renderArray) || is_object($renderArray)) {
       if ($renderArray) {
         if ($root) {
