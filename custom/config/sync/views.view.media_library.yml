@@ -410,6 +410,21 @@ display:
           entity_field: langcode
           plugin_id: language
       sorts:
+        changed:
+          id: changed
+          table: media_field_revision
+          field: changed
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+          entity_type: media
+          entity_field: changed
+          plugin_id: date
         created:
           id: created
           table: media_field_data
@@ -475,13 +490,78 @@ display:
     cache_metadata:
       max-age: 0
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
         - 'url.query_args:sort_by'
         - user
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.media.audio_file.default'
+        - 'config:core.entity_view_display.media.audio_file.embedded'
+        - 'config:core.entity_view_display.media.audio_file.media_library'
+        - 'config:core.entity_view_display.media.audio_file.thumbnail'
+        - 'config:core.entity_view_display.media.document.default'
+        - 'config:core.entity_view_display.media.document.embedded'
+        - 'config:core.entity_view_display.media.document.media_library'
+        - 'config:core.entity_view_display.media.document.thumbnail'
+        - 'config:core.entity_view_display.media.image.agrisource_slideshow_thumbnail'
+        - 'config:core.entity_view_display.media.image.agrisource_slideshow_view_mode'
+        - 'config:core.entity_view_display.media.image.default'
+        - 'config:core.entity_view_display.media.image.embedded'
+        - 'config:core.entity_view_display.media.image.linked'
+        - 'config:core.entity_view_display.media.image.media_library'
+        - 'config:core.entity_view_display.media.image.thumbnail'
+        - 'config:core.entity_view_display.media.image.w100'
+        - 'config:core.entity_view_display.media.image.w1000'
+        - 'config:core.entity_view_display.media.image.w1200'
+        - 'config:core.entity_view_display.media.image.w133'
+        - 'config:core.entity_view_display.media.image.w133r320'
+        - 'config:core.entity_view_display.media.image.w133r45'
+        - 'config:core.entity_view_display.media.image.w1400'
+        - 'config:core.entity_view_display.media.image.w1600'
+        - 'config:core.entity_view_display.media.image.w166'
+        - 'config:core.entity_view_display.media.image.w175'
+        - 'config:core.entity_view_display.media.image.w1900'
+        - 'config:core.entity_view_display.media.image.w200'
+        - 'config:core.entity_view_display.media.image.w250'
+        - 'config:core.entity_view_display.media.image.w300'
+        - 'config:core.entity_view_display.media.image.w333'
+        - 'config:core.entity_view_display.media.image.w400'
+        - 'config:core.entity_view_display.media.image.w50'
+        - 'config:core.entity_view_display.media.image.w500'
+        - 'config:core.entity_view_display.media.image.w533'
+        - 'config:core.entity_view_display.media.image.w600'
+        - 'config:core.entity_view_display.media.image.w700'
+        - 'config:core.entity_view_display.media.image.w75'
+        - 'config:core.entity_view_display.media.image.w800'
+        - 'config:core.entity_view_display.media.image.w900'
+        - 'config:core.entity_view_display.media.instagram.default'
+        - 'config:core.entity_view_display.media.instagram.embedded'
+        - 'config:core.entity_view_display.media.instagram.media_library'
+        - 'config:core.entity_view_display.media.instagram.thumbnail'
+        - 'config:core.entity_view_display.media.slideshow.agrisource_slideshow_view_mode'
+        - 'config:core.entity_view_display.media.slideshow.default'
+        - 'config:core.entity_view_display.media.slideshow.embedded'
+        - 'config:core.entity_view_display.media.slideshow_thumbnav.agrisource_slideshow_thumbnail'
+        - 'config:core.entity_view_display.media.slideshow_thumbnav.agrisource_slideshow_view_mode'
+        - 'config:core.entity_view_display.media.slideshow_thumbnav.default'
+        - 'config:core.entity_view_display.media.slideshow_thumbnav.embedded'
+        - 'config:core.entity_view_display.media.slideshow_thumbnav.media_library'
+        - 'config:core.entity_view_display.media.slideshow_thumbnav.thumbnail'
+        - 'config:core.entity_view_display.media.tweet.default'
+        - 'config:core.entity_view_display.media.tweet.embedded'
+        - 'config:core.entity_view_display.media.tweet.media_library'
+        - 'config:core.entity_view_display.media.tweet.thumbnail'
+        - 'config:core.entity_view_display.media.video.default'
+        - 'config:core.entity_view_display.media.video.embedded'
+        - 'config:core.entity_view_display.media.video.media_library'
+        - 'config:core.entity_view_display.media.video.thumbnail'
+        - 'config:core.entity_view_display.media.video_file.default'
+        - 'config:core.entity_view_display.media.video_file.embedded'
+        - 'config:core.entity_view_display.media.video_file.media_library'
+        - 'config:core.entity_view_display.media.video_file.thumbnail'
   page:
     display_plugin: page
     id: page
@@ -778,7 +858,71 @@ display:
         - 'url.query_args:sort_by'
         - user
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.media.audio_file.default'
+        - 'config:core.entity_view_display.media.audio_file.embedded'
+        - 'config:core.entity_view_display.media.audio_file.media_library'
+        - 'config:core.entity_view_display.media.audio_file.thumbnail'
+        - 'config:core.entity_view_display.media.document.default'
+        - 'config:core.entity_view_display.media.document.embedded'
+        - 'config:core.entity_view_display.media.document.media_library'
+        - 'config:core.entity_view_display.media.document.thumbnail'
+        - 'config:core.entity_view_display.media.image.agrisource_slideshow_thumbnail'
+        - 'config:core.entity_view_display.media.image.agrisource_slideshow_view_mode'
+        - 'config:core.entity_view_display.media.image.default'
+        - 'config:core.entity_view_display.media.image.embedded'
+        - 'config:core.entity_view_display.media.image.linked'
+        - 'config:core.entity_view_display.media.image.media_library'
+        - 'config:core.entity_view_display.media.image.thumbnail'
+        - 'config:core.entity_view_display.media.image.w100'
+        - 'config:core.entity_view_display.media.image.w1000'
+        - 'config:core.entity_view_display.media.image.w1200'
+        - 'config:core.entity_view_display.media.image.w133'
+        - 'config:core.entity_view_display.media.image.w133r320'
+        - 'config:core.entity_view_display.media.image.w133r45'
+        - 'config:core.entity_view_display.media.image.w1400'
+        - 'config:core.entity_view_display.media.image.w1600'
+        - 'config:core.entity_view_display.media.image.w166'
+        - 'config:core.entity_view_display.media.image.w175'
+        - 'config:core.entity_view_display.media.image.w1900'
+        - 'config:core.entity_view_display.media.image.w200'
+        - 'config:core.entity_view_display.media.image.w250'
+        - 'config:core.entity_view_display.media.image.w300'
+        - 'config:core.entity_view_display.media.image.w333'
+        - 'config:core.entity_view_display.media.image.w400'
+        - 'config:core.entity_view_display.media.image.w50'
+        - 'config:core.entity_view_display.media.image.w500'
+        - 'config:core.entity_view_display.media.image.w533'
+        - 'config:core.entity_view_display.media.image.w600'
+        - 'config:core.entity_view_display.media.image.w700'
+        - 'config:core.entity_view_display.media.image.w75'
+        - 'config:core.entity_view_display.media.image.w800'
+        - 'config:core.entity_view_display.media.image.w900'
+        - 'config:core.entity_view_display.media.instagram.default'
+        - 'config:core.entity_view_display.media.instagram.embedded'
+        - 'config:core.entity_view_display.media.instagram.media_library'
+        - 'config:core.entity_view_display.media.instagram.thumbnail'
+        - 'config:core.entity_view_display.media.slideshow.agrisource_slideshow_view_mode'
+        - 'config:core.entity_view_display.media.slideshow.default'
+        - 'config:core.entity_view_display.media.slideshow.embedded'
+        - 'config:core.entity_view_display.media.slideshow_thumbnav.agrisource_slideshow_thumbnail'
+        - 'config:core.entity_view_display.media.slideshow_thumbnav.agrisource_slideshow_view_mode'
+        - 'config:core.entity_view_display.media.slideshow_thumbnav.default'
+        - 'config:core.entity_view_display.media.slideshow_thumbnav.embedded'
+        - 'config:core.entity_view_display.media.slideshow_thumbnav.media_library'
+        - 'config:core.entity_view_display.media.slideshow_thumbnav.thumbnail'
+        - 'config:core.entity_view_display.media.tweet.default'
+        - 'config:core.entity_view_display.media.tweet.embedded'
+        - 'config:core.entity_view_display.media.tweet.media_library'
+        - 'config:core.entity_view_display.media.tweet.thumbnail'
+        - 'config:core.entity_view_display.media.video.default'
+        - 'config:core.entity_view_display.media.video.embedded'
+        - 'config:core.entity_view_display.media.video.media_library'
+        - 'config:core.entity_view_display.media.video.thumbnail'
+        - 'config:core.entity_view_display.media.video_file.default'
+        - 'config:core.entity_view_display.media.video_file.embedded'
+        - 'config:core.entity_view_display.media.video_file.media_library'
+        - 'config:core.entity_view_display.media.video_file.thumbnail'
   widget:
     display_plugin: page
     id: widget
@@ -1098,7 +1242,71 @@ display:
         - url.query_args
         - 'url.query_args:sort_by'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.media.audio_file.default'
+        - 'config:core.entity_view_display.media.audio_file.embedded'
+        - 'config:core.entity_view_display.media.audio_file.media_library'
+        - 'config:core.entity_view_display.media.audio_file.thumbnail'
+        - 'config:core.entity_view_display.media.document.default'
+        - 'config:core.entity_view_display.media.document.embedded'
+        - 'config:core.entity_view_display.media.document.media_library'
+        - 'config:core.entity_view_display.media.document.thumbnail'
+        - 'config:core.entity_view_display.media.image.agrisource_slideshow_thumbnail'
+        - 'config:core.entity_view_display.media.image.agrisource_slideshow_view_mode'
+        - 'config:core.entity_view_display.media.image.default'
+        - 'config:core.entity_view_display.media.image.embedded'
+        - 'config:core.entity_view_display.media.image.linked'
+        - 'config:core.entity_view_display.media.image.media_library'
+        - 'config:core.entity_view_display.media.image.thumbnail'
+        - 'config:core.entity_view_display.media.image.w100'
+        - 'config:core.entity_view_display.media.image.w1000'
+        - 'config:core.entity_view_display.media.image.w1200'
+        - 'config:core.entity_view_display.media.image.w133'
+        - 'config:core.entity_view_display.media.image.w133r320'
+        - 'config:core.entity_view_display.media.image.w133r45'
+        - 'config:core.entity_view_display.media.image.w1400'
+        - 'config:core.entity_view_display.media.image.w1600'
+        - 'config:core.entity_view_display.media.image.w166'
+        - 'config:core.entity_view_display.media.image.w175'
+        - 'config:core.entity_view_display.media.image.w1900'
+        - 'config:core.entity_view_display.media.image.w200'
+        - 'config:core.entity_view_display.media.image.w250'
+        - 'config:core.entity_view_display.media.image.w300'
+        - 'config:core.entity_view_display.media.image.w333'
+        - 'config:core.entity_view_display.media.image.w400'
+        - 'config:core.entity_view_display.media.image.w50'
+        - 'config:core.entity_view_display.media.image.w500'
+        - 'config:core.entity_view_display.media.image.w533'
+        - 'config:core.entity_view_display.media.image.w600'
+        - 'config:core.entity_view_display.media.image.w700'
+        - 'config:core.entity_view_display.media.image.w75'
+        - 'config:core.entity_view_display.media.image.w800'
+        - 'config:core.entity_view_display.media.image.w900'
+        - 'config:core.entity_view_display.media.instagram.default'
+        - 'config:core.entity_view_display.media.instagram.embedded'
+        - 'config:core.entity_view_display.media.instagram.media_library'
+        - 'config:core.entity_view_display.media.instagram.thumbnail'
+        - 'config:core.entity_view_display.media.slideshow.agrisource_slideshow_view_mode'
+        - 'config:core.entity_view_display.media.slideshow.default'
+        - 'config:core.entity_view_display.media.slideshow.embedded'
+        - 'config:core.entity_view_display.media.slideshow_thumbnav.agrisource_slideshow_thumbnail'
+        - 'config:core.entity_view_display.media.slideshow_thumbnav.agrisource_slideshow_view_mode'
+        - 'config:core.entity_view_display.media.slideshow_thumbnav.default'
+        - 'config:core.entity_view_display.media.slideshow_thumbnav.embedded'
+        - 'config:core.entity_view_display.media.slideshow_thumbnav.media_library'
+        - 'config:core.entity_view_display.media.slideshow_thumbnav.thumbnail'
+        - 'config:core.entity_view_display.media.tweet.default'
+        - 'config:core.entity_view_display.media.tweet.embedded'
+        - 'config:core.entity_view_display.media.tweet.media_library'
+        - 'config:core.entity_view_display.media.tweet.thumbnail'
+        - 'config:core.entity_view_display.media.video.default'
+        - 'config:core.entity_view_display.media.video.embedded'
+        - 'config:core.entity_view_display.media.video.media_library'
+        - 'config:core.entity_view_display.media.video.thumbnail'
+        - 'config:core.entity_view_display.media.video_file.default'
+        - 'config:core.entity_view_display.media.video_file.embedded'
+        - 'config:core.entity_view_display.media.video_file.media_library'
+        - 'config:core.entity_view_display.media.video_file.thumbnail'
   widget_table:
     display_plugin: page
     id: widget_table
