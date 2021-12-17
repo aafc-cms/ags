@@ -1,24 +1,23 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\news_bulletin\Controller\DefaultController.
- */
-
 namespace Drupal\news_bulletin\Controller;
 
-//use Drupal\news_bulletin\NewsBulletinHelper;
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\node\Entity\Node;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * Default controller for the news_bulletin module.
  */
 class DefaultController extends ControllerBase {
 
-  private function _latest_revision($nid, &$vid) {
+  /**
+   * Retrieve the latest revision if it is a draft.
+   *
+   * $nid (int)
+   *   Node id.
+   * $vid (int)
+   *   Revision id by reference.
+   */
+  private function latestRevision($nid, &$vid) {
     $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
     $otherLang = 'fr';
     if ($lang == 'fr') {
@@ -46,6 +45,5 @@ class DefaultController extends ControllerBase {
     }
     return FALSE;
   }
-
 
 }
