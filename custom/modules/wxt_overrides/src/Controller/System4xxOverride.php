@@ -92,7 +92,12 @@ class System4xxOverride extends ControllerBase implements ContainerInjectionInte
   }
 
   /**
+   * Handle edge cases where certain dcrids need a different redirect.
    *
+   * @param int $dcrid
+   *   A teamsite dcrid.
+   * @param string $language
+   *   A langcode, in our case either 'en' or 'fr'.
    */
   public function specialNodeFromDcrid($dcrid, $language) {
     $dcrid = $dcrid . '';
