@@ -6,51 +6,54 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\Core\Url;
 use Drupal\Core\Routing\TrustedRedirectResponse;
 
-
+/**
+ * Utility class used by prefer_latest_content module.
+ */
 class Utils {
 
-  static protected $bodyClasses = array();
-
-  static public function addMessage($message) {
+  /**
+   * Add a message using the Drupal api.
+   */
+  public static function addMessage($message) {
     \Drupal::messenger()->addMessage($message);
   }
 
-  static public function addToLog($message, $DEBUG = FALSE) {
-    //$DEBUG = FALSE;
-    if ($DEBUG) {
+  /**
+   * Add a log message using the Drupal api.
+   */
+  public static function addToLog($message, $debug = FALSE) {
+    if ($debug) {
       \Drupal::logger('prefer_latest_content')->notice($message);
     }
   }
 
-
-  static public function killPageCache() {
-    \Drupal::service('page_cache_kill_switch')->trigger();
-  }
-
-
-  static public function getRouteName() {
+  /**
+   * Retrieve the current route name using the Drupal api (symfony).
+   */
+  public static function getRouteName() {
     $route = \Drupal::routeMatch()->getRouteName();
 
     return $route;
   }
 
-
-  static public function goto($url, $statusCode=null, $headers=null, $trusted=false) {
+  /**
+   * Wrapper for the Drupal 8/9 redirect api to be easier like the Drupal 7 api.
+   */
+  public static function goto($url, $statusCode = NULL, $headers = NULL, $trusted = FALSE) {
     //
     // Redirect to specific route or URL.
     //
-    //return new RedirectResponse(\Drupal::url('user.page'));
+    // return new RedirectResponse(\Drupal::url('user.page'));
     //
-    //return new RedirectResponse(\Drupal::url('locale.translate_status', [], ['absolute' => TRUE]));
+    // return new RedirectResponse(\Drupal::url('locale.translate_status', [], ['absolute' => TRUE]));
     //
-    //return new RedirectResponse(\Drupal::url('<front>', [], ['absolute' => TRUE]));
+    // return new RedirectResponse(\Drupal::url('<front>', [], ['absolute' => TRUE]));
     //
-    //return new RedirectResponse(Url::fromRoute('system.modules_uninstall')->setAbsolute()->toString());
+    // return new RedirectResponse(Url::fromRoute('system.modules_uninstall')->setAbsolute()->toString());
     //
-    //return new RedirectResponse(Url::fromRoute('<current>')->toString());
-
-    $statusCode = $statusCode === null ? 302 : $statusCode;
-    $headers = $headers === null ? array() : $headers;
+    // return new RedirectResponse(Url::fromRoute('<current>')->toString());
+    $statusCode = $statusCode === NULL ? 302 : $statusCode;
+    $headers = $headers === NULL ? [] : $headers;
 
     if ($trusted) {
       $response = new TrustedRedirectResponse($url, $statusCode, $headers);
@@ -72,18 +75,27 @@ class Utils {
     exit();
   }
 
-
-  static public function gotoRoute($key, $statusCode=null, $headers=null, $trusted=false) {
+  /**
+   * Wrapper for the goto method for an internal route.
+   */
+  public static function gotoRoute($key, $statusCode = NULL, $headers = NULL, $trusted = FALSE) {
     return static::goto(\Drupal::url($key), $statusCode, $headers, $trusted);
   }
 
-
-  static public function gotoExternal($url, $statusCode=null, $headers=null, $trusted=false) {
-    return static::goto($url, $statusCode, $headers, true);
+  /**
+   * Wrapper for the goto method for external redirect.
+   */
+  public static function gotoExternal($url, $statusCode = NULL, $headers = NULL, $trusted = FALSE) {
+    return static::goto($url, $statusCode, $headers, TRUE);
   }
 
-
-  static public function getNidFromPath($path = NULL) {
+  /**
+   * Retrieve the nid from the path parameter.
+   *
+   * $path (string)
+   *   Path contains a string like /en/example/2022-01-01
+   */
+  public static function getNidFromPath($path = NULL) {
     if (empty($path)) {
       return FALSE;
     }
@@ -104,9 +116,11 @@ class Utils {
     return FALSE;
   }
 
-
-  static public function gotoLegacy($path='', $options=array('code' => 302), $responseCode=null) {
-    $query = isset($options['query']) ? $options['query'] : array();
+  /**
+   * A wrapper for the goto() method that is to act similar to Drupal 7s goto().
+   */
+  public static function gotoLegacy($path = '', $options = ['code' => 302], $responseCode = NULL) {
+    $query = isset($options['query']) ? $options['query'] : [];
     $language = isset($options['language']) ? $options['language'] : \Drupal::languageManager()->getCurrentLanguage();
     $nid = isset($options['nid']) ? $options['nid'] : NULL;
 
@@ -132,11 +146,13 @@ class Utils {
       }
     }
 
-    return static::goto($url->toString(), $responseCode, array('code'), false);
+    return static::goto($url->toString(), $responseCode, ['code'], FALSE);
   }
 
-
-  static public function watchdog($module, $message, $vars=null, $type=null) {
+  /**
+   * Log something to the dblog similar to how Drupal 7 watchdog function works.
+   */
+  public static function watchdog($module, $message, $vars = NULL, $type = NULL) {
     static $typeMap = [
       'WATCHDOG_EMERGENCY' => 'emergency',
       'WATCHDOG_ALERT'     => 'alert',
@@ -149,28 +165,39 @@ class Utils {
     ];
 
     $method = 'notice';
-    if (isset($typeMap[(string)$type])) {
-      $methd = $typeMap[(string)$type];
+    if (isset($typeMap[(string) $type])) {
+      $methd = $typeMap[(string) $type];
     }
 
-    $vars = is_array($vars) ? $vars : array();
+    $vars = is_array($vars) ? $vars : [];
 
     \Drupal::logger($module)->$method($message, $vars);
   }
 
-
-  static public function isAjaxRequest() {
+  /**
+   * Is the current request an ajax request?
+   *
+   * Return (bool).
+   */
+  public static function isAjaxRequest() {
     if (isset($_SERVER['HTTP_X_REQUESTED_WITH'])
         &&
         strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
-      return true;
+      return TRUE;
     }
 
-    return false;
+    return FALSE;
   }
 
-
-  static public function getLatestRevisionOnlyIfDraft($nid, &$vid) {
+  /**
+   * Retrieve the latest revision if it is a draft.
+   *
+   * $nid (int)
+   *   Node id.
+   * $vid (int)
+   *   Revision id by reference.
+   */
+  public static function getLatestRevisionOnlyIfDraft($nid, &$vid) {
     $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
     $otherLang = 'fr';
     if ($lang == 'fr') {

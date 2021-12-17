@@ -19,7 +19,13 @@ use Drupal\Core\Block\BlockBase;
 class EmploymentClassificationGroups extends BlockBase {
 
   /**
+   * Retrieve the node and set reference to param if it's a preview node.
    *
+   * @param bool $ispreview_node
+   *   Preview node flag by reference.
+   *
+   * @return mixed
+   *   Return FALSE if there is no node otherwise the node object (revision id).
    */
   protected function getNode(&$ispreview_node) {
     $node = \Drupal::routeMatch()->getParameter('node');
@@ -33,7 +39,7 @@ class EmploymentClassificationGroups extends BlockBase {
         // See change record here: https://www.drupal.org/node/2942013 .
         $nid = $node;
         $vid = NULL;
-        $node = self::_latest_revision($nid, $vid);
+        $node = self::latestRevision($nid, $vid);
       }
       elseif (gettype($node) == 'object') {
         $nid = $node->id();
@@ -130,9 +136,17 @@ class EmploymentClassificationGroups extends BlockBase {
   }
 
   /**
-   * Get the latest revision.
+   * Retrieve the latest revision if it is a draft.
+   *
+   * @param int $nid
+   *   Node id.
+   * @param int $vid
+   *   Revision id by reference.
+   *
+   * @return mixed
+   *   Return FALSE if there is no draft revision or node otherwise the vid (revision id).
    */
-  public static function _latest_revision($nid, &$vid) {
+  public static function latestRevision($nid, &$vid) {
     // Can be removed once we move to Drupal >= 8.6.0 , currently on 8.5.0.
     // See change record here: https://www.drupal.org/node/2942013 .
     $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
