@@ -2,7 +2,7 @@
 
 idol_feed_api.get:
   path: 'idol_feed_api/search'
-  defaults: { _controller: '\Drupal\idol_feed_api\Controller\idol_feed_api_Controller::get_content' }
+  defaults: { _controller: '\Drupal\idol_feed_api\Controller\IdolFeedApiController::getContent' }
   methods:  [GET]
   requirements:
     _access: 'TRUE'
