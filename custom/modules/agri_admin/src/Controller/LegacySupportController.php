@@ -40,7 +40,13 @@ class LegacySupportController extends ControllerBase {
   }
 
   /**
+   * Retrieve dcrid from nid, used by the ajax functionality in admin/content view.
    *
+   * @param int $nid
+   *   The drupal node id.
+   *
+   * @return mixed
+   *   Returns either NULL or an int dcrid.
    */
   public function getDcridFromNid($nid) {
     // Retrieves a PDOStatement object
@@ -64,7 +70,13 @@ class LegacySupportController extends ControllerBase {
   }
 
   /**
+   * Retrieve nid from dcrid, used by the ajax functionality in admin/content view.
    *
+   * @param int $dcrid
+   *   The teamsite dcrid.
+   *
+   * @return mixed
+   *   Returns either NULL or an int drupal nid.
    */
   public function getNidFromDcrId($dcrid) {
     // Retrieves a PDOStatement object
@@ -122,6 +134,9 @@ class LegacySupportController extends ControllerBase {
 
   /**
    * Get the nids from the _GET param (validate it).
+   *
+   * @return int
+   *   Returns the drupal nid.
    */
   private function getIdFromGetParam() {
     $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();

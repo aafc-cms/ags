@@ -17,9 +17,9 @@ class WxtOverridesRouteSubscriber extends RouteSubscriberBase {
   protected function alterRoutes(RouteCollection $collection) {
     // Replace "some.route.name" below with the actual route you want to override.
     if ($route = $collection->get('system.404')) {
-      $route->setDefaults(array(
+      $route->setDefaults([
         '_controller' => '\Drupal\wxt_overrides\Controller\System4xxOverride::on404',
-      ));
+      ]);
     }
   }
 
