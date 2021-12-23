@@ -10,6 +10,36 @@
       if (context == document) {
         Agrisource.init();
         if ($('body').hasClass('user-logged-in')) {
+          if ($('body').hasClass('path-node')) {
+            $('#edit-submit').bind('click.agriAdmin', function(e) {
+              // Get the current state. Need to clone this object and remove the label so that we can get just the state.
+              var cur_state = '';
+              var mod_state = $('#edit-moderation-state-0-current').clone();
+              if (mod_state) {
+                $('label', mod_state).remove();
+                var cur_state = $(mod_state).text().trim();
+                cur_state = Drupal.t(cur_state);
+              }
+              var new_state = $('#edit-moderation-state-0-state option:selected').text();
+              new_state = Drupal.t(new_state);
+              // If changing from un-published to published...
+              if ((cur_state == Drupal.t('Archived')) && (new_state == Drupal.t('Draft'))) {
+                var confirm_message = Drupal.t('Are you sure you want to revive this page?');
+                if (! confirm(confirm_message)) {
+                  e.preventDefault();
+                  return false;
+                }
+              }
+              else if ((cur_state == Drupal.t('Archived')) && (new_state == Drupal.t('Delete'))) {
+                var confirm_message = Drupal.t('If you click ok, the archived page can\'t be restored.\nAre you sure you want to delete it?');
+                if (! confirm(confirm_message)) {
+                  e.preventDefault();
+                  return false;
+                }
+              }
+              return true;
+            });
+          }
           // Check if the actual 'admin' user is logged in, based on the name displayed in the toolbar.
           // There is a small delay before this information is available, so set a timer.
           // If this needs to be based on the admin _role_ instead, then we'll need an API function for that.
