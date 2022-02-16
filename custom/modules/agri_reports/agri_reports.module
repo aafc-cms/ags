@@ -30,8 +30,8 @@ function agri_reports_views_data_export_row_alter(&$row, \Drupal\views\ResultRow
 
     $row['field_issued'] = '';
     $values = $view->getExposedInput();
-    if (!empty($values["revision_timestamp"]['min']) && !empty($values["revision_timestamp"]['max'])) {
-      $date_from = $values["revision_timestamp"]['min'];
+    if (!empty($values["created"]['min']) && !empty($values["created"]['max'])) {
+      $date_from = $values["created"]['min'];
       $date_issued_date_only = date('Y-m-d',strtotime($date_issued));
       $date_from_date_only = date('Y-m-d',strtotime($date_from));
       if ($date_issued_date_only < $date_from_date_only) {
@@ -61,8 +61,8 @@ function agri_reports_preprocess_views_view_field(&$variables) {
       $date_issued = $row_entity->get('field_issued')->value;
       $variables['output'] = '';
       $values = $view->getExposedInput();
-      if (!empty($values["revision_timestamp"]['min']) && !empty($values["revision_timestamp"]['max'])) {
-        $date_from = $values["revision_timestamp"]['min'];
+      if (!empty($values["created"]['min']) && !empty($values["created"]['max'])) {
+        $date_from = $values["created"]['min'];
         $date_issued_date_only = date('Y-m-d',strtotime($date_issued));
         $date_from_date_only = date('Y-m-d',strtotime($date_from));
         if ($date_issued_date_only < $date_from_date_only) {
