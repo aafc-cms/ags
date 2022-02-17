@@ -1,9 +1,9 @@
 transport: smtp
-smtp_host: localhost
-smtp_port: 25
-smtp_encryption: '0'
+smtp_host: email-smtp.ca-central-1.amazonaws.com
+smtp_port: 587
+smtp_encryption: tls
 smtp_credential_provider: swiftmailer
 smtp_credentials:
   swiftmailer:
-    username: ''
-    password: null
+    username: AKIA4DJHEGSUNL4HRXNA
+    password: BPN+epK6PVg/K52rIpgfs2IkcWUnXXyrKkJuEI1487CZ

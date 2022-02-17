@@ -16,14 +16,14 @@ plugin: formblock_node
 settings:
   id: formblock_node
   label: 'News form, submit an article'
-  provider: formblock
   label_display: visible
+  provider: formblock
   type: news
   form_mode: default
   show_help: 1
 visibility:
   request_path:
     id: request_path
-    pages: "/submit-article-news-work\r\n/submit-article-newswork\r\n/soumettre-un-article-nouvelles-au-travail\r\n/fr/soumettre-un-article-nouvelles-au-travail\r\n/news/newswork/submit-article-newswork\r\n/news/newswork/submit-article-news-work\r\n/nouvelles/nouvelleslouvrage/soumission-dun-article-pour-nouvelleslouvrage\r\n/fr/nouvelles/nouvelleslouvrage/soumission-dun-article-pour-nouvelleslouvrage\r\n/nouvelles/nouvelleslouvrage/soumettre-un-article-nouvelles-au-travail\r\n/fr/nouvelles/nouvelleslouvrage/soumettre-un-article-nouvelles-au-travail"
     negate: false
     context_mapping: {  }
+    pages: "/submit-article-news-work\r\n/submit-article-newswork\r\n/soumettre-un-article-nouvelles-au-travail\r\n/fr/soumettre-un-article-nouvelles-au-travail\r\n/news/newswork/submit-article-newswork\r\n/news/newswork/submit-article-news-work\r\n/nouvelles/nouvelleslouvrage/soumission-dun-article-pour-nouvelleslouvrage\r\n/fr/nouvelles/nouvelleslouvrage/soumission-dun-article-pour-nouvelleslouvrage\r\n/nouvelles/nouvelleslouvrage/soumettre-un-article-nouvelles-au-travail\r\n/fr/nouvelles/nouvelleslouvrage/soumettre-un-article-nouvelles-au-travail"

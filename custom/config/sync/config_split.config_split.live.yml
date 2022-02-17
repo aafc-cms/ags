@@ -5,6 +5,7 @@ dependencies: {  }
 id: live
 label: live
 description: "settings only to be deployed to environments configured as 'live'.  \r\n"
+weight: -1
 folder: modules/custom/config/splits/live
 module:
   autologout: 0
@@ -58,4 +59,3 @@ blacklist:
 graylist: {  }
 graylist_dependents: true
 graylist_skip_equal: false
-weight: -1

@@ -12,20 +12,20 @@ pattern: 'ressources-humaines/possibilites-demploi-a-linterne/[node:title]'
 selection_criteria:
   be2ee5a6-547f-4e22-884d-21824d1f8e53:
     id: node_type
-    bundles:
-      empl: empl
     negate: false
+    uuid: be2ee5a6-547f-4e22-884d-21824d1f8e53
     context_mapping:
       node: node
-    uuid: be2ee5a6-547f-4e22-884d-21824d1f8e53
+    bundles:
+      empl: empl
   b8dbbe73-3e44-4234-a641-98a14dbbcdcd:
     id: language
-    langcodes:
-      fr: fr
     negate: false
+    uuid: b8dbbe73-3e44-4234-a641-98a14dbbcdcd
     context_mapping:
       language: 'node:langcode:language'
-    uuid: b8dbbe73-3e44-4234-a641-98a14dbbcdcd
+    langcodes:
+      fr: fr
 selection_logic: and
 weight: -10
 relationships:

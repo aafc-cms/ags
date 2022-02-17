@@ -23,7 +23,9 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_media_slideshow:
+    type: inline_entity_form_complex
     weight: 2
+    region: content
     settings:
       form_mode: default
       override_labels: true
@@ -32,16 +34,15 @@ content:
       allow_new: true
       allow_existing: true
       match_operator: CONTAINS
-      revision: false
+      allow_duplicate: false
       collapsible: false
       collapsed: false
-      allow_duplicate: false
+      revision: false
     third_party_settings: {  }
-    type: inline_entity_form_complex
-    region: content
   field_media_thumbs:
     type: inline_entity_form_complex
     weight: 1
+    region: content
     settings:
       form_mode: default
       override_labels: true
@@ -50,11 +51,10 @@ content:
       allow_new: true
       allow_existing: true
       match_operator: CONTAINS
-      revision: false
+      allow_duplicate: false
       collapsible: false
       collapsed: false
-      allow_duplicate: false
-    region: content
+      revision: false
     third_party_settings: {  }
   name:
     type: string_textfield
@@ -72,20 +72,20 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 6
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
     weight: 3
+    region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
-    region: content
     third_party_settings: {  }
 hidden:
   field_media_in_library: true

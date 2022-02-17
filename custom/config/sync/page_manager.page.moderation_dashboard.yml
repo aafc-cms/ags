@@ -2,11 +2,11 @@ uuid: cac6d962-455d-4cdf-83fd-03fac51dd2ec
 langcode: en
 status: true
 dependencies:
+  module:
+    - moderation_dashboard
   enforced:
     module:
       - moderation_dashboard
-  module:
-    - moderation_dashboard
 _core:
   default_config_hash: VfPvbl_yRuurg4Y5V0nK1u43hSwdwxOZE1RFP81BGSQ
 id: moderation_dashboard
@@ -29,5 +29,5 @@ access_conditions:
 parameters:
   user:
     machine_name: user
-    type: 'entity:user'
     label: Utilisateur
+    type: 'entity:user'

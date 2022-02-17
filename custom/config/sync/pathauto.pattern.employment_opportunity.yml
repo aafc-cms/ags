@@ -12,20 +12,20 @@ pattern: 'human-resources/internal-employment-opportunities/[node:title]'
 selection_criteria:
   43212ce1-f182-471a-afe9-c07d54bb3738:
     id: node_type
-    bundles:
-      empl: empl
     negate: false
+    uuid: 43212ce1-f182-471a-afe9-c07d54bb3738
     context_mapping:
       node: node
-    uuid: 43212ce1-f182-471a-afe9-c07d54bb3738
+    bundles:
+      empl: empl
   beb1204e-6442-493c-a319-68c0153012c4:
     id: language
-    langcodes:
-      en: en
     negate: false
+    uuid: beb1204e-6442-493c-a319-68c0153012c4
     context_mapping:
       language: 'node:langcode:language'
-    uuid: beb1204e-6442-493c-a319-68c0153012c4
+    langcodes:
+      en: en
 selection_logic: and
 weight: -9
 relationships:

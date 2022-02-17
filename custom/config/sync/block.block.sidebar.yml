@@ -20,16 +20,16 @@ plugin: 'system_menu_block:sidebar'
 settings:
   id: 'system_menu_block:sidebar'
   label: Sidebar
-  provider: system
   label_display: visible
+  provider: system
   level: 1
   depth: 0
   expand_all_items: false
 visibility:
-  node_type:
-    id: node_type
-    bundles:
-      page: page
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
+    bundles:
+      page: page

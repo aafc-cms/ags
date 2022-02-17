@@ -12,21 +12,21 @@ dependencies:
     - layout_builder
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
 id: media.slideshow_thumbnav.embedded
 targetEntityType: media
 bundle: slideshow_thumbnav
 mode: embedded
 content:
   field_media_slideshow:
-    label: hidden
-    weight: 0
-    settings:
-      link: true
-      view_mode: default
-    third_party_settings: {  }
     type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: true
+    third_party_settings: {  }
+    weight: 0
     region: content
 hidden:
   created: true

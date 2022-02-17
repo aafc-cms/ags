@@ -19,18 +19,18 @@ plugin: user_account_block
 settings:
   id: user_account_block
   label: 'User Account'
-  provider: wxt_library
   label_display: '0'
+  provider: wxt_library
 visibility:
   request_path:
     id: request_path
-    pages: '<front>'
     negate: true
     context_mapping: {  }
+    pages: '<front>'
   user_role:
     id: user_role
-    roles:
-      authenticated: authenticated
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated

@@ -8,12 +8,12 @@ dependencies:
     - content_translation
 third_party_settings:
   content_translation:
+    enabled: true
     bundle_settings:
       entity_translation_unified_form_enable: '1'
       entity_translation_unified_form_theme: EntityTranslationUnifiedFormInlineMode
       untranslatable_fields_hide: '1'
       entity_translation_unified_form_sbs_enable: '0'
-    enabled: true
 id: node.news
 target_entity_type_id: node
 target_bundle: news

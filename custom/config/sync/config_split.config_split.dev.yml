@@ -5,6 +5,7 @@ dependencies: {  }
 id: dev
 label: dev
 description: 'dev environment settings.'
+weight: 0
 folder: modules/custom/config/splits/dev
 module:
   dblog: 0
@@ -21,4 +22,3 @@ blacklist:
 graylist: {  }
 graylist_dependents: true
 graylist_skip_equal: true
-weight: 0

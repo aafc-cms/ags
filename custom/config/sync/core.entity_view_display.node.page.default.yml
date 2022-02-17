@@ -33,10 +33,13 @@ dependencies:
 third_party_settings:
   layout_builder:
     enabled: true
+    allow_custom: true
     sections:
       -
         layout_id: bs_1col_stacked
         layout_settings:
+          label: ''
+          context_mapping: {  }
           layout:
             wrapper: div
             classes:
@@ -62,8 +65,6 @@ third_party_settings:
                 col-sm-12: col-sm-12
               add_region_classes: 1
               attributes: ''
-          label: ''
-          context_mapping: {  }
         components:
           c62bbe2e-e1cb-48d6-803f-cf0f371d299b:
             uuid: c62bbe2e-e1cb-48d6-803f-cf0f371d299b
@@ -71,62 +72,61 @@ third_party_settings:
             configuration:
               id: page_title_block
               label: 'Page title'
-              provider: core
               label_display: '0'
+              provider: core
               context_mapping: {  }
-            additional: {  }
             weight: 2
+            additional: {  }
           32338ff6-919d-414d-a91b-fa0310743e8c:
             uuid: 32338ff6-919d-414d-a91b-fa0310743e8c
             region: top
             configuration:
               id: local_tasks_block
               label: Tabs
-              provider: core
               label_display: '0'
+              provider: core
+              context_mapping: {  }
               primary: true
               secondary: true
-              context_mapping: {  }
-            additional: {  }
             weight: 3
+            additional: {  }
           62bdbdfd-4fa7-4b64-9568-7e57ff8dfb6d:
             uuid: 62bdbdfd-4fa7-4b64-9568-7e57ff8dfb6d
             region: bottom
             configuration:
               id: 'field_block:node:page:comment'
               label: Comments
-              provider: layout_builder
               label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
               formatter:
-                label: above
                 type: comment_default
+                label: above
                 settings:
                   view_mode: default
                   pager_id: 0
                 third_party_settings: {  }
-              context_mapping:
-                entity: layout_builder.entity
-            additional: {  }
             weight: 0
+            additional: {  }
           a9f455ac-7a75-4241-bb9e-52f56897df0a:
             uuid: a9f455ac-7a75-4241-bb9e-52f56897df0a
             region: main
             configuration:
               id: 'field_block:node:page:body'
               label: Body
-              provider: layout_builder
               label_display: '0'
-              formatter:
-                label: hidden
-                type: text_default
-                settings: {  }
-                third_party_settings: {  }
+              provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
-            additional: {  }
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
             weight: 0
+            additional: {  }
         third_party_settings: {  }
-    allow_custom: true
   layout_library:
     enable: true
 _core:
@@ -137,117 +137,117 @@ bundle: page
 mode: default
 content:
   body:
-    label: hidden
     type: text_default
-    weight: 0
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 0
     region: content
   field_category:
-    weight: 2
+    type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 2
     region: top
   field_created_by:
-    weight: 15
+    type: string
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 15
     region: top
   field_dc_date_created:
-    weight: 14
+    type: datetime_default
     label: above
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: medium
     third_party_settings: {  }
-    type: datetime_default
+    weight: 14
     region: top
   field_description:
-    weight: 7
+    type: string
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 7
     region: top
   field_issued:
-    weight: 4
+    type: datetime_default
     label: above
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: medium
     third_party_settings: {  }
-    type: datetime_default
+    weight: 4
     region: top
   field_keywords:
-    weight: 5
+    type: string
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 5
     region: top
   field_meta_type:
-    weight: 10
+    type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 10
     region: top
   field_modified:
-    weight: 6
+    type: datetime_default
     label: above
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: medium
     third_party_settings: {  }
-    type: datetime_default
+    weight: 6
     region: top
   field_peer_review:
-    weight: 13
+    type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    weight: 13
     region: top
   field_subject:
-    weight: 9
+    type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 9
     region: top
   field_tracking_number:
-    weight: 11
+    type: string
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 11
     region: top
   field_update_date_modified:
-    weight: 12
+    type: boolean
     label: above
     settings:
       format: default
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    type: boolean
+    weight: 12
     region: top
   links:
-    weight: 1
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   comment: true
   content_moderation_control: true

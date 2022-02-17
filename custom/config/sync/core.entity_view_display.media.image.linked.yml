@@ -21,8 +21,6 @@ mode: linked
 content:
   field_image_link:
     type: link
-    weight: 1
-    region: content
     label: hidden
     settings:
       trim_length: null
@@ -31,14 +29,16 @@ content:
       rel: '0'
       target: '0'
     third_party_settings: {  }
+    weight: 1
+    region: content
   image:
     type: image
-    weight: 0
     label: hidden
     settings:
-      image_style: slideshow
       image_link: ''
+      image_style: slideshow
     third_party_settings: {  }
+    weight: 0
     region: content
 hidden:
   created: true

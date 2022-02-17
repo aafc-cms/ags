@@ -2,8 +2,47 @@ uuid: 73254895-4eed-46ac-bba3-a52d7aa6b0bd
 langcode: en
 status: true
 dependencies:
+  config:
+    - filter.format.full_html
+    - filter.format.no_editor_full
+    - filter.format.rich_text
+    - media.type.audio_file
+    - media.type.document
+    - media.type.image
+    - media.type.instagram
+    - media.type.slideshow
+    - media.type.tweet
+    - media.type.video
+    - media.type.video_file
+    - node.type.empl
+    - workflows.workflow.block_publishing
+    - workflows.workflow.editorial
+    - workflows.workflow.publishing
   module:
+    - access_unpublished
+    - agri_admin
+    - content_lock
+    - content_moderation
+    - content_translation
+    - contextual
+    - dropzonejs
+    - entity_browser
+    - filter
     - lightning_core
+    - lightning_scheduler
+    - media
+    - moderation_dashboard
+    - node
+    - panels
+    - panels_ipe
+    - paragraphs
+    - pathauto
+    - quickedit
+    - redirect
+    - responsive_image
+    - system
+    - toolbar
+    - wxt_core
 third_party_settings:
   lightning_core:
     description: 'the cspuyb role is used for HR to review and approve the employment opportunity form.'
@@ -25,20 +64,8 @@ permissions:
   - 'access toolbar'
   - 'access_unpublished block_content text'
   - 'access_unpublished node empl'
-  - 'access_unpublished path_alias'
   - 'administer content lock'
   - 'administer pane access'
-  - 'administer panelizer node empl content'
-  - 'administer panelizer node empl layout'
-  - 'administer panelizer node empl revert'
-  - 'administer panelizer taxonomy_term aafc_type content'
-  - 'administer panelizer taxonomy_term aafc_type defaults'
-  - 'administer panelizer taxonomy_term aafc_type layout'
-  - 'administer panelizer taxonomy_term aafc_type revert'
-  - 'administer panelizer taxonomy_term category defaults'
-  - 'administer panelizer taxonomy_term employment_type content'
-  - 'administer panelizer taxonomy_term employment_type layout'
-  - 'administer panelizer taxonomy_term employment_type revert'
   - 'administer redirects'
   - 'administer responsive images'
   - 'agrisource admin styles'
@@ -72,13 +99,6 @@ permissions:
   - 'schedule publishing transition send_to_reviewer'
   - 'schedule publishing transition take'
   - 'schedule publishing transition take_for_deletion'
-  - 'schedule publishing_employmentopportunity transition delete_empltrans'
-  - 'schedule publishing_employmentopportunity transition emergency_publish_empltrans'
-  - 'schedule publishing_employmentopportunity transition publish'
-  - 'schedule publishing_employmentopportunity transition publish_archived_content_empltrans'
-  - 'schedule publishing_employmentopportunity transition save_as_a_draft_empltrans'
-  - 'schedule publishing_employmentopportunity transition send_for_deletion_empltrans'
-  - 'schedule publishing_employmentopportunity transition send_to_reviewer_empltrans'
   - 'translate empl node'
   - 'update content translations'
   - 'use block_publishing transition approve_deletion'
@@ -91,13 +111,6 @@ permissions:
   - 'use moderation dashboard'
   - 'use panels dashboard'
   - 'use panels locks'
-  - 'use publishing_employmentopportunity transition delete_empltrans'
-  - 'use publishing_employmentopportunity transition emergency_publish_empltrans'
-  - 'use publishing_employmentopportunity transition publish'
-  - 'use publishing_employmentopportunity transition publish_archived_content_empltrans'
-  - 'use publishing_employmentopportunity transition save_as_a_draft_empltrans'
-  - 'use publishing_employmentopportunity transition send_for_deletion_empltrans'
-  - 'use publishing_employmentopportunity transition send_to_reviewer_empltrans'
   - 'use text format full_html'
   - 'use text format no_editor_full'
   - 'use text format rich_text'

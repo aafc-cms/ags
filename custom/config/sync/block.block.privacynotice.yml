@@ -25,39 +25,32 @@ plugin: 'block_content:b382751d-0591-4714-8dc8-506d8d8aa343'
 settings:
   id: 'block_content:b382751d-0591-4714-8dc8-506d8d8aa343'
   label: 'Privacy Notice for Employment Opportunities'
-  provider: block_content
   label_display: visible
+  provider: block_content
   status: true
   info: ''
   view_mode: full
 visibility:
   'entity_bundle:node':
     id: 'entity_bundle:node'
-    bundles:
-      empl: empl
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
+    bundles:
+      empl: empl
   request_path:
     id: request_path
-    pages: "/en/human-resources/internal-employment-opportunities*\r\n/human-resources/internal-employment-opportunities*\r\n/fr/ressources-humaines/possibilites-demploi-a-linterne*\r\n/ressources-humaines/possibilites-demploi-a-linterne*\r\n/node/preview*\r\n/en/node/preview*\r\n/fr/node/preview*\r\n/en//human-resources/employment*\r\n/human-resources/employment*\r\n/fr/ressources-humaines/emploi*"
     negate: false
     context_mapping: {  }
+    pages: "/en/human-resources/internal-employment-opportunities*\r\n/human-resources/internal-employment-opportunities*\r\n/fr/ressources-humaines/possibilites-demploi-a-linterne*\r\n/ressources-humaines/possibilites-demploi-a-linterne*\r\n/node/preview*\r\n/en/node/preview*\r\n/fr/node/preview*\r\n/en//human-resources/employment*\r\n/human-resources/employment*\r\n/fr/ressources-humaines/emploi*"
   user_role:
     id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
     roles:
       anonymous: anonymous
       administrator: administrator
       editor: editor
       reviewer: reviewer
       empl_cspub: empl_cspub
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
-  node_type:
-    id: node_type
-    bundles:
-      empl: empl
-    negate: false
-    context_mapping:
-      node: '@node.node_route_context:node'

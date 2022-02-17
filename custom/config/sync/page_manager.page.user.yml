@@ -15,13 +15,13 @@ access_logic: and
 access_conditions:
   -
     id: request_path
+    negate: true
+    context_mapping: {  }
     pages: |-
       /user/login
       /user/register
-    negate: true
-    context_mapping: {  }
 parameters:
   user:
     machine_name: user
-    type: 'entity:user'
     label: User
+    type: 'entity:user'

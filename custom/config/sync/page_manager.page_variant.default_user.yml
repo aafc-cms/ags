@@ -14,56 +14,58 @@ _core:
   default_config_hash: wSDPwhenoTtR35xTBf-kn7gqp5wumHImD7BrmMPpFD0
 id: default_user
 label: 'Default User'
+weight: -7
 variant: panels_variant
 variant_settings:
+  id: panels_variant
+  label: null
+  weight: 0
+  uuid: 1c74464e-5b9d-41e7-8825-371a214b4620
   blocks:
     142d3558-5fee-442f-9300-a5cf52f2b6a2:
       id: 'entity_view:user'
       label: 'Entity view (User)'
-      provider: ctools
       label_display: '0'
+      provider: ctools
       view_mode: full
+      context_mapping:
+        entity: '@user.current_user_context:current_user'
       region: top_right
       weight: 1
       uuid: 142d3558-5fee-442f-9300-a5cf52f2b6a2
-      context_mapping:
-        entity: '@user.current_user_context:current_user'
     81f4cd78-b164-4f03-bbf0-f69de1d57b14:
       id: page_title_block
       label: 'Page title'
-      provider: core
       label_display: '0'
+      provider: core
+      context_mapping: {  }
       region: top_right
       weight: -1
       uuid: 81f4cd78-b164-4f03-bbf0-f69de1d57b14
-      context_mapping: {  }
     c24d4207-94ed-4c91-abe4-5e2536a064de:
       id: local_tasks_block
       label: Tabs
-      provider: core
       label_display: '0'
+      provider: core
+      context_mapping: {  }
       primary: true
       secondary: true
       region: top_right
       weight: 0
       uuid: c24d4207-94ed-4c91-abe4-5e2536a064de
-      context_mapping: {  }
     ec02fb86-f8f5-4e85-8c4d-25a59169b086:
       id: 'system_menu_block:account'
       label: 'User account menu'
-      provider: system
       label_display: visible
+      provider: system
+      context_mapping: {  }
       level: 1
       depth: 0
       expand_all_items: false
       region: top_left
       weight: -1
       uuid: ec02fb86-f8f5-4e85-8c4d-25a59169b086
-      context_mapping: {  }
-  id: panels_variant
-  uuid: 1c74464e-5b9d-41e7-8825-371a214b4620
-  label: null
-  weight: 0
+  page_title: 'My account'
   layout: bs_2col_bricked
   layout_settings:
     layout:
@@ -115,19 +117,17 @@ variant_settings:
           col-sm-12: col-sm-12
         add_region_classes: 1
         attributes: ''
-  page_title: 'My account'
+  builder: ipe
   storage_type: page_manager
   storage_id: default_user
-  builder: ipe
 page: user
-weight: -7
 selection_criteria:
   -
     id: user_role
-    roles:
-      authenticated: authenticated
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated
 selection_logic: and
 static_context: {  }
