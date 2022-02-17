@@ -39,15 +39,15 @@ dependencies:
     - user
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
   layout_library:
     enable: true
   layout_builder_restrictions:
     entity_view_mode_restriction:
       allowed_layouts: {  }
-      whitelisted_blocks: {  }
       blacklisted_blocks: {  }
+      whitelisted_blocks: {  }
     allowed_block_categories: {  }
 id: node.news.default
 targetEntityType: node
@@ -55,42 +55,42 @@ bundle: news
 mode: default
 content:
   body:
-    weight: 3
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 3
     region: content
   field_from:
-    weight: 2
+    type: string
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 2
     region: content
   field_meta_tags:
-    weight: 4
+    type: metatag_empty_formatter
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: metatag_empty_formatter
+    weight: 4
     region: content
   field_posted:
-    weight: 0
+    type: datetime_default
     label: above
     settings:
       timezone_override: America/Toronto
       format_type: html_date
     third_party_settings: {  }
-    type: datetime_default
+    weight: 0
     region: content
   field_to:
-    weight: 1
+    type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    weight: 1
     region: content
 hidden:
   content_moderation_control: true

@@ -15,8 +15,8 @@ dependencies:
     - link
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
 _core:
   default_config_hash: VLDxfMVPTkd2xvOjFMCh3kWmaOYnd03zggFXuUXQVEY
 id: media.image.agrisource_slideshow_view_mode
@@ -26,8 +26,6 @@ mode: agrisource_slideshow_view_mode
 content:
   field_image_link:
     type: link
-    weight: 1
-    region: content
     label: hidden
     settings:
       trim_length: null
@@ -36,14 +34,16 @@ content:
       rel: '0'
       target: '0'
     third_party_settings: {  }
+    weight: 1
+    region: content
   image:
     type: image
-    weight: 0
     label: hidden
     settings:
-      image_style: agrisource_slideshow_style
       image_link: ''
+      image_style: agrisource_slideshow_style
     third_party_settings: {  }
+    weight: 0
     region: content
 hidden:
   created: true

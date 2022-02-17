@@ -22,14 +22,14 @@ plugin: 'block_content:b290c5dc-03ed-4f0b-bcf3-fa489258543c'
 settings:
   id: 'block_content:b290c5dc-03ed-4f0b-bcf3-fa489258543c'
   label: 'AAFC Social media'
-  provider: block_content
   label_display: '0'
+  provider: block_content
   status: true
   info: ''
   view_mode: full
 visibility:
   request_path:
     id: request_path
-    pages: "<front>\r\n/node/20/latest*"
     negate: false
     context_mapping: {  }
+    pages: "<front>\r\n/node/20/latest*"

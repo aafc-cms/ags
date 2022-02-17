@@ -43,151 +43,151 @@ third_party_settings:
       children:
         - field_classification
         - field_and_equivalent
+      label: 'Group, Level and'
+      region: content
       parent_name: group_opportunityopento
       weight: 3
       format_type: fieldset
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         description: ''
         required_fields: true
-      label: 'Group, Level and'
     group_opportunity_details:
       children:
         - title
         - field_type
         - field_branch
         - group_opportunitylocation
+      label: 'Opportunity details'
+      region: content
       parent_name: ''
       weight: 1
       format_type: details
-      region: content
       format_settings:
-        description: ''
-        open: true
-        required_fields: true
-        id: ''
         classes: never-collapse
-      label: 'Opportunity details'
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
     group_opportunity_approval:
       children:
         - field_opportunityapproval
+      label: 'Opportunity approval'
+      region: content
       parent_name: ''
       weight: 0
       format_type: details
-      region: content
       format_settings:
-        description: ''
-        open: true
-        required_fields: true
-        id: ''
         classes: never-collapse
-      label: 'Opportunity approval'
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
     group_opportunitylocation:
       children:
         - field_locations
         - group_opportunityopento
         - group_emplopportunityclosingdate
+      label: 'Where the opportunity is located:'
+      region: content
       parent_name: group_opportunity_details
       weight: 11
       format_type: details
-      region: content
       format_settings:
-        description: ''
-        open: true
-        required_fields: true
-        id: ''
         classes: never-collapse
-      label: 'Where the opportunity is located:'
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
     group_opportunityopento:
       children:
         - field_open_to
         - group_level_and
+      label: 'Who can apply for this opportunity:'
+      region: content
       parent_name: group_opportunitylocation
       weight: 13
       format_type: details
-      region: content
       format_settings:
-        description: ''
-        open: true
-        required_fields: true
-        id: ''
         classes: never-collapse
-      label: 'Who can apply for this opportunity:'
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
     group_opportunitydescription:
       children:
         - body
+      label: 'Opportunity Description'
+      region: content
       parent_name: ''
       weight: 2
       format_type: details
-      region: content
       format_settings:
-        description: "<span class=\"english-only\">\r\n Please include the information identified below in the opportunity description. This information must be included in your employment opportunity poster. If you have not yet created your poster, please complete in consultation with your\r\n<a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=1548432&amp;lang=eng\">Human Resources Advisor</a>\r\n, Staffing, the <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2879035&amp;lang=eng\">AAFC Employment Opportunity Poster Template</a>.\r\n</span>\r\n<br><ul class=\"english-only\">\t\r\n\t<li>Duties <strong>(if applicable)</strong></li>\t\r\n\t<li>Statement of Merit Criteria<strong>(required)</strong>\t\t\r\n\t\t\t<ul>\t\t\t\r\n\t\t\t<li>Essential Qualifications (i.e.: education, experience, knowledge, competencies) <strong>(required)</strong></li>\t\t\t\r\n\t\t\t<li>Language Requirement(s) <strong>(required)</strong></li>\t\t\r\n\t\t\t</ul>\t\r\n\t</li>\t\r\n\t<li>Asset Qualifications (i.e.: education, experience, knowledge, competencies) <strong>(optional)</strong></li>\t\r\n\t<li>Organizational Needs <strong>(required)</strong></li>\t\r\n\t<li>Conditions of Employment <strong>(required)</strong>\r\n\t\t<ul>\t\t\r\n\t\t<li>Security Requirement(s) <strong>(required)</strong></li>\t\t\r\n\t\t<li>Other conditions of employment (i.e.: travel and/or overtime) <strong>(optional)</strong></li>\t\r\n\t\t</ul>\r\n\t </li>\r\n\t<li>Applications<strong>(required)</strong></li>\t\r\n\t<li>Notes <strong>(required)</strong></li>\r\n</ul>\r\n\r\n\r\n<span class=\"french-only\">\r\nVeuillez inclure les renseignements indiqués ci-dessous dans la description de la possibilité. Ces renseignements doivent être inclus dans votre affiche annonçant la possibilité d'emploi. Si vous n'avez pas encore créé votre affiche, veuillez remplir, en consultation avec votre\r\n<a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=1548432&amp;lang=fra\">conseiller en ressources humaines</a>\r\nresponsable de la dotation, le modèle\r\n<a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2917181&amp;lang=fra\">d'affiche pour les possibilités d'emploi à AAC</a>.\r\n</span><br>\r\n<ul class=\"french-only\">\t\r\n\t<li>Fonctions <strong>(le cas échéant)</strong></li>\t\r\n\t<li>Énoncer des critères de mérite <strong>(requis)</strong>\t\t\r\n\t\t<ul>\t\t\t\r\n\t\t\t<li>Qualifications essentielles (exemples: éducation, expérience, connaissance, compétences) <strong>(requis)</strong></li>\t\t\t\r\n\t\t\t<li>Exigence(s) linguistique(s) <strong>(requis)</strong></li>\t\t\r\n\t\t</ul>\t\r\n\t</li>\t\r\n\t<li>Qualifications constituant un atout (exemples: éducation, expérience, connaissance, compétences) <strong>(optionnelle)</strong></li>\t\r\n\t<li>Besoins de l'organisation <strong>(requis)</strong></li>\t\r\n\t<li>Conditions d'emploi <strong>(requis)</strong>\t\t\r\n\t\t<ul>\t\t\t\r\n\t\t<li>Exigence(s) de sécurité(s) <strong>(requis)</strong></li>\t\t\t\r\n\t\t<li>Autre(s) conditions d'emploi(s) (exemples: voyager et/ou heures supplémentaires) <strong>(optionnelle)</strong></li>\t\t\r\n\t\t</ul>\t\r\n\t</li>\t\r\n\t<li>Demandes <strong>(requis)</strong></li>\t\r\n\t<li>Remarques <strong>(requis)</strong></li>\r\n</ul>\r\n"
-        open: true
-        required_fields: true
-        id: ''
         classes: never-collapse
-      label: 'Opportunity Description'
+        id: ''
+        open: true
+        description: "<span class=\"english-only\">\r\n Please include the information identified below in the opportunity description. This information must be included in your employment opportunity poster. If you have not yet created your poster, please complete in consultation with your\r\n<a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=1548432&amp;lang=eng\">Human Resources Advisor</a>\r\n, Staffing, the <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2879035&amp;lang=eng\">AAFC Employment Opportunity Poster Template</a>.\r\n</span>\r\n<br><ul class=\"english-only\">\t\r\n\t<li>Duties <strong>(if applicable)</strong></li>\t\r\n\t<li>Statement of Merit Criteria<strong>(required)</strong>\t\t\r\n\t\t\t<ul>\t\t\t\r\n\t\t\t<li>Essential Qualifications (i.e.: education, experience, knowledge, competencies) <strong>(required)</strong></li>\t\t\t\r\n\t\t\t<li>Language Requirement(s) <strong>(required)</strong></li>\t\t\r\n\t\t\t</ul>\t\r\n\t</li>\t\r\n\t<li>Asset Qualifications (i.e.: education, experience, knowledge, competencies) <strong>(optional)</strong></li>\t\r\n\t<li>Organizational Needs <strong>(required)</strong></li>\t\r\n\t<li>Conditions of Employment <strong>(required)</strong>\r\n\t\t<ul>\t\t\r\n\t\t<li>Security Requirement(s) <strong>(required)</strong></li>\t\t\r\n\t\t<li>Other conditions of employment (i.e.: travel and/or overtime) <strong>(optional)</strong></li>\t\r\n\t\t</ul>\r\n\t </li>\r\n\t<li>Applications<strong>(required)</strong></li>\t\r\n\t<li>Notes <strong>(required)</strong></li>\r\n</ul>\r\n\r\n\r\n<span class=\"french-only\">\r\nVeuillez inclure les renseignements indiqués ci-dessous dans la description de la possibilité. Ces renseignements doivent être inclus dans votre affiche annonçant la possibilité d'emploi. Si vous n'avez pas encore créé votre affiche, veuillez remplir, en consultation avec votre\r\n<a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=1548432&amp;lang=fra\">conseiller en ressources humaines</a>\r\nresponsable de la dotation, le modèle\r\n<a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2917181&amp;lang=fra\">d'affiche pour les possibilités d'emploi à AAC</a>.\r\n</span><br>\r\n<ul class=\"french-only\">\t\r\n\t<li>Fonctions <strong>(le cas échéant)</strong></li>\t\r\n\t<li>Énoncer des critères de mérite <strong>(requis)</strong>\t\t\r\n\t\t<ul>\t\t\t\r\n\t\t\t<li>Qualifications essentielles (exemples: éducation, expérience, connaissance, compétences) <strong>(requis)</strong></li>\t\t\t\r\n\t\t\t<li>Exigence(s) linguistique(s) <strong>(requis)</strong></li>\t\t\r\n\t\t</ul>\t\r\n\t</li>\t\r\n\t<li>Qualifications constituant un atout (exemples: éducation, expérience, connaissance, compétences) <strong>(optionnelle)</strong></li>\t\r\n\t<li>Besoins de l'organisation <strong>(requis)</strong></li>\t\r\n\t<li>Conditions d'emploi <strong>(requis)</strong>\t\t\r\n\t\t<ul>\t\t\t\r\n\t\t<li>Exigence(s) de sécurité(s) <strong>(requis)</strong></li>\t\t\t\r\n\t\t<li>Autre(s) conditions d'emploi(s) (exemples: voyager et/ou heures supplémentaires) <strong>(optionnelle)</strong></li>\t\t\r\n\t\t</ul>\t\r\n\t</li>\t\r\n\t<li>Demandes <strong>(requis)</strong></li>\t\r\n\t<li>Remarques <strong>(requis)</strong></li>\r\n</ul>\r\n"
+        required_fields: true
     group_emploppsubitappquestion:
       children:
         - field_name
         - field_email
+      label: 'Submit applications and questions to'
+      region: content
       parent_name: ''
       weight: 3
       format_type: details
-      region: content
       format_settings:
-        description: ''
-        open: true
-        required_fields: true
-        id: ''
         classes: never-collapse
-      label: 'Submit applications and questions to'
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
     group_employmentrequestorinfo:
       children:
         - field_employmentrequestorname
         - field_employmentrequestoremail
         - field_employmentrequestorphone
+      label: 'Requestor’s information for Web publishing request'
+      region: content
       parent_name: ''
       weight: 4
       format_type: details
-      region: content
       format_settings:
-        description: ''
-        open: true
-        id: ''
         classes: never-collapse
+        id: ''
+        open: true
+        description: ''
         required_fields: false
-      label: 'Requestor’s information for Web publishing request'
     group_empladditionalnotes:
       children:
         - field_empladditionalnotes
+      label: 'Additional remarks'
+      region: content
       parent_name: ''
       weight: 5
       format_type: details
-      region: content
       format_settings:
-        description: ''
-        open: true
-        required_fields: true
-        id: ''
         classes: never-collapse
-      label: 'Additional remarks'
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
     group_emplopportunityclosingdate:
       children:
         - field_date_closing
+      label: 'Opportunity closing:'
+      region: content
       parent_name: group_opportunitylocation
       weight: 14
       format_type: details
-      region: content
       format_settings:
-        description: ''
-        open: true
-        required_fields: true
-        id: ''
         classes: never-collapse
-      label: 'Opportunity closing:'
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
     group_emplaafcmetdatagroup:
       children:
         - field_description
@@ -196,48 +196,48 @@ third_party_settings:
         - field_dc_date_created
         - field_issued
         - field_modified
+      label: 'aafc metdata group'
+      region: content
       parent_name: ''
       weight: 8
       format_type: details_sidebar
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         open: false
+        description: ''
         required_fields: true
         weight: -50
-      label: 'aafc metdata group'
     group_aafcdctermsgctype:
       children:
         - field_meta_type
+      label: aafc-dcterms-gctype
+      region: content
       parent_name: ''
       weight: 11
       format_type: details_sidebar
-      region: content
       format_settings:
-        description: ''
-        weight: -45
-        required_fields: true
-        id: ''
         classes: ''
+        id: ''
         open: false
-      label: aafc-dcterms-gctype
+        description: ''
+        required_fields: true
+        weight: -45
     group_aafcdctermssubject:
       children:
         - field_subject
+      label: aafc-dcterms-subject
+      region: content
       parent_name: ''
       weight: 10
       format_type: details_sidebar
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         open: false
+        description: ''
         required_fields: true
         weight: -40
-      label: aafc-dcterms-subject
 id: node.empl.default
 targetEntityType: node
 bundle: empl
@@ -246,13 +246,13 @@ content:
   body:
     type: text_textarea_with_summary
     weight: 3
+    region: content
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
-    region: content
   field_and_equivalent:
     type: boolean_checkbox
     weight: 19
@@ -261,14 +261,15 @@ content:
       display_label: true
     third_party_settings: {  }
   field_branch:
+    type: options_select
     weight: 10
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_classification:
     type: entity_reference_paragraphs
     weight: 18
+    region: content
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -277,27 +278,26 @@ content:
       form_display_mode: default
       default_paragraph_type: ''
     third_party_settings: {  }
-    region: content
   field_created_by:
+    type: string_textfield
     weight: 14
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_date_closing:
+    type: datetime_default
     weight: 14
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: datetime_default
-    region: content
   field_dc_date_created:
+    type: datetime_default
     weight: 15
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: datetime_default
-    region: content
   field_description:
     type: string_textfield
     weight: 12
@@ -307,44 +307,44 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_email:
+    type: string_textfield
     weight: 26
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_empladditionalnotes:
+    type: string_textarea
     weight: 11
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
-    region: content
   field_employmentrequestoremail:
-    weight: 12
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
     type: email_default
+    weight: 12
     region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
   field_employmentrequestorname:
+    type: string_textfield
     weight: 11
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_employmentrequestorphone:
+    type: telephone_default
     weight: 13
+    region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
-    type: telephone_default
-    region: content
   field_issued:
     type: datetime_default
     weight: 16
@@ -360,13 +360,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_locations:
+    type: string_textfield
     weight: 12
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_meta_type:
     type: options_buttons
     weight: 11
@@ -380,29 +380,29 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_name:
+    type: string_textfield
     weight: 5
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_open_to:
-    weight: 2
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
     type: string_textfield
+    weight: 2
     region: content
-  field_opportunityapproval:
-    weight: 1
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_opportunityapproval:
     type: email_default
+    weight: 1
     region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
   field_subject:
     type: options_buttons
     weight: 11
@@ -410,22 +410,22 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_type:
+    type: options_buttons
     weight: 9
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_buttons
-    region: content
   layout_selection:
     type: options_select
-    region: content
     weight: 6
+    region: content
     settings: {  }
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
     weight: 7
-    settings: {  }
     region: content
+    settings: {  }
     third_party_settings: {  }
   title:
     type: string_textfield

@@ -10,34 +10,34 @@ dependencies:
     - node
 _core:
   default_config_hash: Tt8DtxZ3Nooo0PoWPpJvszA3R_5d8MmpUW7LM_R-BzY
-id: default
 label: Default
+id: default
 description: 'A default Linkit profile'
 matchers:
   556010a3-e317-48b3-b4ed-854c10f4b950:
-    uuid: 556010a3-e317-48b3-b4ed-854c10f4b950
     id: 'entity:node'
-    weight: 0
+    uuid: 556010a3-e317-48b3-b4ed-854c10f4b950
     settings:
       metadata: 'by [node:author] | [node:created:medium]'
       bundles: {  }
       group_by_bundle: true
-      include_unpublished: true
       substitution_type: canonical
       limit: 100
-  9a7c7a41-ba04-4f65-b4ac-4eeb872cb02e:
-    uuid: 9a7c7a41-ba04-4f65-b4ac-4eeb872cb02e
-    id: 'entity:file'
+      include_unpublished: true
     weight: 0
+  9a7c7a41-ba04-4f65-b4ac-4eeb872cb02e:
+    id: 'entity:file'
+    uuid: 9a7c7a41-ba04-4f65-b4ac-4eeb872cb02e
     settings:
+      metadata: 'by [file:owner] [file:name] [file:original:changed]'
+      bundles: null
+      group_by_bundle: null
+      substitution_type: file
+      limit: 100
       file_extensions: 'docx doc pdf ppt pptx xls xlsx odt zip rtf ods txt mp4 wmv jpg jpeg png gif bmp json'
       file_status: 1
       images:
         show_dimensions: false
         show_thumbnail: true
         thumbnail_image_style: small
-      substitution_type: file
-      metadata: 'by [file:owner] [file:name] [file:original:changed]'
-      bundles: null
-      group_by_bundle: null
-      limit: 100
+    weight: 0

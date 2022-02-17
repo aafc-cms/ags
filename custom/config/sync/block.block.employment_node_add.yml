@@ -16,14 +16,14 @@ plugin: formblock_node
 settings:
   id: formblock_node
   label: 'Employment form, add opportunity'
-  provider: formblock
   label_display: '0'
+  provider: formblock
   type: empl
   form_mode: default
   show_help: 0
 visibility:
   request_path:
     id: request_path
-    pages: "/internal-employment-opportunity-request-form\r\n/formulaire-de-demande-pour-les-possibilites-demploi-a-linterne\r\n/human-resources/staffing/internal-employment-opportunity-request-form\r\n/ressources-humaines/dotation/formulaire-de-demande-pour-les-possibilites-demploi-linterne"
     negate: false
     context_mapping: {  }
+    pages: "/internal-employment-opportunity-request-form\r\n/formulaire-de-demande-pour-les-possibilites-demploi-a-linterne\r\n/human-resources/staffing/internal-employment-opportunity-request-form\r\n/ressources-humaines/dotation/formulaire-de-demande-pour-les-possibilites-demploi-linterne"

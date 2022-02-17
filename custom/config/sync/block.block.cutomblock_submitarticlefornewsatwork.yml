@@ -25,35 +25,28 @@ plugin: 'block_content:9cc4d184-ead7-4997-9da1-fc10b12ab2af'
 settings:
   id: 'block_content:9cc4d184-ead7-4997-9da1-fc10b12ab2af'
   label: 'Submit an article for news at work'
-  provider: block_content
   label_display: visible
+  provider: block_content
   status: true
   info: ''
   view_mode: full
 visibility:
   'entity_bundle:node':
     id: 'entity_bundle:node'
-    bundles:
-      news: news
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
-  node_type:
-    id: node_type
     bundles:
       news: news
-    negate: false
-    context_mapping:
-      node: '@node.node_route_context:node'
   request_path:
     id: request_path
-    pages: "/node/add/news*\r\nnode/add/news/*\r\n/submit-article-news-work\r\n/en/submit-article-newswork\r\n/submit-article-newswork\r\n/soumettre-un-article-nouvelles-au-travail\r\n/news/newswork/submit-article-newswork\r\n/nouvelles/nouvelleslouvrage/soumission-dun-article-pour-nouvelleslouvrage\r\n/fr/soumettre-un-article-nouvelles-au-travail\r\n/news/newswork/submit-article-newswork\r\n/news/newswork/submit-article-news-work\r\n/nouvelles/nouvelleslouvrage/soumission-dun-article-pour-nouvelleslouvrage\r\n/fr/nouvelles/nouvelleslouvrage/soumission-dun-article-pour-nouvelleslouvrage\r\n/nouvelles/nouvelleslouvrage/soumettre-un-article-nouvelles-au-travail\r\n/fr/nouvelles/nouvelleslouvrage/soumettre-un-article-nouvelles-au-travail"
     negate: false
     context_mapping: {  }
+    pages: "/node/add/news*\r\nnode/add/news/*\r\n/submit-article-news-work\r\n/en/submit-article-newswork\r\n/submit-article-newswork\r\n/soumettre-un-article-nouvelles-au-travail\r\n/news/newswork/submit-article-newswork\r\n/nouvelles/nouvelleslouvrage/soumission-dun-article-pour-nouvelleslouvrage\r\n/fr/soumettre-un-article-nouvelles-au-travail\r\n/news/newswork/submit-article-newswork\r\n/news/newswork/submit-article-news-work\r\n/nouvelles/nouvelleslouvrage/soumission-dun-article-pour-nouvelleslouvrage\r\n/fr/nouvelles/nouvelleslouvrage/soumission-dun-article-pour-nouvelleslouvrage\r\n/nouvelles/nouvelleslouvrage/soumettre-un-article-nouvelles-au-travail\r\n/fr/nouvelles/nouvelleslouvrage/soumettre-un-article-nouvelles-au-travail"
   user_role:
     id: user_role
-    roles:
-      anonymous: anonymous
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
+    roles:
+      anonymous: anonymous

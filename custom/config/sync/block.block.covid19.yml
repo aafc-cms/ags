@@ -22,14 +22,14 @@ plugin: 'block_content:6c08b34c-767e-427a-968f-e0dbd4dd0acf'
 settings:
   id: 'block_content:6c08b34c-767e-427a-968f-e0dbd4dd0acf'
   label: COVID-19
-  provider: block_content
   label_display: '0'
+  provider: block_content
   status: true
   info: ''
   view_mode: full
 visibility:
   request_path:
     id: request_path
-    pages: "<front>\r\n/node/20/latest*"
     negate: false
     context_mapping: {  }
+    pages: "<front>\r\n/node/20/latest*"

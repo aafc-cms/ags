@@ -42,145 +42,145 @@ third_party_settings:
         - field_newssubmittername
         - field_newssubmitteremail
         - field_newssubmitterphone
+      label: 'Submitter''s contact information'
+      region: content
       parent_name: ''
       weight: 9
       format_type: details
-      region: content
       format_settings:
-        description: "<span class=\"english-only\">This person will be contacted if there are questions about this submission.</span>\r\n\r\n<span class=\"french-only\">\r\nLe coordonnateur de <em>nouvelles@l’ouvrage</em> communiquera avec cette personne s’il y a des questions au sujet de  l’article soumis.\r\n</span>"
-        open: true
-        required_fields: true
-        id: ''
         classes: 'submitterContactDetail never-collapse'
-      label: 'Submitter''s contact information'
+        id: ''
+        open: true
+        description: "<span class=\"english-only\">This person will be contacted if there are questions about this submission.</span>\r\n\r\n<span class=\"french-only\">\r\nLe coordonnateur de <em>nouvelles@l’ouvrage</em> communiquera avec cette personne s’il y a des questions au sujet de  l’article soumis.\r\n</span>"
+        required_fields: true
     group_newsreviewerandapprover:
       children:
         - field_newsreviewedby
         - field_newsapprovedby
+      label: 'Article approval'
+      region: content
       parent_name: ''
       weight: 0
       format_type: details
-      region: content
       format_settings:
-        description: "<span class=\"english-only\">All articles must be reviewed by a <a href=\"/en/public-affairs-branch/communications-advisors\" target=\"_blank\">Public Affairs Branch Advisor</a> and be approved by a Director or above.</span>\r\n<span class=\"french-only\">Les articles doivent avoir l'approbation par un <a href=\"/fr/direction-generale-des-affaires-publiques/conseillers-en-communications\" target=\"_blank\">Conseiller d'Affaires Publique</a> et approver par un directeur ou a le conseiller d'affaires publiques.</span>"
-        open: true
-        required_fields: true
-        id: ''
         classes: never-collapse
-      label: 'Article approval'
+        id: ''
+        open: true
+        description: "<span class=\"english-only\">All articles must be reviewed by a <a href=\"/en/public-affairs-branch/communications-advisors\" target=\"_blank\">Public Affairs Branch Advisor</a> and be approved by a Director or above.</span>\r\n<span class=\"french-only\">Les articles doivent avoir l'approbation par un <a href=\"/fr/direction-generale-des-affaires-publiques/conseillers-en-communications\" target=\"_blank\">Conseiller d'Affaires Publique</a> et approver par un directeur ou a le conseiller d'affaires publiques.</span>"
+        required_fields: true
     group_aboutarticle:
       children:
         - field_newstype
         - field_to
+      label: 'About the article'
+      region: content
       parent_name: ''
       weight: 1
       format_type: details
-      region: content
       format_settings:
-        description: ''
-        open: true
-        required_fields: true
-        id: ''
         classes: never-collapse
-      label: 'About the article'
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
     group_newsarticleheadline:
       children:
         - title
+      label: 'Article headline'
+      region: content
       parent_name: ''
       weight: 2
       format_type: details
-      region: content
       format_settings:
-        description: "<span class=\"english-only\">See the <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2903350&amp;lang=eng\" target=\"_blank\">headline guidelines</a> for information on how to write an effective headline.\r\n</span>\r\n<span class=\"french-only\">\r\nVeuillez consulter les <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2911217&amp;lang=fra\" target=\"_blank\">instructions sur les titres</a> pour obtenir des conseils sur la rédaction de titres efficaces.\r\n</span>"
-        open: true
-        required_fields: true
-        id: ''
         classes: ''
-      label: 'Article headline'
+        id: ''
+        open: true
+        description: "<span class=\"english-only\">See the <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2903350&amp;lang=eng\" target=\"_blank\">headline guidelines</a> for information on how to write an effective headline.\r\n</span>\r\n<span class=\"french-only\">\r\nVeuillez consulter les <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2911217&amp;lang=fra\" target=\"_blank\">instructions sur les titres</a> pour obtenir des conseils sur la rédaction de titres efficaces.\r\n</span>"
+        required_fields: true
     group_newssentby:
       children:
         - field_from
+      label: 'Who will readers see the article has been "Sent By"?'
+      region: content
       parent_name: ''
       weight: 3
       format_type: details
-      region: content
       format_settings:
-        description: "<span class=\"english-only\">Name the branch, ADM, directorate, unit, or group that readers will see the article has been \"Sent By\". Consult the <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2903361&amp;lang=eng\" target=\"_blank\">Sent By guidelines</a>.</span>\r\n\r\n<span class=\"french-only\">Veuillez indiquer le nom de la direction générale, du ou de la SMA, de la direction, de la section ou du groupe que les lecteurs verront sous la mention « De ». Consultez les <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2911213&amp;lang=fra\" target=\"_blank\">instructions sur la mention « De »</a>.\r\n</span>"
-        open: true
-        required_fields: true
-        id: ''
         classes: never-collapse
-      label: 'Who will readers see the article has been "Sent By"?'
+        id: ''
+        open: true
+        description: "<span class=\"english-only\">Name the branch, ADM, directorate, unit, or group that readers will see the article has been \"Sent By\". Consult the <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2903361&amp;lang=eng\" target=\"_blank\">Sent By guidelines</a>.</span>\r\n\r\n<span class=\"french-only\">Veuillez indiquer le nom de la direction générale, du ou de la SMA, de la direction, de la section ou du groupe que les lecteurs verront sous la mention « De ». Consultez les <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2911213&amp;lang=fra\" target=\"_blank\">instructions sur la mention « De »</a>.\r\n</span>"
+        required_fields: true
     group_newsarticle:
       children:
         - body
+      label: 'The article'
+      region: content
       parent_name: ''
       weight: 4
       format_type: details
-      region: content
       format_settings:
-        description: "<span class=\"english-only\">\r\nPaste the body of  the article below (do not include the headline). Indicate where any images (including captions) should appear.\r\n\r\nAny images, PDFs or other related files must be attached in the \"Related files\" section below. Review the instructions for  <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2903304&amp;lang=eng\" target=\"_blank\">photos, graphics, captions and permissions</a>.</span>\r\n\r\n<span class=\"french-only\">\r\nVeuillez copier/coller l’article dans l’espace ci-dessous (ne pas inclure le titre). Si  l’article contient des images, indiquez à quel endroit ces dernières et les légendes qui les accompagnent doivent être insérées dans l’article.\r\n\r\nLes images, les fichiers en format PDF et autres fichiers connexes doivent être joints  dans la section « Fichiers connexes » ci-dessous. Consultez les <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2911233&amp;lang=fra\" target=\"_blank\">instructions sur les photos, les graphiques, les légendes et les autorisations</a>.</span>"
-        open: true
-        required_fields: true
-        id: ''
         classes: ''
-      label: 'The article'
+        id: ''
+        open: true
+        description: "<span class=\"english-only\">\r\nPaste the body of  the article below (do not include the headline). Indicate where any images (including captions) should appear.\r\n\r\nAny images, PDFs or other related files must be attached in the \"Related files\" section below. Review the instructions for  <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2903304&amp;lang=eng\" target=\"_blank\">photos, graphics, captions and permissions</a>.</span>\r\n\r\n<span class=\"french-only\">\r\nVeuillez copier/coller l’article dans l’espace ci-dessous (ne pas inclure le titre). Si  l’article contient des images, indiquez à quel endroit ces dernières et les légendes qui les accompagnent doivent être insérées dans l’article.\r\n\r\nLes images, les fichiers en format PDF et autres fichiers connexes doivent être joints  dans la section « Fichiers connexes » ci-dessous. Consultez les <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2911233&amp;lang=fra\" target=\"_blank\">instructions sur les photos, les graphiques, les légendes et les autorisations</a>.</span>"
+        required_fields: true
     group_newstranslationreqnum:
       children:
         - field_newstranslationnum
+      label: 'Translation request number'
+      region: content
       parent_name: ''
       weight: 6
       format_type: details
-      region: content
       format_settings:
-        description: "<span class=\"english-only\">Please supply the request number given to you by <a href=\"/en/public-affairs-branch/translation-and-revision-services\" target=\"_blank\">Translation and Revision Services</a>. </span>\r\n\r\n<span class=\"french-only\">Veuillez fournir le  numéro de demande qui vous a été fourni par le <a href=\"/fr/direction-generale-des-affaires-publiques/service-de-traduction-et-de-revision\" target=\"_blank\">Service de traduction et de révision</a>.  </span>"
-        open: true
-        required_fields: true
-        id: ''
         classes: never-collapse
-      label: 'Translation request number'
+        id: ''
+        open: true
+        description: "<span class=\"english-only\">Please supply the request number given to you by <a href=\"/en/public-affairs-branch/translation-and-revision-services\" target=\"_blank\">Translation and Revision Services</a>. </span>\r\n\r\n<span class=\"french-only\">Veuillez fournir le  numéro de demande qui vous a été fourni par le <a href=\"/fr/direction-generale-des-affaires-publiques/service-de-traduction-et-de-revision\" target=\"_blank\">Service de traduction et de révision</a>.  </span>"
+        required_fields: true
     group_newsposteddate:
       children:
         - field_posted
+      label: 'Posting date'
+      region: content
       parent_name: ''
       weight: 7
       format_type: details
-      region: content
       format_settings:
-        description: ''
-        open: true
-        required_fields: true
-        id: ''
         classes: never-collapse
-      label: 'Posting date'
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
     group_newsnotes:
       children:
         - field_newsnotes
+      label: Notes
+      region: content
       parent_name: ''
       weight: 10
       format_type: details
-      region: content
       format_settings:
-        description: ''
-        open: true
-        required_fields: true
-        id: ''
         classes: never-collapse
-      label: Notes
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
     group_newsattachedfiles:
       children:
         - field_newsfile5
+      label: 'Related files'
+      region: content
       parent_name: ''
       weight: 5
       format_type: details
-      region: content
       format_settings:
-        description: "<span class=\"english-only\">Click \"Add media\" to add any photos, graphics, PDFs or other  related files to the article. Review the instructions for <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2903304&amp;lang=eng\" target=\"_blank\">photos, graphics, captions and permissions</a>.</span>\r\n\r\n<span class=\"french-only\">\r\nSi l’article contient des photos, des graphiques, un  fichier en format PDF ou tout autre fichier connexe, cliquez sur « Joindre des médias» pour ajouter ces documents. Consultez les <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2911233&amp;lang=fra\" target=\"_blank\">instructions sur photos, les graphiques, les légendes et les autorisations</a>.\r\n</span>"
-        open: true
-        required_fields: true
-        id: ''
         classes: never-collapse
-      label: 'Related files'
+        id: ''
+        open: true
+        description: "<span class=\"english-only\">Click \"Add media\" to add any photos, graphics, PDFs or other  related files to the article. Review the instructions for <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2903304&amp;lang=eng\" target=\"_blank\">photos, graphics, captions and permissions</a>.</span>\r\n\r\n<span class=\"french-only\">\r\nSi l’article contient des photos, des graphiques, un  fichier en format PDF ou tout autre fichier connexe, cliquez sur « Joindre des médias» pour ajouter ces documents. Consultez les <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2911233&amp;lang=fra\" target=\"_blank\">instructions sur photos, les graphiques, les légendes et les autorisations</a>.\r\n</span>"
+        required_fields: true
     group_testingdetailsgroup:
       children:
         - field_description
@@ -189,77 +189,77 @@ third_party_settings:
         - field_dc_date_created
         - field_issued
         - field_modified
+      label: 'aafc metadata group'
+      region: content
       parent_name: ''
       weight: 13
       format_type: details_sidebar
-      region: content
       format_settings:
-        description: ''
-        weight: -50
-        required_fields: true
-        id: ''
         classes: ''
+        id: ''
         open: false
-      label: 'aafc metadata group'
+        description: ''
+        required_fields: true
+        weight: -50
     group_newsaafcdectermstype:
       children:
         - field_meta_type
+      label: aafc-dcterms-gctype
+      region: content
       parent_name: ''
       weight: 14
       format_type: details_sidebar
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         open: false
+        description: ''
         required_fields: true
         weight: -44
-      label: aafc-dcterms-gctype
     group_newsaafcdctermssubject:
       children:
         - field_subject
+      label: aafc-dcterms-subject
+      region: content
       parent_name: ''
       weight: 15
       format_type: details_sidebar
-      region: content
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         open: false
+        description: ''
         required_fields: true
         weight: -43
-      label: aafc-dcterms-subject
 id: node.news.default
 targetEntityType: node
 bundle: news
 mode: default
 content:
   body:
+    type: text_textarea_with_summary
     weight: 26
+    region: content
     settings:
       rows: 9
-      placeholder: ''
       summary_rows: 3
+      placeholder: ''
       show_summary: true
     third_party_settings: {  }
-    type: text_textarea_with_summary
-    region: content
   field_created_by:
+    type: string_textfield
     weight: 18
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_dc_date_created:
+    type: datetime_default
     weight: 19
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: datetime_default
-    region: content
   field_description:
     type: string_textfield
     weight: 16
@@ -269,13 +269,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_from:
+    type: string_textfield
     weight: 4
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_issued:
     type: datetime_default
     weight: 20
@@ -303,13 +303,13 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_newsapprovedby:
-    weight: 1
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
     type: email_default
+    weight: 1
     region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
   field_newsexpirydate:
     type: datetime_default
     weight: 8
@@ -319,33 +319,33 @@ content:
   field_newsfile5:
     type: media_library_widget
     weight: 33
+    region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
-    region: content
   field_newsnotes:
+    type: string_textarea
     weight: 10
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
-    region: content
   field_newsreviewedby:
-    weight: 0
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
     type: email_default
+    weight: 0
     region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
   field_newssubmitteremail:
     type: email_default
     weight: 8
     region: content
     settings:
-      size: 60
       placeholder: ''
+      size: 60
     third_party_settings: {  }
   field_newssubmittername:
     type: string_textfield
@@ -363,25 +363,25 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_newstranslationnum:
+    type: string_textfield
     weight: 9
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_newstype:
-    weight: 2
-    settings: {  }
-    third_party_settings: {  }
     type: options_select
+    weight: 2
     region: content
-  field_posted:
-    weight: 8
     settings: {  }
     third_party_settings: {  }
+  field_posted:
     type: datetime_default
+    weight: 8
     region: content
+    settings: {  }
+    third_party_settings: {  }
   field_subject:
     type: options_buttons
     weight: 14
@@ -389,22 +389,22 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_to:
+    type: options_select
     weight: 3
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   layout_selection:
     type: options_select
-    region: content
     weight: 12
+    region: content
     settings: {  }
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
     weight: 11
-    settings: {  }
     region: content
+    settings: {  }
     third_party_settings: {  }
   title:
     type: string_textfield

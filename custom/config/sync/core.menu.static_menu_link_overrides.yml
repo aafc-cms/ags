@@ -1,3 +1,5 @@
+_core:
+  default_config_hash: jdY7AU0tU-QsjmiOw3W8vwpYMb-By--_MSFgbqKUTYM
 definitions:
   user__page:
     menu_name: account
@@ -12,70 +14,68 @@ definitions:
     expanded: false
     enabled: true
   contact__site_page:
-    weight: -48
     menu_name: footer
     parent: 'menu_link_content:37f012fd-17da-4f5a-9d65-ac6f5aeeda61'
-    enabled: true
+    weight: -48
     expanded: false
+    enabled: true
   wxt__front_page:
-    weight: -50
     menu_name: main
     parent: ''
+    weight: -50
     expanded: true
     enabled: false
   admin_toolbar_tools__help:
+    menu_name: admin
+    parent: system.admin
     weight: -50
-    menu_name: admin
-    parent: system.admin
-    enabled: true
     expanded: false
+    enabled: true
   system__admin_content:
-    weight: -49
     menu_name: admin
     parent: system.admin
+    weight: -49
     expanded: false
     enabled: true
   system__admin_structure:
-    weight: -48
     menu_name: admin
     parent: system.admin
+    weight: -48
     expanded: false
     enabled: true
   system__themes_page:
-    weight: -47
     menu_name: admin
     parent: system.admin
+    weight: -47
     expanded: false
     enabled: true
   system__modules_list:
-    weight: -46
     menu_name: admin
     parent: system.admin
+    weight: -46
     expanded: false
     enabled: true
   system__admin_config:
-    weight: -45
     menu_name: admin
     parent: system.admin
+    weight: -45
     expanded: false
     enabled: true
   entity__user__collection:
-    weight: -41
     menu_name: admin
     parent: system.admin
+    weight: -41
     expanded: false
     enabled: true
   system__admin_reports:
-    weight: -40
     menu_name: admin
     parent: system.admin
+    weight: -40
     expanded: false
     enabled: true
   help__main:
-    weight: -39
     menu_name: admin
     parent: system.admin
+    weight: -39
     expanded: false
     enabled: true
-_core:
-  default_config_hash: jdY7AU0tU-QsjmiOw3W8vwpYMb-By--_MSFgbqKUTYM

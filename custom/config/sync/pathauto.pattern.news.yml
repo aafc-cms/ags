@@ -12,20 +12,20 @@ pattern: 'news/newswork/[node:title]'
 selection_criteria:
   878e6580-af92-48e0-8e4a-9527a9b35129:
     id: node_type
-    bundles:
-      news: news
     negate: false
+    uuid: 878e6580-af92-48e0-8e4a-9527a9b35129
     context_mapping:
       node: node
-    uuid: 878e6580-af92-48e0-8e4a-9527a9b35129
+    bundles:
+      news: news
   c5fa834f-4d88-4b42-96ed-17c6822c57bf:
     id: language
-    langcodes:
-      en: en
     negate: false
+    uuid: c5fa834f-4d88-4b42-96ed-17c6822c57bf
     context_mapping:
       language: 'node:langcode:language'
-    uuid: c5fa834f-4d88-4b42-96ed-17c6822c57bf
+    langcodes:
+      en: en
 selection_logic: and
 weight: -8
 relationships:

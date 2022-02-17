@@ -32,134 +32,12 @@ base_table: node_field_data
 base_field: nid
 display:
   default:
-    display_plugin: default
     id: default
     display_title: Master
+    display_plugin: default
     position: 0
     display_options:
-      access:
-        type: perm
-        options:
-          perm: 'access content'
-      cache:
-        type: tag
-        options: {  }
-      query:
-        type: views_query
-        options:
-          disable_sql_rewrite: false
-          distinct: false
-          replica: false
-          query_comment: ''
-          query_tags: {  }
-      exposed_form:
-        type: basic
-        options:
-          submit_button: Apply
-          reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
-      pager:
-        type: full
-        options:
-          items_per_page: 30
-          offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: ‹‹
-            next: ››
-            first: '« First'
-            last: 'Last »'
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          quantity: 9
-      style:
-        type: table
-        options:
-          grouping: {  }
-          row_class: 'employmentopportunities-row published-{{ status }} node-{{ nid_1 }}'
-          default_row_class: true
-          override: true
-          sticky: false
-          caption: ''
-          summary: ''
-          description: ''
-          columns:
-            status: status
-            nid: nid
-            field_type: field_type
-            field_classification: field_classification
-            field_branch: field_branch
-            field_open_to: field_open_to
-            field_locations: field_locations
-            field_date_closing: field_date_closing
-          info:
-            status:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-low
-            nid:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-low
-            field_type:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-low
-            field_classification:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-low
-            field_branch:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-low
-            field_open_to:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-low
-            field_locations:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-low
-            field_date_closing:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-low
-          default: field_date_closing
-          empty_table: true
-      row:
-        type: fields
+      title: 'Internal Employment Opportunities'
       fields:
         status:
           id: status
@@ -168,6 +46,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: status
+          plugin_id: field
           label: status
           exclude: true
           alter:
@@ -213,8 +94,8 @@ display:
           type: boolean
           settings:
             format: custom
-            format_custom_true: 'yes'
             format_custom_false: 'no'
+            format_custom_true: 'yes'
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -225,9 +106,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: status
-          plugin_id: field
         nid:
           id: nid
           table: node_field_data
@@ -235,6 +113,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: nid
+          plugin_id: field
           label: 'id for aggregation'
           exclude: true
           alter:
@@ -290,9 +171,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: nid
-          plugin_id: field
         field_type:
           id: field_type
           table: node__field_type
@@ -300,6 +178,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: 'Type of opportunity'
           exclude: false
           alter:
@@ -355,7 +234,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_classification:
           id: field_classification
           table: node__field_classification
@@ -363,6 +241,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: 'Group, level and position'
           exclude: false
           alter:
@@ -425,7 +304,6 @@ display:
           format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
-          plugin_id: field
         field_branch:
           id: field_branch
           table: node__field_branch
@@ -433,6 +311,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: Branch
           exclude: false
           alter:
@@ -488,7 +367,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_open_to:
           id: field_open_to
           table: node__field_open_to
@@ -496,6 +374,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: 'Open to'
           exclude: false
           alter:
@@ -551,7 +430,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_locations:
           id: field_locations
           table: node__field_locations
@@ -559,6 +437,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: Location
           exclude: false
           alter:
@@ -614,7 +493,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_date_closing:
           id: field_date_closing
           table: node__field_date_closing
@@ -622,6 +500,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: 'Closing date'
           exclude: false
           alter:
@@ -678,7 +557,61 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
+      pager:
+        type: full
+        options:
+          offset: 0
+          items_per_page: 30
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+      cache:
+        type: tag
+        options: {  }
+      empty: {  }
+      sorts:
+        field_date_closing_value:
+          id: field_date_closing_value
+          table: node__field_date_closing
+          field: field_date_closing_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: datetime
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: field_date_closing_value
+          exposed: false
+          granularity: second
+      arguments: {  }
       filters:
         field_type_target_id:
           id: field_type_target_id
@@ -687,6 +620,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: taxonomy_index_tid
           operator: or
           value: {  }
           group: 1
@@ -724,12 +658,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: true
-          type: select
-          limit: true
           vid: employment_type
+          type: select
           hierarchy: true
+          limit: true
           error_message: true
-          plugin_id: taxonomy_index_tid
         field_class_id_value:
           id: field_class_id_value
           table: paragraph__field_class_id
@@ -737,6 +670,7 @@ display:
           relationship: field_classification
           group_type: group
           admin_label: ''
+          plugin_id: list_field
           operator: or
           value: {  }
           group: 1
@@ -783,7 +717,6 @@ display:
                 value:
                   AC: AC
           reduce_duplicates: false
-          plugin_id: list_field
         field_date_closing_value:
           id: field_date_closing_value
           table: node__field_date_closing
@@ -791,6 +724,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: datetime
           operator: '>='
           value:
             min: ''
@@ -813,9 +747,9 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-            placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -828,7 +762,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          plugin_id: datetime
         langcode:
           id: langcode
           table: node_field_data
@@ -836,6 +769,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: langcode
+          plugin_id: language
           operator: in
           value:
             '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
@@ -868,9 +804,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: node
-          entity_field: langcode
-          plugin_id: language
         status:
           id: status
           table: node_field_data
@@ -878,6 +811,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
           operator: '='
           value: '1'
           group: 2
@@ -908,9 +844,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: node
-          entity_field: status
-          plugin_id: boolean
         status_has_role:
           id: status_has_role
           table: node
@@ -918,6 +851,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          plugin_id: status_has_role
           operator: '='
           value:
             administrator: administrator
@@ -952,52 +887,96 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: node
-          plugin_id: status_has_role
-      sorts:
-        field_date_closing_value:
-          id: field_date_closing_value
-          table: node__field_date_closing
-          field: field_date_closing_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-          granularity: second
-          plugin_id: datetime
-      title: 'Internal Employment Opportunities'
-      header:
-        entity_block_content:
-          id: entity_block_content
-          table: views
-          field: entity_block_content
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: true
-          target: 2ae71642-ca4f-4e8a-9f43-588ae3e110f9
-          view_mode: default
-          bypass_access: false
-          plugin_id: entity
-      footer:
-        entity_block_content:
-          id: entity_block_content
-          table: views
-          field: entity_block_content
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          target: 41c877fc-4f51-422b-821c-1f23452edb93
-          view_mode: default
-          bypass_access: false
-          plugin_id: entity
-      empty: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+          2: OR
+      style:
+        type: table
+        options:
+          grouping: {  }
+          row_class: 'employmentopportunities-row published-{{ status }} node-{{ nid_1 }}'
+          default_row_class: true
+          columns:
+            status: status
+            nid: nid
+            field_type: field_type
+            field_classification: field_classification
+            field_branch: field_branch
+            field_open_to: field_open_to
+            field_locations: field_locations
+            field_date_closing: field_date_closing
+          default: field_date_closing
+          info:
+            status:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-low
+            nid:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-low
+            field_type:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-low
+            field_classification:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-low
+            field_branch:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-low
+            field_open_to:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-low
+            field_locations:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-low
+            field_date_closing:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-low
+          override: true
+          sticky: false
+          summary: ''
+          empty_table: true
+          caption: ''
+          description: ''
+      row:
+        type: fields
+      query:
+        type: views_query
+        options:
+          query_comment: ''
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_tags: {  }
       relationships:
         field_classification:
           id: field_classification
@@ -1006,16 +985,38 @@ display:
           relationship: none
           group_type: group
           admin_label: 'field_classification: Paragraph'
-          required: false
           plugin_id: standard
-      arguments: {  }
-      display_extenders: {  }
+          required: false
       group_by: true
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-          2: OR
+      header:
+        entity_block_content:
+          id: entity_block_content
+          table: views
+          field: entity_block_content
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: entity
+          empty: true
+          target: 2ae71642-ca4f-4e8a-9f43-588ae3e110f9
+          view_mode: default
+          tokenize: true
+          bypass_access: false
+      footer:
+        entity_block_content:
+          id: entity_block_content
+          table: views
+          field: entity_block_content
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: entity
+          empty: true
+          target: 41c877fc-4f51-422b-821c-1f23452edb93
+          view_mode: default
+          tokenize: false
+          bypass_access: false
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -1034,11 +1035,12 @@ display:
         - 'config:field.storage.node.field_open_to'
         - 'config:field.storage.node.field_type'
   page_1:
-    display_plugin: page
     id: page_1
     display_title: 'Employment Opportunities Page'
+    display_plugin: page
     position: 1
     display_options:
+      display_description: ''
       display_extenders:
         metatag_display_extender:
           metatags: {  }
@@ -1047,12 +1049,11 @@ display:
         type: normal
         title: employmentopportunities
         description: ''
-        expanded: false
-        parent: ''
         weight: 0
-        context: '0'
+        expanded: false
         menu_name: admin
-      display_description: ''
+        parent: ''
+        context: '0'
     cache_metadata:
       max-age: -1
       contexts:

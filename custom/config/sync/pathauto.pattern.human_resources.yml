@@ -11,12 +11,12 @@ pattern: 'employment/[node:field_locations:value]/[node:field_date_closing:date:
 selection_criteria:
   1329f00f-7760-4e69-87b0-032349a388d5:
     id: node_type
-    bundles:
-      empl: empl
     negate: false
+    uuid: 1329f00f-7760-4e69-87b0-032349a388d5
     context_mapping:
       node: node
-    uuid: 1329f00f-7760-4e69-87b0-032349a388d5
+    bundles:
+      empl: empl
 selection_logic: and
 weight: -5
 relationships: {  }

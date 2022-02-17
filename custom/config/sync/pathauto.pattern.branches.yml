@@ -13,20 +13,20 @@ pattern: 'branches/[term:name]'
 selection_criteria:
   17286947-b1be-415a-9224-1021fa782a5f:
     id: 'entity_bundle:taxonomy_term'
-    bundles:
-      branch: branch
     negate: false
+    uuid: 17286947-b1be-415a-9224-1021fa782a5f
     context_mapping:
       taxonomy_term: taxonomy_term
-    uuid: 17286947-b1be-415a-9224-1021fa782a5f
+    bundles:
+      branch: branch
   b59d3d97-db88-4200-929f-873c24f0c4ad:
     id: language
-    langcodes:
-      en: en
     negate: false
+    uuid: b59d3d97-db88-4200-929f-873c24f0c4ad
     context_mapping:
       language: 'taxonomy_term:langcode:language'
-    uuid: b59d3d97-db88-4200-929f-873c24f0c4ad
+    langcodes:
+      en: en
 selection_logic: and
 weight: -10
 relationships:

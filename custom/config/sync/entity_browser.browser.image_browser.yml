@@ -23,23 +23,23 @@ widget_selector: tabs
 widget_selector_configuration: {  }
 widgets:
   44d52e51-9627-43b5-a637-3b0462041d1c:
+    id: file_upload
+    uuid: 44d52e51-9627-43b5-a637-3b0462041d1c
+    label: Upload
+    weight: -9
     settings:
-      submit_text: Select
       target_bundles: {  }
+      upload_validators: {  }
+      submit_text: Select
       form_mode: media_browser
       return_file: true
-      upload_validators: {  }
-    uuid: 44d52e51-9627-43b5-a637-3b0462041d1c
-    weight: -9
-    label: Upload
-    id: file_upload
   0d87526e-a3e1-47f9-8582-2a51d7c88152:
+    id: view
+    uuid: 0d87526e-a3e1-47f9-8582-2a51d7c88152
+    label: Library
+    weight: -10
     settings:
-      view: media
-      view_display: entity_browser_2
       submit_text: Select
       auto_select: false
-    uuid: 0d87526e-a3e1-47f9-8582-2a51d7c88152
-    weight: -10
-    label: Library
-    id: view
+      view: media
+      view_display: entity_browser_2

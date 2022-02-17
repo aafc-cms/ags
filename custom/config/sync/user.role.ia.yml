@@ -2,8 +2,25 @@ uuid: 8a395f54-0f4b-4b40-b663-e80932228fcf
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.empl
+    - node.type.landing_page
+    - node.type.news
+    - node.type.page
+    - taxonomy.vocabulary.aafc_type
+    - taxonomy.vocabulary.category
+    - workflows.workflow.editorial
   module:
+    - access_unpublished
+    - agri_admin
+    - content_moderation
+    - content_translation
     - lightning_core
+    - moderated_content_bulk_publish
+    - node
+    - system
+    - taxonomy
+    - toolbar
 third_party_settings:
   lightning_core:
     description: 'For Information Architecture (formerly MDO) team'

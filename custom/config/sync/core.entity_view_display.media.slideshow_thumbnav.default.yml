@@ -16,22 +16,22 @@ bundle: slideshow_thumbnav
 mode: default
 content:
   field_media_slideshow:
+    type: entity_reference_entity_view
     label: hidden
-    weight: 1
     settings:
       view_mode: agrisource_slideshow_view_mode
       link: false
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    weight: 1
     region: content
   field_media_thumbs:
     type: media_thumbnail
-    weight: 0
     label: hidden
     settings:
-      image_style: agrisource_slideshow_thumbnail
       image_link: ''
+      image_style: agrisource_slideshow_thumbnail
     third_party_settings: {  }
+    weight: 0
     region: content
 hidden:
   created: true

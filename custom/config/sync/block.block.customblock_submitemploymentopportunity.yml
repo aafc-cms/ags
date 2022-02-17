@@ -25,35 +25,28 @@ plugin: 'block_content:878c1db8-a3da-452d-8479-8a1c1f740d6e'
 settings:
   id: 'block_content:878c1db8-a3da-452d-8479-8a1c1f740d6e'
   label: 'Internal Employment Opportunity Request Form'
-  provider: block_content
   label_display: visible
+  provider: block_content
   status: true
   info: ''
   view_mode: full
 visibility:
   'entity_bundle:node':
     id: 'entity_bundle:node'
-    bundles:
-      empl: empl
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
-  node_type:
-    id: node_type
     bundles:
       empl: empl
-    negate: false
-    context_mapping:
-      node: '@node.node_route_context:node'
   request_path:
     id: request_path
-    pages: "/node/add/empl*\r\nnode/add/empl*\r\n/internal-employment-opportunity-request-form\r\n/formulaire-de-demande-pour-les-possibilites-demploi-a-linterne\r\n/human-resources/staffing/internal-employment-opportunity-request-form\r\n/ressources-humaines/dotation/formulaire-de-demande-pour-les-possibilites-demploi-linterne"
     negate: false
     context_mapping: {  }
+    pages: "/node/add/empl*\r\nnode/add/empl*\r\n/internal-employment-opportunity-request-form\r\n/formulaire-de-demande-pour-les-possibilites-demploi-a-linterne\r\n/human-resources/staffing/internal-employment-opportunity-request-form\r\n/ressources-humaines/dotation/formulaire-de-demande-pour-les-possibilites-demploi-linterne"
   user_role:
     id: user_role
-    roles:
-      anonymous: anonymous
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
+    roles:
+      anonymous: anonymous

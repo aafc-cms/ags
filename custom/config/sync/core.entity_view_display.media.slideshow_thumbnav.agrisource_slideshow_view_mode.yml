@@ -14,31 +14,31 @@ dependencies:
     - layout_builder
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
 id: media.slideshow_thumbnav.agrisource_slideshow_view_mode
 targetEntityType: media
 bundle: slideshow_thumbnav
 mode: agrisource_slideshow_view_mode
 content:
   field_media_slideshow:
+    type: entity_reference_entity_view
     label: hidden
-    weight: 0
     settings:
       view_mode: agrisource_slideshow_view_mode
       link: false
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    weight: 0
     region: content
   thumbnail:
     type: image
-    weight: 0
-    region: content
     label: above
     settings:
-      image_style: small
       image_link: content
+      image_style: small
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   created: true
   field_media_in_library: true

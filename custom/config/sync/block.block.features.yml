@@ -22,14 +22,14 @@ plugin: 'block_content:49baecda-63c8-4e16-811b-be2ff38cea33'
 settings:
   id: 'block_content:49baecda-63c8-4e16-811b-be2ff38cea33'
   label: Features
-  provider: block_content
   label_display: '0'
+  provider: block_content
   status: true
   info: ''
   view_mode: full
 visibility:
   request_path:
     id: request_path
-    pages: "<front>\r\n/node/20/latest*"
     negate: false
     context_mapping: {  }
+    pages: "<front>\r\n/node/20/latest*"

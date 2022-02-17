@@ -17,13 +17,13 @@ tips:
     id: introduction
     plugin: text
     label: Introduction
-    body: 'This will help you explore the various ways to configure the WxT Bootstrap related libraries.'
     weight: 1
+    body: 'This will help you explore the various ways to configure the WxT Bootstrap related libraries.'
   edit-wxt-library:
     id: edit-wxt-library
     plugin: text
     label: 'WxT Library'
-    body: 'This setting will change the rendered templates provided by WxT Bootstrap to the chosen theme.'
     weight: 2
-    selector: '#edit-wxt-library'
     position: bottom-start
+    selector: '#edit-wxt-library'
+    body: 'This setting will change the rendered templates provided by WxT Bootstrap to the chosen theme.'

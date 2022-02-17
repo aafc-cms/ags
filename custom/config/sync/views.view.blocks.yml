@@ -34,56 +34,12 @@ base_table: block_content_field_data
 base_field: id
 display:
   default:
-    display_plugin: default
     id: default
     display_title: Master
+    display_plugin: default
     position: 0
     display_options:
-      access:
-        type: none
-        options: {  }
-      cache:
-        type: tag
-        options: {  }
-      query:
-        type: views_query
-        options:
-          disable_sql_rewrite: false
-          distinct: false
-          replica: false
-          query_comment: ''
-          query_tags: {  }
-      exposed_form:
-        type: basic
-        options:
-          submit_button: Apply
-          reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
-      pager:
-        type: some
-        options:
-          items_per_page: 2
-          offset: 0
-      style:
-        type: views_bootstrap_grid
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-          alignment: vertical
-          columns: '2'
-          col_xs: col-xs-12
-          col_sm: col-sm-12
-          col_md: col-md-12
-          col_lg: col-lg-6
-          col_class_default: 1
-          row_class_default: 1
-      row:
-        type: fields
+      title: Spotlight
       fields:
         field_spotlight_media:
           id: field_spotlight_media
@@ -92,6 +48,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -147,7 +104,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_image_link:
           id: field_image_link
           table: media__field_image_link
@@ -155,6 +111,7 @@ display:
           relationship: field_spotlight_media
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -214,7 +171,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         info:
           id: info
           table: block_content_field_data
@@ -222,6 +178,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: block_content
+          entity_field: info
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -277,9 +236,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: block_content
-          entity_field: info
-          plugin_id: field
         body:
           id: body
           table: block_content__body
@@ -287,6 +243,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -341,7 +298,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         nothing:
           id: nothing
           table: views
@@ -349,6 +305,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: custom
           label: ''
           exclude: false
           alter:
@@ -397,126 +354,29 @@ display:
           hide_empty: true
           empty_zero: false
           hide_alter_empty: true
-          plugin_id: custom
-      filters:
-        type:
-          id: type
-          table: block_content_field_data
-          field: type
-          value:
-            spotlight: spotlight
-          entity_type: block_content
-          entity_field: type
-          plugin_id: bundle
-          expose:
-            operator_limit_selection: false
-            operator_list: {  }
-        langcode:
-          id: langcode
-          table: block_content_field_data
-          field: langcode
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: in
-          value:
-            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: block_content
-          entity_field: langcode
-          plugin_id: language
-        langcode_1:
-          id: langcode_1
-          table: media_field_data
-          field: langcode
-          relationship: field_spotlight_media
-          group_type: group
-          admin_label: ''
-          operator: in
-          value:
-            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: media
-          entity_field: langcode
-          plugin_id: language
-      sorts: {  }
-      title: Spotlight
-      header: {  }
-      footer: {  }
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 2
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: none
+        options: {  }
+      cache:
+        type: tag
+        options: {  }
       empty: {  }
-      relationships:
-        field_spotlight_media:
-          id: field_spotlight_media
-          table: block_content__field_spotlight_media
-          field: field_spotlight_media
-          relationship: none
-          group_type: group
-          admin_label: 'field_spotlight_media: Media'
-          required: true
-          plugin_id: standard
-        entityqueue_relationship:
-          id: entityqueue_relationship
-          table: block_content_field_data
-          field: entityqueue_relationship
-          relationship: none
-          group_type: group
-          admin_label: 'Custom block queue'
-          required: true
-          limit_queue: null
-          entity_type: block_content
-          plugin_id: entity_queue
+      sorts: {  }
       arguments:
         queue:
           id: queue
@@ -525,6 +385,9 @@ display:
           relationship: entityqueue_relationship
           group_type: group
           admin_label: ''
+          entity_type: entity_subqueue
+          entity_field: queue
+          plugin_id: string
           default_action: default
           exception:
             value: all
@@ -538,8 +401,8 @@ display:
           summary_options:
             base_path: ''
             count: true
-            items_per_page: 25
             override: false
+            items_per_page: 25
           summary:
             sort_order: asc
             number_of_records: 0
@@ -549,19 +412,156 @@ display:
             type: 'entity:entity_subqueue'
             fail: 'not found'
           validate_options:
-            operation: view
-            multiple: 1
             bundles: {  }
             access: false
+            operation: view
+            multiple: 1
           glossary: false
           limit: 0
           case: none
           path_case: none
           transform_dash: false
           break_phrase: false
-          entity_type: entity_subqueue
-          entity_field: queue
-          plugin_id: string
+      filters:
+        type:
+          id: type
+          table: block_content_field_data
+          field: type
+          entity_type: block_content
+          entity_field: type
+          plugin_id: bundle
+          value:
+            spotlight: spotlight
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+        langcode:
+          id: langcode
+          table: block_content_field_data
+          field: langcode
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: block_content
+          entity_field: langcode
+          plugin_id: language
+          operator: in
+          value:
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        langcode_1:
+          id: langcode_1
+          table: media_field_data
+          field: langcode
+          relationship: field_spotlight_media
+          group_type: group
+          admin_label: ''
+          entity_type: media
+          entity_field: langcode
+          plugin_id: language
+          operator: in
+          value:
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+      style:
+        type: views_bootstrap_grid
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          alignment: vertical
+          columns: '2'
+          col_xs: col-xs-12
+          col_sm: col-sm-12
+          col_md: col-md-12
+          col_lg: col-lg-6
+          col_class_default: 1
+          row_class_default: 1
+      row:
+        type: fields
+      query:
+        type: views_query
+        options:
+          query_comment: ''
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_tags: {  }
+      relationships:
+        field_spotlight_media:
+          id: field_spotlight_media
+          table: block_content__field_spotlight_media
+          field: field_spotlight_media
+          relationship: none
+          group_type: group
+          admin_label: 'field_spotlight_media: Media'
+          plugin_id: standard
+          required: true
+        entityqueue_relationship:
+          id: entityqueue_relationship
+          table: block_content_field_data
+          field: entityqueue_relationship
+          relationship: none
+          group_type: group
+          admin_label: 'Custom block queue'
+          entity_type: block_content
+          plugin_id: entity_queue
+          required: true
+          limit_queue: null
+      header: {  }
+      footer: {  }
       display_extenders: {  }
     cache_metadata:
       max-age: -1
@@ -579,15 +579,15 @@ display:
         - 'config:field.storage.block_content.field_spotlight_media'
         - 'config:field.storage.media.field_image_link'
   block_1:
-    display_plugin: block
     id: block_1
     display_title: Spotlight
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
       display_description: ''
-      block_description: Spotlight
       rendering_language: '***LANGUAGE_language_interface***'
+      display_extenders: {  }
+      block_description: Spotlight
     cache_metadata:
       max-age: -1
       contexts:
@@ -603,21 +603,12 @@ display:
         - 'config:field.storage.block_content.field_spotlight_media'
         - 'config:field.storage.media.field_image_link'
   block_2:
-    display_plugin: block
     id: block_2
     display_title: Initiatives
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders:
-        metatag_display_extender: {  }
-      display_description: ''
-      block_description: Spotlight
-      rendering_language: '***LANGUAGE_language_interface***'
       title: 'Government Initiatives'
-      defaults:
-        title: false
-        fields: false
-        css_class: false
       fields:
         field_spotlight_media:
           id: field_spotlight_media
@@ -626,6 +617,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -681,7 +673,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_image_link:
           id: field_image_link
           table: media__field_image_link
@@ -689,6 +680,7 @@ display:
           relationship: field_spotlight_media
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -748,7 +740,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         info:
           id: info
           table: block_content_field_data
@@ -756,6 +747,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: block_content
+          entity_field: info
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -811,9 +805,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: block_content
-          entity_field: info
-          plugin_id: field
         body:
           id: body
           table: block_content__body
@@ -821,6 +812,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -875,7 +867,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         nothing:
           id: nothing
           table: views
@@ -883,6 +874,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: custom
           label: ''
           exclude: false
           alter:
@@ -924,8 +916,16 @@ display:
           hide_empty: true
           empty_zero: false
           hide_alter_empty: true
-          plugin_id: custom
+      defaults:
+        title: false
+        css_class: false
+        fields: false
       css_class: ''
+      display_description: ''
+      rendering_language: '***LANGUAGE_language_interface***'
+      display_extenders:
+        metatag_display_extender: {  }
+      block_description: Spotlight
     cache_metadata:
       max-age: -1
       contexts:
