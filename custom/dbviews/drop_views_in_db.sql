@@ -1,0 +1,1 @@
+DROP VIEW IF EXISTS search_node_url;
