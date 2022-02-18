@@ -93,7 +93,7 @@ class UtilsBlock {
    * @return mixed
    *   Returns bool or \Drupal\Component\Render\MarkupInterface (the rendered HTML).
    */
-  public static function getRendered(string $id, array $options = NULL) {
+  public static function getRendered(string $id = NULL, array $options = NULL) {
     $rendered = FALSE;
 
     if (($renderArray = static::getRenderArray($id, $options))) {
