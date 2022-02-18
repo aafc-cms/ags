@@ -85,7 +85,7 @@ class UtilsBlock {
   /**
    * Implements getRendered().
    *
-   * @param int $id
+   * @param string $id
    *   The id of the block.
    * @param array $options
    *   The options array.
@@ -93,7 +93,7 @@ class UtilsBlock {
    * @return mixed
    *   Returns bool or \Drupal\Component\Render\MarkupInterface (the rendered HTML).
    */
-  public static function getRendered(int $id, array $options = NULL) {
+  public static function getRendered(string $id, array $options = NULL) {
     $rendered = FALSE;
 
     if (($renderArray = static::getRenderArray($id, $options))) {
