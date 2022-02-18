@@ -3,7 +3,7 @@ _core:
 scan_blocks: null
 check_links_types: 2
 default_url_scheme: 'https://'
-base_path: cms-test.agr.gc.ca/qa2
+base_path: agrisource.agr.gc.ca
 extract:
   from_a: true
   from_audio: false
@@ -14,21 +14,24 @@ extract:
   from_video: false
   filter_blacklist:
     entity_embed: entity_embed
-    filter_caption: filter_caption
-    filter_autop: filter_autop
     filter_align: filter_align
+    filter_autop: filter_autop
+    filter_caption: filter_caption
     linkit: linkit
     media_embed: media_embed
     blazy_filter: '0'
     editor_file_reference: '0'
-    filter_url: '0'
-    filter_html_image_secure: '0'
+    embed_block: '0'
     filter_html: '0'
-    filter_html_escape: '0'
     filter_htmlcorrector: '0'
+    filter_html_escape: '0'
+    filter_html_image_secure: '0'
+    filter_url: '0'
+    slick_filter: '0'
     token_filter: '0'
     url_embed_convert_links: '0'
     url_embed: '0'
+    wxt_add_table_attribute_filter: '0'
 check:
   connections_max: 8
   connections_max_per_domain: 2
@@ -37,7 +40,7 @@ check:
     example.net
     example.org
   library: core
-  interval: 4838400
+  interval: 86400
   useragent: 'Drupal (+https://drupal.org/)'
 error:
   action_status_code_301: 0
@@ -46,3 +49,6 @@ error:
   impersonate_account: admin
 logging:
   level: 6
+localhost_url: 'http://localhost'
+localhost_portnumber: '8000'
+search_published_contents_only: 1
