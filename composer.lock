@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "94c1c694ddde73507c7da4126f0021b4",
+    "content-hash": "f51d34cf75cb37ee4d8d039f3709b2f1",
     "packages": [
         {
             "name": "agrcmsx/dxbase",
-            "version": "9.3.3-rc20",
+            "version": "9.3.3-rc23",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/agrcms/dxbase.git",
-                "reference": "36724ebc2f340b3efbfb64602ba1c3dab55a31c8"
+                "reference": "8ec3451c0727700756510740eee8aa2d06914e01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=36724ebc2f340b3efbfb64602ba1c3dab55a31c8",
-                "reference": "36724ebc2f340b3efbfb64602ba1c3dab55a31c8",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=8ec3451c0727700756510740eee8aa2d06914e01",
+                "reference": "8ec3451c0727700756510740eee8aa2d06914e01",
                 "shasum": ""
             },
             "require": {
@@ -36,7 +36,7 @@
                 "drupal/content_lock": "^2.0",
                 "drupal/content_moderation_notifications": "3.x-dev",
                 "drupal/convert_bundles": "^1.0",
-                "drupal/core": "9.3.3 as 9.2.10",
+                "drupal/core": "9.3.6 as 9.2.10",
                 "drupal/core-composer-scaffold": "*",
                 "drupal/cshs": "^2.3",
                 "drupal/css_editor": "^1.3@RC",
@@ -179,6 +179,10 @@
                         "views submit button name attribute cannot be empty for w3c": "https://www.drupal.org/files/issues/2020-07-10/3061891-27.patch",
                         "fix array_unique warnings on node/49 page": "https://www.drupal.org/files/issues/2020-09-29/bootstrap-3173776-3.patch"
                     },
+                    "drupal/css_editor": {
+                        "3203706 - Fix bug with enable/disable css": "https://www.drupal.org/files/issues/2021-04-19/css_editor_fixed.patch",
+                        "3248990 - Optimize cache rebuilding using tags instead of flush all": "https://www.drupal.org/files/issues/2021-11-12/css-editor-replace-cache-flush-by-cache-tag-invalidation-3248990-5.diff"
+                    },
                     "drupalwxt/diff": {
                         "fix French revisions page always shows English revision state": "https://www.drupal.org/files/issues/2021-02-19/diff-show-correct-workflow-state-on-french-revisions-page-3199354-2.patch"
                     },
@@ -254,9 +258,9 @@
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
             "support": {
                 "issues": "https://gitlab.com/agrcms/dxbase/-/issues",
-                "source": "https://gitlab.com/agrcms/dxbase/-/tree/9.3.3-rc20"
+                "source": "https://gitlab.com/agrcms/dxbase/-/tree/9.3.3-rc23"
             },
-            "time": "2022-01-21T16:02:50+00:00"
+            "time": "2022-02-21T15:34:44+00:00"
         },
         {
             "name": "agrcmsx/prefer_latest_content",
@@ -2909,17 +2913,17 @@
         },
         {
             "name": "drupal/better_exposed_filters",
-            "version": "5.0.0-beta3",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/better_exposed_filters.git",
-                "reference": "8.x-5.0-beta3"
+                "reference": "8.x-5.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/better_exposed_filters-8.x-5.0-beta3.zip",
-                "reference": "8.x-5.0-beta3",
-                "shasum": "23f00fe898cd9e4f2278ef790bc9f1d197312ac3"
+                "url": "https://ftp.drupal.org/files/projects/better_exposed_filters-8.x-5.0.zip",
+                "reference": "8.x-5.0",
+                "shasum": "ef575591af202b5c6867841ce58e1f447455e502"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9",
@@ -2931,11 +2935,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-5.0-beta3",
-                    "datestamp": "1625665853",
+                    "version": "8.x-5.0",
+                    "datestamp": "1634748760",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -4609,16 +4613,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "9.3.3",
+            "version": "9.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "a9bd68be9a4e39724ea555f8040114759a8faf7f"
+                "reference": "2c0c89a0f49fab56f8322721888cdfa28fe98c3a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/a9bd68be9a4e39724ea555f8040114759a8faf7f",
-                "reference": "a9bd68be9a4e39724ea555f8040114759a8faf7f",
+                "url": "https://api.github.com/repos/drupal/core/zipball/2c0c89a0f49fab56f8322721888cdfa28fe98c3a",
+                "reference": "2c0c89a0f49fab56f8322721888cdfa28fe98c3a",
                 "shasum": ""
             },
             "require": {
@@ -4860,9 +4864,9 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/9.3.3"
+                "source": "https://github.com/drupal/core/tree/9.3.6"
             },
-            "time": "2022-01-19T00:13:54+00:00"
+            "time": "2022-02-15T20:26:28+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
@@ -21311,7 +21315,7 @@
     "aliases": [
         {
             "package": "drupal/core",
-            "version": "9.3.3.0",
+            "version": "9.3.6.0",
             "alias": "9.2.10",
             "alias_normalized": "9.2.10.0"
         },
