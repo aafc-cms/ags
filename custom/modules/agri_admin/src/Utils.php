@@ -451,17 +451,14 @@ class Utils {
       // Makes this function PHP 8.0 compatible.
       $foundtokenhref = FALSE;
     }
-    $regex_token = '/href=\".*\?auHash=([a-zA-Z]|[0-9]|[_]|[-]){43}\"/m';
+    $regex_token = '/\?auHash=/';
     preg_match_all($regex_token, $formbody, $matches, PREG_SET_ORDER);
     foreach ($matches as $match_token) {
       $tokenhref = reset($match_token);
-      if (isset($tokenhref) && strlen($tokenhref) > 20) {
+      if (isset($tokenhref) && strlen($tokenhref) == 8) {
         if (!$foundtokenhref) {
           $foundtokenhref = TRUE;
         }
-        $msg = '';
-        $msg = '<ul><li>' . $tokenhref . '</li></ul>';
-        array_push($tokenmsgarray, $msg);
       }
     }
     return $foundtokenhref;
