@@ -87,7 +87,7 @@ var AgrisourceFrontend = function() {
     });
 
     //AgrisourceFrontend.initAnalytics();
-    AgrisourceFrontend.relocateWebformValidationMSG();
+    //AgrisourceFrontend.relocateWebformValidationMSG();
     AgrisourceFrontend.initSlideshow();
     initialized = true;
   }
@@ -166,7 +166,7 @@ var AgrisourceFrontend = function() {
     var psWebForm = $('body.path-webform');
     var divDescription = $('div#edit-psrf-pagedescription');
     var divErrorMSG    = $('div.highlighted');
-    var countErr = 1;
+    var countErr = 0;
     var subcountErr = 1;
     var reqvalMSGPrefix = "";
     var reqvalMSGMiddle = "";
@@ -201,6 +201,7 @@ var AgrisourceFrontend = function() {
       if ((typeof($('div.highlighted')) !== "undefined") && (typeof(divDescription) !== "undefined")) {
         if( (divErrorMSG !== null) && (divDescription !== null) ) {
           $('div.highlighted').detach().insertAfter(divDescription);
+          countErr = countErr +1;
           $( "section.alert.alert-danger.alert-dismissible ul li a" ).each(function(index, element) {
             if (($(element).attr('href')) == "#edit-srf-phone") {
               $(this).text(reqvalMSGPrefix + countErr.toString() + reqvalMSGMiddle+ " " +$(this).text()  + invalidPhoneNumSuffix );
@@ -208,7 +209,6 @@ var AgrisourceFrontend = function() {
             else {
               $(this).text(reqvalMSGPrefix + countErr.toString() + reqvalMSGMiddle+ " " +$(this).text()  + reqvalMSGSuffix );
             }
-            countErr = countErr +1;
           });
 
           var h2MSGstring = h2prefix + ' ' + countErr + ' ' + errrorcountMSGsuffix;
