@@ -1,0 +1,24 @@
+uuid: b872452e-ac37-4fce-bdce-9620f5259f01
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.blog_freetags
+id: taxonomy_term.blog_freetags.weight
+field_name: weight
+entity_type: taxonomy_term
+bundle: blog_freetags
+label: Weight
+description: 'The weight of this term in relation to other terms.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

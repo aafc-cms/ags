@@ -198,6 +198,12 @@ filters:
         img: img
         iframe: iframe
       use_data_uri: '0'
+  embed_block:
+    id: embed_block
+    provider: embed_block
+    status: true
+    weight: 0
+    settings: {  }
   slick_filter:
     id: slick_filter
     provider: slick
@@ -241,9 +247,3 @@ filters:
       whitelist_classes: ''
       add_datatable_attribute: '0'
       datatable_options: ''
-  embed_block:
-    id: embed_block
-    provider: embed_block
-    status: true
-    weight: 0
-    settings: {  }

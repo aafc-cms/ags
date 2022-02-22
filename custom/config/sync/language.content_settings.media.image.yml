@@ -10,9 +10,11 @@ third_party_settings:
   content_translation:
     enabled: true
     bundle_settings:
-      entity_translation_unified_form_theme: EntityTranslationUnifiedFormInlineMode
       untranslatable_fields_hide: '1'
+      entity_translation_unified_form_theme: EntityTranslationUnifiedFormInlineMode
+      entity_translation_unified_form_language: current
       entity_translation_unified_form_enable: '0'
+      entity_translation_unified_form_translate_labels: '0'
 id: media.image
 target_entity_type_id: media
 target_bundle: image

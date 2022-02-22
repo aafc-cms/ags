@@ -1,22 +1,24 @@
-uuid: 098062bf-d133-44c1-afd8-b8f22fe42bf4
+uuid: 2dbd0325-7cb7-4ee6-ae57-5073dbaa3259
 langcode: en
 status: true
 dependencies:
   config:
-    - media.type.video_file
+    - node.type.dir_listing
   module:
     - content_translation
 third_party_settings:
   content_translation:
     enabled: false
     bundle_settings:
-      untranslatable_fields_hide: '1'
-      entity_translation_unified_form_theme: EntityTranslationUnifiedFormInlineMode
+      entity_translation_unified_form_theme: EntityTranslationUnifiedFormTabbedMode
       entity_translation_unified_form_language: current
+      untranslatable_fields_hide: '1'
       entity_translation_unified_form_enable: '0'
       entity_translation_unified_form_translate_labels: '0'
-id: media.video_file
-target_entity_type_id: media
-target_bundle: video_file
+      entity_translation_unified_form_sbs_enable: '0'
+      entity_translation_unified_form_moderation_sync_disable: '0'
+id: node.dir_listing
+target_entity_type_id: node
+target_bundle: dir_listing
 default_langcode: site_default
 language_alterable: false

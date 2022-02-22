@@ -1,0 +1,22 @@
+uuid: f770dcd2-506d-4730-ab89-13831a032aa1
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.dir_listing
+id: node.dir_listing.promote
+field_name: promote
+entity_type: node
+bundle: dir_listing
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

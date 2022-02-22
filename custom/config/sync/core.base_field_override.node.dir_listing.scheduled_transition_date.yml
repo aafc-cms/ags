@@ -1,0 +1,20 @@
+uuid: e45fac94-7407-4e67-b92a-f926539c9c7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.dir_listing
+  module:
+    - datetime
+id: node.dir_listing.scheduled_transition_date
+field_name: scheduled_transition_date
+entity_type: node
+bundle: dir_listing
+label: 'Scheduled transition date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime
