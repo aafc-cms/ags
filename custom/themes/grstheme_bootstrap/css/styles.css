@@ -1028,6 +1028,92 @@ form.webform-submission-publishing-and-creative-services-form input.form-checkbo
   display: none;
 }
 
+/* line 4, ../sass/pages/_publishingcreativeservicerequest_page_wcag.scss */
+body.path-webform form.webform-submission-publishing-and-creative-services-add-form div.form-item label[for="edit-programorservice"]::after, body.path-webform form.webform-submission-publishing-and-creative-services-add-form div.form-item label[for="edit-emailaddress"]::after,
+body.path-webform form.webform-submission-publishing-and-creative-services-add-form div.form-item label[for="edit-fullname"]::after, body.path-webform form.webform-submission-publishing-and-creative-services-add-form div.form-item label[for="edit-yourmessage"]::after {
+  content: none;
+}
+/* line 8, ../sass/pages/_publishingcreativeservicerequest_page_wcag.scss */
+body.path-webform form.webform-submission-publishing-and-creative-services-add-form div.form-item label[for="edit-programorservice"]::before, body.path-webform form.webform-submission-publishing-and-creative-services-add-form div.form-item label[for="edit-emailaddress"]::before,
+body.path-webform form.webform-submission-publishing-and-creative-services-add-form div.form-item label[for="edit-fullname"]::before, body.path-webform form.webform-submission-publishing-and-creative-services-add-form div.form-item label[for="edit-yourmessage"]::before {
+  content: "";
+  background-image: url(../images/required.svg);
+  display: inline-block;
+  line-height: 1;
+  color: #e00;
+  background-size: 7px 7px;
+  width: 7px;
+  vertical-align: super;
+  margin-left: 4px;
+  height: 7px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+}
+/* line 24, ../sass/pages/_publishingcreativeservicerequest_page_wcag.scss */
+body.path-webform form.webform-submission-publishing-and-creative-services-add-form div.form-item label[for="edit-programorservice"], body.path-webform form.webform-submission-publishing-and-creative-services-add-form div.form-item label[for="edit-emailaddress"],
+body.path-webform form.webform-submission-publishing-and-creative-services-add-form div.form-item label[for="edit-fullname"], body.path-webform form.webform-submission-publishing-and-creative-services-add-form div.form-item label[for="edit-yourmessage"] {
+  position: relative;
+  margin-left: 10px;
+  margin-bottom: 0px;
+}
+/* line 31, ../sass/pages/_publishingcreativeservicerequest_page_wcag.scss */
+body.path-webform form.webform-submission-publishing-and-creative-services-add-form div.form-item div.form-item--error-message.alert.alert-danger::before {
+  content: none;
+}
+/* line 35, ../sass/pages/_publishingcreativeservicerequest_page_wcag.scss */
+body.path-webform form.webform-submission-publishing-and-creative-services-add-form div.form-item div.form-item--error-message.alert.alert-danger {
+  border-image: none !important;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  font-weight: bold;
+  background: #f3e9e8;
+  border-color: #d3080c;
+}
+/* line 45, ../sass/pages/_publishingcreativeservicerequest_page_wcag.scss */
+body.path-webform form.webform-submission-publishing-and-creative-services-add-form div.form-item.form-item-programorservice.js-form-item-programorservice.form-group {
+  margin-bottom: 0px;
+}
+/* line 49, ../sass/pages/_publishingcreativeservicerequest_page_wcag.scss */
+body.path-webform form.webform-submission-publishing-and-creative-services-add-form div.form-item.form-item-programorservice.form-group label[for="edit-programorservice"] + div.select-wrapper select.form-select {
+  width: 100%;
+}
+/* line 53, ../sass/pages/_publishingcreativeservicerequest_page_wcag.scss */
+body.path-webform form.webform-submission-publishing-and-creative-services-add-form div.form-group.error.has-error label[for="edit-programorservice"] + div.select-wrapper {
+  margin-bottom: 0px;
+}
+/* line 55, ../sass/pages/_publishingcreativeservicerequest_page_wcag.scss */
+body.path-webform form.webform-submission-publishing-and-creative-services-add-form div.form-group.error.has-error label[for="edit-programorservice"] + div.select-wrapper select.form-select {
+  width: 100%;
+}
+/* line 62, ../sass/pages/_publishingcreativeservicerequest_page_wcag.scss */
+body.path-webform div.region.region-highlighted ul li {
+  display: block;
+}
+/* line 65, ../sass/pages/_publishingcreativeservicerequest_page_wcag.scss */
+body.path-webform div.region.region-highlighted ul li a {
+  display: list-item;
+  list-style-position: inside;
+  margin-top: 15px;
+}
+/* line 70, ../sass/pages/_publishingcreativeservicerequest_page_wcag.scss */
+body.path-webform div.region.region-highlighted ul li::after {
+  content: none;
+}
+/* line 73, ../sass/pages/_publishingcreativeservicerequest_page_wcag.scss */
+body.path-webform div.region.region-highlighted h2.sr-only {
+  position: relative;
+  font-size: 24px;
+  width: 100%;
+  height: 100%;
+}
+
+/* WCAG requires the font weight of the error message as normal */
+/* line 85, ../sass/pages/_publishingcreativeservicerequest_page_wcag.scss */
+form[id$="-add-form"] section.alert ul li a {
+  font-weight: normal;
+}
+
 /* line 2, ../sass/anonymous/_restrictions.scss */
 body.role-is-anonymous.path-node.published-yes .region-header nav.tabs,
 body.role-is-anonymous.path-node.published-no .region-header nav.tabs {
@@ -1303,50 +1389,50 @@ body.form-video-production-request-form div.form-textarea-wrapper textarea.form-
   min-width: 99%;
 }
 
-/* line 34, ../sass/styles.scss */
+/* line 35, ../sass/styles.scss */
 html[lang="fr"] .english-only {
   display: none !important;
 }
 
-/* line 38, ../sass/styles.scss */
+/* line 39, ../sass/styles.scss */
 html[lang="en"] .french-only {
   display: none !important;
 }
 
-/* line 42, ../sass/styles.scss */
+/* line 43, ../sass/styles.scss */
 body > div > div.container {
   border-right: 1px solid #99999b;
   border-left: 1px solid #99999b;
 }
 
-/* line 52, ../sass/styles.scss */
+/* line 53, ../sass/styles.scss */
 body.path-frontpage div.region-help section.block-entity-blockmedia {
   padding-right: 0;
   margin-left: 0;
 }
-/* line 57, ../sass/styles.scss */
+/* line 58, ../sass/styles.scss */
 body.path-frontpage article h2:first-child {
   display: none;
 }
 
-/* line 63, ../sass/styles.scss */
+/* line 64, ../sass/styles.scss */
 body main ul, body main ol {
   padding-left: 2.5em;
 }
 
-/* line 68, ../sass/styles.scss */
+/* line 69, ../sass/styles.scss */
 .contextual-region .contextual .contextual-links a {
   color: #333 !important;
 }
 
-/* line 72, ../sass/styles.scss */
+/* line 73, ../sass/styles.scss */
 #mb-pnl #edit-submit-container-imprt {
   float: none !important;
   margin-bottom: 0px !important;
 }
 
 /* Canada Government Logo Size */
-/* line 78, ../sass/styles.scss */
+/* line 79, ../sass/styles.scss */
 #agrisource-wmms {
   height: 2.35em;
   margin-top: -8px;
@@ -1354,60 +1440,60 @@ body main ul, body main ol {
   top: 0.8em;
 }
 
-/* line 86, ../sass/styles.scss */
+/* line 87, ../sass/styles.scss */
 .region-banner a.name.navbar-brand {
   color: white;
   text-shadow: 0 1px 1px #044062;
   margin-left: 0;
   min-height: 1.75em;
 }
-/* line 91, ../sass/styles.scss */
+/* line 92, ../sass/styles.scss */
 .region-banner a.name.navbar-brand:active {
   text-decoration: underline !important;
 }
-/* line 94, ../sass/styles.scss */
+/* line 95, ../sass/styles.scss */
 .region-banner a.name.navbar-brand:focus {
   text-decoration: underline !important;
 }
-/* line 97, ../sass/styles.scss */
+/* line 98, ../sass/styles.scss */
 .region-banner a.name.navbar-brand:hover {
   text-decoration: underline !important;
 }
-/* line 102, ../sass/styles.scss */
+/* line 103, ../sass/styles.scss */
 .region-banner p.navbar-text {
   color: white;
 }
 
-/* line 107, ../sass/styles.scss */
+/* line 108, ../sass/styles.scss */
 .navbar-brand {
   text-decoration: none;
   font-size: 1.9em;
   padding-left: 0;
 }
 
-/* line 114, ../sass/styles.scss */
+/* line 115, ../sass/styles.scss */
 #wb-info ul.hide-this, #wb-info a[data-drupal-link-system-path~="contact"] {
   display: none;
 }
 
 /* incresed the padding-left: from 15px to 35px; */
-/* line 120, ../sass/styles.scss */
+/* line 121, ../sass/styles.scss */
 #gc-tctr {
   padding-left: 29px;
   font-weight: 500;
 }
 
-/* line 125, ../sass/styles.scss */
+/* line 126, ../sass/styles.scss */
 section.col-sm-3 ul.list-unstyled {
   font-weight: 500;
 }
 
-/* line 129, ../sass/styles.scss */
+/* line 130, ../sass/styles.scss */
 #wb-bnr {
   background: #007852 !important;
 }
 
-/* line 133, ../sass/styles.scss */
+/* line 134, ../sass/styles.scss */
 #agrisource-wmms {
   margin-top: -2.5em;
   height: 1.9em;
@@ -1418,13 +1504,13 @@ section.col-sm-3 ul.list-unstyled {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 143, ../sass/styles.scss */
+  /* line 144, ../sass/styles.scss */
   #wb-bnr {
     background-image: -webkit-linear-gradient(#77bc1f, #77bc1f, #007852) !important;
     background-image: linear-gradient(#77bc1f, #77bc1f, #007852) !important;
   }
 
-  /* line 148, ../sass/styles.scss */
+  /* line 149, ../sass/styles.scss */
   .region-banner a.name.navbar-brand {
     padding-top: 5px;
     padding-bottom: 5px;
@@ -1432,28 +1518,28 @@ section.col-sm-3 ul.list-unstyled {
     height: auto;
   }
 
-  /* line 155, ../sass/styles.scss */
+  /* line 156, ../sass/styles.scss */
   #wb-glb-mn .pnl-btn a {
     font-size: 1.4em;
   }
 
-  /* line 158, ../sass/styles.scss */
+  /* line 159, ../sass/styles.scss */
   #wb-glb-mn .pnl-btn span .glyphicon-th-list {
     padding-left: 0;
   }
 
-  /* line 162, ../sass/styles.scss */
+  /* line 163, ../sass/styles.scss */
   #mb-pnl nav a.mb-item[href*="structure"] {
     display: none;
   }
 
-  /* line 168, ../sass/styles.scss */
+  /* line 169, ../sass/styles.scss */
   section.lng-ofr ul.list-inline a[href*="languageswitcher"] {
     display: none;
   }
 
   /* Canada Government Logo Size */
-  /* line 174, ../sass/styles.scss */
+  /* line 175, ../sass/styles.scss */
   #agrisource-wmms {
     height: 2.35em;
     left: 15px;
@@ -1462,61 +1548,61 @@ section.col-sm-3 ul.list-unstyled {
     top: -2.2em;
   }
 
-  /* line 181, ../sass/styles.scss */
+  /* line 182, ../sass/styles.scss */
   #wb-bnr {
     background-color: #007852;
     background-image: none;
   }
-  /* line 184, ../sass/styles.scss */
+  /* line 185, ../sass/styles.scss */
   #wb-bnr .container .row.agri-banner-row {
     position: relative;
   }
 }
 @media screen and (max-width: 767px) {
-  /* line 193, ../sass/styles.scss */
+  /* line 194, ../sass/styles.scss */
   body.i18n-fr #mb-pnl .srch-pnl .form-group {
     width: 65%;
   }
 }
 @media screen and (min-width: 768px) {
-  /* line 201, ../sass/styles.scss */
+  /* line 202, ../sass/styles.scss */
   body.i18n-fr #wb-srch-q-imprt {
     width: 100% !important;
   }
 }
 /* End of target french only css */
 @media screen and (min-width: 992px) {
-  /* line 211, ../sass/styles.scss */
+  /* line 212, ../sass/styles.scss */
   a.name.navbar-brand {
     text-shadow: 1px 1px 1px #333;
   }
 
-  /* line 216, ../sass/styles.scss */
+  /* line 217, ../sass/styles.scss */
   body.i18n-fr section.wxt-search-block-form.col-md-4 {
     padding-right: 0 !important;
   }
-  /* line 218, ../sass/styles.scss */
+  /* line 219, ../sass/styles.scss */
   body.i18n-fr section.wxt-search-block-form.col-md-4 .form-type-search {
     max-width: 67%;
   }
 
-  /* line 224, ../sass/styles.scss */
+  /* line 225, ../sass/styles.scss */
   #gcwu-sig {
     margin: 2.8em 0 0.5em 15px;
   }
 
-  /* line 227, ../sass/styles.scss */
+  /* line 228, ../sass/styles.scss */
   footer .container {
     padding-left: 0;
     padding-right: 0;
   }
 
-  /* line 231, ../sass/styles.scss */
+  /* line 232, ../sass/styles.scss */
   .show-this section:first-child {
     padding-left: 5px;
   }
 
-  /* line 235, ../sass/styles.scss */
+  /* line 236, ../sass/styles.scss */
   #wb-bar + .container {
     background: -webkit-gradient(linear, right top, left top, from(#298019), color-stop(#31821d), to(#278019));
     background: -webkit-linear-gradient(right, #278019, #31821d, #278019);
@@ -1524,12 +1610,12 @@ section.col-sm-3 ul.list-unstyled {
     position: relative;
   }
 }
-/* line 245, ../sass/styles.scss */
+/* line 246, ../sass/styles.scss */
 .icon.glyphicon.glyphicon-log-in {
   min-height: 20px;
 }
 
-/* line 250, ../sass/styles.scss */
+/* line 251, ../sass/styles.scss */
 .region.region-content-footer {
   padding-top: 20px;
 }

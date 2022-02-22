@@ -1,0 +1,89 @@
+body.path-webform {
+  form.webform-submission-publishing-and-creative-services-add-form {
+    div.form-item {
+      label[for="edit-programorservice"]::after, label[for="edit-emailaddress"]::after,
+      label[for="edit-fullname"]::after, label[for="edit-yourmessage"]::after {
+        content: none;
+      }
+      label[for="edit-programorservice"]::before, label[for="edit-emailaddress"]::before,
+      label[for="edit-fullname"]::before, label[for="edit-yourmessage"]::before  {
+        content: "";
+        background-image: url(../images/required.svg);
+        display: inline-block;
+        line-height: 1;
+        color: #e00;
+        background-size: 7px 7px;
+        width: 7px;
+        vertical-align: super;
+        margin-left: 4px;
+        height: 7px;
+        position: absolute;
+        top: 7px;
+        left: -15px;
+      }
+      label[for="edit-programorservice"], label[for="edit-emailaddress"],
+      label[for="edit-fullname"], label[for="edit-yourmessage"] {
+        position: relative;
+        margin-left: 10px;
+        margin-bottom: 0px;
+      }
+
+      div.form-item--error-message.alert.alert-danger::before {
+        content: none;
+      }
+
+      div.form-item--error-message.alert.alert-danger {
+        border-image: none !important;
+        margin-bottom: 5px;
+        margin-left: 0px;
+        font-weight: bold;
+        background: #f3e9e8;
+        border-color: #d3080c;
+      }
+      
+    }
+    div.form-item.form-item-programorservice.js-form-item-programorservice.form-group {
+      margin-bottom: 0px;
+    }
+    div.form-item.form-item-programorservice.form-group label[for="edit-programorservice"] + div.select-wrapper {
+      select.form-select {
+        width: 100%;
+      }
+    }
+    div.form-group.error.has-error label[for="edit-programorservice"] + div.select-wrapper {
+      margin-bottom: 0px;
+      select.form-select {
+        width: 100%;
+      }
+    }
+  }
+
+  div.region.region-highlighted {
+    ul li {
+      display: block;
+    }
+    ul li a {
+      display: list-item;
+      list-style-position: inside;
+      margin-top: 15px;
+    }
+    ul li::after {
+      content: none;
+    }
+    h2.sr-only {
+      position: relative;
+      font-size: 24px;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+/* WCAG requires the font weight of the error message as normal */
+form[id$="-add-form"] {
+  section.alert {
+    ul li a {
+      font-weight: normal;
+    }
+  }
+}
