@@ -35,11 +35,9 @@ elements: |-
       '#required': true
     srf_phone:
       '#type': tel
-      '#title': Phone
+      '#title': 'Phone number (+1613 666 6666)'
       '#required': true
-      '#international': true
-      '#international_initial_country': CA
-      '#telephone_validation_format': '2'
+      '#telephone_validation_format': '0'
       '#telephone_validation_country': CA
     srf_email:
       '#type': email
@@ -311,7 +309,7 @@ settings:
   form_disable_back: false
   form_submit_back: false
   form_disable_autocomplete: false
-  form_novalidate: false
+  form_novalidate: true
   form_disable_inline_errors: false
   form_required: false
   form_autofocus: false
@@ -322,6 +320,9 @@ settings:
   form_access_denied_message: ''
   form_access_denied_attributes: {  }
   form_file_limit: ''
+  form_attributes: {  }
+  form_method: ''
+  form_action: ''
   share: false
   share_node: false
   share_theme_name: ''
