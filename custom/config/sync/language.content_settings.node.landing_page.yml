@@ -12,8 +12,11 @@ third_party_settings:
     bundle_settings:
       entity_translation_unified_form_enable: '1'
       entity_translation_unified_form_theme: EntityTranslationUnifiedFormInlineMode
-      untranslatable_fields_hide: '1'
+      entity_translation_unified_form_language: native
       entity_translation_unified_form_sbs_enable: '1'
+      untranslatable_fields_hide: '1'
+      entity_translation_unified_form_translate_labels: '0'
+      entity_translation_unified_form_moderation_sync_disable: '0'
 id: node.landing_page
 target_entity_type_id: node
 target_bundle: landing_page
