@@ -77,6 +77,15 @@ body.path-webform {
       height: 100%;
     }
   }
+  
+  div.fieldset-wrapper {
+    .alert-sm {
+      display: flow-root;
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+  }
 }
 
 /* WCAG requires the font weight of the error message as normal */

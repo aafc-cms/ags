@@ -1107,9 +1107,16 @@ body.path-webform div.region.region-highlighted h2.sr-only {
   width: 100%;
   height: 100%;
 }
+/* line 82, ../sass/pages/_publishingcreativeservicerequest_page_wcag.scss */
+body.path-webform div.fieldset-wrapper .alert-sm {
+  display: flow-root;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
 
 /* WCAG requires the font weight of the error message as normal */
-/* line 85, ../sass/pages/_publishingcreativeservicerequest_page_wcag.scss */
+/* line 94, ../sass/pages/_publishingcreativeservicerequest_page_wcag.scss */
 form[id$="-add-form"] section.alert ul li a {
   font-weight: normal;
 }

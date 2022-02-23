@@ -87,7 +87,7 @@ var AgrisourceFrontend = function() {
     });
 
     //AgrisourceFrontend.initAnalytics();
-    //AgrisourceFrontend.relocateWebformValidationMSG();
+    AgrisourceFrontend.relocateWebformValidationMSG();
     AgrisourceFrontend.initSlideshow();
     initialized = true;
   }
@@ -163,9 +163,11 @@ var AgrisourceFrontend = function() {
 
   function relocateWebformValidationMSG() {
     // WCAG fix issue #463 : 
-    var psWebForm = $('body.path-webform');
+    var psWebFormId_pcs = $('#webform-submission-publishing-and-creative-services-add-form').attr("id");
+    var psWebFormId_vpr = $('#webform-submission-video-production-request-form-add-form').attr("id");
+    var sectionErrorElementRole = $('section.alert').attr("role");
     var divDescription = $('div#edit-psrf-pagedescription');
-    var divErrorMSG    = $('div.highlighted');
+    var divErrorMSG = $('div.highlighted');
     var countErr = 0;
     var subcountErr = 1;
     var reqvalMSGPrefix = "";
@@ -174,7 +176,7 @@ var AgrisourceFrontend = function() {
     var invalidPhoneNumSuffix = "";
     var subinvalidPhoneNumSuffix = "";
     var h2prefix = "";
-    if (typeof(psWebForm) && (psWebForm !== null)) {
+    if ((sectionErrorElementRole !== undefined) && (((typeof psWebFormId_pcs == 'string') && (psWebFormId_pcs !== undefined)) || ((typeof psWebFormId_vpr == 'string') && (psWebFormId_vpr !== undefined)))) {
       // Fixes WCAG issue #463
       if (AgrisourceFrontend.lang == 'en') {
         $(".form-required").append("<span style='color: #e00;'>&nbsp;(required)</span>");
@@ -198,11 +200,11 @@ var AgrisourceFrontend = function() {
         subinvalidPhoneNumSuffix = ": Veuillez fournir un numéro de téléphone valide.";
         errrorcountMSGsuffix = " erreurs ont été trouvées :"
       }
-      if ((typeof($('div.highlighted')) !== "undefined") && (typeof(divDescription) !== "undefined")) {
+      if ((typeof($('div.highlighted')) !== undefined) && (typeof(divDescription) !== undefined)) {
         if( (divErrorMSG !== null) && (divDescription !== null) ) {
           $('div.highlighted').detach().insertAfter(divDescription);
-          countErr = countErr +1;
           $( "section.alert.alert-danger.alert-dismissible ul li a" ).each(function(index, element) {
+            countErr = countErr +1;
             if (($(element).attr('href')) == "#edit-srf-phone") {
               $(this).text(reqvalMSGPrefix + countErr.toString() + reqvalMSGMiddle+ " " +$(this).text()  + invalidPhoneNumSuffix );
             }
@@ -212,10 +214,10 @@ var AgrisourceFrontend = function() {
           });
 
           var h2MSGstring = h2prefix + ' ' + countErr + ' ' + errrorcountMSGsuffix;
-          $("h2.sr-only").text(h2MSGstring); // set the error msg into h2
-          $("h2.sr-only").next().remove();               // remove extra html p element
+          $('section.alert h2').text(h2MSGstring);
+          $("section.alert h2+p").remove();
           //new logic for WCAG in Drupal Core 9.3
-          if ((typeof($('div.form-item.has-error')) !== "undefined")) {
+          if ((typeof($('div.form-item.has-error')) !== undefined)) {
             $( "div.alert.alert-danger").each(function(index) {
               var divrequiredfield = $(this).prev().prev();
               if ($(this).parent().find("input[data-drupal-selector='edit-srf-phone']").val()) {
@@ -225,8 +227,15 @@ var AgrisourceFrontend = function() {
                 $(this).text(reqvalMSGPrefix + subcountErr.toString()  + subreqvalMSGSuffix );
               }
               subcountErr = subcountErr +1;
-              if ((typeof(divrequiredfield) !== "undefined")) {
-                $(this).detach().insertAfter(divrequiredfield);
+              if ((typeof(divrequiredfield) !== undefined)) {
+                var ischeckboxesfield = $(this).parent().next().attr('id');
+                if ((ischeckboxesfield == 'edit-srf-product') || (ischeckboxesfield == 'edit-publishingchannels')
+                  ||(ischeckboxesfield == 'edit-targetaudience') || (ischeckboxesfield == 'edit-isvideoforevent')) {
+                  //do nothing: do not move the error message
+                }
+                else {
+                  $(this).detach().insertAfter(divrequiredfield);
+                }
               }
             });
           }
