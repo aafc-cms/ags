@@ -162,9 +162,11 @@ var AgrisourceFrontend = function() {
   }
 
   function relocateWebformValidationMSG() {
+    if (!$('body').hasClass('path-webform')) {
+      // Not a webform, do nothing.
+      return;
+    }
     // WCAG fix issue #463 : 
-    var psWebFormId_pcs = $('#webform-submission-publishing-and-creative-services-add-form').attr("id");
-    var psWebFormId_vpr = $('#webform-submission-video-production-request-form-add-form').attr("id");
     var sectionErrorElementRole = $('section.alert').attr("role");
     var divDescription = $('div#edit-psrf-pagedescription');
     var divErrorMSG = $('div.highlighted');
@@ -176,7 +178,7 @@ var AgrisourceFrontend = function() {
     var invalidPhoneNumSuffix = "";
     var subinvalidPhoneNumSuffix = "";
     var h2prefix = "";
-    if ((sectionErrorElementRole !== undefined) && (((typeof psWebFormId_pcs == 'string') && (psWebFormId_pcs !== undefined)) || ((typeof psWebFormId_vpr == 'string') && (psWebFormId_vpr !== undefined)))) {
+    if (sectionErrorElementRole !== undefined) {
       // Fixes WCAG issue #463
       if (AgrisourceFrontend.lang == 'en') {
         $(".form-required").append("<span style='color: #e00;'>&nbsp;(required)</span>");
@@ -204,7 +206,7 @@ var AgrisourceFrontend = function() {
         if( (divErrorMSG !== null) && (divDescription !== null) ) {
           $('div.highlighted').detach().insertAfter(divDescription);
           $("section.alert.alert-danger.alert-dismissible ul li a").each(function(index, element) {
-            countErr = countErr +1;
+            countErr = countErr + 1;
             if (($(element).attr('href')) == "#edit-srf-phone") {
               $(this).text(reqvalMSGPrefix + countErr.toString() + reqvalMSGMiddle+ " " +$(this).text() + invalidPhoneNumSuffix);
             }
