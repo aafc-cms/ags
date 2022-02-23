@@ -235,7 +235,13 @@ var AgrisourceFrontend = function() {
                   //do nothing: do not move the error message
                 }
                 else {
-                  $(this).detach().insertAfter(divrequiredfield);
+                  if ($(this).parent().hasClass("checkbox")) {
+                    var divparentfield = $(this).parent();
+                    $(this).detach().insertAfter(divparentfield);
+                  }
+                  else {
+                    $(this).detach().insertAfter(divrequiredfield);
+                  }
                 }
               }
             });
