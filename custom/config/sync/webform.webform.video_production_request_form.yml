@@ -13,6 +13,9 @@ title: 'Video Production Request Form'
 description: ''
 category: 'Services Request Form'
 elements: |-
+  psrf_pagedescription:
+    '#type': processed_text
+    '#format': full_html
   requestername:
     '#type': textfield
     '#title': 'Requester’s Name'
@@ -174,7 +177,7 @@ elements: |-
     '#uri_scheme': public
   readvideoproductionservicestandards:
     '#type': checkbox
-    '#title': '<strong>I have read the <a target="_blank" href="https://agrisource.agr.gc.ca/en/branches-and-offices/public-affairs-branch/video-production-services/framework-video-production?auHash=dAuCIjnf3yXUPEeEuM4u3gFmfG8UF2HDYiLZRHRQv2k">Video Production Service Standards</a>.</strong>'
+    '#title': 'I have read the Video Production Service Standards.'
     '#title_display': inline
     '#required': true
 css: ''
@@ -207,7 +210,7 @@ settings:
   form_disable_back: false
   form_submit_back: false
   form_disable_autocomplete: false
-  form_novalidate: false
+  form_novalidate: true
   form_disable_inline_errors: false
   form_required: false
   form_autofocus: false
@@ -218,6 +221,9 @@ settings:
   form_access_denied_message: ''
   form_access_denied_attributes: {  }
   form_file_limit: ''
+  form_attributes: {  }
+  form_method: ''
+  form_action: ''
   share: false
   share_node: false
   share_theme_name: ''

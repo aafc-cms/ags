@@ -1,5 +1,5 @@
 body.path-webform {
-  form.webform-submission-publishing-and-creative-services-add-form {
+  form.webform-submission-video-production-request-form-add-form {
     div.form-item {
       label[for="edit-programorservice"]::after, label[for="edit-emailaddress"]::after,
       label[for="edit-fullname"]::after, label[for="edit-yourmessage"]::after {
@@ -84,15 +84,6 @@ body.path-webform {
       font-size: 16px;
       font-weight: bold;
       margin-bottom: 5px;
-    }
-  }
-}
-
-/* WCAG requires the font weight of the error message as normal */
-form[id$="-add-form"] {
-  section.alert {
-    ul li a {
-      font-weight: normal;
     }
   }
 }
