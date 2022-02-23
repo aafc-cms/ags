@@ -203,28 +203,27 @@ var AgrisourceFrontend = function() {
       if ((typeof($('div.highlighted')) !== undefined) && (typeof(divDescription) !== undefined)) {
         if( (divErrorMSG !== null) && (divDescription !== null) ) {
           $('div.highlighted').detach().insertAfter(divDescription);
-          $( "section.alert.alert-danger.alert-dismissible ul li a" ).each(function(index, element) {
+          $("section.alert.alert-danger.alert-dismissible ul li a").each(function(index, element) {
             countErr = countErr +1;
             if (($(element).attr('href')) == "#edit-srf-phone") {
-              $(this).text(reqvalMSGPrefix + countErr.toString() + reqvalMSGMiddle+ " " +$(this).text()  + invalidPhoneNumSuffix );
+              $(this).text(reqvalMSGPrefix + countErr.toString() + reqvalMSGMiddle+ " " +$(this).text() + invalidPhoneNumSuffix);
             }
             else {
-              $(this).text(reqvalMSGPrefix + countErr.toString() + reqvalMSGMiddle+ " " +$(this).text()  + reqvalMSGSuffix );
+              $(this).text(reqvalMSGPrefix + countErr.toString() + reqvalMSGMiddle+ " " +$(this).text() + reqvalMSGSuffix );
             }
           });
-
           var h2MSGstring = h2prefix + ' ' + countErr + ' ' + errrorcountMSGsuffix;
-          $('section.alert h2').text(h2MSGstring);
+          $("section.alert h2").text(h2MSGstring);
           $("section.alert h2+p").remove();
           //new logic for WCAG in Drupal Core 9.3
           if ((typeof($('div.form-item.has-error')) !== undefined)) {
-            $( "div.alert.alert-danger").each(function(index) {
+            $("div.alert.alert-danger").each(function(index) {
               var divrequiredfield = $(this).prev().prev();
               if ($(this).parent().find("input[data-drupal-selector='edit-srf-phone']").val()) {
-                $(this).text(reqvalMSGPrefix + subcountErr.toString()  + subinvalidPhoneNumSuffix );
+                $(this).text(reqvalMSGPrefix + subcountErr.toString() + subinvalidPhoneNumSuffix);
               }
               else {
-                $(this).text(reqvalMSGPrefix + subcountErr.toString()  + subreqvalMSGSuffix );
+                $(this).text(reqvalMSGPrefix + subcountErr.toString() + subreqvalMSGSuffix);
               }
               subcountErr = subcountErr +1;
               if ((typeof(divrequiredfield) !== undefined)) {
