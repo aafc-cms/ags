@@ -78,12 +78,11 @@ body.path-webform {
     }
   }
   
-  div.fieldset-wrapper {
-    .alert-sm {
-      display: flow-root;
+  div.checkbox.error.has-error label {
+    font-weight: 700;
+  }
+  .alert-sm {
       font-size: 16px;
       font-weight: bold;
-      margin-bottom: 5px;
-    }
   }
 }
