@@ -35,10 +35,16 @@ elements: |-
       '#required': true
     srf_phone:
       '#type': tel
-      '#title': 'Phone number (+1613 666 6666)'
+      '#title': 'Phone number (+1613-555-5000)'
       '#required': true
+      '#international': true
+      '#international_initial_country': CA
+      '#international_preferred_countries':
+        - CA
       '#telephone_validation_format': '0'
       '#telephone_validation_country': CA
+      '#telephone_validation_countries':
+        - CA
     srf_email:
       '#type': email
       '#title': Email
