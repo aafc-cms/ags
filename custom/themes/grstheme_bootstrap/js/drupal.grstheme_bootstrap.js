@@ -87,7 +87,7 @@ var AgrisourceFrontend = function() {
     });
 
     //AgrisourceFrontend.initAnalytics();
-    AgrisourceFrontend.relocateWebformValidationMSG();
+    //AgrisourceFrontend.relocateWebformValidationMSG();
     AgrisourceFrontend.initSlideshow();
     initialized = true;
   }
@@ -231,7 +231,8 @@ var AgrisourceFrontend = function() {
               if ((typeof(divrequiredfield) !== undefined)) {
                 var ischeckboxesfield = $(this).parent().next().attr('id');
                 if ((ischeckboxesfield == 'edit-srf-product') || (ischeckboxesfield == 'edit-publishingchannels')
-                  ||(ischeckboxesfield == 'edit-targetaudience') || (ischeckboxesfield == 'edit-isvideoforevent')) {
+                  ||(ischeckboxesfield == 'edit-targetaudience') || (ischeckboxesfield == 'edit-isvideoforevent')
+                  ||(ischeckboxesfield == 'edit-new-requestorupdateexisting-project-')) {
                   //do nothing: do not move the error message
                 }
                 else {
@@ -240,7 +241,12 @@ var AgrisourceFrontend = function() {
                     $(this).detach().insertAfter(divparentfield);
                   }
                   else {
-                    $(this).detach().insertAfter(divrequiredfield);
+                    if ($(this).prev().prev().hasClass('hasDatepicker')) {
+                      $(this).detach().insertBefore(divrequiredfield);
+                    }
+                    else {
+                      $(this).detach().insertAfter(divrequiredfield);
+                    }
                   }
                 }
               }
