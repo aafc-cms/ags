@@ -86,6 +86,14 @@ body.path-webform {
       margin-bottom: 5px;
     }
   }
+
+  fieldset.required.error {
+    legend {
+      span {
+        color: #a94442;
+      }
+    }
+  }
 }
 
 /* WCAG requires the font weight of the error message as normal */

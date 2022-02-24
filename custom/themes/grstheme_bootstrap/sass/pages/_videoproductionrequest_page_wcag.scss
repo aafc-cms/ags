@@ -78,9 +78,20 @@ body.path-webform {
     }
   }
   
-  div.checkbox.error.has-error label {
-    font-weight: 700;
+  div.checkbox.error.has-error {
+    label {
+      font-weight: 700;
+    }
   }
+
+  fieldset.required.error {
+    legend {
+       span {
+         color: #a94442;
+       }
+     }
+   }
+
   .alert-sm {
       font-size: 16px;
       font-weight: bold;
