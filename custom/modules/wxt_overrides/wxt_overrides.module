@@ -130,7 +130,6 @@ function wxt_overrides_page_attachments(array &$page) {
       // Implment the logic by adding the hard codes for meta data (dcterms:issued and dcterms:modified).
       // The team decided to use the hard code approach in the short term.
       if (($webform == 'publishing_and_creative_services') || ($webform == 'video_production_request_form')) {
-        kint($webform);
         $datestr = '2022-03-31';
         $dctermsissued = [
           '#tag' => 'meta',
@@ -174,7 +173,7 @@ function wxt_overrides_page_attachments(array &$page) {
       $page['#attached']['html_head'][] = [$dctermsissued, 'dcterms:issued'];
       $page['#attached']['html_head'][] = [$dctermsmodified, 'dcterms:modified'];
     }
-    else
+    else 
     {
       return;
     }
