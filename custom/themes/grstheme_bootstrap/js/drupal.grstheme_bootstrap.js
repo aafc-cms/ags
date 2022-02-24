@@ -232,7 +232,7 @@ var AgrisourceFrontend = function() {
                 var ischeckboxesfield = $(this).parent().next().attr('id');
                 if ((ischeckboxesfield == 'edit-srf-product') || (ischeckboxesfield == 'edit-publishingchannels')
                   ||(ischeckboxesfield == 'edit-targetaudience') || (ischeckboxesfield == 'edit-isvideoforevent')
-                  || (ischeckboxesfield == 'edit-duedate') || (edit-rsf-daterequired == 'edit-duedate')) {
+                  ||(ischeckboxesfield == 'edit-new-requestorupdateexisting-project-')) {
                   //do nothing: do not move the error message
                 }
                 else {
@@ -241,7 +241,12 @@ var AgrisourceFrontend = function() {
                     $(this).detach().insertAfter(divparentfield);
                   }
                   else {
-                    $(this).detach().insertAfter(divrequiredfield);
+                    if ($(this).prev().prev().hasClass('hasDatepicker')) {
+                      $(this).detach().insertBefore(divrequiredfield);
+                    }
+                    else {
+                      $(this).detach().insertAfter(divrequiredfield);
+                    }
                   }
                 }
               }
