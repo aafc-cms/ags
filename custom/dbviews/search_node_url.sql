@@ -1,7 +1,7 @@
  CREATE OR REPLACE  View search_node_url AS
 
 Select `np`.`node_id` AS `node_id`,
-`nd`.`title` as `title`,
+concat('<a href="', concat('/',convert(`np`.`langcode` using utf8mb4),`np`.`url`) , '"', ' hreflang="', `np`.`langcode`, '">',`nd`.`title`, '</a>')   as `title`,
 `np`.`langcode` AS `langcode`,
 concat('/',convert(`np`.`langcode` using utf8mb4),`np`.`url`) AS `url`,
 char_length(concat('/',convert(`np`.`langcode` using utf8mb4),`np`.`url`)) AS `numofchars`,
