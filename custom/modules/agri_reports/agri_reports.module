@@ -84,19 +84,23 @@ function agri_reports_preprocess_views_view_field(&$variables) {
 function agri_reports_views_pre_view($view, $display_id, &$args) {
   if ($view->id() == 'publish_activity_for_meta_tags') {
     $values = $view->getExposedInput();
-    if (empty(trim($values["field_issued_value"]['min'])) || empty(trim($values["field_issued_value"]['max']))) {
-      $values["field_issued_value"]['min'] = ' ';
-      $values["field_issued_value"]['max'] = ' ';
-      $view->setExposedInput($values);
+    if (!empty($values)) {
+      if (empty(trim($values["field_issued_value"]['min'])) || empty(trim($values["field_issued_value"]['max']))) {
+        $values["field_issued_value"]['min'] = ' ';
+        $values["field_issued_value"]['max'] = ' ';
+        $view->setExposedInput($values);
+      }
     }
   }
 
   if ($view->id() == 'publish_activity_reporting') {
     $values = $view->getExposedInput();
-    if (empty(trim($values["created"]['min'])) || empty(trim($values["created"]['max']))) {
-      $values["created"]['min'] = ' ';
-      $values["created"]['max'] = ' ';
-      $view->setExposedInput($values);
+    if (!empty($values)) {
+      if (empty(trim($values["created"]['min'])) || empty(trim($values["created"]['max']))) {
+        $values["created"]['min'] = ' ';
+        $values["created"]['max'] = ' ';
+        $view->setExposedInput($values);
+      }
     }
   }
 }
