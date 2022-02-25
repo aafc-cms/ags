@@ -531,8 +531,8 @@ class Utils {
             if (preg_match('/node\/(\d+)/', $nodpath, $matches)) {
               $hrefnode = Node::load($matches[1]);
               if (isset($hrefnode)) {
-                if (!$foundabsoluteurl) {
-                  $foundabsoluteurl = TRUE;
+                if (!$found_absolute_url) {
+                  $found_absolute_url = TRUE;
                 }
                 $msg = '';
                 $msg = '<ul><li>' . $absolutepathstring . '</li></ul>';
@@ -543,7 +543,7 @@ class Utils {
         }
       }
     }
-    return $foundabsoluteurl;
+    return $found_absolute_url;
   }
 
   /**
