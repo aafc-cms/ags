@@ -490,7 +490,7 @@ class Utils {
         }
         $msg = '';
         $msg = '<ul><li>' . $node . " /node/" . $nodeid . '</li></ul>';
-        array_push($publishpagemsgarray, $msg);
+        array_push($publish_page_message_array, $msg);
       }
     }
     return $foundunpublishingnode;
@@ -536,7 +536,7 @@ class Utils {
                 }
                 $msg = '';
                 $msg = '<ul><li>' . $absolutepathstring . '</li></ul>';
-                array_push($publishpagemsgarray, $msg);
+                array_push($publish_page_message_array, $msg);
               }
             }
           }
