@@ -56,7 +56,7 @@ join
   and (`m`.`content_entity_revision_id` = `n`.`vid`))))
   where ((`m`.`workflow` = 'editorial')
   and (`m`.`content_entity_type_id` = 'node')
-  and (`n`.`type` = 'landing_page' or `n`.`type` = 'page') )
+  and (`n`.`type` = 'landing_page' or `n`.`type` = 'page' or `n`.`type` = 'dir_listing'))
 )
 `nms`
 on(((`np`.`node_id` = `nms`.`nid`) and (`np`.`langcode` = `nms`.`langcode`)))
