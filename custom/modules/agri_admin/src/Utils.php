@@ -532,7 +532,7 @@ class Utils {
               $hrefnode = Node::load($matches[1]);
               if (isset($hrefnode)) {
                 if (!$found_absolute_url) {
-                  $foundabsoluteurl = TRUE;
+                  $found_absolute_url = TRUE;
                 }
                 $msg = '';
                 $msg = '<ul><li>' . $absolutepathstring . '</li></ul>';
