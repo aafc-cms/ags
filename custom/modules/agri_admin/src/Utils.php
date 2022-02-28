@@ -480,6 +480,9 @@ class Utils {
       preg_match_all($regex_uuid, $node, $id_match, PREG_SET_ORDER);
       $nodeuuid = $id_match[0][0];
       $nentity = \Drupal::service('entity.repository')->loadEntityByUuid('node', $nodeuuid);
+      if (is_null($nentity)) {
+        continue;
+      }
       $nodeid = $nentity->id();
       $nmstate = $nentity->get('moderation_state')->getValue();
       $nmstatetmp = array_pop($nmstate);
