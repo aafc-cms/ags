@@ -87,7 +87,6 @@ var AgrisourceFrontend = function() {
     });
 
     //AgrisourceFrontend.initAnalytics();
-    //AgrisourceFrontend.relocateWebformValidationMSG();
     AgrisourceFrontend.initSlideshow();
     initialized = true;
   }
@@ -161,102 +160,6 @@ var AgrisourceFrontend = function() {
     });
   }
 
-  function relocateWebformValidationMSG() {
-    if (!$('body').hasClass('path-webform')) {
-      // Not a webform, do nothing.
-      return;
-    }
-    // WCAG fix issue #463 : 
-    var sectionErrorElementRole = $('section.alert').attr("role");
-    var divDescription = $('div#edit-psrf-pagedescription');
-    var divErrorMSG = $('div.highlighted');
-    var countErr = 0;
-    var subcountErr = 1;
-    var reqvalMSGPrefix = "";
-    var reqvalMSGMiddle = "";
-    var reqvalMSGSuffix = "";
-    var invalidPhoneNumSuffix = "";
-    var subinvalidPhoneNumSuffix = "";
-    var h2prefix = "";
-    if (sectionErrorElementRole !== undefined) {
-      // Fixes WCAG issue #463
-      if (AgrisourceFrontend.lang == 'en') {
-        $(".form-required").append("<span style='color: #e00;'>&nbsp;(required)</span>");
-        h2prefix = "The form could not be submitted because ";
-        reqvalMSGPrefix = "Error ";
-        reqvalMSGMiddle = ": ";
-        reqvalMSGSuffix = " - This field is required.";
-        subreqvalMSGSuffix = ": This field is required.";
-        invalidPhoneNumSuffix = " - Please specify a valid phone number.";
-        subinvalidPhoneNumSuffix = ": Please specify a valid phone number.";
-        errrorcountMSGsuffix = " errors have been found:"
-      }
-      else {
-        $(".form-required").append("<span style='color: #e00;'>&nbsp;(obligatoire)</span>");
-        h2prefix = "Le formulaire n'a pu être soumis car ";
-        reqvalMSGPrefix = "Erreur ";
-        reqvalMSGMiddle = " : ";
-        reqvalMSGSuffix = " - Ce champ est obligatoire.";
-        subreqvalMSGSuffix = " : Ce champ est obligatoire.";
-        invalidPhoneNumSuffix = " - Veuillez fournir un numéro de téléphone valide.";
-        subinvalidPhoneNumSuffix = ": Veuillez fournir un numéro de téléphone valide.";
-        errrorcountMSGsuffix = " erreurs ont été trouvées :"
-      }
-      if ((typeof($('div.highlighted')) !== undefined) && (typeof(divDescription) !== undefined)) {
-        if( (divErrorMSG !== null) && (divDescription !== null) ) {
-          $('div.highlighted').detach().insertAfter(divDescription);
-          $("section.alert.alert-danger.alert-dismissible ul li a").each(function(index, element) {
-            countErr = countErr + 1;
-            if (($(element).attr('href')) == "#edit-srf-phone") {
-              $(this).text(reqvalMSGPrefix + countErr.toString() + reqvalMSGMiddle+ " " +$(this).text() + invalidPhoneNumSuffix);
-            }
-            else {
-              $(this).text(reqvalMSGPrefix + countErr.toString() + reqvalMSGMiddle+ " " +$(this).text() + reqvalMSGSuffix );
-            }
-          });
-          var h2MSGstring = h2prefix + ' ' + countErr + ' ' + errrorcountMSGsuffix;
-          $("section.alert h2").text(h2MSGstring);
-          $("section.alert h2+p").remove();
-          //new logic for WCAG in Drupal Core 9.3
-          if ((typeof($('div.form-item.has-error')) !== undefined)) {
-            $("div.alert.alert-danger").each(function(index) {
-              var divrequiredfield = $(this).prev().prev();
-              if ($(this).parent().find("input[data-drupal-selector='edit-srf-phone']").val()) {
-                $(this).text(reqvalMSGPrefix + subcountErr.toString() + subinvalidPhoneNumSuffix);
-              }
-              else {
-                $(this).text(reqvalMSGPrefix + subcountErr.toString() + subreqvalMSGSuffix);
-              }
-              subcountErr = subcountErr +1;
-              if ((typeof(divrequiredfield) !== undefined)) {
-                var ischeckboxesfield = $(this).parent().next().attr('id');
-                if ((ischeckboxesfield == 'edit-srf-product') || (ischeckboxesfield == 'edit-publishingchannels')
-                  ||(ischeckboxesfield == 'edit-targetaudience') || (ischeckboxesfield == 'edit-isvideoforevent')
-                  ||(ischeckboxesfield == 'edit-new-requestorupdateexisting-project-')) {
-                  //do nothing: do not move the error message
-                }
-                else {
-                  if ($(this).parent().hasClass("checkbox")) {
-                    var divparentfield = $(this).parent();
-                    $(this).detach().insertAfter(divparentfield);
-                  }
-                  else {
-                    if ($(this).prev().prev().hasClass('hasDatepicker')) {
-                      $(this).detach().insertBefore(divrequiredfield);
-                    }
-                    else {
-                      $(this).detach().insertAfter(divrequiredfield);
-                    }
-                  }
-                }
-              }
-            });
-          }
-        }
-      }
-    }
-  }
-
   /**
    * Expose functions and variables
    */
@@ -268,8 +171,7 @@ var AgrisourceFrontend = function() {
     initAnalytics: initAnalytics,
     initSlideshow: initSlideshow,
     page_type: page_type,
-    removeRoleFromSummary: removeRoleFromSummary,
-    relocateWebformValidationMSG:relocateWebformValidationMSG
+    removeRoleFromSummary: removeRoleFromSummary
   }
 }();
 
