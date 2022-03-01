@@ -93,7 +93,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: standard
-          label: Url
+          label: URL
           exclude: false
           alter:
             alter_text: false
@@ -564,7 +564,7 @@ display:
           exposed: true
           expose:
             operator_id: url_op
-            label: Url
+            label: URL
             description: ''
             use_operator: false
             operator: url_op
@@ -581,6 +581,8 @@ display:
               creator: '0'
               editor: '0'
               reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
               pab_admin: '0'
               qa: '0'
               ia: '0'
@@ -648,6 +650,64 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        iscurrenturl:
+          id: iscurrenturl
+          table: search_node_url
+          field: iscurrenturl
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: numeric
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: iscurrenturl_op
+            label: Iscurrenturl
+            description: null
+            use_operator: false
+            operator: iscurrenturl_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: iscurrenturl
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            min_placeholder: null
+            max_placeholder: null
+            placeholder: null
+          is_grouped: true
+          group_info:
+            label: 'Is Current URL'
+            description: ''
+            identifier: iscurrenturl
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: '1'
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Current URL'
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: '1'
+              2:
+                title: 'Previous URL'
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: '0'
         langcode:
           id: langcode
           table: search_node_url
@@ -806,64 +866,6 @@ display:
                 title: 'Directory Listing'
                 operator: '='
                 value: 'Directory listing'
-        iscurrenturl:
-          id: iscurrenturl
-          table: search_node_url
-          field: iscurrenturl
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: numeric
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: iscurrenturl_op
-            label: Iscurrenturl
-            description: null
-            use_operator: false
-            operator: iscurrenturl_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: iscurrenturl
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            min_placeholder: null
-            max_placeholder: null
-            placeholder: null
-          is_grouped: true
-          group_info:
-            label: 'Is Current URL'
-            description: ''
-            identifier: iscurrenturl
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: '1'
-            default_group_multiple: {  }
-            group_items:
-              1:
-                title: 'Current URL'
-                operator: '='
-                value:
-                  min: ''
-                  max: ''
-                  value: '1'
-              2:
-                title: 'Previous URL'
-                operator: '='
-                value:
-                  min: ''
-                  max: ''
-                  value: '0'
       filter_groups:
         operator: AND
         groups:
