@@ -472,6 +472,8 @@ function agri_admin_node_presave(EntityInterface $entity) {
       $dt = new DateTime();
       if (empty($date_issued)) {
         $entity->set('field_issued', $dt->format('Y-m-d'));
+        $entity->set('field_modified', $dt->format('Y-m-d'));
+        $date_modified = $dt->format('Y-m-d');
       }
 
       if ($update_date_modified_str == '0' || (isset($import_override) && $import_override)) {
