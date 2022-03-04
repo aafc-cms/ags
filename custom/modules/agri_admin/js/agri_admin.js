@@ -22,15 +22,8 @@
               }
               var new_state = $('#edit-moderation-state-0-state option:selected').text();
               new_state = Drupal.t(new_state);
-              // If changing from un-published to published...
-              if ((cur_state == Drupal.t('Archived')) && (new_state == Drupal.t('Draft'))) {
-                var confirm_message = Drupal.t('Are you sure you want to revive this page?');
-                if (! confirm(confirm_message)) {
-                  e.preventDefault();
-                  return false;
-                }
-              }
-              else if ((cur_state == Drupal.t('Archived')) && (new_state == Drupal.t('Delete'))) {
+              // Remove the message 'Are you sure you want to revive this page?': moderation state is changed from archived to draft.
+              if ((cur_state == Drupal.t('Archived')) && (new_state == Drupal.t('Delete'))) {
                 var confirm_message = Drupal.t('If you click ok, the archived page can\'t be restored.\nAre you sure you want to delete it?');
                 if (! confirm(confirm_message)) {
                   e.preventDefault();
