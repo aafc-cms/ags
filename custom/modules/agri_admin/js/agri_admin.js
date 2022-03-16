@@ -22,8 +22,8 @@
           class: 'button button--primary',
           click: function click(e) {
             confirmationDialog.close();
-            $(".node-form #edit-submit").unbind('click');
-            $(".node-form #edit-submit").trigger('click');
+            $(".node-form #edit-submit").unbind('click.agriAdmin');
+            $(".node-form #edit-submit").trigger('click.agriAdmin');
             $(e.target).remove();
             return true;
           },
