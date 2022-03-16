@@ -553,7 +553,21 @@ display:
             label: ''
             field_identifier: created
           exposed: false
-          granularity: second
+          granularity: day
+        field_issued_value:
+          id: field_issued_value
+          table: node__field_issued
+          field: field_issued_value
+          relationship: nid
+          group_type: group
+          admin_label: ''
+          plugin_id: datetime
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+          granularity: day
       arguments: {  }
       filters:
         type:
@@ -896,7 +910,7 @@ display:
         type: some
         options:
           offset: 0
-          items_per_page: 300
+          items_per_page: 800
       style:
         type: data_export
         options:
@@ -922,7 +936,7 @@ display:
         default: '0'
       filename: ''
       automatic_download: false
-      export_limit: 300
+      export_limit: 800
       store_in_public_file_directory: false
       custom_redirect_path: false
       redirect_to_display: none
