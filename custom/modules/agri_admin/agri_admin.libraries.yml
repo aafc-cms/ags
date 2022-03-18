@@ -5,8 +5,10 @@ agri-admin:
   js:
     js/agri_admin.js: {}
   dependencies:
+    - core/drupal
     - core/jquery
     - core/drupalSettings
+    - core/drupal.dialog.ajax #Required for dialogs
 
 agri-empl-news-submit:
   css:
