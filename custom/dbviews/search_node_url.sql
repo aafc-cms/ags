@@ -11,6 +11,10 @@ char_length(concat('/',convert(`np`.`langcode` using utf8mb4),`np`.`url`)) AS `n
        then 'Landing page'
        when (`nms`.`type` = 'dir_listing')
        then 'Directory listing'
+       when (`nms`.`type` = 'news')
+       then 'News'
+       when (`nms`.`type` = 'empl')
+       then 'Employ'
   else  `nms`.`type`
   end
 ) AS `pagetype`,
@@ -56,7 +60,7 @@ join
   and (`m`.`content_entity_revision_id` = `n`.`vid`))))
   where ((`m`.`workflow` = 'editorial')
   and (`m`.`content_entity_type_id` = 'node')
-  and (`n`.`type` = 'landing_page' or `n`.`type` = 'page' or `n`.`type` = 'dir_listing'))
+  and (`n`.`type` = 'landing_page' or `n`.`type` = 'page' or `n`.`type` = 'dir_listing' or `n`.`type` = 'news' or `n`.`type` = 'empl'))
 )
 `nms`
 on(((`np`.`node_id` = `nms`.`nid`) and (`np`.`langcode` = `nms`.`langcode`)))
