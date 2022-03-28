@@ -14,7 +14,7 @@ char_length(concat('/',convert(`np`.`langcode` using utf8mb4),`np`.`url`)) AS `n
        when (`nms`.`type` = 'news')
        then 'News'
        when (`nms`.`type` = 'empl')
-       then 'Employ'
+       then 'Employment opportunity'
   else  `nms`.`type`
   end
 ) AS `pagetype`,
