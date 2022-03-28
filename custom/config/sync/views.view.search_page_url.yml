@@ -815,8 +815,8 @@ display:
                 title: Archived
                 operator: '='
                 value: archived
-        pagetype:
-          id: pagetype
+        pagetype_1:
+          id: pagetype_1
           table: search_node_url
           field: pagetype
           relationship: none
@@ -828,41 +828,53 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: pagetype_op
+            operator_id: pagetype_1_op
             label: Pagetype
             description: null
             use_operator: false
-            operator: pagetype_op
+            operator: pagetype_1_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: pagetype
+            identifier: pagetype_1
             required: false
             remember: false
-            multiple: true
+            multiple: false
             remember_roles:
               authenticated: authenticated
             placeholder: null
           is_grouped: true
           group_info:
-            label: 'Content Type'
+            label: Pagetype
             description: ''
-            identifier: pagetype
+            identifier: pagetype_1
             optional: true
             widget: select
             multiple: false
             remember: false
-            default_group: All
+            default_group: '1'
             default_group_multiple: {  }
             group_items:
               1:
+                title: 'Landing+Internal Page'
+                operator: regular_expression
+                value: 'Landing page|Internal page'
+              2:
                 title: 'Landing Page'
                 operator: '='
                 value: 'Landing page'
-              2:
-                title: 'Internal Page'
+              3:
+                title: 'Internal page'
                 operator: '='
                 value: 'Internal page'
-              3:
+              4:
+                title: News
+                operator: '='
+                value: News
+              5:
+                title: 'Employment Opportunity'
+                operator: '='
+                value: 'Employment opportunity'
+              6:
                 title: 'Directory Listing'
                 operator: '='
                 value: 'Directory listing'
