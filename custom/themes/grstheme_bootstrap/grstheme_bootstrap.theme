@@ -80,6 +80,9 @@ function grstheme_bootstrap_preprocess_html(&$variables) {
 
     if (gettype($node_revision) == 'object') {
       $revision_is_object = TRUE;
+      if (!method_exists($node_revision, 'revision_id')) {
+        return;
+      }
       $vid = $node_revision->revision_id();
     }
 
