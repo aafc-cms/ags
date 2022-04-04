@@ -4,10 +4,14 @@ status: true
 dependencies:
   config:
     - system.menu.admin
+    - user.role.administrator
+    - user.role.creator
+    - user.role.pab_admin
   module:
     - csv_serialization
     - rest
     - serialization
+    - user
     - view_custom_table
     - views_data_export
 id: search_page_url
@@ -473,8 +477,12 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            administrator: administrator
+            creator: creator
+            pab_admin: pab_admin
       cache:
         type: tag
         options: {  }
@@ -981,6 +989,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags: {  }
   data_export_1:
     id: data_export_1
@@ -1022,6 +1031,7 @@ display:
         - 'languages:language_interface'
         - request_format
         - url
+        - user.roles
       tags: {  }
   page_1:
     id: page_1
@@ -1049,4 +1059,5 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags: {  }
