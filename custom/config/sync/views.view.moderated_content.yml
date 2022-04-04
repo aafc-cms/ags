@@ -945,18 +945,95 @@ display:
               viewer: '0'
             argument: ''
             reduce: true
-          is_grouped: false
+          is_grouped: true
           group_info:
-            label: ''
+            label: 'Content type'
             description: ''
-            identifier: ''
+            identifier: type
             optional: true
             widget: select
             multiple: false
             remember: false
-            default_group: All
+            default_group: '1'
             default_group_multiple: {  }
-            group_items: {  }
+            group_items:
+              1:
+                title: 'Internal/Landing page'
+                operator: in
+                value:
+                  page: page
+                  landing_page: landing_page
+                  all: '0'
+                  dir_listing: '0'
+                  empl: '0'
+                  news: '0'
+                  webform: '0'
+              2:
+                title: 'Employment Opportunity'
+                operator: in
+                value:
+                  empl: empl
+                  all: '0'
+                  dir_listing: '0'
+                  page: '0'
+                  landing_page: '0'
+                  news: '0'
+                  webform: '0'
+              3:
+                title: News
+                operator: in
+                value:
+                  news: news
+                  all: '0'
+                  dir_listing: '0'
+                  empl: '0'
+                  page: '0'
+                  landing_page: '0'
+                  webform: '0'
+              4:
+                title: 'Internal page'
+                operator: in
+                value:
+                  page: page
+                  all: '0'
+                  dir_listing: '0'
+                  empl: '0'
+                  landing_page: '0'
+                  news: '0'
+                  webform: '0'
+              5:
+                title: 'Landing page'
+                operator: in
+                value:
+                  landing_page: landing_page
+                  all: '0'
+                  dir_listing: '0'
+                  empl: '0'
+                  page: '0'
+                  news: '0'
+                  webform: '0'
+              6:
+                title: Webform
+                operator: in
+                value:
+                  webform: webform
+                  all: '0'
+                  dir_listing: '0'
+                  empl: '0'
+                  page: '0'
+                  landing_page: '0'
+                  news: '0'
+              7:
+                title: 'Directory listing'
+                operator: in
+                value:
+                  dir_listing: dir_listing
+                  all: '0'
+                  empl: '0'
+                  page: '0'
+                  landing_page: '0'
+                  news: '0'
+                  webform: '0'
         name:
           id: name
           table: users_field_data
@@ -1040,18 +1117,39 @@ display:
               news_ccpub: '0'
               empl_cspub: '0'
             reduce: false
-          is_grouped: false
+          is_grouped: true
           group_info:
-            label: ''
+            label: 'Moderation state'
             description: ''
-            identifier: ''
+            identifier: moderation_state
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
             default_group_multiple: {  }
-            group_items: {  }
+            group_items:
+              1:
+                title: Draft
+                operator: in
+                value:
+                  editorial-draft: editorial-draft
+              2:
+                title: Published
+                operator: in
+                value:
+                  editorial-published: editorial-published
+              3:
+                title: Archived
+                operator: in
+                value:
+                  editorial-archived: editorial-archived
+              4:
+                title: Draft/Published
+                operator: in
+                value:
+                  editorial-draft: editorial-draft
+                  editorial-published: editorial-published
         field_peer_review_value:
           id: field_peer_review_value
           table: node_revision__field_peer_review
