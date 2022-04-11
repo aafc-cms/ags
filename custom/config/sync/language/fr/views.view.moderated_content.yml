@@ -9,8 +9,6 @@ display:
           submit_button: Filtrer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
-          sort_asc_label: Asc
-          sort_desc_label: Desc
       pager:
         options:
           tags:
@@ -25,13 +23,10 @@ display:
       fields:
         title:
           label: Titre
-          separator: ', '
         type:
           label: 'Type de contenu'
-          separator: ', '
         moderation_state:
           label: 'État de modération'
-          separator: ', '
         operations:
           label: Actions
       filters:
@@ -41,12 +36,37 @@ display:
         type:
           expose:
             label: 'Type de contenu'
+          group_info:
+            label: 'Type de contenu'
+            group_items:
+              1:
+                title: 'Page interne/de destination'
+              2:
+                title: 'Opportunité d''emploi'
+              3:
+                title: Nouvelle
+              4:
+                title: 'Page interne'
+              5:
+                title: 'Page de destination'
+              7:
+                title: 'Affichage de répertoire'
+              6:
+                title: 'Formulaire Web'
         moderation_state:
           expose:
             label: 'État de modération'
+          group_info:
+            group_items:
+              4:
+                title: Brouillon/Publié
+              3:
+                title: Archivé
         langcode:
           expose:
             label: Langue
+        field_peer_review_value:
+          group_info: {  }
       title: 'Contenu modéré'
       empty:
         area_text_custom:
