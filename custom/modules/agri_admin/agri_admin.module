@@ -1905,7 +1905,7 @@ function agri_admin_form_views_exposed_form_alter(&$form, FormStateInterface $fo
     $input = $form_state->getUserInput();
     foreach ($form['type']['#options'] as $key => &$value) {
       $key_label = $form['type']['#options'][$key];
-      if (($key != 'news') && (stripos($key_label, 'news') === FALSE)) {  // additional condition to handle grouped filters
+      if (($key != 'news') && (stripos($key_label, 'news') === FALSE) && (stripos($key_label, 'nouv') === FALSE)) {  // additional condition to handle grouped filters
         unset($form['type']['#options'][$key]);
       }
       else {

@@ -42,3 +42,31 @@ display:
     display_options:
       tab_options:
         description: 'Chercher et gérer le contenu'
+      filters:
+        type:
+          expose:
+            label: 'Type de contenu'
+          group_info:
+            group_items:
+              1:
+                title: 'Page interne/de destination'
+              2:
+                title: 'Opportunité d''emploi'
+              3:
+                title: Nouvelle
+              4:
+                title: 'Page interne'
+              5:
+                title: 'Page de destination'
+              6:
+                title: 'Formulaire Web'
+              7:
+                title: 'Affichage de répertoire'
+            label: 'Type de contenu'
+        moderation_state:
+          group_info:
+            group_items:
+              4:
+                title: Brouillon/Publié
+              3:
+                title: Archivé
