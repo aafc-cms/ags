@@ -1915,6 +1915,16 @@ function agri_admin_form_views_exposed_form_alter(&$form, FormStateInterface $fo
       }
     }
   }
+
+  if ($form_id == 'views_exposed_form') {
+    $input = $form_state->getUserInput();
+    $key = $input['moderation_state'];
+    $key_label = $form['moderation_state']['#options'][$key];
+    if (($key !== 'draft') && (stripos($key_label, 'draft') === FALSE) && (stripos($key_label, 'brouillon') === FALSE)) {  // additional condition to handle grouped filters
+      $input['status'] = 'All';
+      $form_state->setUserInput($input);
+    }
+  }
 }
 
 /**
