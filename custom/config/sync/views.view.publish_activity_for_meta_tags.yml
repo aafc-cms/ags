@@ -1070,7 +1070,17 @@ display:
           plugin_id: standard
           required: false
       header: {  }
-      footer: {  }
+      footer:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: result
+          empty: false
+          content: '<strong>Displaying @start - @end of @total total rows</strong><br><p></p>'
       display_extenders: {  }
     cache_metadata:
       max-age: -1
