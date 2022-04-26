@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.media.media_browser
+    - field.field.media.slideshow.field_category
     - field.field.media.slideshow.field_media_in_library
     - field.field.media.slideshow.field_slideshow_style
     - field.field.media.slideshow.slideshow_items
@@ -77,6 +78,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
+  field_category: true
   field_media_in_library: true
   field_slideshow_style: true
   langcode: true

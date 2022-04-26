@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.agrisource_slideshow_thumbnail
+    - field.field.media.image.field_category
     - field.field.media.image.field_image_link
     - field.field.media.image.field_media_in_library
     - field.field.media.image.image
@@ -47,6 +48,7 @@ content:
     region: content
 hidden:
   created: true
+  field_category: true
   field_media_in_library: true
   langcode: true
   name: true

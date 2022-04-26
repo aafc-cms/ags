@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.media.video_file.field_category
     - field.field.media.video_file.field_media_in_library
     - field.field.media.video_file.field_media_video_file
     - media.type.video_file
@@ -16,9 +17,15 @@ targetEntityType: media
 bundle: video_file
 mode: default
 content:
+  field_category:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_media_in_library:
     type: boolean_checkbox
-    weight: 2
+    weight: 4
     region: content
     settings:
       display_label: true
@@ -32,7 +39,7 @@ content:
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 2
+    weight: 3
     region: content
     settings:
       include_locked: true
@@ -47,13 +54,21 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
+  revision_log_message:
+    type: string_textarea
+    weight: 6
+    region: content
+    settings:
+      rows: 4
+      placeholder: ''
+    third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 3
+    weight: 5
     region: content
     settings:
       display_label: true
