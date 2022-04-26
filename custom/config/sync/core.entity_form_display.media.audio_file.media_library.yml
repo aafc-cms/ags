@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.media.media_library
+    - field.field.media.audio_file.field_category
     - field.field.media.audio_file.field_media_audio_file
     - field.field.media.audio_file.field_media_in_library
     - media.type.audio_file
@@ -44,6 +45,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_category: true
   field_media_audio_file: true
   path: true
   status: true

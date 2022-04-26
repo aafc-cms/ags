@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.media_library
+    - field.field.media.slideshow_thumbnav.field_category
     - field.field.media.slideshow_thumbnav.field_media_in_library
     - field.field.media.slideshow_thumbnav.field_media_slideshow
     - field.field.media.slideshow_thumbnav.field_media_thumbs
@@ -52,6 +53,7 @@ content:
     weight: 1
     region: content
 hidden:
+  field_category: true
   field_media_in_library: true
   field_media_slideshow: true
   field_media_thumbs: true

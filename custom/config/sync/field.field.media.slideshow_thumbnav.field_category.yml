@@ -1,0 +1,29 @@
+uuid: fb2846c6-2519-40fe-9a95-fc34db9e43ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_category
+    - media.type.slideshow_thumbnav
+    - taxonomy.vocabulary.media_category
+id: media.slideshow_thumbnav.field_category
+field_name: field_category
+entity_type: media
+bundle: slideshow_thumbnav
+label: 'Media Category'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      media_category: media_category
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference
