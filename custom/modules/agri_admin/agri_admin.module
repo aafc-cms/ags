@@ -1878,6 +1878,13 @@ function agri_admin_form_views_exposed_form_alter(&$form, FormStateInterface $fo
     return;
   }
 
+  $route_match = Utils::getRouteName();
+  if ($route_match == 'content_moderation.admin_moderated_content') {
+    if ($view['view']->id() == 'moderated_content') {
+      $form['#attached']['library'][] = 'agri_admin/agri_moderated_content';
+    }
+  }
+
   if (isset($form['type']['#options'])) {
     // Ensure that "- Any -" is 'first', and the other type options are in alphanum order.
     ksort($form['type']['#options']);
