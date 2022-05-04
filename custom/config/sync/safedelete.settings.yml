@@ -1,8 +1,21 @@
+bundle:
+  empl: empl
+  landing_page: landing_page
+  news: news
+  page: page
+  dir_listing: 0
+  webform: 0
+limit: '30'
+delete_button: 1
 _core:
-  default_config_hash: fw3EOzS6vL5yxwXT8vzWpkI-N5aKCinQC1_Zu9WHJyY
-bundle: {  }
-limit: 30
-delete_button: 0
-safearchive: 0
-orphanedpagedefinition: {  }
-orphanedpagewithoutmenulink: {  }
+  default_config_hash: L5YS5KleA4l7qjDXcbqwDBDlKkWIhnPWkUuouKd8_Mo
+orphanedpagedefinition:
+  landing_page: landing_page
+  page: page
+  dir_listing: 0
+  empl: 0
+  news: 0
+  webform: 0
+orphanedpagewithoutmenulink: landing_page
+exceptionofnodes: ''
+safearchive: true
