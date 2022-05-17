@@ -30,10 +30,10 @@ var Error404 = function() {
     if (initialized) {
       return;
     }
-    Agrisource.init();
+    AgrisourceFrontend.init();
 
     // Get the current UI language
-    if (Agrisource.lang == 'en') {
+    if (AgrisourceFrontend.lang == 'en') {
       console.log('Error 404');
       document.title = "We couldn't find that Web page (Error 404) - Agrisource";
       $('head meta[property*="title"]').remove();
