@@ -203,9 +203,9 @@ function agri_admin_preprocess_views_view_field(&$variables) {
       elseif ($view->id() == 'content' && $field->field == 'name') {
         // This field needs special treatment.
         // @todo Lakshman will probably notice this, will have to replace content author with revision author.
-        $user = $latestRevision->getRevisionUser();
-        $render_array = ['#markup' => "<a href=\"/" . $lang . "/user/" . $user->id() . "\">" . $user->getAccountName() . "</a>"];
-        $variables['output'] = Utils::render($render_array);
+        $user = $latestRevision->getRevisionUser();  // removing the linking because the Author column is currently unlinked in admin/content view.
+//        $render_array = ['#markup' => "<a href=\"/" . $lang . "/user/" . $user->id() . "\">" . $user->getAccountName() . "</a>"];
+        $variables['output'] = $user->getAccountName();  //Utils::render($render_array);
         return;
       }
       elseif ($field->field == 'node_bulk_form') {
