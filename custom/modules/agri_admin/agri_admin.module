@@ -154,6 +154,7 @@ function agri_admin_preprocess_views_view_field(&$variables) {
         $view->id() == 'content' ||
   // Added for Moderated Content view related code block below.
         $view->id() == 'moderated_content' ||
+        $view->id() == 'moderation_dashboard_content_locked' ||
         $view->id() == 'view_employmentopportunities' ||
         $view->id() == 'view_news_work')) {
     $field = $variables['field'];
@@ -163,13 +164,18 @@ function agri_admin_preprocess_views_view_field(&$variables) {
 
     // This IF block only for Moderated Content view.
     // Returning after this block ends since the rest of the code currently does not apply to this view.
-    if ($view->id() == 'moderated_content') {
+    if (($view->id() == 'moderated_content') || ($view->id() == 'moderation_dashboard_content_locked')) {
       if ($field->field == 'moderation_state') {
         $moderationState = $row->_entity->get('moderation_state')->getString();
         if ($moderationState == 'draft') {
           $node = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
           if ($node->isPublished()) {
-            $variables['output'] = t('pending draft');
+            if ($view->id() == 'moderated_content') {
+              $variables['output'] = t('pending draft');
+            }
+            elseif ($view->id() == 'moderation_dashboard_content_locked') {
+              $variables['output'] = t('Pending draft');
+            }
           }
         }
       }
