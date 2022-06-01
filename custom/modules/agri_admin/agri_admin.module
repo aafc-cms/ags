@@ -831,8 +831,16 @@ function agri_admin_form_node_form_alter(&$form, FormStateInterface $form_state,
     // For page and landing page edit/add css.
     $form['#attached']['library'][] = 'agri_admin/page';
     // Add validation functionality to prevent the broken links or misused linkit before the page is published.
+    // Add an extra new Save button for page type only
     if ($content_type == 'page' || $content_type == 'landing_page') {
       $form['#validate'][] = 'agri_admin_publishpage_referredlinks_validation';
+      // Add an extra new Save button for page type only
+      $form['actions']['saveonly'] = [
+        '#type'   => 'submit',
+        '#value'  => t('Save only'),
+        '#weight' => 10,
+        '#submit' => ['::submitForm', '::save', 'agri_admin_form_page_submit_save_only']
+      ];
     }
     // Attached agri_admin_form_page_submit event handler to page, landing page, empl and news.
     $moderation_state = $entity->moderation_state->value;
@@ -2068,4 +2076,16 @@ function agri_admin_media_predelete(EntityInterface $entity) {
     $response->send();
     exit;
   }
+}
+
+/**
+ * Implements hook_form_page_submit().
+ *
+ */
+function agri_admin_form_page_submit_save_only(array $form, FormStateInterface $form_state) {
+  // Only call for internal page or landing page with draft moderation state.
+  $entity = $form_state->getFormObject()->getEntity();
+  $moderation_state = $entity->moderation_state->value;
+  $node_id = $entity->id();
+  $form_state->setRedirectUrl(Url::fromRoute('entity.node.edit_form', ['node' => $node_id]));
 }
