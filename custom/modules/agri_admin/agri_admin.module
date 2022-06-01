@@ -831,7 +831,6 @@ function agri_admin_form_node_form_alter(&$form, FormStateInterface $form_state,
     // For page and landing page edit/add css.
     $form['#attached']['library'][] = 'agri_admin/page';
     // Add validation functionality to prevent the broken links or misused linkit before the page is published.
-    // Add an extra new Save button for page type only
     if ($content_type == 'page' || $content_type == 'landing_page') {
       $form['#validate'][] = 'agri_admin_publishpage_referredlinks_validation';
     }
