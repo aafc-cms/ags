@@ -7,7 +7,6 @@ dependencies:
   module:
     - block_class
     - block_content
-    - ctools
     - node
     - system
     - user
@@ -33,6 +32,13 @@ settings:
 visibility:
   'entity_bundle:node':
     id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      news: news
+  node_type:
+    id: node_type
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
