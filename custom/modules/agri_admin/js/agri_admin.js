@@ -126,69 +126,6 @@
               });
             });
           }
-
-          // Hide disabled menu links in the node edit form
-          if ($('body').hasClass('path-node') && $('body').hasClass('user-logged-in')) {
-            $("#edit-menu-enabled").click(function(e) {
-              var is_checked = $(this).is(':checked');
-              if (is_checked) {
-                $("#menu-disabled-links-form").show();
-              }
-              else {
-                $("#menu-disabled-links-form").hide();
-              }
-            });
-            var disabledMenuLinkHtml = '<form id="menu-disabled-links-form" action="#nothing">' +
-            '<input type="checkbox" class="form-boolean--type-checkbox form-checkbox form-boolean" id="menu-disabled-links-switch" name="menu-disabled-links-switch" value="enabled" checked>' +
-            '<label for="menu-disabled-links-switch" class="show-disabled form-item__label"> ' + Drupal.t('Hide disabled items') + '</label>' +
-            '</form>';
-            $('#edit-menu div.form-type--checkbox').prepend(disabledMenuLinkHtml);
-            $('#edit-menu option').each(function(index, element) {
-              var aiguille = Agrisource.lang == 'en' ? 'disabled)' : 'désactivé)';
-              if (~$(element).text().indexOf(aiguille)) {
-                $(element).hide();
-              }
-            });
-            var is_expanded = $("#edit-menu summary").attr('aria-expanded');
-            if (is_expanded) {
-              $("#menu-disabled-links-form").hide();
-            }
-            else {
-              $("#menu-disabled-links-form").show();
-            }
-            $("#menu-disabled-links-switch").click(function(e) {
-              $('select.menu-parent-select').first().find('option').each(function(index, element) {
-                var aiguille = Agrisource.lang == 'en' ? 'disabled)' : 'désactivé)';
-                if (~$(element).text().indexOf(aiguille) > 0) {
-                  var is_hidden = $(element).css('display') == 'none';
-                  if (is_hidden) {
-                    $(element).show();
-                  }
-                  else {
-                    $(element).hide();
-                  }
-                }
-              });
-            });
-            if (!$("#edit-menu-enabled").is(":checked") && $("#edit-menu-enabled").is(':visible')) {
-              var is_hidden = $("#menu-disabled-links-form").css('display') == 'none';
-              if (is_hidden) {
-                $("#menu-disabled-links-form").show();
-              }
-              else {
-                $("#menu-disabled-links-form").hide();
-              }
-            } else {
-              var is_hidden = $("#menu-disabled-links-form").css('display') == 'none';
-              if (is_hidden) {
-                $("#menu-disabled-links-form").show();
-              }
-              else {
-                $("#menu-disabled-links-form").hide();
-              }
-            }
-          }
-
         }//end if user is loggedIn
       }
     }
