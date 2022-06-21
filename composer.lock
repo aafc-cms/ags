@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "96b88760f31557bfb5d8c4cf749ff2ad",
+    "content-hash": "a33507261347cbff985133029cdef920",
     "packages": [
         {
             "name": "agrcmsx/dxbase",
-            "version": "9.3.15.2",
+            "version": "9.3.16",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:agrcms/dxbase.git",
@@ -4555,16 +4555,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "9.3.15",
+            "version": "9.3.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "c29310a4d08d5072d7f713da744c0831636b4779"
+                "reference": "eef5b91fa6689410325d569a0653878b2b1782ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/c29310a4d08d5072d7f713da744c0831636b4779",
-                "reference": "c29310a4d08d5072d7f713da744c0831636b4779",
+                "url": "https://api.github.com/repos/drupal/core/zipball/eef5b91fa6689410325d569a0653878b2b1782ed",
+                "reference": "eef5b91fa6689410325d569a0653878b2b1782ed",
                 "shasum": ""
             },
             "require": {
@@ -4586,7 +4586,7 @@
                 "ext-spl": "*",
                 "ext-tokenizer": "*",
                 "ext-xml": "*",
-                "guzzlehttp/guzzle": "^6.5.6",
+                "guzzlehttp/guzzle": "^6.5.7",
                 "laminas/laminas-diactoros": "^2.1",
                 "laminas/laminas-feed": "^2.12",
                 "masterminds/html5": "^2.1",
@@ -4806,9 +4806,9 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/9.3.15"
+                "source": "https://github.com/drupal/core/tree/9.3.16"
             },
-            "time": "2022-06-01T15:45:43+00:00"
+            "time": "2022-06-10T19:08:28+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
@@ -12666,17 +12666,17 @@
         },
         {
             "name": "drupal/wxt_bootstrap",
-            "version": "6.4.0",
+            "version": "6.5.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/wxt_bootstrap.git",
-                "reference": "8.x-6.4"
+                "reference": "8.x-6.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/wxt_bootstrap-8.x-6.4.zip",
-                "reference": "8.x-6.4",
-                "shasum": "9a065ad3f3af051c98b83839fd787ae1be2bd6b8"
+                "url": "https://ftp.drupal.org/files/projects/wxt_bootstrap-8.x-6.5.zip",
+                "reference": "8.x-6.5",
+                "shasum": "bbe98b9cbfec1da996dbf7f1919466ff4de5d133"
             },
             "require": {
                 "cweagans/composer-patches": "^1.6.0",
@@ -12687,8 +12687,8 @@
             "type": "drupal-theme",
             "extra": {
                 "drupal": {
-                    "version": "8.x-6.4",
-                    "datestamp": "1654866683",
+                    "version": "8.x-6.5",
+                    "datestamp": "1655814485",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -12781,17 +12781,17 @@
         },
         {
             "name": "drupal/wxt_library",
-            "version": "6.2.0",
+            "version": "6.3.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/wxt_library.git",
-                "reference": "8.x-6.2"
+                "reference": "8.x-6.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/wxt_library-8.x-6.2.zip",
-                "reference": "8.x-6.2",
-                "shasum": "7de7ea5ce42d464b61ca717ac3a44863e70c5a3e"
+                "url": "https://ftp.drupal.org/files/projects/wxt_library-8.x-6.3.zip",
+                "reference": "8.x-6.3",
+                "shasum": "156bc59c2819c29e0c0d6630638b98f91478aed2"
             },
             "require": {
                 "composer/installers": "^1.2",
@@ -12811,8 +12811,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-6.2",
-                    "datestamp": "1654866758",
+                    "version": "8.x-6.3",
+                    "datestamp": "1655814542",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -12895,16 +12895,16 @@
         },
         {
             "name": "drupalwxt/wxt",
-            "version": "4.3.x-dev",
+            "version": "4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupalwxt/wxt.git",
-                "reference": "3f56933853ad06bf402b862b0d0117a8610d331b"
+                "reference": "d0b2b3f941fd77f72fa057721f75a112e22fb2e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupalwxt/wxt/zipball/3f56933853ad06bf402b862b0d0117a8610d331b",
-                "reference": "3f56933853ad06bf402b862b0d0117a8610d331b",
+                "url": "https://api.github.com/repos/drupalwxt/wxt/zipball/d0b2b3f941fd77f72fa057721f75a112e22fb2e2",
+                "reference": "d0b2b3f941fd77f72fa057721f75a112e22fb2e2",
                 "shasum": ""
             },
             "require": {
@@ -12919,7 +12919,7 @@
                 "drupal/ckeditor_codemirror": "2.3",
                 "drupal/ckeditor_details": "^2.0.2",
                 "drupal/config_rewrite": "1.4",
-                "drupal/core": "9.3.15",
+                "drupal/core": "9.3.16",
                 "drupal/core_context": "1.0-beta5",
                 "drupal/ctools": "^3.7",
                 "drupal/diff": "1.0",
@@ -12957,8 +12957,8 @@
                 "drupal/views_bootstrap": "^3.4",
                 "drupal/webform": "^6.0",
                 "drupal/webform_migrate": "1.x-dev",
-                "drupal/wxt_bootstrap": "6.4",
-                "drupal/wxt_library": "6.2",
+                "drupal/wxt_bootstrap": "6.5",
+                "drupal/wxt_library": "6.3",
                 "ext-dom": "*",
                 "w8tcha/ckeditor-codemirror": "1.16"
             },
@@ -13147,9 +13147,9 @@
             "description": "Project template for Drupal 9 sites built with the WxT distribution.",
             "support": {
                 "issues": "https://github.com/drupalwxt/wxt/issues",
-                "source": "https://github.com/drupalwxt/wxt/tree/4.3.x"
+                "source": "https://github.com/drupalwxt/wxt/tree/4.3.0"
             },
-            "time": "2022-06-13T13:20:27+00:00"
+            "time": "2022-06-21T13:39:39+00:00"
         },
         {
             "name": "drush/drush",
