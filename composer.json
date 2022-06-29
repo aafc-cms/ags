@@ -208,7 +208,13 @@
             "drupal/entity_translation_unified_form": {
                 "3283608 - The client requires an extra Save only button which allows the URL to stay at the /node/nodeID/edit page":
                 "https://www.drupal.org/files/issues/2022-06-13/client-requires-an-extra-Save-only-button-3283608-13.patch"
-            }
+            },
+            "drupal/purge": {
+		"Fix for php 8.1 compatibility for purge module: ": "https://www.drupal.org/files/issues/2022-02-24/3259320-10.patch"
+	    },
+            "cypresslab/gitelephant": {
+		"Fix for php 8.1 compatibility: see pull request 184 in github for matteosister/GitElephant: ": "https://patch-diff.githubusercontent.com/raw/matteosister/GitElephant/pull/184.diff"
+	    }
         },
         "patches-ignore": {
             "acquia/lightning": {
@@ -279,10 +285,7 @@
                     "2914389 - Allow profiles to exclude dependencies of their parent":
                     "https://www.drupal.org/files/issues/2018-07-09/2914389-8-do-not-test.patch"
                 }
-            },
-            "cypresslab/gitelephant": {
-		"Fix for php 8.1 compatibility: see pull request 184 in github for matteosister/GitElephant: ": "https://patch-diff.githubusercontent.com/raw/matteosister/GitElephant/pull/184.diff"
-	    }
+            }
         }
     },
     "require": {
@@ -298,7 +301,7 @@
         "drupal/file_replace": "^1.2",
         "drupal/link_attributes": "^1.10",
         "drupal/media_library_edit": "^2.1",
-        "drupal/purge": "3.0",
+        "drupal/purge": "^3.2",
         "drupal/telephone_validation": "^2.3",
         "drupal/varnish_purger": "^2.1",
         "drupal/view_custom_table": "^2.0",
