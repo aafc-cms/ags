@@ -212,10 +212,7 @@
 	    },
             "drupal/wxt_library": {
                 "3293413 - PHP 8.1 compatibility fix. Cannot pass null parameter.": "https://www.drupal.org/files/issues/2022-06-29/wxt_library-php81_compat-3293413-04.patch"
-            },
-            "cypresslab/gitelephant": {
-		"Fix for php 8.1 compatibility: see pull request 184 in github for matteosister/GitElephant: ": "https://patch-diff.githubusercontent.com/raw/matteosister/GitElephant/pull/184.diff"
-	    }
+            }
         },
         "patches-ignore": {
             "acquia/lightning": {
@@ -300,7 +297,7 @@
         "agrcmsx/dxbase": "9.3.16.2",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6.7",
-        "cypresslab/gitelephant": "4.4",
+        "cypresslab/gitelephant": "^4.4.3",
         "drupal/bootstrap": "3.25 as 3.23",
         "drupal/clientside_validation": "^3.0",
         "drupal/core-composer-scaffold": "^9",
