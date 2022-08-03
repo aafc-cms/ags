@@ -181,8 +181,6 @@
             "drupal/bootstrap": {
                 "views submit button name attribute cannot be empty for w3c":
                 "https://www.drupal.org/files/issues/2020-07-10/3061891-27.patch",
-                "fix array_unique warnings on node/49 page":
-                "https://www.drupal.org/files/issues/2020-09-29/bootstrap-3173776-3.patch",
                 "Bootstrap javascript fix for news page affected bootstrap-panels otherwise was a TypeError, prevents exception": "https://www.drupal.org/files/issues/2022-06-08/bootstrap-js_fix-3163171-10.patch"
             },
             "drupal/field_group": {
@@ -208,7 +206,16 @@
             "drupal/entity_translation_unified_form": {
                 "3283608 - The client requires an extra Save only button which allows the URL to stay at the /node/nodeID/edit page":
                 "https://www.drupal.org/files/issues/2022-06-20/save-only-3283608-18.patch"
-            }
+            },
+            "drupal/purge": {
+		"Fix for php 8.1 compatibility for purge module: ": "https://www.drupal.org/files/issues/2022-02-24/3259320-10.patch"
+	    },
+            "drupal/wxt_library": {
+                "3293413 - PHP 8.1 compatibility fix. Cannot pass null parameter.": "https://www.drupal.org/files/issues/2022-06-29/wxt_library-php81_compat-3293413-04.patch"
+            },
+            "cypresslab/gitelephant": {
+		"Fix for php 8.1 compatibility: see pull request 184 in github for matteosister/GitElephant: ": "https://patch-diff.githubusercontent.com/raw/matteosister/GitElephant/pull/184.diff"
+	    }
         },
         "patches-ignore": {
             "acquia/lightning": {
@@ -222,6 +229,9 @@
             "agrcmsx/dxbase": {
 		"drupal/core": {
 		    "2907413": "https://www.drupal.org/files/issues/2021-11-19/D93x-2907413-23.patch"
+                },
+                "drupal/bootstrap": {
+                  "3173776 - patch included with bootstrap 3.2.5/3.2.4, only needed if using 3.2.3": "https://www.drupal.org/files/issues/2020-09-29/bootstrap-3173776-3.patch"
                 }
             },
             "drupalwxt/wxt": {
@@ -244,6 +254,9 @@
                     "1356276 - Overrides for profile and sub profile use 633 instead of 631-by-mpotter-balsa":
                     "https://www.drupal.org/files/issues/2020-12-13/1356276-633-by-mpotter-balsama-phenaproxima-9.1.0-9.2.x.patch",
                     "1356276 - Overrides for profile and sub profile use 686 instead of 656": "https://www.drupal.org/files/issues/2021-06-29/D91x-1356276-656.patch"
+                },
+                "drupal/bootstrap": {
+                    "3209773 - patch included with bootstrap 3.2.5/3.2.4, only needed if using 3.2.3": "https://www.drupal.org/files/issues/2021-08-24/bootstrap-toggle_undefined-3209773-8.patch"
                 },
                 "drupal/ctools": {
                     "is in dev patch":
@@ -287,7 +300,8 @@
         "agrcmsx/dxbase": "9.3.16.2",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6.7",
-        "cypresslab/gitelephant": "^4.2",
+        "cypresslab/gitelephant": "4.4",
+        "drupal/bootstrap": "3.25 as 3.23",
         "drupal/clientside_validation": "^3.0",
         "drupal/core-composer-scaffold": "^9",
         "drupal/embed_block": "1.x-dev",
@@ -295,7 +309,7 @@
         "drupal/file_replace": "^1.2",
         "drupal/link_attributes": "^1.10",
         "drupal/media_library_edit": "^2.1",
-        "drupal/purge": "3.0",
+        "drupal/purge": "^3.2",
         "drupal/telephone_validation": "^2.3",
         "drupal/varnish_purger": "^2.1",
         "drupal/view_custom_table": "^2.0",
