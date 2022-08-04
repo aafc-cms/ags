@@ -1245,12 +1245,40 @@ div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-loca
   width: 22%;
 }
 /* line 53, ../sass/views/_employmentopportunities_view.scss */
-div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-date-closing-table-column, div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-locations-table-column,
-div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-branch-table-column, div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-open-to-table-column {
+div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-date-closing-table-column button, div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-locations-table-column button,
+div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-branch-table-column button, div.view-id-view_employmentopportunities.view-display-id-page_1 #view-field-open-to-table-column button {
   text-decoration: underline;
   text-decoration-thickness: inherit;
 }
-/* line 60, ../sass/views/_employmentopportunities_view.scss */
+/* line 59, ../sass/views/_employmentopportunities_view.scss */
+div.view-id-view_employmentopportunities.view-display-id-page_1 th.views-field.views-field-field-date-closing.sorting button, div.view-id-view_employmentopportunities.view-display-id-page_1 th.views-field.views-field-field-locations.sorting button,
+div.view-id-view_employmentopportunities.view-display-id-page_1 th.views-field.views-field-field-branch.sorting button, div.view-id-view_employmentopportunities.view-display-id-page_1 th.views-field.views-field-field-open-to.sorting button,
+div.view-id-view_employmentopportunities.view-display-id-page_1 th.views-field.views-field-field-type.sorting button, div.view-id-view_employmentopportunities.view-display-id-page_1 th.views-field.views-field-field-classification.sorting button {
+  background-color: #fff;
+  border-width: 0px;
+}
+/* line 64, ../sass/views/_employmentopportunities_view.scss */
+div.view-id-view_employmentopportunities.view-display-id-page_1 th.views-field.views-field-field-date-closing.sorting button span.sorting-cnt, div.view-id-view_employmentopportunities.view-display-id-page_1 th.views-field.views-field-field-locations.sorting button span.sorting-cnt,
+div.view-id-view_employmentopportunities.view-display-id-page_1 th.views-field.views-field-field-branch.sorting button span.sorting-cnt, div.view-id-view_employmentopportunities.view-display-id-page_1 th.views-field.views-field-field-open-to.sorting button span.sorting-cnt,
+div.view-id-view_employmentopportunities.view-display-id-page_1 th.views-field.views-field-field-type.sorting button span.sorting-cnt, div.view-id-view_employmentopportunities.view-display-id-page_1 th.views-field.views-field-field-classification.sorting button span.sorting-cnt {
+  display: none;
+}
+/* line 69, ../sass/views/_employmentopportunities_view.scss */
+div.view-id-view_employmentopportunities.view-display-id-page_1 th.views-field.views-field-field-type.sorting.sorting_desc button,
+div.view-id-view_employmentopportunities.view-display-id-page_1 th.views-field.views-field-field-type.sorting.sorting_asc button,
+div.view-id-view_employmentopportunities.view-display-id-page_1 th.views-field.views-field-field-classification.sorting.sorting_desc button,
+div.view-id-view_employmentopportunities.view-display-id-page_1 th.views-field.views-field-field-classification.sorting.sorting_asc button,
+div.view-id-view_employmentopportunities.view-display-id-page_1 th.views-field.views-field-field-branch.sorting.sorting_desc button,
+div.view-id-view_employmentopportunities.view-display-id-page_1 th.views-field.views-field-field-branch.sorting.sorting_asc button,
+div.view-id-view_employmentopportunities.view-display-id-page_1 th.views-field.views-field-field-open-to.sorting.sorting_desc button,
+div.view-id-view_employmentopportunities.view-display-id-page_1 th.views-field.views-field-field-open-to.sorting.sorting_asc button,
+div.view-id-view_employmentopportunities.view-display-id-page_1 th.views-field.views-field-field-date-closing.sorting.sorting_desc button,
+div.view-id-view_employmentopportunities.view-display-id-page_1 th.views-field.views-field-field-date-closing.sorting.sorting_asc button,
+div.view-id-view_employmentopportunities.view-display-id-page_1 th.views-field.views-field-field-locations.sorting.sorting_desc button,
+div.view-id-view_employmentopportunities.view-display-id-page_1 th.views-field.views-field-field-locations.sorting.sorting_asc button {
+  background-color: #e7e7e7;
+}
+/* line 85, ../sass/views/_employmentopportunities_view.scss */
 div.view-id-view_employmentopportunities.view-display-id-page_1 .views-exposed-form .form-type-select label.control-label {
   width: auto;
 }
