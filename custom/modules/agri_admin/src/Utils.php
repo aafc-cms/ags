@@ -516,7 +516,7 @@ class Utils {
       $hrefpath = reset($match);
       // Ignore the token case.
       $tokenhead = "?auHash=";
-      if (strpos($hrefpath, $tokenhead) == FALSE) {
+      if (isset($hrefpath) && strpos($hrefpath, $tokenhead) == FALSE) {
         $path = str_replace("href=\"", "", $hrefpath);
         $path = str_replace("\"", "", $path);
         if (UrlHelper::isExternal($path) && UrlHelper::isValid($path, TRUE)) {

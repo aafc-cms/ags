@@ -39,7 +39,7 @@ function agri_admin_preprocess_html(&$variables) {
   if (strlen($clean_path) > 30) {
     $clean_path = substr($clean_path, 0, 29);
   }
-  if (strpos($current_path, 'node') > 0) {
+  if (isset($current_path) && strpos($current_path, 'node') > 0) {
     if (substr_compare($current_path, 'edit', -strlen('edit')) === 0) {
       $clean_path = 'node-edit';
     }
@@ -2056,7 +2056,7 @@ function agri_admin_form_alter(&$form, FormStateInterface $form_state, $form_id)
  */
 function agri_admin_media_predelete(EntityInterface $entity) {
   $media_name = $entity->getName();
-  if (strpos($media_name, 'Home Slideshow Thumbnav') !== FALSE) {
+  if (isset($media_name) && strpos($media_name, 'Home Slideshow Thumbnav') !== FALSE) {
     $entity_type = $entity->getEntityTypeId();
     $id = $entity->id();
     // This message does not seem to work inside this function.
