@@ -120,7 +120,8 @@
             "cweagans/composer-patches": true,
             "oomphinc/composer-installers-extender": true,
             "drupal/console-extend-plugin": true,
-            "drupal/core-composer-scaffold": true
+            "drupal/core-composer-scaffold": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
         }
     },
     "extra": {
@@ -273,6 +274,10 @@
                     "is in dev patch":
                     "https://www.drupal.org/files/issues/entityview-cache-metadata-2874176-2.patch"
                 },
+                "drupal/pathauto": {
+                    "3184164 - Is only in latest releases.":
+                    "https://www.drupal.org/files/issues/2020-11-23/3184164-2.patch"
+                },
                 "drupal/field_group": {
                     "3111107 - Remove patch , no longer works, override it with patch 10.":
                     "https://www.drupal.org/files/issues/2020-02-04/3111107-2--fix-translations.patch"
@@ -308,7 +313,7 @@
     },
     "require": {
         "agrcmsx/prefer_latest_content": "*",
-        "agrcmsx/dxbase": "9.4.5-rc6",
+        "agrcmsx/dxbase": "9.4.5-rc12",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6.7",
         "cypresslab/gitelephant": "^4.4.3",
@@ -324,6 +329,8 @@
         "drupal/telephone_validation": "^2.3",
         "drupal/varnish_purger": "^2.1",
         "drupal/view_custom_table": "^2.0",
+        "drupal/simple_sitemap": "4.1.2 as 3.11.0",
+        "drupal/webform": "6.2.0-beta2 as 6.1.3",
         "drupal/webform_translation_permissions": "^1.1",
         "entreprise7pro/agri_admin": "*",
         "entreprise7pro/agri_reports": "*",
@@ -335,7 +342,14 @@
         "entreprise7pro/wxt_overrides": "*",
         "junhuang/idol_feed_api": "*",
         "oomphinc/composer-installers-extender": "^1.1 || ^2",
-        "drupal/views_bulk_operations": "^4.1"
+        "drupal/views_bulk_operations": "^4.1",
+        "drupal/ckeditor_codemirror": "2.4 as 2.3",
+        "drupal/menu_block": "1.8.0 as 1.6.0",
+        "drupal/paragraphs": "1.14.0 as 1.12.0",
+        "drupal/pathauto": "1.11.0 as 1.8.0",
+        "drupal/token_filter": "1.4.0 as 1.3.0",
+        "drupal/views_bootstrap": "5.4.0 as 3.9.0",
+        "drupal/context_stack": "^1.0"
     },
     "autoload": {
         "classmap": [
