@@ -39,6 +39,9 @@ class PathProcessorAgriAdmin implements InboundPathProcessorInterface, OutboundP
         $options['query']['t'] = $this->unixtime;
       }
     }
+    if (!isset($path)) {
+      $path = '';
+    }
     return $path;
   }
 
