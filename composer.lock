@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "89450bbbe39eda8c9bd15fcc4219835a",
+    "content-hash": "8bcf5af2100cebf55495eb5591165470",
     "packages": [
         {
             "name": "agrcmsx/dxbase",
-            "version": "9.4.5-rc5",
+            "version": "9.4.5-rc6",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:agrcms/dxbase.git",
-                "reference": "d16875f1a8c23164f921c17be36b741f9a05a93a"
+                "reference": "d1c0877719d048e0ad260eaae09b06a28177685e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=d16875f1a8c23164f921c17be36b741f9a05a93a",
-                "reference": "d16875f1a8c23164f921c17be36b741f9a05a93a",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=d1c0877719d048e0ad260eaae09b06a28177685e",
+                "reference": "d1c0877719d048e0ad260eaae09b06a28177685e",
                 "shasum": ""
             },
             "require": {
@@ -155,6 +155,7 @@
                 "patches": {
                     "drupal/core": {
                         "BigPipe when server under heavy load results in PHP notices": "https://www.drupal.org/files/issues/2021-11-19/D93x-3194462-20.patch",
+                        "3016131 - getPath() on null config_translation crash fix.": "https://www.drupal.org/files/issues/2020-05-26/drupal-3016131-23-useless-exception.patch",
                         "Performance and usability patch that replaces sansdesordre #3110371": "https://www.drupal.org/files/issues/2021-04-21/D91x-3110371-4.patch",
                         "2907413 - Layout builder override wxt": "https://www.drupal.org/files/issues/2022-07-20/2907413-28.patch",
                         "Performance and scalability, do not load disabled menu links on the add/node /edit/node page/route.": "https://www.drupal.org/files/issues/2021-04-21/D9_performance_and_scalability-3202930-6.patch",
@@ -272,7 +273,7 @@
                 "GPL-2.0+"
             ],
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
-            "time": "2022-08-10T05:21:11+00:00"
+            "time": "2022-08-10T05:35:09+00:00"
         },
         {
             "name": "agrcmsx/prefer_latest_content",
