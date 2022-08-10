@@ -30,8 +30,9 @@ class PathProcessorAgriAdmin implements InboundPathProcessorInterface, OutboundP
    * {@inheritdoc}
    */
   public function processOutbound($path, &$options = [], Request $request = NULL, BubbleableMetadata $bubbleable_metadata = NULL) {
-    if (strpos($path, 'preview') > 0 && strpos($path, 'node') > 0) {
-      if (strpos($path, 'full') > 0 || strpos($path, 'teaser') > 0) {
+    if ((isset($path) && strpos($path, 'preview') > 0)
+    && (isset($path) && strpos($path, 'node') > 0)) {
+      if ((isset($path) && strpos($path, 'full') > 0) || (isset($path) && strpos($path, 'teaser') > 0)) {
         if (!isset($this->unixtime)) {
           $this->unixtime = time();
         }
