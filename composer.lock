@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "43280e79662bc75714390fff55c287aa",
+    "content-hash": "89450bbbe39eda8c9bd15fcc4219835a",
     "packages": [
         {
             "name": "agrcmsx/dxbase",
-            "version": "9.4.5-rc3",
+            "version": "9.4.5-rc5",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:agrcms/dxbase.git",
-                "reference": "59a85ff289fb710bc4778424ae44c0f7f1fc0c79"
+                "reference": "d16875f1a8c23164f921c17be36b741f9a05a93a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=59a85ff289fb710bc4778424ae44c0f7f1fc0c79",
-                "reference": "59a85ff289fb710bc4778424ae44c0f7f1fc0c79",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=d16875f1a8c23164f921c17be36b741f9a05a93a",
+                "reference": "d16875f1a8c23164f921c17be36b741f9a05a93a",
                 "shasum": ""
             },
             "require": {
@@ -27,6 +27,7 @@
                 "drupal/autologout": "^1.3",
                 "drupal/better_exposed_filters": "^5.0",
                 "drupal/bigmenu": "^2.0",
+                "drupal/bootstrap": "3.25 as 3.23",
                 "drupal/clientside_validation": "^3.0",
                 "drupal/conditional_fields": "^1.0",
                 "drupal/config_ignore": "2.x-dev@dev",
@@ -61,6 +62,7 @@
                 "drupal/memcache": "^2.0",
                 "drupal/menu_admin_per_menu": "^1.3",
                 "drupal/moderated_content_bulk_publish": "^2.0",
+                "drupal/purge": "^3.2",
                 "drupal/recreate_block_content": "2.x-dev",
                 "drupal/safedelete": "^1.0.20",
                 "drupal/sansdesordre": "^1.0@beta",
@@ -70,7 +72,7 @@
                 "drupal/swiftmailer": "^2.0",
                 "drupal/telephone_validation": "^2.3",
                 "drupal/token": "~1.0",
-                "drupal/ultimate_cron": "^2.0@alpha",
+                "drupal/ultimate_cron": "2.x-dev@dev",
                 "drupal/video_embed_field": "^2.0",
                 "drupal/views_data_export": "1.1.0",
                 "drupal/views_published_or_roles": "^1.0",
@@ -179,8 +181,8 @@
                         "Invalid text representation: 7 ERROR when deleting a comment field from a node bundle - issue no. 3214261": "https://www.drupal.org/files/issues/2021-05-16/access_unpublished-prevent_error_when_deleting_a_comment_field_from_a_bundle-3214261-2.patch"
                     },
                     "drupal/bootstrap": {
-                        "views submit button name attribute cannot be empty for w3c": "https://www.drupal.org/files/issues/2020-07-10/3061891-27.patch",
-                        "fix array_unique warnings on node/49 page": "https://www.drupal.org/files/issues/2020-09-29/bootstrap-3173776-3.patch"
+                        "3061891 - views submit button name attribute cannot be empty for w3c": "https://www.drupal.org/files/issues/2020-07-10/3061891-27.patch",
+                        "3163171 - Bootstrap javascript fix for news page affected bootstrap-panels otherwise was a TypeError, prevents exception": "https://www.drupal.org/files/issues/2022-06-08/bootstrap-js_fix-3163171-10.patch"
                     },
                     "drupal/css_editor": {
                         "3203706 - Fix bug with enable/disable css": "https://www.drupal.org/files/issues/2021-04-19/css_editor_fixed.patch",
@@ -209,11 +211,15 @@
                     "drupal/pathauto": {
                         "Prevent duplicate aliases.": "https://www.drupal.org/files/issues/2020-01-17/pathauto-3107144-2.patch"
                     },
+                    "drupal/purge": {
+                        "Fix for php 8.1 compatibility for purge module: ": "https://www.drupal.org/files/issues/2022-02-24/3259320-10.patch"
+                    },
                     "drupal/views_data_export": {
                         "Save to predictable folder": "https://www.drupal.org/files/issues/2021-01-08/1875456-82.patch"
                     },
                     "drupal/wxt_library": {
-                        "part 1 When installing and enabling the Canada.ca theme, the footer is missing the menu and other elements. Stats Can provides a CDN for footer markup, but as far as I know Canada.ca doesn't provide this. It would be nice to have the footer complete on install.": "https://www.drupal.org/files/issues/2021-01-27/wxt-library-add-canada-ca-footer-twig-extension-3195014-2.patch"
+                        "part 1 When installing and enabling the Canada.ca theme, the footer is missing the menu and other elements. Stats Can provides a CDN for footer markup, but as far as I know Canada.ca doesn't provide this. It would be nice to have the footer complete on install.": "https://www.drupal.org/files/issues/2021-01-27/wxt-library-add-canada-ca-footer-twig-extension-3195014-2.patch",
+                        "3293413 - PHP 8.1 compatibility fix. Cannot pass null parameter.": "https://www.drupal.org/files/issues/2022-06-29/wxt_library-php81_compat-3293413-04.patch"
                     },
                     "drupal/wxt_bootstrap": {
                         "part 2 When installing and enabling the Canada.ca theme, the footer is missing the menu and other elements. Stats Can provides a CDN for footer markup, but as far as I know Canada.ca doesn't provide this. It would be nice to have the footer complete on install.": "https://www.drupal.org/files/issues/2021-01-27/wxt-bootstrap-add-canada-ca-footer-settings-3195014-2.patch"
@@ -226,6 +232,10 @@
                         },
                         "drupal/webform": {
                             "Enter drupal/webform patch #3212867 description here": "https://www.drupal.org/files/issues/2021-05-07/3212867-3.patch"
+                        },
+                        "drupal/bootstrap": {
+                            "3173776 - patch included with bootstrap 3.2.5/3.2.4, only needed if using 3.2.3": "https://www.drupal.org/files/issues/2020-09-29/bootstrap-3173776-3.patch",
+                            "3209773 - bootstrap patch, ignore this version.": "https://www.drupal.org/files/issues/2021-08-24/bootstrap-toggle_undefined-3209773-8.patch"
                         },
                         "drupal/core": {
                             "850600 - Postgresql patch we're not using postgresql": "https://www.drupal.org/files/issues/postgresql_ssl_dsn-850600-3.patch",
@@ -262,7 +272,7 @@
                 "GPL-2.0+"
             ],
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
-            "time": "2022-08-10T03:45:58+00:00"
+            "time": "2022-08-10T05:21:11+00:00"
         },
         {
             "name": "agrcmsx/prefer_latest_content",
@@ -10281,12 +10291,16 @@
                     "homepage": "http://www.nielsvm.org"
                 },
                 {
-                    "name": "djbobbydrake",
-                    "homepage": "https://www.drupal.org/user/336378"
+                    "name": "japerry",
+                    "homepage": "https://www.drupal.org/user/45640"
                 },
                 {
                     "name": "nielsvm",
                     "homepage": "https://www.drupal.org/user/163285"
+                },
+                {
+                    "name": "SqyD",
+                    "homepage": "https://www.drupal.org/user/106525"
                 }
             ],
             "description": "Provides a generic external cache invalidation API and queue service.",
@@ -11454,34 +11468,31 @@
         },
         {
             "name": "drupal/ultimate_cron",
-            "version": "2.0.0-alpha5",
+            "version": "dev-2.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ultimate_cron.git",
-                "reference": "8.x-2.0-alpha5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ultimate_cron-8.x-2.0-alpha5.zip",
-                "reference": "8.x-2.0-alpha5",
-                "shasum": "0f10464fff29eca89024e7afa5b6d8d07bd52f75"
+                "reference": "1398154d10e8da65c1e362d6768a2fc3589db05e"
             },
             "require": {
-                "drupal/core": "^8.7.7 || ^9"
+                "drupal/core": "^9 || ^10"
             },
             "type": "drupal-module",
             "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
                 "drupal": {
-                    "version": "8.x-2.0-alpha5",
-                    "datestamp": "1600928948",
+                    "version": "8.x-2.0-alpha5+2-dev",
+                    "datestamp": "1659733298",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 },
                 "drush": {
                     "services": {
-                        "drush.services.yml": "^9 || ^10"
+                        "drush.services.yml": "^9 || ^10 || ^11"
                     }
                 }
             },

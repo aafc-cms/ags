@@ -186,8 +186,7 @@
                 "https://www.drupal.org/files/issues/2021-10-13/1585930-79.patch"
             },
             "drupal/bootstrap": {
-                "views submit button name attribute cannot be empty for w3c":
-                "https://www.drupal.org/files/issues/2020-07-10/3061891-27.patch",
+                "views submit button name attribute cannot be empty for w3c": "https://www.drupal.org/files/issues/2020-07-10/3061891-27.patch",
                 "Bootstrap javascript fix for news page affected bootstrap-panels otherwise was a TypeError, prevents exception": "https://www.drupal.org/files/issues/2022-06-08/bootstrap-js_fix-3163171-10.patch"
             },
             "drupal/field_group": {
@@ -214,9 +213,6 @@
                 "3283608 - The client requires an extra Save only button which allows the URL to stay at the /node/nodeID/edit page":
                 "https://www.drupal.org/files/issues/2022-06-20/save-only-3283608-18.patch"
             },
-            "drupal/purge": {
-		"Fix for php 8.1 compatibility for purge module: ": "https://www.drupal.org/files/issues/2022-02-24/3259320-10.patch"
-	    },
             "drupal/wxt_library": {
                 "3293413 - PHP 8.1 compatibility fix. Cannot pass null parameter.": "https://www.drupal.org/files/issues/2022-06-29/wxt_library-php81_compat-3293413-04.patch"
             }
@@ -240,7 +236,7 @@
             },
             "drupalwxt/wxt": {
                 "drupal/core": {
-			                    "850600 - Postgresql patch we're not using postgresql": "https://www.drupal.org/files/issues/postgresql_ssl_dsn-850600-3.patch",
+                    "850600 - Postgresql patch we're not using postgresql": "https://www.drupal.org/files/issues/postgresql_ssl_dsn-850600-3.patch",
                     "2893407 - POST /quickedit/metadata returning HTTP 503 - patch 47.":
                     "https://www.drupal.org/files/issues/2021-06-07/2893407-47.patch",
                     "1356276 - Overrides for profile and sub profile use 686 instead of 631-by-mpotter-balsa": "https://www.drupal.org/files/issues/2021-10-21/1356276-673.patch",
@@ -316,7 +312,7 @@
     },
     "require": {
         "agrcmsx/prefer_latest_content": "*",
-        "agrcmsx/dxbase": "9.4.5-rc3",
+        "agrcmsx/dxbase": "9.4.5-rc5",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6.7",
         "cypresslab/gitelephant": "^4.4.3",
@@ -329,7 +325,6 @@
         "drupal/file_replace": "^1.2",
         "drupal/link_attributes": "^1.10",
         "drupal/media_library_edit": "^2.1",
-        "drupal/purge": "^3.2",
         "drupal/telephone_validation": "^2.3",
         "drupal/varnish_purger": "^2.1",
         "drupal/view_custom_table": "^2.0",
