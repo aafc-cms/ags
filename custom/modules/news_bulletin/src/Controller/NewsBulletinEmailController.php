@@ -7,7 +7,7 @@ use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Drupal\views\Views;
 use Drupal\Core\TempStore\PrivateTempStoreFactory;
-use Drupal\Core\Database\Driver\mysql\Connection;
+use Drupal\mysql\Driver\Database\mysql\Connection;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\path_alias\PathAliasStorage;
 
@@ -26,7 +26,7 @@ class NewsBulletinEmailController extends ControllerBase {
   /**
    * The database connection.
    *
-   * @var Drupal\Core\Database\Driver\mysql\Connection
+   * @var Drupal\mysql\Driver\Database\mysql\Connection
    */
   protected $database;
 

@@ -416,7 +416,7 @@ function agri_admin_node_presave(EntityInterface $entity) {
       $langprefix = '/' . $langcode;
       // Only compares parent's url/part and invalidate cache at the first time save
       // when current UI langcode == current UI parent menu link's langcode else the second time save, do nothing.
-      if (strpos($parent_url, $langprefix) !== FALSE) {
+      if (isset($parent_url) && strpos($parent_url, $langprefix) !== FALSE) {
         $parent_url = str_replace($langprefix, '', $parent_url);
         $path = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $entity->id(), $langcode);
         // Remove the last link of the path to get the parent path.
@@ -945,8 +945,8 @@ function agri_admin_form_node_form_alter(&$form, FormStateInterface $form_state,
     if ($role == 'ia') {
       foreach ($form as $key => $value) {
         if (isset($value)) {
-          if (strpos($key, '_meta') == FALSE) {
-            if (strpos($key, 'field_') !== FALSE) {
+          if (isset($key) && strpos($key, '_meta') == FALSE) {
+            if (isset($key) && strpos($key, 'field_') !== FALSE) {
               $form[$key]['#disabled'] = TRUE;
             }
           }
@@ -1126,7 +1126,7 @@ function agri_admin_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchI
   }
 
   // Handle /node/preview page for News.
-  if (((strpos($result, '/node/preview/') !== FALSE) && ($nType == 'news'))
+  if (((isset($result) && strpos($result, '/node/preview/') !== FALSE) && ($nType == 'news'))
     && (\Drupal::currentUser()->isAnonymous())) {
     if ($breadcrumb) {
       $links = $breadcrumb->getlinks();
@@ -1183,7 +1183,7 @@ function agri_admin_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchI
   }
 
   // Handle /node/preview page for Employment Opportunity form.
-  if (((strpos($result, '/node/preview/') !== FALSE) && ($nType == 'empl'))
+  if (((isset($result) && strpos($result, '/node/preview/') !== FALSE) && ($nType == 'empl'))
     && (\Drupal::currentUser()->isAnonymous())) {
     if ($breadcrumb) {
       $links = $breadcrumb->getlinks();
@@ -1784,7 +1784,7 @@ function agri_admin_form_menu_link_content_menu_link_content_form_alter(&$form, 
   }
   if ($menu_link_add_or_edit_optimize) {
     foreach ($form['menu_parent']['#options'] as $key => &$value) {
-      if (strpos($key, $menu_name) === FALSE) {
+      if (isset($key) && strpos($key, $menu_name) === FALSE) {
         unset($form['menu_parent']['#options'][$key]);
       }
       else {
@@ -1793,7 +1793,7 @@ function agri_admin_form_menu_link_content_menu_link_content_form_alter(&$form, 
         // Check interface lang code, if french, look for 'désactivé' value.
         // Then if NOT désactivé, call logic or function.
         $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
-        if ($langcode == 'en' && strpos($value, 'disabled') == FALSE) {
+        if ($langcode == 'en' && isset($value) && strpos($value, 'disabled') == FALSE) {
           $keyarray = explode(":", $key);
           if (count($keyarray) > 2) {
             if (AgriAdminHelper::isLinkFrenchOnly($keyarray[2])) {
@@ -1802,7 +1802,7 @@ function agri_admin_form_menu_link_content_menu_link_content_form_alter(&$form, 
           }
         }
         else {
-          if ($langcode == 'fr' && strpos($value, 'désactivé') == FALSE) {
+          if ($langcode == 'fr' && isset($value) && strpos($value, 'désactivé') == FALSE) {
             $keyarray = explode(":", $key);
             if (count($keyarray) > 2) {
               if (AgriAdminHelper::isLinkEnglishOnly($keyarray[2])) {
@@ -1816,32 +1816,32 @@ function agri_admin_form_menu_link_content_menu_link_content_form_alter(&$form, 
   }
   // @todo END OF MENU EDIT/ADD LINK OPTIMISATION.
   foreach ($form['menu_parent']['#options'] as $key => &$value) {
-    if (strpos($value, '-- ') == 0) {
+    if (isset($value) && strpos($value, '-- ') == 0) {
       // $value =  substr($value,0, 3) . 'level 1. ' . substr( $value,3, strlen($value)) ;
       $form['menu_parent']['#options_attributes'][$key]['class'] = ['class' => 'menu_tree-leve-1'];
     }
     else {
-      if (strpos($value, '---- ') == 0) {
+      if (isset($value) && strpos($value, '---- ') == 0) {
         // $value =  substr($value,0, 5) . 'level 2. ' . substr( $value,5, strlen($value)) ;
         $form['menu_parent']['#options_attributes'][$key]['class'] = 'menu_tree-leve-2 glyphicon';
       }
       else {
-        if (strpos($value, '------ ') == 0) {
+        if (isset($value) && strpos($value, '------ ') == 0) {
           // $value =  substr($value,0, 7) . 'level 3. ' . substr( $value,7, strlen($value)) ;
           $form['menu_parent']['#options_attributes'][$key]['class'] = 'menu_tree-leve-3';
         }
         else {
-          if (strpos($value, '-------- ') == 0) {
+          if (isset($value) && strpos($value, '-------- ') == 0) {
             // $value =  substr($value,0, 9) . 'level 4. ' . substr( $value,9, strlen($value)) ;
             $form['menu_parent']['#options_attributes'][$key]['class'] = 'menu_tree-leve-4';
           }
           else {
-            if (strpos($value, '---------- ') == 0) {
+            if (isset($value) && strpos($value, '---------- ') == 0) {
               // $value =  substr($value,0, 11) . 'level 5. ' . substr( $value,11, strlen($value)) ;
               $form['menu_parent']['#options_attributes'][$key]['class'] = 'menu_tree-leve-5';
             }
             else {
-              if (strpos($value, '------------ ') == 0) {
+              if (isset($value) && strpos($value, '------------ ') == 0) {
                 // $value =  substr($value,0, 13) . 'level 6. ' . substr( $value,11, strlen($value)) ;
                 $form['menu_parent']['#options_attributes'][$key]['class'] = 'menu_tree-leve-6';
               }
@@ -2012,7 +2012,7 @@ function agri_admin_algos() {
  * Implements hook_form_alter().
  */
 function agri_admin_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if (strpos($form_id, 'media') !== FALSE && strpos($form_id, 'delete') !== FALSE) {
+  if (isset($form_id) && strpos($form_id, 'media') !== FALSE && strpos($form_id, 'delete') !== FALSE) {
     $path = \Drupal::request()->getpathInfo();
     $arg = explode('/', $path);
     $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
@@ -2035,7 +2035,7 @@ function agri_admin_form_alter(&$form, FormStateInterface $form_state, $form_id)
     $media_name = $media->getName();
 
     $show_button = TRUE;
-    if (strpos($media_name, 'Home Slideshow Thumbnav') !== FALSE) {
+    if (isset($media_name) && strpos($media_name, 'Home Slideshow Thumbnav') !== FALSE) {
       $show_button = FALSE;
     }
     if (!$show_button) {
