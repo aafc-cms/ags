@@ -204,6 +204,9 @@ class NewsBulletinEmailController extends ControllerBase {
       }
       $max = 220;
       if ($summary_length >= $max) {
+        if (!isset($summary)) {
+          $summary = '';
+        }
         $max = strpos($summary, ' ', $max);
         $summary = substr($summary, 0, $max) . ' ...';
       }
@@ -372,6 +375,9 @@ class NewsBulletinEmailController extends ControllerBase {
       $style = \Drupal::entityTypeManager()->getStorage('image_style')->load($image_style_name);
       if (isset($match_src[0][1]) && !is_null($style)) {
         $src_path = $match_src[0][1];
+        if (!isset($src_path)) {
+          $src_path = '';
+        }
         $pos_dot = strpos($src_path, '.');
         if (strlen($src_path) > ($pos_dot + 4)) {
           $src_path = substr($src_path, 0, $pos_dot + 4);

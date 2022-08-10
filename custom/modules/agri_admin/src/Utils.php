@@ -524,6 +524,9 @@ class Utils {
             $absolutepathstring = $path;
             $base_path = \Drupal::request()->getBasePath();
             $host = parse_url($path, PHP_URL_HOST);
+            if (!isset($path)) {
+              $path = '';
+            }
             $host_end = strpos($path, $host) + strlen($host) + strlen($base_path);
             $path = substr($path, $host_end);
             $path = urldecode(trim($path, '/'));

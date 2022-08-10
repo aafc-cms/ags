@@ -504,7 +504,7 @@ class AgriAdminHelper {
     if (isset($link_attributes['attributes']['class'])) {
       if (!empty($link_attributes['attributes']['class'])) {
         foreach ($link_attributes['attributes']['class'] as $classname) {
-          if (strpos($classname, 'nglish-only') > 0) {
+          if (isset($classname) && strpos($classname, 'nglish-only') > 0) {
             return TRUE;
           }
         }
@@ -538,7 +538,7 @@ class AgriAdminHelper {
     if (isset($link_attributes['attributes']['class'])) {
       if (!empty($link_attributes['attributes']['class'])) {
         foreach ($link_attributes['attributes']['class'] as $classname) {
-          if (strpos($classname, 'rench-only') > 0) {
+          if (isset($classname) && strpos($classname, 'rench-only') > 0) {
             return TRUE;
           }
         }
