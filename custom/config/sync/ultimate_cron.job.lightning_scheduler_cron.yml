@@ -1,6 +1,6 @@
 uuid: b35632fd-0065-4362-9db4-88b83aec5511
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - lightning_scheduler
@@ -13,7 +13,7 @@ scheduler:
   id: simple
   configuration:
     rules:
-      - '* * * * *'
+      - '0+@ 0 * * 0'
 launcher:
   id: serial
   configuration:
