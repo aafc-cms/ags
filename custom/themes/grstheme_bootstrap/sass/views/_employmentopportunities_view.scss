@@ -50,10 +50,35 @@ div.view-id-view_employmentopportunities.view-display-id-page_1 {
     width: 22%;
   }
 
-  #view-field-date-closing-table-column, #view-field-locations-table-column,
-  #view-field-branch-table-column, #view-field-open-to-table-column {
+  #view-field-date-closing-table-column button, #view-field-locations-table-column button,
+  #view-field-branch-table-column button, #view-field-open-to-table-column button {
     text-decoration: underline;
     text-decoration-thickness: inherit;
+  }
+
+  th.views-field.views-field-field-date-closing.sorting button, th.views-field.views-field-field-locations.sorting button,
+  th.views-field.views-field-field-branch.sorting button, th.views-field.views-field-field-open-to.sorting button,
+  th.views-field.views-field-field-type.sorting button,  th.views-field.views-field-field-classification.sorting button {
+    background-color: #fff;
+    border-width: 0px;
+    span.sorting-cnt {
+      display: none;
+    }
+  }
+
+  th.views-field.views-field-field-type.sorting.sorting_desc button,
+  th.views-field.views-field-field-type.sorting.sorting_asc button,
+  th.views-field.views-field-field-classification.sorting.sorting_desc button,
+  th.views-field.views-field-field-classification.sorting.sorting_asc button,
+  th.views-field.views-field-field-branch.sorting.sorting_desc button,
+  th.views-field.views-field-field-branch.sorting.sorting_asc button,
+  th.views-field.views-field-field-open-to.sorting.sorting_desc button,
+  th.views-field.views-field-field-open-to.sorting.sorting_asc button,
+  th.views-field.views-field-field-date-closing.sorting.sorting_desc  button,
+  th.views-field.views-field-field-date-closing.sorting.sorting_asc  button,
+  th.views-field.views-field-field-locations.sorting.sorting_desc button,
+  th.views-field.views-field-field-locations.sorting.sorting_asc button {
+    background-color: #e7e7e7;
   }
 
   .views-exposed-form .form-type-select {
