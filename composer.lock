@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cf7ce81b18e4a4fd174d6146b1658790",
+    "content-hash": "c67230827eff7ee3c1d6412251d2f163",
     "packages": [
         {
             "name": "agrcmsx/dxbase",
-            "version": "9.4.5-rc15",
+            "version": "9.4.5-rc16",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:agrcms/dxbase.git",
-                "reference": "11bf83f9f3f56f67c9b31c1eefec7e31dacead8d"
+                "reference": "92a1a257a307ca93cbfeb904b8f81fe639a45e85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=11bf83f9f3f56f67c9b31c1eefec7e31dacead8d",
-                "reference": "11bf83f9f3f56f67c9b31c1eefec7e31dacead8d",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=92a1a257a307ca93cbfeb904b8f81fe639a45e85",
+                "reference": "92a1a257a307ca93cbfeb904b8f81fe639a45e85",
                 "shasum": ""
             },
             "require": {
@@ -230,7 +230,8 @@
                     },
                     "drupal/webform": {
                         "3279930 - PHP 8.1": "https://www.drupal.org/files/issues/2022-05-11/webform-strpos-php81-webform-requirements-3279930-2.patch",
-                        "3301970 - PHP 8.1 deprecation": "https://www.drupal.org/files/issues/2022-08-05/3301970_2.patch"
+                        "3301970 - PHP 8.1 deprecation": "https://www.drupal.org/files/issues/2022-08-05/3301970_2.patch",
+                        "fix 404 not found date-calendar.png": "https://www.drupal.org/files/issues/2022-08-11/webform-3303194-02.patch"
                     },
                     "drupal/wxt_bootstrap": {
                         "part 2 When installing and enabling the Canada.ca theme, the footer is missing the menu and other elements. Stats Can provides a CDN for footer markup, but as far as I know Canada.ca doesn't provide this. It would be nice to have the footer complete on install.": "https://www.drupal.org/files/issues/2021-01-27/wxt-bootstrap-add-canada-ca-footer-settings-3195014-2.patch"
@@ -283,7 +284,7 @@
                 "GPL-2.0+"
             ],
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
-            "time": "2022-08-11T17:44:25+00:00"
+            "time": "2022-08-11T20:26:28+00:00"
         },
         {
             "name": "alchemy/zippy",
