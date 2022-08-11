@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "71ff6e040425a7e76640982d15c21bc8",
+    "content-hash": "cf7ce81b18e4a4fd174d6146b1658790",
     "packages": [
         {
             "name": "agrcmsx/dxbase",
-            "version": "9.4.5-rc14",
+            "version": "9.4.5-rc15",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:agrcms/dxbase.git",
-                "reference": "19164c2b6923bb9931549615b1e0e2ec6f0171c4"
+                "reference": "11bf83f9f3f56f67c9b31c1eefec7e31dacead8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=19164c2b6923bb9931549615b1e0e2ec6f0171c4",
-                "reference": "19164c2b6923bb9931549615b1e0e2ec6f0171c4",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=11bf83f9f3f56f67c9b31c1eefec7e31dacead8d",
+                "reference": "11bf83f9f3f56f67c9b31c1eefec7e31dacead8d",
                 "shasum": ""
             },
             "require": {
@@ -229,7 +229,8 @@
                         "3293413 - PHP 8.1 compatibility fix. Cannot pass null parameter.": "https://www.drupal.org/files/issues/2022-06-29/wxt_library-php81_compat-3293413-04.patch"
                     },
                     "drupal/webform": {
-                        "3279930 - PHP 8.1": "https://www.drupal.org/files/issues/2022-05-11/webform-strpos-php81-webform-requirements-3279930-2.patch"
+                        "3279930 - PHP 8.1": "https://www.drupal.org/files/issues/2022-05-11/webform-strpos-php81-webform-requirements-3279930-2.patch",
+                        "3301970 - PHP 8.1 deprecation": "https://www.drupal.org/files/issues/2022-08-05/3301970_2.patch"
                     },
                     "drupal/wxt_bootstrap": {
                         "part 2 When installing and enabling the Canada.ca theme, the footer is missing the menu and other elements. Stats Can provides a CDN for footer markup, but as far as I know Canada.ca doesn't provide this. It would be nice to have the footer complete on install.": "https://www.drupal.org/files/issues/2021-01-27/wxt-bootstrap-add-canada-ca-footer-settings-3195014-2.patch"
@@ -282,7 +283,7 @@
                 "GPL-2.0+"
             ],
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
-            "time": "2022-08-10T18:55:14+00:00"
+            "time": "2022-08-11T17:44:25+00:00"
         },
         {
             "name": "alchemy/zippy",
@@ -10569,17 +10570,17 @@
         },
         {
             "name": "drupal/safedelete",
-            "version": "1.0.30",
+            "version": "1.0.31",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/safedelete.git",
-                "reference": "1.0.30"
+                "reference": "1.0.31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/safedelete-1.0.30.zip",
-                "reference": "1.0.30",
-                "shasum": "53586699902ac039fe1a122f4aacd5f85400c5a9"
+                "url": "https://ftp.drupal.org/files/projects/safedelete-1.0.31.zip",
+                "reference": "1.0.31",
+                "shasum": "568ea7d632b0fe89e6a97ee69bb9f739db3e7271"
             },
             "require": {
                 "drupal/core": "^8 || ^9",
@@ -10588,8 +10589,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.30",
-                    "datestamp": "1654105978",
+                    "version": "1.0.31",
+                    "datestamp": "1660246371",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -11092,7 +11093,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/smtp.git",
-                "reference": "306154f33c28eb145e42a4a931ce45570b5502f1"
+                "reference": "9de1cc18ef9815ea074c3bfed4be0eaca17d63de"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9",
@@ -11108,8 +11109,8 @@
                     "dev-8.x-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0+14-dev",
-                    "datestamp": "1660151227",
+                    "version": "8.x-1.0+21-dev",
+                    "datestamp": "1660165662",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."

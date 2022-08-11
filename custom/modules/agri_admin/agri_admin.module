@@ -253,6 +253,13 @@ function agri_admin_preprocess_views_view_field(&$variables) {
         // Already in current language.
         $valuePending = $latestRevision->get($field->field)->value;
         // Replace characters in the field output.
+	if (!isset($valuePending)) {
+          $valuePending = '';
+	}       
+        if (!isset($valueCurrent)) {
+          // PHP 8.1 compatibility, prevent null str_replace.
+          $valueCurrent = '';
+        }
         $variables['output'] = Markup::create(str_replace($valueCurrent, $valuePending, $variables['output']));
         if ($view->id() != 'content' && ($field->field == 'title' || $field->field == 'field_title')) {
           $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $nid);
