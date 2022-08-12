@@ -209,7 +209,15 @@ dbSetupTest=0
 
 if grep -q "namespace' => 'Drupal" html/sites/default/settings.php
 then
-  echo "Database settings in html/sites/default/settings.php is already configured.";
+  echo "Database settings in html/sites/default/settings.php was previously configured.";
+  if grep -q " 'namespace' => 'Drupal" html/sites/default/settings.php
+  then
+    echo "Database settings upgrade for Drupal 9.4.5.";
+    chmod 775 html/sites/default;
+    chmod 775 html/sites/default/settings.php;
+    #/*'namespace' => 'Drupal\Core\Database\Driver\mysql',*/
+    sed -i "s+ 'namespace' => 'Drupal+\#'namespace' => 'Drupal+g" html/sites/default/settings.php
+  fi
   dbSetupTest=1;
 else
   echo "chmod 775 html/sites/default"
@@ -238,7 +246,8 @@ else
   echo "    'prefix' => ''," >> $settings_file
   echo "    'host' => 'localhost'," >> $settings_file
   echo "    'port' => '3306'," >> $settings_file
-  echo "    'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql'," >> $settings_file
+  echo "   #'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql'," >> $settings_file
+  echo "   #'autoload' => 'modules/mysql/src/Driver/Database/mysql/'," >> $settings_file
   echo "    'driver' => 'mysql'," >> $settings_file
   echo "  );" >> $settings_file
   echo "chmod 555 html/sites/default"
