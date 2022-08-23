@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c67230827eff7ee3c1d6412251d2f163",
+    "content-hash": "6033babe5bb91aa4661893a000021372",
     "packages": [
         {
             "name": "agrcmsx/dxbase",
@@ -6266,17 +6266,17 @@
         },
         {
             "name": "drupal/entity_translation_unified_form",
-            "version": "2.0.0-beta4",
+            "version": "2.0.0-rc2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/entity_translation_unified_form.git",
-                "reference": "2.0.0-beta4"
+                "reference": "2.0.0-rc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/entity_translation_unified_form-2.0.0-beta4.zip",
-                "reference": "2.0.0-beta4",
-                "shasum": "a4438e0a6f2b9b72ae5d9732121b6be0237bdc20"
+                "url": "https://ftp.drupal.org/files/projects/entity_translation_unified_form-2.0.0-rc2.zip",
+                "reference": "2.0.0-rc2",
+                "shasum": "0e9b5ea46a222d48ab0ed7c1d11b31444d3d10c3"
             },
             "require": {
                 "drupal/core": "^8 || ^9"
@@ -6284,11 +6284,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.0-beta4",
-                    "datestamp": "1659463588",
+                    "version": "2.0.0-rc2",
+                    "datestamp": "1661216828",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "message": "RC releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -14923,30 +14923,31 @@
         },
         {
             "name": "laminas/laminas-stdlib",
-            "version": "3.11.0",
+            "version": "3.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-stdlib.git",
-                "reference": "aad7d2b11ba0069ba0d9b40f6dde3c2fa664b57f"
+                "reference": "c5aed3c798018e31fbb7b1e421b8d96bf2cda453"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-stdlib/zipball/aad7d2b11ba0069ba0d9b40f6dde3c2fa664b57f",
-                "reference": "aad7d2b11ba0069ba0d9b40f6dde3c2fa664b57f",
+                "url": "https://api.github.com/repos/laminas/laminas-stdlib/zipball/c5aed3c798018e31fbb7b1e421b8d96bf2cda453",
+                "reference": "c5aed3c798018e31fbb7b1e421b8d96bf2cda453",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.3 || ~8.0.0 || ~8.1.0"
+                "php": "^7.4 || ~8.0.0 || ~8.1.0"
             },
             "conflict": {
                 "zendframework/zend-stdlib": "*"
             },
             "require-dev": {
                 "laminas/laminas-coding-standard": "~2.3.0",
-                "phpbench/phpbench": "^1.0",
-                "phpunit/phpunit": "^9.3.7",
+                "phpbench/phpbench": "^1.2.6",
+                "phpstan/phpdoc-parser": "^0.5.4",
+                "phpunit/phpunit": "^9.5.23",
                 "psalm/plugin-phpunit": "^0.17.0",
-                "vimeo/psalm": "^4.7"
+                "vimeo/psalm": "^4.26"
             },
             "type": "library",
             "autoload": {
@@ -14978,7 +14979,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2022-07-27T12:28:58+00:00"
+            "time": "2022-08-22T22:55:58+00:00"
         },
         {
             "name": "league/container",
@@ -15145,16 +15146,16 @@
         },
         {
             "name": "masterminds/html5",
-            "version": "2.7.5",
+            "version": "2.7.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Masterminds/html5-php.git",
-                "reference": "f640ac1bdddff06ea333a920c95bbad8872429ab"
+                "reference": "897eb517a343a2281f11bc5556d6548db7d93947"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Masterminds/html5-php/zipball/f640ac1bdddff06ea333a920c95bbad8872429ab",
-                "reference": "f640ac1bdddff06ea333a920c95bbad8872429ab",
+                "url": "https://api.github.com/repos/Masterminds/html5-php/zipball/897eb517a343a2281f11bc5556d6548db7d93947",
+                "reference": "897eb517a343a2281f11bc5556d6548db7d93947",
                 "shasum": ""
             },
             "require": {
@@ -15208,9 +15209,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Masterminds/html5-php/issues",
-                "source": "https://github.com/Masterminds/html5-php/tree/2.7.5"
+                "source": "https://github.com/Masterminds/html5-php/tree/2.7.6"
             },
-            "time": "2021-07-01T14:25:37+00:00"
+            "time": "2022-08-18T16:18:26+00:00"
         },
         {
             "name": "mkalkbrenner/php-htmldiff-advanced",
@@ -19624,16 +19625,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v2.15.1",
+            "version": "v2.15.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "3b7cedb2f736899a7dbd0ba3d6da335a015f5cc4"
+                "reference": "3e43405a9a8b578809426339cc3780e16fba0c52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/3b7cedb2f736899a7dbd0ba3d6da335a015f5cc4",
-                "reference": "3b7cedb2f736899a7dbd0ba3d6da335a015f5cc4",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/3e43405a9a8b578809426339cc3780e16fba0c52",
+                "reference": "3e43405a9a8b578809426339cc3780e16fba0c52",
                 "shasum": ""
             },
             "require": {
@@ -19688,7 +19689,7 @@
             ],
             "support": {
                 "issues": "https://github.com/twigphp/Twig/issues",
-                "source": "https://github.com/twigphp/Twig/tree/v2.15.1"
+                "source": "https://github.com/twigphp/Twig/tree/v2.15.2"
             },
             "funding": [
                 {
@@ -19700,7 +19701,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-17T05:46:24+00:00"
+            "time": "2022-08-12T06:43:37+00:00"
         },
         {
             "name": "typo3/phar-stream-wrapper",
@@ -21830,6 +21831,7 @@
     "stability-flags": {
         "drupal/embed_block": 20,
         "drupal/webform_views": 10,
+        "drupal/entity_translation_unified_form": 5,
         "phpmd/phpmd": 0
     },
     "prefer-stable": true,
