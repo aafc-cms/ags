@@ -225,9 +225,6 @@
                 }
             },
             "agrcmsx/dxbase": {
-		"drupal/core": {
-		    "2907413": "https://www.drupal.org/files/issues/2021-11-19/D93x-2907413-23.patch"
-                },
                 "drupal/bootstrap": {
                   "3173776 - patch included with bootstrap 3.2.5/3.2.4, only needed if using 3.2.3": "https://www.drupal.org/files/issues/2020-09-29/bootstrap-3173776-3.patch"
                 }
@@ -313,7 +310,7 @@
         }
     },
     "require": {
-        "agrcmsx/dxbase": "9.4.5-rc16",
+        "agrcmsx/dxbase": "9.4.5-rc17",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6.7",
         "cypresslab/gitelephant": "^4.4.3",
