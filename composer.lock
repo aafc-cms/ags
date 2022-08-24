@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "05080a48efae4c28127b2f4067d08c43",
+    "content-hash": "f060131a21703e72804d4dff875a1f08",
     "packages": [
         {
             "name": "agrcmsx/dxbase",
-            "version": "9.4.5-rc17",
+            "version": "9.4.5-rc18",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:agrcms/dxbase.git",
-                "reference": "755f8e5f3f82432aa6c2c2bf8c38a3bb942cdaa7"
+                "reference": "a6cf23e1677ccde68988305aab8240e70b8eaaf7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=755f8e5f3f82432aa6c2c2bf8c38a3bb942cdaa7",
-                "reference": "755f8e5f3f82432aa6c2c2bf8c38a3bb942cdaa7",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=a6cf23e1677ccde68988305aab8240e70b8eaaf7",
+                "reference": "a6cf23e1677ccde68988305aab8240e70b8eaaf7",
                 "shasum": ""
             },
             "require": {
@@ -80,7 +80,7 @@
                 "drupal/views_published_or_roles": "^1.0",
                 "drupal/w3c_validator": "^1.4",
                 "drupal/warmer": "^1.1",
-                "drupal/webform": "6.2.0-beta2 as 6.1.3",
+                "drupal/webform": "6.1.3",
                 "drupal/workflow": "^1.4",
                 "drupalwxt/wxt": "4.3.0",
                 "drush/drush": "^10.0",
@@ -233,8 +233,7 @@
                     },
                     "drupal/webform": {
                         "3279930 - PHP 8.1": "https://www.drupal.org/files/issues/2022-05-11/webform-strpos-php81-webform-requirements-3279930-2.patch",
-                        "3301970 - PHP 8.1 deprecation": "https://www.drupal.org/files/issues/2022-08-05/3301970_2.patch",
-                        "fix 404 not found date-calendar.png": "https://www.drupal.org/files/issues/2022-08-11/webform-3303194-02.patch"
+                        "3301970 - PHP 8.1 deprecation": "https://www.drupal.org/files/issues/2022-08-05/3301970_2.patch"
                     },
                     "drupal/wxt_bootstrap": {
                         "part 2 When installing and enabling the Canada.ca theme, the footer is missing the menu and other elements. Stats Can provides a CDN for footer markup, but as far as I know Canada.ca doesn't provide this. It would be nice to have the footer complete on install.": "https://www.drupal.org/files/issues/2021-01-27/wxt-bootstrap-add-canada-ca-footer-settings-3195014-2.patch"
@@ -287,7 +286,7 @@
                 "GPL-2.0+"
             ],
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
-            "time": "2022-08-24T18:32:17+00:00"
+            "time": "2022-08-24T19:05:55+00:00"
         },
         {
             "name": "alchemy/zippy",
@@ -12468,17 +12467,17 @@
         },
         {
             "name": "drupal/webform",
-            "version": "6.2.0-beta2",
+            "version": "6.1.3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/webform.git",
-                "reference": "6.2.0-beta2"
+                "reference": "6.1.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/webform-6.2.0-beta2.zip",
-                "reference": "6.2.0-beta2",
-                "shasum": "d934e0e240bda58bcf1fc196207606af14199148"
+                "url": "https://ftp.drupal.org/files/projects/webform-6.1.3.zip",
+                "reference": "6.1.3",
+                "shasum": "efd032eadc10a4752b9b0203152a5d20eefac175"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9"
@@ -12526,11 +12525,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "6.2.0-beta2",
-                    "datestamp": "1644940970",
+                    "version": "6.1.3",
+                    "datestamp": "1644940723",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 },
                 "drush": {
