@@ -139,6 +139,17 @@ if ! grep -q "upgrade-insecure-requests" $htaccess_file; then
   fi
 fi
 
+if [ ! -d "html/libraries/chartjs" ]; then
+  echo "wget https://github.com/chartjs/Chart.js/releases/download/v3.9.1/chart.js-3.9.1.tgz";
+        wget https://github.com/chartjs/Chart.js/releases/download/v3.9.1/chart.js-3.9.1.tgz
+  set -x;
+  tar -pxzf chart.js-3.9.1.tgz
+  rm chart.js-3.9.1.tgz
+  mkdir html/libraries/chartjs;
+  mv package/dist html/libraries/chartjs
+  rm package -rf;
+  set +x;
+fi
 if [ -d "html/libraries/jquery.inputmask/dist/min" ]; then
   echo "fix jquery inputmask distribution"
   echo "cp html/libraries/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js html/libraries/jquery.inputmask/dist/jquery.inputmask.min.js;"
