@@ -92,16 +92,14 @@ class Page extends BootstrapPage {
           'fr' => 'http://www.canada.ca/fr/mobile/index.html',
         ],
       ];
-      $base_path = base_path() . '..';
-      $variables['logo'] = $base_path . $library_path . '/assets/sig-blk-' . $language . '.png';
-      $variables['logo_svg'] = $base_path . $library_path . '/assets/sig-blk-' . $language . '.svg';
-      $variables['logo_bottom_svg'] = $base_path . $library_path . '/assets/wmms-blk' . '.png';
-      $variables['logo_bottom_svg'] = $base_path . $library_path . '/assets/wmms-blk' . '.svg';
+      $variables['logo'] = $library_path . '/assets/sig-blk-' . $language . '.png';
+      $variables['logo_svg'] = $library_path . '/assets/sig-blk-' . $language . '.svg';
+      $variables['logo_bottom_svg'] = $library_path . '/assets/wmms-blk' . '.png';
+      $variables['logo_bottom_svg'] = $library_path . '/assets/wmms-blk' . '.svg';
     }
     elseif ($wxt_active == 'gc_intranet' || $wxt_active == 'gc_intranet_legacy') {
-      $base_path = base_path() . '..';
-      $variables['logo_svg'] = $base_path . $agrisource_theme_path . '/images/sig-' . $language . '.gif';
-      $variables['logo_canada_svg'] = $base_path . $agrisource_theme_path . '/images/logo-canada.svg';
+      $variables['logo_svg'] = $agrisource_theme_path . '/images/sig-' . $language . '.gif';
+      $variables['logo_canada_svg'] = $agrisource_theme_path . '/images/logo-canada.svg';
     }
 
     parent::preprocess($variables, $hook, $info);
