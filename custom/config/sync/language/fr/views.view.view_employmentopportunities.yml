@@ -17,8 +17,12 @@ display:
       filters:
         field_type_target_id:
           expose:
-            label: 'Type de possibilité:'
-            description: 'Type de possibilité:'
+            label: 'Type de possibilité :'
+            description: 'Type de possibilité :'
+        field_class_id_value:
+          expose:
+            label: 'Groupe de classification :'
+            description: 'Groupe de classification :'
       exposed_form:
         options:
           submit_button: Appliquer
