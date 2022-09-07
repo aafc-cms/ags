@@ -277,21 +277,30 @@ function agri_admin_update_8006() {
     ->fields(['field_class_id_value' => 'IT'])
     ->condition('field_class_id_value', 'CS', '=')
     ->execute();
-  // Execute the statement.
+  // Executed the statement part a.
 
-  echo "*****************************************************";
-  echo 'Revisions updated to new class id:' . $num_updated . "\n";
-  echo "*****************************************************";
+  $type = 'warning';
+  $message = 'Part a) There were no CS records to update.';
+  if ($num_updated) {
+    $type = 'notice';
+    $message = "agri_admin_update_8006() part A) updated $num_updated employment entity revisions from CS to IT.";
+  }
+  \Drupal::logger('agri_admin')->notice($message);
+  \Drupal::messenger()->addMessage($message, $type, TRUE);
 
   $num_updated = $connection->update('paragraph__field_class_id')
     ->fields(['field_class_id_value' => 'IT'])
     ->condition('field_class_id_value', 'CS', '=')
     ->execute();
-  // Execute the statement.
+  // Executed the statement part b.
 
-  echo "*****************************************************";
-  echo 'Entities updated to new class id:' . $num_updated . "\n";
-  echo "*****************************************************";
+  $message = 'Part b) There were no CS records to update.';
+  if ($num_updated) {
+    $type = 'notice';
+    $message = "agri_admin_update_8006() part B) updated $num_updated employment entity records from CS to IT.";
+  }
+  \Drupal::messenger()->addMessage($message, $type, TRUE);
+  \Drupal::logger('agri_admin')->notice($message);
 
 }
 
