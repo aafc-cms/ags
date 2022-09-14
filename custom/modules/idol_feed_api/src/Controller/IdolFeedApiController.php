@@ -64,6 +64,7 @@ class IdolFeedApiController extends ControllerBase {
         }
 
         foreach ($entities as $node) {
+          $tmp_field_modified = '';
           if ($node->bundle() == 'dir_listing') {
             continue;
           }
@@ -119,10 +120,13 @@ class IdolFeedApiController extends ControllerBase {
             }
           }
 
+          if (isset($node->get('field_modified')->getValue()[0]['value'])) {
+            $tmp_field_modified = $node->get('field_modified')->getValue()[0]['value'];
+          }
           $documentXml->addChild('CONTENTTYPE', "text/html");
-          $documentXml->addChild('FILE_SYSTEM_MODIFIED_DATE', $node->get('field_modified')->getValue()[0]['value']);
-          $documentXml->addChild('META_MODIFIED_DATE', $node->get('field_modified')->getValue()[0]['value']);
-          $documentXml->addChild('AGRISOURCE_META_DATEMODIFIED', $node->get('field_modified')->getValue()[0]['value']);
+          $documentXml->addChild('FILE_SYSTEM_MODIFIED_DATE', $tmp_field_modified);
+          $documentXml->addChild('META_MODIFIED_DATE', $tmp_field_modified);
+          $documentXml->addChild('AGRISOURCE_META_DATEMODIFIED', $tmp_field_modified);
           $documentXml->addChild('AGRISOURCE_META_COVERAGEIDS');
           $documentXml->addChild('AGRISOURCE_META_DCCREATOR', $dcterms_creator);
 
@@ -195,9 +199,9 @@ class IdolFeedApiController extends ControllerBase {
             }
 
             $documentXmlFr->addChild('CONTENTTYPE', "text/html");
-            $documentXmlFr->addChild('FILE_SYSTEM_MODIFIED_DATE', $trnode->get('field_modified')->getValue()[0]['value']);
-            $documentXmlFr->addChild('META_MODIFIED_DATE', $trnode->get('field_modified')->getValue()[0]['value']);
-            $documentXmlFr->addChild('AGRISOURCE_META_DATEMODIFIED', $trnode->get('field_modified')->getValue()[0]['value']);
+            $documentXmlFr->addChild('FILE_SYSTEM_MODIFIED_DATE', $tmp_field_modified);
+            $documentXmlFr->addChild('META_MODIFIED_DATE', $tmp_field_modified);
+            $documentXmlFr->addChild('AGRISOURCE_META_DATEMODIFIED', $tmp_field_modified);
             $documentXmlFr->addChild('AGRISOURCE_META_COVERAGEIDS');
             $documentXmlFr->addChild('AGRISOURCE_META_DCCREATOR', $dcterms_creator);
             $targetIds = $node->get('field_meta_type')->getValue();
