@@ -27,6 +27,7 @@ class IdolFeedApiController extends ControllerBase {
    */
   public function getContent(Request $request) {
 
+
     $requstURL = $request->getSchemeAndHttpHost();
 
     // Echo $requstURL . "\n";.
@@ -48,7 +49,24 @@ class IdolFeedApiController extends ControllerBase {
     if (!empty($results)) {
 
       if (!empty($entities = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($results))) {
+        global $array_of_all_tids;
+        if (!isset($array_of_all_tids)) {
+          $connection = \Drupal\Core\Database\Database::getConnection();
+          $myselect = $query = $connection->select('taxonomy_term_data', 'ttd')
+            ->orderBy('tid', 'DESC')
+            ->fields('ttd', ['tid'])->execute();
+          $tids = [];
+          while ($row = $myselect->fetchAssoc()) {
+            // Do something with:
+            $tids[] = $row['tid'];
+          }
+          $array_of_all_tids = $tids;
+        }
+
         foreach ($entities as $node) {
+          if ($node->bundle() == 'dir_listing') {
+            continue;
+          }
 
           // Eng node.
           $documentXml = $xml->addChild('DOCUMENT');
@@ -393,9 +411,13 @@ class IdolFeedApiController extends ControllerBase {
       return "";
     }
 
+    global $array_of_all_tids;
     $label = "";
     foreach ($targetIds as $targetId) {
       if ($targetId["target_id"] > 0) {
+        if (!in_array($targetId["target_id"], $array_of_all_tids)) {
+          continue;
+        }
         if ($lang == "fr" && Term::load($targetId["target_id"])->hasTranslation('fr')) {
           $term_name = Term::load($targetId["target_id"])->getTranslation('fr')->label();
           if (!empty($label)) {
@@ -406,12 +428,14 @@ class IdolFeedApiController extends ControllerBase {
           // $label = $label . $term_name . ";";
         }
         else {
-          $term_name = Term::load($targetId["target_id"])->label();
-          // $term_name = $term->label();
-          if (!empty($label)) {
-            $label = $label . ";";
+          $term = Term::load($targetId["target_id"]);
+          if ($term) {
+            $term_name = $term->label();
+            if (!empty($label)) {
+              $label = $label . ";";
+            }
+            $label = $label . $term_name;
           }
-          $label = $label . $term_name;
         }
 
       }
