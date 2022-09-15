@@ -438,17 +438,15 @@ class IdolFeedApiController extends ControllerBase {
         if (!in_array($targetId["target_id"], $array_of_all_tids)) {
           continue;
         }
-        if ($lang == "fr" && Term::load($targetId["target_id"])->hasTranslation('fr')) {
-          $term_name = Term::load($targetId["target_id"])->getTranslation('fr')->label();
+        $term = Term::load($targetId["target_id"]);
+        if ($lang == "fr" && $term->hasTranslation('fr')) {
+          $term_name = $term->getTranslation('fr')->label();
           if (!empty($label)) {
             $label = $label . ";";
           }
           $label = $label . $term_name;
-          // $term_name = $term->label();
-          // $label = $label . $term_name . ";";
         }
         else {
-          $term = Term::load($targetId["target_id"]);
           if ($term) {
             $term_name = $term->label();
             if (!empty($label)) {
