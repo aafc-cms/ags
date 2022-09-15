@@ -137,16 +137,23 @@ class IdolFeedApiController extends ControllerBase {
           if ($keywords == "") {
             $keywords = $node->get('field_keywords')->value;
           }
-          $documentXml->addChild('AGRISOURCE_META_KEYWORDS', $keywords);
+          if (is_null($keywords)) {
+            $keywords = '';
+          }
+          $documentXml->addChild('AGRISOURCE_META_KEYWORDS', htmlspecialchars($keywords));
 
-          $documentXml->addChild('AGRISOURCE_META_AAFCTYPES', $this->getTermLablesByTargetIds($targetIds, "en"));
+          $meta_subjects_and_types = $this->getTermLablesByTargetIds($targetIds, "en");
+          if (is_null($meta_subjects_and_types)) {
+            $meta_subjects_and_types = '';
+          }
+          $documentXml->addChild('AGRISOURCE_META_AAFCTYPES', $meta_subjects_and_types);
 
           $targetIds = $node->get('field_subject')->getValue();
-          $documentXml->addChild('AGRISOURCE_META_SUBJECTS', $this->getTermLablesByTargetIds($targetIds, "en"));
+          $documentXml->addChild('AGRISOURCE_META_SUBJECTS', $meta_subjects_and_types);
           $AGRISOURCE_META_SUBJECTS_id = $this->getTargetIdsAsString($targetIds);
 
           $targetIds = $node->get('layout_selection')->getValue();
-          $documentXml->addChild('AGRISOURCE_META_PRESENTATIONTEMPLATETYPE', $this->getTermLablesByTargetIds($targetIds, "en"));
+          $documentXml->addChild('AGRISOURCE_META_PRESENTATIONTEMPLATETYPE', $meta_subjects_and_types);
 
           $documentXml->addChild('AGRISOURCE_META_COVERAGES');
           $documentXml->addChild('AGRISOURCE_META_DESCRIPTION', $dcterms_description);
@@ -158,8 +165,9 @@ class IdolFeedApiController extends ControllerBase {
           $documentXml->addChild('CONTENT', $content);
           $documentXml->addChild('EXTERNALURL');
           $documentXml->addChild('LANG', "en");
-          $documentXml->addChild('SHORTTITLE', $node->get('title')->value);
-          $documentXml->addChild('TITLE', $node->get('title')->value);
+          $title_special_chars = htmlspecialchars($node->get('title')->value);
+          $documentXml->addChild('SHORTTITLE', $title_special_chars);
+          $documentXml->addChild('TITLE', $title_special_chars);
           if ($datatype == "empl-empl") {
             $this->addElementForEmpl($documentXml, $node, "en");
 
@@ -211,16 +219,23 @@ class IdolFeedApiController extends ControllerBase {
             if ($keywords == "") {
               $keywords = $trnode->get('field_keywords')->value;
             }
-            $documentXmlFr->addChild('AGRISOURCE_META_KEYWORDS', $keywords);
+            if (is_null($keywords)) {
+              $keywords = '';
+            }
+            $documentXmlFr->addChild('AGRISOURCE_META_KEYWORDS', htmlspecialchars($keywords));
 
-            $documentXmlFr->addChild('AGRISOURCE_META_AAFCTYPES', $this->getTermLablesByTargetIds($targetIds, "fr"));
+            $meta_subjects_and_types_fr = $this->getTermLablesByTargetIds($targetIds, "fr");
+            if (is_null($meta_subjects_and_types_fr)) {
+              $meta_subjects_and_types_fr = '';
+            }
+            $documentXmlFr->addChild('AGRISOURCE_META_AAFCTYPES', $meta_subjects_and_types_fr);
 
             $targetIds = $trnode->get('field_subject')->getValue();
             $AGRISOURCE_META_SUBJECTS_id = $this->getTargetIdsAsString($targetIds);
-            $documentXmlFr->addChild('AGRISOURCE_META_SUBJECTS', $this->getTermLablesByTargetIds($targetIds, "fr"));
+            $documentXmlFr->addChild('AGRISOURCE_META_SUBJECTS', $meta_subjects_and_types_fr);
 
             $targetIds = $node->get('layout_selection')->getValue();
-            $documentXmlFr->addChild('AGRISOURCE_META_PRESENTATIONTEMPLATETYPE', $this->getTermLablesByTargetIds($targetIds, "fr"));
+            $documentXmlFr->addChild('AGRISOURCE_META_PRESENTATIONTEMPLATETYPE', $meta_subjects_and_types_fr);
 
             $documentXmlFr->addChild('AGRISOURCE_META_COVERAGES');
             $documentXmlFr->addChild('AGRISOURCE_META_DESCRIPTION', $dcterms_description);
@@ -385,8 +400,8 @@ class IdolFeedApiController extends ControllerBase {
     $documentXml->addChild('COMMUNICATIONADVISOREMAIL', $node->get('field_newsreviewedby')->value);
     $documentXml->addChild('DIRECTORADVISOREMAIL', $node->get('field_newsapprovedby')->value);
     $documentXml->addChild('PUBLISHDATE', $node->get('field_posted')->getValue()[0]['value']);
-    $documentXml->addChild('SENTBY', $node->get('field_from')->value);
-    $documentXml->addChild('TRANSLATIONREQUESTNUMBER', $node->get('field_newstranslationnum')->value);
+    $documentXml->addChild('SENTBY', htmlspecialchars($node->get('field_from')->value));
+    $documentXml->addChild('TRANSLATIONREQUESTNUMBER', htmlspecialchars($node->get('field_newstranslationnum')->value));
   }
 
   /**
