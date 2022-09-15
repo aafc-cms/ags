@@ -64,7 +64,7 @@ class IdolFeedApiController extends ControllerBase {
         }
 
         foreach ($entities as $node) {
-          $tmp_field_modified = '';
+          $tmp_field_modified = date('Y-m-d');
           if ($node->bundle() == 'dir_listing') {
             continue;
           }
