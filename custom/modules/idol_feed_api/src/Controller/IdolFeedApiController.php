@@ -50,6 +50,7 @@ class IdolFeedApiController extends ControllerBase {
 
       if (!empty($entities = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($results))) {
         global $array_of_all_tids;
+	$array_of_all_tids = [];
         if (!isset($array_of_all_tids)) {
           $connection = \Drupal\Core\Database\Database::getConnection();
           $myselect = $query = $connection->select('taxonomy_term_data', 'ttd')
