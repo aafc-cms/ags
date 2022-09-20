@@ -27,6 +27,7 @@ class IdolFeedApiController extends ControllerBase {
    */
   public function getContent(Request $request) {
 
+
     $requstURL = $request->getSchemeAndHttpHost();
 
     // Echo $requstURL . "\n";.
@@ -48,7 +49,26 @@ class IdolFeedApiController extends ControllerBase {
     if (!empty($results)) {
 
       if (!empty($entities = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($results))) {
+        global $array_of_all_tids;
+        $array_of_all_tids = [];
+        if (!isset($array_of_all_tids)) {
+          $connection = \Drupal\Core\Database\Database::getConnection();
+          $myselect = $query = $connection->select('taxonomy_term_data', 'ttd')
+            ->orderBy('tid', 'DESC')
+            ->fields('ttd', ['tid'])->execute();
+          $tids = [];
+          while ($row = $myselect->fetchAssoc()) {
+            // Do something with:
+            $tids[] = $row['tid'];
+          }
+          $array_of_all_tids = $tids;
+        }
+
         foreach ($entities as $node) {
+          $tmp_field_modified = date('Y-m-d');
+          if ($node->bundle() == 'dir_listing') {
+            continue;
+          }
 
           // Eng node.
           $documentXml = $xml->addChild('DOCUMENT');
@@ -101,10 +121,13 @@ class IdolFeedApiController extends ControllerBase {
             }
           }
 
+          if (isset($node->get('field_modified')->getValue()[0]['value'])) {
+            $tmp_field_modified = $node->get('field_modified')->getValue()[0]['value'];
+          }
           $documentXml->addChild('CONTENTTYPE', "text/html");
-          $documentXml->addChild('FILE_SYSTEM_MODIFIED_DATE', $node->get('field_modified')->getValue()[0]['value']);
-          $documentXml->addChild('META_MODIFIED_DATE', $node->get('field_modified')->getValue()[0]['value']);
-          $documentXml->addChild('AGRISOURCE_META_DATEMODIFIED', $node->get('field_modified')->getValue()[0]['value']);
+          $documentXml->addChild('FILE_SYSTEM_MODIFIED_DATE', $tmp_field_modified);
+          $documentXml->addChild('META_MODIFIED_DATE', $tmp_field_modified);
+          $documentXml->addChild('AGRISOURCE_META_DATEMODIFIED', $tmp_field_modified);
           $documentXml->addChild('AGRISOURCE_META_COVERAGEIDS');
           $documentXml->addChild('AGRISOURCE_META_DCCREATOR', $dcterms_creator);
 
@@ -115,16 +138,23 @@ class IdolFeedApiController extends ControllerBase {
           if ($keywords == "") {
             $keywords = $node->get('field_keywords')->value;
           }
-          $documentXml->addChild('AGRISOURCE_META_KEYWORDS', $keywords);
+          if (is_null($keywords)) {
+            $keywords = '';
+          }
+          $documentXml->addChild('AGRISOURCE_META_KEYWORDS', htmlspecialchars($keywords));
 
-          $documentXml->addChild('AGRISOURCE_META_AAFCTYPES', $this->getTermLablesByTargetIds($targetIds, "en"));
+          $meta_subjects_and_types = $this->getTermLablesByTargetIds($targetIds, "en");
+          if (is_null($meta_subjects_and_types)) {
+            $meta_subjects_and_types = '';
+          }
+          $documentXml->addChild('AGRISOURCE_META_AAFCTYPES', $meta_subjects_and_types);
 
           $targetIds = $node->get('field_subject')->getValue();
-          $documentXml->addChild('AGRISOURCE_META_SUBJECTS', $this->getTermLablesByTargetIds($targetIds, "en"));
+          $documentXml->addChild('AGRISOURCE_META_SUBJECTS', $meta_subjects_and_types);
           $AGRISOURCE_META_SUBJECTS_id = $this->getTargetIdsAsString($targetIds);
 
           $targetIds = $node->get('layout_selection')->getValue();
-          $documentXml->addChild('AGRISOURCE_META_PRESENTATIONTEMPLATETYPE', $this->getTermLablesByTargetIds($targetIds, "en"));
+          $documentXml->addChild('AGRISOURCE_META_PRESENTATIONTEMPLATETYPE', $meta_subjects_and_types);
 
           $documentXml->addChild('AGRISOURCE_META_COVERAGES');
           $documentXml->addChild('AGRISOURCE_META_DESCRIPTION', $dcterms_description);
@@ -136,8 +166,9 @@ class IdolFeedApiController extends ControllerBase {
           $documentXml->addChild('CONTENT', $content);
           $documentXml->addChild('EXTERNALURL');
           $documentXml->addChild('LANG', "en");
-          $documentXml->addChild('SHORTTITLE', $node->get('title')->value);
-          $documentXml->addChild('TITLE', $node->get('title')->value);
+          $title_special_chars = htmlspecialchars($node->get('title')->value);
+          $documentXml->addChild('SHORTTITLE', $title_special_chars);
+          $documentXml->addChild('TITLE', $title_special_chars);
           if ($datatype == "empl-empl") {
             $this->addElementForEmpl($documentXml, $node, "en");
 
@@ -177,9 +208,9 @@ class IdolFeedApiController extends ControllerBase {
             }
 
             $documentXmlFr->addChild('CONTENTTYPE', "text/html");
-            $documentXmlFr->addChild('FILE_SYSTEM_MODIFIED_DATE', $trnode->get('field_modified')->getValue()[0]['value']);
-            $documentXmlFr->addChild('META_MODIFIED_DATE', $trnode->get('field_modified')->getValue()[0]['value']);
-            $documentXmlFr->addChild('AGRISOURCE_META_DATEMODIFIED', $trnode->get('field_modified')->getValue()[0]['value']);
+            $documentXmlFr->addChild('FILE_SYSTEM_MODIFIED_DATE', $tmp_field_modified);
+            $documentXmlFr->addChild('META_MODIFIED_DATE', $tmp_field_modified);
+            $documentXmlFr->addChild('AGRISOURCE_META_DATEMODIFIED', $tmp_field_modified);
             $documentXmlFr->addChild('AGRISOURCE_META_COVERAGEIDS');
             $documentXmlFr->addChild('AGRISOURCE_META_DCCREATOR', $dcterms_creator);
             $targetIds = $node->get('field_meta_type')->getValue();
@@ -189,16 +220,23 @@ class IdolFeedApiController extends ControllerBase {
             if ($keywords == "") {
               $keywords = $trnode->get('field_keywords')->value;
             }
-            $documentXmlFr->addChild('AGRISOURCE_META_KEYWORDS', $keywords);
+            if (is_null($keywords)) {
+              $keywords = '';
+            }
+            $documentXmlFr->addChild('AGRISOURCE_META_KEYWORDS', htmlspecialchars($keywords));
 
-            $documentXmlFr->addChild('AGRISOURCE_META_AAFCTYPES', $this->getTermLablesByTargetIds($targetIds, "fr"));
+            $meta_subjects_and_types_fr = $this->getTermLablesByTargetIds($targetIds, "fr");
+            if (is_null($meta_subjects_and_types_fr)) {
+              $meta_subjects_and_types_fr = '';
+            }
+            $documentXmlFr->addChild('AGRISOURCE_META_AAFCTYPES', $meta_subjects_and_types_fr);
 
             $targetIds = $trnode->get('field_subject')->getValue();
             $AGRISOURCE_META_SUBJECTS_id = $this->getTargetIdsAsString($targetIds);
-            $documentXmlFr->addChild('AGRISOURCE_META_SUBJECTS', $this->getTermLablesByTargetIds($targetIds, "fr"));
+            $documentXmlFr->addChild('AGRISOURCE_META_SUBJECTS', $meta_subjects_and_types_fr);
 
             $targetIds = $node->get('layout_selection')->getValue();
-            $documentXmlFr->addChild('AGRISOURCE_META_PRESENTATIONTEMPLATETYPE', $this->getTermLablesByTargetIds($targetIds, "fr"));
+            $documentXmlFr->addChild('AGRISOURCE_META_PRESENTATIONTEMPLATETYPE', $meta_subjects_and_types_fr);
 
             $documentXmlFr->addChild('AGRISOURCE_META_COVERAGES');
             $documentXmlFr->addChild('AGRISOURCE_META_DESCRIPTION', $dcterms_description);
@@ -363,8 +401,8 @@ class IdolFeedApiController extends ControllerBase {
     $documentXml->addChild('COMMUNICATIONADVISOREMAIL', $node->get('field_newsreviewedby')->value);
     $documentXml->addChild('DIRECTORADVISOREMAIL', $node->get('field_newsapprovedby')->value);
     $documentXml->addChild('PUBLISHDATE', $node->get('field_posted')->getValue()[0]['value']);
-    $documentXml->addChild('SENTBY', $node->get('field_from')->value);
-    $documentXml->addChild('TRANSLATIONREQUESTNUMBER', $node->get('field_newstranslationnum')->value);
+    $documentXml->addChild('SENTBY', htmlspecialchars($node->get('field_from')->value));
+    $documentXml->addChild('TRANSLATIONREQUESTNUMBER', htmlspecialchars($node->get('field_newstranslationnum')->value));
   }
 
   /**
@@ -393,25 +431,29 @@ class IdolFeedApiController extends ControllerBase {
       return "";
     }
 
+    global $array_of_all_tids;
     $label = "";
     foreach ($targetIds as $targetId) {
       if ($targetId["target_id"] > 0) {
-        if ($lang == "fr" && Term::load($targetId["target_id"])->hasTranslation('fr')) {
-          $term_name = Term::load($targetId["target_id"])->getTranslation('fr')->label();
+        if (!in_array($targetId["target_id"], $array_of_all_tids)) {
+          continue;
+        }
+        $term = Term::load($targetId["target_id"]);
+        if ($lang == "fr" && $term->hasTranslation('fr')) {
+          $term_name = $term->getTranslation('fr')->label();
           if (!empty($label)) {
             $label = $label . ";";
           }
           $label = $label . $term_name;
-          // $term_name = $term->label();
-          // $label = $label . $term_name . ";";
         }
         else {
-          $term_name = Term::load($targetId["target_id"])->label();
-          // $term_name = $term->label();
-          if (!empty($label)) {
-            $label = $label . ";";
+          if ($term) {
+            $term_name = $term->label();
+            if (!empty($label)) {
+              $label = $label . ";";
+            }
+            $label = $label . $term_name;
           }
-          $label = $label . $term_name;
         }
 
       }
