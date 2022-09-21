@@ -66,7 +66,7 @@ class IdolFeedApiController extends ControllerBase {
 
         foreach ($entities as $node) {
           $tmp_field_modified = date('Y-m-d');
-          if ($node->bundle() == 'dir_listing') {
+          if ($node->bundle() == 'dir_listing' || $node->bundle() == 'webform') {
             continue;
           }
 
