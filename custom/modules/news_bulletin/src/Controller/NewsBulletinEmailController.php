@@ -120,18 +120,16 @@ class NewsBulletinEmailController extends ControllerBase {
       ];
     }
     else {
-      if (isset($referer) && strpos($referer, 'outside-ncr') !== FALSE) {
-        return [
-          '#theme' => 'news_bulletin_email',
-          '#news_types' => $this->getNewsTypes(),
-          '#news_items' => $this->reOrderNodeWeights('en', TRUE),
-          '#types_by_weight' => $this->reOrderTypeWeights('en', TRUE),
-          '#news_types_fr' => $this->getNewsTypes('fr'),
-          '#news_items_fr' => $this->reOrderNodeWeights('fr', TRUE),
-          '#types_by_weight_fr' => $this->reOrderTypeWeights('fr', TRUE),
-          '#vars_array' => $this->options(),
-        ];
-      }
+      return [
+        '#theme' => 'news_bulletin_email',
+        '#news_types' => $this->getNewsTypes(),
+        '#news_items' => $this->reOrderNodeWeights('en', TRUE),
+        '#types_by_weight' => $this->reOrderTypeWeights('en', TRUE),
+        '#news_types_fr' => $this->getNewsTypes('fr'),
+        '#news_items_fr' => $this->reOrderNodeWeights('fr', TRUE),
+        '#types_by_weight_fr' => $this->reOrderTypeWeights('fr', TRUE),
+        '#vars_array' => $this->options(),
+      ];
     }
   }
 
