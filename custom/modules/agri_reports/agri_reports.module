@@ -46,6 +46,14 @@ function agri_reports_views_data_export_row_alter(&$row, \Drupal\views\ResultRow
       }
     }
   } 
+  if ($view->id() == 'user_admin_people') {
+    if (isset($row['user_bulk_form'])) {
+      unset($row['user_bulk_form']);
+    }
+    if (isset($row['operations'])) {
+      unset($row['operations']);
+    }
+  }
 }
 
 /*
