@@ -249,8 +249,9 @@ class IdolFeedApiController extends ControllerBase {
             $documentXmlFr->addChild('CONTENT', $content);
             $documentXmlFr->addChild('EXTERNALURL');
             $documentXmlFr->addChild('LANG', "fr");
-            $documentXmlFr->addChild('SHORTTITLE', $trnode->get('title')->value);
-            $documentXmlFr->addChild('TITLE', $trnode->get('title')->value);
+            $title_special_chars_fr = htmlspecialchars($trnode->get('title')->value);
+            $documentXmlFr->addChild('SHORTTITLE', $title_special_chars_fr);
+            $documentXmlFr->addChild('TITLE', $title_special_chars_fr);
             if ($datatype == "empl-empl") {
               $this->addElementForEmpl($documentXmlFr, $trnode, "fr");
 
@@ -331,9 +332,9 @@ class IdolFeedApiController extends ControllerBase {
     // $classificationXml->addChild('SUBGROUP', $subGroup);
     $documentXml->addChild('CLOSINGDATE', $node->get('field_date_closing')->getValue()[0]['value']);
     $documentXml->addChild('CLOSINGTIME');
-    $documentXml->addChild('EMAIL', $node->get('field_email')->value);
-    $documentXml->addChild('LOCATION', $node->get('field_locations')->value);
-    $documentXml->addChild('NAME', $node->get('field_name')->value);
+    $documentXml->addChild('EMAIL', htmlspecialchars($node->get('field_email')->value));
+    $documentXml->addChild('LOCATION', htmlspecialchars($node->get('field_locations')->value));
+    $documentXml->addChild('NAME', htmlspecialchars($node->get('field_name')->value));
     $documentXml->addChild('OPENTO', $node->get('field_open_to')->value);
     $documentXml->addChild('POSITIONTITLE');
 
