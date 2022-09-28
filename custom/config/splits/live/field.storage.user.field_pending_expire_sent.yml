@@ -1,4 +1,4 @@
-uuid: d1b930e9-ba8e-4048-8826-03206ac76f1d
+uuid: 1e705964-8ec5-491b-93c1-e4a12bc05fbd
 langcode: en
 status: true
 dependencies:
@@ -8,12 +8,14 @@ dependencies:
     module:
       - password_policy
 _core:
-  default_config_hash: hZ92ctP_IPOvYwFWeh-8cu0xIcJJXuJ0nV-6IbQT3vM
-id: user.field_password_expiration
-field_name: field_password_expiration
+  default_config_hash: FkcjtYqR-bTc6oZBLdP6A89u1UPfdRIV1NYQg_kkUkg
+id: user.field_pending_expire_sent
+field_name: field_pending_expire_sent
 entity_type: user
-type: boolean
-settings: {  }
+type: integer
+settings:
+  unsigned: false
+  size: normal
 module: core
 locked: true
 cardinality: 1

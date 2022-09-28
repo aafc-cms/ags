@@ -3,13 +3,16 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entity_browser.browser.image_browser
     - field.field.user.user.field_default_content_mode
     - field.field.user.user.field_first_name
     - field.field.user.user.field_last_name
+    - field.field.user.user.field_last_password_reset
+    - field.field.user.user.field_password_expiration
+    - field.field.user.user.field_pending_expire_sent
     - field.field.user.user.user_picture
-    - image.style.thumbnail
   module:
-    - image
+    - entity_browser
     - path
     - user
 id: user.user.default
@@ -83,4 +86,5 @@ content:
 hidden:
   field_last_password_reset: true
   field_password_expiration: true
+  field_pending_expire_sent: true
   langcode: true
