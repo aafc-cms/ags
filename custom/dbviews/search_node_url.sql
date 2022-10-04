@@ -19,16 +19,19 @@ char_length(concat('/',convert(`np`.`langcode` using utf8mb4),`np`.`url`)) AS `n
   end
 ) AS `pagetype`,
 (case when (`np`.`revision_id` is not null)
-then `nms`.`moderation_state` else 'previousrevision' end
+then `nms`.`moderation_state` else 'previous_revision' end
 ) AS `moderationstate`,
 (case when (`np`.`revision_id` is not null)
 then TRUE else FALSE end
-) AS `iscurrenturl`
+) AS `iscurrenturl`,
+`np`.`url_revision_id` AS `url_revision_id`
 from
 ((
   select distinct cast(replace(`a`.`path`,'/node/','') as UNSIGNED) AS `node_id`,
          `a`.`langcode` AS `langcode`,`a`.`alias` AS `url`,
-         char_length(`a`.`alias`) AS `numofchars`, `b`.`revision_id` AS `revision_id`
+         char_length(`a`.`alias`) AS `numofchars`, `b`.`revision_id` AS `revision_id`,
+         `a`.`revision_id` AS `url_revision_id`
+
   from
   ((
     select `path_alias`.`path` AS `path`,`path_alias`.`langcode` AS `langcode`,
@@ -40,10 +43,10 @@ from
     `a`
     left join
     (
-      select `path_alias`.`path` AS `path`,`path_alias`.`langcode` AS `langcode`,
-       max(`path_alias`.`revision_id`) AS `revision_id` from `path_alias`
-      where ((`path_alias`.`langcode` <> 'und') and (`path_alias`.`path` like '/node/%'))
-      group by `path_alias`.`path`,`path_alias`.`langcode`
+      select `path_alias_revision`.`path` AS `path`,`path_alias_revision`.`langcode` AS `langcode`,
+       max(`path_alias_revision`.`revision_id`) AS `revision_id` from `path_alias_revision`
+      where ((`path_alias_revision`.`langcode` <> 'und') and (`path_alias_revision`.`path` like '/node/%'))
+      group by `path_alias_revision`.`path`,`path_alias_revision`.`langcode`
     )
     `b`
     on(((`a`.`path` = `b`.`path`)
