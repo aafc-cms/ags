@@ -24,18 +24,20 @@ then `nms`.`moderation_state` else 'previous_revision' end
 (case when (`np`.`revision_id` is not null)
 then TRUE else FALSE end
 ) AS `iscurrenturl`,
-`np`.`url_revision_id` AS `url_revision_id`
+`np`.`url_revision_id` AS `url_revision_id`,
+`np`.`date_of_revision` AS `date_of_revision` 
 from
 ((
   select distinct cast(replace(`a`.`path`,'/node/','') as UNSIGNED) AS `node_id`,
          `a`.`langcode` AS `langcode`,`a`.`alias` AS `url`,
          char_length(`a`.`alias`) AS `numofchars`, `b`.`revision_id` AS `revision_id`,
-         `a`.`revision_id` AS `url_revision_id`
+         `a`.`revision_id` AS `url_revision_id`,  `a`. `date_of_revision` as `date_of_revision`
 
   from
   ((
     select `path_alias`.`path` AS `path`,`path_alias`.`langcode` AS `langcode`,
-          `path_alias`.`alias` AS `alias`,`path_alias`.`revision_id` AS `revision_id`
+          `path_alias`.`alias` AS `alias`,`path_alias`.`revision_id` AS `revision_id`,
+          CONVERT_TZ(from_unixtime(`changed`), 'UTC', 'EST') AS `date_of_revision`
           from `path_alias`
     where ((`path_alias`.`langcode` <> 'und')
     and (`path_alias`.`path` like '/node/%'))
