@@ -146,6 +146,13 @@ body.user-anonymous.news-article-form-page span.field-edit-link button.link.link
 body.user-anonymous #edit-field-newsexpirydate-0 {
   display: none !important;
 }
+body.user-anonymous.role-is-anonymous.news-article-form-page div.form-type-select div.select-wrapper select.error, body.user-anonymous.nodeaddnews.role-is-anonymous div.form-type-select div.select-wrapper select.error {
+  margin-bottom: 0px;
+}
+body.user-anonymous.role-is-anonymous.news-article-form-page div.select-wrapper:has(div.form-item--error-message)::after, body.user-anonymous.nodeaddnews.role-is-anonymous div.select-wrapper:has(div.form-item--error-message)::after {
+  position: absolute;
+  margin-top: 5px;
+}
 body.user-anonymous.role-is-anonymous.news-article-form-page div#edit-actions, body.user-anonymous.nodeaddnews.role-is-anonymous div#edit-actions {
   position: relative;
 }
@@ -306,6 +313,23 @@ body.role-is-anonymous.employment-opportunity-request-form-page #block-grstheme-
   padding-top: 35px !important;
 }
 
+body.role-is-anonymous.employment-opportunity-request-form-page div.select-wrapper:has(select[id='edit-field-branch'] + div.form-item--error-message)::after,
+body.role-is-anonymous.nodeaddempl.node-add div.select-wrapper:has(select[id='edit-field-branch'] + div.form-item--error-message)::after {
+  position: absolute;
+  margin-top: 5px;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page div.select-wrapper:has(select[id*='-subform-field-class-level'] + div.form-item--error-message)::after,
+body.role-is-anonymous.nodeaddempl.node-add div.select-wrapper:has(select[id*='-subform-field-class-level'] + div.form-item--error-message)::after {
+  position: absolute;
+  margin-top: 5px;
+  margin-right: 70px;
+}
+body.role-is-anonymous.employment-opportunity-request-form-page div.select-wrapper:has(select[id*='-subform-field-class-id'] + div.form-item--error-message)::after,
+body.role-is-anonymous.nodeaddempl.node-add div.select-wrapper:has(select[id*='-subform-field-class-id'] + div.form-item--error-message)::after {
+  position: absolute;
+  margin-top: 5px;
+  margin-right: 300px;
+}
 body.role-is-anonymous.employment-opportunity-request-form-page #block-customblock-submitemploymentopportunity,
 body.role-is-anonymous.nodeaddempl.node-add #block-customblock-submitemploymentopportunity {
   padding-bottom: 20px;

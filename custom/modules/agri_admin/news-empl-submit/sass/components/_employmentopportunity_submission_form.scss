@@ -57,6 +57,22 @@ body.role-is-anonymous {
 
 body.role-is-anonymous.employment-opportunity-request-form-page,
 body.role-is-anonymous.nodeaddempl.node-add {
+  div.select-wrapper:has(select[id='edit-field-branch'] + div.form-item--error-message)::after {
+    position: absolute;
+    margin-top: 5px;
+  }
+
+  div.select-wrapper:has(select[id*='-subform-field-class-level'] + div.form-item--error-message)::after {
+    position: absolute;
+    margin-top: 5px;
+    margin-right: 70px;
+  }
+
+  div.select-wrapper:has(select[id*='-subform-field-class-id'] + div.form-item--error-message)::after {
+    position: absolute;
+    margin-top: 5px;
+    margin-right: 300px;
+  }
 //  #wb-cont {
 //    display: none;
 //  }
@@ -280,7 +296,7 @@ body.node-50.role-is-authenticated {
   }
 }
 
-body.nodeaddnews.user-anonymous ol.breadcrumb li:last-child, body.nodeaddempl.user-anonymous ol.breadcrumb li:last-child, {
+body.nodeaddnews.user-anonymous ol.breadcrumb li:last-child, body.nodeaddempl.user-anonymous ol.breadcrumb li:last-child {
   display: none;
 }
 

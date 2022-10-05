@@ -45,6 +45,15 @@ body.user-anonymous {
   }
 
   &.role-is-anonymous.news-article-form-page, &.nodeaddnews.role-is-anonymous {
+    div.form-type-select div.select-wrapper select.error {
+      margin-bottom: 0px;
+    }
+    
+    div.select-wrapper:has(div.form-item--error-message)::after {
+      position: absolute;
+      margin-top: 5px;
+    }
+
     div#edit-actions {
       position: relative;
     }
