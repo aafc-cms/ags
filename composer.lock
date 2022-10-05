@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e573d56b4f8950845abb690782fb687a",
+    "content-hash": "d1e891ab7d37f58604d2e50dfcf73955",
     "packages": [
         {
             "name": "agrcmsx/dxbase",
-            "version": "9.4.6-rc3",
+            "version": "9.4.6-rc4",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:agrcms/dxbase.git",
-                "reference": "e5910af9a1dcefeb5ad998ddafa2252689f05c85"
+                "reference": "29f756696be2591df29ccac2bc93bd0747031777"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=e5910af9a1dcefeb5ad998ddafa2252689f05c85",
-                "reference": "e5910af9a1dcefeb5ad998ddafa2252689f05c85",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=29f756696be2591df29ccac2bc93bd0747031777",
+                "reference": "29f756696be2591df29ccac2bc93bd0747031777",
                 "shasum": ""
             },
             "require": {
@@ -176,7 +176,8 @@
                         "2921627 - Reroll patch for 9.4.x": "https://www.drupal.org/files/issues/2022-03-11/2921627-75.patch",
                         "3150294 - Reroll patch for 9.4.x": "https://www.drupal.org/files/issues/2022-05-11/3150294-109.patch",
                         "3130504 - Ajax was previously messing up base_path prefix for destination parameters apply filter on view enabled with ajax on a site using an alias like /qa": "https://www.drupal.org/files/issues/2022-06-21/3130504-20.patch",
-                        "3239132 - Javascript errors on node/edit and node/add pages.": "https://www.drupal.org/files/issues/2022-06-20/D94x-partial_revert-3239132-15.patch"
+                        "3239132 - Javascript errors on node/edit and node/add pages.": "https://www.drupal.org/files/issues/2022-06-20/D94x-partial_revert-3239132-15.patch",
+                        "3241056 - Add changed time tracking to path_alias": "https://www.drupal.org/files/issues/2021-10-06/3241056_5.patch"
                     },
                     "drupal/access_unpublished": {
                         "Adds a twig extension for access unpublished hash key link, patch 9.": "https://www.drupal.org/files/issues/2021-05-21/v1.1-access_unpublished-3054536-12.patch",
@@ -282,7 +283,7 @@
                 "GPL-2.0+"
             ],
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
-            "time": "2022-09-21T14:50:39+00:00"
+            "time": "2022-10-05T13:48:02+00:00"
         },
         {
             "name": "alchemy/zippy",
@@ -22294,5 +22295,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.3.0"
 }
