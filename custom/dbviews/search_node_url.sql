@@ -37,7 +37,7 @@ from
   ((
     select `path_alias`.`path` AS `path`,`path_alias`.`langcode` AS `langcode`,
           `path_alias`.`alias` AS `alias`,`path_alias`.`revision_id` AS `revision_id`,
-          CONVERT_TZ(from_unixtime(`changed`), 'UTC', 'EST') AS `date_of_revision`
+          from_unixtime(`changed`) AS `date_of_revision`
           from `path_alias`
     where ((`path_alias`.`langcode` <> 'und')
     and (`path_alias`.`path` like '/node/%'))
