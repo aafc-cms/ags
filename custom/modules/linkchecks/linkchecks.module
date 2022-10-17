@@ -14,7 +14,7 @@ function linkchecks_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\Form
   if ($form_id == 'views_exposed_form') {
     $current_route = \Drupal::routeMatch()->getRouteName();
     if ($current_route == 'view.broken_links_report.page_1') {
-      $form['#attached']['library'] = 'linkchecks/linkchecks';
+      //$form['#attached']['library'] = 'linkchecks/linkchecks';
       //\Drupal\agri_admin\AgriAdminHelper::addToLog($form_id, TRUE);
       //\Drupal\agri_admin\AgriAdminHelper::addMessage($form_id, TRUE);
       //\Drupal\agri_admin\AgriAdminHelper::addToLog($current_route, TRUE);
