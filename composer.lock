@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ecc637d93e748261a9f6ec6c8439b6f4",
+    "content-hash": "d432d9c520fae25bda64d0b69139f646",
     "packages": [
         {
             "name": "agrcmsx/dxbase",
-            "version": "9.4.7-rc2",
+            "version": "9.4.7-rc5",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:agrcms/dxbase.git",
-                "reference": "1d56419e9af2662d7533f38a33a6e7932d9eae8c"
+                "reference": "3b238ad57528ee3c9b38aa9d7e72be721709a13a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=1d56419e9af2662d7533f38a33a6e7932d9eae8c",
-                "reference": "1d56419e9af2662d7533f38a33a6e7932d9eae8c",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=3b238ad57528ee3c9b38aa9d7e72be721709a13a",
+                "reference": "3b238ad57528ee3c9b38aa9d7e72be721709a13a",
                 "shasum": ""
             },
             "require": {
@@ -177,7 +177,8 @@
                         "3150294 - Reroll patch for 9.4.x": "https://www.drupal.org/files/issues/2022-05-11/3150294-109.patch",
                         "3130504 - Ajax was previously messing up base_path prefix for destination parameters apply filter on view enabled with ajax on a site using an alias like /qa": "https://www.drupal.org/files/issues/2022-06-21/3130504-20.patch",
                         "3239132 - Javascript errors on node/edit and node/add pages.": "https://www.drupal.org/files/issues/2022-06-20/D94x-partial_revert-3239132-15.patch",
-                        "3241056 - Add changed time tracking to path_alias": "https://www.drupal.org/files/issues/2021-10-06/3241056_5.patch"
+                        "3241056 - Add changed time tracking to path_alias": "https://www.drupal.org/files/issues/2021-10-06/3241056_5.patch",
+                        "2730351 - CSRF check always fails for users without a session": "https://www.drupal.org/files/issues/2022-06-18/2730351-105.patch"
                     },
                     "drupal/access_unpublished": {
                         "Adds a twig extension for access unpublished hash key link, patch 9.": "https://www.drupal.org/files/issues/2021-05-21/v1.1-access_unpublished-3054536-12.patch",
@@ -283,7 +284,7 @@
                 "GPL-2.0+"
             ],
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
-            "time": "2022-10-07T17:48:21+00:00"
+            "time": "2022-10-19T13:50:46+00:00"
         },
         {
             "name": "alchemy/zippy",
@@ -5734,17 +5735,17 @@
         },
         {
             "name": "drupal/dropzonejs",
-            "version": "2.5.0",
+            "version": "2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/dropzonejs.git",
-                "reference": "8.x-2.5"
+                "reference": "8.x-2.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/dropzonejs-8.x-2.5.zip",
-                "reference": "8.x-2.5",
-                "shasum": "9918bd8c3c62599ec701be3bbac986741e735859"
+                "url": "https://ftp.drupal.org/files/projects/dropzonejs-8.x-2.7.zip",
+                "reference": "8.x-2.7",
+                "shasum": "10e2de01919d70c211ab7daad92bb19b02da71ce"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9"
