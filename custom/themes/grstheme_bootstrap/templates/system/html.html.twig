@@ -68,15 +68,12 @@
     {# normal case: language == fr  && head title == pagename | AgriSource #}
       <title>{{ head_title|safe_join(' - ') }} {{ 'Agriculture and Agri-Food Canada'|trans }}</title>
     {% elseif head_title|length == 1 %}
-    {# normal case: language == en  && head title = pagename - AgriSource #}
-      {% for value in head_title %}
-        {% if 'AgriSource' in value %}
+        {% if 'AgriSource' in head_title|first %}
           <title>{{ head_title|safe_join(' - ') }} {{ 'Agriculture and Agri-Food Canada'|trans }}</title>
         {% else %}
           {# A bug caused by unknown reason case: language == en  && head title = pagename #}
           <title>{{ head_title|safe_join(' - ') }} {{ 'AgriSource - Agriculture and Agri-Food Canada'|trans }}</title>
         {% endif %}
-      {% endfor %}
     {% else %}
     {# ok. This is a default case #}
       <title>{{ head_title|safe_join(' - ') }} {{ 'Agriculture and Agri-Food Canada'|trans }}</title>
