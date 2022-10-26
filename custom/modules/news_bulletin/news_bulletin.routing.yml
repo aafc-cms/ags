@@ -2,7 +2,7 @@ news_bulletin.content:
   path: '/news-at-work-bulletin'
   defaults:
     _controller: '\Drupal\news_bulletin\Controller\NewsBulletinController::content'
-    _title: 'new@work Bulletin - NCR only'
+    _title: 'news@work Bulletin - NCR only'
   requirements:
     _permission: 'access content'
   options:
@@ -11,7 +11,7 @@ news_bulletin_nonncr.content:
   path: '//news-at-work-bulletin/outside-ncr'
   defaults:
     _controller: '\Drupal\news_bulletin\Controller\NewsBulletinController::content'
-    _title: 'new@work Bulletin - Outside NCR'
+    _title: 'news@work Bulletin - Outside NCR'
   requirements:
     _permission: 'access content'
   options:
