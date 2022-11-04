@@ -202,5 +202,9 @@ body.news-article-form-page, body.nodeaddnews.role-is-anonymous.node-add {
   div[id^="edit-field-newsfile5"].help-block {
     display: none !important;
   }
+
+  div[id^="edit-field-posted"] div.form-item--error-message {
+    display: block;
+  }
 }
 // End of the News Item
