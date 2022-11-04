@@ -280,6 +280,9 @@ body.news-article-form-page div[id^="edit-field-newsfile5"] div.panel-heading a[
 body.news-article-form-page div[id^="edit-field-newsfile5"].help-block, body.nodeaddnews.role-is-anonymous.node-add div[id^="edit-field-newsfile5"].help-block {
   display: none !important;
 }
+body.news-article-form-page div[id^="edit-field-posted"] div.form-item--error-message, body.nodeaddnews.role-is-anonymous.node-add div[id^="edit-field-posted"] div.form-item--error-message {
+  display: block;
+}
 
 body.node-50.role-is-authenticated #node-empl-form .vertical-tabs-panes {
   border: none !important;
