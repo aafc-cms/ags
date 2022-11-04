@@ -28,6 +28,7 @@ dependencies:
     - field.field.node.news.field_to
     - field.field.node.news.layout_selection
     - node.type.news
+    - workflows.workflow.editorial
   module:
     - content_moderation
     - datetime
@@ -45,13 +46,14 @@ third_party_settings:
       label: 'Submitter''s contact information'
       region: content
       parent_name: ''
-      weight: 9
+      weight: 0
       format_type: details
       format_settings:
         classes: 'submitterContactDetail never-collapse'
+        show_empty_fields: false
         id: ''
         open: true
-        description: "<span class=\"english-only\">This person will be contacted if there are questions about this submission.</span>\r\n\r\n<span class=\"french-only\">\r\nLe coordonnateur de <em>nouvelles@l’ouvrage</em> communiquera avec cette personne s’il y a des questions au sujet de  l’article soumis.\r\n</span>"
+        description: "<span class=\"english-only\">This person will be contacted if there are questions about this submission.</span>\r\n\r\n<span class=\"french-only\">Cette personne sera contactée s’il y a des questions au sujet de l’article soumis.</span>"
         required_fields: true
     group_newsreviewerandapprover:
       children:
@@ -60,7 +62,7 @@ third_party_settings:
       label: 'Article approval'
       region: content
       parent_name: ''
-      weight: 0
+      weight: 1
       format_type: details
       format_settings:
         classes: never-collapse
@@ -75,7 +77,7 @@ third_party_settings:
       label: 'About the article'
       region: content
       parent_name: ''
-      weight: 1
+      weight: 3
       format_type: details
       format_settings:
         classes: never-collapse
@@ -89,27 +91,29 @@ third_party_settings:
       label: 'Article headline'
       region: content
       parent_name: ''
-      weight: 2
+      weight: 6
       format_type: details
       format_settings:
         classes: ''
+        show_empty_fields: false
         id: ''
         open: true
-        description: "<span class=\"english-only\">See the <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2903350&amp;lang=eng\" target=\"_blank\">headline guidelines</a> for information on how to write an effective headline.\r\n</span>\r\n<span class=\"french-only\">\r\nVeuillez consulter les <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2911217&amp;lang=fra\" target=\"_blank\">instructions sur les titres</a> pour obtenir des conseils sur la rédaction de titres efficaces.\r\n</span>"
+        description: "<span class=\"english-only\">See the <a href=\"/en/news/newswork/how-submit-newswork-article#a4\" target=\"_blank\">headline guidelines</a> for tips on how to write an effective headline.\r\n</span>\r\n<span class=\"french-only\">\r\nVeuillez consulter les <a href=\"/fr/nouvelles/newswork/comment-soumettre-article-pour-nouvelleslouvrage#a4\" target=\"_blank\">instructions sur les titres</a> pour obtenir des conseils sur la rédaction de titres efficaces.\r\n</span>"
         required_fields: true
     group_newssentby:
       children:
         - field_from
-      label: 'Who will readers see the article has been "Sent By"?'
+      label: 'Sent by'
       region: content
       parent_name: ''
-      weight: 3
+      weight: 5
       format_type: details
       format_settings:
         classes: never-collapse
+        show_empty_fields: false
         id: ''
         open: true
-        description: "<span class=\"english-only\">Name the branch, ADM, directorate, unit, or group that readers will see the article has been \"Sent By\". Consult the <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2903361&amp;lang=eng\" target=\"_blank\">Sent By guidelines</a>.</span>\r\n\r\n<span class=\"french-only\">Veuillez indiquer le nom de la direction générale, du ou de la SMA, de la direction, de la section ou du groupe que les lecteurs verront sous la mention « De ». Consultez les <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2911213&amp;lang=fra\" target=\"_blank\">instructions sur la mention « De »</a>.\r\n</span>"
+        description: "<span class=\"english-only\">Name the branch, ADM, directorate, unit, or group that readers will see the article has been \"Sent By\". Consult the <a href=\"/en/news/newswork/how-submit-newswork-article#a5\" target=\"_blank\">Sent by guidelines</a>.</span>\r\n\r\n<span class=\"french-only\">Veuillez indiquer le nom de la direction générale, du ou de la SMA, de la direction, de la section ou du groupe que les lecteurs verront sous la mention « De ». Consultez <a href=\"/fr/nouvelles/newswork/comment-soumettre-article-pour-nouvelleslouvrage#a5\" target=\"_blank\">les instructions sur la mention « De »</a>.\r\n</span>"
         required_fields: true
     group_newsarticle:
       children:
@@ -117,13 +121,14 @@ third_party_settings:
       label: 'The article'
       region: content
       parent_name: ''
-      weight: 4
+      weight: 7
       format_type: details
       format_settings:
         classes: ''
+        show_empty_fields: false
         id: ''
         open: true
-        description: "<span class=\"english-only\">\r\nPaste the body of  the article below (do not include the headline). Indicate where any images (including captions) should appear.\r\n\r\nAny images, PDFs or other related files must be attached in the \"Related files\" section below. Review the instructions for  <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2903304&amp;lang=eng\" target=\"_blank\">photos, graphics, captions and permissions</a>.</span>\r\n\r\n<span class=\"french-only\">\r\nVeuillez copier/coller l’article dans l’espace ci-dessous (ne pas inclure le titre). Si  l’article contient des images, indiquez à quel endroit ces dernières et les légendes qui les accompagnent doivent être insérées dans l’article.\r\n\r\nLes images, les fichiers en format PDF et autres fichiers connexes doivent être joints  dans la section « Fichiers connexes » ci-dessous. Consultez les <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2911233&amp;lang=fra\" target=\"_blank\">instructions sur les photos, les graphiques, les légendes et les autorisations</a>.</span>"
+        description: "<span class=\"english-only\">\r\nPaste the body of  the article below (do not include the headline). Indicate where any images should appear. The images must be attached in the \"Related images\" section below. Review the instructions for  <a href=\"/en/news/newswork/how-submit-newswork-article#a6\" target=\"_blank\">photos, graphics, captions and permissions</a>.</span>\r\n\r\n<span class=\"french-only\">\r\nVeuillez copier/coller l’article dans l’espace ci-dessous (ne pas inclure le titre). Si  l’article contient des images, indiquez à quel endroit ces dernières doivent être insérées dans l’article. Les images doivent être joints  dans la section « Images connexes » ci-dessous. Consultez les <a href=\"/fr/nouvelles/newswork/comment-soumettre-article-pour-nouvelleslouvrage#a6\" target=\"_blank\">instructions sur les photos, graphiques, légendes et autorisations</a>.</span>"
         required_fields: true
     group_newstranslationreqnum:
       children:
@@ -131,13 +136,14 @@ third_party_settings:
       label: 'Translation request number'
       region: content
       parent_name: ''
-      weight: 6
+      weight: 2
       format_type: details
       format_settings:
         classes: never-collapse
+        show_empty_fields: false
         id: ''
         open: true
-        description: "<span class=\"english-only\">Please supply the request number given to you by <a href=\"/en/public-affairs-branch/translation-and-revision-services\" target=\"_blank\">Translation and Revision Services</a>. </span>\r\n\r\n<span class=\"french-only\">Veuillez fournir le  numéro de demande qui vous a été fourni par le <a href=\"/fr/direction-generale-des-affaires-publiques/service-de-traduction-et-de-revision\" target=\"_blank\">Service de traduction et de révision</a>.  </span>"
+        description: "<span class=\"english-only\">Enter the <a href=\"/en/public-affairs-branch/translation-and-revision-services\" target=\"_blank\">Translation and Revision Services</a> request number. </span>\r\n\r\n<span class=\"french-only\">Veuillez fournir le numéro de demande de traduction de la <a href=\"https://agrisource.agr.gc.ca/fr/directions-generales-et-bureaux/direction-generale-des-affaires-publiques/service-traduction-et-revision/services-offerts#a\" target=\"_blank\">Service de traduction et de révision</a>.  </span>"
         required_fields: true
     group_newsposteddate:
       children:
@@ -145,7 +151,7 @@ third_party_settings:
       label: 'Posting date'
       region: content
       parent_name: ''
-      weight: 7
+      weight: 4
       format_type: details
       format_settings:
         classes: never-collapse
@@ -156,10 +162,11 @@ third_party_settings:
     group_newsnotes:
       children:
         - field_newsnotes
+        - group_preview
       label: Notes
       region: content
       parent_name: ''
-      weight: 10
+      weight: 9
       format_type: details
       format_settings:
         classes: never-collapse
@@ -170,16 +177,17 @@ third_party_settings:
     group_newsattachedfiles:
       children:
         - field_newsfile5
-      label: 'Related files'
+      label: 'Related images'
       region: content
       parent_name: ''
-      weight: 5
+      weight: 8
       format_type: details
       format_settings:
         classes: never-collapse
+        show_empty_fields: false
         id: ''
         open: true
-        description: "<span class=\"english-only\">Click \"Add media\" to add any photos, graphics, PDFs or other  related files to the article. Review the instructions for <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2903304&amp;lang=eng\" target=\"_blank\">photos, graphics, captions and permissions</a>.</span>\r\n\r\n<span class=\"french-only\">\r\nSi l’article contient des photos, des graphiques, un  fichier en format PDF ou tout autre fichier connexe, cliquez sur « Joindre des médias» pour ajouter ces documents. Consultez les <a href=\"http://intranet.agr.gc.ca/agrisource/AgriDoc.do?id=2911233&amp;lang=fra\" target=\"_blank\">instructions sur photos, les graphiques, les légendes et les autorisations</a>.\r\n</span>"
+        description: "<span class=\"english-only\">Click \"Add media\" to add images to the article. Review the instructions for <a href=\"/en/news/newswork/how-submit-newswork-article#a6\" target=\"_blank\">photos, graphics, captions and permissions</a>.</span>\r\n\r\n<span class=\"french-only\">\r\nSi l’article contient des photos, cliquez sur « Joindre des médias». Consultez les <a href=\"/fr/nouvelles/newswork/comment-soumettre-article-pour-nouvelleslouvrage#a6\" target=\"_blank\">instructions sur photos, graphiques, légendes et autorisations</a>.\r\n</span>"
         required_fields: true
     group_testingdetailsgroup:
       children:
@@ -192,7 +200,7 @@ third_party_settings:
       label: 'aafc metadata group'
       region: content
       parent_name: ''
-      weight: 13
+      weight: 15
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -207,7 +215,7 @@ third_party_settings:
       label: aafc-dcterms-gctype
       region: content
       parent_name: ''
-      weight: 14
+      weight: 16
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -222,7 +230,7 @@ third_party_settings:
       label: aafc-dcterms-subject
       region: content
       parent_name: ''
-      weight: 15
+      weight: 17
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -231,6 +239,20 @@ third_party_settings:
         description: ''
         required_fields: true
         weight: -43
+    group_preview:
+      children: {  }
+      label: Preview
+      region: content
+      parent_name: group_newsnotes
+      weight: 11
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: true
+        id: ''
+        open: true
+        description: "<span class=\"english-only\">Preview your article to see how it will look in news@work. The preview will open in a new window. If your article doesn't appear correct, close the preview window and edit it in the space provided in the form, or add a comment in the \"notes\" section. \r\n\r\nWhen you've completed and previewed your article, click submit to send it to the news@work coordinator.</span>\r\n\r\n<span class=\"french-only\">Voyez comment l’article figurera dans nouvelles@l’ouvrage. Un aperçu s’affichera dans une nouvelle fenêtre. Si vous notez des erreurs, fermez la fenêtre et apportez les modifications nécessaires dans l'espace fourni à cet effet dans le formulaire. Utilisez la section « Commentaires » pour ajouter des instructions, au besoin.\r\n\r\nAprès avoir revu l’article, cliquez sur « Soumettre » pour l’envoyer au coordonnateur de nouvelles@l’ouvrage.</span>"
+        required_fields: false
 id: node.news.default
 targetEntityType: node
 bundle: news
@@ -312,7 +334,7 @@ content:
     third_party_settings: {  }
   field_newsexpirydate:
     type: datetime_default
-    weight: 8
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -360,7 +382,7 @@ content:
     weight: 9
     region: content
     settings:
-      placeholder: ''
+      placeholder: '(555) 555-5555'
     third_party_settings: {  }
   field_newstranslationnum:
     type: string_textfield
@@ -396,13 +418,18 @@ content:
     third_party_settings: {  }
   layout_selection:
     type: options_select
-    weight: 12
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 11
+    weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
