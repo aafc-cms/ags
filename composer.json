@@ -183,6 +183,10 @@
             "drupal/core": "-p2"
         },
         "patches": {
+            "drupal/autologout": {
+                "3214958 - Patch for autologout requested by Huan for testing.":
+                "https://www.drupal.org/files/issues/2022-11-08/autologout-triggered-in-background-tab-3214958-26.patch"
+            },
             "drupal/core": {
                 "Options module uses '_none' as a special value.":
                 "https://www.drupal.org/files/issues/2021-10-13/1585930-79.patch"
@@ -343,7 +347,7 @@
         "oomphinc/composer-installers-extender": "^1.1 || ^2",
         "drupal/views_bulk_operations": "^4.1",
         "drupal/ckeditor_codemirror": "2.4 as 2.3",
-        "drupal/menu_block": "1.8.0 as 1.6.0",
+        "drupal/menu_block": "1.10.0 as 1.6.0",
         "drupal/paragraphs": "1.14.0 as 1.12.0",
         "drupal/pathauto": "1.11.0 as 1.8.0",
         "drupal/token_filter": "1.4.0 as 1.3.0",
