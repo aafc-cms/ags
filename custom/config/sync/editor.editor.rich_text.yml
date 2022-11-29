@@ -70,11 +70,11 @@ settings:
             - Cut
             - Paste
   plugins:
-    stylescombo:
-      styles: ''
     drupallink:
       linkit_enabled: true
       linkit_profile: urltodocument
+    stylescombo:
+      styles: ''
     codemirror:
       enable: true
       mode: htmlmixed
@@ -88,9 +88,9 @@ settings:
         autoCloseBrackets: true
         enableSearchTools: true
         enableCodeFolding: true
-        enableCodeFormatting: true
-        autoFormatOnStart: true
-        autoFormatOnModeChange: true
+        enableCodeFormatting: false
+        autoFormatOnStart: false
+        autoFormatOnModeChange: false
         autoFormatOnUncomment: true
 image_upload:
   status: true
