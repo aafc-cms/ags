@@ -59,7 +59,7 @@ third_party_settings:
       children:
         - field_newsreviewedby
         - field_newsapprovedby
-      label: 'Article approval'
+      label: 'Approval information'
       region: content
       parent_name: ''
       weight: 1
@@ -128,7 +128,7 @@ third_party_settings:
         show_empty_fields: false
         id: ''
         open: true
-        description: "<span class=\"english-only\">\r\nPaste the body of  the article below (do not include the headline). Indicate where any images should appear. The images must be attached in the \"Related images\" section below. Review the instructions for  <a href=\"/en/news/newswork/how-submit-newswork-article#a6\" target=\"_blank\">photos, graphics, captions and permissions</a>.</span>\r\n\r\n<span class=\"french-only\">\r\nVeuillez copier/coller l’article dans l’espace ci-dessous (ne pas inclure le titre). Si  l’article contient des images, indiquez à quel endroit ces dernières doivent être insérées dans l’article. Les images doivent être joints  dans la section « Images connexes » ci-dessous. Consultez les <a href=\"/fr/nouvelles/newswork/comment-soumettre-article-pour-nouvelleslouvrage#a6\" target=\"_blank\">instructions sur les photos, graphiques, légendes et autorisations</a>.</span>"
+        description: "<span class=\"english-only\">\r\nPaste the body of  the article below (do not include the headline). Indicate where any images should appear. The images must be attached in the \"Related images\" section below. Review the instructions for  <a href=\"/en/news/newswork/how-submit-newswork-article#a6\" target=\"_blank\">images</a>.</span>\r\n\r\n<span class=\"french-only\">\r\nVeuillez copier/coller l’article dans l’espace ci-dessous (ne pas inclure le titre). Si  l’article contient des images, indiquez à quel endroit ces dernières doivent être insérées dans l’article. Les images doivent être joints  dans la section « Images connexes » ci-dessous. Consultez les <a href=\"/fr/nouvelles/newswork/comment-soumettre-article-pour-nouvelleslouvrage#a6\" target=\"_blank\">instructions sur les images</a>.</span>"
         required_fields: true
     group_newstranslationreqnum:
       children:
@@ -187,7 +187,7 @@ third_party_settings:
         show_empty_fields: false
         id: ''
         open: true
-        description: "<span class=\"english-only\">Click \"Add media\" to add images to the article. Review the instructions for <a href=\"/en/news/newswork/how-submit-newswork-article#a6\" target=\"_blank\">photos, graphics, captions and permissions</a>.</span>\r\n\r\n<span class=\"french-only\">\r\nSi l’article contient des photos, cliquez sur « Joindre des médias». Consultez les <a href=\"/fr/nouvelles/newswork/comment-soumettre-article-pour-nouvelleslouvrage#a6\" target=\"_blank\">instructions sur photos, graphiques, légendes et autorisations</a>.\r\n</span>"
+        description: "<span class=\"english-only\">Click \"Add media\" to add images to the article. Review the instructions for <a href=\"/en/news/newswork/how-submit-newswork-article#a6\" target=\"_blank\">images</a>.</span>\r\n\r\n<span class=\"french-only\">\r\nSi l’article contient des photos, cliquez sur « Joindre des médias». Consultez les <a href=\"/fr/nouvelles/newswork/comment-soumettre-article-pour-nouvelleslouvrage#a6\" target=\"_blank\">instructions sur les images</a>.\r\n</span>"
         required_fields: true
     group_testingdetailsgroup:
       children:
@@ -251,7 +251,7 @@ third_party_settings:
         show_empty_fields: true
         id: ''
         open: true
-        description: "<span class=\"english-only\">Preview your article to see how it will look in news@work. The preview will open in a new window. If your article doesn't appear correct, close the preview window and edit it in the space provided in the form, or add a comment in the \"notes\" section. \r\n\r\nWhen you've completed and previewed your article, click submit to send it to the news@work coordinator.</span>\r\n\r\n<span class=\"french-only\">Voyez comment l’article figurera dans nouvelles@l’ouvrage. Un aperçu s’affichera dans une nouvelle fenêtre. Si vous notez des erreurs, fermez la fenêtre et apportez les modifications nécessaires dans l'espace fourni à cet effet dans le formulaire. Utilisez la section « Commentaires » pour ajouter des instructions, au besoin.\r\n\r\nAprès avoir revu l’article, cliquez sur « Soumettre » pour l’envoyer au coordonnateur de nouvelles@l’ouvrage.</span>"
+        description: "<span class=\"english-only\"><p>Preview your article to see how it will look in news@work. The preview will open in a new window. If your article doesn't appear correct, close the preview window and edit it in the space provided in the form, or add a comment in the \"notes\" section.</p> \r\n\r\n<p>When you've completed and previewed your article, click submit to send it to the news@work coordinator.</p></span>\r\n\r\n<span class=\"french-only\"><p>Voyez comment l’article figurera dans nouvelles@l’ouvrage. Un aperçu s’affichera dans une nouvelle fenêtre. Si vous notez des erreurs, fermez la fenêtre et apportez les modifications nécessaires dans l'espace fourni à cet effet dans le formulaire. Utilisez la section « Commentaires » pour ajouter des instructions, au besoin.</p>\r\n\r\n<p>Après avoir revu l’article, cliquez sur « Soumettre » pour l’envoyer au coordonnateur de nouvelles@l’ouvrage.</p></span>"
         required_fields: false
 id: node.news.default
 targetEntityType: node
