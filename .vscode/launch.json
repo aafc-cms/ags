@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Xdebug on port 9000",
+            "type": "php",
+            "request": "launch",
+            "port": 9000,
+            "pathMappings": {"/d8/ags": "${workspaceFolder}"},
+            "xdebugSettings": {"show_hidden": 1}
+        },
+    ]
+}
