@@ -70,7 +70,7 @@ function grstheme_bootstrap_preprocess_html(&$variables) {
         $tmpArray = reset($bodyStringArray);
         $bodyString = reset($tmpArray);
         // Joseph please read Huan's comment in the teams. We need checking confition for video/youtube 
-        if (stripos($bodyString,'video/youtube') !== FALSE) {
+        if ((stripos($bodyString,'source') !== FALSE) && (stripos($bodyString,'video/youtube') !== FALSE)) {
           $body_contains_youtube = TRUE;
         }
       }
