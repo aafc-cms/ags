@@ -354,51 +354,15 @@ class IdolFeedApiController extends ControllerBase {
     $categorytypeid = "";
     if ($node->get('field_newstype') && $node->get('field_newstype')->first()) {
       $newstypeId = $node->get('field_newstype')->first()->getValue()["target_id"];
-      $term_name = trim(strtolower(Term::load($newstypeId)->label()));
-      switch ($term_name) {
-        case "deputy ministers' messages":
-          $categorytypeid = '1308334182983';
-          break;
+      $term = Term::load($newstypeId);
+      $term_name = trim($term->label());
 
-        case "charting the way forward":
-          $categorytypeid = '1591971211315';
-          break;
-
-        case "pay and benefits":
-          $categorytypeid = '1508942999196';
-          break;
-
-        case "general":
-          $categorytypeid = '1308325693175';
-          break;
-
-        case "across the public service":
-          $categorytypeid = '1508942999198';
-          break;
-
-        case "events":
-          $categorytypeid = '1308334182981';
-          break;
-
-        case "gcwcc":
-          $categorytypeid = '1379951494338';
-          break;
-
-        case "professional development":
-          $categorytypeid = '1508942999197';
-          break;
-
-        case "isb service notices":
-          $categorytypeid = '1308334182982';
-          break;
-
-        default:
-          $categorytypeid = $term_name;
-          break;
-        // End of category type id mapping.
+      if ($lang == "fr" && $term->hasTranslation('fr')) {
+        $term_name = trim($term->getTranslation('fr')->label());
       }
     }
-    $documentXml->addChild('CATEGORYID', $categorytypeid);
+
+    $documentXml->addChild('NEWSCATEGORY', $term_name);
     $documentXml->addChild('COMMUNICATIONADVISOREMAIL', $node->get('field_newsreviewedby')->value);
     $documentXml->addChild('DIRECTORADVISOREMAIL', $node->get('field_newsapprovedby')->value);
     $documentXml->addChild('PUBLISHDATE', $node->get('field_posted')->getValue()[0]['value']);
