@@ -351,13 +351,12 @@ class IdolFeedApiController extends ControllerBase {
     $documentXml->addChild('ADDITIONALREMARKS');
     $documentXml->addChild('AUDIENCEID');
 
-    $categorytypeid = "";
     if ($node->get('field_newstype') && $node->get('field_newstype')->first()) {
       $newstypeId = $node->get('field_newstype')->first()->getValue()["target_id"];
       $term = Term::load($newstypeId);
-      $term_name = trim($term->label());
-
-      if ($lang == "fr" && $term->hasTranslation('fr')) {
+      if ($lang == "en") {
+        $term_name = trim($term->label());
+      } elseif ($lang == "fr" && $term->hasTranslation('fr')) {
         $term_name = trim($term->getTranslation('fr')->label());
       }
     }
