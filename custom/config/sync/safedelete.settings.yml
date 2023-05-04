@@ -3,7 +3,6 @@ bundle:
   landing_page: landing_page
   news: news
   page: page
-  dir_listing: 0
   webform: 0
 limit: '30'
 delete_button: 0
@@ -12,10 +11,10 @@ _core:
 orphanedpagedefinition:
   landing_page: landing_page
   page: page
-  dir_listing: 0
   empl: 0
   news: 0
   webform: 0
 orphanedpagewithoutmenulink: landing_page
 exceptionofnodes: ''
 safearchive: true
+enforce_bulk_publish_verify_checkpagepublished: 1
