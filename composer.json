@@ -4,7 +4,7 @@
     "type": "project",
     "license": "GPL-2.0+",
     "minimum-stability": "dev",
-    "prefer-stable": true,
+    "prefer-stable": false,
     "repositories": [
         {
             "type": "composer",
@@ -66,6 +66,81 @@
         {
             "type": "path",
             "url": "custom/themes/grstheme_bootstrap"
+        },
+        {
+          "type": "path",
+          "url": "custom/modules/lightning"
+        },
+        {
+          "type": "path",
+          "url": "custom/modules/lightning_install",
+          "options": {
+            "symlink": true
+          }
+        },
+        {
+            "type": "path",
+            "url": "custom/modules/lightning_banner_block"
+        },
+        {
+            "type": "path",
+            "url": "custom/modules/lightning_core"
+        },
+        {
+            "type": "path",
+            "url": "custom/modules/lightning_landing_page"
+        },
+        {
+            "type": "path",
+            "url": "custom/modules/lightning_layout"
+        },
+        {
+            "type": "path",
+            "url": "custom/modules/lightning_map_block"
+        },
+        {
+            "type": "path",
+            "url": "custom/modules/lightning_media"
+        },
+        {
+            "type": "path",
+            "url": "custom/modules/lightning_media_audio"
+        },
+        {
+            "type": "path",
+            "url": "custom/modules/lightning_media_bulk_upload"
+        },
+        {
+            "type": "path",
+            "url": "custom/modules/lightning_media_document"
+        },
+        {
+            "type": "path",
+            "url": "custom/modules/lightning_media_image"
+        },
+        {
+            "type": "path",
+            "url": "custom/modules/lightning_media_instagram"
+        },
+        {
+            "type": "path",
+            "url": "custom/modules/lightning_media_slideshow"
+        },
+        {
+            "type": "path",
+            "url": "custom/modules/lightning_media_video"
+        },
+        {
+            "type": "path",
+            "url": "custom/modules/lightning_media_twitter"
+        },
+        {
+            "type": "path",
+            "url": "custom/modules/lightning_page"
+        },
+        {
+            "type": "path",
+            "url": "custom/modules/lightning_workflow"
         },
         {
             "type": "path",
@@ -185,7 +260,7 @@
         "patches": {
             "drupal/core": {
                 "Options module uses '_none' as a special value.":
-                "https://www.drupal.org/files/issues/2021-10-13/1585930-79.patch",
+                "https://www.drupal.org/files/issues/2023-01-03/1585930_84.patch",
                 "2868294 - Call to a member function getThirdPartySetting() on null in ContentTranslationManager":
                 "https://www.drupal.org/files/issues/2022-11-30/2868294-87.patch"
             },
@@ -209,15 +284,8 @@
                 "Warning filesize:stat failed/filetype:Lstat failed/filectime:stat failed for a symlink":
                 "https://www.drupal.org/files/issues/2021-10-22/filesize-statfailed-3245404-02.patch"
             },
-            "drupal/entity_translation_unified_form": {
-                "3283608 - The client requires an extra Save only button which allows the URL to stay at the /node/nodeID/edit page":
-                "https://www.drupal.org/files/issues/2022-06-20/save-only-3283608-18.patch"
-            },
             "drupal/safedelete": {
                 "3320470 - Make the bulk publish verification configurable to allow the user to perform the bulk publish action on the pages in a particular user case.": "https://www.drupal.org/files/issues/2022-11-29/make-bulk-publish-verification-configurable-3320470-05.patch"
-            },
-            "drupal/wxt_library": {
-                "3293413 - PHP 8.1 compatibility fix. Cannot pass null parameter.": "https://www.drupal.org/files/issues/2022-06-29/wxt_library-php81_compat-3293413-04.patch"
             }
         },
         "patches-ignore": {
@@ -315,26 +383,44 @@
         }
     },
     "require": {
-        "agrcmsx/dxbase": "9.4.7-rc5",
+        "agrcmsx/dxbase": "9.5.0-rc1",
+        "agrcms/lightning": "*",
+        "agrcms/lightning_banner_block": "*",
+        "agrcms/lightning_core": "*",
+        "agrcms/lightning_install": "*",
+        "agrcms/lightning_landing_page": "*",
+        "agrcms/lightning_layout": "*",
+        "agrcms/lightning_media": "*",
+        "agrcms/lightning_media_audio": "*",
+        "agrcms/lightning_media_bulk_upload": "*",
+        "agrcms/lightning_media_document": "*",
+        "agrcms/lightning_media_image": "*",
+        "agrcms/lightning_media_instagram": "*",
+        "agrcms/lightning_media_slideshow": "*",
+        "agrcms/lightning_media_twitter": "*",
+        "agrcms/lightning_media_video": "*",
+        "agrcms/lightning_page": "*",
+        "agrcms/lightning_workflow": "*",
+	"drupal/menu_block": "1.10.0 as 1.6.0",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6.7",
         "cypresslab/gitelephant": "^4.4.3",
         "drupal/autologout": "1.3",
-        "drupal/bootstrap": "3.25 as 3.23",
-        "drupal/core": "9.4.7 as 9.3.16",
+        "drupal/core": "9.5.9 as 9.5.8",
         "drupal/clientside_validation": "^3.0",
         "drupal/core-composer-scaffold": "^9",
         "drupal/dropzonejs": "2.7.0",
         "drupal/embed_block": "1.x-dev",
         "drupal/filebrowser": "^3.0",
         "drupal/file_replace": "^1.2",
+        "drupal/file_delete": "2.0.0",
         "drupal/link_attributes": "^1.10",
         "drupal/media_library_edit": "^2.1",
         "drupal/telephone_validation": "^2.3",
         "drupal/varnish_purger": "^2.1",
         "drupal/view_custom_table": "^2.0",
         "drupal/simple_sitemap": "4.1.2 as 3.11.0",
-        "drupal/webform": "^6.1.3",
+        "drupal/webform": "^6.1.4",
         "drupal/webform_translation_permissions": "^1.1",
         "entreprise7pro/agri_admin": "*",
         "entreprise7pro/agri_reports": "*",
@@ -343,22 +429,18 @@
         "entreprise7pro/linkchecks": "*",
         "entreprise7pro/news_empl": "*",
         "entreprise7pro/news_bulletin": "*",
-        "entreprise7pro/prefer_latest_content": "*",
         "entreprise7pro/wxt_overrides": "*",
+        "entreprise7pro/prefer_latest_content": "*",
         "junhuang/idol_feed_api": "*",
         "oomphinc/composer-installers-extender": "^1.1 || ^2",
         "drupal/views_bulk_operations": "^4.1",
         "drupal/ckeditor_codemirror": "2.4 as 2.3",
-        "drupal/menu_block": "1.10.0 as 1.6.0",
-        "drupal/paragraphs": "1.14.0 as 1.12.0",
-        "drupal/pathauto": "1.11.0 as 1.8.0",
-        "drupal/token_filter": "1.4.0 as 1.3.0",
-        "drupal/views_bootstrap": "5.4.0 as 3.9.0",
         "drupal/context_stack": "^1.0",
+        "drupal/views_bootstrap": "5.4.0 as 5.3.0",
         "drupal/webform_views": "^5.0@beta",
         "drupal/entity_translation_unified_form": "^2.0@RC",
-        "wet-boew/wet-boew": "4.0.43.1 as 4.0.50.1",
-        "drupal/siteimprove": "^1.12"
+        "drupal/siteimprove": "^1.12",
+        "wet-boew/wet-boew": "4.0.43.1 as 4.0.50.1"
     },
     "autoload": {
         "classmap": [
