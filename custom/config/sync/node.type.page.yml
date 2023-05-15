@@ -3,15 +3,15 @@ langcode: en
 status: true
 dependencies:
   module:
-    - lightning_workflow
     - menu_ui
+    - wxt_ext_workflow
 third_party_settings:
   menu_ui:
     available_menus:
       - main
       - sidebar
     parent: 'main:'
-  lightning_workflow:
+  wxt_ext_workflow:
     workflow: editorial
 _core:
   default_config_hash: nb_cPUs4dvoXeLvPMQYwg1oWcQ5-nE7TcwKGs_VsiHg

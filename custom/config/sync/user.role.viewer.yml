@@ -4,12 +4,8 @@ status: true
 dependencies:
   module:
     - content_moderation
-    - lightning_core
     - prefer_latest_content
     - toolbar
-third_party_settings:
-  lightning_core:
-    description: 'This role is for viewing drafts, viewing pending-drafts of Internal pages and landing pages.'
 id: viewer
 label: viewer
 weight: 1

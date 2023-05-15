@@ -17,7 +17,6 @@ dependencies:
     - node.type.empl
     - workflows.workflow.block_publishing
     - workflows.workflow.editorial
-    - workflows.workflow.publishing
   module:
     - access_unpublished
     - agri_admin
@@ -28,8 +27,6 @@ dependencies:
     - dropzonejs
     - entity_browser
     - filter
-    - lightning_core
-    - lightning_scheduler
     - media
     - moderation_dashboard
     - node
@@ -42,9 +39,6 @@ dependencies:
     - system
     - toolbar
     - wxt_core
-third_party_settings:
-  lightning_core:
-    description: 'the cspuyb role is used for HR to review and approve the employment opportunity form.'
 id: empl_cspub
 label: cspub
 weight: -3
@@ -86,17 +80,6 @@ permissions:
   - 'renew token'
   - 'revert all revisions'
   - 'revert empl revisions'
-  - 'schedule publishing transition delete'
-  - 'schedule publishing transition emergency_publish'
-  - 'schedule publishing transition publish'
-  - 'schedule publishing transition re_publish_archived'
-  - 'schedule publishing transition reject'
-  - 'schedule publishing transition reject_delete'
-  - 'schedule publishing transition save_as_a_draft'
-  - 'schedule publishing transition send_for_deletion'
-  - 'schedule publishing transition send_to_reviewer'
-  - 'schedule publishing transition take'
-  - 'schedule publishing transition take_for_deletion'
   - 'translate empl node'
   - 'update content translations'
   - 'use block_publishing transition approve_deletion'

@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.media.document.field_category
     - field.field.media.document.field_document
+    - field.field.media.document.field_media_document
     - field.field.media.document.field_media_in_library
     - image.style.thumbnail
     - media.type.document
@@ -65,5 +66,6 @@ content:
     region: content
 hidden:
   field_category: true
+  field_media_document: true
   field_media_in_library: true
   langcode: true

@@ -18,7 +18,6 @@ dependencies:
     - taxonomy.vocabulary.news_type
     - workflows.workflow.block_publishing
     - workflows.workflow.editorial
-    - workflows.workflow.publishing
   module:
     - access_unpublished
     - agri_admin
@@ -30,8 +29,6 @@ dependencies:
     - dropzonejs
     - entity_browser
     - filter
-    - lightning_core
-    - lightning_scheduler
     - media
     - moderation_dashboard
     - node
@@ -43,9 +40,6 @@ dependencies:
     - taxonomy
     - toolbar
     - wxt_core
-third_party_settings:
-  lightning_core:
-    description: 'ccpub role is used to review and approve the news item.'
 id: news_ccpub
 label: ccpub
 weight: -4
@@ -94,17 +88,6 @@ permissions:
   - 'renew token'
   - 'revert all revisions'
   - 'revert news revisions'
-  - 'schedule publishing transition delete'
-  - 'schedule publishing transition emergency_publish'
-  - 'schedule publishing transition publish'
-  - 'schedule publishing transition re_publish_archived'
-  - 'schedule publishing transition reject'
-  - 'schedule publishing transition reject_delete'
-  - 'schedule publishing transition save_as_a_draft'
-  - 'schedule publishing transition send_for_deletion'
-  - 'schedule publishing transition send_to_reviewer'
-  - 'schedule publishing transition take'
-  - 'schedule publishing transition take_for_deletion'
   - 'translate news node'
   - 'translate news_type taxonomy_term'
   - 'update content translations'

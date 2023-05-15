@@ -9,6 +9,7 @@ dependencies:
     - node.type.landing_page
     - node.type.news
     - node.type.page
+    - node.type.webform
   module:
     - content_moderation
 _core:
@@ -82,5 +83,6 @@ type_settings:
       - landing_page
       - news
       - page
+      - webform
   default_moderation_state: draft
   translation_default_moderation_state_behavior: legacy

@@ -4,7 +4,7 @@
     "type": "project",
     "license": "GPL-2.0+",
     "minimum-stability": "dev",
-    "prefer-stable": false,
+    "prefer-stable": true,
     "repositories": [
         {
             "type": "composer",
@@ -137,6 +137,10 @@
         {
             "type": "path",
             "url": "custom/modules/lightning_page"
+        },
+        {
+          "type": "path",
+          "url": "custom/modules/lightning_scheduler"
         },
         {
             "type": "path",
@@ -283,9 +287,6 @@
             "drupal/filebrowser": {
                 "Warning filesize:stat failed/filetype:Lstat failed/filectime:stat failed for a symlink":
                 "https://www.drupal.org/files/issues/2021-10-22/filesize-statfailed-3245404-02.patch"
-            },
-            "drupal/safedelete": {
-                "3320470 - Make the bulk publish verification configurable to allow the user to perform the bulk publish action on the pages in a particular user case.": "https://www.drupal.org/files/issues/2022-11-29/make-bulk-publish-verification-configurable-3320470-05.patch"
             }
         },
         "patches-ignore": {
@@ -411,7 +412,7 @@
         "drupal/core-composer-scaffold": "^9",
         "drupal/dropzonejs": "2.7.0",
         "drupal/embed_block": "1.x-dev",
-        "drupal/filebrowser": "^3.0",
+        "drupal/filebrowser": "3.0.0",
         "drupal/file_replace": "^1.2",
         "drupal/file_delete": "2.0.0",
         "drupal/link_attributes": "^1.10",
@@ -441,10 +442,10 @@
         "drupal/entity_translation_unified_form": "^2.0@RC",
         "drupal/siteimprove": "^1.12",
         "wet-boew/wet-boew": "4.0.43.1 as 4.0.50.1",
-        "drupal/lightning_scheduler": "1.x-dev",
         "drupal/moderation_dashboard": "^1",
         "drupal/simple_gmap": "4.0.x-dev",
-        "agrcms/lightning_map_block": "dev-9.5.x-wxt-4.5.x"
+        "agrcms/lightning_map_block": "dev-9.5.x-wxt-4.5.x",
+        "agrcms/lightning_scheduler": "dev-9.5.x-wxt-4.5.x"
     },
     "autoload": {
         "classmap": [

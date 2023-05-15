@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.media.w50
     - field.field.media.image.field_category
     - field.field.media.image.field_image_link
+    - field.field.media.image.field_media_image
     - field.field.media.image.field_media_in_library
     - field.field.media.image.image
     - image.style.w50
@@ -39,6 +40,7 @@ hidden:
   created: true
   field_category: true
   field_image_link: true
+  field_media_image: true
   field_media_in_library: true
   langcode: true
   name: true

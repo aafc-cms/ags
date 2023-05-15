@@ -3,10 +3,10 @@ langcode: en
 status: true
 dependencies:
   module:
-    - lightning_core
     - taxonomy
+    - wxt_core
 third_party_settings:
-  lightning_core:
+  wxt_core:
     internal: true
 id: taxonomy_term.token
 label: Token

@@ -1,4 +1,4 @@
-uuid: 49cfd0fc-e0aa-4430-bd22-582f7af119d2
+uuid: 7ec67394-67ee-4a1c-9137-dadcc3b9dba9
 langcode: en
 status: true
 dependencies:
@@ -6,30 +6,40 @@ dependencies:
     - core.entity_form_mode.media.media_browser
     - field.field.media.image.field_category
     - field.field.media.image.field_image_link
+    - field.field.media.image.field_media_image
     - field.field.media.image.field_media_in_library
     - field.field.media.image.image
-    - image.style.thumbnail
+    - image.style.medium
     - media.type.image
   module:
-    - image
-    - lightning_media
-    - link
+    - image_widget_crop
     - path
+    - wxt_ext_media
 _core:
-  default_config_hash: iVmRBD7y3Gmddt29sSx9DwwH6Q4UaROqMu7FLyy_bvQ
+  default_config_hash: Xfxu1jtMsgTgBtfLkd5Mf2v-5b6VUX_3-ZwrIi16mCI
 id: media.image.media_browser
 targetEntityType: media
 bundle: image
 mode: media_browser
 content:
-  field_image_link:
-    type: link_default
-    weight: 1
+  field_media_image:
+    type: image_widget_crop
+    weight: 0
     region: content
     settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
+      progress_indicator: throbber
+      preview_image_style: medium
+      crop_preview_image_style: crop_thumbnail
+      crop_list:
+        - freeform
+      crop_types_required: {  }
+      warn_multiple_usages: false
+      show_crop_area: true
+      show_default_crop: true
+    third_party_settings:
+      wxt_ext_media:
+        file_links: false
+        remove_button: false
   field_media_in_library:
     type: boolean_checkbox
     weight: 4
@@ -37,29 +47,12 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
-  image:
-    type: image_image
-    weight: 0
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings:
-      lightning_media:
-        file_links: false
-        remove_button: false
   langcode:
     type: language_select
     weight: 2
     region: content
     settings:
       include_locked: true
-    third_party_settings: {  }
-  moderation_state:
-    type: moderation_state_default
-    weight: 8
-    region: content
-    settings: {  }
     third_party_settings: {  }
   name:
     type: string_textfield
@@ -71,7 +64,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 6
+    weight: 30
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -85,17 +78,19 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 7
+    weight: 100
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   translation:
-    weight: 5
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   created: true
   field_category: true
+  field_image_link: true
+  image: true
   uid: true
