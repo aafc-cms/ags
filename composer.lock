@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cc8acd797a42c532f6e119feba7ce28f",
+    "content-hash": "d2e692c09b227e293fa82cc7a64af4fa",
     "packages": [
         {
             "name": "agrcms/lightning",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/lightning",
@@ -25,7 +25,7 @@
         },
         {
             "name": "agrcms/lightning_banner_block",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/lightning_banner_block",
@@ -42,7 +42,7 @@
         },
         {
             "name": "agrcms/lightning_core",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/lightning_core",
@@ -59,7 +59,7 @@
         },
         {
             "name": "agrcms/lightning_install",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/lightning_install",
@@ -77,7 +77,7 @@
         },
         {
             "name": "agrcms/lightning_landing_page",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/lightning_landing_page",
@@ -94,7 +94,7 @@
         },
         {
             "name": "agrcms/lightning_layout",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/lightning_layout",
@@ -110,8 +110,25 @@
             }
         },
         {
+            "name": "agrcms/lightning_map_block",
+            "version": "dev-9.5.x-wxt-4.5.x",
+            "dist": {
+                "type": "path",
+                "url": "custom/modules/lightning_map_block",
+                "reference": "d588f92c9e8e40f2b810e723a7aecf23e6eaf4c8"
+            },
+            "type": "drupal-custom-module",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Empty module to help uninstall lightning",
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "agrcms/lightning_media",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/lightning_media",
@@ -128,7 +145,7 @@
         },
         {
             "name": "agrcms/lightning_media_audio",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/lightning_media_audio",
@@ -145,7 +162,7 @@
         },
         {
             "name": "agrcms/lightning_media_bulk_upload",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/lightning_media_bulk_upload",
@@ -162,7 +179,7 @@
         },
         {
             "name": "agrcms/lightning_media_document",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/lightning_media_document",
@@ -179,7 +196,7 @@
         },
         {
             "name": "agrcms/lightning_media_image",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/lightning_media_image",
@@ -196,7 +213,7 @@
         },
         {
             "name": "agrcms/lightning_media_instagram",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/lightning_media_instagram",
@@ -213,7 +230,7 @@
         },
         {
             "name": "agrcms/lightning_media_slideshow",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/lightning_media_slideshow",
@@ -230,7 +247,7 @@
         },
         {
             "name": "agrcms/lightning_media_twitter",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/lightning_media_twitter",
@@ -247,7 +264,7 @@
         },
         {
             "name": "agrcms/lightning_media_video",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/lightning_media_video",
@@ -264,7 +281,7 @@
         },
         {
             "name": "agrcms/lightning_page",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/lightning_page",
@@ -281,7 +298,7 @@
         },
         {
             "name": "agrcms/lightning_workflow",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/lightning_workflow",
@@ -8598,6 +8615,61 @@
             }
         },
         {
+            "name": "drupal/lightning_scheduler",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/lightning_scheduler.git",
+                "reference": "1736d1b435e7384b96aa0bd50d7b51cea5a1aa5c"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "drupal/inline_entity_form": "@alpha"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.2+2-dev",
+                    "datestamp": "1594154398",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Phéna Proxima",
+                    "homepage": "https://www.drupal.org/user/223087",
+                    "email": "adam.hoenich@acquia.com"
+                },
+                {
+                    "name": "Adam Balsam",
+                    "homepage": "https://www.drupal.org/user/1288796",
+                    "email": "adam.balsam@acquia.com"
+                },
+                {
+                    "name": "phenaproxima",
+                    "homepage": "https://www.drupal.org/user/205645"
+                }
+            ],
+            "description": "Allows authors to schedule automatic transitions between workflow states.",
+            "homepage": "https://www.drupal.org/project/lightning_scheduler",
+            "support": {
+                "source": "https://git.drupalcode.org/project/lightning_scheduler"
+            }
+        },
+        {
             "name": "drupal/link_attributes",
             "version": "1.11.0",
             "source": {
@@ -9558,6 +9630,57 @@
             "support": {
                 "source": "git://git.drupal.org/project/moderated_content_bulk_publish.git",
                 "issues": "https://www.drupal.org/project/issues/moderated_content_bulk_publish"
+            }
+        },
+        {
+            "name": "drupal/moderation_dashboard",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/moderation_dashboard.git",
+                "reference": "2344bc6fbe78f88c8f564e602b48d49d3e0668b3"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10",
+                "drupal/page_manager": "*",
+                "drupal/panels": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1+7-dev",
+                    "datestamp": "1679786852",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Samuel Mortenson",
+                    "homepage": "https://www.drupal.org/user/2582268",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Stephen Mustgrave",
+                    "homepage": "https://www.drupal.org/user/3252890",
+                    "email": "smustgrave@gmail.com",
+                    "role": "Co-Maintainer"
+                }
+            ],
+            "description": "Moderation Dashboard provides a per-user dashboard that contains useful blocks related to managing moderated content.",
+            "homepage": "https://drupal.org/project/moderation_dashboard",
+            "support": {
+                "source": "https://git.drupalcode.org/project/moderation_dashboard",
+                "issues": "https://drupal.org/project/issues/moderation_dashboard"
             }
         },
         {
@@ -10532,6 +10655,50 @@
             "homepage": "https://www.drupal.org/project/sharedemail",
             "support": {
                 "source": "https://git.drupalcode.org/project/sharedemail"
+            }
+        },
+        {
+            "name": "drupal/simple_gmap",
+            "version": "dev-4.0.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/simple_gmap.git",
+                "reference": "931624a443a0ed608b6b69340ed3838a811ce3cf"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10"
+            },
+            "require-dev": {
+                "drupal/address": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-4.0.x": "4.0.x-dev"
+                },
+                "drupal": {
+                    "version": "4.0.x-dev",
+                    "datestamp": "1668365884",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "martin107",
+                    "homepage": "https://www.drupal.org/user/2659379"
+                }
+            ],
+            "description": "Provides a Google Maps link/map formatter for simple Text fields.",
+            "homepage": "https://www.drupal.org/project/simple_gmap",
+            "support": {
+                "source": "https://git.drupalcode.org/project/simple_gmap"
             }
         },
         {
@@ -13394,7 +13561,7 @@
         },
         {
             "name": "entreprise7pro/agri_admin",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/agri_admin",
@@ -13410,7 +13577,7 @@
         },
         {
             "name": "entreprise7pro/agri_reports",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/agri_reports",
@@ -13426,7 +13593,7 @@
         },
         {
             "name": "entreprise7pro/config",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/config",
@@ -13442,7 +13609,7 @@
         },
         {
             "name": "entreprise7pro/grstheme_bootstrap",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/themes/grstheme_bootstrap",
@@ -13462,7 +13629,7 @@
         },
         {
             "name": "entreprise7pro/linkchecks",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/linkchecks",
@@ -13478,7 +13645,7 @@
         },
         {
             "name": "entreprise7pro/news_bulletin",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/news_bulletin",
@@ -13494,7 +13661,7 @@
         },
         {
             "name": "entreprise7pro/news_empl",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/news_empl",
@@ -13510,7 +13677,7 @@
         },
         {
             "name": "entreprise7pro/prefer_latest_content",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/prefer_latest_content",
@@ -13526,7 +13693,7 @@
         },
         {
             "name": "entreprise7pro/wxt_overrides",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/wxt_overrides",
@@ -14237,7 +14404,7 @@
         },
         {
             "name": "junhuang/idol_feed_api",
-            "version": "dev-9.4.x-wxt-4.5.x",
+            "version": "dev-9.5.x-wxt-4.5.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/idol_feed_api",
@@ -21867,6 +22034,9 @@
         "drupal/embed_block": 20,
         "drupal/webform_views": 10,
         "drupal/entity_translation_unified_form": 5,
+        "drupal/lightning_scheduler": 20,
+        "drupal/simple_gmap": 20,
+        "agrcms/lightning_map_block": 20,
         "phpmd/phpmd": 0
     },
     "prefer-stable": false,
