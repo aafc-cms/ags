@@ -2,6 +2,7 @@
 // As requested, It only needs Landing page and Internal page.
 $query  = \Drupal::entityQuery('node');
 $group = $query 
+  ->accessCheck(FALSE)
   ->orConditionGroup()
   ->condition('type', 'page', '=')      
   ->condition('type', 'landing_page ', '=');     

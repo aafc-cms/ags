@@ -46,6 +46,7 @@ function agri_admin_uninstall() {
 function agri_admin_update_8001() {
   // For Huan agrcms/d8#141
   $query = \Drupal::entityQuery('node')->condition('type', 'page')
+    ->accessCheck(FALSE)
     ->condition('status', 1);
   $nids = $query->execute();
   $count_success = 0;
@@ -77,6 +78,7 @@ function agri_admin_update_8001() {
 function agri_admin_update_8002() {
   // For Huan agrcms/d8#141
   $query = \Drupal::entityQuery('node')->condition('type', 'page')
+    ->accessCheck(FALSE)
     ->condition('status', 1);
   $and1 = $query->orConditionGroup()
     ->condition('body', '/track>', 'CONTAINS');
@@ -215,6 +217,7 @@ function agri_admin_update_8005() {
 
   $query = \Drupal::entityQuery('node');
   $group = $query->orConditionGroup()
+    ->accessCheck(FALSE)
     ->condition('type', 'page', '=')
     ->condition('type', 'landing_page', '=')
     ->condition('type', 'empl', '=')

@@ -3,8 +3,10 @@
 drush_print('test');
 $node_storage = \Drupal::entityTypeManager()->getStorage('node');
 $query = \Drupal::entityQuery('node')
+  ->accessCheck(FALSE)
   ->condition('nid', 855);
 /*$query = \Drupal::entityQuery('node')
+  ->accessCheck(FALSE)
   ->condition('status', 1),
   ->condition('type', 'page'),
   ->condition('body', 'data-entity-uuid'=57974d53-8d12-4930-918c-04a35811bf38', 'CONTAINS');*/

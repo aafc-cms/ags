@@ -33,7 +33,7 @@ class IdolFeedApiController extends ControllerBase {
 
     // Echo $requstURL . "\n";.
     $xml = new \SimpleXmlElement("<DOCUMENTS></DOCUMENTS>");
-    $query = \Drupal::entityQuery('node');
+    $query = \Drupal::entityQuery('node')->accessCheck(FALSE);
     // $query->condition('type', 'page');
     $query->condition('status', 1);
 
