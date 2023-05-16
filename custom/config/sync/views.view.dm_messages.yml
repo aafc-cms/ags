@@ -20,7 +20,7 @@ dependencies:
     - views_bootstrap
     - views_published_or_roles
 id: dm_messages
-label: 'Deputy Ministers'' messages'
+label: "Deputy Ministers' messages"
 module: views
 description: ''
 tag: ''
@@ -33,7 +33,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Deputy Minister''s Messages'
+      title: "Deputy Minister's Messages"
       fields:
         moderation_state:
           id: moderation_state
@@ -959,7 +959,7 @@ display:
         - 'config:field.storage.node.field_posted'
   page_1:
     id: page_1
-    display_title: 'Deputy Minister''s Messages'
+    display_title: "Deputy Minister's Messages"
     display_plugin: page
     position: 1
     display_options:
@@ -1013,12 +1013,12 @@ display:
             dcterms_title: '[current-page:title]'
             dcterms_creator: 'Agriculture and Agri-Food Canada'
             dcterms_subject: communications
-            dcterms_description: 'Deputy Minister''s Messages'
+            dcterms_description: "Deputy Minister's Messages"
           tokenize: false
       path: our-department/deputy-ministers-corner/deputy-ministers-messages-new
       menu:
         type: normal
-        title: 'Deputy Minister''s Messages'
+        title: "Deputy Minister's Messages"
         description: ''
         weight: -100
         expanded: false

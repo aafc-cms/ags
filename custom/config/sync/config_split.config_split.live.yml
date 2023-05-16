@@ -6,6 +6,7 @@ id: live
 label: live
 description: "settings only to be deployed to environments configured as 'live'.  \r\n"
 weight: -1
+storage: folder
 folder: modules/custom/config/splits/live
 module:
   autologout: 0
@@ -32,7 +33,7 @@ module:
   warmer_entity: 0
   wxt_ext_password_policy: 0
 theme: {  }
-blacklist:
+complete_list:
   - autologout.role.administrator
   - autologout.role.creator
   - autologout.role.editor
@@ -56,6 +57,4 @@ blacklist:
   - system.site
   - varnish_purger.settings.47e333ca49
   - warmer.settings
-graylist: {  }
-graylist_dependents: true
-graylist_skip_equal: false
+partial_list: {  }
