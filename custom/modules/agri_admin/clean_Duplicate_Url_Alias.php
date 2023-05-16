@@ -2,6 +2,7 @@
 
    $query = \Drupal::entityQuery('node');
    $group = $query->orConditionGroup()
+      ->accessCheck(FALSE)
       ->condition('type', 'page', '=')
       ->condition('type', 'landing_page', '=')
       ->condition('type', 'empl', '=')
