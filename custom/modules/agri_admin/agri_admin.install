@@ -222,7 +222,8 @@ function agri_admin_update_8005() {
     ->condition('type', 'landing_page', '=')
     ->condition('type', 'empl', '=')
     ->condition('type', 'news', '=');
-  $query->condition($group);
+  $query->condition($group)
+    ->accessCheck(FALSE);
   $nids = $query->execute();
 
   $path_alias_storage = \Drupal::entityTypeManager()->getStorage('path_alias');

@@ -1141,6 +1141,7 @@ function agri_admin_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchI
       $breadcrumb->addLink($links[0]);
       // Dynamically handle the route name for News link.
       $news = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
+        ->accessCheck(FALSE)
         ->condition('title', 'news', '=')
         ->execute();
       if ($news) {
@@ -1163,6 +1164,7 @@ function agri_admin_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchI
       // During our development cycle news@work was sometimes a node as it was imported this way from legacy.
       // However the actual news@work page is a view page now.
       $news_at_work = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
+        ->accessCheck(FALSE)
         ->condition('title', 'news@work', '=')
         ->execute();
       if (is_array($news_at_work)) {
@@ -1198,6 +1200,7 @@ function agri_admin_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchI
       $breadcrumb->addLink($links[0]);
       // Dynamically handle the route name for EO link.
       $hr = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
+        ->accessCheck(FALSE)
         ->condition('title', 'Human Resources – Services and Information', '=')
         ->execute();
       if ($hr) {
@@ -1241,6 +1244,7 @@ function agri_admin_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchI
       $breadcrumb->addLink($links[0]);
       // Dynamically handle the route name for News link.
       $news = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
+        ->accessCheck(FALSE)
         ->condition('title', 'news', '=')
         ->execute();
       if ($news) {
@@ -1264,6 +1268,7 @@ function agri_admin_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchI
       // During our development cycle news@work was sometimes a node as it was imported this way from legacy.
       // However the actual news@work page is a view page now.
       $news_at_work = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
+        ->accessCheck(FALSE)
         ->condition('title', 'news@work', '=')
         ->execute();
       if (is_array($news_at_work)) {
@@ -1297,6 +1302,7 @@ function agri_admin_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchI
       $breadcrumb->addLink($links[0]);
       // Dynamically handle the route name for HR link.
       $hr = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
+        ->accessCheck(FALSE)
         ->condition('title', 'Human Resources – Services and Information', '=')
         ->execute();
       if ($hr) {
@@ -1315,6 +1321,7 @@ function agri_admin_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchI
       }
       $breadcrumb->addLink($linkHR);
       $staffing = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
+        ->accessCheck(FALSE)
         ->condition('title', 'Staffing', '=')
         ->execute();
       if (is_array($staffing)) {
@@ -1968,9 +1975,10 @@ function agri_admin_validate_dedupe_warning(FileInterface $file) {
   if (!$file->id()) {
     foreach (agri_admin_algos() as $algo) {
       $query = \Drupal::database()->select('filehash');
-      $query->addField('filehash', 'fid');
-      $query->condition($algo, $file->filehash[$algo]);
-      $query->range(0, 1);
+      $query->accessCheck(FALSE)
+            ->addField('filehash', 'fid')
+            ->condition($algo, $file->filehash[$algo])
+            ->range(0, 1);
       if ($fid = $query->execute()->fetchField()) {
         if (\Drupal::currentUser()->hasPermission('access files overview')) {
           try {

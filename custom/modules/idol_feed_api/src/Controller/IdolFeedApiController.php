@@ -101,7 +101,7 @@ class IdolFeedApiController extends ControllerBase {
           }
           $documentXml->addChild('DATATYPE', $datatype);
 
-          $metatags = metatag_generate_entity_metatags($node);
+          $metatags = metatag_generate_entity_all_tags($node);
           $dcterms_creator = "";
           $dcterms_description = "";
           $keywords = "";
@@ -189,7 +189,7 @@ class IdolFeedApiController extends ControllerBase {
             // $DATATYPE = $trnode->type->entity->label();
             $documentXmlFr->addChild('DATATYPE', $datatype);
 
-            $metatags = metatag_generate_entity_metatags($trnode);
+            $metatags = metatag_generate_entity_all_tags($trnode);
             $dcterms_creator = "";
             $dcterms_description = "";
             $keywords = "";

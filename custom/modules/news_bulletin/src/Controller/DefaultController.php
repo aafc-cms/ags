@@ -24,6 +24,7 @@ class DefaultController extends ControllerBase {
       $otherLang = 'en';
     }
     $latestRevisionResult = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
+      ->accessCheck(FALSE)
       ->latestRevision()
       ->condition('nid', $nid, '=')
       ->execute();

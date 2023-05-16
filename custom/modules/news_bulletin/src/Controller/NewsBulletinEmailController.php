@@ -426,7 +426,7 @@ class NewsBulletinEmailController extends ControllerBase {
           if (!file_exists($destination) && !is_null($style)) {
             $style->createDerivative($file_uri, $destination);
           }
-          $styled_file_uri = file_url_transform_relative($style->buildUrl($file_uri));
+          $styled_file_uri = \Drupal::service('file_url_generator')->transformRelative($style->buildUrl($file_uri));
           $image_element = str_replace($src_path, $styled_file_uri, $image_element);
         }
       }

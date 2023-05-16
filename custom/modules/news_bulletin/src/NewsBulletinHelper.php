@@ -55,7 +55,7 @@ class NewsBulletinHelper {
    * Create a news node.
    */
   public static function createNode($news = [], $unixtimecreated = 0, $uid = 1) {
-    $module_path = drupal_get_path('module', 'news_bulletin');
+    $module_path = Drupal\Core\Extension\ExtensionPathResolver::getPath('module', 'news_bulletin');
 
     // In order for the node to be published, must set the moderation state.
     // See example code: https://cgit.drupalcode.org/drupal/tree/core/modules/content_moderation/tests/src/Kernel/ModerationStateFieldItemListTest.php?h=8.6.x#n314

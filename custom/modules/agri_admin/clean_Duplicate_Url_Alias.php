@@ -7,7 +7,8 @@
       ->condition('type', 'landing_page', '=')
       ->condition('type', 'empl', '=')
       ->condition('type', 'news', '=');
-   $query->condition($group);
+   $query->condition($group)
+     ->accessCheck(FALSE);
    $nids = $query->execute();
    $path_alias_storage = \Drupal::entityTypeManager()->getStorage('path_alias');
    foreach ($nids as $nid) {
