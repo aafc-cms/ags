@@ -150,7 +150,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '{{ title | replace({''&gt;'':''>''}) | replace({''&lt;'':''<''}) | replace({''&quot;'':''"''}) | raw }}'
+            text: "{{ title | replace({'&gt;':'>'}) | replace({'&lt;':'<'}) | replace({'&quot;':'\"'}) | raw }}"
             make_link: false
             path: ''
             absolute: false
