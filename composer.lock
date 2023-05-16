@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5eea9770e258483c9a1efac7c3b05c2d",
+    "content-hash": "a28106f022eb86fe22564038ed57f16a",
     "packages": [
         {
             "name": "agrcms/lightning",
@@ -332,16 +332,16 @@
         },
         {
             "name": "agrcmsx/dxbase",
-            "version": "10.0.9-rc8",
+            "version": "10.0.9-rc11",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:agrcms/dxbase.git",
-                "reference": "f7c4f23c1085c44833bfff54ac54c30d7ea3eb5e"
+                "reference": "19c27a5010d727032972974369f7e9fa3db87973"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=f7c4f23c1085c44833bfff54ac54c30d7ea3eb5e",
-                "reference": "f7c4f23c1085c44833bfff54ac54c30d7ea3eb5e",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=19c27a5010d727032972974369f7e9fa3db87973",
+                "reference": "19c27a5010d727032972974369f7e9fa3db87973",
                 "shasum": ""
             },
             "require": {
@@ -495,7 +495,7 @@
                         "2868294 - Call to a member function getThirdPartySetting() on null in ContentTranslationManager": "https://www.drupal.org/files/issues/2022-11-30/2868294-87.patch"
                     },
                     "drupal/access_unpublished": {
-                        "Adds a twig extension for access unpublished hash key link, patch 9.": "https://www.drupal.org/files/issues/2023-05-15/v1.1-access_unpublished-3054536-15.patch",
+                        "Adds a twig extension for access unpublished hash key link, patch 9.": "https://www.drupal.org/files/issues/2023-05-16/v1.1-access_unpublished-3054536-17.patch",
                         "Fix token-create while editing a French node": "https://www.drupal.org/files/issues/2019-03-20/access_unpublished-create_per_language_tokens-2958800-3.patch",
                         "Edge case can result in null route - hasPendingRevision() validate for null.": "https://www.drupal.org/files/issues/2019-12-09/access_unpublished-TypeError_hasPendingRevision_null_fix-3099663-2.patch",
                         "Invalid text representation: 7 ERROR when deleting a comment field from a node bundle - issue no. 3214261": "https://www.drupal.org/files/issues/2021-05-16/access_unpublished-prevent_error_when_deleting_a_comment_field_from_a_bundle-3214261-2.patch"
@@ -539,7 +539,7 @@
                         "Save to predictable folder": "https://www.drupal.org/files/issues/2021-01-08/1875456-82.patch"
                     },
                     "drupal/wxt_library": {
-                        "part 1 When installing and enabling the Canada.ca theme, the footer is missing the menu and other elements. Stats Can provides a CDN for footer markup, but as far as I know Canada.ca doesn't provide this. It would be nice to have the footer complete on install.": "https://www.drupal.org/files/issues/2023-05-16/wxt-library-add-canada-ca-footer-twig-extension-3195014-29.patch"
+                        "part 1 When installing and enabling the Canada.ca theme, the footer is missing the menu and other elements. Stats Can provides a CDN for footer markup, but as far as I know Canada.ca doesn't provide this. It would be nice to have the footer complete on install.": "https://www.drupal.org/files/issues/2023-05-16/wxt-library-add-canada-ca-footer-twig-extension-3195014-31.patch"
                     },
                     "drupal/wxt_bootstrap": {
                         "part 2 When installing and enabling the Canada.ca theme, the footer is missing the menu and other elements. Stats Can provides a CDN for footer markup, but as far as I know Canada.ca doesn't provide this. It would be nice to have the footer complete on install.": "https://www.drupal.org/files/issues/2021-01-27/wxt-bootstrap-add-canada-ca-footer-settings-3195014-2.patch"
@@ -578,7 +578,7 @@
                 "GPL-2.0+"
             ],
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
-            "time": "2023-05-16T04:43:50+00:00"
+            "time": "2023-05-16T05:22:34+00:00"
         },
         {
             "name": "asm89/stack-cors",
@@ -2758,17 +2758,17 @@
         },
         {
             "name": "drupal/blazy",
-            "version": "2.14.0",
+            "version": "2.15.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/blazy.git",
-                "reference": "8.x-2.14"
+                "reference": "8.x-2.15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/blazy-8.x-2.14.zip",
-                "reference": "8.x-2.14",
-                "shasum": "135d3f06efbe05e6bbfa5e9733b65757a0c85c43"
+                "url": "https://ftp.drupal.org/files/projects/blazy-8.x-2.15.zip",
+                "reference": "8.x-2.15",
+                "shasum": "f140917d3a9c26e504f841ac7fbcb3030bbec686"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9 || ^10"
@@ -2779,8 +2779,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.14",
-                    "datestamp": "1671083284",
+                    "version": "8.x-2.15",
+                    "datestamp": "1684213155",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
