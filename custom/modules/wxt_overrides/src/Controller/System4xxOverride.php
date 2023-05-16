@@ -207,9 +207,12 @@ class System4xxOverride extends ControllerBase implements ContainerInjectionInte
       $response = $this->blockViewBuilder->view(reset($block_id));
     }
 
+    if (is_string($response)) {
+      $response = ['#markup' => $response];
+    }
     $block_array = [
       '#type' => 'container',
-      '#markup' => render($response),
+      '#markup' => \Drupal::service('renderer')->render($response),
       '#attributes' => [
         'class' => '404 error',
       ],
