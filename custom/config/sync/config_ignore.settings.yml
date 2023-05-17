@@ -10,6 +10,14 @@ ignored_config_entities:
   - mailsystem.settings
   - 'purge.*'
   - purge_queuer_coretags.settings
+  - password_policy.settings
+  - password_policy.password_policy.wxt_ism_policy_strong
+  - field.storage.user.field_last_password_reset
+  - field.storage.user.field_password_expiration
+  - field.storage.user.field_last_password_reset
+  - field.field.user.user.field_pending_expire_sent
+  - field.field.user.user.field_password_expiration
+  - field.field.user.user.field_last_password_reset
   - swiftmailer.transport
   - smtp.settings
   - system.mail
