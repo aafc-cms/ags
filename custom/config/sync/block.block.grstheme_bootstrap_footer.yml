@@ -8,11 +8,14 @@ dependencies:
     - block_class
     - language
     - system
+    - wxt_ext_blocks
   theme:
     - grstheme_bootstrap
 third_party_settings:
   block_class:
-    classes: footer-english
+    classes: 'footer-english mrgn-tp-md'
+  wxt_ext_blocks:
+    display_title_invisible: 0
 _core:
   default_config_hash: _4IB0gMqOCSV5tNCp1rR94KUtiXDqokh-30vZMi6s0M
 id: grstheme_bootstrap_footer
