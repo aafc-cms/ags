@@ -2,6 +2,10 @@ _core:
   default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk
 ignored_config_entities:
   - 'block.block.*'
+  - ~block.block.wxt_bootstrap_footer_top_fr
+  - ~block.block.wxt_bootstrap_footer_top
+  - ~block.block.wxt_bootstrap_footer_contextual_fr
+  - ~block.block.wxt_bootstrap_footer_contextual
   - css_editor.theme.grstheme_bootstrap
   - devel.settings
   - devel.toolbar.settings
@@ -10,9 +14,15 @@ ignored_config_entities:
   - mailsystem.settings
   - 'purge.*'
   - purge_queuer_coretags.settings
+  - ultimate_cron.job.password_policy_cron
+  - wxt_ext_password_policy
+  - password_policy
+  - 'password_policy.*'
   - password_policy.settings
   - password_policy.password_policy.wxt_ism_policy_strong
+  - password_policy.password_policy.wxt_ism_policy_strong
   - field.storage.user.field_last_password_reset
+  - field.storage.user.field_pending_expire_sent
   - field.storage.user.field_password_expiration
   - field.storage.user.field_last_password_reset
   - field.field.user.user.field_pending_expire_sent
