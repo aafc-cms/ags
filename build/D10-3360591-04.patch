@@ -1,0 +1,132 @@
+diff --git a/safedelete.module b/safedelete.module
+index 3d2935b..94a7dc2 100644
+--- a/safedelete.module
++++ b/safedelete.module
+@@ -60,6 +60,7 @@ function safedelete_node_presave(EntityInterface $entity) {
+     $entity_id = $entity->id();
+     $qeryarray = NULL;
+     $qeryarray = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
++    ->accessCheck(FALSE)
+     ->latestRevision()
+     ->condition('nid' , $entity_id, '=')
+     ->execute();
+@@ -218,8 +219,10 @@ function safedelete_media_predelete(EntityInterface $entity) {
+   $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+   $query = \Drupal::entityQuery('node');
+   $and1 = $query->orConditionGroup()
++    ->accessCheck(FALSE)
+     ->condition('body', $entity->uuid(), 'CONTAINS');
+-  $query->condition($and1);
++  $query->accessCheck(FALSE)
++   ->condition($and1);
+   $nids = $query->execute();
+   if (!empty($nids)) {
+     // Set error message
+@@ -245,8 +248,10 @@ function safedelete_node_predelete(EntityInterface $entity) {
+   $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+   $query = \Drupal::entityQuery('node');
+   $and1 = $query->orConditionGroup()
++    ->accessCheck(FALSE)
+     ->condition('body', $entity->uuid(), 'CONTAINS');
+-  $query->condition($and1);
++  $query->accessCheck(FALSE)
++    ->condition($and1);
+   $nids = $query->execute();
+   if (!empty($nids)) {
+     // Set error message
+diff --git a/src/AdminHelper.php b/src/AdminHelper.php
+index 0792d25..d52ba93 100644
+--- a/src/AdminHelper.php
++++ b/src/AdminHelper.php
+@@ -89,6 +89,7 @@ class AdminHelper {
+       $lang = $langcode;
+     }
+     $latestRevisionResult = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
++      ->accessCheck(FALSE)
+       ->condition('nid', $nid, '=')
+       ->execute();
+     if (count($latestRevisionResult)) {
+@@ -308,10 +309,12 @@ EOT;
+     $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+     $query = \Drupal::entityQuery('node');
+     $and1 = $query->orConditionGroup()
++      ->accessCheck(FALSE)
+       ->condition('body', $media->uuid(), 'CONTAINS');
+ 
+     $query->condition($and1);
+-    $nids = $query->latestRevision()->execute();
++    $nids = $query->accessCheck(FALSE)
++      ->latestRevision()->execute();
+     $entities = [];
+     $items_count = 0;
+     foreach ($nids as $nid) {
+@@ -421,10 +424,12 @@ EOT;
+     $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+     $query = \Drupal::entityQuery('node');
+     $and1 = $query->orConditionGroup()
++      ->accessCheck(FALSE)
+       ->condition('body', $node->uuid(), 'CONTAINS');
+ 
+     $query->condition($and1);
+-    $nids = $query->latestRevision()->execute();
++    $nids = $query->accessCheck(FALSE)
++      ->latestRevision()->execute();
+     $entities = [];
+     $items_count = 0;
+     foreach ($nids as $nid) {
+@@ -553,9 +558,11 @@ EOT;
+     $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+     $query = \Drupal::entityQuery('node');
+     $and1 = $query->orConditionGroup()
++      ->accessCheck(FALSE)
+       ->condition('body', 'node/' . $nid . '"', 'CONTAINS');
+     $query->condition($and1);
+-    $nids = $query->latestRevision()->execute();
++    $nids = $query->accessCheck(FALSE)
++      ->latestRevision()->execute();
+     if (!empty($nids)) {
+       return TRUE;
+     }
+@@ -573,9 +580,11 @@ EOT;
+     $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+     $query = \Drupal::entityQuery('node');
+     $and1 = $query->orConditionGroup()
++      ->accessCheck(FALSE)
+       ->condition('body', $uuid, 'CONTAINS');
+     $query->condition($and1);
+-    $nids = $query->execute();
++    $nids = $query->accessCheck(FALSE)
++      ->execute();
+     if (!empty($nids)) {
+       return TRUE;
+     }
+@@ -639,8 +648,10 @@ EOT;
+     $count = 0;
+ 
+     $query = \Drupal::entityQuery('node');
+-    $query->condition('type', $defconfig, 'IN');
+-    $nodeids =  $query->sort('nid', 'ASC')->execute();
++    $query->accessCheck(FALSE)
++      ->condition('type', $defconfig, 'IN');
++    $nodeids = $query->accessCheck(FALSE)
++      ->sort('nid', 'ASC')->execute();
+ 
+     foreach ( $defconfig as $type) {
+       if ( strlen($type) > 1 ) {
+diff --git a/src/Form/SafedeleteSettingsForm.php b/src/Form/SafedeleteSettingsForm.php
+index 4b20c75..1d939d4 100644
+--- a/src/Form/SafedeleteSettingsForm.php
++++ b/src/Form/SafedeleteSettingsForm.php
+@@ -199,8 +199,10 @@ class SafedeleteSettingsForm extends ConfigFormBase {
+       $defconfig[] = $first_bundle;
+     }
+     $query = \Drupal::entityQuery('node');
+-    $query->condition('type', $defconfig, 'IN');
+-    $nodeids =  $query->sort('nid', 'ASC')->execute();
++    $query->accessCheck(FALSE)
++      ->condition('type', $defconfig, 'IN');
++    $nodeids = $query->accessCheck(FALSE)
++      ->sort('nid', 'ASC')->execute();
+     // create an index array for Patch API
+     $arraryofNodeIds = [];
+     $indx = 0;
