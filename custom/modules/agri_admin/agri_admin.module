@@ -536,8 +536,8 @@ function agri_admin_node_presave(EntityInterface $entity) {
         $entity->getTranslation('en')->setOwnerId($current_user_id);
       }
       $entity->setOwnerId($current_user_id);
-      $entity->set('created', time());
     }
+    $entity->set('created', time());
   }
 }
 
