@@ -983,10 +983,10 @@ function agri_admin_publishpage_referredlinks_validation(&$form, &$form_state) {
   // Since it is in validation stage, i have to get the body value from $form variable instead of node entity.
   $formbodydefault = $form['body']['widget'][0]['value']['#value'];
   $formbody2 = "";
-  if ($langcode == 'en') {
+  if ($langcode == 'en' && isset($form['body']['fr'])) {
     $formbody2 = $form['body']['fr']['widget'][0]['value']['#value'];
   }
-  else {
+  else if (isset($form['body']['en'])) {
     $formbody2 = $form['body']['en']['widget'][0]['value']['#value'];
   }
   $entity = $form_state->getFormObject()->getEntity();
