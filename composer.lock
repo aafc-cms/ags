@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "337d4d179ce0208fc7281e0d3e04b2d9",
+    "content-hash": "78c7fd58808a679524c00677e2ce871c",
     "packages": [
         {
             "name": "agrcms/lightning",
@@ -332,16 +332,16 @@
         },
         {
             "name": "agrcmsx/dxbase",
-            "version": "10.0.9-rc16",
+            "version": "10.0.9-rc17",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:agrcms/dxbase.git",
-                "reference": "35b5fabadd7c87ec74242b73176f02b12fb62dc4"
+                "reference": "ea44f07d5e6763db5215420ae8ab8e4f09f128f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=35b5fabadd7c87ec74242b73176f02b12fb62dc4",
-                "reference": "35b5fabadd7c87ec74242b73176f02b12fb62dc4",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=ea44f07d5e6763db5215420ae8ab8e4f09f128f1",
+                "reference": "ea44f07d5e6763db5215420ae8ab8e4f09f128f1",
                 "shasum": ""
             },
             "require": {
@@ -541,6 +541,9 @@
                     "drupal/wxt_library": {
                         "part 1 When installing and enabling the Canada.ca theme, the footer is missing the menu and other elements. Stats Can provides a CDN for footer markup, but as far as I know Canada.ca doesn't provide this. It would be nice to have the footer complete on install.": "https://www.drupal.org/files/issues/2023-05-16/wxt-library-add-canada-ca-footer-twig-extension-3195014-31.patch"
                     },
+                    "drupal/webform": {
+                        "3257109 patch 16 gets rid of annoying PHP 8.1 deprecation notice null param.": "https://www.drupal.org/files/issues/2022-12-13/3257109-16.patch"
+                    },
                     "drupal/wxt_bootstrap": {
                         "part 2 When installing and enabling the Canada.ca theme, the footer is missing the menu and other elements. Stats Can provides a CDN for footer markup, but as far as I know Canada.ca doesn't provide this. It would be nice to have the footer complete on install.": "https://www.drupal.org/files/issues/2021-01-27/wxt-bootstrap-add-canada-ca-footer-settings-3195014-2.patch"
                     }
@@ -578,7 +581,7 @@
                 "GPL-2.0+"
             ],
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
-            "time": "2023-05-18T21:07:22+00:00"
+            "time": "2023-05-18T21:24:34+00:00"
         },
         {
             "name": "asm89/stack-cors",
