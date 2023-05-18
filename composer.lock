@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "db6b906ef34807b8e40d0c8a689fce96",
+    "content-hash": "337d4d179ce0208fc7281e0d3e04b2d9",
     "packages": [
         {
             "name": "agrcms/lightning",
@@ -332,16 +332,16 @@
         },
         {
             "name": "agrcmsx/dxbase",
-            "version": "10.0.9-rc15",
+            "version": "10.0.9-rc16",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:agrcms/dxbase.git",
-                "reference": "d38aaef0424fa9f5946b242ee5f3bb17d1d42727"
+                "reference": "35b5fabadd7c87ec74242b73176f02b12fb62dc4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=d38aaef0424fa9f5946b242ee5f3bb17d1d42727",
-                "reference": "d38aaef0424fa9f5946b242ee5f3bb17d1d42727",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=35b5fabadd7c87ec74242b73176f02b12fb62dc4",
+                "reference": "35b5fabadd7c87ec74242b73176f02b12fb62dc4",
                 "shasum": ""
             },
             "require": {
@@ -504,6 +504,9 @@
                         "3061891 - views submit button name attribute cannot be empty for w3c": "https://www.drupal.org/files/issues/2020-07-10/3061891-27.patch",
                         "3163171 - Bootstrap javascript fix for news page affected bootstrap-panels otherwise was a TypeError, prevents exception": "https://www.drupal.org/files/issues/2022-06-08/bootstrap-js_fix-3163171-10.patch"
                     },
+                    "drupal/simple_sitemap": {
+                        "3344735 - When there's no url alias, php 8.1 deprecated notice kicks in, squelch this. ": "https://www.drupal.org/files/issues/2023-02-28/php81-deprecation-3344735-4.patch"
+                    },
                     "drupal/css_editor": {
                         "3248990 - Optimize cache rebuilding using tags instead of flush all": "https://www.drupal.org/files/issues/2021-11-12/css-editor-replace-cache-flush-by-cache-tag-invalidation-3248990-5.diff"
                     },
@@ -575,7 +578,7 @@
                 "GPL-2.0+"
             ],
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
-            "time": "2023-05-18T20:56:20+00:00"
+            "time": "2023-05-18T21:07:22+00:00"
         },
         {
             "name": "asm89/stack-cors",
@@ -11513,12 +11516,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupalwxt/wxt.git",
-                "reference": "fb7d4841fee847a3473a33583155b1f3541f765b"
+                "reference": "869a72a73c67dc918e197801505538b08a81bad2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupalwxt/wxt/zipball/fb7d4841fee847a3473a33583155b1f3541f765b",
-                "reference": "fb7d4841fee847a3473a33583155b1f3541f765b",
+                "url": "https://api.github.com/repos/drupalwxt/wxt/zipball/869a72a73c67dc918e197801505538b08a81bad2",
+                "reference": "869a72a73c67dc918e197801505538b08a81bad2",
                 "shasum": ""
             },
             "require": {
@@ -11756,7 +11759,7 @@
                 "issues": "https://github.com/drupalwxt/wxt/issues",
                 "source": "https://github.com/drupalwxt/wxt/tree/5.0.x"
             },
-            "time": "2023-05-18T19:57:27+00:00"
+            "time": "2023-05-18T21:03:06+00:00"
         },
         {
             "name": "drush/drush",
