@@ -337,7 +337,9 @@
             },
             "drupalwxt/wxt": {
                 "Allow split of password policy":
-                "build/wxt_split_password_policy.patch"
+                "build/wxt_split_password_policy.patch",
+                "Fix wxt_ext_editor module":
+                "https://www.drupal.org/files/issues/2023-05-17/D10x9_wxt5-3338699-39.patch"
             }
         },
         "patches-ignore": {
