@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "78e7106c0326574b2bd57bc5fc78b559",
+    "content-hash": "a10d95c32d666334ae53890724647b5e",
     "packages": [
         {
             "name": "agrcms/lightning",
@@ -332,16 +332,16 @@
         },
         {
             "name": "agrcmsx/dxbase",
-            "version": "10.0.9-rc17",
+            "version": "10.0.9-rc18",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:agrcms/dxbase.git",
-                "reference": "ea44f07d5e6763db5215420ae8ab8e4f09f128f1"
+                "reference": "51cc85fddd949191ce83d410890dde44b898d98d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=ea44f07d5e6763db5215420ae8ab8e4f09f128f1",
-                "reference": "ea44f07d5e6763db5215420ae8ab8e4f09f128f1",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=51cc85fddd949191ce83d410890dde44b898d98d",
+                "reference": "51cc85fddd949191ce83d410890dde44b898d98d",
                 "shasum": ""
             },
             "require": {
@@ -492,6 +492,7 @@
                         "3130504 - Ajax was previously messing up base_path prefix for destination parameters apply filter on view enabled with ajax on a site using an alias like /qa": "https://www.drupal.org/files/issues/2022-06-21/3130504-20.patch",
                         "3241056 - Add changed time tracking to path_alias": "https://www.drupal.org/files/issues/2021-10-06/3241056_5.patch",
                         "3308707 - Create content can cause passing null parameter of type string is deprecated error for path_alias": "https://www.drupal.org/files/issues/2023-05-05/suppress_error_when_empty_path-3308707-15.patch",
+                        "3302838 - With PHP 8.1+ configurations without uuid can result in mb_strtolower(): Passing null to parameter ": "https://www.drupal.org/files/issues/2023-05-15/3302838-25.patch",
                         "2868294 - Call to a member function getThirdPartySetting() on null in ContentTranslationManager": "https://www.drupal.org/files/issues/2022-11-30/2868294-87.patch"
                     },
                     "drupal/access_unpublished": {
@@ -581,7 +582,7 @@
                 "GPL-2.0+"
             ],
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
-            "time": "2023-05-18T21:24:34+00:00"
+            "time": "2023-05-25T14:57:14+00:00"
         },
         {
             "name": "asm89/stack-cors",
