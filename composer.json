@@ -197,6 +197,42 @@
                     "url": "https://git.drupalcode.org/api/v4/projects/project%2Ffootnotes/repository/archive.zip?sha=389813a1"
                 }
             }
+        },
+	        {
+            "type": "package",
+            "package": {
+                "name": "cdubz/ckeditor5-source-editing-codemirror",
+                "version": "35.1.0",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "ckeditor5-source-editing-codemirror"
+                },
+                "dist": {
+                    "url": "https://registry.npmjs.org/@cdubz/ckeditor5-source-editing-codemirror/-/ckeditor5-source-editing-codemirror-35.1.0.tgz",
+                    "type": "tar"
+                },
+                "require": {
+                    "composer/installers": "^1.0 || ^2.0"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "codemirror/codemirror",
+                "version": "5.65.8",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "codemirror"
+                },
+                "dist": {
+                    "url": "https://registry.npmjs.org/codemirror/-/codemirror-5.65.8.tgz",
+                    "type": "tar"
+                },
+                "require": {
+                    "composer/installers": "^1.0 || ^2.0"
+                }
+            }
         }
 
     ],
@@ -325,7 +361,9 @@
                 "3225938 - Added CKEDITOR plugin functionality":
                 "https://www.drupal.org/files/issues/2022-02-05/3225938_include_binary_icon-18.patch",
                 "3225938 - Custom":
-                "https://www.drupal.org/files/issues/2021-12-15/3225938-custom_only_diff-10.patch"
+                "https://www.drupal.org/files/issues/2021-12-15/3225938-custom_only_diff-10.patch",
+		"3316336 - Add Support for Ckeditor 5":
+		"https://git.drupalcode.org/project/embed_block/-/merge_requests/5.patch"
             },
             "drupal/safedelete": {
                 "3320470 - Allow override of the bulk operation validation with a checkbox":
@@ -334,6 +372,10 @@
             "drupal/ckeditor": {
                 "3346541 - Fix scandir_error":
                 "https://www.drupal.org/files/issues/2023-05-08/3346541_fix_scandir_error_001_0.patch"
+            },
+            "drupal/wxt_bootstrap": {
+                "3362712  fix twig deprecation":
+                "https://www.drupal.org/files/issues/2023-05-25/D10-wxt_bootstrap-3362712-02.patch"
             },
             "drupalwxt/wxt": {
                 "Allow split of password policy":
