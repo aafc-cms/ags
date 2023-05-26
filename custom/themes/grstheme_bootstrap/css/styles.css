@@ -27,6 +27,22 @@ body.path-webform .btn-danger {
   margin-left: 5px;
 }
 
+/* line 20, ../sass/global/_forms.scss */
+body:not(.role-is-anonymous) div.region-content-footer form.node-form,
+body:not(.role-is-anonymous) div.region-content-footer h2 {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+/* line 27, ../sass/global/_forms.scss */
+#media-library-add-form-wrapper form div.form-actions button.btn-success {
+  min-width: 180px;
+}
+/* line 30, ../sass/global/_forms.scss */
+#media-library-add-form-wrapper form div.form-actions button.btn-success.button--primary {
+  margin-bottom: 5px;
+}
+
 /* Move the header specific scss (sass/css) here.*/
 /* line 6, ../sass/layouts/_header.scss */
 html[lang=en] nav#wb-sm.wb-menu li:first-child ul.sm.open {

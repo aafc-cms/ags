@@ -16,3 +16,18 @@ fieldset.error .form-radios {
 body.path-webform .btn-danger{
    margin-left: 5px;
 }
+
+body:not(.role-is-anonymous) div.region-content-footer form.node-form,
+body:not(.role-is-anonymous) div.region-content-footer h2 {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+#media-library-add-form-wrapper form div.form-actions {
+  button.btn-success {
+    min-width: 180px;
+  }
+  button.btn-success.button--primary {
+    margin-bottom: 5px;
+  }
+}
