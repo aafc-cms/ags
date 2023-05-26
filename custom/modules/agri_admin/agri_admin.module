@@ -1975,10 +1975,10 @@ function agri_admin_validate_dedupe_warning(FileInterface $file) {
   if (!$file->id()) {
     foreach (agri_admin_algos() as $algo) {
       $query = \Drupal::database()->select('filehash');
-      $query->accessCheck(FALSE)
-            ->addField('filehash', 'fid')
-            ->condition($algo, $file->filehash[$algo])
-            ->range(0, 1);
+      $query->addField('filehash', 'fid');
+      $query->condition($algo, $file->filehash[$algo]);
+      $query->range(0, 1);
+
       if ($fid = $query->execute()->fetchField()) {
         if (\Drupal::currentUser()->hasPermission('access files overview')) {
           try {
