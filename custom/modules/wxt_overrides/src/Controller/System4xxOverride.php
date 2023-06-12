@@ -156,8 +156,14 @@ class System4xxOverride extends ControllerBase implements ContainerInjectionInte
    *   A render array containing the message to display for 404 pages.
    */
   public function on404() {
-    $dcrid = Xss::filter(\Drupal::request()->query->get('id'));
-    $lang_param = Xss::filter(\Drupal::request()->query->get('lang'));
+    $dcrid = '';
+    $lang_param = '';
+    if (\Drupal::request()->query->get('id')) {
+      $dcrid = Xss::filter(\Drupal::request()->query->get('id'));
+    }
+    if (\Drupal::request()->query->get('lang')) {
+      $lang_param = Xss::filter(\Drupal::request()->query->get('lang'));
+    }
     $request_uri = \Drupal::request()->getRequestUri();
     $language = \Drupal::languageManager()->getCurrentLanguage();
     if ((!empty($lang_param) && $lang_param == 'fra') || stripos($request_uri, '/fra') !== FALSE) {
