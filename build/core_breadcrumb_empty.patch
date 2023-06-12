@@ -1,0 +1,16 @@
+git diff core/includes/theme.inc
+diff --git a/core/includes/theme.inc b/core/includes/theme.inc
+index 4cb59f30c7..9e436213fe 100644
+--- a/core/includes/theme.inc
++++ b/core/includes/theme.inc
+@@ -1700,6 +1700,10 @@ function template_preprocess_breadcrumb(&$variables) {
+   $variables['breadcrumb'] = [];
+   /** @var \Drupal\Core\Link $link */
+   foreach ($variables['links'] as $key => $link) {
++    $text = $link->getText();
++    if (empty($text)) {
++      continue;
++    }
+     $variables['breadcrumb'][$key] = ['text' => $link->getText(), 'url' => $link->getUrl()->toString()];
+   }
+ }
