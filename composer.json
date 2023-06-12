@@ -278,7 +278,8 @@
             "oomphinc/composer-installers-extender": true,
             "drupal/console-extend-plugin": true,
             "drupal/core-composer-scaffold": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "wikimedia/composer-merge-plugin": true
         }
     },
     "extra": {
@@ -557,7 +558,8 @@
         "drupal/simple_gmap": "3.1.x-dev",
         "drupal/bootstrap": "3.28 as 3.27",
         "drupal/ckeditor4_codemirror": "dev-1.0.x",
-        "w8tcha/ckeditor-codemirror": "*"
+        "w8tcha/ckeditor-codemirror": "*",
+        "wikimedia/composer-merge-plugin": "^2.1"
     },
     "autoload": {
         "classmap": [
