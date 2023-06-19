@@ -481,6 +481,13 @@ function agri_admin_node_presave(EntityInterface $entity) {
       $update_date_modified_str = '2';
     }
 
+    $is_ia_role = FALSE;
+    foreach ($roles as $role) {
+      if ($role == 'ia') {
+        $is_ia_role = TRUE;
+        continue;
+      }
+    }
     if ($moderation_state == 'published') {
       $dt = new DateTime();
       if (empty($date_issued)) {
@@ -489,8 +496,7 @@ function agri_admin_node_presave(EntityInterface $entity) {
         $date_modified = $dt->format('Y-m-d');
       }
 
-      if ($update_date_modified_str == '0' || (isset($import_override) && $import_override)) {
-        $langcode = AgriAdminHelper::getLang();
+      if ($update_date_modified_str == '0' || $is_ia_role == TRUE || (isset($import_override) && $import_override)) {
         // The changed field is translateable, must set value twice, otherwise unexpected issues during import.
         if ($entity->get('changed')->getFieldDefinition()->isTranslatable()) {
           // For some reason we enabled translation for changed field on this.
