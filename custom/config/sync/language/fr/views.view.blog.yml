@@ -1,13 +1,21 @@
-label: Blogue
 display:
+  block_all:
+    display_options:
+      empty:
+        area:
+          content:
+            value: "<p>Aucun contenu de blog n'a été créé.</p>\r\n"
+            format: rich_text
   default:
-    display_title: Maître
+    display_title: Master
     display_options:
       exposed_form:
         options:
           submit_button: Appliquer
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
       pager:
         options:
           expose:
@@ -15,49 +23,30 @@ display:
             items_per_page_options_all_label: '- Tout -'
             offset_label: Décalage
           tags:
-            previous: '‹ précédent'
-            next: 'suivant ›'
-            first: '« premier'
-            last: 'dernier »'
+            previous: '‹ Précédent'
+            next: 'Suivant ›'
+            first: '« Premier'
+            last: 'Dernier »'
       fields:
-        title: {  }
+        title:
+          separator: ', '
+      title: 'Billets de blog'
   blog_block:
     display_title: Bloc
     display_options:
-      title: 'Articles récents'
+      title: 'Recent blog posts'
   blog_user_all:
     display_options:
       arguments:
         uid:
           exception:
             title: Tout
-          title: "{{ arguments.uid }}'s blogue"
+          title: "{{ arguments.uid }}'s blog"
   feed_2:
     display_options:
       arguments:
         uid:
           exception:
             title: Tout
-          title: "{{ arguments.uid }}'s blogue"
-  block_all:
-    display_options:
-      fields:
-        comment_count:
-          alter:
-            text: "{% trans %}\r\n<span class=\"glyphicon glyphicon-comment\"></span> Commentaire ({{ comment_count }})\r\n{% endtrans %}"
-        nothing:
-          alter:
-            text: "<div class=\"row\">\r\n<h2 class=\"col-md-9 mrgn-tp-md\">{{ title }}</h2>\r\n<div class=\"col-md-3 hidden-sm hidden-xs brdr-lft text-left\">{{ comment_count }}</div>\r\n</div>"
-        nothing_1:
-          alter:
-            text: "<div class=\"row\">\r\n<p class=\"pagetag col-md-12 small\">{{ created }}</p>\r\n</div>"
-        nothing_2:
-          alter:
-            text: "<div class=\"row\">\r\n<div class=\"col-md-3 hidden-sm hidden-xs\">{{ field_image }}</div>\r\n<div class=\"col-md-9 col-sm-12\">\r\n  {{ body }}\r\n  {% trans %} Continuer à lire \"{{ title_1 }}\"... {% endtrans %}\r\n</div>\r\n</div>"
-      pager:
-        options:
-          tags:
-            previous: '‹ précédente'
-            next: 'suivant ›'
-            first: '« premier'
-            last: 'dernier »'
+          title: "{{ arguments.uid }}'s blog"
+label: Blogue

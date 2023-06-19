@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "136b36eb16e67a4381d344f249a9fdd7",
+    "content-hash": "ce783f9c20df3e6c3cf756e13cde7eea",
     "packages": [
         {
             "name": "agrcms/lightning",
@@ -7504,6 +7504,70 @@
             }
         },
         {
+            "name": "drupal/like_and_dislike",
+            "version": "1.0.0-beta3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/like_and_dislike.git",
+                "reference": "8.x-1.0-beta3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/like_and_dislike-8.x-1.0-beta3.zip",
+                "reference": "8.x-1.0-beta3",
+                "shasum": "fec58e4575516065f6d9daf69b2214152f1f8e0d"
+            },
+            "require": {
+                "drupal/core": "^8.7.7 || ^9.0 || ^10",
+                "drupal/votingapi": "^3.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-beta3",
+                    "datestamp": "1681237647",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Adrian Cid Almaguer (adriancid)",
+                    "homepage": "https://www.drupal.org/u/adriancid",
+                    "email": "adriancid@gmail.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Sascha Grossenbacher (Berdir)",
+                    "homepage": "https://www.drupal.org/u/berdir",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Pedro Rocha (pedrorocha)",
+                    "homepage": "https://www.drupal.org/u/pedrorocha",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Enable like and dislike widgets and statistics",
+            "homepage": "https://drupal.org/project/like_and_dislike",
+            "keywords": [
+                "Dislike",
+                "Drupal",
+                "Like",
+                "Votes"
+            ],
+            "support": {
+                "source": "https://cgit.drupalcode.org/like_and_dislike",
+                "issues": "https://drupal.org/project/issues/like_and_dislike"
+            }
+        },
+        {
             "name": "drupal/link_attributes",
             "version": "1.13.0",
             "source": {
@@ -11056,6 +11120,78 @@
             "homepage": "https://www.drupal.org/project/views_published_or_roles",
             "support": {
                 "source": "https://git.drupalcode.org/project/views_published_or_roles"
+            }
+        },
+        {
+            "name": "drupal/votingapi",
+            "version": "3.0.0-beta4",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/votingapi.git",
+                "reference": "8.x-3.0-beta4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/votingapi-8.x-3.0-beta4.zip",
+                "reference": "8.x-3.0-beta4",
+                "shasum": "ef523e6974e66307f57e750b804a98230c4ee993"
+            },
+            "require": {
+                "drupal/core": "^9.2 || ^10"
+            },
+            "require-dev": {
+                "drupal/token": "^1.5"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-3.0-beta4",
+                    "datestamp": "1679526721",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": ">=9"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "eaton",
+                    "homepage": "https://www.drupal.org/user/16496"
+                },
+                {
+                    "name": "pedrorocha",
+                    "homepage": "https://www.drupal.org/user/218937"
+                },
+                {
+                    "name": "pifagor",
+                    "homepage": "https://www.drupal.org/user/2375692"
+                },
+                {
+                    "name": "torotil",
+                    "homepage": "https://www.drupal.org/user/865256"
+                },
+                {
+                    "name": "TR",
+                    "homepage": "https://www.drupal.org/user/202830"
+                }
+            ],
+            "description": "Voting API",
+            "homepage": "https://www.drupal.org/project/votingapi",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/votingapi",
+                "issues": "https://drupal.org/project/issues/votingapi"
             }
         },
         {
@@ -19912,6 +20048,7 @@
         "drupal/entity_translation_unified_form": 5,
         "drupal/simple_gmap": 20,
         "drupal/ckeditor4_codemirror": 20,
+        "drupal/like_and_dislike": 10,
         "phpmd/phpmd": 0
     },
     "prefer-stable": true,

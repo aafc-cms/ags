@@ -5,8 +5,28 @@ dependencies:
   config:
     - comment.type.comment
     - field.field.comment.comment.comment_body
+    - field.field.comment.comment.field_ip_address
+    - field.field.comment.comment.field_my_name
   module:
+    - field_group
     - text
+third_party_settings:
+  field_group:
+    group_id:
+      children:
+        - field_ip_address
+      label: id
+      region: content
+      parent_name: ''
+      weight: 5
+      format_type: details
+      format_settings:
+        classes: 'hidden-xs hidden-sm hidden-md hidden-lg'
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: false
 _core:
   default_config_hash: Y--8oEenU3p0tbUl7G_m121-WoUWXgzWvKlY4kN_xMA
 id: comment.comment.default
@@ -15,27 +35,44 @@ bundle: comment
 mode: default
 content:
   author:
-    weight: -2
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
   comment_body:
     type: text_textarea
-    weight: 11
+    weight: 4
     region: content
     settings:
       rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_ip_address:
+    type: text_textfield
+    weight: 8
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_my_name:
+    type: text_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
       placeholder: ''
     third_party_settings: {  }
   langcode:
     type: language_select
     weight: 2
     region: content
-    settings: {  }
+    settings:
+      include_locked: true
     third_party_settings: {  }
   subject:
     type: string_textfield
-    weight: 10
+    weight: 3
     region: content
     settings:
       size: 60

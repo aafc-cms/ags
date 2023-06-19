@@ -1,0 +1,24 @@
+uuid: 601f03f1-3b1f-490a-b3f8-d5fe69731985
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.comment
+    - field.storage.comment.field_my_name
+  module:
+    - text
+id: comment.comment.field_my_name
+field_name: field_my_name
+entity_type: comment
+bundle: comment
+label: 'My name'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: '[current-user:field_first_name] [current-user:field_last_name]'
+    format: rich_text
+default_value_callback: ''
+settings: {  }
+field_type: text

@@ -1,0 +1,24 @@
+uuid: 50bb71ca-b214-402e-8122-d09fbfdc849a
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.comment
+    - field.storage.comment.field_ip_address
+  module:
+    - text
+id: comment.comment.field_ip_address
+field_name: field_ip_address
+entity_type: comment
+bundle: comment
+label: 'IP address'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: '[current-user:ip-address]'
+    format: rich_text
+default_value_callback: ''
+settings: {  }
+field_type: text

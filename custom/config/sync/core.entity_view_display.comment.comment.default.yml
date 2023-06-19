@@ -5,6 +5,8 @@ dependencies:
   config:
     - comment.type.comment
     - field.field.comment.comment.comment_body
+    - field.field.comment.comment.field_ip_address
+    - field.field.comment.comment.field_my_name
   module:
     - text
 _core:
@@ -21,8 +23,17 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  like_and_dislike:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
   links:
-    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
     region: content
 hidden:
+  field_ip_address: true
+  field_my_name: true
   langcode: true

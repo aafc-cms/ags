@@ -198,7 +198,7 @@
                 }
             }
         },
-	        {
+        {
             "type": "package",
             "package": {
                 "name": "cdubz/ckeditor5-source-editing-codemirror",
@@ -348,6 +348,8 @@
                 "https://www.drupal.org/files/issues/2019-12-24/2321071-39.patch",
                 "2868294 - Call to a member function getThirdPartySetting() on null in ContentTranslationManager":
                 "https://www.drupal.org/files/issues/2022-11-30/2868294-87.patch",
+                "3218426 - $width undefined php8.1 issue patch fix.":
+                "https://git.drupalcode.org/project/drupal/-/merge_requests/1373.diff",
                 "core breadcrumb empty patch":
                 "build/core_breadcrumb_empty.patch"
             },
@@ -381,13 +383,17 @@
                 "3346541 - Fix scandir_error":
                 "https://www.drupal.org/files/issues/2023-05-08/3346541_fix_scandir_error_001_0.patch"
             },
+            "drupal/votingapi": {
+                "3341513 - D10": "https://git.drupalcode.org/project/votingapi/-/merge_requests/5.diff"
+            },
             "drupal/wxt_bootstrap": {
                 "3362712  fix twig deprecation":
                 "https://www.drupal.org/files/issues/2023-05-25/D10-wxt_bootstrap-3362712-02.patch"
             },
             "drupalwxt/wxt": {
                 "Allow split of password policy":
-                "build/wxt_split_password_policy.patch"
+                "build/wxt_split_password_policy.patch",
+                "3366283 - Allow uninstall of wxt_ext_blog": "https://www.drupal.org/files/issues/2023-06-15/3366283-11.patch"
             }
         },
         "patches-ignore": {
@@ -561,7 +567,8 @@
         "drupal/bootstrap": "3.28 as 3.27",
         "drupal/ckeditor4_codemirror": "dev-1.0.x",
         "w8tcha/ckeditor-codemirror": "*",
-        "wikimedia/composer-merge-plugin": "^2.1"
+        "wikimedia/composer-merge-plugin": "^2.1",
+        "drupal/like_and_dislike": "^1.0@beta"
     },
     "autoload": {
         "classmap": [

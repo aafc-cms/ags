@@ -713,6 +713,12 @@ function _helper_update_process($action, $entity_id, $bundle) {
 }
 
 /**
+ * Implements hook_form_comment_comment_form_alter().
+ */
+function agri_admin_comment_comment_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+	echo "die"; die;
+}
+/**
  * Implements hook_form_node_news_form_alter().
  */
 function agri_admin_form_node_news_form_alter(&$form, FormStateInterface $form_state, $form_id) {
@@ -972,6 +978,7 @@ function agri_admin_form_node_form_alter(&$form, FormStateInterface $form_state,
       $form['field_subject']['#disabled'] = FALSE;
     }
   }
+
 }
 
 /**
@@ -2033,10 +2040,10 @@ function agri_admin_algos() {
  * Implements hook_form_alter().
  */
 function agri_admin_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
   if (isset($form_id) && strpos($form_id, 'media') !== FALSE && strpos($form_id, 'delete') !== FALSE) {
     $path = \Drupal::request()->getpathInfo();
     $arg = explode('/', $path);
-    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
     $index_arg = 0;
     $idx = 0;
     foreach ($arg as $segment) {
@@ -2070,6 +2077,27 @@ function agri_admin_form_alter(&$form, FormStateInterface $form_state, $form_id)
       ];
     }
   }
+  if ($form_id == 'comment_comment_form') {
+    $current_user = \Drupal::currentUser();
+    $roles = $current_user->getRoles();
+    foreach ($roles as $role) {
+      if ($role == 'anonymous') {
+        if ($langcode == 'en') {
+	//	echo print_r(array_keys($form), TRUE); die;
+          $form['field_my_name']['widget'][0]['#default_value'] = 'anonymous';
+          $form['#name']['widget'][0]['#default_value'] = 'anonymous';
+	}
+        else {
+          $form['field_my_name']['widget'][0]['#default_value'] = 'anonyme';
+          $form['#name']['widget'][0]['#default_value'] = 'anonyme';
+        }
+      }
+      else {
+        $form['field_my_name']['#disabled'] = TRUE;
+      }
+    }
+  }
+
 }
 
 /**

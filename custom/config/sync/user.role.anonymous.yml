@@ -22,6 +22,7 @@ dependencies:
     - dropzonejs
     - entity_browser
     - filter
+    - like_and_dislike
     - media
     - node
     - search
@@ -46,6 +47,8 @@ permissions:
   - 'access_unpublished node landing_page'
   - 'access_unpublished node news'
   - 'access_unpublished node page'
+  - 'add or remove like votes on comment of comment'
+  - 'add or remove vote votes on comment of comment'
   - 'create audio_file media'
   - 'create document media'
   - 'create empl content'
@@ -57,7 +60,6 @@ permissions:
   - 'edit own image media'
   - 'post comments'
   - 'search content'
-  - 'skip comment approval'
   - 'translate empl node'
   - 'translate news node'
   - 'use editorial transition create_new_draft'
