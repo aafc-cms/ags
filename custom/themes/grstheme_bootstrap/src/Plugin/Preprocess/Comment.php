@@ -25,6 +25,13 @@ class Comment extends PreprocessBase {
 	$variables['author'] = $user->value;
       }
     }
+    if (empty($variables['author']) && $variables['comment']->getOwner()->isAuthenticated()) {
+      $first_name = $variables['comment']->getOwner()->get('field_first_name')->getString();
+      $last_name = $variables['comment']->getOwner()->get('field_last_name')->getString();
+      if (!empty($first_name) && !empty($last_name)) {
+        $variables['author'] = $first_name . ' ' . $last_name;
+      }
+    }
     if (empty($variables['author'])) {
       $variables['author'] = $variables['comment']->getAuthorName();
     }
