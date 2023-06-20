@@ -541,16 +541,15 @@ function wxt_overrides_form_comment_comment_form_alter(&$form, FormStateInterfac
         }
       }
       if ($role == 'anonymous') {
+        $form['author']['name']['#type'] = 'hidden';
         if ($langcode == 'en') {
           // echo print_r(array_keys($form), TRUE); die;
           $form['field_my_name']['widget'][0]['#default_value'] = 'Anonymous';
           $form['author']['name']['#default_value'] = 'Anonymous';
-          $form['author']['name']['#type'] = 'hidden';
         }
         else {
           $form['field_my_name']['widget'][0]['#default_value'] = 'Anonyme';
           $form['author']['name']['#default_value'] = 'Anonyme';
-          $form['author']['name']['#type'] = 'hidden';
         }
       }
       else {
