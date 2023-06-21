@@ -38,16 +38,6 @@ class SettingsForm extends ConfigFormBase {
       '#title' => $this->t('Hide blog link.'),
       '#default_value' => $blog_hide_link,
     ];
-    $blog_hide_save = $this->config('wxt_overrides.settings')->get('blog_hide_save');
-    if (is_null($blog_hide_save)) {
-      $blog_hide_save = FALSE;
-    }
-    $blog_hide_save = (integer) $blog_hide_save;
-    $form['blog_hide_save'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('Hide blog comment save button.'),
-      '#default_value' => $blog_hide_save,
-    ];
     $blog_hide_tags = $this->config('wxt_overrides.settings')->get('blog_hide_tags');
     if (is_null($blog_hide_tags)) {
       $blog_hide_tags = FALSE;
@@ -93,7 +83,6 @@ class SettingsForm extends ConfigFormBase {
     $this->config('wxt_overrides.settings')
       ->set('example', $form_state->getValue('example'))
       ->set('blog_hide_link', $form_state->getValue('blog_hide_link'))
-      ->set('blog_hide_save', $form_state->getValue('blog_hide_save'))
       ->set('blog_hide_tags', $form_state->getValue('blog_hide_tags'))
       ->set('blog_anon', $form_state->getValue('blog_anon'))
       ->save();
