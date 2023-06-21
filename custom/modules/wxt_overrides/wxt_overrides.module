@@ -529,9 +529,14 @@ function wxt_overrides_link_alter(&$variables) {
  * Implements hook_form_comment_comment_form_alter().
  */
 function wxt_overrides_form_comment_comment_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $blog_anon = \Drupal::config('wxt_overrides.settings')->get('blog_anon');
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
   if ($form_id == 'comment_comment_form') {
     $current_user = \Drupal::currentUser();
+    $authenticated = $current_user->isAuthenticated();
+    if ($authenticated && $blog_anon) {
+      $form['#access'] = FALSE;
+    }
     $roles = $current_user->getRoles();
     foreach ($roles as $role) {
       if (isset($form['field_my_name']['widget'][0])) {
