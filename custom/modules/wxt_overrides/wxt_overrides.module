@@ -5,6 +5,8 @@ use Drupal\agri_admin\AgriAdminHelper;
 use Drupal\agri_admin\Utils;
 use Drupal\Core\Form\FormStateInterface;
 use \Drupal\Core\File\FileSystemInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
 
 /**
  * @file
@@ -15,6 +17,31 @@ use \Drupal\Core\File\FileSystemInterface;
  * @see https://www.drupal.org/node/2217931
  */
 
+
+
+/**
+ * Implements hook_help().
+ */
+function wxt_overrides_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.wxt_overrides':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('The WxT Overrides module provides configuration options for the blog node and comments behavior and also provides page attachements for meta information (in the source code there is meta logic for dcterms and aafc subjects for example.') . '</p>';
+      $output .= '<h3>' . t('Uses') . '</h3>';
+      $output .= '<dl>';
+
+      $output .= '<dt>' . t('Configuring Wxt Overrides') . '</dt>';
+      $output .= '<dd>' . t('The WxT Overrides module provides page for configuring hide and comment behaviors for the blog <a href=":config">WxT Overrides settings</a>.', [':config' =>  Url::fromRoute('wxt_overrides.settings_form')->toString()]) . '</dd>';
+
+      $output .= '</dl>';
+      return $output;
+
+    case 'wxt_overrides.settings_form':
+      return '<p>' . t('This page shows you all available administration tasks for Wxt Overrides module.') . '</p>';
+
+  }
+}
 
 
 /**
