@@ -6,3 +6,7 @@ body.role-is-authenticated .field--name-field-my-name {
 body.role-is-anonymous .field--name-field-my-name .filter-wrapper {
   display: none !important;
 }
+
+body.role-is-anonymous.blog_post #edit-comment-body-0-format {
+  display: none !important;
+}

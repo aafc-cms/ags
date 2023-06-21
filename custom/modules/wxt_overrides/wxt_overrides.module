@@ -549,11 +549,13 @@ function wxt_overrides_form_comment_comment_form_alter(&$form, FormStateInterfac
         $form['author']['name']['#type'] = 'hidden';
         if ($langcode == 'en') {
           // echo print_r(array_keys($form), TRUE); die;
-          $form['field_my_name']['widget'][0]['#default_value'] = 'Anonymous';
+          $form['field_my_name']['widget'][0]['#default_value'] = '';
+          $form['field_my_name']['widget'][0]['#placeholder'] = 'Anonymous';
           $form['author']['name']['#default_value'] = 'Anonymous';
         }
         else {
-          $form['field_my_name']['widget'][0]['#default_value'] = 'Anonyme';
+          $form['field_my_name']['widget'][0]['#default_value'] = '';
+          $form['field_my_name']['widget'][0]['#placeholder'] = 'Anonyme';
           $form['author']['name']['#default_value'] = 'Anonyme';
         }
       }
