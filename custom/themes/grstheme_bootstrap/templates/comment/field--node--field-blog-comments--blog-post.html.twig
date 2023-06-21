@@ -37,7 +37,9 @@
 
   {% if comment_form %}
     <h2{{ content_attributes }}>
+      {% if not blog_hide_link %}
       {{ 'Add new comment'|t }}
+      {% endif %}
     </h2>
     {{ comment_form }}
   {% endif %}
