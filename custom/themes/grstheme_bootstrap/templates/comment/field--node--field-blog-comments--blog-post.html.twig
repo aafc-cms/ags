@@ -40,6 +40,9 @@
       {% if not blog_hide_link %}
       {{ 'Add new comment'|t }}
       {% endif %}
+      {% if blog_suggest_logout %}
+      {{ 'Comments are limited to anonymous sessions for this blog'|t }}
+      {% endif %}
     </h2>
     {{ comment_form }}
   {% endif %}

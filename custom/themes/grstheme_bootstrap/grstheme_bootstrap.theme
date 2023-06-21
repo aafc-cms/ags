@@ -406,11 +406,13 @@ function grstheme_bootstrap_preprocess_links__node(&$variables) {
  */
 function grstheme_bootstrap_preprocess_field__node__field_blog_comments__blog_post(&$variables) {
   $variables['blog_hide_link'] = FALSE;
+  $variables['blog_suggest_logout'] = FALSE;
   $blog_hide_link = \Drupal::config('wxt_overrides.settings')->get('blog_hide_link');
   $current_user = \Drupal::currentUser();
   $authenticated = $current_user->isAuthenticated();
   if ($authenticated && $blog_hide_link) {
     $variables['blog_hide_link'] = TRUE;
+    $variables['blog_suggest_logout'] = TRUE;
   }
 }
 
