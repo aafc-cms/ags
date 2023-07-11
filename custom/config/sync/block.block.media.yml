@@ -15,7 +15,7 @@ third_party_settings:
 id: media
 theme: grstheme_bootstrap
 region: content
-weight: -17
+weight: -18
 provider: null
 plugin: 'entity_block:media'
 settings:
@@ -24,7 +24,7 @@ settings:
   label_display: ''
   provider: entity_block
   view_mode: default
-  entity: '3346'
+  entity: '5231'
 visibility:
   language:
     id: language
@@ -37,4 +37,4 @@ visibility:
     id: request_path
     negate: false
     context_mapping: {  }
-    pages: '<front>'
+    pages: "<front>\r\n/node/20/latest*"

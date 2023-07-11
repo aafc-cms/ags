@@ -12,17 +12,22 @@ _core:
   default_config_hash: LhYVdfNEmxYVX_KN9JZq45nX2Txt9Ei9aSxSw3qTb6s
 id: blog-panels_variant-0
 label: Blog
+weight: 0
 variant: panels_variant
 variant_settings:
+  id: panels_variant
+  label: null
+  weight: 0
+  uuid: 02319159-cb66-425c-a27e-883713a95664
   blocks:
     eb20fa55-8b1c-40c5-bbd5-86510c1ce56e:
       id: 'views_block:blog-block_all'
       label: ''
       label_display: '0'
       provider: views
+      context_mapping: {  }
       views_label: ''
       items_per_page: '5'
-      context_mapping: {  }
       region: main
       weight: 1
       uuid: eb20fa55-8b1c-40c5-bbd5-86510c1ce56e
@@ -33,9 +38,9 @@ variant_settings:
       label: ''
       label_display: '0'
       provider: views
+      context_mapping: {  }
       views_label: ''
       items_per_page: none
-      context_mapping: {  }
       region: main
       weight: 0
       uuid: 091683b1-7dc4-481a-a23b-7c6888b16f72
@@ -43,10 +48,6 @@ variant_settings:
         - ''
       html_id: ''
       css_styles: ''
-  id: panels_variant
-  label: null
-  weight: 0
-  uuid: 02319159-cb66-425c-a27e-883713a95664
   page_title: Blog
   layout: bs_1col
   layout_settings:
@@ -72,7 +73,6 @@ variant_settings:
   html_id: ''
   css_styles: ''
 page: blog
-weight: 0
 selection_criteria: {  }
 selection_logic: and
 static_context: {  }

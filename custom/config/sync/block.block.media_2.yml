@@ -15,16 +15,16 @@ third_party_settings:
 id: media_2
 theme: grstheme_bootstrap
 region: content
-weight: -16
+weight: -17
 provider: null
 plugin: 'entity_block:media'
 settings:
   id: 'entity_block:media'
-  label: 'Home Slideshow Thumbnav (Media)'
+  label: 'Home Slideshow Thumbnav English (Media)'
   label_display: ''
   provider: entity_block
   view_mode: default
-  entity: '3342'
+  entity: '3346'
 visibility:
   language:
     id: language
@@ -37,4 +37,4 @@ visibility:
     id: request_path
     negate: false
     context_mapping: {  }
-    pages: '<front>'
+    pages: "<front>\r\n/node/20/latest*"

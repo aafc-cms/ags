@@ -1,9 +1,9 @@
-uuid: 0beb9fb7-c575-48c4-bba0-7e5f4bcc69d0
+uuid: cebe761a-e654-4e6d-851d-50075b85e513
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:a499786a-3b20-4157-89a6-2d3a0a0edf06'
+    - 'block_content:basic:b3d99bda-2afd-4bc8-ae11-062523a0bd6e'
   module:
     - block_class
     - block_content
@@ -13,15 +13,15 @@ dependencies:
 third_party_settings:
   block_class:
     classes: col-md-3
-id: newswork
+id: agriinfo
 theme: grstheme_bootstrap
 region: content
-weight: -16
+weight: -10
 provider: null
-plugin: 'block_content:a499786a-3b20-4157-89a6-2d3a0a0edf06'
+plugin: 'block_content:b3d99bda-2afd-4bc8-ae11-062523a0bd6e'
 settings:
-  id: 'block_content:a499786a-3b20-4157-89a6-2d3a0a0edf06'
-  label: news@work
+  id: 'block_content:b3d99bda-2afd-4bc8-ae11-062523a0bd6e'
+  label: 'Agri Info'
   label_display: '0'
   provider: block_content
   status: true
@@ -31,5 +31,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    context_mapping: {  }
-    pages: "<front>\r\n/node/20/latest*"
+    pages: '<front>'

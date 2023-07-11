@@ -8,4 +8,6 @@ adding:
     field_last_password_reset: true
     field_password_expiration: true
     field_pending_expire_sent: true
-removing: {  }
+removing:
+  hidden:
+    blog__personal_blog_link: true

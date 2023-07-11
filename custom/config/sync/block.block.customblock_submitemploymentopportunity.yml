@@ -7,7 +7,6 @@ dependencies:
   module:
     - block_class
     - block_content
-    - ctools
     - node
     - system
     - user
@@ -19,7 +18,7 @@ third_party_settings:
 id: customblock_submitemploymentopportunity
 theme: grstheme_bootstrap
 region: content
-weight: -9
+weight: -8
 provider: null
 plugin: 'block_content:878c1db8-a3da-452d-8479-8a1c1f740d6e'
 settings:
@@ -42,7 +41,7 @@ visibility:
     id: request_path
     negate: false
     context_mapping: {  }
-    pages: "/node/add/empl*\r\nnode/add/empl*\r\n/internal-employment-opportunity-request-form\r\n/formulaire-de-demande-pour-les-possibilites-demploi-a-linterne\r\n/human-resources/staffing/internal-employment-opportunity-request-form\r\n/ressources-humaines/dotation/formulaire-de-demande-pour-les-possibilites-demploi-linterne"
+    pages: "/node/add/empl*\r\nnode/add/empl*\r\n/internal-employment-opportunity-request-form\r\n/formulaire-de-demande-pour-les-possibilites-demploi-a-linterne\r\n/human-resources/staffing/internal-employment-opportunity-request-form\r\n/ressources-humaines/dotation/formulaire-de-demande-pour-les-possibilites-demploi-linterne\r\n/human-resources/staffing/aafc-internal-employment-opportunity-publishing-process/internal-employment-opportunity-request-form\r\n/ressources-humaines/dotation/processus-publication-des-occasions-demploi-linterne-daac/formulaire-de-demande-pour-les-possibilites-demploi-linterne"
   user_role:
     id: user_role
     negate: false
