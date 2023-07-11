@@ -42,6 +42,7 @@ dependencies:
     - slick
     - token_filter
     - url_embed
+    - wxt_chart_stability
     - wxt_ext_editor
 _core:
   default_config_hash: 7W86T86ZzsAmogcteSWPOQjG5FKmCksltV6_QgfGz1s
@@ -83,14 +84,14 @@ filters:
     id: filter_url
     provider: filter
     status: false
-    weight: -41
+    weight: -40
     settings:
       filter_url_length: 128
   blazy_filter:
     id: blazy_filter
     provider: blazy
     status: false
-    weight: -36
+    weight: -35
     settings:
       media_switch: ''
       hybrid_style: ''
@@ -104,13 +105,13 @@ filters:
     id: filter_html_escape
     provider: filter
     status: false
-    weight: -39
+    weight: -38
     settings: {  }
   filter_html_image_secure:
     id: filter_html_image_secure
     provider: filter
     status: false
-    weight: -35
+    weight: -34
     settings: {  }
   filter_htmlcorrector:
     id: filter_htmlcorrector
@@ -122,7 +123,7 @@ filters:
     id: filter_html
     provider: filter
     status: false
-    weight: -40
+    weight: -39
     settings:
       allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol type start> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <a href hreflang data-entity-substitution data-entity-type data-entity-uuid title> <img src alt data-entity-type data-entity-uuid data-align data-caption> <sup> <u> <p> <h1> <pre> <drupal-entity data-entity-type data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button data-langcode alt title> <drupal-media data-entity-type data-entity-uuid data-view-mode data-align data-caption alt title> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <hr> <sub> <s>'
       filter_html_help: true
@@ -131,7 +132,7 @@ filters:
     id: filter_autop
     provider: filter
     status: false
-    weight: -38
+    weight: -37
     settings: {  }
   linkit:
     id: linkit
@@ -190,19 +191,27 @@ filters:
     id: url_embed_convert_links
     provider: url_embed
     status: false
-    weight: -37
+    weight: -36
     settings:
       url_prefix: ''
+  embed_block:
+    id: embed_block
+    provider: embed_block
+    status: true
+    weight: -41
+    settings: {  }
   slick_filter:
     id: slick_filter
     provider: slick
     status: false
-    weight: 4
+    weight: -32
     settings:
       optionset: default
       layout: ''
       skin: ''
       background: false
+      loading: ''
+      preload: false
       responsive_image_style: ''
       image_style: ''
       media_switch: ''
@@ -227,7 +236,7 @@ filters:
     id: wxt_add_table_attribute_filter
     provider: wxt_ext_editor
     status: false
-    weight: 0
+    weight: -33
     settings:
       responsive: '1'
       replace_classes: '1'
@@ -236,9 +245,11 @@ filters:
       whitelist_classes: ''
       add_datatable_attribute: '0'
       datatable_options: ''
-  embed_block:
-    id: embed_block
-    provider: embed_block
+  wxt_chart_stability_compatibilityfilter:
+    id: wxt_chart_stability_compatibilityfilter
+    provider: wxt_chart_stability
     status: true
-    weight: 0
-    settings: {  }
+    weight: -99
+    settings:
+      clean: '<td>&nbsp;</td>'
+      desired: '<td></td>'

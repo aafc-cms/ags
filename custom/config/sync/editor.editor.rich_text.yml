@@ -70,28 +70,28 @@ settings:
             - Cut
             - Paste
   plugins:
+    stylescombo:
+      styles: ''
     drupallink:
       linkit_enabled: true
       linkit_profile: urltodocument
-    stylescombo:
-      styles: ''
     codemirror:
-      enable: true
+      enable: 1
+      startupMode: wysiwyg
       mode: htmlmixed
       theme: monokai
-      startupMode: wysiwyg
       options:
-        lineNumbers: true
-        lineWrapping: false
-        matchBrackets: true
-        autoCloseTags: true
-        autoCloseBrackets: true
-        enableSearchTools: true
-        enableCodeFolding: true
-        enableCodeFormatting: false
-        autoFormatOnStart: false
-        autoFormatOnModeChange: false
-        autoFormatOnUncomment: true
+        lineNumbers: 1
+        lineWrapping: 0
+        matchBrackets: 1
+        autoCloseTags: 1
+        autoCloseBrackets: 1
+        enableSearchTools: 1
+        enableCodeFolding: 1
+        enableCodeFormatting: 0
+        autoFormatOnStart: 0
+        autoFormatOnModeChange: 0
+        autoFormatOnUncomment: 1
 image_upload:
   status: true
   scheme: public

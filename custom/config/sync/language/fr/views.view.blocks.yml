@@ -19,3 +19,13 @@ display:
           separator: ', '
         body:
           separator: ', '
+        nothing:
+          alter:
+            text: |-
+              <section class="gc-nttvs">
+              <a href="{{ field_image_link }}" class="gl-features">
+              {{ field_spotlight_media }} 
+              <h4>{{ info }}</h4>
+              </a>
+              {{ body }}
+              </section>
