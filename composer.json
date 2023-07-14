@@ -258,7 +258,6 @@
     },
     "require-dev": {
         "agrcms/behatags": "^1.0.0",
-        "behat/behat": "v3.10.0",
         "oomphinc/composer-installers-extender": "^1.1 || ^2",
         "drupal/coder": "^8.3.7",
         "phpmd/phpmd": "@stable",
@@ -343,7 +342,7 @@
         "patches": {
             "drupal/core": {
                 "Options module uses '_none' as a special value.":
-                "https://www.drupal.org/files/issues/2023-01-03/1585930_84.patch",
+                "https://www.drupal.org/files/issues/2023-07-14/1585930-93.patch",
                 "2321071 - Removing lightning_scheduler garbage left-over configurations requires a core patch.":
                 "https://www.drupal.org/files/issues/2019-12-24/2321071-39.patch",
                 "2868294 - Call to a member function getThirdPartySetting() on null in ContentTranslationManager":
@@ -379,25 +378,16 @@
                 "3320470 - Allow override of the bulk operation validation with a checkbox":
                 "https://www.drupal.org/files/issues/2022-12-02/make-bulk-publish-verification-configurable-3320470-06.patch"
             },
-            "drupal/ckeditor": {
-                "3346541 - Fix scandir_error":
-                "https://www.drupal.org/files/issues/2023-05-08/3346541_fix_scandir_error_001_0.patch"
-            },
             "drupal/votingapi": {
                 "3341513 - D10": "https://git.drupalcode.org/project/votingapi/-/merge_requests/5.diff",
                 "123916 - Anonymous voting by session": "https://git.drupalcode.org/project/votingapi/-/merge_requests/7.diff"
-            },
-            "drupal/wxt_bootstrap": {
-                "3362712  fix twig deprecation":
-                "https://www.drupal.org/files/issues/2023-05-25/D10-wxt_bootstrap-3362712-02.patch"
             },
             "drupal/wxt_library": {
                "3374233 - Eradicate ie8 from our builds.": "https://www.drupal.org/files/issues/2023-07-12/wxt_library-3374233-06.patch"
             },
             "drupalwxt/wxt": {
                 "Allow split of password policy":
-                "build/wxt_split_password_policy.patch",
-                "3366283 - Allow uninstall of wxt_ext_blog": "https://www.drupal.org/files/issues/2023-06-15/3366283-11.patch"
+                "build/wxt_split_password_policy.patch"
             }
         },
         "patches-ignore": {
@@ -421,6 +411,7 @@
             "drupalwxt/wxt": {
                 "drupal/core": {
                     "850600 - Postgresql patch we're not using postgresql": "https://www.drupal.org/files/issues/postgresql_ssl_dsn-850600-3.patch",
+                    "2715483 - no longer needed as of D10.0.10": "https://www.drupal.org/files/issues/2020-01-09/regression-2715483-22.patch",
                     "2893407 - POST /quickedit/metadata returning HTTP 503 - patch 47.":
                     "https://www.drupal.org/files/issues/2021-06-07/2893407-47.patch",
                     "1356276 - Overrides for profile and sub profile use 686 instead of 631-by-mpotter-balsa": "https://www.drupal.org/files/issues/2021-10-21/1356276-673.patch",
@@ -503,7 +494,7 @@
         }
     },
     "require": {
-        "agrcmsx/dxbase": "10.0.9-rc18",
+        "agrcmsx/dxbase": "10.0.9-rc20",
         "agrcms/lightning": "*",
         "agrcms/lightning_banner_block": "*",
         "agrcms/lightning_core": "*",
@@ -531,9 +522,8 @@
         "drupaloverride/footnotes": "dev-389813a1",
         "drupaloverride/webform_migrate": "dev-c5e4d9c3",
         "drupal/autologout": "^1.4",
-        "drupal/core": "10.0.9 as 10.0.4",
         "drupal/clientside_validation": "^4.0",
-        "drupal/core-composer-scaffold": "^9",
+        "drupal/core-composer-scaffold": "^10",
         "drupal/embed_block": "1.x-dev",
         "drupal/filebrowser": "3.1.x-dev",
         "drupal/file_replace": "^1.3",
@@ -568,12 +558,13 @@
         "wet-boew/wet-boew": "4.0.43.1 as 4.0.50.1",
         "drupal/moderation_dashboard": "^1",
         "drupal/simple_gmap": "3.1.x-dev",
-        "drupal/bootstrap": "3.28 as 3.27",
+        "drupal/bootstrap": "3.29 as 3.28",
         "drupal/ckeditor4_codemirror": "dev-1.0.x",
         "w8tcha/ckeditor-codemirror": "*",
         "wikimedia/composer-merge-plugin": "^2.1",
         "drupal/like_and_dislike": "^1.0@beta",
-        "drupal/wxt_chart_stability": "^1.0@alpha"
+        "drupal/wxt_chart_stability": "^1.0@alpha",
+        "drupal/core": "10.0.10 as 10.0.9"
     },
     "autoload": {
         "classmap": [
