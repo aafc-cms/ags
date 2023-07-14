@@ -11,7 +11,8 @@ archive: false
 id: video_production_request_form
 title: 'Video Production Request Form'
 description: ''
-category: 'Services Request Form'
+categories:
+  - 'Services Request Form'
 elements: |-
   psrf_pagedescription:
     '#type': processed_text
@@ -268,6 +269,8 @@ settings:
   wizard_toggle: true
   wizard_toggle_show_label: ''
   wizard_toggle_hide_label: ''
+  wizard_page_type: container
+  wizard_page_title_tag: h2
   preview: 1
   preview_label: ''
   preview_title: ''
