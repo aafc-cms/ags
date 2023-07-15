@@ -971,6 +971,16 @@ function agri_admin_form_node_form_alter(&$form, FormStateInterface $form_state,
       $form['field_description']['#disabled'] = FALSE;
       $form['field_keywords']['#disabled'] = FALSE;
       $form['field_subject']['#disabled'] = FALSE;
+      if ($content_type == 'page' || $content_type == 'landing_page') {
+        $peer_review_status = $entity->get('field_peer_review')->getString();
+        if (!empty($peer_review_status)) {
+          $form['field_description']['#disabled'] = TRUE;
+          $form['field_keywords']['#disabled'] = TRUE;
+          $form['field_subject']['#disabled'] = TRUE;
+          $form['field_meta_type']['#disabled'] = TRUE;
+          $form['actions']['#disabled'] = TRUE;
+        }
+      }
     }
   }
 
