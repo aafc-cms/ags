@@ -11,7 +11,8 @@ archive: false
 id: publishing_and_creative_services
 title: 'Publishing and Creative Services Request Form'
 description: "<p>The information provided below will help initiate your publishing project. Once submitted, Publishing and Creative Services will contact you within two business days.</p>\r\n\r\n<p>If you leave this page before submitting your form, the information will be lost.</p>"
-category: 'Services Request Form'
+categories:
+  - 'Services Request Form'
 elements: |-
   psrf_pagedescription:
     '#type': processed_text
@@ -365,6 +366,8 @@ settings:
   wizard_toggle: true
   wizard_toggle_show_label: ''
   wizard_toggle_hide_label: ''
+  wizard_page_type: container
+  wizard_page_title_tag: h2
   preview: 0
   preview_label: ''
   preview_title: ''
