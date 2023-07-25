@@ -2299,7 +2299,7 @@ display:
             operator_list: {  }
             identifier: field_meta_type_target_id
             required: false
-            remember: true
+            remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
@@ -2310,6 +2310,10 @@ display:
               reviewer: '0'
               news_ccpub: '0'
               empl_cspub: '0'
+              pab_admin: '0'
+              qa: '0'
+              ia: '0'
+              viewer: '0'
             reduce: false
           is_grouped: false
           group_info:
