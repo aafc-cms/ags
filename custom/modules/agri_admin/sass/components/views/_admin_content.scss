@@ -1,18 +1,4 @@
 @charset "UTF-8";
-
-
-div#edit-revision-timestamp-wrapper > fieldset,
-div#edit-field-modified-value-wrapper > fieldset {
-  padding-bottom: 20px !important;
-}
-
-#edit-revision-timestamp-wrapper--2 {
-  margin-top: 4px !important;
-}
-
-#edit-revision-timestamp-wrapper--2 {
-  margin-top: 4px;
-}
 body.path-admin {
   .view-content {
     .form-item--field-tracking-number-value,
@@ -46,21 +32,13 @@ body.path-admin {
       margin-top: 2.35em;
       margin-right: 8px;
       padding-bottom: inherit;
-      fieldset.form-wrapper.form-item {
-        padding-bottom: 20px !important;
-	margin-top: 4px;
-      }
     }
 
-    #edit-revision-timestamp-wrapper legend,
-    #edit-field-modified-value-wrapper legend {
-      font-size: unset;
-      span.fieldset__label {
-        position: absolute;
-        top: -2.5em;
-        font-size: unset;
-        color: #222330;
-      }
+    #edit-revision-timestamp-wrapper legend span.fieldset__label,
+    #edit-field-modified-value-wrapper legend span.fieldset__label {
+      position: absolute;
+      top: -2.5em;
+      color: #222330;
     }
   }
   .view-filters {
