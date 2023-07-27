@@ -200,7 +200,7 @@ third_party_settings:
       label: 'aafc metadata group'
       region: content
       parent_name: ''
-      weight: 15
+      weight: 13
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -215,7 +215,7 @@ third_party_settings:
       label: aafc-dcterms-gctype
       region: content
       parent_name: ''
-      weight: 16
+      weight: 14
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -230,7 +230,7 @@ third_party_settings:
       label: aafc-dcterms-subject
       region: content
       parent_name: ''
-      weight: 17
+      weight: 15
       format_type: details_sidebar
       format_settings:
         classes: ''
@@ -334,7 +334,7 @@ content:
     third_party_settings: {  }
   field_newsexpirydate:
     type: datetime_default
-    weight: 12
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -416,20 +416,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  layout_selection:
-    type: options_select
-    weight: 14
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 13
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   simple_sitemap:
-    weight: 12
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -445,6 +439,7 @@ hidden:
   created: true
   field_meta_tags: true
   langcode: true
+  layout_selection: true
   path: true
   promote: true
   status: true
