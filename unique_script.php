@@ -39,7 +39,7 @@ $fids = getDuplicateFids();
 foreach ($fids as $fid) {
   $sha256 = getHashByFid($fid);
   $fids_with_matches = getFidsBySha256($sha256); 
-  echo "****** sha256 = $sha256 *****";
+  echo "---- sha256 = $sha256 ----";
   echo "\n";
   foreach ($fids_with_matches as $fid_matched) {
     echo "        fid = $fid_matched";
@@ -51,7 +51,7 @@ foreach ($fids as $fid) {
     echo "Is duplicate= " . $file_uri;
     echo "\n";
   }
-  echo "*****************************";
+  echo "-----------------------------------------------------------------------------------";
   echo "\n";
 }
 
