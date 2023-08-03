@@ -47,7 +47,8 @@ foreach ($fids as $fid) {
   }
   foreach ($fids_with_matches as $fid_matched) {
     $file = \Drupal\file\Entity\File::load($fid_matched);
-    echo "Is duplicate= " . $file->getFileUri();
+    $file_uri = str_replace('public://', '/sites/default/files/', $file->getFileUri());
+    echo "Is duplicate= " . $file_uri;
     echo "\n";
   }
   echo "*****************************";
