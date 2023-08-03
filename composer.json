@@ -352,10 +352,6 @@
                 "core breadcrumb empty patch":
                 "build/core_breadcrumb_empty.patch"
             },
-            "drupal/dropzonejs": {
-                "3197207 - Empl opportunity or news submission - Anonymous uploads need this patch for dropzonejs":
-                "https://www.drupal.org/files/issues/2021-02-08/dropzonejs-3197207-2.patch"
-            },
             "drupal/field_group": {
                 "3111107 - Use patch 10 instead of patch 2.":
                 "https://www.drupal.org/files/issues/2021-08-10/field_group_fix-translations_label_description_2021-08-10.patch"
@@ -365,9 +361,6 @@
                 "https://www.drupal.org/files/issues/2018-07-05/page_manager-incorrect-page_title-2752227-32-8.x.4.x.patch",
                 "Enter drupal/page_manager patch #3096408 description here":
                 "https://www.drupal.org/files/issues/2019-11-23/Issue-3096408-Page-Manager-issue-with-conflict-modul.patch"
-            },
-            "drupal/panels": {
-                "3377979 - and also 2849867 - Allow style settings for blocks in panels and panel variants.": "https://www.drupal.org/files/issues/2023-01-11/panels_custom_attributes_in_panels_blocks-2849867-92_0.patch"
             },
             "drupal/embed_block": {
                 "3225938 - Added CKEDITOR plugin functionality":
@@ -390,9 +383,7 @@
             },
             "drupalwxt/wxt": {
                 "Allow split of password policy":
-                "build/wxt_split_password_policy.patch",
-                "wxt 3376951 improve placement of bootstrap":
-                "https://www.drupal.org/files/issues/2023-07-27/wxt-refine-ckeditor-style-scope-3376951-24.patch"
+                "build/wxt_split_password_policy.patch"
             }
         },
         "patches-ignore": {
@@ -499,7 +490,7 @@
         }
     },
     "require": {
-        "agrcmsx/dxbase": "10.0.9-rc20",
+        "agrcmsx/dxbase": "10.0.9-rc21",
         "agrcms/lightning": "*",
         "agrcms/lightning_banner_block": "*",
         "agrcms/lightning_core": "*",

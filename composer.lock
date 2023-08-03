@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c1b435ee496d6fe99b2b7c75b88f8b3",
+    "content-hash": "f7bbbc1d6619182be386af97fee7990a",
     "packages": [
         {
             "name": "agrcms/lightning",
@@ -332,16 +332,16 @@
         },
         {
             "name": "agrcmsx/dxbase",
-            "version": "10.0.9-rc20",
+            "version": "10.0.9-rc21",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:agrcms/dxbase.git",
-                "reference": "fece1b15a6273d12872cdb687e6e6a6af0e6a2cf"
+                "reference": "ddaeb1d866f58f86d9d447c782cc40e42b0783c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=fece1b15a6273d12872cdb687e6e6a6af0e6a2cf",
-                "reference": "fece1b15a6273d12872cdb687e6e6a6af0e6a2cf",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=ddaeb1d866f58f86d9d447c782cc40e42b0783c0",
+                "reference": "ddaeb1d866f58f86d9d447c782cc40e42b0783c0",
                 "shasum": ""
             },
             "require": {
@@ -410,7 +410,7 @@
                 "drupaloverride/footnotes": "dev-389813a1",
                 "drupaloverride/webform_migrate": "dev-c5e4d9c3",
                 "drupalwxt/wxt": "5.0.x-dev",
-                "drush/drush": "^11.0"
+                "drush/drush": "^11 || ^12"
             },
             "require-dev": {
                 "behat/behat": "^3.0",
@@ -510,7 +510,7 @@
                     "drupalwxt/diff": {
                         "fix French revisions page always shows English revision state": "https://www.drupal.org/files/issues/2021-02-19/diff-show-correct-workflow-state-on-french-revisions-page-3199354-2.patch"
                     },
-                    "drupalwxt/dropzonejs": {
+                    "drupal/dropzonejs": {
                         "Allow anonymous users to upload disable CSRF check might loosen security somewhat (warning).": "https://www.drupal.org/files/issues/2021-02-08/dropzonejs-3197207-2.patch"
                     },
                     "drupal/entity_embed": {
@@ -575,7 +575,7 @@
                 "GPL-2.0+"
             ],
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
-            "time": "2023-07-14T20:02:33+00:00"
+            "time": "2023-08-03T14:41:24+00:00"
         },
         {
             "name": "algolia/places",
@@ -8613,17 +8613,17 @@
         },
         {
             "name": "drupal/moderated_content_bulk_publish",
-            "version": "2.0.24",
+            "version": "2.0.25",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/moderated_content_bulk_publish.git",
-                "reference": "2.0.24"
+                "reference": "2.0.25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/moderated_content_bulk_publish-2.0.24.zip",
-                "reference": "2.0.24",
-                "shasum": "ba4640e61a4d1350a951ef35977cbf479cad9f24"
+                "url": "https://ftp.drupal.org/files/projects/moderated_content_bulk_publish-2.0.25.zip",
+                "reference": "2.0.25",
+                "shasum": "40472e272108c152f79e8034f7e998d5fd008616"
             },
             "require": {
                 "drupal/core": "^8.9 || ^9 || ^10",
@@ -8632,8 +8632,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.24",
-                    "datestamp": "1686871455",
+                    "version": "2.0.25",
+                    "datestamp": "1690941832",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -9407,17 +9407,17 @@
         },
         {
             "name": "drupal/safedelete",
-            "version": "1.0.42",
+            "version": "1.0.43",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/safedelete.git",
-                "reference": "1.0.42"
+                "reference": "1.0.43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/safedelete-1.0.42.zip",
-                "reference": "1.0.42",
-                "shasum": "f58897558caea016f82c4eedc0b87f3945924880"
+                "url": "https://ftp.drupal.org/files/projects/safedelete-1.0.43.zip",
+                "reference": "1.0.43",
+                "shasum": "d8dfea0677c6470c2243934a7d476834a9a290f3"
             },
             "require": {
                 "drupal/core": "^8 || ^9 || ^10",
@@ -9426,8 +9426,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.42",
-                    "datestamp": "1687294352",
+                    "version": "1.0.43",
+                    "datestamp": "1690918557",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -11494,6 +11494,119 @@
             }
         },
         {
+            "name": "drupal/webform_migrate",
+            "version": "dev-2.0.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/webform_migrate.git",
+                "reference": "6fb837f9e6a71db5b53b487864ad56e05c73515e"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9 || ^10",
+                "drupal/webform": "*",
+                "drupal/webform_node": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.0.x": "2.0.x-dev"
+                },
+                "drupal": {
+                    "version": "2.0.x-dev",
+                    "datestamp": "1690386778",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "andriyun",
+                    "homepage": "https://www.drupal.org/user/1277538"
+                },
+                {
+                    "name": "heshanlk",
+                    "homepage": "https://www.drupal.org/user/199102"
+                },
+                {
+                    "name": "jrockowitz",
+                    "homepage": "https://www.drupal.org/user/371407"
+                },
+                {
+                    "name": "Ruslan Piskarov",
+                    "homepage": "https://www.drupal.org/user/424444"
+                },
+                {
+                    "name": "sylus",
+                    "homepage": "https://www.drupal.org/user/339714"
+                }
+            ],
+            "description": "Migration routines from d6 & d7 webform to d8 webform",
+            "homepage": "https://www.drupal.org/project/webform_migrate",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/webform_migrate",
+                "issues": "http://drupal.org/project/issues/webform_migrate"
+            }
+        },
+        {
+            "name": "drupal/webform_node",
+            "version": "6.2.0-beta6",
+            "require": {
+                "drupal/core": "^9.4 || ^10",
+                "drupal/webform": "*"
+            },
+            "type": "metapackage",
+            "extra": {
+                "drupal": {
+                    "version": "6.2.0-beta6",
+                    "datestamp": "1686598812",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "DanChadwick",
+                    "homepage": "https://www.drupal.org/user/504278"
+                },
+                {
+                    "name": "jrockowitz",
+                    "homepage": "https://www.drupal.org/user/371407"
+                },
+                {
+                    "name": "Liam Morland",
+                    "homepage": "https://www.drupal.org/user/493050"
+                },
+                {
+                    "name": "quicksketch",
+                    "homepage": "https://www.drupal.org/user/35821"
+                },
+                {
+                    "name": "torotil",
+                    "homepage": "https://www.drupal.org/user/865256"
+                }
+            ],
+            "description": "Provides a Webform content type which allows webforms to be integrated into a website as nodes.",
+            "homepage": "https://www.drupal.org/project/webform",
+            "support": {
+                "source": "https://git.drupalcode.org/project/webform"
+            }
+        },
+        {
             "name": "drupal/webform_translation_permissions",
             "version": "2.0.0",
             "source": {
@@ -11999,12 +12112,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupalwxt/wxt.git",
-                "reference": "6f04906bb99993314f063ce8f7fd2cedd113b6b2"
+                "reference": "5099c1f0dce2a44ff564ddcb36c46b003765bec6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupalwxt/wxt/zipball/6f04906bb99993314f063ce8f7fd2cedd113b6b2",
-                "reference": "6f04906bb99993314f063ce8f7fd2cedd113b6b2",
+                "url": "https://api.github.com/repos/drupalwxt/wxt/zipball/5099c1f0dce2a44ff564ddcb36c46b003765bec6",
+                "reference": "5099c1f0dce2a44ff564ddcb36c46b003765bec6",
                 "shasum": ""
             },
             "require": {
@@ -12080,10 +12193,10 @@
                 "drupal/views_bootstrap": "5.3",
                 "drupal/views_infinite_scroll": "^2.0",
                 "drupal/webform": "^6.2.0-beta5",
+                "drupal/webform_migrate": "2.0.x-dev",
                 "drupal/wxt_bootstrap": "7.x-dev",
                 "drupal/wxt_library": "7.x-dev",
                 "drupaloverride/footnotes": "dev-389813a1",
-                "drupaloverride/webform_migrate": "dev-c5e4d9c3",
                 "ext-dom": "*",
                 "npm-asset/dropzone": "^5.7.4",
                 "phpdocumentor/reflection-docblock": "^5",
@@ -12152,7 +12265,6 @@
                         "Enter drupal/core patch #2559833 description here": "https://www.drupal.org/files/issues/2021-06-02/comment_form_redirect-2559833-87.patch",
                         "Enter drupal/core patch #2630732 description here": "https://www.drupal.org/files/issues/2023-05-15/D10x-implement_entity_fields_for_migration_dest-2630732-107.patch",
                         "2699157 - Plugin Lazy loading can cause usort warning": "https://www.drupal.org/files/issues/2020-06-22/2699157-38.drupal.Plugin-Lazy-loading-can-cause-usort-warning.patch",
-                        "Enter drupal/core patch #2715483 description here": "https://www.drupal.org/files/issues/2020-01-09/regression-2715483-22.patch",
                         "Enter drupal/core patch #2752443 description here": "https://www.drupal.org/files/issues/in_correct_order_and-2752443-1.patch",
                         "Enter drupal/core patch #2765297 description here": "https://www.drupal.org/files/issues/2021-03-19/taxonomy_translation_2765297_63.patch",
                         "Enter drupal/core patch #2816921 description here": "https://www.drupal.org/files/issues/user_password-2816921-2.patch",
@@ -12194,7 +12306,7 @@
                     "drupal/group": {
                         "Enter drupal/group patch #2817109 description here": "https://www.drupal.org/files/issues/2817109-by-rachel_norfolk-ericras-How-to-redir.patch",
                         "Enter drupal/group patch #2864721 description here": "https://www.drupal.org/files/issues/2020-07-30/group-translate_content_permission-2864721-20.patch",
-                        "Enter drupal/group patch #2895988 description here": "https://www.drupal.org/files/issues/2895988-4.patch",
+                        "Enter drupal/group patch #2895988 description here": "https://www.drupal.org/files/issues/2022-07-31/2895988-29.patch",
                         "Enter drupal/group patch #3367539 description here": "https://www.drupal.org/files/issues/2023-06-26/3367539--007-drupal-10-compatibility-group-1.x.patch"
                     },
                     "drupal/linkit": {
@@ -12209,7 +12321,11 @@
                     "drupal/paragraphs": {
                         "Enter drupal/paragraphs patch #2878615 description here": "https://www.drupal.org/files/issues/comments_entity_uri-2878615-6.patch"
                     },
+                    "drupal/password_policy": {
+                        "Enter drupal/paragraphs patch #3362201 description here": "https://www.drupal.org/files/issues/2023-05-23/password_policy-d10.patch"
+                    },
                     "drupal/panels": {
+                        "Enter drupal/panels patch #2849867 description here": "https://www.drupal.org/files/issues/2023-01-11/panels_custom_attributes_in_panels_blocks-2849867-92_0.patch",
                         "Enter drupal/panels patch #2667755 description here": "https://www.drupal.org/files/issues/bandaid.patch",
                         "Enter drupal/panels patch #2910704 description here": "https://www.drupal.org/files/issues/panels-ipe-card-flip-ie-error-2910704.diff"
                     },
@@ -12244,7 +12360,7 @@
                 "issues": "https://github.com/drupalwxt/wxt/issues",
                 "source": "https://github.com/drupalwxt/wxt/tree/5.0.x"
             },
-            "time": "2023-06-27T20:05:11+00:00"
+            "time": "2023-08-02T19:40:12+00:00"
         },
         {
             "name": "drush/drush",
