@@ -356,6 +356,10 @@
                 "3111107 - Use patch 10 instead of patch 2.":
                 "https://www.drupal.org/files/issues/2021-08-10/field_group_fix-translations_label_description_2021-08-10.patch"
             },
+            "drupal/password_policy": {
+                "3377970 - D10 compat fix, accessCheck must be called before entity query for all D10.":
+                "https://www.drupal.org/files/issues/2023-05-23/password_policy-d10.patch"
+            },
             "drupal/page_manager": {
                 "Enter drupal/page_manager patch #2752227 description here":
                 "https://www.drupal.org/files/issues/2018-07-05/page_manager-incorrect-page_title-2752227-32-8.x.4.x.patch",
@@ -557,7 +561,8 @@
         "wikimedia/composer-merge-plugin": "^2.1",
         "drupal/like_and_dislike": "^1.0@beta",
         "drupal/wxt_chart_stability": "^1.0@alpha",
-        "drupal/core": "10.0.10 as 10.0.9"
+        "drupal/core": "10.0.10 as 10.0.9",
+        "drupal/filehash_report": "^1.0@beta"
     },
     "autoload": {
         "classmap": [
