@@ -42,6 +42,7 @@ dependencies:
     - file
     - file_delete
     - file_replace
+    - filehash_report
     - filter
     - layout_builder
     - media
@@ -181,6 +182,7 @@ permissions:
   - 'edit terms in media_category'
   - 'edit terms in news_type'
   - 'edit webform source'
+  - 'filehash_report view file duplicates'
   - 'moderated content bulk archive'
   - 'moderated content bulk publish'
   - 'moderated content bulk unpublish'
