@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c1b435ee496d6fe99b2b7c75b88f8b3",
+    "content-hash": "70cc6521ec90eed8aa11bd6953f82679",
     "packages": [
         {
             "name": "agrcms/lightning",
@@ -6406,6 +6406,51 @@
                     "url": "https://www.patreon.com/mfb"
                 }
             ]
+        },
+        {
+            "name": "drupal/filehash_report",
+            "version": "1.0.0-beta4",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/filehash_report.git",
+                "reference": "1.0.0-beta4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/filehash_report-1.0.0-beta4.zip",
+                "reference": "1.0.0-beta4",
+                "shasum": "9fee684c14e00590cd2706a75098a7239c613713"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10",
+                "drupal/filehash": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.0-beta4",
+                    "datestamp": "1691170372",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "joseph.olstad",
+                    "homepage": "https://www.drupal.org/user/1321830"
+                }
+            ],
+            "description": "Original purpose is to provide a list of duplicate files.",
+            "homepage": "https://www.drupal.org/project/filehash_report",
+            "support": {
+                "source": "https://git.drupalcode.org/project/filehash_report"
+            }
         },
         {
             "name": "drupal/fontawesome",
@@ -19943,6 +19988,7 @@
         "drupal/ckeditor4_codemirror": 20,
         "drupal/like_and_dislike": 10,
         "drupal/wxt_chart_stability": 15,
+        "drupal/filehash_report": 10,
         "phpmd/phpmd": 0
     },
     "prefer-stable": true,
