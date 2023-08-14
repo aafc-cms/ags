@@ -760,7 +760,16 @@ div.alert.alert-success.access_unpublished span.glyphicon-copy::before {
   right: 0;
 }
 
-/* line 2, ../sass/pages/_blog.scss */
+/* line 4, ../sass/pages/_blog.scss */
+body.page-node-type-blog-post div.region.region-highlighted,
+body.blog-post div.region.region-highlighted {
+  margin-top: 10px;
+  margin-left: 15px;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+/* line 12, ../sass/pages/_blog.scss */
 div.vote-widget--like-and-dislike div.vote-dislike {
   display: none;
 }
