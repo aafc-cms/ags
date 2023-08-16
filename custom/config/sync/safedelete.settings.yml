@@ -1,20 +1,33 @@
+_core:
+  default_config_hash: fw3EOzS6vL5yxwXT8vzWpkI-N5aKCinQC1_Zu9WHJyY
 bundle:
-  empl: empl
-  landing_page: landing_page
-  news: news
-  page: page
+  blog_post: blog_post
+  dir_listing: 0
+  empl: 0
+  landing_page: 0
+  news: 0
+  page: 0
   webform: 0
 limit: '30'
 delete_button: 0
-_core:
-  default_config_hash: L5YS5KleA4l7qjDXcbqwDBDlKkWIhnPWkUuouKd8_Mo
-orphanedpagedefinition:
-  landing_page: landing_page
-  page: page
-  empl: 0
-  news: 0
-  webform: 0
-orphanedpagewithoutmenulink: landing_page
-exceptionofnodes: ''
 safearchive: true
+orphanedpagedefinition:
+  blog_post: blog_post
+  dir_listing: 0
+  empl: 0
+  landing_page: 0
+  news: 0
+  page: 0
+  webform: 0
+orphanedpagewithoutmenulink: blog_post
+exceptionofnodes: ''
 enforce_bulk_publish_verify_checkpagepublished: 1
+safeanchors: 1
+safebaseurl: ''
+safeenablebaseurl: 1
+safebaseurlother: 'https://example.ca/anglais'
+safeenableotherbaseurl: 1
+safebaseurlother2: 'https://example2.ca/francais'
+safeenableotherbaseurl2: 1
+safeenableprefix: 1
+safeprefix: /english-test
