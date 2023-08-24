@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "62e419e5aaf9c586ce6ea77d97b749dc",
+    "content-hash": "3ddfa86bf95102266f2172ef6c825873",
     "packages": [
         {
             "name": "agrcms/lightning",
@@ -9452,17 +9452,11 @@
         },
         {
             "name": "drupal/safedelete",
-            "version": "1.0.43",
+            "version": "dev-2.0.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/safedelete.git",
-                "reference": "1.0.43"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/safedelete-1.0.43.zip",
-                "reference": "1.0.43",
-                "shasum": "d8dfea0677c6470c2243934a7d476834a9a290f3"
+                "reference": "022820cb12444e114c73ef4ae184e11d8c4a0488"
             },
             "require": {
                 "drupal/core": "^8 || ^9 || ^10",
@@ -9470,12 +9464,15 @@
             },
             "type": "drupal-module",
             "extra": {
+                "branch-alias": {
+                    "dev-2.0.x": "2.0.x-dev"
+                },
                 "drupal": {
-                    "version": "1.0.43",
-                    "datestamp": "1690918557",
+                    "version": "2.0.x-dev",
+                    "datestamp": "1692889155",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -20080,6 +20077,12 @@
             "version": "10.0.10.0",
             "alias": "10.0.9",
             "alias_normalized": "10.0.9.0"
+        },
+        {
+            "package": "drupal/safedelete",
+            "version": "2.0.9999999.9999999-dev",
+            "alias": "1.43",
+            "alias_normalized": "1.43.0.0"
         },
         {
             "package": "wet-boew/wet-boew",
