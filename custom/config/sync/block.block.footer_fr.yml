@@ -8,11 +8,14 @@ dependencies:
     - block_class
     - language
     - menu_block
+    - wxt_ext_blocks
   theme:
     - grstheme_bootstrap
 third_party_settings:
   block_class:
-    classes: footer-francais
+    classes: 'footer-francais mrgn-tp-lg'
+  wxt_ext_blocks:
+    display_title_invisible: 0
 id: footer_fr
 theme: grstheme_bootstrap
 region: footer
@@ -26,13 +29,13 @@ settings:
   provider: menu_block
   follow: false
   follow_parent: child
+  label_link: false
+  label_type: block
   level: 1
   depth: 0
   expand_all_items: true
   parent: 'footer-fr:'
   suggestion: footer_fr
-  label_type: block
-  label_link: false
   custom_level: '1'
   hide_children: 0
   expand_only_active_trails: 0
