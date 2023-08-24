@@ -4,12 +4,15 @@ status: true
 dependencies:
   module:
     - block_class
+    - wxt_ext_blocks
     - wxt_library
   theme:
     - grstheme_bootstrap
 third_party_settings:
   block_class:
-    classes: col-md-12
+    classes: 'col-md-12 mrgn-bttm-sm'
+  wxt_ext_blocks:
+    display_title_invisible: 0
 _core:
   default_config_hash: 0tbnpDe4lDmzX8R-oZnej549njgAHBGcuaEqAsGHTZs
 id: grstheme_bootstrap_datemodifiedblock
