@@ -1965,10 +1965,17 @@ function agri_admin_form_views_exposed_form_alter(&$form, FormStateInterface $fo
     $input = $form_state->getUserInput();
     if (isset($input['moderation_state'])) {
       $key = $input['moderation_state'];
-      $key_label = $form['moderation_state']['#options'][$key];
-      if (($key !== 'draft') && (stripos($key_label, 'draft') === FALSE) && (stripos($key_label, 'brouillon') === FALSE)) {  // additional condition to handle grouped filters
-        $input['status'] = 'All';
-        $form_state->setUserInput($input);
+      // To fix issues introduced in Drupal 10.
+      if (!is_string($key)) {
+        $input['moderation_state'] = 'All';
+        $form_state->setUserInput($input);        
+      } else {
+        $key_label = $form['moderation_state']['#options'][$key];
+        // Including additional condition to handle grouped filters.
+        if (($key !== 'draft') && (stripos($key_label, 'draft') === FALSE) && (stripos($key_label, 'brouillon') === FALSE)) {
+          $input['status'] = 'All';
+          $form_state->setUserInput($input);
+        }
       }
     }
   }
