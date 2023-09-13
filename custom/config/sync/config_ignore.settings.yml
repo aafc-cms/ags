@@ -32,7 +32,7 @@ ignored_config_entities:
   - field.field.user.user.field_pending_expire_sent
   - field.field.user.user.field_password_expiration
   - field.field.user.user.field_last_password_reset
-  - swiftmailer.transport
+  - 'swiftmailer*'
   - smtp.settings
   - system.mail
   - system.menu.devel
