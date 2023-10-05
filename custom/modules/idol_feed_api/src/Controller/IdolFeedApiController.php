@@ -29,6 +29,7 @@ class IdolFeedApiController extends ControllerBase {
   public function getContent(Request $request) {
 
 
+    \Drupal::moduleHandler()->loadInclude('metatag', 'module');
     $requstURL = $request->getSchemeAndHttpHost();
 
     // Echo $requstURL . "\n";.
