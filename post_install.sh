@@ -351,14 +351,14 @@ fi
 
 echo "**** End behatags setup/verifications ****"
 
-drush status --field=Database > test-connection.txt || true; # Ignore errors.
+drush status --field=Database 2>/dev/null > test-connection.txt || true; # Ignore errors.
 
 if grep -q "Connected" test-connection.txt; then
   echo "";
   echo "Connected to the database, setting up the db views now.";
   #Run Create or Replace View sql command
-  echo  "Creating view: drush sql-query --file=../custom/dbviews/search_node_url.sql";
-                        drush sql-query --file=../custom/dbviews/search_node_url.sql;
+  echo  "Creating view: drush sql-query --file=../custom/dbviews/search_node_url.sql 2>/dev/null";
+                        drush sql-query --file=../custom/dbviews/search_node_url.sql 2>/dev/null;
 else
   echo "";
   echo "The database is not yet configured, cannot install the db views at this time.";
