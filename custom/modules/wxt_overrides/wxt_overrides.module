@@ -244,7 +244,6 @@ function wxt_overrides_page_attachments(array &$page) {
             ],
           ];
           unset($page['#attached']['html_head'][$key]);
-          $page['#attached']['html_head'][] = [$dctermstype, 'dcterms.type'];
         }
         if ($name == 'dcterms.subject') {
           $content = $value[0]['#attributes']['content'];
@@ -334,6 +333,17 @@ function wxt_overrides_page_attachments(array &$page) {
       ];
     }
 
+    if (!isset($dctermstype)) {
+      $dctermstype = [
+        '#tag' => 'meta',
+        '#attributes' => [
+          'name'  => 'dcterms.type',
+          'title'     => 'gctype',
+          'content'   => '',
+        ],
+      ];
+    }
+
     $dctermsissued = [
       '#tag' => 'meta',
       '#attributes' => [
@@ -355,6 +365,7 @@ function wxt_overrides_page_attachments(array &$page) {
     $page['#attached']['html_head'][] = [$dctermsissued, 'dcterms.issued'];
     $page['#attached']['html_head'][] = [$dctermsmodified, 'dcterms.modified'];
     $page['#attached']['html_head'][] = [$aafcsubject, 'aafc.subject'];
+    $page['#attached']['html_head'][] = [$dctermstype, 'dcterms.type'];
     $page['#attached']['html_head'][] = [$keywords, 'keywords'];
     $page['#attached']['html_head'][] = [$dctermsdescription, 'dcterms.description'];
   }
