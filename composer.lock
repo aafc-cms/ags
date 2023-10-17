@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0f9ba549a035364f76fa31699834a058",
+    "content-hash": "5ec9be4dceb51105b76bf4db9f50f505",
     "packages": [
         {
             "name": "agrcms/lightning",
@@ -11652,6 +11652,60 @@
             }
         },
         {
+            "name": "drupal/webform_revision_ui",
+            "version": "1.0.0-alpha3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/webform_revision_ui.git",
+                "reference": "1.0.0-alpha3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/webform_revision_ui-1.0.0-alpha3.zip",
+                "reference": "1.0.0-alpha3",
+                "shasum": "42df6b7b46f103091070e31e65118412a5c4a7dc"
+            },
+            "require": {
+                "drupal/config_revision": "*",
+                "drupal/core": "^8.8 || ^9 || ^10",
+                "drupal/webform": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.0-alpha3",
+                    "datestamp": "1689601235",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "jibran",
+                    "homepage": "https://www.drupal.org/user/1198144"
+                },
+                {
+                    "name": "mortim07",
+                    "homepage": "https://www.drupal.org/user/2951811"
+                },
+                {
+                    "name": "nterbogt",
+                    "homepage": "https://www.drupal.org/user/102218"
+                }
+            ],
+            "description": "Adds Webform Revision UI.",
+            "homepage": "https://www.drupal.org/project/webform_revision_ui",
+            "support": {
+                "source": "https://git.drupalcode.org/project/webform_revision_ui"
+            }
+        },
+        {
             "name": "drupal/webform_translation_permissions",
             "version": "2.0.0",
             "source": {
@@ -20106,6 +20160,7 @@
         "drupal/like_and_dislike": 10,
         "drupal/wxt_chart_stability": 15,
         "drupal/filehash_report": 10,
+        "drupal/webform_revision_ui": 15,
         "phpmd/phpmd": 0
     },
     "prefer-stable": true,

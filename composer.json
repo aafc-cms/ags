@@ -352,6 +352,9 @@
                 "core breadcrumb empty patch":
                 "build/core_breadcrumb_empty.patch"
             },
+            "drupal/webform_revision_ui": {
+                "3328890 - Only show revision tab to privileged roles": "https://git.drupalcode.org/project/webform_revision_ui/-/merge_requests/1.patch"
+            },
             "drupal/field_group": {
                 "3111107 - Use patch 10 instead of patch 2.":
                 "https://www.drupal.org/files/issues/2021-08-10/field_group_fix-translations_label_description_2021-08-10.patch"
@@ -565,7 +568,8 @@
         "drupal/wxt_chart_stability": "^1.0@alpha",
         "drupal/core": "10.0.11 as 10.0.9",
         "drupal/filehash_report": "^1.0@beta",
-        "drupal/safedelete": "^1.0.46"
+        "drupal/safedelete": "^1.0.46",
+        "drupal/webform_revision_ui": "^1.0@alpha"
     },
     "autoload": {
         "classmap": [
