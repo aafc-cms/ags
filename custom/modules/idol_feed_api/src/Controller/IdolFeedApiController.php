@@ -164,7 +164,9 @@ class IdolFeedApiController extends ControllerBase {
           $documentXml->addChild('AGRISOURCE_META_DESCRIPTION', $dcterms_description);
 
           $content = $node->get('body')->value;
-          $content = htmlentities($content, ENT_XML1, 'UTF-8');
+          if(!is_null($content)) {
+            $content = htmlentities($content, ENT_XML1, 'UTF-8');
+          }
           // $node->get('body')->value);
           $documentXml->addChild('CONTENT', $content);
           $documentXml->addChild('EXTERNALURL');
@@ -225,7 +227,7 @@ class IdolFeedApiController extends ControllerBase {
             }
             $documentXmlFr->addChild('AGRISOURCE_META_KEYWORDS', htmlspecialchars($keywords));
 
-            $targetIds = $node->get('field_meta_type')->getValue();
+            $targetIds = $trnode->get('field_meta_type')->getValue();
             $meta_types_fr = $this->getTermLablesByTargetIds($targetIds, "fr");
             if (is_null($meta_types_fr)) {
               $meta_types_fr = '';
@@ -239,7 +241,7 @@ class IdolFeedApiController extends ControllerBase {
             }
             $documentXmlFr->addChild('AGRISOURCE_META_SUBJECTS', $meta_subjects_fr);
 
-            $targetIds = $node->get('layout_selection')->getValue();
+            $targetIds = $trnode->get('layout_selection')->getValue();
             $meta_layout_fr = $this->getTermLablesByTargetIds($targetIds, "fr");
             if (is_null($meta_layout_fr)) {
               $meta_layout_fr = '';
@@ -249,7 +251,9 @@ class IdolFeedApiController extends ControllerBase {
             $documentXmlFr->addChild('AGRISOURCE_META_DESCRIPTION', $dcterms_description);
 
             $content = $trnode->get('body')->value;
-            $content = htmlentities($content, ENT_XML1, 'UTF-8');
+            if(!is_null($content)) {
+              $content = htmlentities($content, ENT_XML1, 'UTF-8');
+            }
 
             // $trnode->get('body')->value);
             $documentXmlFr->addChild('CONTENT', $content);
@@ -267,7 +271,6 @@ class IdolFeedApiController extends ControllerBase {
             }
 
           }
-
         }
       }
     }
