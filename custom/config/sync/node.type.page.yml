@@ -4,15 +4,27 @@ status: true
 dependencies:
   module:
     - menu_ui
+    - node_revision_delete
     - wxt_ext_workflow
 third_party_settings:
   menu_ui:
-    available_menus:
-      - main
-      - sidebar
-    parent: 'main:'
+    available_menus: {  }
+    parent: ''
   wxt_ext_workflow:
     workflow: editorial
+  node_revision_delete:
+    amount:
+      status: true
+      settings:
+        amount: 4
+    created:
+      status: true
+      settings:
+        age: 12
+    drafts:
+      status: false
+      settings:
+        age: 6
 _core:
   default_config_hash: nb_cPUs4dvoXeLvPMQYwg1oWcQ5-nE7TcwKGs_VsiHg
 name: 'Internal page'

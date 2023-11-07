@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eea6e54f30896d0b26d386e55be125c2",
+    "content-hash": "14398d3a2edfd5e10dad72af4c3e7c61",
     "packages": [
         {
             "name": "agrcms/lightning",
@@ -8810,29 +8810,29 @@
         },
         {
             "name": "drupal/node_revision_delete",
-            "version": "1.0.0-rc7",
+            "version": "2.0.0-alpha2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/node_revision_delete.git",
-                "reference": "8.x-1.0-rc7"
+                "reference": "2.0.0-alpha2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/node_revision_delete-8.x-1.0-rc7.zip",
-                "reference": "8.x-1.0-rc7",
-                "shasum": "e689fd6bc78afe2e26b7871ed4dc56d4dec3abd7"
+                "url": "https://ftp.drupal.org/files/projects/node_revision_delete-2.0.0-alpha2.zip",
+                "reference": "2.0.0-alpha2",
+                "shasum": "a20f21a97c306029ea709924b79a90d0ab91c925"
             },
             "require": {
-                "drupal/core": "^8.7.7 || ^9.0 || ^10"
+                "drupal/core": "^9.0 || ^10"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-rc7",
-                    "datestamp": "1698848506",
+                    "version": "2.0.0-alpha2",
+                    "datestamp": "1675696468",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
+                        "message": "Alpha releases are not covered by Drupal security advisories."
                     }
                 },
                 "drush": {
@@ -8865,12 +8865,14 @@
                     "role": "Maintainer"
                 },
                 {
-                    "name": "Robert Ngo",
-                    "homepage": "https://www.drupal.org/user/610230"
+                    "name": "Sean Blommaert (seanB)",
+                    "homepage": "https://www.drupal.org/u/seanB",
+                    "role": "Maintainer"
                 },
                 {
-                    "name": "seanB",
-                    "homepage": "https://www.drupal.org/user/545912"
+                    "name": "Pravin Gaikwad (Rajeshreeputra)",
+                    "homepage": "https://www.drupal.org/u/rajeshreeputra",
+                    "role": "Maintainer"
                 }
             ],
             "description": "Track and prune node revisions.",
@@ -20238,7 +20240,6 @@
         "drupal/wxt_chart_stability": 15,
         "drupal/filehash_report": 10,
         "drupal/webform_revision_ui": 15,
-        "drupal/node_revision_delete": 5,
         "phpmd/phpmd": 0
     },
     "prefer-stable": true,
