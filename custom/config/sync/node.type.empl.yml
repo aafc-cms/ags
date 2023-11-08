@@ -4,10 +4,24 @@ status: true
 dependencies:
   module:
     - menu_ui
+    - node_revision_delete
 third_party_settings:
   menu_ui:
     available_menus: {  }
     parent: ''
+  node_revision_delete:
+    amount:
+      status: true
+      settings:
+        amount: 4
+    created:
+      status: true
+      settings:
+        age: 12
+    drafts:
+      status: false
+      settings:
+        age: 6
 name: 'Employment Opportunity'
 type: empl
 description: ''

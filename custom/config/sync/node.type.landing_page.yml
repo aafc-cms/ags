@@ -4,12 +4,26 @@ status: true
 dependencies:
   module:
     - menu_ui
+    - node_revision_delete
 third_party_settings:
   menu_ui:
     available_menus:
       - main
       - sidebar
     parent: 'main:'
+  node_revision_delete:
+    amount:
+      status: true
+      settings:
+        amount: 4
+    created:
+      status: true
+      settings:
+        age: 12
+    drafts:
+      status: false
+      settings:
+        age: 6
 _core:
   default_config_hash: xlTWG4pV3t2m1ZaLCAYtWU2567ndN8QNggg1iLbSL8I
 name: 'Landing page'
