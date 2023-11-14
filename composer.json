@@ -382,7 +382,9 @@
             },
             "drupal/safedelete": {
                 "3320470 - Allow override of the bulk operation validation with a checkbox":
-                "https://www.drupal.org/files/issues/2022-12-02/make-bulk-publish-verification-configurable-3320470-06.patch"
+                "https://www.drupal.org/files/issues/2022-12-02/make-bulk-publish-verification-configurable-3320470-06.patch",
+		"Fix for Call to member function __toString() on null in safedelete/src/AdminHelper.php ":
+		"build/safedelete_test_patch.patch"
             },
             "drupal/votingapi": {
                 "3341513 - D10": "https://git.drupalcode.org/project/votingapi/-/merge_requests/5.diff",
@@ -391,6 +393,13 @@
             "drupalwxt/wxt": {
                 "Allow split of password policy":
                 "build/wxt_split_password_policy.patch"
+            },
+	    "drupal/node_revision_delete": {
+		"3321626 - Log revision deletion in crons":
+	        "https://www.drupal.org/files/issues/2023-06-30/node_revision_delete-log_revision_deletion-3321626-5.patch"	
+	    },
+            "drupal/ultimate_cron": {
+                "3094120 - Recognize OO+ crons, ultimate cron jobs": "https://www.drupal.org/files/issues/2020-03-17/3094120-5.patch"
             }
         },
         "patches-ignore": {
