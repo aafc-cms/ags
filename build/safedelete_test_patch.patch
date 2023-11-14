@@ -1,0 +1,14 @@
+diff --git a/src/AdminHelper.php b/src/AdminHelper.php
+index aabf5d5..e70ebd0 100644
+--- a/src/AdminHelper.php
++++ b/src/AdminHelper.php
+@@ -961,6 +961,9 @@ EOT;
+       }
+       $anchor = $hrefpath . '</a>';
+       $xmlEl = simplexml_load_string($anchor);
++      if (!isset($xmlEl->attributes()->{'href'})) {
++        continue;
++      }
+       $hrefvalue = $xmlEl->attributes()->{'href'}->__toString();
+       $uuid = $xmlEl->attributes()->{'data-entity-uuid'};
+       if (!is_null($uuid)) {
