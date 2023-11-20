@@ -5,7 +5,8 @@
   <button  style="position: inherit; float: left;" id="reload-button" class="bulletin-button reload-button">Refresh News Bulletin</button>
 </div>
 <div>
-  <button  style="position: inherit; float: right;" target="_news_email" onclick="this.form.target='_news_email';return true;" id="email-button" class="bulletin-button button">News Bulletin Email</button>
+  <button  style="position: inherit; float: right;" target="_news_email" onclick="this.form.target='_news_email';return true;" id="email-button" class="bulletin-button button">News Bulletin Email Preview</button>
+    <button  style="position: inherit; float: right;" target="_news_email" onclick="newsEmail();" id="email-view-source" class="bulletin-button button view-source">News Bulletin Email View Source</button>
 </div>
 {% set nth_run = 0 %}
 {% set n_idx = 0 %}
@@ -58,5 +59,11 @@
 
 
 <script>
+form=document.getElementById("someForm");
+function newsEmail() {
+    form.action="view-source:" + window.location.origin + "/en/news-bulletin-email";
+    form.submit();
+}
 
+ 
 </script>
