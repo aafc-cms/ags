@@ -1,0 +1,53 @@
+diff --git a/custom/modules/news_bulletin/src/Controller/NewsBulletinEmailController.php b/custom/modules/news_bulletin/src/Controller/NewsBulletinEmailController.php
+index 1e4e6ff2..544a2e99 100644
+--- a/custom/modules/news_bulletin/src/Controller/NewsBulletinEmailController.php
++++ b/custom/modules/news_bulletin/src/Controller/NewsBulletinEmailController.php
+@@ -107,6 +107,16 @@ public function getNewsNids() {
+   public function content() {
+     $request = \Drupal::request();
+     $referer = $request->headers->get('referer');
++    $cookie = FALSE;
++    if (isset($_COOKIE['news_page_scope'])) {
++      $cookie = 'value:' . $_COOKIE['news_page_scope'];
++    }
++    if (isset($referer) && strpos($cookie, 'work-bulletin')) {
++      $referer = $referer ?? $cookie;
++    }
++    else {
++      $referer = $cookie;
++    }
+     if (isset($referer) && strpos($referer, 'outside-ncr') == FALSE) {
+       return [
+         '#theme' => 'news_bulletin_email',
+diff --git a/custom/modules/news_bulletin/templates/news-bulletin.html.twig b/custom/modules/news_bulletin/templates/news-bulletin.html.twig
+index 6d168c15..87392bcd 100644
+--- a/custom/modules/news_bulletin/templates/news-bulletin.html.twig
++++ b/custom/modules/news_bulletin/templates/news-bulletin.html.twig
+@@ -5,7 +5,7 @@
+   <button  style="position: inherit; float: left;" id="reload-button" class="bulletin-button reload-button">Refresh News Bulletin</button>
+ </div>
+ <div>
+-  <button  style="position: inherit; float: right;" target="_news_email" onclick="this.form.target='_news_email';return true;" id="email-button" class="bulletin-button button">News Bulletin Email</button>
++  <button  style="position: inherit; float: right;" target="_news_email" onclick="newsEmail();this.form.target='_news_email';return true;" id="email-button" class="bulletin-button button">News Bulletin Email Preview</button>
+ </div>
+ {% set nth_run = 0 %}
+ {% set n_idx = 0 %}
+@@ -58,5 +58,18 @@
+ 
+ 
+ <script>
++function newsEmail() {
++  // Check if outside-ncr.
++  var this_url = document.location.href;
++  var now = new Date();
++  now.setMonth( now.getMonth() + 1 );
++  if (this_url.includes('outside-ncr')) {
++    document.cookie = "news_page_scope=outside-ncr;expires=" + now.toUTCString() + ";";
++  }
++  else {
++    document.cookie = "news_page_scope=ncr-only;expires=" + now.toUTCString() + ";";
++  }
++}
++
+ 
+ </script>
