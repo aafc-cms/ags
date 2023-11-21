@@ -107,6 +107,16 @@ class NewsBulletinEmailController extends ControllerBase {
   public function content() {
     $request = \Drupal::request();
     $referer = $request->headers->get('referer');
+    $cookie = FALSE;
+    if (isset($_COOKIE['news_page_scope'])) {
+      $cookie = 'value:' . $_COOKIE['news_page_scope'];
+    }
+    if (isset($referer) && strpos($cookie, 'work-bulletin')) {
+      $referer = $referer ?? $cookie;
+    }
+    else {
+      $referer = $cookie;
+    }
     if (isset($referer) && strpos($referer, 'outside-ncr') == FALSE) {
       return [
         '#theme' => 'news_bulletin_email',

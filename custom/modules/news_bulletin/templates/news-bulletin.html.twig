@@ -6,7 +6,6 @@
 </div>
 <div>
   <button  style="position: inherit; float: right;" target="_news_email" onclick="this.form.target='_news_email';return true;" id="email-button" class="bulletin-button button">News Bulletin Email Preview</button>
-    <button  style="position: inherit; float: right;" target="_news_email" onclick="newsEmail();" id="email-view-source" class="bulletin-button button view-source">News Bulletin Email View Source</button>
 </div>
 {% set nth_run = 0 %}
 {% set n_idx = 0 %}
@@ -59,10 +58,17 @@
 
 
 <script>
-form=document.getElementById("news-bulletin-form-1");
 function newsEmail() {
-    form.action="view-source:" + window.location.origin + "/en/news-bulletin-email";
-    form.submit();
+  // Check if outside-ncr.
+  var this_url = document.location.href;
+  var now = new Date();  
+  now.setMonth( now.getMonth() + 1 );
+  if (this_url.includes('outside-ncr')) {
+    document.cookie = "news_page_scope=outside-ncr;expires=" + now.toUTCString() + ";";
+  }
+  else {
+    document.cookie = "news_page_scope=ncr-only;expires=" + now.toUTCString() + ";";
+  }
 }
 
  
