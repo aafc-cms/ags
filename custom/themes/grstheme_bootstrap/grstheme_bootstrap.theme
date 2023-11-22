@@ -144,11 +144,18 @@ function grstheme_bootstrap_preprocess_html(&$variables) {
 
   }
   // End of logic to grab moderation state and add it to the body class for styling.
+
+  // Begin logic to determine whether to use Adobe Analytics prod vs. staging script.
   
   $host = \Drupal::request()->getHost();
+  $path = \Drupal::request()->getUri();
   $prod = FALSE;
   if (stripos($host, 'wip') > 0 || stripos($host, 'grisource.agr.gc.ca') > 0) {
     $prod = TRUE;
+  }
+  // Logic to keep Adobe Analytics Prod script off of Drupal login and password reset pages
+  if (stripos($path, 'user/login') > 0 || stripos($path, 'user/password') > 0) {
+    $prod = FALSE;
   }
   // Adobe Analytics JS library.
   if (\Drupal::currentUser()->isAnonymous() && $prod) {
