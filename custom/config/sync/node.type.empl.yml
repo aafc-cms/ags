@@ -11,15 +11,19 @@ third_party_settings:
     parent: ''
   node_revision_delete:
     amount:
-      status: true
+      status: false
       settings:
         amount: 4
     created:
-      status: true
+      status: false
       settings:
         age: 12
     drafts:
       status: false
+      settings:
+        age: 6
+    only_drafts:
+      status: true
       settings:
         age: 6
 name: 'Employment Opportunity'
