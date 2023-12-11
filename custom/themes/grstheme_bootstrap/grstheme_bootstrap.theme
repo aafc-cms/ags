@@ -21,6 +21,7 @@ function grstheme_bootstrap_preprocess_field__node__field_from__news(&$variables
     $variables['label'] = 'Sent by:';
   }
 }
+
 function grstheme_bootstrap_preprocess_field__node__field_to__news(&$variables) {
   $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $variables['language'] = $langId;
@@ -33,6 +34,7 @@ function grstheme_bootstrap_preprocess_field__node__field_to__news(&$variables) 
     $variables['label'] = 'To:';
   }
 }
+
 function grstheme_bootstrap_preprocess_field__node__field_posted__news(&$variables) {
   $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $variables['language'] = $langId;
