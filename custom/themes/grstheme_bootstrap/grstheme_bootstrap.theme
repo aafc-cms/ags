@@ -176,6 +176,8 @@ function grstheme_bootstrap_preprocess_field(&$variables, $hook) {
     $block = \Drupal\agri_admin\UtilsBlock::getRendered('employment_classification_groups');
     $variables['empl_classification_block'] = $block;
   }
+  $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $variables['language'] = $langId;
 }
 
 
