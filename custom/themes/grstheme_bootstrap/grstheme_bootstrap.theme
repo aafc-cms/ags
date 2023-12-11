@@ -9,6 +9,43 @@ use Drupal\agri_admin\Utils;
  * Place your custom PHP code in this file.
  */
 
+function grstheme_bootstrap_preprocess_field__node__field_from__news(&$variables) {
+  $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $variables['language'] = $langId;
+  $label = trim($variables['label']);
+  $label = strtolower($label);
+  if ($langId == 'fr' && $label == 'sent by:') {
+    $variables['label'] = 'De :';
+  }
+  if ($langId == 'en' && $variables['label'] == 'De :') {
+    $variables['label'] = 'Sent by:';
+  }
+}
+function grstheme_bootstrap_preprocess_field__node__field_to__news(&$variables) {
+  $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $variables['language'] = $langId;
+  $label = trim($variables['label']);
+  $label = strtolower($label);
+  if ($langId == 'fr' && $label == 'to:') {
+    $variables['label'] = 'À :';
+  }
+  if ($langId == 'en' && $variables['label'] == 'À :') {
+    $variables['label'] = 'To:';
+  }
+}
+function grstheme_bootstrap_preprocess_field__node__field_posted__news(&$variables) {
+  $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $variables['language'] = $langId;
+  $label = trim($variables['label']);
+  $label = strtolower($label);
+  if ($langId == 'fr' && $label == 'date posted:') {
+    $variables['label'] = "Date d'affichage :";
+  }
+  if ($langId == 'en' && $variables['label'] == "Date d'affichage :") {
+    $variables['label'] = 'Date posted:';
+  }
+}
+
 function grstheme_bootstrap_preprocess_html(&$variables) {
   $route_match = Utils::getRouteName();
   if ($route_match == 'email_template.content') {
@@ -176,8 +213,6 @@ function grstheme_bootstrap_preprocess_field(&$variables, $hook) {
     $block = \Drupal\agri_admin\UtilsBlock::getRendered('employment_classification_groups');
     $variables['empl_classification_block'] = $block;
   }
-  $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
-  $variables['language'] = $langId;
 }
 
 
