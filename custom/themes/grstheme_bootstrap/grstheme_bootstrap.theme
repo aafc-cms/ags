@@ -12,12 +12,10 @@ use Drupal\agri_admin\Utils;
 function grstheme_bootstrap_preprocess_field__node__field_from__news(&$variables) {
   $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $variables['language'] = $langId;
-  $label = trim($variables['label']);
-  $label = strtolower($label);
-  if ($langId == 'fr' && $label == 'sent by:') {
+  if ($langId == 'fr') {
     $variables['label'] = 'De :';
   }
-  if ($langId == 'en' && $variables['label'] == 'De :') {
+  if ($langId == 'en') {
     $variables['label'] = 'Sent by:';
   }
 }
@@ -25,12 +23,10 @@ function grstheme_bootstrap_preprocess_field__node__field_from__news(&$variables
 function grstheme_bootstrap_preprocess_field__node__field_to__news(&$variables) {
   $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $variables['language'] = $langId;
-  $label = trim($variables['label']);
-  $label = strtolower($label);
-  if ($langId == 'fr' && $label == 'to:') {
+  if ($langId == 'fr') {
     $variables['label'] = 'À :';
   }
-  if ($langId == 'en' && $variables['label'] == 'À :') {
+  if ($langId == 'en') {
     $variables['label'] = 'To:';
   }
 }
@@ -38,12 +34,10 @@ function grstheme_bootstrap_preprocess_field__node__field_to__news(&$variables) 
 function grstheme_bootstrap_preprocess_field__node__field_posted__news(&$variables) {
   $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $variables['language'] = $langId;
-  $label = trim($variables['label']);
-  $label = strtolower($label);
-  if ($langId == 'fr' && $label == 'date posted:') {
+  if ($langId == 'fr') {
     $variables['label'] = "Date d'affichage :";
   }
-  if ($langId == 'en' && $variables['label'] == "Date d'affichage :") {
+  if ($langId == 'en') {
     $variables['label'] = 'Date posted:';
   }
 }
