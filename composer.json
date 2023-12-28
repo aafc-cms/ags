@@ -386,9 +386,7 @@
             },
             "drupal/safedelete": {
                 "3320470 - Allow override of the bulk operation validation with a checkbox":
-                "https://www.drupal.org/files/issues/2022-12-02/make-bulk-publish-verification-configurable-3320470-06.patch",
-		"Fix for Call to member function __toString() on null in safedelete/src/AdminHelper.php ":
-		"build/safedelete_test_patch.patch"
+                "https://www.drupal.org/files/issues/2022-12-02/make-bulk-publish-verification-configurable-3320470-06.patch"
             },
             "drupal/votingapi": {
                 "3341513 - D10": "https://git.drupalcode.org/project/votingapi/-/merge_requests/5.diff",
@@ -580,7 +578,8 @@
         "drupal/filehash_report": "^1.0@beta",
         "drupal/safedelete": "^1.0.46",
         "drupal/webform_revision_ui": "^1.0@alpha",
-        "drupal/node_revision_delete": "^2"
+        "drupal/node_revision_delete": "^2",
+        "drupal/tranc": "^1.0"
     },
     "autoload": {
         "classmap": [
