@@ -7,17 +7,21 @@ defaults:
 modules:
   swiftmailer:
     none:
-      sender: swiftmailer
-      formatter: swiftmailer
+      sender: symfony_mailer_lite
+      formatter: symfony_mailer_lite
   content_moderation_notifications:
     none:
-      sender: swiftmailer
-      formatter: swiftmailer
+      sender: symfony_mailer_lite
+      formatter: symfony_mailer_lite
   webform:
     none:
-      sender: swiftmailer
-      formatter: swiftmailer
+      sender: symfony_mailer_lite
+      formatter: symfony_mailer_lite
   user:
     none:
-      sender: swiftmailer
-      formatter: swiftmailer
+      sender: symfony_mailer_lite
+      formatter: symfony_mailer_lite
+  symfony_mailer_lite:
+    none:
+      sender: symfony_mailer_lite
+      formatter: symfony_mailer_lite
