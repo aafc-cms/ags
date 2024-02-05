@@ -1127,4 +1127,19 @@ class AgriAdminHelper {
     return FALSE;
   }
 
+
+  public static function getHashTableName() {
+    $tablename = 'bogus';
+    $database = \Drupal::database();
+    if ($database->schema()->tableExists('filehash') &&
+    $database->schema()->fieldExists('filehash', 'sha256')) {
+      $tablename = 'filehash';
+    }
+    else if ($database->schema()->tableExists('file_managed') &&
+    $database->schema()->fieldExists('file_managed', 'sha256')) {
+      $tablename = 'file_managed';
+    }
+    return $tablename;
+  }
+
 }
