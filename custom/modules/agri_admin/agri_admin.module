@@ -1998,9 +1998,10 @@ function agri_admin_validate_dedupe_warning(FileInterface $file) {
   $warning = '';
   $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
   if (!$file->id()) {
+    $tablename = AgriAdminHelper::getHashTableName();
     foreach (agri_admin_algos() as $algo) {
-      $query = \Drupal::database()->select('filehash');
-      $query->addField('filehash', 'fid');
+      $query = \Drupal::database()->select('{' . $tablename . '}');
+      $query->addField('{' . $tablename . '}', 'fid');
       $query->condition($algo, $file->filehash[$algo]);
       $query->range(0, 1);
 
