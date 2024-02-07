@@ -63,12 +63,20 @@ function wxt_overrides_page_attachments(array &$page) {
   }
   $langId = \Drupal::languageManager()->getCurrentLanguage()->getId();
   // Add page meta.
+  foreach ($metatags_module_head as $key => $value) {
+    if (isset($value[0]['#attributes']['name'])) {
+      $name = $value[0]['#attributes']['name'];
+      if ($name == 'dcterms.language') {
+        unset($page['#attached']['html_head'][$key]);
+      }
+    }
+  }
 
   $dctermsaccessRights = [
     '#tag' => 'meta',
     '#attributes' => [
       'name'  => 'dcterms.accessRights',
-      'content'   => '2',
+      'content'   => '3',
     ],
   ];
 
@@ -182,6 +190,7 @@ function wxt_overrides_page_attachments(array &$page) {
         $name = $value[0]['#attributes']['name'];
         if ($name == 'dcterms.language') {
           unset($page['#attached']['html_head'][$key]);
+          $page['#attached']['html_head'][] = [$dctermslanguage, 'dcterms.language'];
         }
         if ($name == 'dcterms.description') {
           $summary = $value[0]['#attributes']['content'];
