@@ -6,6 +6,8 @@ id: dev
 label: dev
 description: 'dev environment settings.'
 weight: 0
+stackable: false
+no_patching: false
 storage: folder
 folder: modules/custom/config/splits/dev
 module:

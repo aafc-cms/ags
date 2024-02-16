@@ -1,0 +1,27 @@
+_core:
+  default_config_hash: IhwTepsVwtbtbcT5GzQKhCXDCRvbk3MNkWqPiuiZ10s
+theme: current
+defaults:
+  sender: php_mail
+  formatter: php_mail
+modules:
+  swiftmailer:
+    none:
+      sender: symfony_mailer_lite
+      formatter: symfony_mailer_lite
+  content_moderation_notifications:
+    none:
+      sender: symfony_mailer_lite
+      formatter: symfony_mailer_lite
+  webform:
+    none:
+      sender: symfony_mailer_lite
+      formatter: symfony_mailer_lite
+  user:
+    none:
+      sender: symfony_mailer_lite
+      formatter: symfony_mailer_lite
+  symfony_mailer_lite:
+    none:
+      sender: symfony_mailer_lite
+      formatter: symfony_mailer_lite

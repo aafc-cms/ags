@@ -24,6 +24,7 @@ dependencies:
     - access_unpublished
     - agri_admin
     - block
+    - block_content
     - comment
     - contact
     - content_moderation
@@ -61,6 +62,7 @@ is_admin: null
 permissions:
   - 'access 403 page'
   - 'access administration pages'
+  - 'access block library'
   - 'access comments'
   - 'access content overview'
   - 'access contextual links'
@@ -87,6 +89,8 @@ permissions:
   - 'access_unpublished node page'
   - 'access_unpublished node webform'
   - 'access_unpublished taxonomy_term category'
+  - 'administer block content'
+  - 'administer block types'
   - 'administer blocks'
   - 'administer footer menu items'
   - 'administer footer-fr menu items'
@@ -97,6 +101,7 @@ permissions:
   - 'agrisource pending drafts'
   - 'create url aliases'
   - 'delete files'
+  - 'delete own files'
   - 'delete token'
   - 'dropzone upload files'
   - 'edit any audio_file media'

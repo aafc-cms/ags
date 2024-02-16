@@ -253,3 +253,9 @@ filters:
     settings:
       clean: '<td>&nbsp;</td>'
       desired: '<td></td>'
+  filter_image_lazy_load:
+    id: filter_image_lazy_load
+    provider: filter
+    status: true
+    weight: -45
+    settings: {  }

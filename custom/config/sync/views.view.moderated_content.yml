@@ -483,6 +483,15 @@ display:
             date_format: medium
             custom_date_format: ''
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -493,10 +502,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_peer_review-revision_id:
-          id: field_peer_review-revision_id
+        field_peer_review__revision_id:
+          id: field_peer_review__revision_id
           table: node_revision__field_peer_review
-          field: field_peer_review-revision_id
+          field: field_peer_review__revision_id
           relationship: none
           group_type: group
           admin_label: ''
@@ -555,10 +564,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_tracking_number-revision_id:
-          id: field_tracking_number-revision_id
+        field_tracking_number__revision_id:
+          id: field_tracking_number__revision_id
           table: node_revision__field_tracking_number
-          field: field_tracking_number-revision_id
+          field: field_tracking_number__revision_id
           relationship: none
           group_type: group
           admin_label: ''
@@ -1201,6 +1210,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+          accept_null: false
         field_peer_review_value:
           id: field_peer_review_value
           table: node_revision__field_peer_review
