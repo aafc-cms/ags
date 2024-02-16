@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "84dd2f6f8f2b3beffc365a86575febc5",
+    "content-hash": "dd5657590e808515c4d697b215b0724d",
     "packages": [
         {
             "name": "agrcms/agri_admin",
-            "version": "dev-drupal10x1x8_upgrade",
+            "version": "dev-agrcms/d8#839_wxt5x1x1_upgrade",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/agri_admin",
@@ -24,7 +24,7 @@
         },
         {
             "name": "agrcms/agri_reports",
-            "version": "dev-drupal10x1x8_upgrade",
+            "version": "dev-agrcms/d8#839_wxt5x1x1_upgrade",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/agri_reports",
@@ -40,7 +40,7 @@
         },
         {
             "name": "agrcms/config",
-            "version": "dev-drupal10x1x8_upgrade",
+            "version": "dev-agrcms/d8#839_wxt5x1x1_upgrade",
             "dist": {
                 "type": "path",
                 "url": "custom/config",
@@ -56,7 +56,7 @@
         },
         {
             "name": "agrcms/grstheme_bootstrap",
-            "version": "dev-drupal10x1x8_upgrade",
+            "version": "dev-agrcms/d8#839_wxt5x1x1_upgrade",
             "dist": {
                 "type": "path",
                 "url": "custom/themes/grstheme_bootstrap",
@@ -76,7 +76,7 @@
         },
         {
             "name": "agrcms/linkchecks",
-            "version": "dev-drupal10x1x8_upgrade",
+            "version": "dev-agrcms/d8#839_wxt5x1x1_upgrade",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/linkchecks",
@@ -92,7 +92,7 @@
         },
         {
             "name": "agrcms/news_bulletin",
-            "version": "dev-drupal10x1x8_upgrade",
+            "version": "dev-agrcms/d8#839_wxt5x1x1_upgrade",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/news_bulletin",
@@ -108,7 +108,7 @@
         },
         {
             "name": "agrcms/news_empl",
-            "version": "dev-drupal10x1x8_upgrade",
+            "version": "dev-agrcms/d8#839_wxt5x1x1_upgrade",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/news_empl",
@@ -124,7 +124,7 @@
         },
         {
             "name": "agrcms/prefer_latest_content",
-            "version": "dev-drupal10x1x8_upgrade",
+            "version": "dev-agrcms/d8#839_wxt5x1x1_upgrade",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/prefer_latest_content",
@@ -140,7 +140,7 @@
         },
         {
             "name": "agrcms/wxt_overrides",
-            "version": "dev-drupal10x1x8_upgrade",
+            "version": "dev-agrcms/d8#839_wxt5x1x1_upgrade",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/wxt_overrides",
@@ -5649,29 +5649,34 @@
         },
         {
             "name": "drupal/entity_translation_unified_form",
-            "version": "2.0.0-rc6",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/entity_translation_unified_form.git",
-                "reference": "2.0.0-rc6"
+                "reference": "2.0.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/entity_translation_unified_form-2.0.0-rc6.zip",
-                "reference": "2.0.0-rc6",
-                "shasum": "7325d5608096e23bbadb16c38574282cf0618731"
+                "url": "https://ftp.drupal.org/files/projects/entity_translation_unified_form-2.0.3.zip",
+                "reference": "2.0.3",
+                "shasum": "0609981133e42e279c55584d9eabb0c441df7cba"
             },
             "require": {
-                "drupal/core": "^8 || ^9 || ^10"
+                "drupal/core": "^9.3 || ^10"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.0-rc6",
-                    "datestamp": "1684307438",
+                    "version": "2.0.3",
+                    "datestamp": "1704592766",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": ">=9"
                     }
                 }
             },
@@ -5681,18 +5686,28 @@
             ],
             "authors": [
                 {
-                    "name": "bzaher",
-                    "homepage": "https://www.drupal.org/user/3362354"
+                    "name": "Barry Zaher (bzaher)",
+                    "homepage": "https://www.drupal.org/u/bzaher",
+                    "role": "Maintainer"
                 },
                 {
-                    "name": "joseph.olstad",
-                    "homepage": "https://www.drupal.org/user/1321830"
+                    "name": "Joseph Olstad (joseph.olstad)",
+                    "homepage": "https://www.drupal.org/u/joseph.olstad",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://www.drupal.org/node/2922215/committers",
+                    "role": "Contributor"
                 }
             ],
-            "description": "Places all entity-translatable fields inline in a single form",
-            "homepage": "https://www.drupal.org/project/entity_translation_unified_form",
+            "description": "Enables the creation of two or more languages of content with one save submission with optional side-by-side mode.",
+            "homepage": "https://drupal.org/project/entity_translation_unified_form",
             "support": {
-                "source": "https://git.drupalcode.org/project/entity_translation_unified_form"
+                "source": "https://git.drupalcode.org/project/entity_translation_unified_form",
+                "issues": "https://www.drupal.org/project/issues/entity_translation_unified_form?version=2.0.x-dev",
+                "docs": "https://www.drupal.org/project/entity_translation_unified_form",
+                "forum": "https://drupal.stackexchange.com/questions/tagged/entity_translation_unified_form"
             }
         },
         {
@@ -13731,7 +13746,7 @@
         },
         {
             "name": "junhuang/idol_feed_api",
-            "version": "dev-drupal10x1x8_upgrade",
+            "version": "dev-agrcms/d8#839_wxt5x1x1_upgrade",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/idol_feed_api",
