@@ -53,18 +53,20 @@ var MenuNavigation = function() {
       '<input type="checkbox" class="form-boolean--type-checkbox form-checkbox form-boolean" id="menu-disabled-links-switch" name="menu-disabled-links-switch" value="enabled" checked>' +
       '<label for="menu-disabled-links-switch" class="show-disabled form-item__label"> ' + Drupal.t('Hide disabled items') + '</label>' +
       '</form>';
-      $('#edit-menu-parent--description').first().append(disabledMenuLinkHtml);
-      $('#edit-menu-parent option').each(function(index, element) {
-        var aiguille = MenuNavigation.lang == 'en' ? 'disabled)' : 'désactivé)';
-        if (~$(element).text().indexOf(aiguille)) {
-          $(element).hide();
-        }
-      });
-      $("#menu-disabled-links-form").show();
-      $("#menu-disabled-links-switch").click(function(e) {
-        MenuNavigation.handleClickEvent(e);
-      });
-      $("#menu-disabled-links-form").show();
+      if ($('#menu-disabled-links-form').length < 1) {
+        $('#edit-menu-parent--description').first().append(disabledMenuLinkHtml);
+        $('#edit-menu-parent option').each(function(index, element) {
+          var aiguille = MenuNavigation.lang == 'en' ? 'disabled)' : 'désactivé)';
+          if (~$(element).text().indexOf(aiguille)) {
+            $(element).hide();
+          }
+        });
+        $("#menu-disabled-links-form").show();
+        $("#menu-disabled-links-switch").click(function(e) {
+          MenuNavigation.handleClickEvent(e);
+        });
+        $("#menu-disabled-links-form").show();
+      }
     }
     else {
       console.log('agri_admin/js/menu-navigation.js element with class menu-link-content-form  not found');
