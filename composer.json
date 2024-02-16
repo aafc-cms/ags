@@ -68,135 +68,8 @@
             "url": "custom/themes/grstheme_bootstrap"
         },
         {
-          "type": "path",
-          "url": "custom/modules/lightning"
-        },
-        {
-          "type": "path",
-          "url": "custom/modules/lightning_install",
-          "options": {
-            "symlink": true
-          }
-        },
-        {
-            "type": "path",
-            "url": "custom/modules/lightning_banner_block"
-        },
-        {
-            "type": "path",
-            "url": "custom/modules/lightning_core"
-        },
-        {
-            "type": "path",
-            "url": "custom/modules/lightning_landing_page"
-        },
-        {
-            "type": "path",
-            "url": "custom/modules/lightning_layout"
-        },
-        {
-            "type": "path",
-            "url": "custom/modules/lightning_map_block"
-        },
-        {
-            "type": "path",
-            "url": "custom/modules/lightning_media"
-        },
-        {
-            "type": "path",
-            "url": "custom/modules/lightning_media_audio"
-        },
-        {
-            "type": "path",
-            "url": "custom/modules/lightning_media_bulk_upload"
-        },
-        {
-            "type": "path",
-            "url": "custom/modules/lightning_media_document"
-        },
-        {
-            "type": "path",
-            "url": "custom/modules/lightning_media_image"
-        },
-        {
-            "type": "path",
-            "url": "custom/modules/lightning_media_instagram"
-        },
-        {
-            "type": "path",
-            "url": "custom/modules/lightning_media_slideshow"
-        },
-        {
-            "type": "path",
-            "url": "custom/modules/lightning_media_video"
-        },
-        {
-            "type": "path",
-            "url": "custom/modules/lightning_media_twitter"
-        },
-        {
-            "type": "path",
-            "url": "custom/modules/lightning_page"
-        },
-        {
-          "type": "path",
-          "url": "custom/modules/lightning_scheduler"
-        },
-        {
-            "type": "path",
-            "url": "custom/modules/lightning_workflow"
-        },
-        {
             "type": "path",
             "url": "custom/config"
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "drupaloverride/button_link",
-                "version": "dev-0629ba90",
-                "type": "drupal-module",
-                "dist": {
-                    "type": "zip",
-                    "url": "https://git.drupalcode.org/api/v4/projects/project%2Fbutton_link/repository/archive.zip?sha=0629ba90"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "drupaloverride/entity_embed",
-                "version": "dev-efc9bf60",
-                "type": "drupal-module",
-                "dist": {
-                    "type": "zip",
-                    "url": "https://git.drupalcode.org/api/v4/projects/project%2Fentity_embed/repository/archive.zip?sha=efc9bf60"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "drupaloverride/webform_migrate",
-                "version": "dev-c5e4d9c3",
-                "type": "drupal-module",
-                "dist": {
-                    "type": "zip",
-                    "url": "https://git.drupalcode.org/api/v4/projects/project%2Fwebform_migrate/repository/archive.zip?sha=c5e4d9c3"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "drupaloverride/footnotes",
-                "version": "dev-389813a1",
-                "type": "drupal-module",
-                "dist": {
-                    "type": "zip",
-                    "url": "https://git.drupalcode.org/api/v4/projects/project%2Ffootnotes/repository/archive.zip?sha=389813a1"
-                }
-            }
         },
         {
             "type": "package",
@@ -258,34 +131,16 @@
     },
     "require-dev": {
         "agrcms/behatags": "^1.0.0",
-        "oomphinc/composer-installers-extender": "^1.1 || ^2",
         "drupal/coder": "^8.3.7",
         "phpmd/phpmd": "@stable",
         "mikey179/vfsstream": "~1.2",
-        "sebastian/phpcpd": "*",
         "squizlabs/php_codesniffer": "^3.3"
-    },
-    "config": {
-        "secure-http": false,
-        "prestissimo": {
-            "maxConnections": 10,
-            "minConnections": 5
-        },
-        "allow-plugins": {
-            "composer/installers": true,
-            "cweagans/composer-patches": true,
-            "oomphinc/composer-installers-extender": true,
-            "drupal/console-extend-plugin": true,
-            "drupal/core-composer-scaffold": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true,
-            "wikimedia/composer-merge-plugin": true
-        }
     },
     "extra": {
         "merge-plugin": {
             "include": [
                 "html/modules/contrib/webform/composer.libraries.json",
-		"html/modules/contrib/ckeditor4_codemirror/composer.libraries.json"
+                "html/modules/contrib/ckeditor4_codemirror/composer.libraries.json"
             ]
         },
         "drupal-scaffold": {
@@ -341,12 +196,6 @@
         },
         "patches": {
             "drupal/core": {
-                "Options module uses '_none' as a special value.":
-                "https://www.drupal.org/files/issues/2023-07-14/1585930-93.patch",
-                "2321071 - Removing lightning_scheduler garbage left-over configurations requires a core patch.":
-                "https://www.drupal.org/files/issues/2019-12-24/2321071-39.patch",
-                "2868294 - Call to a member function getThirdPartySetting() on null in ContentTranslationManager":
-                "https://www.drupal.org/files/issues/2022-11-30/2868294-87.patch",
                 "3218426 - $width undefined php8.1 issue patch fix.":
                 "https://git.drupalcode.org/project/drupal/-/merge_requests/1373.diff",
                 "core breadcrumb empty patch":
@@ -356,33 +205,15 @@
             "drupal/webform_revision_ui": {
                 "3328890 - Only show revision tab to privileged roles": "https://git.drupalcode.org/project/webform_revision_ui/-/merge_requests/1.patch"
             },
-            "drupal/field_group": {
-                "3111107 - Use patch 10 instead of patch 2.":
-                "https://www.drupal.org/files/issues/2021-08-10/field_group_fix-translations_label_description_2021-08-10.patch"
-            },
             "drupal/like_and_dislike": {
                 "3367864 - Keyboard accessibility wcag.":
                 "https://www.drupal.org/files/issues/2023-08-16/make-buttons-keyboard-controllable-3367864-11.patch",
                 "2979229 - Like only option.":
                 "https://www.drupal.org/files/issues/2020-04-29/2979229-like-only-option.patch"
             },
-            "drupal/page_manager": {
-                "Enter drupal/page_manager patch #2752227 description here":
-                "https://www.drupal.org/files/issues/2018-07-05/page_manager-incorrect-page_title-2752227-32-8.x.4.x.patch",
-                "Enter drupal/page_manager patch #3096408 description here":
-                "https://www.drupal.org/files/issues/2019-11-23/Issue-3096408-Page-Manager-issue-with-conflict-modul.patch"
-            },
             "drupal/embed_block": {
-                "3225938 - Added CKEDITOR plugin functionality":
-                "https://www.drupal.org/files/issues/2022-02-05/3225938_include_binary_icon-18.patch",
-                "3225938 - Custom":
-                "https://www.drupal.org/files/issues/2021-12-15/3225938-custom_only_diff-10.patch",
-		"3316336 - Add Support for Ckeditor 5":
-		"https://git.drupalcode.org/project/embed_block/-/merge_requests/5.patch"
-            },
-            "drupal/node_revision_delete": {
-                "Support only drafts deletion":
-                "https://www.drupal.org/files/issues/2023-11-27/3217675-28.patch"
+                "3316336 - Add Support for Ckeditor 5":
+                "https://git.drupalcode.org/project/embed_block/-/merge_requests/5.patch"
             },
             "drupal/safedelete": {
                 "3320470 - Allow override of the bulk operation validation with a checkbox":
@@ -409,25 +240,16 @@
                     "https://www.drupal.org/files/issues/2018-07-09/2914389-8-do-not-test.patch"
                 }
             },
-            "agrcmsx/dxbase": {
-                "drupal/bootstrap": {
-                  "3173776 - patch included with bootstrap 3.2.5/3.2.4, only needed if using 3.2.3": "https://www.drupal.org/files/issues/2020-09-29/bootstrap-3173776-3.patch"
-                },
-                "drupal/linkit": {
-                    "Detect and strip base URL from pasted URLs to increase matching hits":
-                    "https://www.drupal.org/files/issues/2021-02-02/3078075-26.patch"
-                }
-            },
             "drupalwxt/wxt": {
                 "drupal/core": {
                     "850600 - Postgresql patch we're not using postgresql": "https://www.drupal.org/files/issues/postgresql_ssl_dsn-850600-3.patch",
-                    "2715483 - no longer needed as of D10.0.10": "https://www.drupal.org/files/issues/2020-01-09/regression-2715483-22.patch",
                     "2893407 - POST /quickedit/metadata returning HTTP 503 - patch 47.":
                     "https://www.drupal.org/files/issues/2021-06-07/2893407-47.patch",
                     "1356276 - Overrides for profile and sub profile use 686 instead of 631-by-mpotter-balsa": "https://www.drupal.org/files/issues/2021-10-21/1356276-673.patch",
                     "1356276 - Profile sub profiles phenaproxima 9.2.x": "https://www.drupal.org/files/issues/2021-06-29/D91x-1356276-656.patch",
                     "1356276 - Profile sub profiles phenaproxima 675 9.3.x": "https://www.drupal.org/files/issues/2021-11-18/1356276-675.patch",
                     "2559833 - Comment form": "https://www.drupal.org/files/issues/2020-10-31/2559833-72.patch",
+                    "2630732 - Migrate module we don't use currently": "https://www.drupal.org/files/issues/2020-09-17/2630732-77.patch",
                     "2907413 - Rerolled patch for 9.3.x is in the patches section.": "https://www.drupal.org/files/issues/2019-06-21/2907413-11.patch",
                     "2907413 - Rerolled patch for 9.4.x is in the patches section.": "https://www.drupal.org/files/issues/2021-11-19/D93x-2907413-23.patch",
                     "2921627 - Rerolled patch for 9.3.x is in the patches section.": "https://www.drupal.org/files/issues/2021-10-13/2921627-71.patch",
@@ -439,14 +261,13 @@
                     "2907413 - Rerolled patch for 9.3.x was in patches section": "https://www.drupal.org/files/issues/2021-11-19/D93x-2907413-23.patch",
                     "2907413 - Rerolled patch for 9.4.x is in the patches section.": "https://www.drupal.org/files/issues/2022-07-20/2907413-28.patch",
                     "Enter drupal/core patch #2559833 description here": "https://www.drupal.org/files/issues/2020-10-31/2559833-72.patch",
+                    "Enter drupal/core patch #2630732 description here": "https://www.drupal.org/files/issues/2020-09-17/2630732-77.patch",
                     "Enter drupal/core patch #2907413 description here": "https://www.drupal.org/files/issues/2019-06-21/2907413-11.patch",
                     "Enter drupal/core patch #2998826 description here": "https://www.drupal.org/files/issues/2021-03-17/core-Term_route_context-2998826-93.patch",
                     "Enter drupal/core patch #2470896 description here": "https://www.drupal.org/files/issues/2021-06-10/2470896-244.patch",
                     "2907413 - Rerolled patch for 9.3.x is in the patches section.": "https://www.drupal.org/files/issues/2019-06-21/2907413-11.patch",
                     "3150294 - Rerolled patch for 9.4.x is in the patches section.": "https://www.drupal.org/files/issues/2021-11-02/3150294-74.patch",
                     "3150294 - Rerolled patch for 9.4.x is in the patches section.": "https://www.drupal.org/files/issues/2022-01-05/3150294-95.patch",
-		    "2630732 - Migrate module we don't use currently":
-		    "https://www.drupal.org/files/issues/2022-02-22/D93x-implement_entity_fields_for_migration_dest-2630732.patch",
                     "2922570 - See reroll in 2922570-88 (above).":
                     "https://www.drupal.org/files/issues/2021-02-02/2922570-61.patch",
                     "2893407 - POST /quickedit/metadata returning HTTP 503 - patch 39.":
@@ -461,10 +282,6 @@
                 "drupal/ctools": {
                     "is in dev patch":
                     "https://www.drupal.org/files/issues/entityview-cache-metadata-2874176-2.patch"
-                },
-                "drupal/pathauto": {
-                    "3184164 - Is only in latest releases.":
-                    "https://www.drupal.org/files/issues/2020-11-23/3184164-2.patch"
                 },
                 "drupal/field_group": {
                     "3111107 - Remove patch , no longer works, override it with patch 10.":
@@ -487,6 +304,24 @@
                     "https://www.drupal.org/files/issues/classes_should_be_array-2900531-2.patch"
                 }
             },
+            "agrcmsx/dxbase": {
+                "drupal/webform": {
+                    "Enter drupal/webform patch #3212867 description here":
+                    "https://www.drupal.org/files/issues/2021-05-07/3212867-3.patch",
+                    "Enter drupal/webform patch 3279930": "https://www.drupal.org/files/issues/2022-05-11/webform-strpos-php81-webform-requirements-3279930-2.patch"
+                },
+                "drupal/bootstrap": {
+                  "3173776 - patch included with bootstrap 3.2.5/3.2.4, only needed if using 3.2.3": "https://www.drupal.org/files/issues/2020-09-29/bootstrap-3173776-3.patch"
+                },
+                "drupal/pathauto": {
+                    "3107144 - Is only in latest releases.":
+                    "https://www.drupal.org/files/issues/2020-01-17/pathauto-3107144-2.patch"
+                }
+            },
+            "drupal/pathauto": {
+                "3107144 - Is only in latest releases.":
+                "https://www.drupal.org/files/issues/2020-01-17/pathauto-3107144-2.patch"
+            },
             "drupal/lightning_core": {
                 "drupal/core": {
                     "1356276 - Allow profiles to define a base/parent profile and load them in the correct order":
@@ -504,86 +339,83 @@
         }
     },
     "require": {
-        "agrcmsx/dxbase": "10.0.9-rc21",
-        "agrcms/lightning": "*",
-        "agrcms/lightning_banner_block": "*",
-        "agrcms/lightning_core": "*",
-        "agrcms/lightning_install": "*",
-        "agrcms/lightning_landing_page": "*",
-        "agrcms/lightning_layout": "*",
-        "agrcms/lightning_media": "*",
-        "agrcms/lightning_media_audio": "*",
-        "agrcms/lightning_media_bulk_upload": "*",
-        "agrcms/lightning_media_document": "*",
-        "agrcms/lightning_media_image": "*",
-        "agrcms/lightning_media_instagram": "*",
-        "agrcms/lightning_media_slideshow": "*",
-        "agrcms/lightning_media_twitter": "*",
-        "agrcms/lightning_media_video": "*",
-        "agrcms/lightning_page": "*",
-        "agrcms/lightning_workflow": "*",
-        "agrcms/lightning_map_block": "*",
-        "agrcms/lightning_scheduler": "*",
-        "composer/installers": "^1.2",
+        "agrcmsx/dxbase": "10.1.8.4",
+        "agrcms/agri_admin": "*",
+        "agrcms/agri_reports": "*",
+        "agrcms/config": "*",
+        "agrcms/grstheme_bootstrap": "*",
+        "agrcms/linkchecks": "*",
+        "agrcms/news_empl": "*",
+        "agrcms/news_bulletin": "*",
+        "agrcms/wxt_overrides": "*",
+        "agrcms/prefer_latest_content": "*",
+        "composer/installers": "^1.2 || ^2",
         "cweagans/composer-patches": "^1.6.7",
         "cypresslab/gitelephant": "^4.4.3",
-        "drupaloverride/button_link": "dev-0629ba90",
-        "drupaloverride/entity_embed": "dev-efc9bf60",
-        "drupaloverride/footnotes": "dev-389813a1",
-        "drupaloverride/webform_migrate": "dev-c5e4d9c3",
         "drupal/autologout": "^1.4",
         "drupal/clientside_validation": "^4.0",
         "drupal/core-composer-scaffold": "^10",
-        "drupal/embed_block": "1.x-dev",
-        "drupal/filebrowser": "3.1.x-dev",
-        "drupal/file_replace": "^1.3",
+        "drupal/dropzonejs": "2.7.0",
+        "drupal/entity_translation_unified_form": "^2.0-rc2",
+        "drupal/filebrowser": "^3.1@RC",
+        "drupal/file_replace": "^1.2",
         "drupal/file_delete": "2.0.0",
-        "drupal/link_attributes": "^1.13",
-        "drupal/media_library_edit": "^3.0",
-        "drupal/menu_block": "^1.10",
+        "drupal/honeypot": "^2.0",
+        "drupal/purge": "^3.2",
+        "drupal/reroute_email": "^2.0",
+       "drupal/simple_sitemap": "^4.1.4",
+        "drupal/title_length": "^2.0",
         "drupal/telephone_validation": "^2.3",
-        "drupal/varnish_purger": "^2.1",
+        "drupal/varnish_purge": "^2.1",
         "drupal/view_custom_table": "^2.0",
-        "drupal/simple_sitemap": "^4.1.4",
-        "drupal/webform": "^6.2@beta",
+        "drupal/media_library_edit": "^3.0",
         "drupal/webform_translation_permissions": "^2.0",
-        "entreprise7pro/agri_admin": "*",
-        "entreprise7pro/agri_reports": "*",
-        "entreprise7pro/config": "*",
-        "entreprise7pro/grstheme_bootstrap": "*",
-        "entreprise7pro/linkchecks": "*",
-        "entreprise7pro/news_empl": "*",
-        "entreprise7pro/news_bulletin": "*",
-        "entreprise7pro/wxt_overrides": "*",
-        "entreprise7pro/prefer_latest_content": "*",
         "junhuang/idol_feed_api": "*",
         "oomphinc/composer-installers-extender": "^1.1 || ^2",
-        "drupal/views_bulk_operations": "^4.2",
         "drupal/ckeditor_codemirror": "^3.0@beta",
         "drupal/context_stack": "^1.0",
-        "drupal/views_bootstrap": "^5.3.0",
+        "drupal/views_bootstrap": "^5.3",
+        "drupal/webform": "^6.2.0",
         "drupal/webform_views": "^5.0@beta",
-        "drupal/entity_translation_unified_form": "^2.0@RC",
         "drupal/siteimprove": "^2.0",
         "wet-boew/wet-boew": "4.0.43.1 as 4.0.50.1",
         "drupal/moderation_dashboard": "^1",
-        "drupal/simple_gmap": "3.1.x-dev",
-        "drupal/bootstrap": "3.29 as 3.28",
-        "drupal/ckeditor4_codemirror": "dev-1.0.x",
+        "drupal/simple_gmap": "4.0.x-dev",
+       "drupal/ckeditor4_codemirror": "dev-1.0.x",
         "w8tcha/ckeditor-codemirror": "*",
         "wikimedia/composer-merge-plugin": "^2.1",
+        "drupal/filehash_report": "^1.0",
         "drupal/like_and_dislike": "^1.0@beta",
-        "drupal/wxt_chart_stability": "^1.0@alpha",
-        "drupal/core": "10.0.11 as 10.0.9",
-        "drupal/filehash_report": "^1.0@beta",
-        "drupal/safedelete": "^1.0.46",
         "drupal/webform_revision_ui": "^1.0@alpha",
-        "drupal/node_revision_delete": "^2",
-        "drupal/symfony_mailer_lite": "^1.0"
+        "drupal/wxt_chart_stability": "^1.0@alpha",
+        "egulias/email-validator": "4.0.2 as 3.2.6",
+        "drupal/swiftmailer": "^2.4.0"
     },
+    "authors": [
+        {
+            "name": "olstjos",
+            "email": "j@7pro.ca"
+        }
+    ],
     "autoload": {
         "classmap": [
             "scripts/ScriptHandler.php"
         ]
+    },
+    "config": {
+        "secure-http": false,
+        "prestissimo": {
+            "maxConnections": 10,
+            "minConnections": 5
+        },
+        "allow-plugins": {
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "oomphinc/composer-installers-extender": true,
+            "drupal/console-extend-plugin": true,
+            "drupal/core-composer-scaffold": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "wikimedia/composer-merge-plugin": true
+        }
     }
 }
