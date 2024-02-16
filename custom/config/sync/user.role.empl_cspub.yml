@@ -26,6 +26,7 @@ dependencies:
     - contextual
     - dropzonejs
     - entity_browser
+    - file
     - filter
     - media
     - moderation_dashboard
@@ -72,6 +73,7 @@ permissions:
   - 'create tweet media'
   - 'create video media'
   - 'create video_file media'
+  - 'delete own files'
   - 'delete token'
   - 'dropzone upload files'
   - 'edit any empl content'

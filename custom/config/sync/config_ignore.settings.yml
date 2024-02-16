@@ -1,40 +1,41 @@
 _core:
   default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk
+mode: simple
 ignored_config_entities:
   - 'autologout*'
   - 'block.block.*'
-  - ~block.block.wxt_bootstrap_footer_top_fr
-  - ~block.block.wxt_bootstrap_footer_top
-  - ~block.block.wxt_bootstrap_footer_contextual_fr
-  - ~block.block.wxt_bootstrap_footer_contextual
-  - ~block.block.grstheme_bootstrap_footer
-  - ~block.block.grstheme_bootstrap_footer_francais
-  - ~block.block.grstheme_bootstrap_datemodifiedblock
-  - ~block.block.footer_fr
   - css_editor.theme.grstheme_bootstrap
   - devel.settings
   - devel.toolbar.settings
+  - field.field.user.user.field_last_password_reset
+  - field.field.user.user.field_password_expiration
+  - field.field.user.user.field_pending_expire_sent
+  - field.storage.user.field_last_password_reset
+  - field.storage.user.field_last_password_reset
+  - field.storage.user.field_password_expiration
+  - field.storage.user.field_pending_expire_sent
   - grstheme_bootstrap.settings
   - linkchecker.settings
   - mailsystem.settings
-  - 'purge.*'
-  - purge_queuer_coretags.settings
-  - ultimate_cron.job.password_policy_cron
-  - wxt_ext_password_policy
   - password_policy
   - 'password_policy.*'
+  - password_policy.password_policy.wxt_ism_policy_strong
+  - password_policy.password_policy.wxt_ism_policy_strong
   - password_policy.settings
-  - password_policy.password_policy.wxt_ism_policy_strong
-  - password_policy.password_policy.wxt_ism_policy_strong
-  - field.storage.user.field_last_password_reset
-  - field.storage.user.field_pending_expire_sent
-  - field.storage.user.field_password_expiration
-  - field.storage.user.field_last_password_reset
-  - field.field.user.user.field_pending_expire_sent
-  - field.field.user.user.field_password_expiration
-  - field.field.user.user.field_last_password_reset
+  - 'purge.*'
+  - purge_queuer_coretags.settings
   - smtp.settings
   - system.mail
   - system.menu.devel
+  - ultimate_cron.job.password_policy_cron
   - 'varnish_purger.*'
   - warmer.settings
+  - wxt_ext_password_policy
+  - ~block.block.footer_fr
+  - ~block.block.grstheme_bootstrap_datemodifiedblock
+  - ~block.block.grstheme_bootstrap_footer
+  - ~block.block.grstheme_bootstrap_footer_francais
+  - ~block.block.wxt_bootstrap_footer_contextual
+  - ~block.block.wxt_bootstrap_footer_contextual_fr
+  - ~block.block.wxt_bootstrap_footer_top
+  - ~block.block.wxt_bootstrap_footer_top_fr

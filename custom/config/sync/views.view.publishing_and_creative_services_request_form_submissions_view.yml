@@ -160,6 +160,15 @@ display:
             date_format: medium
             custom_date_format: ''
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -2181,6 +2190,15 @@ display:
             date_format: medium
             custom_date_format: ''
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -2248,6 +2266,15 @@ display:
             date_format: medium
             custom_date_format: ''
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -2422,6 +2449,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+          accept_null: false
         sticky:
           id: sticky
           table: webform_submission
@@ -2464,6 +2492,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+          accept_null: false
         locked:
           id: locked
           table: webform_submission
@@ -2507,6 +2536,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+          accept_null: false
       filter_groups:
         operator: AND
         groups:
@@ -3104,6 +3134,15 @@ display:
             date_format: medium
             custom_date_format: ''
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -3171,6 +3210,15 @@ display:
             date_format: medium
             custom_date_format: ''
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -3399,6 +3447,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+          accept_null: false
         sticky:
           id: sticky
           table: webform_submission
@@ -3441,6 +3490,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+          accept_null: false
         locked:
           id: locked
           table: webform_submission
@@ -3484,6 +3534,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+          accept_null: false
       filter_groups:
         operator: AND
         groups:
@@ -3938,6 +3989,15 @@ display:
             date_format: medium
             custom_date_format: ''
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -4005,6 +4065,15 @@ display:
             date_format: medium
             custom_date_format: ''
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -4180,6 +4249,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+          accept_null: false
         sticky:
           id: sticky
           table: webform_submission
@@ -4222,6 +4292,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+          accept_null: false
         locked:
           id: locked
           table: webform_submission
@@ -4265,6 +4336,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+          accept_null: false
       filter_groups:
         operator: AND
         groups:
