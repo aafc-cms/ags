@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd5657590e808515c4d697b215b0724d",
+    "content-hash": "6243d56f5733ff1ef33d5f2aa4e67568",
     "packages": [
         {
             "name": "agrcms/agri_admin",
@@ -156,16 +156,16 @@
         },
         {
             "name": "agrcmsx/dxbase",
-            "version": "10.1.8.4",
+            "version": "10.1.8.5",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/agrcms/dxbase.git",
-                "reference": "7c201fbc1f9bc910fad0d348bfca8577ee898be7"
+                "reference": "5be11e2d7ab9f7254868ae820c159c7a7c8cd8ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=7c201fbc1f9bc910fad0d348bfca8577ee898be7",
-                "reference": "7c201fbc1f9bc910fad0d348bfca8577ee898be7",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=5be11e2d7ab9f7254868ae820c159c7a7c8cd8ef",
+                "reference": "5be11e2d7ab9f7254868ae820c159c7a7c8cd8ef",
                 "shasum": ""
             },
             "require": {
@@ -380,6 +380,9 @@
                     "drupal/warmer": {
                         "3368778 - Drush 12 compatibility": "https://git.drupalcode.org/project/warmer/-/merge_requests/13.patch"
                     },
+                    "drupal/webform": {
+                        "3389539 - AJAX error for css route of webform": "https://www.drupal.org/files/issues/2023-11-21/3389539-ajax-add-css-compatibility-19.patch"
+                    },
                     "drupal/wxt_library": {
                         "part 1 When installing and enabling the Canada.ca theme, the footer is missing the menu and other elements. Stats Can provides a CDN for footer markup, but as far as I know Canada.ca doesn't provide this. It would be nice to have the footer complete on install.": "https://www.drupal.org/files/issues/2023-05-16/wxt-library-add-canada-ca-footer-twig-extension-3195014-31.patch"
                     },
@@ -422,9 +425,9 @@
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
             "support": {
                 "issues": "https://gitlab.com/agrcms/dxbase/-/issues",
-                "source": "https://gitlab.com/agrcms/dxbase/-/tree/10.1.8.4"
+                "source": "https://gitlab.com/agrcms/dxbase/-/tree/10.1.8.5"
             },
-            "time": "2024-02-14T21:52:37+00:00"
+            "time": "2024-02-23T15:54:22+00:00"
         },
         {
             "name": "algolia/places",
@@ -11540,20 +11543,21 @@
         },
         {
             "name": "drupal/webform",
-            "version": "6.2.0-beta6",
+            "version": "6.2.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/webform.git",
-                "reference": "6.2.0-beta6"
+                "reference": "6.2.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/webform-6.2.0-beta6.zip",
-                "reference": "6.2.0-beta6",
-                "shasum": "b466ad3629c58f45994cbca55ab6bd8baaa4b838"
+                "url": "https://ftp.drupal.org/files/projects/webform-6.2.2.zip",
+                "reference": "6.2.2",
+                "shasum": "cfd766802232dfdf39edd5a1acf7c738d14dc6eb"
             },
             "require": {
-                "drupal/core": "^9.4 || ^10"
+                "drupal/core": "^9.4 || ^10",
+                "php": ">=8.1"
             },
             "require-dev": {
                 "drupal/address": "1.x-dev",
@@ -11561,16 +11565,16 @@
                 "drupal/captcha": "^1 || ^2",
                 "drupal/chosen": "3.0.x-dev",
                 "drupal/ckeditor": "1.0.x-dev",
-                "drupal/clientside_validation": "*",
+                "drupal/clientside_validation": "^3 || ^4",
                 "drupal/clientside_validation_jquery": "*",
-                "drupal/devel": "*",
+                "drupal/devel": "5.x-dev",
                 "drupal/entity": "1.x-dev",
-                "drupal/entity_print": "*",
+                "drupal/entity_print": "2.x-dev",
                 "drupal/group": "1.x-dev",
                 "drupal/hal": "1 - 2",
                 "drupal/jquery_ui": "1.x-dev",
-                "drupal/jquery_ui_checkboxradio": "*",
-                "drupal/jquery_ui_datepicker": "*",
+                "drupal/jquery_ui_checkboxradio": "2.x-dev",
+                "drupal/jquery_ui_datepicker": "2.x-dev",
                 "drupal/mailsystem": "4.x-dev",
                 "drupal/metatag": "1.x-dev",
                 "drupal/paragraphs": "1.x-dev",
@@ -11578,7 +11582,7 @@
                 "drupal/smtp": "1.x-dev",
                 "drupal/styleguide": "^1 || ^2",
                 "drupal/telephone_validation": "2.x-dev",
-                "drupal/token": "*",
+                "drupal/token": "1.x-dev",
                 "drupal/variationcache": "1.x-dev",
                 "drupal/webform_access": "*",
                 "drupal/webform_attachment": "*",
@@ -11598,11 +11602,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "6.2.0-beta6",
-                    "datestamp": "1686598812",
+                    "version": "6.2.2",
+                    "datestamp": "1701948363",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 },
                 "drush": {
