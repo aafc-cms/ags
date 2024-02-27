@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6243d56f5733ff1ef33d5f2aa4e67568",
+    "content-hash": "0b49a6847b39e500a281dc33324079f0",
     "packages": [
         {
             "name": "agrcms/agri_admin",
@@ -156,16 +156,16 @@
         },
         {
             "name": "agrcmsx/dxbase",
-            "version": "10.1.8.5",
+            "version": "10.1.8.6",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/agrcms/dxbase.git",
-                "reference": "5be11e2d7ab9f7254868ae820c159c7a7c8cd8ef"
+                "reference": "b9e0dceab3a737c7e555ae9c97896c31c23f97a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=5be11e2d7ab9f7254868ae820c159c7a7c8cd8ef",
-                "reference": "5be11e2d7ab9f7254868ae820c159c7a7c8cd8ef",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=b9e0dceab3a737c7e555ae9c97896c31c23f97a5",
+                "reference": "b9e0dceab3a737c7e555ae9c97896c31c23f97a5",
                 "shasum": ""
             },
             "require": {
@@ -229,6 +229,7 @@
                 "drupal/views_published_or_roles": "^1.0",
                 "drupal/warmer": "2.0.11",
                 "drupal/webform": "^6.1.4",
+                "drupal/webform_revision_ui": "^1.0@alpha",
                 "drupal/webform_views": "^5.0@beta",
                 "drupal/workflow": "^1.4",
                 "drupalwxt/wxt": "5.1.1",
@@ -383,6 +384,9 @@
                     "drupal/webform": {
                         "3389539 - AJAX error for css route of webform": "https://www.drupal.org/files/issues/2023-11-21/3389539-ajax-add-css-compatibility-19.patch"
                     },
+                    "drupal/webform_revision_ui": {
+                        "3380657 - Fix for InvalidArgumentException involving webform_ui_revisions": "https://www.drupal.org/files/issues/2023-08-11/3380657-2.patch"
+                    },
                     "drupal/wxt_library": {
                         "part 1 When installing and enabling the Canada.ca theme, the footer is missing the menu and other elements. Stats Can provides a CDN for footer markup, but as far as I know Canada.ca doesn't provide this. It would be nice to have the footer complete on install.": "https://www.drupal.org/files/issues/2023-05-16/wxt-library-add-canada-ca-footer-twig-extension-3195014-31.patch"
                     },
@@ -425,9 +429,9 @@
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
             "support": {
                 "issues": "https://gitlab.com/agrcms/dxbase/-/issues",
-                "source": "https://gitlab.com/agrcms/dxbase/-/tree/10.1.8.5"
+                "source": "https://gitlab.com/agrcms/dxbase/-/tree/10.1.8.6"
             },
-            "time": "2024-02-23T15:54:22+00:00"
+            "time": "2024-02-27T12:09:28+00:00"
         },
         {
             "name": "algolia/places",
