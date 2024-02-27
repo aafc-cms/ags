@@ -296,6 +296,7 @@ display:
                 title: Unpublished
                 operator: '='
                 value: '0'
+          accept_null: false
         name:
           id: name
           table: media_field_data
@@ -1189,6 +1190,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+          accept_null: false
         name:
           id: name
           table: media_field_data
@@ -1271,6 +1273,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+          accept_null: false
       filter_groups:
         operator: AND
         groups:
@@ -1448,6 +1451,15 @@ display:
             date_format: short
             custom_date_format: ''
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
       access:
         type: perm
         options:
@@ -1535,6 +1547,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+          accept_null: false
         name:
           id: name
           table: media_field_data
@@ -1617,6 +1630,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+          accept_null: false
       filter_groups:
         operator: AND
         groups:

@@ -1,4 +1,4 @@
-uuid: ed112429-7a55-44e0-b5a3-af5dbc76286a
+uuid: 4fb602df-7fe2-46bc-81c2-530b7828bed0
 langcode: en
 status: true
 dependencies:
@@ -11,19 +11,7 @@ module: dblog
 callback: dblog_cron
 scheduler:
   id: simple
-  configuration:
-    rules:
-      - '0+@ 0 * * *'
 launcher:
   id: serial
-  configuration:
-    timeouts:
-      lock_timeout: 3600
-    launcher:
-      thread: 0
 logger:
   id: database
-  configuration:
-    method: '3'
-    expire: 1209600
-    retain: 1000

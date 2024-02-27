@@ -15,6 +15,7 @@ dependencies:
     - agri_admin
     - content_moderation
     - content_translation
+    - file
     - moderated_content_bulk_publish
     - node
     - system
@@ -35,6 +36,7 @@ permissions:
   - 'agrisource admin styles'
   - 'create terms in aafc_type'
   - 'create terms in category'
+  - 'delete own files'
   - 'edit any empl content'
   - 'edit any landing_page content'
   - 'edit any news content'

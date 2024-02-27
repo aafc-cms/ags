@@ -6,6 +6,7 @@ dependencies:
     - access_unpublished
     - comment
     - contact
+    - file
     - like_and_dislike
     - media
     - search
@@ -30,6 +31,7 @@ permissions:
   - 'access_unpublished node page'
   - 'add or remove dislike votes on blog_post of node'
   - 'add or remove dislike votes on comment of comment'
+  - 'delete own files'
   - 'edit own comments'
   - 'post comments'
   - 'search content'

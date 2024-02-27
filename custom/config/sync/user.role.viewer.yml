@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - content_moderation
+    - file
     - prefer_latest_content
     - toolbar
 id: viewer
@@ -12,6 +13,7 @@ weight: 1
 is_admin: null
 permissions:
   - 'access toolbar'
+  - 'delete own files'
   - 'prefer latest content'
   - 'view any unpublished content'
   - 'view latest version'

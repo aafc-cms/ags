@@ -151,6 +151,7 @@ display:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
+          accept_null: false
         type:
           id: type
           table: node_field_data
@@ -425,6 +426,15 @@ display:
             date_format: custom
             custom_date_format: '[d F Y]'
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -467,6 +477,7 @@ display:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
+          accept_null: false
         type:
           id: type
           table: node_field_data
@@ -824,6 +835,15 @@ display:
             date_format: custom
             custom_date_format: '[d F Y]'
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -853,6 +873,7 @@ display:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
+          accept_null: false
         type:
           id: type
           table: node_field_data
@@ -1105,6 +1126,7 @@ display:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
+          accept_null: false
         type:
           id: type
           table: node_field_data
