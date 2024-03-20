@@ -856,6 +856,7 @@ display:
       defaults:
         empty: false
         query: false
+        css_class: false
         relationships: false
         sorts: false
       relationships:
@@ -871,6 +872,7 @@ display:
           required: false
           vids:
             - news_type
+      css_class: col-md-9
       display_description: ''
       rendering_language: '***LANGUAGE_language_interface***'
       display_extenders:
