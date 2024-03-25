@@ -8,8 +8,9 @@ dependencies:
     - wxt_ext_workflow
 third_party_settings:
   menu_ui:
-    available_menus: {  }
-    parent: ''
+    available_menus:
+      - main
+    parent: 'main:'
   wxt_ext_workflow:
     workflow: editorial
   node_revision_delete:
