@@ -127,7 +127,7 @@ function prefer_latest_content_preprocess_html(&$variables) {
         $base_path = Url::fromRoute('<front>', [], $url_options)->toString();
         $lang_position = iconv_strrpos($base_path, '/' . $langcode);
         if ($lang_position > 0) {
-          $base_path = substr($base_path, 0, $position_lang);
+          $base_path = substr($base_path, 0, $lang_position);
         }
         Utils::gotoLegacy($base_path . '/node/' . $nid . '/latest', ['language' => $language], '302');
       }
