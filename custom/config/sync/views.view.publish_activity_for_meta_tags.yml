@@ -9,6 +9,8 @@ dependencies:
     - node.type.news
     - node.type.page
     - system.menu.admin
+    - taxonomy.vocabulary.aafc_type
+    - taxonomy.vocabulary.category
     - user.role.administrator
     - user.role.ia
   module:
@@ -19,6 +21,7 @@ dependencies:
     - node
     - rest
     - serialization
+    - taxonomy
     - user
     - views_data_export
 id: publish_activity_for_meta_tags
@@ -943,6 +946,118 @@ display:
                   page: '0'
                   landing_page: '0'
                   webform: '0'
+        field_subject_target_id:
+          id: field_subject_target_id
+          table: node__field_subject
+          field: field_subject_target_id
+          relationship: nid
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_subject_target_id_op
+            label: 'aafc:subject'
+            description: ''
+            use_operator: false
+            operator: field_subject_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_subject_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              creator: '0'
+              editor: '0'
+              reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
+              pab_admin: '0'
+              qa: '0'
+              ia: '0'
+              viewer: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: category
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+        field_meta_type_target_id:
+          id: field_meta_type_target_id
+          table: node__field_meta_type
+          field: field_meta_type_target_id
+          relationship: nid
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_meta_type_target_id_op
+            label: 'dcterms:type'
+            description: ''
+            use_operator: false
+            operator: field_meta_type_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_meta_type_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              creator: '0'
+              editor: '0'
+              reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
+              pab_admin: '0'
+              qa: '0'
+              ia: '0'
+              viewer: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: aafc_type
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
         langcode:
           id: langcode
           table: node_field_data
@@ -997,7 +1112,7 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: 'Interface text language selected for page'
+                title: 'Interface text language'
                 operator: in
                 value:
                   '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
@@ -1212,6 +1327,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.roles
       tags:
@@ -1722,6 +1838,7 @@ display:
         - 'languages:language_interface'
         - request_format
         - url
+        - user
         - 'user.node_grants:view'
         - user.roles
       tags:
@@ -1810,6 +1927,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.roles
       tags:
