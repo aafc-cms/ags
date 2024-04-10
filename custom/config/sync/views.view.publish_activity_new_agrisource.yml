@@ -827,8 +827,8 @@ display:
           plugin_id: datetime
           operator: between
           value:
-            min: ' '
-            max: ' '
+            min: ' -365 day'
+            max: ' +1 day'
             value: ''
             type: date
           group: 1
@@ -1831,7 +1831,7 @@ display:
         type: bef
         options:
           submit_button: Apply
-          reset_button: false
+          reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
@@ -1849,12 +1849,8 @@ display:
               allow_secondary: false
               secondary_label: 'Advanced options'
               secondary_open: false
+              reset_button_always_show: false
             filter:
-              revision_timestamp:
-                plugin_id: bef_datepicker
-                advanced:
-                  collapsible: false
-                  is_secondary: false
               field_issued_value:
                 plugin_id: bef_datepicker
                 advanced:
@@ -1880,7 +1876,9 @@ display:
         exposed_form: false
       rendering_language: '***LANGUAGE_entity_translation***'
       display_extenders:
-        metatag_display_extender: {  }
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
       path: admin/publish_activity_new
       menu:
         type: normal
