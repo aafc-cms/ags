@@ -946,6 +946,59 @@ display:
                   page: '0'
                   landing_page: '0'
                   webform: '0'
+        field_subject_target_id_1:
+          id: field_subject_target_id_1
+          table: node__field_subject
+          field: field_subject_target_id
+          relationship: nid
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_subject_target_id_1_op
+            label: 'aafc:subject (field_subject)'
+            description: null
+            use_operator: false
+            operator: field_subject_target_id_1_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_subject_target_id_1
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: true
+          group_info:
+            label: 'aafc:subject (selection)'
+            description: ''
+            identifier: field_subject_target_id_1
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'None selected'
+                operator: empty
+                value: {  }
+              2:
+                title: 'Some selected'
+                operator: 'not empty'
+                value: {  }
+          reduce_duplicates: false
+          vid: category
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
         field_subject_target_id:
           id: field_subject_target_id
           table: node__field_subject
@@ -960,7 +1013,7 @@ display:
           exposed: true
           expose:
             operator_id: field_subject_target_id_op
-            label: 'aafc:subject'
+            label: 'aafc:subject (values)'
             description: ''
             use_operator: false
             operator: field_subject_target_id_op
@@ -998,6 +1051,59 @@ display:
             group_items: {  }
           reduce_duplicates: false
           vid: category
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+        field_meta_type_target_id_1:
+          id: field_meta_type_target_id_1
+          table: node__field_meta_type
+          field: field_meta_type_target_id
+          relationship: nid
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_meta_type_target_id_1_op
+            label: 'dcterms:type (field_meta_type)'
+            description: null
+            use_operator: false
+            operator: field_meta_type_target_id_1_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_meta_type_target_id_1
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: true
+          group_info:
+            label: 'dcterms:type (selection)'
+            description: ''
+            identifier: field_meta_type_target_id_1
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'None selected'
+                operator: empty
+                value: {  }
+              2:
+                title: 'Some selected'
+                operator: 'not empty'
+                value: {  }
+          reduce_duplicates: false
+          vid: aafc_type
           type: select
           hierarchy: false
           limit: true
