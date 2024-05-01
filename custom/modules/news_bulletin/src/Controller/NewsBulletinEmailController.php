@@ -107,6 +107,9 @@ class NewsBulletinEmailController extends ControllerBase {
   public function content() {
     $request = \Drupal::request();
     $referer = $request->headers->get('referer');
+
+    //Client reported some issues and the problems are resolved by not using cookies.
+    /*
     $cookie = FALSE;
     if (isset($_COOKIE['news_page_scope'])) {
       $cookie = 'value:' . $_COOKIE['news_page_scope'];
@@ -117,6 +120,7 @@ class NewsBulletinEmailController extends ControllerBase {
     else {
       $referer = $cookie;
     }
+    */
     if (isset($referer) && strpos($referer, 'outside-ncr') == FALSE) {
       return [
         '#theme' => 'news_bulletin_email',
