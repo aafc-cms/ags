@@ -2248,7 +2248,7 @@ display:
           exposed: true
           expose:
             operator_id: field_subject_target_id_op
-            label: 'aafc:subject'
+            label: aafc.subject
             description: ''
             use_operator: false
             operator: field_subject_target_id_op
@@ -2267,6 +2267,10 @@ display:
               reviewer: '0'
               news_ccpub: '0'
               empl_cspub: '0'
+              pab_admin: '0'
+              qa: '0'
+              ia: '0'
+              viewer: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -2300,7 +2304,7 @@ display:
           exposed: true
           expose:
             operator_id: field_meta_type_target_id_op
-            label: aafc-dcterms-gctype
+            label: dcterms.type
             description: ''
             use_operator: false
             operator: field_meta_type_target_id_op
