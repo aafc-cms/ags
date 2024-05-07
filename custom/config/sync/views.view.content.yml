@@ -2144,7 +2144,7 @@ display:
           exposed: true
           expose:
             operator_id: field_newstype_target_id_op
-            label: 'News Type'
+            label: 'News Category'
             description: ''
             use_operator: false
             operator: field_newstype_target_id_op
@@ -2163,6 +2163,10 @@ display:
               reviewer: '0'
               news_ccpub: '0'
               empl_cspub: '0'
+              pab_admin: '0'
+              qa: '0'
+              ia: '0'
+              viewer: '0'
             reduce: false
           is_grouped: false
           group_info:
