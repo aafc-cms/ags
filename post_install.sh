@@ -164,6 +164,21 @@ if [ ! -d "html/libraries/jquery-ui-touch-punch" ]; then
         mv jquery.ui.touch-punch.min.js html/libraries/jquery-ui-touch-punch;
 fi
 
+if [ -d "html/libraries" ]; then
+  echo "Begin upgrade of wet-boew from 4.0.43 to 4.0.74."
+  pushd html/libraries;
+  rm tmp -rf;
+  mkdir tmp;
+  pushd tmp;
+  wget https://github.com/wet-boew/wet-boew/releases/download/v4.0.74/wet-boew-dist-4.0.74.zip
+  unzip wet-boew-dist-4.0.74.zip
+  mv ../wet-boew wet-boew_orig
+  mv wet-boew-dist-4.0.74/wet-boew ../
+  popd
+  rm ../libraries/tmp -r;
+  popd;
+  echo "End of upgrade for wet-boew 4.0.74."
+fi
 if [ -f html/splash.php ] && [ ! -L html/splash.php ]; then
   echo "rm html/splash.php"
         rm html/splash.php
