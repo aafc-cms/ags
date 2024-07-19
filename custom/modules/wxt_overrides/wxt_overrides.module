@@ -93,7 +93,7 @@ function wxt_overrides_page_attachments(array &$page) {
     $dctermsservice = [
       '#tag' => 'meta',
       '#attributes' => [
-        'name'  => 'dcterms.service',
+        'name'  => 'gcaaterms.sitename',
         'title'     => '',
         'content'   => 'AAFC_AgriSource',
       ],
@@ -113,7 +113,7 @@ function wxt_overrides_page_attachments(array &$page) {
     $dctermsservice = [
       '#tag' => 'meta',
       '#attributes' => [
-        'name'  => 'dcterms.service',
+        'name'  => 'gcaaterms.sitename',
         'title'     => '',
         'content'   => 'AAC_AgriSource',
       ],
@@ -122,7 +122,7 @@ function wxt_overrides_page_attachments(array &$page) {
 
   $page['#attached']['html_head'][] = [$dctermsaccessRights, 'dcterms.accessRights'];
   $page['#attached']['html_head'][] = [$dctermslanguage, 'dcterms.language'];
-  $page['#attached']['html_head'][] = [$dctermsservice, 'dcterms.service'];
+  $page['#attached']['html_head'][] = [$dctermsservice, 'gcaaterms.sitename'];
 
   $node = \Drupal::routeMatch()->getRawParameter('node');
   if (!isset($node)) {
