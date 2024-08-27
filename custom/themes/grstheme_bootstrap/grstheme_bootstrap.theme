@@ -81,7 +81,6 @@ function grstheme_bootstrap_preprocess_html(&$variables) {
   $nid = 0;
   $vid = 0;
   $revision_is_object = FALSE;
-  $nodeLoaded = 0;
   $archived = '';
   if ($node) {
     // Workaround for https://www.drupal.org/project/drupal/issues/2730631 .
@@ -100,8 +99,6 @@ function grstheme_bootstrap_preprocess_html(&$variables) {
       $nid = $node->id();
       $nodeType = $node->getType();
       $vid = $node->getRevisionId();
-      // Load a single node.
-      $nodeLoaded = $node_storage->load($nid);
     }
 
     $variables['attributes']['class'][] = 'node-' . $nid;
@@ -127,7 +124,7 @@ function grstheme_bootstrap_preprocess_html(&$variables) {
 
     if ($vid == 0 && gettype($node_revision) == 'object') {
       // Get the revision id.
-      $vid = $nodeLoaded->getRevisionId();
+      $vid = $node->getRevisionId();
     }
 
     if ($vid) {
