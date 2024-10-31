@@ -501,6 +501,11 @@ function agri_admin_node_presave(EntityInterface $entity) {
           $date_modified = $dt->format('Y-m-d');
           $entity->set('field_modified', $date_modified);
         }
+        if(new DateTime($date_modified) < new DateTime($date_issued)) {
+          $date_modified = $date_issued;
+          $entity->set('field_modified', $date_modified);
+        }
+
         // The changed field is translateable, must set value twice, otherwise unexpected issues during import.
         if ($entity->get('changed')->getFieldDefinition()->isTranslatable()) {
           // For some reason we enabled translation for changed field on this.
