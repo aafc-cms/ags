@@ -233,3 +233,16 @@ body.node-edit.role-is-authenticated.page-node-type-news {
     max-width: 100% !important;
   }
 }
+body.role-is-authenticated.role-is-creator.admin-structure.user-logged-in.path-admin.adminstructuremenumanagesideb, 
+body.role-is-authenticated.role-is-pab_admin.admin-structure.user-logged-in.path-admin.adminstructuremenumanagesideb {
+	tr[data-drupal-selector^="edit-links-menu-plugin-idmenu-link-content"]{
+		td.checkbox,th.checkbox {
+			display: none;
+		}
+	}
+	table[data-drupal-selector="edit-links"]{
+	        td.checkbox,th.checkbox {
+			display: none;
+		}
+	 }
+ }
