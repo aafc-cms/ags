@@ -494,6 +494,7 @@ function agri_admin_node_presave(EntityInterface $entity) {
         $entity->set('field_issued', $dt->format('Y-m-d'));
         $entity->set('field_modified', $dt->format('Y-m-d'));
         $date_modified = $dt->format('Y-m-d');
+        $date_issued = $date_modified;
       }
 
       if ($update_date_modified_str == '0' || $is_ia_role == TRUE || (isset($import_override) && $import_override)) {
