@@ -64,10 +64,10 @@ function newsEmail() {
   var now = new Date();
   now.setMonth( now.getMonth() + 1 );
   if (this_url.includes('outside-ncr')) {
-    document.cookie = "news_page_scope=outside-ncr;expires=" + now.toUTCString() + ";";
+    document.cookie = "news_page_scope=outside-ncr;expires=" + now.toUTCString() + "; path=/";
   }
   else {
-    document.cookie = "news_page_scope=ncr-only;expires=" + now.toUTCString() + ";";
+    document.cookie = "news_page_scope=ncr-only;expires=" + now.toUTCString() + "; path=/";
   }
 }
 
