@@ -33,6 +33,72 @@ display:
     display_options:
       title: Content-Revision
       fields:
+        nid:
+          id: nid
+          table: node_field_revision
+          field: nid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: nid
+          plugin_id: field
+          label: 'Node ID'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         title:
           id: title
           table: node_field_revision
@@ -229,72 +295,6 @@ display:
               past_format: '@interval ago'
               granularity: 2
               refresh: 60
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        nid:
-          id: nid
-          table: node_field_revision
-          field: nid
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          entity_field: nid
-          plugin_id: field
-          label: 'Node ID'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: number_integer
-          settings:
-            thousand_separator: ''
-            prefix_suffix: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1350,7 +1350,7 @@ display:
         type: mini
         options:
           offset: 0
-          items_per_page: 15
+          items_per_page: 25
           total_pages: null
           id: 0
           tags:
@@ -1368,7 +1368,7 @@ display:
         type: basic
         options:
           submit_button: Apply
-          reset_button: false
+          reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
@@ -1384,6 +1384,21 @@ display:
         options: {  }
       empty: {  }
       sorts:
+        nid:
+          id: nid
+          table: node_field_data
+          field: nid
+          relationship: nid
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: nid
+          plugin_id: standard
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
         revision_timestamp:
           id: revision_timestamp
           table: node_revision
@@ -1412,7 +1427,7 @@ display:
           entity_type: node
           entity_field: nid
           plugin_id: numeric
-          operator: '='
+          operator: '>='
           value:
             min: ''
             max: ''
@@ -1421,7 +1436,7 @@ display:
           exposed: true
           expose:
             operator_id: nid_op
-            label: 'Node ID'
+            label: 'Node ID (min)'
             description: ''
             use_operator: false
             operator: nid_op
@@ -1438,6 +1453,69 @@ display:
               creator: '0'
               editor: '0'
               reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
+              pab_admin: '0'
+              qa: '0'
+              ia: '0'
+              viewer: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        nid_1:
+          id: nid_1
+          table: node_field_data
+          field: nid
+          relationship: nid
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: nid
+          plugin_id: numeric
+          operator: '<'
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: nid_1_op
+            label: 'Node ID (max)'
+            description: ''
+            use_operator: false
+            operator: nid_1_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: nid_1
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              creator: '0'
+              editor: '0'
+              reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
+              pab_admin: '0'
+              qa: '0'
+              ia: '0'
+              viewer: '0'
             min_placeholder: ''
             max_placeholder: ''
             placeholder: ''
@@ -1487,6 +1565,56 @@ display:
               editor: '0'
               reviewer: '0'
             placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: nid
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          operator: in
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: type_op
+            label: 'Content type'
+            description: ''
+            use_operator: false
+            operator: type_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              creator: '0'
+              editor: '0'
+              reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
+              pab_admin: '0'
+            argument: ''
+            reduce: false
           is_grouped: false
           group_info:
             label: ''
@@ -1646,29 +1774,29 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          relationship: nid
+        revision_log:
+          id: revision_log
+          table: node_revision
+          field: revision_log
+          relationship: none
           group_type: group
           admin_label: ''
           entity_type: node
-          entity_field: type
-          plugin_id: bundle
-          operator: in
-          value: {  }
+          entity_field: revision_log
+          plugin_id: string
+          operator: contains
+          value: ''
           group: 1
           exposed: true
           expose:
-            operator_id: type_op
-            label: 'Content type'
+            operator_id: revision_log_op
+            label: 'Revision log message'
             description: ''
             use_operator: false
-            operator: type_op
+            operator: revision_log_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: type
+            identifier: revision_log
             required: false
             remember: false
             multiple: false
@@ -1682,8 +1810,10 @@ display:
               news_ccpub: '0'
               empl_cspub: '0'
               pab_admin: '0'
-            argument: ''
-            reduce: false
+              qa: '0'
+              ia: '0'
+              viewer: '0'
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -1755,12 +1885,29 @@ display:
           row_class: ''
           default_row_class: true
           columns:
-            changed: changed
+            nid: nid
             title: title
+            uid: uid
+            created: created
+            type: type
+            revision_uid: revision_uid
+            revision_timestamp: revision_timestamp
+            field_modified__revision_id: field_modified__revision_id
             moderation_state: moderation_state
+            revision_default: revision_default
+            field_issued: field_issued
+            field_issued__revision_id: field_issued__revision_id
+            vid: vid
+            status: status
+            name: name
+            field_peer_review__revision_id: field_peer_review__revision_id
+            field_tracking_number__revision_id: field_tracking_number__revision_id
+            field_created_by: field_created_by
+            field_created_by__revision_id: field_created_by__revision_id
+            field_dc_date_created__revision_id: field_dc_date_created__revision_id
           default: '-1'
           info:
-            changed:
+            nid:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -1774,7 +1921,126 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+            uid:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            created:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            type:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            revision_uid:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            revision_timestamp:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_modified__revision_id:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             moderation_state:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            revision_default:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_issued:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_issued__revision_id:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            vid:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            status:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            name:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_peer_review__revision_id:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_tracking_number__revision_id:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_created_by:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_created_by__revision_id:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_dc_date_created__revision_id:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -1819,7 +2085,17 @@ display:
           plugin_id: standard
           required: false
       header: {  }
-      footer: {  }
+      footer:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: result
+          empty: false
+          content: '<strong>Displaying @start - @end of @total total rows</strong><br><p></p>'
       display_extenders: {  }
     cache_metadata:
       max-age: -1
@@ -1846,7 +2122,9 @@ display:
     display_options:
       rendering_language: '***LANGUAGE_entity_translation***'
       display_extenders:
-        metatag_display_extender: {  }
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
       path: admin/content-revision
     cache_metadata:
       max-age: -1
