@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6da26eaa0b07ee5401155d14926177b8",
+    "content-hash": "fea67e1a208045170f2712c572f8533b",
     "packages": [
         {
             "name": "agrcms/agri_admin",
@@ -7743,33 +7743,29 @@
         },
         {
             "name": "drupal/linkchecker",
-            "version": "2.0.0-alpha1",
+            "version": "dev-2.0.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/linkchecker.git",
-                "reference": "2.0.0-alpha1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/linkchecker-2.0.0-alpha1.zip",
-                "reference": "2.0.0-alpha1",
-                "shasum": "ee0a058ca14a776284fdc3f784f5edac01a5ded3"
+                "reference": "d76c0c5"
             },
             "require": {
-                "drupal/core": "^9.4 || ^10.0",
-                "drupal/dynamic_entity_reference": "^3.0 || ^4.0"
+                "drupal/core": "^9.4 || ^10.0 || ^11"
             },
             "require-dev": {
                 "drupal/redirect": "^1.8"
             },
             "type": "drupal-module",
             "extra": {
+                "branch-alias": {
+                    "dev-2.0.x": "2.0.x-dev"
+                },
                 "drupal": {
-                    "version": "2.0.0-alpha1",
-                    "datestamp": "1674444668",
+                    "version": "2.0.x-dev",
+                    "datestamp": "1725383499",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 },
                 "drush": {
@@ -7796,7 +7792,11 @@
                     "homepage": "https://www.drupal.org/user/85918"
                 },
                 {
-                    "name": "VladimirAus",
+                    "name": "quadrexdev",
+                    "homepage": "https://www.drupal.org/user/3683807"
+                },
+                {
+                    "name": "vladimiraus",
                     "homepage": "https://www.drupal.org/user/673120"
                 }
             ],
@@ -19844,6 +19844,12 @@
     ],
     "aliases": [
         {
+            "package": "drupal/linkchecker",
+            "version": "dev-2.0.x",
+            "alias": "2.0.0-alpha1",
+            "alias_normalized": "2.0.0.0-alpha1"
+        },
+        {
             "package": "egulias/email-validator",
             "version": "4.0.2.0",
             "alias": "3.2.6",
@@ -19866,11 +19872,12 @@
         "drupal/like_and_dislike": 10,
         "drupal/webform_revision_ui": 15,
         "drupal/wxt_chart_stability": 15,
+        "drupal/linkchecker": 20,
         "phpmd/phpmd": 0
     },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
