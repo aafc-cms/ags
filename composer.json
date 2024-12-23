@@ -230,11 +230,17 @@
             "drupal/ultimate_cron": {
                 "3094120 - Recognize OO+ crons, ultimate cron jobs": "https://www.drupal.org/files/issues/2020-03-17/3094120-5.patch"
             },
+            "drupal/linkchecker": {
+                "3426637 - Skip unpublished, new patch": "https://git.drupalcode.org/project/linkchecker/-/merge_requests/62.patch"
+            },
             "drupal/core": {
                 "3221375 - Wrong language field labels after `drush cr` because of Drush language negotiation.": "https://www.drupal.org/files/issues/2024-02-23/3221375_lost-field-labels-translations.patch"
             }
         },
         "patches-ignore": {
+            "drupal/linkchecker": {
+                "3426637 - Skip unpublished, new patch": "https://www.drupal.org/files/issues/2024-03-08/linkchecker_renamed_setting-skip-unpublished-3426637-2.patch"
+            },
             "acquia/lightning": {
                 "drupal/core": {
                     "1356276 - Allow profiles to define a base/parent profile and load them in the correct order":
@@ -396,7 +402,8 @@
         "drupal/webform_revision_ui": "^1.0@alpha",
         "drupal/wxt_chart_stability": "^1.0@alpha",
         "egulias/email-validator": "4.0.2 as 3.2.6",
-        "drupal/button_link": "^2.0"
+        "drupal/button_link": "^2.0",
+        "drupal/linkchecker": "2.0.x-dev as 2.0.0-alpha2"
     },
     "authors": [
         {
