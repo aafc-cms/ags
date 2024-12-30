@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fea67e1a208045170f2712c572f8533b",
+    "content-hash": "85895b49035525bb578c8354cf83f0e7",
     "packages": [
         {
             "name": "agrcms/agri_admin",
-            "version": "dev-10.0.x-wxt-5.0.x",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/agri_admin",
@@ -24,7 +24,7 @@
         },
         {
             "name": "agrcms/agri_reports",
-            "version": "dev-10.0.x-wxt-5.0.x",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/agri_reports",
@@ -40,7 +40,7 @@
         },
         {
             "name": "agrcms/config",
-            "version": "dev-10.0.x-wxt-5.0.x",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/config",
@@ -56,7 +56,7 @@
         },
         {
             "name": "agrcms/grstheme_bootstrap",
-            "version": "dev-10.0.x-wxt-5.0.x",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/themes/grstheme_bootstrap",
@@ -76,7 +76,7 @@
         },
         {
             "name": "agrcms/linkchecks",
-            "version": "dev-10.0.x-wxt-5.0.x",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/linkchecks",
@@ -92,7 +92,7 @@
         },
         {
             "name": "agrcms/news_bulletin",
-            "version": "dev-10.0.x-wxt-5.0.x",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/news_bulletin",
@@ -108,7 +108,7 @@
         },
         {
             "name": "agrcms/news_empl",
-            "version": "dev-10.0.x-wxt-5.0.x",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/news_empl",
@@ -124,7 +124,7 @@
         },
         {
             "name": "agrcms/prefer_latest_content",
-            "version": "dev-10.0.x-wxt-5.0.x",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/prefer_latest_content",
@@ -140,7 +140,7 @@
         },
         {
             "name": "agrcms/wxt_overrides",
-            "version": "dev-10.0.x-wxt-5.0.x",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/wxt_overrides",
@@ -10197,6 +10197,76 @@
             }
         },
         {
+            "name": "drupal/swiftmailer",
+            "version": "2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/swiftmailer.git",
+                "reference": "8.x-2.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/swiftmailer-8.x-2.4.zip",
+                "reference": "8.x-2.4",
+                "shasum": "790c682ea8774b4e03200db2c2426966d3564820"
+            },
+            "require": {
+                "drupal/core": "^8.9.11 || ^9.0.10 || ^10",
+                "drupal/mailsystem": "^4.1.0",
+                "egulias/email-validator": "^2.0||^3",
+                "html2text/html2text": "^4.0.1",
+                "php": ">=7.0.0",
+                "swiftmailer/swiftmailer": "^6.1.3",
+                "tijsverkoyen/css-to-inline-styles": "^2.2"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-2.4",
+                    "datestamp": "1706212504",
+                    "security-coverage": {
+                        "status": "revoked",
+                        "message": "Project has been unsupported by the Drupal Security Team"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "adamps",
+                    "homepage": "https://www.drupal.org/user/2650563"
+                },
+                {
+                    "name": "anybody",
+                    "homepage": "https://www.drupal.org/user/291091"
+                },
+                {
+                    "name": "b-prod",
+                    "homepage": "https://www.drupal.org/user/407852"
+                },
+                {
+                    "name": "geek-merlin",
+                    "homepage": "https://www.drupal.org/user/229048"
+                },
+                {
+                    "name": "sbrattla",
+                    "homepage": "https://www.drupal.org/user/53422"
+                },
+                {
+                    "name": "webflo",
+                    "homepage": "https://www.drupal.org/user/254778"
+                }
+            ],
+            "description": "Swiftmailer",
+            "homepage": "https://www.drupal.org/project/swiftmailer",
+            "support": {
+                "source": "https://git.drupalcode.org/project/swiftmailer"
+            }
+        },
+        {
             "name": "drupal/symfony_mailer_lite",
             "version": "1.0.6",
             "source": {
@@ -13690,7 +13760,7 @@
         },
         {
             "name": "junhuang/idol_feed_api",
-            "version": "dev-10.0.x-wxt-5.0.x",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/idol_feed_api",
@@ -15841,6 +15911,82 @@
             "license": [
                 "BSD-2-Clause"
             ]
+        },
+        {
+            "name": "swiftmailer/swiftmailer",
+            "version": "v6.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/swiftmailer/swiftmailer.git",
+                "reference": "8a5d5072dca8f48460fce2f4131fcc495eec654c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/8a5d5072dca8f48460fce2f4131fcc495eec654c",
+                "reference": "8a5d5072dca8f48460fce2f4131fcc495eec654c",
+                "shasum": ""
+            },
+            "require": {
+                "egulias/email-validator": "^2.0|^3.1",
+                "php": ">=7.0.0",
+                "symfony/polyfill-iconv": "^1.0",
+                "symfony/polyfill-intl-idn": "^1.10",
+                "symfony/polyfill-mbstring": "^1.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "symfony/phpunit-bridge": "^4.4|^5.4"
+            },
+            "suggest": {
+                "ext-intl": "Needed to support internationalized email addresses"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.2-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "lib/swift_required.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Corbyn"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Swiftmailer, free feature-rich PHP mailer",
+            "homepage": "https://swiftmailer.symfony.com",
+            "keywords": [
+                "email",
+                "mail",
+                "mailer"
+            ],
+            "support": {
+                "issues": "https://github.com/swiftmailer/swiftmailer/issues",
+                "source": "https://github.com/swiftmailer/swiftmailer/tree/v6.3.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/swiftmailer/swiftmailer",
+                    "type": "tidelift"
+                }
+            ],
+            "abandoned": "symfony/mailer",
+            "time": "2021-10-18T15:26:12+00:00"
         },
         {
             "name": "symfony/console",
