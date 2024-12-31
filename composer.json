@@ -259,16 +259,8 @@
                     "https://www.drupal.org/files/issues/2020-12-13/1356276-633-by-mpotter-balsama-phenaproxima-9.1.0-9.2.x.patch",
                     "1356276 - Overrides for profile and sub profile use 686 instead of 656": "https://www.drupal.org/files/issues/2021-06-29/D91x-1356276-656.patch"
                 },
-                "drupal/bootstrap": {
-                    "3209773 - patch included with bootstrap 3.2.5/3.2.4, only needed if using 3.2.3": "https://www.drupal.org/files/issues/2021-08-24/bootstrap-toggle_undefined-3209773-8.patch"
-                },
-                "drupal/ctools": {
-                    "is in dev patch":
-                    "https://www.drupal.org/files/issues/entityview-cache-metadata-2874176-2.patch"
-                },
-                "drupal/field_group": {
-                    "3111107 - Remove patch , no longer works, override it with patch 10.":
-                    "https://www.drupal.org/files/issues/2020-02-04/3111107-2--fix-translations.patch"
+                "drupal/layout_builder_st": {
+                    "3420063 - Fix member call to getConfig() on null in OverridesSectionStorage.php": "https://git.drupalcode.org/project/layout_builder_st/-/merge_requests/6.diff"
                 },
                 "drupal/linkit": {
                     "Detect and strip base URL from pasted URLs to increase matching hits":
@@ -323,7 +315,7 @@
         }
     },
     "require": {
-        "agrcmsx/dxbase": "10.4.0.0-rc6",
+        "agrcmsx/dxbase": "10.4.0.0",
         "agrcms/agri_admin": "*",
         "agrcms/agri_reports": "*",
         "agrcms/config": "*",

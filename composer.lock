@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f364cde6275c505569d7898386b6d7b7",
+    "content-hash": "60186cffb77e8b6c45ec552c0adb433c",
     "packages": [
         {
             "name": "agrcms/agri_admin",
@@ -156,16 +156,16 @@
         },
         {
             "name": "agrcmsx/dxbase",
-            "version": "10.4.0.0-rc6",
+            "version": "10.4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/agrcms/dxbase.git",
-                "reference": "2d67f3532e0e16db320ec36710da3ef733b0d6a9"
+                "reference": "afbe38f169b60cac0c639d2f1c64c18fe45d2452"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=2d67f3532e0e16db320ec36710da3ef733b0d6a9",
-                "reference": "2d67f3532e0e16db320ec36710da3ef733b0d6a9",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=afbe38f169b60cac0c639d2f1c64c18fe45d2452",
+                "reference": "afbe38f169b60cac0c639d2f1c64c18fe45d2452",
                 "shasum": ""
             },
             "require": {
@@ -321,6 +321,9 @@
                     "drupal/wxt_bootstrap": {
                         "part 2 When installing and enabling the Canada.ca theme, the footer is missing the menu and other elements. Stats Can provides a CDN for footer markup, but as far as I know Canada.ca doesn't provide this. It would be nice to have the footer complete on install.": "https://www.drupal.org/files/issues/2021-01-27/wxt-bootstrap-add-canada-ca-footer-settings-3195014-2.patch"
                     },
+                    "drupal/layout_builder_st": {
+                        "3420063 - Fix getConfig() on null in OverridesSectionStorage": "https://www.drupal.org/files/issues/2024-03-29/layout_builder_st-call_to_a_member_function_getconfig-3420063-26.patch"
+                    },
                     "drupal/views_data_export": {
                         "Save to predictable folder": "https://www.drupal.org/files/issues/2021-01-08/1875456-82.patch"
                     },
@@ -366,6 +369,9 @@
                         },
                         "drupal/lightning_core": {
                             "PHP warning from contextual links": "https://www.drupal.org/files/issues/2021-07-15/3223839-1-PHP-warning-from-contextual-links.patch"
+                        },
+                        "drupal/layout_builder_st": {
+                            "3420063 - Call to a member function getConfig() OverridesSectionStorage.php": "https://git.drupalcode.org/project/layout_builder_st/-/merge_requests/6.diff"
                         },
                         "drupal/moderation_sidebar": {
                             "Discard Draft for a translation edits the base language node, ignore this patch, use patch 7 instead": "https://www.drupal.org/files/issues/2021-02-12/3194841-3.patch"
@@ -425,9 +431,9 @@
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
             "support": {
                 "issues": "https://gitlab.com/agrcms/dxbase/-/issues",
-                "source": "https://gitlab.com/agrcms/dxbase/-/tree/10.4.0.0-rc6"
+                "source": "https://gitlab.com/agrcms/dxbase/-/tree/10.4.0.0"
             },
-            "time": "2024-12-31T14:51:21+00:00"
+            "time": "2024-12-31T15:37:12+00:00"
         },
         {
             "name": "algolia/places",
