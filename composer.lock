@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "60186cffb77e8b6c45ec552c0adb433c",
+    "content-hash": "2563047a56e25ee164cfae276717314e",
     "packages": [
         {
             "name": "agrcms/agri_admin",
-            "version": "dev-agrcms/d8#884-d10x4-alignments",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/agri_admin",
@@ -24,7 +24,7 @@
         },
         {
             "name": "agrcms/agri_reports",
-            "version": "dev-agrcms/d8#884-d10x4-alignments",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/agri_reports",
@@ -40,7 +40,7 @@
         },
         {
             "name": "agrcms/config",
-            "version": "dev-agrcms/d8#884-d10x4-alignments",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/config",
@@ -56,7 +56,7 @@
         },
         {
             "name": "agrcms/grstheme_bootstrap",
-            "version": "dev-agrcms/d8#884-d10x4-alignments",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/themes/grstheme_bootstrap",
@@ -76,7 +76,7 @@
         },
         {
             "name": "agrcms/linkchecks",
-            "version": "dev-agrcms/d8#884-d10x4-alignments",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/linkchecks",
@@ -92,7 +92,7 @@
         },
         {
             "name": "agrcms/news_bulletin",
-            "version": "dev-agrcms/d8#884-d10x4-alignments",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/news_bulletin",
@@ -108,7 +108,7 @@
         },
         {
             "name": "agrcms/news_empl",
-            "version": "dev-agrcms/d8#884-d10x4-alignments",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/news_empl",
@@ -124,7 +124,7 @@
         },
         {
             "name": "agrcms/prefer_latest_content",
-            "version": "dev-agrcms/d8#884-d10x4-alignments",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/prefer_latest_content",
@@ -140,7 +140,7 @@
         },
         {
             "name": "agrcms/wxt_overrides",
-            "version": "dev-agrcms/d8#884-d10x4-alignments",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/wxt_overrides",
@@ -156,16 +156,16 @@
         },
         {
             "name": "agrcmsx/dxbase",
-            "version": "10.4.0.0",
+            "version": "10.4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/agrcms/dxbase.git",
-                "reference": "afbe38f169b60cac0c639d2f1c64c18fe45d2452"
+                "reference": "342289b11cecad25f1ae1cb80f996a2fc009c2b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=afbe38f169b60cac0c639d2f1c64c18fe45d2452",
-                "reference": "afbe38f169b60cac0c639d2f1c64c18fe45d2452",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=342289b11cecad25f1ae1cb80f996a2fc009c2b7",
+                "reference": "342289b11cecad25f1ae1cb80f996a2fc009c2b7",
                 "shasum": ""
             },
             "require": {
@@ -203,6 +203,9 @@
                 "drupal/git_status": "^1.2",
                 "drupal/honeypot": "^2.2.0",
                 "drupal/jquery_ui_datepicker": "^2.1",
+                "drupal/jquery_ui_draggable": "^2.1",
+                "drupal/jquery_ui_resizable": "^2.1",
+                "drupal/js_cookie": "^1.0",
                 "drupal/libraries": "^4.0.5",
                 "drupal/link_attributes": "^2.1",
                 "drupal/linkchecker": "^2.1.0-alpha1",
@@ -431,9 +434,9 @@
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
             "support": {
                 "issues": "https://gitlab.com/agrcms/dxbase/-/issues",
-                "source": "https://gitlab.com/agrcms/dxbase/-/tree/10.4.0.0"
+                "source": "https://gitlab.com/agrcms/dxbase/-/tree/10.4.0.1"
             },
-            "time": "2024-12-31T15:37:12+00:00"
+            "time": "2025-01-02T10:21:44+00:00"
         },
         {
             "name": "algolia/places",
@@ -1806,20 +1809,20 @@
         },
         {
             "name": "doctrine/common",
-            "version": "3.4.5",
+            "version": "3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/common.git",
-                "reference": "6c8fef961f67b8bc802ce3e32e3ebd1022907286"
+                "reference": "d9ea4a54ca2586db781f0265d36bea731ac66ec5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/6c8fef961f67b8bc802ce3e32e3ebd1022907286",
-                "reference": "6c8fef961f67b8bc802ce3e32e3ebd1022907286",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/d9ea4a54ca2586db781f0265d36bea731ac66ec5",
+                "reference": "d9ea4a54ca2586db781f0265d36bea731ac66ec5",
                 "shasum": ""
             },
             "require": {
-                "doctrine/persistence": "^2.0 || ^3.0",
+                "doctrine/persistence": "^2.0 || ^3.0 || ^4.0",
                 "php": "^7.1 || ^8.0"
             },
             "require-dev": {
@@ -1877,7 +1880,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/common/issues",
-                "source": "https://github.com/doctrine/common/tree/3.4.5"
+                "source": "https://github.com/doctrine/common/tree/3.5.0"
             },
             "funding": [
                 {
@@ -1893,7 +1896,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-10-08T15:53:43+00:00"
+            "time": "2025-01-01T22:12:03+00:00"
         },
         {
             "name": "doctrine/deprecations",
@@ -2111,21 +2114,21 @@
         },
         {
             "name": "doctrine/persistence",
-            "version": "3.4.0",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/persistence.git",
-                "reference": "0ea965320cec355dba75031c1b23d4c78362e3ff"
+                "reference": "45004aca79189474f113cbe3a53847c2115a55fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/persistence/zipball/0ea965320cec355dba75031c1b23d4c78362e3ff",
-                "reference": "0ea965320cec355dba75031c1b23d4c78362e3ff",
+                "url": "https://api.github.com/repos/doctrine/persistence/zipball/45004aca79189474f113cbe3a53847c2115a55fa",
+                "reference": "45004aca79189474f113cbe3a53847c2115a55fa",
                 "shasum": ""
             },
             "require": {
                 "doctrine/event-manager": "^1 || ^2",
-                "php": "^7.2 || ^8.0",
+                "php": "^8.1",
                 "psr/cache": "^1.0 || ^2.0 || ^3.0"
             },
             "conflict": {
@@ -2133,11 +2136,10 @@
             },
             "require-dev": {
                 "doctrine/coding-standard": "^12",
-                "doctrine/common": "^3.0",
                 "phpstan/phpstan": "1.12.7",
                 "phpstan/phpstan-phpunit": "^1",
                 "phpstan/phpstan-strict-rules": "^1.1",
-                "phpunit/phpunit": "^8.5.38 || ^9.5",
+                "phpunit/phpunit": "^9.6",
                 "symfony/cache": "^4.4 || ^5.4 || ^6.0 || ^7.0"
             },
             "type": "library",
@@ -2187,7 +2189,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/persistence/issues",
-                "source": "https://github.com/doctrine/persistence/tree/3.4.0"
+                "source": "https://github.com/doctrine/persistence/tree/4.0.0"
             },
             "funding": [
                 {
@@ -2203,7 +2205,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-10-30T19:48:12+00:00"
+            "time": "2024-11-01T21:49:07+00:00"
         },
         {
             "name": "drupal-ckeditor-libraries-group/fakeobjects",
@@ -4484,26 +4486,26 @@
         },
         {
             "name": "drupal/css_editor",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/css_editor.git",
-                "reference": "2.0.2"
+                "reference": "2.0.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/css_editor-2.0.2.zip",
-                "reference": "2.0.2",
-                "shasum": "046fcf2d74c0512f426d6be36571735aed0d11fd"
+                "url": "https://ftp.drupal.org/files/projects/css_editor-2.0.3.zip",
+                "reference": "2.0.3",
+                "shasum": "cf51984bd222a4158b2e1cc013a051c80791844b"
             },
             "require": {
-                "drupal/core": "^9 || ^10"
+                "drupal/core": "^9 || ^10 || ^11"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.2",
-                    "datestamp": "1677749668",
+                    "version": "2.0.3",
+                    "datestamp": "1735808305",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -14100,7 +14102,7 @@
         },
         {
             "name": "junhuang/idol_feed_api",
-            "version": "dev-agrcms/d8#884-d10x4-alignments",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/idol_feed_api",
@@ -20017,12 +20019,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "f2cc4c553eae68772624ffd7dd99022343b69c31"
+                "reference": "aa0cfc97697752aaef0fb0e32b26a378cdc3cbaa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/f2cc4c553eae68772624ffd7dd99022343b69c31",
-                "reference": "f2cc4c553eae68772624ffd7dd99022343b69c31",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/aa0cfc97697752aaef0fb0e32b26a378cdc3cbaa",
+                "reference": "aa0cfc97697752aaef0fb0e32b26a378cdc3cbaa",
                 "shasum": ""
             },
             "require": {
@@ -20075,7 +20077,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-11-08T15:15:07+00:00"
+            "time": "2025-01-01T11:50:19+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
