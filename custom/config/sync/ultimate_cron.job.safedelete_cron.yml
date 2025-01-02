@@ -8,7 +8,7 @@ title: 'Default cron handler'
 id: safedelete_cron
 weight: 0
 module: safedelete
-callback: safedelete_cron
+callback: 'safedelete#cron'
 scheduler:
   id: crontab
   configuration:

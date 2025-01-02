@@ -3,6 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entity_browser.browser.ckeditor_media_browser
+    - entity_browser.browser.image_browser
+    - entity_browser.browser.media_browser
+    - entity_browser.browser.otherbrowser
     - filter.format.full_html
     - filter.format.no_editor_full
     - filter.format.rich_text
@@ -35,7 +39,9 @@ dependencies:
     - entity_reference_revisions
     - file
     - file_delete
+    - filebrowser
     - filter
+    - help
     - layout_builder
     - locale
     - media
@@ -70,6 +76,7 @@ permissions:
   - 'access content overview'
   - 'access contextual links'
   - 'access files overview'
+  - 'access help pages'
   - 'access image_browser entity browser pages'
   - 'access media overview'
   - 'access media_browser entity browser pages'
@@ -124,6 +131,8 @@ permissions:
   - 'delete all revisions'
   - 'delete any video_file media'
   - 'delete files'
+  - 'delete files immediately'
+  - 'delete files override usage'
   - 'delete media'
   - 'delete orphan revisions'
   - 'delete own audio_file media'

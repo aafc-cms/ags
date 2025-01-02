@@ -8,7 +8,7 @@ title: 'Default cron handler'
 id: linkchecker_cron
 weight: 0
 module: linkchecker
-callback: linkchecker_cron
+callback: 'linkchecker#cron'
 scheduler:
   id: simple
   configuration:

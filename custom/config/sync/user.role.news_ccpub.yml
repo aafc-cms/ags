@@ -3,6 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entity_browser.browser.ckeditor_media_browser
+    - entity_browser.browser.image_browser
+    - entity_browser.browser.media_browser
+    - entity_browser.browser.otherbrowser
     - filter.format.full_html
     - filter.format.no_editor_full
     - filter.format.rich_text
@@ -29,7 +33,9 @@ dependencies:
     - dropzonejs
     - entity_browser
     - file
+    - file_delete
     - filter
+    - help
     - media
     - moderation_dashboard
     - node
@@ -53,6 +59,7 @@ permissions:
   - 'access content'
   - 'access content overview'
   - 'access contextual links'
+  - 'access help pages'
   - 'access image_browser entity browser pages'
   - 'access media_browser entity browser pages'
   - 'access otherbrowser entity browser pages'
@@ -79,6 +86,8 @@ permissions:
   - 'create tweet media'
   - 'create video media'
   - 'create video_file media'
+  - 'delete files immediately'
+  - 'delete files override usage'
   - 'delete own files'
   - 'delete token'
   - 'dropzone upload files'

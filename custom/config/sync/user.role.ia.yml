@@ -16,6 +16,8 @@ dependencies:
     - content_moderation
     - content_translation
     - file
+    - file_delete
+    - help
     - moderated_content_bulk_publish
     - node
     - system
@@ -27,6 +29,7 @@ weight: 0
 is_admin: null
 permissions:
   - 'access administration pages'
+  - 'access help pages'
   - 'access site in maintenance mode'
   - 'access taxonomy overview'
   - 'access tokens overview'
@@ -36,6 +39,8 @@ permissions:
   - 'agrisource admin styles'
   - 'create terms in aafc_type'
   - 'create terms in category'
+  - 'delete files immediately'
+  - 'delete files override usage'
   - 'delete own files'
   - 'edit any empl content'
   - 'edit any landing_page content'

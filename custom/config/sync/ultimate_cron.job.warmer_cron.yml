@@ -1,14 +1,14 @@
-uuid: 54afb75b-3b0c-4f4b-9948-0689cdd00db8
+uuid: 186b3add-25c3-43ca-9ad1-26cfb091ced5
 langcode: en
 status: true
 dependencies:
   module:
-    - honeypot
+    - warmer
 title: 'Default cron handler'
-id: honeypot_cron
+id: warmer_cron
 weight: 0
-module: honeypot
-callback: 'honeypot#cron'
+module: warmer
+callback: 'warmer#cron'
 scheduler:
   id: simple
 launcher:

@@ -7,16 +7,7 @@ dependencies:
     - field.storage.block_content.body
     - field.storage.block_content.field_spotlight_media
     - field.storage.media.field_image_link
-    - block_content.type.spotlight
-    - field.storage.block_content.body
-    - field.storage.block_content.field_spotlight_media
-    - field.storage.media.field_image_link
   module:
-    - block_content
-    - link
-    - media
-    - text
-    - views_bootstrap
     - block_content
     - entityqueue
     - link
@@ -397,7 +388,6 @@ display:
           title: ''
           default_argument_type: subnodequeue
           default_argument_options: {  }
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -935,4 +925,3 @@ display:
         - 'config:field.storage.block_content.body'
         - 'config:field.storage.block_content.field_spotlight_media'
         - 'config:field.storage.media.field_image_link'
-core: 8.x
