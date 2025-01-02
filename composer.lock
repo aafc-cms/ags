@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2563047a56e25ee164cfae276717314e",
+    "content-hash": "b65158ac1781a63a763e5e2cfce43834",
     "packages": [
         {
             "name": "agrcms/agri_admin",
@@ -156,16 +156,16 @@
         },
         {
             "name": "agrcmsx/dxbase",
-            "version": "10.4.0.1",
+            "version": "10.4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/agrcms/dxbase.git",
-                "reference": "342289b11cecad25f1ae1cb80f996a2fc009c2b7"
+                "reference": "8ffcdcd7dfa4fbb0d4a7f62411b79a009f757125"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=342289b11cecad25f1ae1cb80f996a2fc009c2b7",
-                "reference": "342289b11cecad25f1ae1cb80f996a2fc009c2b7",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=8ffcdcd7dfa4fbb0d4a7f62411b79a009f757125",
+                "reference": "8ffcdcd7dfa4fbb0d4a7f62411b79a009f757125",
                 "shasum": ""
             },
             "require": {
@@ -227,6 +227,7 @@
                 "drupal/telephone_validation": "^2.5",
                 "drupal/token": "^1.15",
                 "drupal/ultimate_cron": "^2.0@beta",
+                "drupal/varnish_purge": "^2.2",
                 "drupal/view_custom_table": "^2.0.8",
                 "drupal/views_data_export": "^1.5",
                 "drupal/views_published_or_roles": "^1.3",
@@ -434,9 +435,9 @@
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
             "support": {
                 "issues": "https://gitlab.com/agrcms/dxbase/-/issues",
-                "source": "https://gitlab.com/agrcms/dxbase/-/tree/10.4.0.1"
+                "source": "https://gitlab.com/agrcms/dxbase/-/tree/10.4.0.2"
             },
-            "time": "2025-01-02T10:21:44+00:00"
+            "time": "2025-01-02T10:53:23+00:00"
         },
         {
             "name": "algolia/places",
@@ -11065,6 +11066,66 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/variationcache",
                 "issues": "https://drupal.org/project/issues/variationcache"
+            }
+        },
+        {
+            "name": "drupal/varnish_purge",
+            "version": "2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/varnish_purge.git",
+                "reference": "8.x-2.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/varnish_purge-8.x-2.2.zip",
+                "reference": "8.x-2.2",
+                "shasum": "9fbddb71417113d58345d2fbe9d0a1aa9c5d5c36"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10"
+            },
+            "require-dev": {
+                "drupal/purge": "*",
+                "drupal/purge_tokens": "*",
+                "drupal/varnish_purger-varnish_purger": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-2.2",
+                    "datestamp": "1681218333",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "deadbeef",
+                    "homepage": "https://www.drupal.org/user/93644"
+                },
+                {
+                    "name": "javivf",
+                    "homepage": "https://www.drupal.org/user/2789335"
+                },
+                {
+                    "name": "littlethoughts",
+                    "homepage": "https://www.drupal.org/user/2479724"
+                },
+                {
+                    "name": "MiSc",
+                    "homepage": "https://www.drupal.org/user/382892"
+                }
+            ],
+            "homepage": "https://www.drupal.org/project/varnish_purge",
+            "support": {
+                "source": "https://git.drupalcode.org/project/varnish_purge"
             }
         },
         {
