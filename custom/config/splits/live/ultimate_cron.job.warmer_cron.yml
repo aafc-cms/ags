@@ -8,7 +8,7 @@ title: 'Default cron handler'
 id: warmer_cron
 weight: 0
 module: warmer
-callback: warmer_cron
+callback: 'warmer#cron'
 scheduler:
   id: simple
 launcher:
