@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1e558734ecd0cdfd0df4458cabbd86de",
+    "content-hash": "56643ec35d408b48828e297acd896255",
     "packages": [
         {
             "name": "agrcms/agri_admin",
@@ -156,16 +156,16 @@
         },
         {
             "name": "agrcmsx/dxbase",
-            "version": "10.4.0.3",
+            "version": "10.4.0.5",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/agrcms/dxbase.git",
-                "reference": "dc24c7a96ccaf9041398c37bef0168dd2fb5a1a7"
+                "reference": "542aa7de319e207f17f84740035f4ac993b5f127"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=dc24c7a96ccaf9041398c37bef0168dd2fb5a1a7",
-                "reference": "dc24c7a96ccaf9041398c37bef0168dd2fb5a1a7",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=542aa7de319e207f17f84740035f4ac993b5f127",
+                "reference": "542aa7de319e207f17f84740035f4ac993b5f127",
                 "shasum": ""
             },
             "require": {
@@ -201,7 +201,7 @@
                 "drupal/form_options_attributes": "^2.0.2",
                 "drupal/formblock": "^2.0.0-beta2",
                 "drupal/git_status": "^1.2",
-                "drupal/honeypot": "^2.1",
+                "drupal/honeypot": "2.1.4",
                 "drupal/jquery_ui_datepicker": "^2.1",
                 "drupal/jquery_ui_draggable": "^2.1",
                 "drupal/jquery_ui_resizable": "^2.1",
@@ -212,6 +212,7 @@
                 "drupal/memcache": "^2.7",
                 "drupal/menu_admin_per_menu": "^1.6",
                 "drupal/moderated_content_bulk_publish": "^2.0",
+                "drupal/moderation_dashboard": "2.1.5",
                 "drupal/moderation_sidebar": "^1.8",
                 "drupal/node_revision_delete": "^2.0@RC",
                 "drupal/panels": "4.x-dev as 4.8",
@@ -326,7 +327,8 @@
                         "part 2 When installing and enabling the Canada.ca theme, the footer is missing the menu and other elements. Stats Can provides a CDN for footer markup, but as far as I know Canada.ca doesn't provide this. It would be nice to have the footer complete on install.": "https://www.drupal.org/files/issues/2021-01-27/wxt-bootstrap-add-canada-ca-footer-settings-3195014-2.patch"
                     },
                     "drupal/layout_builder_st": {
-                        "3420063 - Fix getConfig() on null in OverridesSectionStorage": "https://www.drupal.org/files/issues/2024-03-29/layout_builder_st-call_to_a_member_function_getconfig-3420063-26.patch"
+                        "3420063 - Fix getConfig() on null in OverridesSectionStorage": "https://www.drupal.org/files/issues/2024-03-29/layout_builder_st-call_to_a_member_function_getconfig-3420063-26.patch",
+                        "3069964 - Argument 1 passed to isTranslation must implement SectionStorageInterface, null given.": "https://www.drupal.org/files/issues/2019-07-24/isTranslation-null-given.patch"
                     },
                     "drupal/views_data_export": {
                         "Save to predictable folder": "https://www.drupal.org/files/issues/2021-01-08/1875456-82.patch"
@@ -435,9 +437,9 @@
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
             "support": {
                 "issues": "https://gitlab.com/agrcms/dxbase/-/issues",
-                "source": "https://gitlab.com/agrcms/dxbase/-/tree/10.4.0.3"
+                "source": "https://gitlab.com/agrcms/dxbase/-/tree/10.4.0.5"
             },
-            "time": "2025-01-02T11:56:34+00:00"
+            "time": "2025-01-02T21:44:13+00:00"
         },
         {
             "name": "algolia/places",
@@ -6763,29 +6765,29 @@
         },
         {
             "name": "drupal/honeypot",
-            "version": "2.2.0",
+            "version": "2.1.4",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/honeypot.git",
-                "reference": "2.2.0"
+                "reference": "2.1.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/honeypot-2.2.0.zip",
-                "reference": "2.2.0",
-                "shasum": "56397c3779ebac1526cce9ecd39385017ee9a837"
+                "url": "https://ftp.drupal.org/files/projects/honeypot-2.1.4.zip",
+                "reference": "2.1.4",
+                "shasum": "adf76c3520c0e458177dbe6d638aa2d6ae40a95b"
             },
             "require": {
-                "drupal/core": "^10.3 || ^11"
+                "drupal/core": "^9.2 || ^10"
             },
             "require-dev": {
-                "drupal/rules": "^4.0"
+                "drupal/rules": "^3.x-dev"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.2.0",
-                    "datestamp": "1723761042",
+                    "version": "2.1.4",
+                    "datestamp": "1723489062",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -8899,26 +8901,26 @@
         },
         {
             "name": "drupal/moderation_dashboard",
-            "version": "3.1.0",
+            "version": "2.1.5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/moderation_dashboard.git",
-                "reference": "3.1.0"
+                "reference": "2.1.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/moderation_dashboard-3.1.0.zip",
-                "reference": "3.1.0",
-                "shasum": "efe8ce67a4c78291726ef3883f3fb815dfb6f17b"
+                "url": "https://ftp.drupal.org/files/projects/moderation_dashboard-2.1.5.zip",
+                "reference": "2.1.5",
+                "shasum": "5864fae086ef710cad0615341e6e6214cd2a55a6"
             },
             "require": {
-                "drupal/core": "^10.3 || ^11"
+                "drupal/core": "^9 || ^10"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.1.0",
-                    "datestamp": "1725558905",
+                    "version": "2.1.5",
+                    "datestamp": "1694008389",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
