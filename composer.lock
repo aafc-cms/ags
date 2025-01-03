@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "56643ec35d408b48828e297acd896255",
+    "content-hash": "5a9a59d9eeb8a641d29a9ed906929d08",
     "packages": [
         {
             "name": "agrcms/agri_admin",
@@ -156,16 +156,16 @@
         },
         {
             "name": "agrcmsx/dxbase",
-            "version": "10.4.0.5",
+            "version": "10.4.0.6",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/agrcms/dxbase.git",
-                "reference": "542aa7de319e207f17f84740035f4ac993b5f127"
+                "reference": "d1c2605e653f35002e9a1b276193f953fe04607d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=542aa7de319e207f17f84740035f4ac993b5f127",
-                "reference": "542aa7de319e207f17f84740035f4ac993b5f127",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=d1c2605e653f35002e9a1b276193f953fe04607d",
+                "reference": "d1c2605e653f35002e9a1b276193f953fe04607d",
                 "shasum": ""
             },
             "require": {
@@ -328,7 +328,7 @@
                     },
                     "drupal/layout_builder_st": {
                         "3420063 - Fix getConfig() on null in OverridesSectionStorage": "https://www.drupal.org/files/issues/2024-03-29/layout_builder_st-call_to_a_member_function_getconfig-3420063-26.patch",
-                        "3069964 - Argument 1 passed to isTranslation must implement SectionStorageInterface, null given.": "https://www.drupal.org/files/issues/2019-07-24/isTranslation-null-given.patch"
+                        "3069964 - Argument 1 passed to isTranslation must implement SectionStorageInterface, null given.": "https://www.drupal.org/files/issues/2025-01-02/3069964-null-fix.patch"
                     },
                     "drupal/views_data_export": {
                         "Save to predictable folder": "https://www.drupal.org/files/issues/2021-01-08/1875456-82.patch"
@@ -437,9 +437,9 @@
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
             "support": {
                 "issues": "https://gitlab.com/agrcms/dxbase/-/issues",
-                "source": "https://gitlab.com/agrcms/dxbase/-/tree/10.4.0.5"
+                "source": "https://gitlab.com/agrcms/dxbase/-/tree/10.4.0.6"
             },
-            "time": "2025-01-02T21:44:13+00:00"
+            "time": "2025-01-02T22:06:41+00:00"
         },
         {
             "name": "algolia/places",
