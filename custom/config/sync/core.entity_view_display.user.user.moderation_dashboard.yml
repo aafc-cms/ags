@@ -18,8 +18,8 @@ dependencies:
     - views
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: true
+    allow_custom: false
     sections:
       -
         layout_id: moderation_dashboard
@@ -32,11 +32,11 @@ third_party_settings:
             configuration:
               id: 'views_block:content_moderation_dashboard_in_review-block_1'
               label: 'Content in review'
-              provider: views
               label_display: visible
+              provider: views
+              context_mapping: {  }
               views_label: 'Content in review'
               items_per_page: none
-              context_mapping: {  }
             weight: -10
             additional: {  }
           295a5bf0-3eb3-47b5-8333-2c52ba8f3862:
@@ -45,8 +45,8 @@ third_party_settings:
             configuration:
               id: moderation_dashboard_activity
               label: 'Editor activity for the last 30 days'
-              provider: moderation_dashboard
               label_display: visible
+              provider: moderation_dashboard
               context_mapping: {  }
             weight: -8
             additional: {  }
@@ -56,11 +56,11 @@ third_party_settings:
             configuration:
               id: 'views_block:content_moderation_dashboard_in_review-block_2'
               label: 'Content drafts'
-              provider: views
               label_display: visible
+              provider: views
+              context_mapping: {  }
               views_label: 'Content drafts'
               items_per_page: none
-              context_mapping: {  }
             weight: -9
             additional: {  }
           93a5dffd-8824-423d-8b9b-cd478f089227:
@@ -69,11 +69,11 @@ third_party_settings:
             configuration:
               id: 'views_block:moderation_dashboard_recent_changes-block_1'
               label: 'Recent updates'
-              provider: views
               label_display: visible
+              provider: views
+              context_mapping: {  }
               views_label: 'Recent updates'
               items_per_page: none
-              context_mapping: {  }
             weight: 0
             additional: {  }
           de4b18d0-c1cb-4074-b239-3895f7747260:
@@ -82,11 +82,11 @@ third_party_settings:
             configuration:
               id: 'views_block:moderation_dashboard_recently_created-block_1'
               label: 'Recently created'
-              provider: views
               label_display: visible
+              provider: views
+              context_mapping: {  }
               views_label: 'Recently created'
               items_per_page: none
-              context_mapping: {  }
             weight: 1
             additional: {  }
           fc6cadb0-275f-440a-8eb5-d5a1993c1016:
@@ -95,11 +95,11 @@ third_party_settings:
             configuration:
               id: 'views_block:content_moderation_dashboard_in_review-block_3'
               label: 'Your drafts'
-              provider: views
               label_display: visible
+              provider: views
+              context_mapping: {  }
               views_label: 'Your drafts'
               items_per_page: none
-              context_mapping: {  }
             weight: 0
             additional: {  }
           7f0e40cc-073f-44a6-aa98-b9b7ac68618c:
@@ -108,11 +108,11 @@ third_party_settings:
             configuration:
               id: 'views_block:moderation_dashboard_recent_changes-block_2'
               label: 'Your activity'
-              provider: views
               label_display: visible
+              provider: views
+              context_mapping: {  }
               views_label: 'Your activity'
               items_per_page: none
-              context_mapping: {  }
             weight: 1
             additional: {  }
           6eabf516-83a0-4fc4-95ba-8afe5e678dbc:
@@ -121,11 +121,11 @@ third_party_settings:
             configuration:
               id: 'views_block:moderation_dashboard_recently_created-block_2'
               label: 'Content you created'
-              provider: views
               label_display: visible
+              provider: views
+              context_mapping: {  }
               views_label: 'Content you created'
               items_per_page: none
-              context_mapping: {  }
             weight: 2
             additional: {  }
         third_party_settings: {  }
