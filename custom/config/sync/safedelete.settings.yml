@@ -3,31 +3,31 @@ _core:
 bundle:
   landing_page: landing_page
   page: page
-  blog_post: 0
-  dir_listing: 0
-  empl: 0
-  news: 0
-  webform: 0
-limit: '30'
+  blog_post: '0'
+  dir_listing: '0'
+  empl: '0'
+  news: '0'
+  webform: '0'
+limit: 30
 delete_button: 0
-safearchive: true
-orphanedpagedefinition:
-  landing_page: landing_page
-  page: page
-  blog_post: 0
-  dir_listing: 0
-  empl: 0
-  news: 0
-  webform: 0
-orphanedpagewithoutmenulink: landing_page
 exceptionofnodes: ''
-enforce_bulk_publish_verify_checkpagepublished: true
-safeanchors: 1
-safebaseurl: ''
-safeenablebaseurl: 1
+safearchive: 1
+safeanchors: true
 safebaseurlother: 'https://agrisource.agr.gc.ca'
-safeenableotherbaseurl: 1
 safebaseurlother2: 'https://cms-dev.agr.gc.ca/d9dev'
+safeenableotherbaseurl: 1
 safeenableotherbaseurl2: 1
 safeenableprefix: 1
 safeprefix: /d9dev
+orphanedpagedefinition:
+  landing_page: landing_page
+  page: page
+  blog_post: '0'
+  dir_listing: '0'
+  empl: '0'
+  news: '0'
+  webform: '0'
+orphanedpagewithoutmenulink: landing_page
+enforce_bulk_publish_verify_checkpagepublished: true
+safebaseurl: ''
+safeenablebaseurl: 1
