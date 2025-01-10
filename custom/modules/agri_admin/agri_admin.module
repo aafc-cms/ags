@@ -2013,9 +2013,10 @@ function agri_admin_validate_dedupe_warning(FileInterface $file) {
   if (!$file->id()) {
     $tablename = AgriAdminHelper::getHashTableName();
     foreach (agri_admin_algos() as $algo) {
+      $hash_value = hash_file($algo, $file->getFileUri());
       $query = \Drupal::database()->select('{' . $tablename . '}');
       $query->addField('{' . $tablename . '}', 'fid');
-      $query->condition($algo, $file->filehash[$algo]);
+      $query->condition($algo, $hash_value);
       $query->range(0, 1);
 
       if ($fid = $query->execute()->fetchField()) {
@@ -2059,7 +2060,14 @@ function agri_admin_validate_dedupe_warning(FileInterface $file) {
  * Returns array of enabled hash algorithms.
  */
 function agri_admin_algos() {
-  return array_diff(\Drupal::config('filehash.settings')->get('algos'), [0]);
+  $algo_config = \Drupal::config('filehash.settings')->get('algorithms');
+  $algos;
+  foreach ($algo_config as $key => $value) {
+    if ($value) {
+      $algos[$key] = $key;
+    }
+  }
+  return array_diff($algos, [0]);
 }
 
 /**

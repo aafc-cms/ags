@@ -5,7 +5,7 @@ defaults:
   sender: php_mail
   formatter: php_mail
 modules:
-  swiftmailer:
+  symfony_mailer_lite:
     none:
       sender: symfony_mailer_lite
       formatter: symfony_mailer_lite
@@ -18,10 +18,6 @@ modules:
       sender: symfony_mailer_lite
       formatter: symfony_mailer_lite
   user:
-    none:
-      sender: symfony_mailer_lite
-      formatter: symfony_mailer_lite
-  symfony_mailer_lite:
     none:
       sender: symfony_mailer_lite
       formatter: symfony_mailer_lite

@@ -8,7 +8,7 @@ title: 'Default cron handler'
 id: access_unpublished_cron
 weight: 0
 module: access_unpublished
-callback: access_unpublished_cron
+callback: 'access_unpublished#cron'
 scheduler:
   id: simple
 launcher:

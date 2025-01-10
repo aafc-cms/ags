@@ -547,6 +547,7 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
+          pagination_heading_level: h4
       exposed_form:
         type: basic
         options:
@@ -1184,6 +1185,7 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
+          pagination_heading_level: h4
       empty:
         area_text_custom:
           id: area_text_custom
@@ -1219,7 +1221,6 @@ display:
             context_key: target_bundles
             fallback: all
             multiple: or
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -1532,7 +1533,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - user.permissions
       tags: {  }
   entity_browser_2:
@@ -1986,7 +1986,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - user.permissions
       tags: {  }
   media_page_list:

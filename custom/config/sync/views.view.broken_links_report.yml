@@ -8,7 +8,6 @@ dependencies:
     - user.role.creator
   module:
     - csv_serialization
-    - dynamic_entity_reference
     - linkchecker
     - rest
     - serialization
@@ -804,6 +803,7 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
+          pagination_heading_level: h4
       exposed_form:
         type: basic
         options:

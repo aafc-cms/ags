@@ -1,0 +1,14 @@
+uuid: 286f6067-8d14-4e97-b224-010da5446fc8
+langcode: en
+status: true
+dependencies:
+  config:
+    - key.key.smtp_user
+    - smtp.settings
+id: smtp_user
+label: 'SMTP User'
+config_type: system.simple
+config_prefix: ''
+config_name: smtp.settings
+config_item: smtp_username
+key_id: smtp_user

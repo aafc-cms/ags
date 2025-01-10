@@ -16,7 +16,6 @@ ignored_config_entities:
   - field.storage.user.field_pending_expire_sent
   - grstheme_bootstrap.settings
   - linkchecker.settings
-  - mailsystem.settings
   - password_policy
   - 'password_policy.*'
   - password_policy.password_policy.wxt_ism_policy_strong
@@ -24,9 +23,6 @@ ignored_config_entities:
   - password_policy.settings
   - 'purge.*'
   - purge_queuer_coretags.settings
-  - smtp.settings
-  - symfony_mailer_lite.symfony_mailer_lite_transport.smtp
-  - system.mail
   - system.menu.devel
   - ultimate_cron.job.password_policy_cron
   - 'varnish_purger.*'

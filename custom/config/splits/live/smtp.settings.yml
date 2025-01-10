@@ -1,5 +1,6 @@
 _core:
   default_config_hash: 2v5R3I9tNatGzKQjuZWh1y_955xK09313Vn-IIuedyI
+langcode: en
 smtp_on: false
 smtp_host: email-smtp.ca-central-1.amazonaws.com
 smtp_hostbackup: ''
@@ -7,14 +8,15 @@ smtp_port: '587'
 smtp_protocol: tls
 smtp_autotls: true
 smtp_timeout: 300
-smtp_username: AKIA4DJHEGSUNL4HRXNA
-smtp_password: chageitnow
+smtp_username: null
+smtp_password: null
 smtp_from: AAFC.CMS-DONOTREPLY-DEV-NEPASREPONDRE-SGC.AAC@AGR.GC.CA
 smtp_fromname: 'CMS DEV'
 smtp_client_hostname: ''
 smtp_client_helo: ''
-smtp_allowhtml: '1'
+smtp_allowhtml: true
 smtp_test_address: ''
 smtp_debugging: false
+smtp_debug_level: 1
 prev_mail_system: php_mail
 smtp_keepalive: false

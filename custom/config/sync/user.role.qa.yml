@@ -7,6 +7,7 @@ dependencies:
     - agri_admin
     - content_moderation
     - file
+    - file_delete
     - panels
     - panels_ipe
     - system
@@ -21,6 +22,8 @@ permissions:
   - 'access tokens overview'
   - 'access toolbar'
   - 'agrisource admin styles'
+  - 'delete files immediately'
+  - 'delete files override usage'
   - 'delete own files'
   - 'use ipe with page manager'
   - 'use panels dashboard'

@@ -1,17 +1,4 @@
 display:
-  block_3:
-    display_options:
-      title: 'Tout le contenu récemment archivé'
-      empty:
-        area_text_custom:
-          content: 'Aucun contenu récemment archivé.'
-  block_1:
-    display_options:
-      empty:
-        area_text_custom:
-          content: "Il n'y a pas de contenu récemment publié."
-      title: 'Tout le contenu récemment publié'
-    display_title: 'Tout le contenu récemment publié'
   default:
     display_title: Master
     display_options:
@@ -34,13 +21,26 @@ display:
       fields:
         title:
           separator: ', '
+        revision_log:
+          separator: ', '
         revision_uid:
           separator: ', '
         revision_timestamp:
           separator: ', '
+  block_1:
+    display_title: 'Tout le contenu récemment publié'
+    display_options:
+      title: 'Tout le contenu récemment publié'
   block_2:
     display_title: 'Mon activité'
     display_options:
+      arguments:
+        uid:
+          exception:
+            title: All
+        'null':
+          exception:
+            title: All
       title: 'Mon activité'
       empty:
         area_text_custom:

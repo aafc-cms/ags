@@ -1,0 +1,77 @@
+title: 'Formulaire de demande de services de photographie'
+elements: |
+  processed_text:
+    '#text': "<p>L’équipe Marketing et Services de création s’occupe des demandes de photographie à l’interne liées aux événements ou aux portraits. Dans le cas où il serait impossible de répondre à votre demande de services de photographie à l’interne, nous vous donnerons des conseils pour embaucher un entrepreneur externe.</p>\r\n"
+  h2_1:
+    '#text': "<h2>Coordonnées de la personne-ressource</h2>\r\n"
+  requester_s_name:
+    '#title': 'Nom du demandeur'
+    '#required_error': 'Le nom est obligatoire'
+  email:
+    '#title': Courriel
+    '#required_error': "L'courriel est obligatoire"
+  branch:
+    '#title': 'Direction général'
+    '#options':
+      CMB: 'Direction générale de la gestion intégrée'
+      DMO: 'Bureau de la sous-ministre'
+      ISB: "Direction générale des systèmes d'information"
+      IAB: 'Direction générale des affaires internationales'
+      LS: 'Services juridiques'
+      MISB: "Direction générale des services à l'industrie et aux marchés"
+      OAE: "Bureau de la vérification et de l'évaluation"
+      OCDO: 'Bureau de la dirigeante principale des données'
+      OMBO: 'Bureau de l’ombuds'
+      PRB: 'Direction générale des programmes'
+      PAB: 'Direction générale des affaires publiques'
+      STB: 'Direction générale des sciences et de la technologie'
+      SPB: 'Direction générale des politiques stratégiques'
+    '#required_error': 'La branche est obligatoire'
+  director_level_or_above_who_was_consulted_or_initiated_this_requ:
+    '#title': 'Titulaire du poste de directeur ou de niveau supérieur consulté ou à l’origine de la demande'
+  h2_2:
+    '#text': "<h2>Renseignements sur le projet</h2>\r\n"
+  subject_or_subject_matter_:
+    '#title': Objet
+  event_date:
+    '#title': "Date de l'événement"
+    '#required_error': 'La date est obligatoire'
+  photographer_start_time:
+    '#title': 'Heure de début du photographe'
+    '#required_error': "L'heure de début est demandée"
+  photographer_end_time:
+    '#title': 'Heure de fin du photographe'
+    '#required_error': "L'heure de fin est demandée"
+  additional_date_and_times_when_you_will_need_a_photographer_:
+    '#title': "Dates et heures supplémentaires pour lesquelles vous aurez besoin d'un photographe"
+  who_is_the_target_audience_for_your_photos_:
+    '#title': 'Qui est le public cible des photos?'
+    '#options':
+      AAFC: "Employés d'AAC"
+      pub: Public
+    '#other__option_label': 'Autre (veuillez préciser)'
+    '#other__title': 'Autre (veuillez préciser)'
+    '#required_error': "L'audience est requise"
+  where_will_these_photos_be_used_please_check_all_that_apply_:
+    '#title': 'Où les photos seront-elles utilisées? Veuillez cocher toutes les réponses qui s’appliquent.'
+  internal:
+    '#title': 'À l’interne'
+    '#options':
+      nwa: 'Article pour le bulletin nouvelles@l’ouvrage'
+      hrv: 'La Moisson'
+      ac: 'Carrousel d’AgriSource'
+      oc: Organigramme
+    '#other__placeholder': Autre…
+  external:
+    '#title': 'À l’externe'
+    '#options':
+      sm: 'Médias sociaux'
+      pnt: 'Médias imprimés'
+      wb: 'Site Web'
+    '#other__placeholder': Autre…
+  processed_text_03:
+    '#text': "<h3>Liste détaillée des prises de vue</h3>\r\n\r\n<p>Fournissez une liste des prises de vue est une liste détaillée de chaque photo que vous souhaitez obtenir à l’issue de l’événement. Par exemple, un sous-ministre adjoint posant avec le ministre devant une bannière de campagne, une photo d’employés qui communiquent entre eux, etc.</p>\r\n"
+  shot_list:
+    '#title': 'Prises de vue'
+categories:
+  - 'Formulaire de demande de service'

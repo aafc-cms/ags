@@ -1,16 +1,5 @@
+label: 'Moderation Dashboard In Review - Fr'
 display:
-  block_4:
-    display_title: 'All Content with Reviewer-fr'
-    display_options:
-      title: 'Tout le contenu avec le réviseur'
-  block_1:
-    display_options:
-      title: 'Tout le contenu en attente de révision'
-    display_title: 'En cours de révision'
-  block_5:
-    display_title: 'Mon contenu de révision'
-    display_options:
-      title: 'Mon contenu de révision'
   default:
     display_title: Master
     display_options:
@@ -37,4 +26,20 @@ display:
         area_text_custom:
           content: 'There is no content being reviewed by me.'
       title: 'My Content drafts'
-label: 'Moderation Dashboard In Review - Fr'
+  block_1:
+    display_title: 'En cours de révision'
+  block_2:
+    display_title: 'In draft'
+    display_options:
+      title: 'In draft'
+  block_3:
+    display_title: 'Your drafts'
+    display_options:
+      empty:
+        area_text_custom:
+          content: 'No draft content was found.'
+      title: 'Your drafts'
+      arguments:
+        uid:
+          exception:
+            title: All

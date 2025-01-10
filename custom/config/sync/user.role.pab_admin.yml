@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entity_browser.browser.otherbrowser
     - filter.format.full_html
     - filter.format.no_editor_full
     - filter.format.rich_text
@@ -41,8 +42,10 @@ dependencies:
     - entity_browser
     - file
     - file_delete
+    - filebrowser
     - filehash_report
     - filter
+    - help
     - layout_builder
     - media
     - menu_admin_per_menu
@@ -76,6 +79,7 @@ permissions:
   - 'access content overview'
   - 'access contextual links'
   - 'access files overview'
+  - 'access help pages'
   - 'access media overview'
   - 'access otherbrowser entity browser pages'
   - 'access panels in-place editing'
@@ -139,6 +143,8 @@ permissions:
   - 'create webform'
   - 'delete content translations'
   - 'delete files'
+  - 'delete files immediately'
+  - 'delete files override usage'
   - 'delete own files'
   - 'delete own webform'
   - 'delete token'
