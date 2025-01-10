@@ -468,6 +468,24 @@ function agri_admin_node_presave(EntityInterface $entity) {
       }
     }
 
+    $entity_log_message = $entity->get('revision_log')->getString();
+
+// Use a database query to get the latest revision ID of a node, because using the API gets a null value until default language is saved.
+    $connection = Database::getConnection();
+    $query = $connection->select('node_field_revision', 'nfr')
+      ->fields('nfr', ['vid'])
+      ->condition('nfr.nid', $entity_id)
+      ->orderBy('nfr.vid', 'DESC')
+      ->range(0, 1);
+
+    $latest_revision_id = $query->execute()->fetchField();
+    $latest_revision = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($latest_revision_id);
+    $revision_log_message = $latest_revision->get('revision_log')->getString();
+
+    if ($entity_log_message == NULL && $revision_log_message !== NULL && $moderation_state === 'draft') {
+      $entity->set('revision_log', ' ');
+    }
+
     $peer_review_status = '';
     if ($content_type == 'page' || $content_type == 'landing_page') {
       $update_date_modified_str = $entity->get('field_update_date_modified')->getString();
