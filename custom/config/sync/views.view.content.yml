@@ -811,6 +811,7 @@ display:
         type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 25
           total_pages: null
           id: 0
@@ -828,7 +829,6 @@ display:
             offset: true
             offset_label: Offset
           quantity: 9
-          pagination_heading_level: h4
       exposed_form:
         type: bef
         options:
@@ -861,15 +861,15 @@ display:
                 advanced:
                   placeholder_text: ''
                   collapsible: false
-                  is_secondary: false
                   collapsible_disable_automatic_open: false
+                  is_secondary: false
               title:
                 plugin_id: default
                 advanced:
                   placeholder_text: ''
                   collapsible: false
-                  is_secondary: false
                   collapsible_disable_automatic_open: false
+                  is_secondary: false
               type:
                 plugin_id: default
                 advanced:
@@ -878,15 +878,15 @@ display:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
-                  is_secondary: false
                   collapsible_disable_automatic_open: false
+                  is_secondary: false
               name:
                 plugin_id: default
                 advanced:
                   placeholder_text: ''
                   collapsible: false
-                  is_secondary: false
                   collapsible_disable_automatic_open: false
+                  is_secondary: false
               moderation_state:
                 plugin_id: default
                 advanced:
@@ -895,8 +895,8 @@ display:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
-                  is_secondary: false
                   collapsible_disable_automatic_open: false
+                  is_secondary: false
               field_newstype_target_id:
                 plugin_id: default
                 advanced:
@@ -905,8 +905,8 @@ display:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
-                  is_secondary: false
                   collapsible_disable_automatic_open: false
+                  is_secondary: false
               field_type_target_id:
                 plugin_id: default
                 advanced:
@@ -915,8 +915,8 @@ display:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
-                  is_secondary: false
                   collapsible_disable_automatic_open: false
+                  is_secondary: false
               field_subject_target_id:
                 plugin_id: default
                 advanced:
@@ -925,8 +925,8 @@ display:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
-                  is_secondary: false
                   collapsible_disable_automatic_open: false
+                  is_secondary: false
               field_meta_type_target_id:
                 plugin_id: default
                 advanced:
@@ -935,8 +935,8 @@ display:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
-                  is_secondary: false
                   collapsible_disable_automatic_open: false
+                  is_secondary: false
               langcode:
                 plugin_id: default
                 advanced:
@@ -945,20 +945,20 @@ display:
                     filter_rewrite_values: "Interface text language selected for page|Interface\r\nLangue Texte d'interface sélectionnée pour la page|Interface\r\nLangue Texte d'interface sélectionnnée pour la page|Interface\r\nLangue par défaut du site (English)|Défaut (Ang)\r\nSite's default language (English)|Default (Eng)"
                     filter_rewrite_values_key: false
                   collapsible: false
-                  is_secondary: false
                   collapsible_disable_automatic_open: false
+                  is_secondary: false
               revision_timestamp:
                 plugin_id: bef_datepicker
                 advanced:
                   collapsible: false
-                  is_secondary: false
                   collapsible_disable_automatic_open: false
+                  is_secondary: false
               field_modified_value:
                 plugin_id: bef_datepicker
                 advanced:
                   collapsible: false
-                  is_secondary: false
                   collapsible_disable_automatic_open: false
+                  is_secondary: false
       access:
         type: perm
         options:

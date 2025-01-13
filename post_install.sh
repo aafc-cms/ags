@@ -338,6 +338,7 @@ if [ ! -d "keys" ]; then
   echo -e "${RED}mkdir${BOLD} keys;${NC}${VERT} #For key override file storage.${NC}"
   mkdir keys
 fi
+
 if [ ! -f "keys/smtp_password" ]; then
   echo -e "${RED}mkdir${BOLD} keys/smtp_password created;${NC}${VERT} #Edit this file and insert the expected value.${NC}"
   touch keys/smtp_password;
@@ -345,6 +346,8 @@ fi
 if [ ! -f "keys/smtp_user" ]; then
   echo -e "${RED}mkdir${BOLD} keys/smtp_user created;${NC}${VERT} #Edit this file and insert the expected value.${NC}"
   touch keys/smtp_user;
+else
+  echo -e "${RED}${BOLD}keys${NC}${VERT} folder exists.${NC}"
 fi
 if [ ! -d "/tmp/debug-chrome" ]; then
   mkdir /tmp/debug-chrome
