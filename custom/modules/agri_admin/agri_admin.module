@@ -411,6 +411,7 @@ function agri_admin_node_presave(EntityInterface $entity) {
   global $import_override;
 
   $langcode = $entity->language()->getId();
+
   $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
   $menu_links = $menu_link_manager->loadLinksByRoute('entity.node.canonical', ['node' => $entity->id()]);
   $menu_link = reset($menu_links);
@@ -443,6 +444,7 @@ function agri_admin_node_presave(EntityInterface $entity) {
   }
 
   $entity_id = $entity->id();
+  
   // Set Authored by to current user if role is creator except during Peer Review.
   $current_author_id = $entity->getOwnerId();
   $current_user = \Drupal::currentUser();
@@ -469,21 +471,21 @@ function agri_admin_node_presave(EntityInterface $entity) {
     }
 
     $entity_log_message = $entity->get('revision_log')->getString();
-
-// Use a database query to get the latest revision ID of a node, because using the API gets a null value until default language is saved.
+// Use a database query to get the current revision ID of a node.
     $connection = Database::getConnection();
-    $query = $connection->select('node_field_revision', 'nfr')
-      ->fields('nfr', ['vid'])
-      ->condition('nfr.nid', $entity_id)
-      ->orderBy('nfr.vid', 'DESC')
-      ->range(0, 1);
+      $query = $connection->select('node_field_data', 'nfd')
+      ->fields('nfd', ['vid'])
+      ->condition('nfd.nid', $entity_id)
+      ->condition('nfd.langcode', $langcode);
 
-    $latest_revision_id = $query->execute()->fetchField();
-    $latest_revision = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($latest_revision_id);
-    $revision_log_message = $latest_revision->get('revision_log')->getString();
+    $current_revision_id = $query->execute()->fetchField();
+    $current_revision = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($current_revision_id);
+    $current_revision_log_message = $current_revision->get('revision_log')->getString();
 
-    if ($entity_log_message == NULL && $revision_log_message !== NULL && $moderation_state === 'draft') {
-      $entity->set('revision_log', ' ');
+    if ($current_revision->isPublished() && !$entity->isPublished()) {
+      if ($entity_log_message == NULL && $current_revision_log_message != NULL && $moderation_state == 'draft') {
+        $entity->set('revision_log', ' ');
+      }
     }
 
     $peer_review_status = '';
