@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6df5ec07b423e455c2dad37995419121",
+    "content-hash": "733b315e179a998fd027f0617ce33203",
     "packages": [
         {
             "name": "agrcms/agri_admin",
-            "version": "dev-10.4.x-wxt-5.4.x",
+            "version": "dev-11.1.x-wxt-6.1.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/agri_admin",
@@ -24,7 +24,7 @@
         },
         {
             "name": "agrcms/agri_reports",
-            "version": "dev-10.4.x-wxt-5.4.x",
+            "version": "dev-11.1.x-wxt-6.1.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/agri_reports",
@@ -40,7 +40,7 @@
         },
         {
             "name": "agrcms/config",
-            "version": "dev-10.4.x-wxt-5.4.x",
+            "version": "dev-11.1.x-wxt-6.1.x",
             "dist": {
                 "type": "path",
                 "url": "custom/config",
@@ -56,7 +56,7 @@
         },
         {
             "name": "agrcms/grstheme_bootstrap",
-            "version": "dev-10.4.x-wxt-5.4.x",
+            "version": "dev-11.1.x-wxt-6.1.x",
             "dist": {
                 "type": "path",
                 "url": "custom/themes/grstheme_bootstrap",
@@ -76,7 +76,7 @@
         },
         {
             "name": "agrcms/linkchecks",
-            "version": "dev-10.4.x-wxt-5.4.x",
+            "version": "dev-11.1.x-wxt-6.1.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/linkchecks",
@@ -92,7 +92,7 @@
         },
         {
             "name": "agrcms/news_bulletin",
-            "version": "dev-10.4.x-wxt-5.4.x",
+            "version": "dev-11.1.x-wxt-6.1.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/news_bulletin",
@@ -108,7 +108,7 @@
         },
         {
             "name": "agrcms/news_empl",
-            "version": "dev-10.4.x-wxt-5.4.x",
+            "version": "dev-11.1.x-wxt-6.1.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/news_empl",
@@ -124,7 +124,7 @@
         },
         {
             "name": "agrcms/prefer_latest_content",
-            "version": "dev-10.4.x-wxt-5.4.x",
+            "version": "dev-11.1.x-wxt-6.1.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/prefer_latest_content",
@@ -140,7 +140,7 @@
         },
         {
             "name": "agrcms/wxt_overrides",
-            "version": "dev-10.4.x-wxt-5.4.x",
+            "version": "dev-11.1.x-wxt-6.1.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/wxt_overrides",
@@ -10494,76 +10494,6 @@
             }
         },
         {
-            "name": "drupal/swiftmailer",
-            "version": "2.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/swiftmailer.git",
-                "reference": "8.x-2.4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/swiftmailer-8.x-2.4.zip",
-                "reference": "8.x-2.4",
-                "shasum": "790c682ea8774b4e03200db2c2426966d3564820"
-            },
-            "require": {
-                "drupal/core": "^8.9.11 || ^9.0.10 || ^10",
-                "drupal/mailsystem": "^4.1.0",
-                "egulias/email-validator": "^2.0||^3",
-                "html2text/html2text": "^4.0.1",
-                "php": ">=7.0.0",
-                "swiftmailer/swiftmailer": "^6.1.3",
-                "tijsverkoyen/css-to-inline-styles": "^2.2"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-2.4",
-                    "datestamp": "1706212504",
-                    "security-coverage": {
-                        "status": "revoked",
-                        "message": "Project has been unsupported by the Drupal Security Team"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "adamps",
-                    "homepage": "https://www.drupal.org/user/2650563"
-                },
-                {
-                    "name": "anybody",
-                    "homepage": "https://www.drupal.org/user/291091"
-                },
-                {
-                    "name": "b-prod",
-                    "homepage": "https://www.drupal.org/user/407852"
-                },
-                {
-                    "name": "geek-merlin",
-                    "homepage": "https://www.drupal.org/user/229048"
-                },
-                {
-                    "name": "sbrattla",
-                    "homepage": "https://www.drupal.org/user/53422"
-                },
-                {
-                    "name": "webflo",
-                    "homepage": "https://www.drupal.org/user/254778"
-                }
-            ],
-            "description": "Swiftmailer",
-            "homepage": "https://www.drupal.org/project/swiftmailer",
-            "support": {
-                "source": "https://git.drupalcode.org/project/swiftmailer"
-            }
-        },
-        {
             "name": "drupal/symfony_mailer_lite",
             "version": "2.0.2",
             "source": {
@@ -12999,16 +12929,16 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "4.0.2",
+            "version": "4.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "ebaaf5be6c0286928352e054f2d5125608e5405e"
+                "reference": "b115554301161fa21467629f1e1391c1936de517"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/ebaaf5be6c0286928352e054f2d5125608e5405e",
-                "reference": "ebaaf5be6c0286928352e054f2d5125608e5405e",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/b115554301161fa21467629f1e1391c1936de517",
+                "reference": "b115554301161fa21467629f1e1391c1936de517",
                 "shasum": ""
             },
             "require": {
@@ -13054,7 +12984,7 @@
             ],
             "support": {
                 "issues": "https://github.com/egulias/EmailValidator/issues",
-                "source": "https://github.com/egulias/EmailValidator/tree/4.0.2"
+                "source": "https://github.com/egulias/EmailValidator/tree/4.0.3"
             },
             "funding": [
                 {
@@ -13062,7 +12992,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-10-06T06:47:41+00:00"
+            "time": "2024-12-27T00:36:43+00:00"
         },
         {
             "name": "embed/embed",
@@ -14250,7 +14180,7 @@
         },
         {
             "name": "junhuang/idol_feed_api",
-            "version": "dev-10.4.x-wxt-5.4.x",
+            "version": "dev-11.1.x-wxt-6.1.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/idol_feed_api",
@@ -14878,47 +14808,17 @@
         {
             "name": "nnnick/chartjs",
             "version": "v4.4.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/chartjs/Chart.js.git",
-                "reference": "57b5c5b78fb2d8504f556bef6e4177735d9929ea"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/chartjs/Chart.js/zipball/57b5c5b78fb2d8504f556bef6e4177735d9929ea",
-                "reference": "57b5c5b78fb2d8504f556bef6e4177735d9929ea",
-                "shasum": ""
+                "type": "file",
+                "url": "https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"
             },
             "require": {
-                "php": ">=5.3.3"
+                "composer/installers": "*"
             },
-            "type": "library",
+            "type": "drupal-library",
             "extra": {
-                "branch-alias": {
-                    "release/2.0": "v2.0-dev"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "NICK DOWNIE",
-                    "email": "hello@nickdownie.com"
-                }
-            ],
-            "description": "Simple HTML5 charts using the canvas element.",
-            "homepage": "https://www.chartjs.org/",
-            "keywords": [
-                "JS",
-                "chart"
-            ],
-            "support": {
-                "issues": "https://github.com/chartjs/Chart.js/issues",
-                "source": "https://github.com/chartjs/Chart.js/tree/v4.4.7"
-            },
-            "time": "2024-12-01T16:35:13+00:00"
+                "installer-name": "chartjs/dist"
+            }
         },
         {
             "name": "npm-asset/dropzone",
@@ -16504,82 +16404,6 @@
             "license": [
                 "BSD-2-Clause"
             ]
-        },
-        {
-            "name": "swiftmailer/swiftmailer",
-            "version": "v6.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "8a5d5072dca8f48460fce2f4131fcc495eec654c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/8a5d5072dca8f48460fce2f4131fcc495eec654c",
-                "reference": "8a5d5072dca8f48460fce2f4131fcc495eec654c",
-                "shasum": ""
-            },
-            "require": {
-                "egulias/email-validator": "^2.0|^3.1",
-                "php": ">=7.0.0",
-                "symfony/polyfill-iconv": "^1.0",
-                "symfony/polyfill-intl-idn": "^1.10",
-                "symfony/polyfill-mbstring": "^1.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.0",
-                "symfony/phpunit-bridge": "^4.4|^5.4"
-            },
-            "suggest": {
-                "ext-intl": "Needed to support internationalized email addresses"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "6.2-dev"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "lib/swift_required.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Chris Corbyn"
-                },
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                }
-            ],
-            "description": "Swiftmailer, free feature-rich PHP mailer",
-            "homepage": "https://swiftmailer.symfony.com",
-            "keywords": [
-                "email",
-                "mail",
-                "mailer"
-            ],
-            "support": {
-                "issues": "https://github.com/swiftmailer/swiftmailer/issues",
-                "source": "https://github.com/swiftmailer/swiftmailer/tree/v6.3.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/swiftmailer/swiftmailer",
-                    "type": "tidelift"
-                }
-            ],
-            "abandoned": "symfony/mailer",
-            "time": "2021-10-18T15:26:12+00:00"
         },
         {
             "name": "symfony/console",
@@ -20427,26 +20251,19 @@
             "time": "2024-05-31T14:55:39+00:00"
         }
     ],
-    "aliases": [
-        {
-            "package": "egulias/email-validator",
-            "version": "4.0.2.0",
-            "alias": "3.2.6",
-            "alias_normalized": "3.2.6.0"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "drupal/reroute_email": 5,
-        "drupal/webform_translation_permissions": 20,
-        "drupal/simple_gmap": 20,
         "drupal/like_and_dislike": 10,
+        "drupal/reroute_email": 5,
+        "drupal/simple_gmap": 20,
+        "drupal/webform_translation_permissions": 20,
         "drupal/wxt_chart_stability": 10,
         "phpmd/phpmd": 0
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
+    "platform": {},
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }

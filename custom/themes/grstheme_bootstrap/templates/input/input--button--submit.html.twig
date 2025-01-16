@@ -24,7 +24,6 @@
 #}
 
 {% block input %}
-{% apply spaceless %}
   {%
     set classes = [
       'btn',
@@ -58,5 +57,4 @@
       {% endif %}
     {% endif %}
     {{ children }}
-  {% endapply %}
 {% endblock %}
