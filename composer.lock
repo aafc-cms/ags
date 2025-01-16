@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6df5ec07b423e455c2dad37995419121",
+    "content-hash": "56040fb2901ffdc306709d37d8ba5aae",
     "packages": [
         {
             "name": "agrcms/agri_admin",
-            "version": "dev-10.4.x-wxt-5.4.x",
+            "version": "dev-10.4.1-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/agri_admin",
@@ -24,7 +24,7 @@
         },
         {
             "name": "agrcms/agri_reports",
-            "version": "dev-10.4.x-wxt-5.4.x",
+            "version": "dev-10.4.1-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/agri_reports",
@@ -40,7 +40,7 @@
         },
         {
             "name": "agrcms/config",
-            "version": "dev-10.4.x-wxt-5.4.x",
+            "version": "dev-10.4.1-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/config",
@@ -56,7 +56,7 @@
         },
         {
             "name": "agrcms/grstheme_bootstrap",
-            "version": "dev-10.4.x-wxt-5.4.x",
+            "version": "dev-10.4.1-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/themes/grstheme_bootstrap",
@@ -76,7 +76,7 @@
         },
         {
             "name": "agrcms/linkchecks",
-            "version": "dev-10.4.x-wxt-5.4.x",
+            "version": "dev-10.4.1-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/linkchecks",
@@ -92,7 +92,7 @@
         },
         {
             "name": "agrcms/news_bulletin",
-            "version": "dev-10.4.x-wxt-5.4.x",
+            "version": "dev-10.4.1-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/news_bulletin",
@@ -108,7 +108,7 @@
         },
         {
             "name": "agrcms/news_empl",
-            "version": "dev-10.4.x-wxt-5.4.x",
+            "version": "dev-10.4.1-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/news_empl",
@@ -124,7 +124,7 @@
         },
         {
             "name": "agrcms/prefer_latest_content",
-            "version": "dev-10.4.x-wxt-5.4.x",
+            "version": "dev-10.4.1-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/prefer_latest_content",
@@ -140,7 +140,7 @@
         },
         {
             "name": "agrcms/wxt_overrides",
-            "version": "dev-10.4.x-wxt-5.4.x",
+            "version": "dev-10.4.1-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/wxt_overrides",
@@ -14250,7 +14250,7 @@
         },
         {
             "name": "junhuang/idol_feed_api",
-            "version": "dev-10.4.x-wxt-5.4.x",
+            "version": "dev-10.4.1-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/idol_feed_api",
@@ -14878,45 +14878,17 @@
         {
             "name": "nnnick/chartjs",
             "version": "v4.4.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/chartjs/Chart.js.git",
-                "reference": "57b5c5b78fb2d8504f556bef6e4177735d9929ea"
-            },
             "dist": {
                 "type": "file",
                 "url": "https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"
             },
             "require": {
-                "php": ">=5.3.3"
+                "composer/installers": "*"
             },
-            "type": "library",
+            "type": "drupal-library",
             "extra": {
-                "branch-alias": {
-                    "release/2.0": "v2.0-dev"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "NICK DOWNIE",
-                    "email": "hello@nickdownie.com"
-                }
-            ],
-            "description": "Simple HTML5 charts using the canvas element.",
-            "homepage": "https://www.chartjs.org/",
-            "keywords": [
-                "JS",
-                "chart"
-            ],
-            "support": {
-                "issues": "https://github.com/chartjs/Chart.js/issues",
-                "source": "https://github.com/chartjs/Chart.js/tree/v4.4.7"
-            },
-            "time": "2024-12-01T16:35:13+00:00"
+                "installer-name": "chartjs/dist"
+            }
         },
         {
             "name": "npm-asset/dropzone",
@@ -20435,16 +20407,16 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "drupal/reroute_email": 5,
-        "drupal/webform_translation_permissions": 20,
-        "drupal/simple_gmap": 20,
         "drupal/like_and_dislike": 10,
+        "drupal/reroute_email": 5,
+        "drupal/simple_gmap": 20,
+        "drupal/webform_translation_permissions": 20,
         "drupal/wxt_chart_stability": 10,
         "phpmd/phpmd": 0
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
+    "platform": {},
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }
