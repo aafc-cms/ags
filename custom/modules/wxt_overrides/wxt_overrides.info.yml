@@ -2,7 +2,7 @@ name: WxT Overrides
 type: module
 description: This module is alphabetically after wxt_library so can override it without changing the weight.
 package: Agrisource
-core_version_requirement: ^8 || ^9 || ^10
+core_version_requirement: ^10 || ^11
 configure: wxt_overrides.settings_form
 dependencies:
   - agri_admin
