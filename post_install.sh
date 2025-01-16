@@ -23,7 +23,7 @@ else
 fi
 if [ -z $1 ]; then
   echo "dev environment setup.";
-  if [ -f html/sites/default/default.settings.php ]; then
+  if [ -f custom/config/splits/dev/git_status.settings.yml ]; then
     sed -i "s+^repository_root: .*$+repository_root: `pwd`+g" custom/config/splits/dev/git_status.settings.yml
   fi
 else
@@ -31,6 +31,10 @@ else
     echo "live environment setup.";
     live=1
   fi
+fi
+if [ "`hostname`" == "ryzen" ] && [ -f custom/config/splits/live/git_status.settings.yml ]; then
+  live=1
+  sed -i "s+^repository_root: .*$+repository_root: `pwd`+g" custom/config/splits/live/git_status.settings.yml
 fi
 configureSettingsFile () {
   if [ ! -f html/sites/default/settings.php ]; then
@@ -72,19 +76,6 @@ configureSettingsFile () {
     fi
   fi
 
-  if ! grep -q "STRICT_TRANS_TABLES" $settings_file; then
-    echo "`hostname`" > temptesthostname.txt
-    if ! grep -q "ryzen" temptesthostname.txt; then
-      #search_str="^( +)'driver' => 'mysql',"
-      #new_db_init="\1'driver' => 'mysql',\n    'init_commands' => [\n      'sql_mode' => \"SET sql_mode = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'\",\n    ],"
-      #sed -r "s/${search_str}/${new_db_init}/gm" $settings_file > ${settings_file}_temp;
-      #cp ${settings_file}_temp ${settings_file}
-      echo "";
-    else
-      echo "This environment does not need the init_commands";
-    fi
-    rm temptesthostname.txt
-  fi
   if ! grep -q "config_split.config_split.dev" $settings_file; then
     printf "Setting up config_split for the first time.";
     chmod 775 html/sites/default;
