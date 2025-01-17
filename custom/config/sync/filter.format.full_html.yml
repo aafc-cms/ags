@@ -107,7 +107,7 @@ filters:
     status: false
     weight: -39
     settings:
-      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol type start> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <a href hreflang data-entity-substitution data-entity-type data-entity-uuid title> <img src alt data-entity-type data-entity-uuid data-align data-caption> <sup> <u> <p> <h1> <pre> <drupal-entity data-entity-type data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button data-langcode alt title> <drupal-media data-entity-type data-entity-uuid data-view-mode data-align data-caption alt title> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <hr> <sub> <s>'
+      allowed_html: ''
       filter_html_help: true
       filter_html_nofollow: false
   filter_html_escape:
@@ -125,7 +125,7 @@ filters:
   filter_htmlcorrector:
     id: filter_htmlcorrector
     provider: filter
-    status: true
+    status: false
     weight: -50
     settings: {  }
   filter_image_lazy_load:
@@ -154,7 +154,7 @@ filters:
     status: true
     weight: -43
     settings:
-      default_view_mode: default
+      default_view_mode: w100
       allowed_view_modes:
         default: default
         embedded: embedded
@@ -193,16 +193,27 @@ filters:
     status: false
     weight: -32
     settings:
+      caption:
+        alt: '0'
+        title: '0'
       optionset: default
       layout: ''
+      admin_uri: '/en/admin/config/content/formats/manage/full_html?destination=/en/admin/config/content/formats'
       background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_media_style: ''
       loading: ''
-      preload: false
       responsive_image_style: ''
+      box_style: ''
       image_style: ''
       media_switch: ''
       ratio: ''
       thumbnail_style: ''
+      grid: ''
+      grid_medium: ''
+      grid_small: ''
+      style: ''
       skin: ''
       overridables:
         arrows: '0'
@@ -219,6 +230,8 @@ filters:
       thumbnail_effect: ''
       thumbnail_position: ''
       override: false
+      preserve_keys: false
+      visible_items: null
   token_filter:
     id: token_filter
     provider: token_filter
@@ -231,7 +244,9 @@ filters:
     provider: url_embed
     status: true
     weight: -45
-    settings: {  }
+    settings:
+      enable_responsive: true
+      default_ratio: '66.7'
   url_embed_convert_links:
     id: url_embed_convert_links
     provider: url_embed
