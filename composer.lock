@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "170947b1900c53e6d7b93c3bf4e50aa6",
+    "content-hash": "203c6806737a5dfdf6e65cec10eac245",
     "packages": [
         {
             "name": "agrcms/agri_admin",
@@ -2478,17 +2478,17 @@
         },
         {
             "name": "drupal/autosave_form",
-            "version": "1.7.0",
+            "version": "1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/autosave_form.git",
-                "reference": "8.x-1.7"
+                "reference": "8.x-1.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/autosave_form-8.x-1.7.zip",
-                "reference": "8.x-1.7",
-                "shasum": "553c7a11db8865e05a96a00cbadfd9fee5035c29"
+                "url": "https://ftp.drupal.org/files/projects/autosave_form-8.x-1.8.zip",
+                "reference": "8.x-1.8",
+                "shasum": "d1387edcefb01c3e545a796edfdb1b5b7e31c018"
             },
             "require": {
                 "drupal/core": "^9.5 || ^10 || ^11"
@@ -2496,8 +2496,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.7",
-                    "datestamp": "1730728610",
+                    "version": "8.x-1.8",
+                    "datestamp": "1736953097",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5206,10 +5206,10 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/embed_block.git",
-                "reference": "b7d31c2c57da8b00b26889267b839d5a82b7356a"
+                "reference": "d2ab89bf0a016f72fe7b862be8ecbcf9a3e1c931"
             },
             "require": {
-                "drupal/core": "^9 || ^10"
+                "drupal/core": "^9 || ^10 || ^11"
             },
             "type": "drupal-module",
             "extra": {
@@ -5217,8 +5217,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-alpha2+1-dev",
-                    "datestamp": "1664901079",
+                    "version": "8.x-1.0-alpha3+1-dev",
+                    "datestamp": "1736871631",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -5526,6 +5526,10 @@
                     "name": "Samuel Mortenson (samuel.mortenson)",
                     "homepage": "https://www.drupal.org/u/samuelmortenson",
                     "role": "Maintainer"
+                },
+                {
+                    "name": "smustgrave",
+                    "homepage": "https://www.drupal.org/user/3252890"
                 }
             ],
             "description": "Derives block plugins for every Entity Browser on your site",
@@ -8660,29 +8664,29 @@
         },
         {
             "name": "drupal/menu_breadcrumb",
-            "version": "2.0.0-alpha0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/menu_breadcrumb.git",
-                "reference": "2.0.0-alpha0"
+                "reference": "2.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/menu_breadcrumb-2.0.0-alpha0.zip",
-                "reference": "2.0.0-alpha0",
-                "shasum": "d031d6a859b3f20a290fd9f812fdc4dace0810ef"
+                "url": "https://ftp.drupal.org/files/projects/menu_breadcrumb-2.0.0.zip",
+                "reference": "2.0.0",
+                "shasum": "016f2eead9cf9d4bfdf4b36fca5e3c8a8e8d0f1e"
             },
             "require": {
-                "drupal/core": "^8.8 || ^9 || ^10"
+                "drupal/core": "^9 || ^10 || ^11"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.0-alpha0",
-                    "datestamp": "1675717886",
+                    "version": "2.0.0",
+                    "datestamp": "1736662457",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -8716,10 +8720,11 @@
                     "homepage": "https://www.drupal.org/user/76026"
                 }
             ],
-            "description": "Create breadcrumbs from nested menu titles and/or taxonomy membership.",
+            "description": "Create breadcrumbs from nested menu titles and/or taxonomy membership..",
             "homepage": "https://www.drupal.org/project/menu_breadcrumb",
             "support": {
-                "source": "https://git.drupalcode.org/project/menu_breadcrumb"
+                "source": "https://git.drupalcode.org/project/menu_breadcrumb",
+                "issues": "https://www.drupal.org/project/issues/menu_breadcrumb"
             }
         },
         {
@@ -9516,11 +9521,11 @@
             ],
             "authors": [
                 {
-                    "name": "Berdir",
+                    "name": "berdir",
                     "homepage": "https://www.drupal.org/user/214652"
                 },
                 {
-                    "name": "Dave Reid",
+                    "name": "dave reid",
                     "homepage": "https://www.drupal.org/user/53892"
                 },
                 {
@@ -13211,16 +13216,16 @@
         },
         {
             "name": "giggsey/libphonenumber-for-php",
-            "version": "8.13.52",
+            "version": "8.13.53",
             "source": {
                 "type": "git",
                 "url": "https://github.com/giggsey/libphonenumber-for-php.git",
-                "reference": "cc9a82b237d79a85be47c0b06e3943f75ab35c32"
+                "reference": "b3362a3c04f87b02c6e712774d20f9e577c3918c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/cc9a82b237d79a85be47c0b06e3943f75ab35c32",
-                "reference": "cc9a82b237d79a85be47c0b06e3943f75ab35c32",
+                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/b3362a3c04f87b02c6e712774d20f9e577c3918c",
+                "reference": "b3362a3c04f87b02c6e712774d20f9e577c3918c",
                 "shasum": ""
             },
             "require": {
@@ -13284,7 +13289,7 @@
                 "issues": "https://github.com/giggsey/libphonenumber-for-php/issues",
                 "source": "https://github.com/giggsey/libphonenumber-for-php"
             },
-            "time": "2024-12-13T09:08:43+00:00"
+            "time": "2025-01-15T17:09:39+00:00"
         },
         {
             "name": "giggsey/locale",
@@ -13815,7 +13820,7 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v11.37.0",
+            "version": "v11.38.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
@@ -13871,7 +13876,7 @@
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v11.37.0",
+            "version": "v11.38.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -13917,16 +13922,16 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v11.37.0",
+            "version": "v11.38.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
-                "reference": "184317f701ba20ca265e36808ed54b75b115972d"
+                "reference": "534b697fc1dd9fbdd9fbf2f33fc9dcbb943dea75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/184317f701ba20ca265e36808ed54b75b115972d",
-                "reference": "184317f701ba20ca265e36808ed54b75b115972d",
+                "url": "https://api.github.com/repos/illuminate/contracts/zipball/534b697fc1dd9fbdd9fbf2f33fc9dcbb943dea75",
+                "reference": "534b697fc1dd9fbdd9fbf2f33fc9dcbb943dea75",
                 "shasum": ""
             },
             "require": {
@@ -13961,11 +13966,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-11-25T15:33:38+00:00"
+            "time": "2025-01-10T20:57:00+00:00"
         },
         {
             "name": "illuminate/macroable",
-            "version": "v11.37.0",
+            "version": "v11.38.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -14869,6 +14874,21 @@
                 "source": "https://github.com/nikic/PHP-Parser/tree/v5.4.0"
             },
             "time": "2024-12-30T11:07:19+00:00"
+        },
+        {
+            "name": "nnnick/chartjs",
+            "version": "v4.4.7",
+            "dist": {
+                "type": "file",
+                "url": "https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"
+            },
+            "require": {
+                "composer/installers": "*"
+            },
+            "type": "drupal-library",
+            "extra": {
+                "installer-name": "chartjs/dist"
+            }
         },
         {
             "name": "npm-asset/dropzone",
@@ -20387,16 +20407,16 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "drupal/reroute_email": 5,
-        "drupal/webform_translation_permissions": 20,
-        "drupal/simple_gmap": 20,
         "drupal/like_and_dislike": 10,
+        "drupal/reroute_email": 5,
+        "drupal/simple_gmap": 20,
+        "drupal/webform_translation_permissions": 20,
         "drupal/wxt_chart_stability": 10,
         "phpmd/phpmd": 0
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
+    "platform": {},
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }
