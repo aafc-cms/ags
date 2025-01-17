@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "56040fb2901ffdc306709d37d8ba5aae",
+    "content-hash": "203c6806737a5dfdf6e65cec10eac245",
     "packages": [
         {
             "name": "agrcms/agri_admin",
-            "version": "dev-10.4.1-wxt-5.4.x",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/agri_admin",
@@ -24,7 +24,7 @@
         },
         {
             "name": "agrcms/agri_reports",
-            "version": "dev-10.4.1-wxt-5.4.x",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/agri_reports",
@@ -40,7 +40,7 @@
         },
         {
             "name": "agrcms/config",
-            "version": "dev-10.4.1-wxt-5.4.x",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/config",
@@ -56,7 +56,7 @@
         },
         {
             "name": "agrcms/grstheme_bootstrap",
-            "version": "dev-10.4.1-wxt-5.4.x",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/themes/grstheme_bootstrap",
@@ -76,7 +76,7 @@
         },
         {
             "name": "agrcms/linkchecks",
-            "version": "dev-10.4.1-wxt-5.4.x",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/linkchecks",
@@ -92,7 +92,7 @@
         },
         {
             "name": "agrcms/news_bulletin",
-            "version": "dev-10.4.1-wxt-5.4.x",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/news_bulletin",
@@ -108,7 +108,7 @@
         },
         {
             "name": "agrcms/news_empl",
-            "version": "dev-10.4.1-wxt-5.4.x",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/news_empl",
@@ -124,7 +124,7 @@
         },
         {
             "name": "agrcms/prefer_latest_content",
-            "version": "dev-10.4.1-wxt-5.4.x",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/prefer_latest_content",
@@ -140,7 +140,7 @@
         },
         {
             "name": "agrcms/wxt_overrides",
-            "version": "dev-10.4.1-wxt-5.4.x",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/wxt_overrides",
@@ -156,16 +156,16 @@
         },
         {
             "name": "agrcmsx/dxbase",
-            "version": "10.4.1.0",
+            "version": "10.4.0.8",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/agrcms/dxbase.git",
-                "reference": "443760875acd2908cd1d2e176886d1d12b7e0b48"
+                "reference": "527c1a9aba2f3633d8b4f0a6ae2f9e0a4cadcb0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=443760875acd2908cd1d2e176886d1d12b7e0b48",
-                "reference": "443760875acd2908cd1d2e176886d1d12b7e0b48",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=527c1a9aba2f3633d8b4f0a6ae2f9e0a4cadcb0f",
+                "reference": "527c1a9aba2f3633d8b4f0a6ae2f9e0a4cadcb0f",
                 "shasum": ""
             },
             "require": {
@@ -213,7 +213,7 @@
                 "drupal/memcache": "^2.7",
                 "drupal/menu_admin_per_menu": "^1.6",
                 "drupal/moderated_content_bulk_publish": "^2.0",
-                "drupal/moderation_dashboard": "^3.1",
+                "drupal/moderation_dashboard": "2.1.5",
                 "drupal/moderation_sidebar": "^1.8",
                 "drupal/node_revision_delete": "^2.0@RC",
                 "drupal/panels": "4.x-dev as 4.8",
@@ -238,8 +238,7 @@
                 "drupal/webform_views": "^5.5",
                 "drupal/workflow": "1.x-dev@dev",
                 "drupalwxt/wxt": "5.4.0",
-                "drush/drush": "^12 || ^13",
-                "nnnick/chartjs": "^4.4"
+                "drush/drush": "^12 || ^13"
             },
             "require-dev": {
                 "behat/behat": "^3.0",
@@ -294,6 +293,7 @@
                         "Allow anonymous users to upload disable CSRF check might loosen security somewhat (warning).": "https://www.drupal.org/files/issues/2021-02-08/dropzonejs-3197207-2.patch"
                     },
                     "drupal/embed_block": {
+                        "3316336 - Add Support for Ckeditor 5": "https://git.drupalcode.org/project/embed_block/-/merge_requests/5.patch",
                         "3225938 - Added CKEDITOR plugin functionality": "https://www.drupal.org/files/issues/2022-02-05/3225938_include_binary_icon-18.patch",
                         "3225938 - Limit selection to Content block (custom block content blocks) only.": "https://www.drupal.org/files/issues/2024-01-14/3225938-reqs_patch_18_limit_options-diff-59.patch"
                     },
@@ -435,9 +435,9 @@
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
             "support": {
                 "issues": "https://gitlab.com/agrcms/dxbase/-/issues",
-                "source": "https://gitlab.com/agrcms/dxbase/-/tree/10.4.1.0"
+                "source": "https://gitlab.com/agrcms/dxbase/-/tree/10.4.0.8"
             },
-            "time": "2025-01-15T19:17:29+00:00"
+            "time": "2025-01-09T10:37:31+00:00"
         },
         {
             "name": "algolia/places",
@@ -8983,26 +8983,26 @@
         },
         {
             "name": "drupal/moderation_dashboard",
-            "version": "3.1.0",
+            "version": "2.1.5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/moderation_dashboard.git",
-                "reference": "3.1.0"
+                "reference": "2.1.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/moderation_dashboard-3.1.0.zip",
-                "reference": "3.1.0",
-                "shasum": "efe8ce67a4c78291726ef3883f3fb815dfb6f17b"
+                "url": "https://ftp.drupal.org/files/projects/moderation_dashboard-2.1.5.zip",
+                "reference": "2.1.5",
+                "shasum": "5864fae086ef710cad0615341e6e6214cd2a55a6"
             },
             "require": {
-                "drupal/core": "^10.3 || ^11"
+                "drupal/core": "^9 || ^10"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.1.0",
-                    "datestamp": "1725558905",
+                    "version": "2.1.5",
+                    "datestamp": "1694008389",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -14250,7 +14250,7 @@
         },
         {
             "name": "junhuang/idol_feed_api",
-            "version": "dev-10.4.1-wxt-5.4.x",
+            "version": "dev-10.4.x-wxt-5.4.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/idol_feed_api",
