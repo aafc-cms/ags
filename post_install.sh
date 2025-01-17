@@ -371,4 +371,3 @@ else
 fi
 rm test-connection.txt;
 
-rm html/modules/contrib/ckeditor -rf;
