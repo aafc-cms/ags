@@ -1,92 +1,131 @@
-uuid: 66b3fdc3-7e28-4779-ad6d-835b4b8a1f5d
+uuid: b6e99490-9436-4c65-bcdf-df2f85784d1a
 langcode: en
 status: true
 dependencies:
   config:
     - filter.format.full_html
   module:
-    - ckeditor
+    - ckeditor5
 format: full_html
-editor: ckeditor
+editor: ckeditor5
 settings:
   toolbar:
-    rows:
-      -
-        -
-          name: Formatting
-          items:
-            - Bold
-            - Italic
-            - Underline
-            - Strike
-            - JustifyLeft
-            - JustifyCenter
-            - JustifyBlock
-            - JustifyRight
-            - RemoveFormat
-            - SpecialChar
-            - Superscript
-            - Subscript
-            - Format
-            - Styles
-            - Outdent
-            - Indent
-            - HorizontalRule
-            - Table
-            - Blockquote
-        -
-          name: Links
-          items:
-            - DrupalLink
-            - DrupalUnlink
-        -
-          name: Lists
-          items:
-            - BulletedList
-            - NumberedList
-        -
-          name: Media
-          items:
-            - node
-            - EmbedBlock
-            - DrupalMediaLibrary
-        -
-          name: Tools
-          items:
-            - Source
-            - ShowBlocks
-        -
-          name: Editing
-          items:
-            - Maximize
-            - Copy
-            - Cut
-            - Paste
-            - Undo
-            - Redo
+    items:
+      - bold
+      - italic
+      - underline
+      - strikethrough
+      - alignment
+      - removeFormat
+      - specialCharacters
+      - superscript
+      - subscript
+      - heading
+      - codeBlock
+      - outdent
+      - indent
+      - horizontalLine
+      - insertTable
+      - blockQuote
+      - '-'
+      - bulletedList
+      - numberedList
+      - '|'
+      - sourceEditing
+      - showBlocks
+      - '|'
+      - undo
+      - redo
+      - '|'
+      - alert
+      - panel
+      - '|'
+      - link
+      - drupalMedia
+      - code
   plugins:
-    stylescombo:
-      styles: ''
-    drupallink:
+    ckeditor5_alignment:
+      enabled_alignments:
+        - center
+        - justify
+        - left
+        - right
+    ckeditor5_codeBlock:
+      languages:
+        -
+          label: 'Plain text'
+          language: plaintext
+        -
+          label: C
+          language: c
+        -
+          label: 'C#'
+          language: cs
+        -
+          label: C++
+          language: cpp
+        -
+          label: CSS
+          language: css
+        -
+          label: Diff
+          language: diff
+        -
+          label: HTML
+          language: html
+        -
+          label: Java
+          language: java
+        -
+          label: JavaScript
+          language: javascript
+        -
+          label: PHP
+          language: php
+        -
+          label: Python
+          language: python
+        -
+          label: Ruby
+          language: ruby
+        -
+          label: TypeScript
+          language: typescript
+        -
+          label: XML
+          language: xml
+    ckeditor5_heading:
+      enabled_headings:
+        - heading2
+        - heading3
+        - heading4
+        - heading5
+        - heading6
+    ckeditor5_list:
+      properties:
+        reversed: true
+        startIndex: true
+      multiBlock: true
+    ckeditor5_sourceEditing:
+      allowed_tags: {  }
+    ckeditor_codemirror_source_editing:
+      enable: true
+      mode: htmlmixed
+      options:
+        autoCloseBrackets: true
+        autoCloseTags: true
+        folding: true
+        lineNumbers: true
+        lineWrapping: true
+        matchBrackets: true
+        matchTags: true
+        searchBottom: true
+        styleActiveLine: true
+    linkit_extension:
       linkit_enabled: true
       linkit_profile: urltodocument
-    codemirror:
-      enable: 1
-      startupMode: wysiwyg
-      mode: htmlmixed
-      theme: monokai
-      options:
-        lineNumbers: 1
-        lineWrapping: 0
-        matchBrackets: 1
-        autoCloseTags: 1
-        autoCloseBrackets: 1
-        enableSearchTools: 1
-        enableCodeFolding: 1
-        enableCodeFormatting: 0
-        autoFormatOnStart: 0
-        autoFormatOnModeChange: 0
-        autoFormatOnUncomment: 1
+    media_media:
+      allow_view_mode_override: true
 image_upload:
   status: true
   scheme: public

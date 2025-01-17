@@ -9,7 +9,8 @@
       ->condition('type', 'news', '=');
    $query->condition($group)
      ->accessCheck(FALSE);
-   $nids = $query->execute();
+   $nids = $query->accessCheck(FALSE)
+     ->execute();
    $path_alias_storage = \Drupal::entityTypeManager()->getStorage('path_alias');
    foreach ($nids as $nid) {
       // langcode = en & langcode = fr
