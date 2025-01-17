@@ -164,8 +164,12 @@ body.path-admin #ui-datepicker-div, body.path-admin .ui-datepicker-header, body.
   height: 120px;
 }
 
+#entity-embed-dialog-form fieldset.fieldgroup.form-composite {
+  min-width: 150px;
+}
+
 .entity-embed-dialog .form-item--attributes-title {
-  display: none;
+  /*display: none;*/
 }
 
 article.align-center .field--item {
