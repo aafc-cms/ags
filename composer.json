@@ -93,13 +93,13 @@
             "type": "package",
             "package": {
                 "name": "codemirror/codemirror",
-                "version": "5.65.8",
+                "version": "5.65.12",
                 "type": "drupal-library",
                 "extra": {
                     "installer-name": "codemirror"
                 },
                 "dist": {
-                    "url": "https://registry.npmjs.org/codemirror/-/codemirror-5.65.8.tgz",
+                    "url": "https://registry.npmjs.org/codemirror/-/codemirror-5.65.12.tgz",
                     "type": "tar"
                 },
                 "require": {
@@ -327,7 +327,7 @@
         "merge-plugin": {
             "include": [
                 "html/modules/contrib/webform/composer.libraries.json",
-                "html/modules/contrib/ckeditor4_codemirror/composer.libraries.json"
+                "html/modules/contrib/ckeditor_codemirror/composer.libraries.json"
             ]
         },
         "drupal-scaffold": {
@@ -504,7 +504,7 @@
         }
     },
     "require": {
-        "agrcmsx/dxbase": "11.1.1.3",
+        "agrcmsx/dxbase": "11.1.1.4",
         "agrcms/agri_admin": "*",
         "agrcms/agri_reports": "*",
         "agrcms/config": "*",

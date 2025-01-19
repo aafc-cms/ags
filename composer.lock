@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ee70f37d570c4e840fe5e409375b69e0",
+    "content-hash": "e4cab31ab2b2d20b7d36693ad26831de",
     "packages": [
         {
             "name": "agrcms/agri_admin",
@@ -156,19 +156,20 @@
         },
         {
             "name": "agrcmsx/dxbase",
-            "version": "11.1.1.3",
+            "version": "11.1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/agrcms/dxbase.git",
-                "reference": "a82b9c175ba944aae4ba4f2d4147c24ab1693d8a"
+                "reference": "1ee41ef878e5a9db251b74aa02933a97eebf29af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=a82b9c175ba944aae4ba4f2d4147c24ab1693d8a",
-                "reference": "a82b9c175ba944aae4ba4f2d4147c24ab1693d8a",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=1ee41ef878e5a9db251b74aa02933a97eebf29af",
+                "reference": "1ee41ef878e5a9db251b74aa02933a97eebf29af",
                 "shasum": ""
             },
             "require": {
+                "cdubz/ckeditor5-source-editing-codemirror": "^35.1",
                 "cweagans/composer-patches": "^1.6.7",
                 "drupal/access_unpublished": "1.6.0",
                 "drupal/action": "^0.2",
@@ -250,7 +251,8 @@
                 "drupaloverride/webform_revision_ui": "*",
                 "drupalwxt/wxt": "6.1.x-dev",
                 "drush/drush": "^12 || ^13",
-                "nnnick/chartjs": "^4.4"
+                "nnnick/chartjs": "^4.4",
+                "w8tcha/ckeditor-codemirror": "1.18.5"
             },
             "require-dev": {
                 "behat/behat": "^3.0",
@@ -359,7 +361,8 @@
                 },
                 "merge-plugin": {
                     "include": [
-                        "html/modules/contrib/webform/composer.libraries.json"
+                        "html/modules/contrib/webform/composer.libraries.json",
+                        "html/modules/contrib/ckeditor_codemirror/composer.libraries.json"
                     ]
                 },
                 "patches-ignore": {
@@ -444,9 +447,9 @@
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
             "support": {
                 "issues": "https://gitlab.com/agrcms/dxbase/-/issues",
-                "source": "https://gitlab.com/agrcms/dxbase/-/tree/11.1.1.3"
+                "source": "https://gitlab.com/agrcms/dxbase/-/tree/11.1.1.4"
             },
-            "time": "2025-01-19T03:05:24+00:00"
+            "time": "2025-01-19T03:32:31+00:00"
         },
         {
             "name": "algolia/places",
@@ -639,12 +642,18 @@
         },
         {
             "name": "cdubz/ckeditor5-source-editing-codemirror",
-            "version": "v35.1.0",
+            "version": "35.1.0",
             "dist": {
                 "type": "tar",
                 "url": "https://registry.npmjs.org/@cdubz/ckeditor5-source-editing-codemirror/-/ckeditor5-source-editing-codemirror-35.1.0.tgz"
             },
-            "type": "drupal-library"
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "drupal-library",
+            "extra": {
+                "installer-name": "ckeditor5-source-editing-codemirror"
+            }
         },
         {
             "name": "chi-teck/drupal-code-generator",
@@ -724,18 +733,18 @@
         },
         {
             "name": "codemirror/codemirror",
-            "version": "5.65.12",
+            "version": "5.65.8",
             "dist": {
-                "type": "zip",
-                "url": "https://github.com/components/codemirror/archive/refs/tags/5.65.12.zip"
+                "type": "tar",
+                "url": "https://registry.npmjs.org/codemirror/-/codemirror-5.65.8.tgz"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
             },
             "type": "drupal-library",
             "extra": {
                 "installer-name": "codemirror"
-            },
-            "license": [
-                "MIT"
-            ]
+            }
         },
         {
             "name": "composer/installers",
