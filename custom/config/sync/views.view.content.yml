@@ -851,6 +851,7 @@ display:
               allow_secondary: false
               secondary_label: 'Advanced options'
               secondary_open: false
+              autosubmit_textfield_minimum_length: 3
             pager:
               plugin_id: default
               advanced:
@@ -863,6 +864,7 @@ display:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
+                  hide_label: false
               title:
                 plugin_id: default
                 advanced:
@@ -870,6 +872,7 @@ display:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
+                  hide_label: false
               type:
                 plugin_id: default
                 advanced:
@@ -880,6 +883,7 @@ display:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
+                  hide_label: false
               name:
                 plugin_id: default
                 advanced:
@@ -887,6 +891,7 @@ display:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
+                  hide_label: false
               moderation_state:
                 plugin_id: default
                 advanced:
@@ -897,6 +902,7 @@ display:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
+                  hide_label: false
               field_newstype_target_id:
                 plugin_id: default
                 advanced:
@@ -907,6 +913,7 @@ display:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
+                  hide_label: false
               field_type_target_id:
                 plugin_id: default
                 advanced:
@@ -917,6 +924,7 @@ display:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
+                  hide_label: false
               field_subject_target_id:
                 plugin_id: default
                 advanced:
@@ -927,6 +935,7 @@ display:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
+                  hide_label: false
               field_meta_type_target_id:
                 plugin_id: default
                 advanced:
@@ -937,6 +946,7 @@ display:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
+                  hide_label: false
               langcode:
                 plugin_id: default
                 advanced:
@@ -947,18 +957,21 @@ display:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
+                  hide_label: false
               revision_timestamp:
                 plugin_id: bef_datepicker
                 advanced:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
+                  hide_label: false
               field_modified_value:
                 plugin_id: bef_datepicker
                 advanced:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
+                  hide_label: false
       access:
         type: perm
         options:
