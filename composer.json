@@ -93,17 +93,160 @@
             "type": "package",
             "package": {
                 "name": "codemirror/codemirror",
-                "version": "5.65.8",
+                "version": "5.65.12",
                 "type": "drupal-library",
                 "extra": {
                     "installer-name": "codemirror"
                 },
                 "dist": {
-                    "url": "https://registry.npmjs.org/codemirror/-/codemirror-5.65.8.tgz",
+                    "url": "https://registry.npmjs.org/codemirror/-/codemirror-5.65.12.tgz",
                     "type": "tar"
                 },
                 "require": {
                     "composer/installers": "^1 || ^2"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "drupaloverride/embed",
+                "version": "dev-master",
+                "type": "drupal-module",
+                "source": {
+                    "url": "https://git.drupalcode.org/issue/embed-3430097.git",
+                    "type": "git",
+                    "reference": "3430097-automated-drupal-11"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "drupaloverride/url_embed",
+                "version": "dev-master",
+                "type": "drupal-module",
+                "source": {
+                    "url": "https://git.drupalcode.org/issue/url_embed-3438709.git",
+                    "type": "git",
+                    "reference": "composer-workaround-d11"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "drupaloverride/entity_embed",
+                "version": "dev-master",
+                "type": "drupal-module",
+                "source": {
+                    "url": "https://git.drupalcode.org/issue/entity_embed-3430164.git",
+                    "type": "git",
+                    "reference": "3430164-d11-readiness"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "drupaloverride/fontawesome",
+                "version": "dev-master",
+                "type": "drupal-module",
+                "source": {
+                    "url": "https://git.drupalcode.org/issue/fontawesome-3465765.git",
+                    "type": "git",
+                    "reference": "3465765-drupal-11-compatibility"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "drupaloverride/layout_builder_st",
+                "version": "dev-master",
+                "type": "drupal-module",
+                "source": {
+                    "url": "https://git.drupalcode.org/issue/layout_builder_st-3431600.git",
+                    "type": "git",
+                    "reference": "3431600-automated-drupal-11"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "drupaloverride/toc_api",
+                "version": "dev-master",
+                "type": "drupal-module",
+                "source": {
+                    "url": "https://git.drupalcode.org/issue/toc_api-3455312.git",
+                    "type": "git",
+                    "reference": "3455312-drupal11-fixes"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "drupaloverride/varnish_purge",
+                "version": "dev-master",
+                "type": "drupal-module",
+                "source": {
+                    "url": "https://git.drupalcode.org/issue/varnish_purge-3470751.git",
+                    "type": "git",
+                    "reference": "3470751-drupal-11-compatibility"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "drupaloverride/sharedemail",
+                "version": "dev-master",
+                "type": "drupal-module",
+                "source": {
+                    "url": "https://git.drupalcode.org/issue/sharedemail-3434493.git",
+                    "type": "git",
+                    "reference": "project-update-bot-only"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "drupaloverride/webform_revision_ui",
+                "version": "dev-master",
+                "type": "drupal-module",
+                "source": {
+                    "url": "https://git.drupalcode.org/issue/webform_revision_ui-3435672",
+                    "type": "git",
+                    "reference": "project-update-bot-only"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "drupaloverride/bg_image_formatter",
+                "version": "dev-master",
+                "type": "drupal-module",
+                "source": {
+                    "url": "https://git.drupalcode.org/issue/bg_image_formatter-3450893.git",
+                    "type": "git",
+                    "reference": "3450893-automated-drupal-11"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "drupaloverride/simple_gmap",
+                "version": "dev-master",
+                "type": "drupal-module",
+                "source": {
+                    "url": "https://git.drupalcode.org/issue/simple_gmap-3434541.git",
+                    "type": "git",
+                    "reference": "3434541-automated-drupal-11"
                 }
             }
         },
@@ -158,7 +301,7 @@
         "merge-plugin": {
             "include": [
                 "html/modules/contrib/webform/composer.libraries.json",
-                "html/modules/contrib/ckeditor4_codemirror/composer.libraries.json"
+                "html/modules/contrib/ckeditor_codemirror/composer.libraries.json"
             ]
         },
         "drupal-scaffold": {
@@ -218,10 +361,8 @@
                 "build/core_breadcrumb_empty.patch"
             },
             "drupal/like_and_dislike": {
-                "3367864 - Keyboard accessibility wcag.":
-                "https://www.drupal.org/files/issues/2023-08-16/make-buttons-keyboard-controllable-3367864-11.patch",
                 "2979229 - Like only option.":
-                "https://www.drupal.org/files/issues/2020-04-29/2979229-like-only-option.patch"
+                "https://www.drupal.org/files/issues/2024-05-06/2979229-9-like-only-option-for-2.0.patch"
             },
             "drupal/safedelete": {
                 "3320470 - Allow override of the bulk operation validation with a checkbox":
@@ -293,7 +434,7 @@
                     "https://www.drupal.org/files/issues/2023-05-23/password_policy-d10.patch"
                 },
                 "drupal/page_manager": {
-                    "3151905 ignore smulvih changes":
+                    "Enter drupal/page_manager patch #2752227 description here":
                     "https://www.drupal.org/files/issues/2018-07-05/page_manager-incorrect-page_title-2752227-32-8.x.4.x.patch"
                 },
                 "drupal/panels": {
@@ -302,6 +443,10 @@
                 }
             },
             "agrcmsx/dxbase": {
+                "drupal/page_manager": {
+                    "Enter drupal/page_manager patch #2752227 description here":
+                    "https://www.drupal.org/files/issues/2018-07-05/page_manager-incorrect-page_title-2752227-32-8.x.4.x.patch"
+                },
                 "drupal/webform": {
                     "Enter drupal/webform patch #3212867 description here":
                     "https://www.drupal.org/files/issues/2021-05-07/3212867-3.patch",
@@ -333,7 +478,7 @@
         }
     },
     "require": {
-        "agrcmsx/dxbase": "10.4.1.0",
+        "agrcmsx/dxbase": "11.1.1.6",
         "agrcms/agri_admin": "*",
         "agrcms/agri_reports": "*",
         "agrcms/config": "*",
@@ -343,18 +488,10 @@
         "agrcms/news_bulletin": "*",
         "agrcms/wxt_overrides": "*",
         "agrcms/prefer_latest_content": "*",
-        "drupal/filebrowser": "^3.1",
-        "drupal/media_library_edit": "^3.0",
-        "drupal/reroute_email": "^2.3@RC",
-        "drupal/title_length": "^2.1",
-        "drupal/webform_translation_permissions": "2.0.x-dev",
+        "drupal/votingapi": "4.0.x-dev as 3.0.1",
         "junhuang/idol_feed_api": "*",
         "oomphinc/composer-installers-extender": "^1 || ^2",
-        "drupal/simple_gmap": "4.0.x-dev",
-        "w8tcha/ckeditor-codemirror": "*",
         "wikimedia/composer-merge-plugin": "^2.1",
-        "drupal/like_and_dislike": "^1.0@beta",
-        "drupal/wxt_chart_stability": "^1.0@beta",
         "nnnick/chartjs": "^4.4"
     },
     "authors": [

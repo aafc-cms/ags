@@ -2,12 +2,15 @@ uuid: c9015fec-6b4f-48d0-b501-0e57984f5859
 langcode: en
 status: true
 dependencies:
+  config:
+    - filter.format.webform_default
   module:
     - access_unpublished
     - comment
     - contact
     - file
     - file_delete
+    - filter
     - like_and_dislike
     - media
     - search
@@ -39,4 +42,5 @@ permissions:
   - 'post comments'
   - 'search content'
   - 'use advanced search'
+  - 'use text format webform_default'
   - 'view media'
