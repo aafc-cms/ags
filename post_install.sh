@@ -371,3 +371,7 @@ else
 fi
 rm test-connection.txt;
 
+echo -e "cp build/wet-boew.js html/libraries/wet-boew/js/wet-boew.js  ${VERT}${BOLD}REPLACE v4.0.83 with v4.0.84-beta1${NC}"
+      cp build/wet-boew.js html/libraries/wet-boew/js/wet-boew.js
+echo -e "cp build/wet-boew.js html/libraries/wet-boew/js/wet-boew.js  ${VERT}${BOLD}REPLACE v4.0.83 with v4.0.84-beta1${NC}"
+      cp build/wet-boew.js html/libraries/wet-boew/js/wet-boew.min.js
