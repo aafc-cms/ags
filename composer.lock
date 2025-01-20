@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c30e929bc055e7e0319693edd17b8c9",
+    "content-hash": "69a7ce0bc34434996d83947be7c6539c",
     "packages": [
         {
             "name": "agrcms/agri_admin",
@@ -156,16 +156,16 @@
         },
         {
             "name": "agrcmsx/dxbase",
-            "version": "11.1.1.5",
+            "version": "11.1.1.6",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/agrcms/dxbase.git",
-                "reference": "468fd8da8a91508a1b5a126f22a741ca0719619d"
+                "reference": "2dcccce5b31fce44b027f31f3acce18f3a8992f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=468fd8da8a91508a1b5a126f22a741ca0719619d",
-                "reference": "468fd8da8a91508a1b5a126f22a741ca0719619d",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=2dcccce5b31fce44b027f31f3acce18f3a8992f9",
+                "reference": "2dcccce5b31fce44b027f31f3acce18f3a8992f9",
                 "shasum": ""
             },
             "require": {
@@ -175,6 +175,7 @@
                 "drupal/action": "^0.2",
                 "drupal/autologout": "^2.0",
                 "drupal/better_exposed_filters": "^7.0",
+                "drupal/bigmenu": "^2.1",
                 "drupal/clientside_validation": "^4.1",
                 "drupal/config_filter": "^2.6",
                 "drupal/config_ignore": "^3.3",
@@ -193,6 +194,7 @@
                 "drupal/entityqueue": "^1.3",
                 "drupal/file_delete": "^3.0",
                 "drupal/file_replace": "^1.4@RC",
+                "drupal/filebrowser": "^3.1",
                 "drupal/filehash": "^3.0",
                 "drupal/filehash_report": "^1.0",
                 "drupal/form_options_attributes": "^2.0.2",
@@ -242,9 +244,7 @@
                 "drupal/workflow": "1.x-dev@dev",
                 "drupal/wxt_chart_stability": "^1.0@beta",
                 "drupaloverride/bg_image_formatter": "*",
-                "drupaloverride/bigmenu": "*",
                 "drupaloverride/entity_embed": "*",
-                "drupaloverride/filebrowser": "*",
                 "drupaloverride/sharedemail": "*",
                 "drupaloverride/simple_gmap": "*",
                 "drupaloverride/varnish_purge": "*",
@@ -453,9 +453,9 @@
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
             "support": {
                 "issues": "https://gitlab.com/agrcms/dxbase/-/issues",
-                "source": "https://gitlab.com/agrcms/dxbase/-/tree/11.1.1.5"
+                "source": "https://gitlab.com/agrcms/dxbase/-/tree/11.1.1.6"
             },
-            "time": "2025-01-19T04:00:41+00:00"
+            "time": "2025-01-19T20:14:10+00:00"
         },
         {
             "name": "algolia/places",
@@ -2530,6 +2530,54 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/better_exposed_filters",
                 "issues": "https://www.drupal.org/project/issues/better_exposed_filters"
+            }
+        },
+        {
+            "name": "drupal/bigmenu",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/bigmenu.git",
+                "reference": "2.1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/bigmenu-2.1.0.zip",
+                "reference": "2.1.0",
+                "shasum": "c89755e202788113c8335e6c322d1bbb09794fbc"
+            },
+            "require": {
+                "drupal/core": "^10.3 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.1.0",
+                    "datestamp": "1737331377",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "acbramley",
+                    "homepage": "https://www.drupal.org/user/1036766"
+                },
+                {
+                    "name": "dman",
+                    "homepage": "https://www.drupal.org/user/33240"
+                }
+            ],
+            "description": "Scalable replacement for core menu management screen. Uses AJAX to replace the global menu management page, suitable for thousands of items",
+            "homepage": "https://www.drupal.org/project/bigmenu",
+            "support": {
+                "source": "https://git.drupalcode.org/project/bigmenu"
             }
         },
         {
@@ -5614,6 +5662,58 @@
             "homepage": "https://www.drupal.org/project/file_replace",
             "support": {
                 "source": "https://git.drupalcode.org/project/file_replace"
+            }
+        },
+        {
+            "name": "drupal/filebrowser",
+            "version": "3.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/filebrowser.git",
+                "reference": "3.1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/filebrowser-3.1.1.zip",
+                "reference": "3.1.1",
+                "shasum": "6c097092da95d7f80defb4587738ea571918092b"
+            },
+            "require": {
+                "drupal/core": ">=10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.1.1",
+                    "datestamp": "1737304167",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "clivesj",
+                    "homepage": "https://www.drupal.org/user/129340"
+                },
+                {
+                    "name": "harshkundaliya",
+                    "homepage": "https://www.drupal.org/user/3619314"
+                },
+                {
+                    "name": "kuhikar",
+                    "homepage": "https://www.drupal.org/user/3241981"
+                }
+            ],
+            "description": "Provides FTP-like browsing capabilities.",
+            "homepage": "https://www.drupal.org/project/filebrowser",
+            "support": {
+                "source": "https://git.drupalcode.org/project/filebrowser"
             }
         },
         {
@@ -11167,16 +11267,6 @@
             "type": "drupal-module"
         },
         {
-            "name": "drupaloverride/bigmenu",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/issue/bigmenu-3451871.git",
-                "reference": "project-update-bot-only"
-            },
-            "type": "drupal-module"
-        },
-        {
             "name": "drupaloverride/embed",
             "version": "dev-master",
             "source": {
@@ -11193,16 +11283,6 @@
                 "type": "git",
                 "url": "https://git.drupalcode.org/issue/entity_embed-3430164.git",
                 "reference": "3430164-d11-readiness"
-            },
-            "type": "drupal-module"
-        },
-        {
-            "name": "drupaloverride/filebrowser",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/issue/filebrowser-3493116.git",
-                "reference": "3493116-d11_ready"
             },
             "type": "drupal-module"
         },
@@ -18481,16 +18561,16 @@
         },
         {
             "name": "drupal/coder",
-            "version": "8.3.27",
+            "version": "8.3.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pfrenssen/coder.git",
-                "reference": "04a4563b82c419e43cc58393a78b21c44fcc29e2"
+                "reference": "d18eeb133f7da766f0341734aa983d05f2b317fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pfrenssen/coder/zipball/04a4563b82c419e43cc58393a78b21c44fcc29e2",
-                "reference": "04a4563b82c419e43cc58393a78b21c44fcc29e2",
+                "url": "https://api.github.com/repos/pfrenssen/coder/zipball/d18eeb133f7da766f0341734aa983d05f2b317fd",
+                "reference": "d18eeb133f7da766f0341734aa983d05f2b317fd",
                 "shasum": ""
             },
             "require": {
@@ -18528,7 +18608,7 @@
                 "issues": "https://www.drupal.org/project/issues/coder",
                 "source": "https://www.drupal.org/project/coder"
             },
-            "time": "2025-01-06T09:46:24+00:00"
+            "time": "2025-01-18T17:05:53+00:00"
         },
         {
             "name": "mikey179/vfsstream",

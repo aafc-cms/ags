@@ -240,32 +240,6 @@
         {
             "type": "package",
             "package": {
-                "name": "drupaloverride/bigmenu",
-                "version": "dev-master",
-                "type": "drupal-module",
-                "source": {
-                    "url": "https://git.drupalcode.org/issue/bigmenu-3451871.git",
-                    "type": "git",
-                    "reference": "project-update-bot-only"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "drupaloverride/filebrowser",
-                "version": "dev-master",
-                "type": "drupal-module",
-                "source": {
-                    "url": "https://git.drupalcode.org/issue/filebrowser-3493116.git",
-                    "type": "git",
-                    "reference": "3493116-d11_ready"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
                 "name": "drupaloverride/simple_gmap",
                 "version": "dev-master",
                 "type": "drupal-module",
@@ -504,7 +478,7 @@
         }
     },
     "require": {
-        "agrcmsx/dxbase": "11.1.1.5",
+        "agrcmsx/dxbase": "11.1.1.6",
         "agrcms/agri_admin": "*",
         "agrcms/agri_reports": "*",
         "agrcms/config": "*",
