@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "69a7ce0bc34434996d83947be7c6539c",
+    "content-hash": "5c19c9ba8af842d6a7e84cd6ae8d5459",
     "packages": [
         {
             "name": "agrcms/agri_admin",
@@ -156,16 +156,16 @@
         },
         {
             "name": "agrcmsx/dxbase",
-            "version": "11.1.1.6",
+            "version": "11.1.1.7",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/agrcms/dxbase.git",
-                "reference": "2dcccce5b31fce44b027f31f3acce18f3a8992f9"
+                "reference": "ce4fc68faef460b8f6bc72d9ded43afc433e9dcd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=2dcccce5b31fce44b027f31f3acce18f3a8992f9",
-                "reference": "2dcccce5b31fce44b027f31f3acce18f3a8992f9",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=ce4fc68faef460b8f6bc72d9ded43afc433e9dcd",
+                "reference": "ce4fc68faef460b8f6bc72d9ded43afc433e9dcd",
                 "shasum": ""
             },
             "require": {
@@ -275,7 +275,7 @@
                         "3194462 - BigPipe when server under heavy load results in PHP notices": "https://www.drupal.org/files/issues/2021-11-19/D93x-3194462-20.patch",
                         "2769407 - Treat NULL values as FALSE in views on boolean field filtering": "https://www.drupal.org/files/issues/2025-01-19/2769407-D11.1.1-97.patch",
                         "2931680 - Term weight translatability, order term translations differently": "https://www.drupal.org/files/issues/2021-11-22/D93x-2931680-25-reroll.patch",
-                        "3150294 - New translations for moderated nodes are not created in the initial workflow state": "https://www.drupal.org/files/issues/2025-01-19/3150294-11x-135.patch",
+                        "3150294 - New translations for moderated nodes are not created in the initial workflow state": "https://www.drupal.org/files/issues/2025-01-21/3150294-11x-136.patch",
                         "3221375 - Wrong language field labels after `drush cr` because of Drush language negotiation.": "https://www.drupal.org/files/issues/2024-02-23/3221375_lost-field-labels-translations.patch",
                         "safedelete entity_translation_unified_form form set error squelch noise about #parent element": "https://www.drupal.org/files/issues/2019-08-31/3027240-12.patch",
                         "2868294 - Call to a member function getThirdPartySetting() on null in ContentTranslationManager": "https://www.drupal.org/files/issues/2022-11-30/2868294-87.patch",
@@ -453,9 +453,9 @@
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
             "support": {
                 "issues": "https://gitlab.com/agrcms/dxbase/-/issues",
-                "source": "https://gitlab.com/agrcms/dxbase/-/tree/11.1.1.6"
+                "source": "https://gitlab.com/agrcms/dxbase/-/tree/11.1.1.7"
             },
-            "time": "2025-01-19T20:14:10+00:00"
+            "time": "2025-01-21T15:13:20+00:00"
         },
         {
             "name": "algolia/places",
@@ -9071,17 +9071,17 @@
         },
         {
             "name": "drupal/redirect",
-            "version": "1.10.0",
+            "version": "1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/redirect.git",
-                "reference": "8.x-1.10"
+                "reference": "8.x-1.11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/redirect-8.x-1.10.zip",
-                "reference": "8.x-1.10",
-                "shasum": "9d72d7e0717dbdea3ab3306c5d6840da5bd3024c"
+                "url": "https://ftp.drupal.org/files/projects/redirect-8.x-1.11.zip",
+                "reference": "8.x-1.11",
+                "shasum": "7df8b3524bbde07d254216039636947a689140ef"
             },
             "require": {
                 "drupal/core": "^9.2 || ^10 || ^11"
@@ -9089,8 +9089,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.10",
-                    "datestamp": "1723277641",
+                    "version": "8.x-1.11",
+                    "datestamp": "1737382886",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -9127,17 +9127,17 @@
         },
         {
             "name": "drupal/redis",
-            "version": "1.8.0",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/redis.git",
-                "reference": "8.x-1.8"
+                "reference": "8.x-1.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/redis-8.x-1.8.zip",
-                "reference": "8.x-1.8",
-                "shasum": "6de73086d29de3b041594bae97c74401cbf05c3d"
+                "url": "https://ftp.drupal.org/files/projects/redis-8.x-1.9.zip",
+                "reference": "8.x-1.9",
+                "shasum": "77e2e8ddb95be08f3fe9f74182c7ff0476e15674"
             },
             "require": {
                 "drupal/core": "^9.3 || ^10 || ^11"
@@ -9150,8 +9150,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.8",
-                    "datestamp": "1723934771",
+                    "version": "8.x-1.9",
+                    "datestamp": "1737377277",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -10800,7 +10800,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/votingapi.git",
-                "reference": "ba92d18ea7e5cf7b013724209570ea879f6f9e03"
+                "reference": "47a257226f44abdcc2ca813a552786542ece8b77"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11"
@@ -10815,7 +10815,7 @@
                 },
                 "drupal": {
                     "version": "4.0.x-dev",
-                    "datestamp": "1731464607",
+                    "datestamp": "1737437063",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -11372,12 +11372,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupalwxt/wxt.git",
-                "reference": "16f0ed2e80d26a42b72849da703643199035600a"
+                "reference": "8b3713da0f2f2ee8f9529729d8f2b56b2f04ce29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupalwxt/wxt/zipball/16f0ed2e80d26a42b72849da703643199035600a",
-                "reference": "16f0ed2e80d26a42b72849da703643199035600a",
+                "url": "https://api.github.com/repos/drupalwxt/wxt/zipball/8b3713da0f2f2ee8f9529729d8f2b56b2f04ce29",
+                "reference": "8b3713da0f2f2ee8f9529729d8f2b56b2f04ce29",
                 "shasum": ""
             },
             "require": {
@@ -11539,7 +11539,7 @@
                         "3244311 - Allow <details> element to be placed without <div>": "https://www.drupal.org/files/issues/2024-11-15/3244311-9.patch"
                     },
                     "drupal/bootstrap_layouts": {
-                        "3481450 - Fix Drupal 11 support by removing any use of ContainerAwareTrait and ContainerAwareInterface": "https://www.drupal.org/files/issues/2025-01-06/3481450-12.patch"
+                        "3481450 - Fix Drupal 11 support by removing any use of ContainerAwareTrait and ContainerAwareInterface": "https://www.drupal.org/files/issues/2025-01-20/3481450-14.patch"
                     },
                     "drupal/layout_builder_st": {
                         "3411037 - Fix core removing contextual translation links": "https://git.drupalcode.org/project/layout_builder_st/-/merge_requests/5.patch",
@@ -11601,7 +11601,7 @@
                 "issues": "https://github.com/drupalwxt/wxt/issues",
                 "source": "https://github.com/drupalwxt/wxt/tree/6.1.x"
             },
-            "time": "2025-01-17T22:18:00+00:00"
+            "time": "2025-01-20T18:20:57+00:00"
         },
         {
             "name": "drupalwxt/wxt_bootstrap",
@@ -12617,7 +12617,7 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v11.38.2",
+            "version": "v11.39.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
@@ -12673,7 +12673,7 @@
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v11.38.2",
+            "version": "v11.39.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -12719,7 +12719,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v11.38.2",
+            "version": "v11.39.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -12767,7 +12767,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v11.38.2",
+            "version": "v11.39.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
