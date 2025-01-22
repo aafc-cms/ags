@@ -53,3 +53,9 @@ List of common commands are as follows:
 [docker-readme]:            https://github.com/drupal-composer-ext/drupal-scaffold-docker/blob/8.x/template/docker/README.md
 
 Testing by Simon
+
+## ddev
+
+- https://ddev.readthedocs.io/en/stable/users/install/ddev-installation/#linux
+- The install for Debian/Ubuntu is a bit confusing, bunch of commands to get working.
+- Once installed, only three commands to get running. https://ddev.readthedocs.io/en/stable/users/project/
