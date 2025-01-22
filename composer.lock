@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c19c9ba8af842d6a7e84cd6ae8d5459",
+    "content-hash": "d4d43fd9c9688f0bc40cac0f5270d609",
     "packages": [
         {
             "name": "agrcms/agri_admin",
@@ -156,16 +156,16 @@
         },
         {
             "name": "agrcmsx/dxbase",
-            "version": "11.1.1.7",
+            "version": "11.1.1.8",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/agrcms/dxbase.git",
-                "reference": "ce4fc68faef460b8f6bc72d9ded43afc433e9dcd"
+                "reference": "41bd9d6b1219f486f140ebdd0dd0e168a680874b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=ce4fc68faef460b8f6bc72d9ded43afc433e9dcd",
-                "reference": "ce4fc68faef460b8f6bc72d9ded43afc433e9dcd",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=41bd9d6b1219f486f140ebdd0dd0e168a680874b",
+                "reference": "41bd9d6b1219f486f140ebdd0dd0e168a680874b",
                 "shasum": ""
             },
             "require": {
@@ -225,6 +225,7 @@
                 "drupal/reroute_email": "^2.3@RC",
                 "drupal/safedelete": "^1.0.58",
                 "drupal/scanner": "^2.0@beta",
+                "drupal/simple_gmap": "^3.1",
                 "drupal/simple_sitemap": "^4.2",
                 "drupal/siteimprove": "^3.0",
                 "drupal/smtp": "1.4",
@@ -246,7 +247,6 @@
                 "drupaloverride/bg_image_formatter": "*",
                 "drupaloverride/entity_embed": "*",
                 "drupaloverride/sharedemail": "*",
-                "drupaloverride/simple_gmap": "*",
                 "drupaloverride/varnish_purge": "*",
                 "drupaloverride/webform_revision_ui": "*",
                 "drupalwxt/wxt": "6.1.x-dev",
@@ -355,9 +355,6 @@
                     "drupaloverride/entity_embed": {
                         "entity_embed-remove_image_attributes_from_div-3086162": "https://www.drupal.org/files/issues/2020-06-15/entity_embed-remove_image_attributes_from_div-3086162-13_0.patch"
                     },
-                    "drupaloverrides/fontawesome": {
-                        "3409881 - Font awesome patch , for D10.1.6 compatibility.": "https://www.drupal.org/files/issues/2023-12-19/wxt5-3409880-03.patch"
-                    },
                     "drupaloverride/layout_builder_st": {
                         "3069964 - Argument 1 passed to isTranslation must implement SectionStorageInterface, null given.": "https://www.drupal.org/files/issues/2025-01-02/3069964-null-fix.patch"
                     }
@@ -453,9 +450,9 @@
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
             "support": {
                 "issues": "https://gitlab.com/agrcms/dxbase/-/issues",
-                "source": "https://gitlab.com/agrcms/dxbase/-/tree/11.1.1.7"
+                "source": "https://gitlab.com/agrcms/dxbase/-/tree/11.1.1.8"
             },
-            "time": "2025-01-21T15:13:20+00:00"
+            "time": "2025-01-22T15:38:19+00:00"
         },
         {
             "name": "algolia/places",
@@ -587,16 +584,16 @@
         },
         {
             "name": "caxy/php-htmldiff",
-            "version": "v0.1.15",
+            "version": "v0.1.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/caxy/php-htmldiff.git",
-                "reference": "6342b02ddb86fd36093ad7e2db2efc21f01ab7cd"
+                "reference": "5c580b4f09285c078f0c5cb261573412a736a8cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/caxy/php-htmldiff/zipball/6342b02ddb86fd36093ad7e2db2efc21f01ab7cd",
-                "reference": "6342b02ddb86fd36093ad7e2db2efc21f01ab7cd",
+                "url": "https://api.github.com/repos/caxy/php-htmldiff/zipball/5c580b4f09285c078f0c5cb261573412a736a8cb",
+                "reference": "5c580b4f09285c078f0c5cb261573412a736a8cb",
                 "shasum": ""
             },
             "require": {
@@ -642,9 +639,9 @@
             ],
             "support": {
                 "issues": "https://github.com/caxy/php-htmldiff/issues",
-                "source": "https://github.com/caxy/php-htmldiff/tree/v0.1.15"
+                "source": "https://github.com/caxy/php-htmldiff/tree/v0.1.16"
             },
-            "time": "2023-11-05T23:49:04+00:00"
+            "time": "2025-01-22T17:03:45+00:00"
         },
         {
             "name": "cdubz/ckeditor5-source-editing-codemirror",
@@ -5666,17 +5663,17 @@
         },
         {
             "name": "drupal/filebrowser",
-            "version": "3.1.1",
+            "version": "3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/filebrowser.git",
-                "reference": "3.1.1"
+                "reference": "3.1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/filebrowser-3.1.1.zip",
-                "reference": "3.1.1",
-                "shasum": "6c097092da95d7f80defb4587738ea571918092b"
+                "url": "https://ftp.drupal.org/files/projects/filebrowser-3.1.2.zip",
+                "reference": "3.1.2",
+                "shasum": "ed7bdd8e9949508d37fa5b6c81e2c5d5be3f34ce"
             },
             "require": {
                 "drupal/core": ">=10"
@@ -5684,8 +5681,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.1.1",
-                    "datestamp": "1737304167",
+                    "version": "3.1.2",
+                    "datestamp": "1737578443",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5875,6 +5872,60 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/flexible_permissions",
                 "issues": "https://drupal.org/project/issues/flexible_permissions"
+            }
+        },
+        {
+            "name": "drupal/fontawesome",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/fontawesome.git",
+                "reference": "3.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/fontawesome-3.0.0.zip",
+                "reference": "3.0.0",
+                "shasum": "48102613a7cb6791db4d50c0ffe8604cdb29623f"
+            },
+            "require": {
+                "drupal/core": "^10.2 || ^11.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.0.0",
+                    "datestamp": "1737497622",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^12 || ^13"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "daniel.moberly",
+                    "homepage": "https://www.drupal.org/user/1160788"
+                },
+                {
+                    "name": "truls1502",
+                    "homepage": "https://www.drupal.org/user/325866"
+                }
+            ],
+            "description": "The web's most popular icon set and toolkit.",
+            "homepage": "https://www.drupal.org/project/fontawesome",
+            "support": {
+                "source": "https://git.drupalcode.org/project/fontawesome",
+                "issues": "https://drupal.org/project/issues/fontawesome"
             }
         },
         {
@@ -9474,6 +9525,65 @@
             }
         },
         {
+            "name": "drupal/simple_gmap",
+            "version": "3.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/simple_gmap.git",
+                "reference": "3.1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/simple_gmap-3.1.1.zip",
+                "reference": "3.1.1",
+                "shasum": "95cb397f1e3e0c0e1dc955ad791d1b62a8ca8014"
+            },
+            "require": {
+                "drupal/core": "^10.3 || ^11"
+            },
+            "require-dev": {
+                "drupal/address": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.1.1",
+                    "datestamp": "1737577663",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "bbrala",
+                    "homepage": "https://www.drupal.org/user/3366066"
+                },
+                {
+                    "name": "joseph.olstad",
+                    "homepage": "https://www.drupal.org/user/1321830"
+                },
+                {
+                    "name": "martin107",
+                    "homepage": "https://www.drupal.org/user/2659379"
+                },
+                {
+                    "name": "smustgrave",
+                    "homepage": "https://www.drupal.org/user/3252890"
+                }
+            ],
+            "description": "Provides a Google Maps link/map formatter for simple Text fields.",
+            "homepage": "https://www.drupal.org/project/simple_gmap",
+            "support": {
+                "source": "https://git.drupalcode.org/project/simple_gmap"
+            }
+        },
+        {
             "name": "drupal/simple_sitemap",
             "version": "4.2.2",
             "source": {
@@ -10281,17 +10391,17 @@
         },
         {
             "name": "drupal/video_embed_field",
-            "version": "3.0.0-alpha3",
+            "version": "3.0.0-alpha4",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/video_embed_field.git",
-                "reference": "3.0.0-alpha3"
+                "reference": "3.0.0-alpha4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/video_embed_field-3.0.0-alpha3.zip",
-                "reference": "3.0.0-alpha3",
-                "shasum": "ffaabebe54976a6b92bd703be08356a858bae0d1"
+                "url": "https://ftp.drupal.org/files/projects/video_embed_field-3.0.0-alpha4.zip",
+                "reference": "3.0.0-alpha4",
+                "shasum": "9a968b4fd198498fc233261874d207cbe1d42689"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11"
@@ -10303,8 +10413,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.0-alpha3",
-                    "datestamp": "1735227745",
+                    "version": "3.0.0-alpha4",
+                    "datestamp": "1737495839",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
@@ -11287,16 +11397,6 @@
             "type": "drupal-module"
         },
         {
-            "name": "drupaloverride/fontawesome",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/issue/fontawesome-3465765.git",
-                "reference": "3465765-drupal-11-compatibility"
-            },
-            "type": "drupal-module"
-        },
-        {
             "name": "drupaloverride/layout_builder_st",
             "version": "dev-master",
             "source": {
@@ -11313,16 +11413,6 @@
                 "type": "git",
                 "url": "https://git.drupalcode.org/issue/sharedemail-3434493.git",
                 "reference": "project-update-bot-only"
-            },
-            "type": "drupal-module"
-        },
-        {
-            "name": "drupaloverride/simple_gmap",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/issue/simple_gmap-3434541.git",
-                "reference": "3434541-automated-drupal-11"
             },
             "type": "drupal-module"
         },
@@ -11372,12 +11462,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupalwxt/wxt.git",
-                "reference": "8b3713da0f2f2ee8f9529729d8f2b56b2f04ce29"
+                "reference": "91fbdfdbcc0eeb909f26f581ea41f2af499864f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupalwxt/wxt/zipball/8b3713da0f2f2ee8f9529729d8f2b56b2f04ce29",
-                "reference": "8b3713da0f2f2ee8f9529729d8f2b56b2f04ce29",
+                "url": "https://api.github.com/repos/drupalwxt/wxt/zipball/91fbdfdbcc0eeb909f26f581ea41f2af499864f2",
+                "reference": "91fbdfdbcc0eeb909f26f581ea41f2af499864f2",
                 "shasum": ""
             },
             "require": {
@@ -11415,6 +11505,7 @@
                 "drupal/field_group": "^3.6",
                 "drupal/file_entity": "^2.1",
                 "drupal/flexible_permissions": "^2.0.1",
+                "drupal/fontawesome": "^3.0",
                 "drupal/footnotes": "^4.0@beta",
                 "drupal/group": "^2.3",
                 "drupal/image_widget_crop": "2.x-dev@dev",
@@ -11451,7 +11542,6 @@
                 "drupal/webform": "^6.3@alpha",
                 "drupaloverride/embed": "dev-master",
                 "drupaloverride/entity_embed": "dev-master",
-                "drupaloverride/fontawesome": "dev-master",
                 "drupaloverride/layout_builder_st": "dev-master",
                 "drupaloverride/toc_api": "dev-master",
                 "drupaloverride/url_embed": "dev-master",
@@ -11601,7 +11691,7 @@
                 "issues": "https://github.com/drupalwxt/wxt/issues",
                 "source": "https://github.com/drupalwxt/wxt/tree/6.1.x"
             },
-            "time": "2025-01-20T18:20:57+00:00"
+            "time": "2025-01-22T18:14:48+00:00"
         },
         {
             "name": "drupalwxt/wxt_bootstrap",
@@ -12617,16 +12707,16 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v11.39.0",
+            "version": "v11.39.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
-                "reference": "9100b083eeb85d38d78fc1de28f7326596ab2eda"
+                "reference": "7ad26e6f53da716901f9a2b95cad0cadce09a8b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/9100b083eeb85d38d78fc1de28f7326596ab2eda",
-                "reference": "9100b083eeb85d38d78fc1de28f7326596ab2eda",
+                "url": "https://api.github.com/repos/illuminate/collections/zipball/7ad26e6f53da716901f9a2b95cad0cadce09a8b0",
+                "reference": "7ad26e6f53da716901f9a2b95cad0cadce09a8b0",
                 "shasum": ""
             },
             "require": {
@@ -12669,11 +12759,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-12-18T14:14:45+00:00"
+            "time": "2025-01-21T16:13:55+00:00"
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v11.39.0",
+            "version": "v11.39.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -12719,7 +12809,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v11.39.0",
+            "version": "v11.39.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -12767,7 +12857,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v11.39.0",
+            "version": "v11.39.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",

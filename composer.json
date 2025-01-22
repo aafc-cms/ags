@@ -149,19 +149,6 @@
         {
             "type": "package",
             "package": {
-                "name": "drupaloverride/fontawesome",
-                "version": "dev-master",
-                "type": "drupal-module",
-                "source": {
-                    "url": "https://git.drupalcode.org/issue/fontawesome-3465765.git",
-                    "type": "git",
-                    "reference": "3465765-drupal-11-compatibility"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
                 "name": "drupaloverride/layout_builder_st",
                 "version": "dev-master",
                 "type": "drupal-module",
@@ -234,19 +221,6 @@
                     "url": "https://git.drupalcode.org/issue/bg_image_formatter-3450893.git",
                     "type": "git",
                     "reference": "3450893-automated-drupal-11"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "drupaloverride/simple_gmap",
-                "version": "dev-master",
-                "type": "drupal-module",
-                "source": {
-                    "url": "https://git.drupalcode.org/issue/simple_gmap-3434541.git",
-                    "type": "git",
-                    "reference": "3434541-automated-drupal-11"
                 }
             }
         },
@@ -478,7 +452,7 @@
         }
     },
     "require": {
-        "agrcmsx/dxbase": "11.1.1.7",
+        "agrcmsx/dxbase": "11.1.1.8",
         "agrcms/agri_admin": "*",
         "agrcms/agri_reports": "*",
         "agrcms/config": "*",
