@@ -44,6 +44,8 @@ settings:
       - drupalMedia
       - alert
       - panel
+      - findAndReplace
+      - fullScreen
   plugins:
     ckeditor5_alignment:
       enabled_alignments:
@@ -107,6 +109,11 @@ settings:
         reversed: true
         startIndex: true
       multiBlock: true
+    ckeditor5_plugin_pack_find_and_replace__find_and_replace:
+      ui_type: dialog
+    ckeditor5_plugin_pack_word_count__word_count:
+      word_count_enabled: true
+      word_count_mode: words_chars
     ckeditor5_sourceEditing:
       allowed_tags: {  }
     ckeditor_codemirror_source_editing:

@@ -43,6 +43,7 @@ dependencies:
     - token_filter
     - url_embed
     - wxt_chart_stability
+    - wxt_ext_blocks
     - wxt_ext_editor
 _core:
   default_config_hash: 7W86T86ZzsAmogcteSWPOQjG5FKmCksltV6_QgfGz1s
@@ -65,6 +66,12 @@ filters:
         img: img
         iframe: iframe
       use_data_uri: '0'
+  custom_modal_filter:
+    id: custom_modal_filter
+    provider: wxt_ext_blocks
+    status: true
+    weight: 0
+    settings: {  }
   editor_file_reference:
     id: editor_file_reference
     provider: editor
@@ -198,7 +205,7 @@ filters:
         title: '0'
       optionset: default
       layout: ''
-      admin_uri: '/en/admin/config/content/formats/manage/full_html?destination=/en/admin/config/content/formats'
+      admin_uri: '/en/admin/config/content/formats/manage/full_html?destination=/en/admin/config/content/formats&ajax_form=1&_wrapper_format=drupal_ajax'
       background: false
       box_caption: ''
       box_caption_custom: ''
