@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d4d43fd9c9688f0bc40cac0f5270d609",
+    "content-hash": "04b8771f1b14f36e7719a9bfe29c1c15",
     "packages": [
         {
             "name": "agrcms/agri_admin",
@@ -156,16 +156,16 @@
         },
         {
             "name": "agrcmsx/dxbase",
-            "version": "11.1.1.8",
+            "version": "11.1.1.9",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/agrcms/dxbase.git",
-                "reference": "41bd9d6b1219f486f140ebdd0dd0e168a680874b"
+                "reference": "80078d813c8b973a7d284b5bcb517dc571a77ee2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=41bd9d6b1219f486f140ebdd0dd0e168a680874b",
-                "reference": "41bd9d6b1219f486f140ebdd0dd0e168a680874b",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=80078d813c8b973a7d284b5bcb517dc571a77ee2",
+                "reference": "80078d813c8b973a7d284b5bcb517dc571a77ee2",
                 "shasum": ""
             },
             "require": {
@@ -225,6 +225,7 @@
                 "drupal/reroute_email": "^2.3@RC",
                 "drupal/safedelete": "^1.0.58",
                 "drupal/scanner": "^2.0@beta",
+                "drupal/sharedemail": "^3.2",
                 "drupal/simple_gmap": "^3.1",
                 "drupal/simple_sitemap": "^4.2",
                 "drupal/siteimprove": "^3.0",
@@ -246,7 +247,6 @@
                 "drupal/wxt_chart_stability": "^1.0@beta",
                 "drupaloverride/bg_image_formatter": "*",
                 "drupaloverride/entity_embed": "*",
-                "drupaloverride/sharedemail": "*",
                 "drupaloverride/varnish_purge": "*",
                 "drupaloverride/webform_revision_ui": "*",
                 "drupalwxt/wxt": "6.1.x-dev",
@@ -450,9 +450,9 @@
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
             "support": {
                 "issues": "https://gitlab.com/agrcms/dxbase/-/issues",
-                "source": "https://gitlab.com/agrcms/dxbase/-/tree/11.1.1.8"
+                "source": "https://gitlab.com/agrcms/dxbase/-/tree/11.1.1.9"
             },
-            "time": "2025-01-22T15:38:19+00:00"
+            "time": "2025-01-23T17:31:48+00:00"
         },
         {
             "name": "algolia/places",
@@ -9525,6 +9525,62 @@
             }
         },
         {
+            "name": "drupal/sharedemail",
+            "version": "3.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/sharedemail.git",
+                "reference": "3.2.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/sharedemail-3.2.0.zip",
+                "reference": "3.2.0",
+                "shasum": "2259314121b319c5e25a6457c368445ddea9d6fd"
+            },
+            "require": {
+                "drupal/core": "^10.2 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.2.0",
+                    "datestamp": "1737580198",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "aufumy",
+                    "homepage": "https://www.drupal.org/user/109516"
+                },
+                {
+                    "name": "baikho",
+                    "homepage": "https://www.drupal.org/user/2727459"
+                },
+                {
+                    "name": "burgdawg",
+                    "homepage": "https://www.drupal.org/user/3429219"
+                },
+                {
+                    "name": "christefano",
+                    "homepage": "https://www.drupal.org/user/104"
+                }
+            ],
+            "description": "Allow an email address to be used by more than one user account",
+            "homepage": "https://www.drupal.org/project/sharedemail",
+            "support": {
+                "source": "https://git.drupalcode.org/project/sharedemail"
+            }
+        },
+        {
             "name": "drupal/simple_gmap",
             "version": "3.1.1",
             "source": {
@@ -11403,16 +11459,6 @@
                 "type": "git",
                 "url": "https://git.drupalcode.org/issue/layout_builder_st-3431600.git",
                 "reference": "3431600-automated-drupal-11"
-            },
-            "type": "drupal-module"
-        },
-        {
-            "name": "drupaloverride/sharedemail",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/issue/sharedemail-3434493.git",
-                "reference": "project-update-bot-only"
             },
             "type": "drupal-module"
         },
@@ -19023,16 +19069,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.11.2",
+            "version": "3.11.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                "reference": "1368f4a58c3c52114b86b1abe8f4098869cb0079"
+                "reference": "ba05f990e79cbe69b9f35c8c1ac8dca7eecc3a10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/1368f4a58c3c52114b86b1abe8f4098869cb0079",
-                "reference": "1368f4a58c3c52114b86b1abe8f4098869cb0079",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/ba05f990e79cbe69b9f35c8c1ac8dca7eecc3a10",
+                "reference": "ba05f990e79cbe69b9f35c8c1ac8dca7eecc3a10",
                 "shasum": ""
             },
             "require": {
@@ -19097,9 +19143,13 @@
                 {
                     "url": "https://opencollective.com/php_codesniffer",
                     "type": "open_collective"
+                },
+                {
+                    "url": "https://thanks.dev/phpcsstandards",
+                    "type": "thanks_dev"
                 }
             ],
-            "time": "2024-12-11T16:04:26+00:00"
+            "time": "2025-01-23T17:04:15+00:00"
         },
         {
             "name": "symfony/config",

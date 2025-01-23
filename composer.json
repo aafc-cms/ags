@@ -188,19 +188,6 @@
         {
             "type": "package",
             "package": {
-                "name": "drupaloverride/sharedemail",
-                "version": "dev-master",
-                "type": "drupal-module",
-                "source": {
-                    "url": "https://git.drupalcode.org/issue/sharedemail-3434493.git",
-                    "type": "git",
-                    "reference": "project-update-bot-only"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
                 "name": "drupaloverride/webform_revision_ui",
                 "version": "dev-master",
                 "type": "drupal-module",
@@ -452,7 +439,7 @@
         }
     },
     "require": {
-        "agrcmsx/dxbase": "11.1.1.8",
+        "agrcmsx/dxbase": "11.1.1.9",
         "agrcms/agri_admin": "*",
         "agrcms/agri_reports": "*",
         "agrcms/config": "*",
