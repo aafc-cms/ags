@@ -582,16 +582,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.338.0",
+            "version": "3.338.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "b456832a41f4638ad8d117cedd6efaed4017e651"
+                "reference": "20f57e432a4696054598921e24734834ed034f5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/b456832a41f4638ad8d117cedd6efaed4017e651",
-                "reference": "b456832a41f4638ad8d117cedd6efaed4017e651",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/20f57e432a4696054598921e24734834ed034f5e",
+                "reference": "20f57e432a4696054598921e24734834ed034f5e",
                 "shasum": ""
             },
             "require": {
@@ -674,9 +674,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.338.0"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.338.1"
             },
-            "time": "2025-01-22T19:15:24+00:00"
+            "time": "2025-01-23T19:07:00+00:00"
         },
         {
             "name": "bower-asset/cropper",
@@ -10904,17 +10904,17 @@
         },
         {
             "name": "drupal/views_bootstrap",
-            "version": "5.3.2",
+            "version": "5.3.3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/views_bootstrap.git",
-                "reference": "5.3.2"
+                "reference": "5.3.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/views_bootstrap-5.3.2.zip",
-                "reference": "5.3.2",
-                "shasum": "8392f22340ecc641a834b0f9336b84796854d94a"
+                "url": "https://ftp.drupal.org/files/projects/views_bootstrap-5.3.3.zip",
+                "reference": "5.3.3",
+                "shasum": "5ed05652a2681e02f2fca6073b93c732dbea5793"
             },
             "require": {
                 "drupal/core": "^9 || ^10 || ^11"
@@ -10922,8 +10922,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "5.3.2",
-                    "datestamp": "1735842381",
+                    "version": "5.3.3",
+                    "datestamp": "1737677841",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -11783,12 +11783,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupalwxt/wxt.git",
-                "reference": "91fbdfdbcc0eeb909f26f581ea41f2af499864f2"
+                "reference": "11a8a54b2f19722ef3fdae902518bbf5a7fc1969"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupalwxt/wxt/zipball/91fbdfdbcc0eeb909f26f581ea41f2af499864f2",
-                "reference": "91fbdfdbcc0eeb909f26f581ea41f2af499864f2",
+                "url": "https://api.github.com/repos/drupalwxt/wxt/zipball/11a8a54b2f19722ef3fdae902518bbf5a7fc1969",
+                "reference": "11a8a54b2f19722ef3fdae902518bbf5a7fc1969",
                 "shasum": ""
             },
             "require": {
@@ -11923,6 +11923,9 @@
                         "Enter drupal/ctools patch #2667652 description here": "https://www.drupal.org/files/issues/ctools-option_to_expose-2667652-3.patch",
                         "Enter drupal/ctools patch #2924356 description here": "https://www.drupal.org/files/issues/2024-06-14/ctools-entity_field_rendered_twice-2924356-12.patch"
                     },
+                    "drupal/linkit": {
+                        "3078075 - Detect and strip base URL from pasted URLs": "https://www.drupal.org/files/issues/2025-01-24/linkit-detect-strip-base-url-3078075-109.patch"
+                    },
                     "drupal/panels": {
                         "Enter drupal/panels patch #2910704 description here": "https://www.drupal.org/files/issues/panels-ipe-card-flip-ie-error-2910704.diff"
                     },
@@ -12012,7 +12015,7 @@
                 "issues": "https://github.com/drupalwxt/wxt/issues",
                 "source": "https://github.com/drupalwxt/wxt/tree/6.1.x"
             },
-            "time": "2025-01-22T18:14:48+00:00"
+            "time": "2025-01-24T16:45:37+00:00"
         },
         {
             "name": "drupalwxt/wxt_bootstrap",
@@ -12020,12 +12023,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupalwxt/wxt_bootstrap.git",
-                "reference": "a63478b35c88a749039425c4e1f7130915d4d202"
+                "reference": "55824e8180ac2f92314b3fe783d5a9c445590106"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupalwxt/wxt_bootstrap/zipball/a63478b35c88a749039425c4e1f7130915d4d202",
-                "reference": "a63478b35c88a749039425c4e1f7130915d4d202",
+                "url": "https://api.github.com/repos/drupalwxt/wxt_bootstrap/zipball/55824e8180ac2f92314b3fe783d5a9c445590106",
+                "reference": "55824e8180ac2f92314b3fe783d5a9c445590106",
                 "shasum": ""
             },
             "require": {
@@ -12079,7 +12082,7 @@
                 "issues": "https://github.com/drupalwxt/wxt_bootstrap/issues",
                 "source": "https://github.com/drupalwxt/wxt_bootstrap/tree/11.1.x"
             },
-            "time": "2025-01-15T21:04:56+00:00"
+            "time": "2025-01-24T15:37:51+00:00"
         },
         {
             "name": "drupalwxt/wxt_library",
@@ -13091,16 +13094,16 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v11.39.1",
+            "version": "v11.40.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
-                "reference": "7ad26e6f53da716901f9a2b95cad0cadce09a8b0"
+                "reference": "80c85f81573cc4c024da05312119f9149a6b64c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/7ad26e6f53da716901f9a2b95cad0cadce09a8b0",
-                "reference": "7ad26e6f53da716901f9a2b95cad0cadce09a8b0",
+                "url": "https://api.github.com/repos/illuminate/collections/zipball/80c85f81573cc4c024da05312119f9149a6b64c1",
+                "reference": "80c85f81573cc4c024da05312119f9149a6b64c1",
                 "shasum": ""
             },
             "require": {
@@ -13143,11 +13146,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-01-21T16:13:55+00:00"
+            "time": "2025-01-24T15:40:32+00:00"
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v11.39.1",
+            "version": "v11.40.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -13193,7 +13196,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v11.39.1",
+            "version": "v11.40.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -13241,7 +13244,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v11.39.1",
+            "version": "v11.40.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
