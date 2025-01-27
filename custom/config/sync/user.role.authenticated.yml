@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.webform
     - filter.format.webform_default
   module:
     - access_unpublished
@@ -42,5 +43,6 @@ permissions:
   - 'post comments'
   - 'search content'
   - 'use advanced search'
+  - 'use text format webform'
   - 'use text format webform_default'
   - 'view media'

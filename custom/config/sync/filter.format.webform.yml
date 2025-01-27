@@ -1,37 +1,47 @@
-uuid: a002673c-3ee5-472a-a68f-a3fb31efd61d
+uuid: c0b5d6b5-cbb9-4402-b25d-e151a9fc6b56
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.embedded
-    - core.entity_view_mode.media.full
-    - core.entity_view_mode.media.linked
     - core.entity_view_mode.media.thumbnail
-    - core.entity_view_mode.media.token
+    - core.entity_view_mode.media.w100
+    - core.entity_view_mode.media.w1000
+    - core.entity_view_mode.media.w1200
     - core.entity_view_mode.media.w133
+    - core.entity_view_mode.media.w133r320
+    - core.entity_view_mode.media.w133r45
+    - core.entity_view_mode.media.w1400
+    - core.entity_view_mode.media.w1600
+    - core.entity_view_mode.media.w166
+    - core.entity_view_mode.media.w175
+    - core.entity_view_mode.media.w1900
     - core.entity_view_mode.media.w200
     - core.entity_view_mode.media.w250
     - core.entity_view_mode.media.w300
     - core.entity_view_mode.media.w333
     - core.entity_view_mode.media.w400
+    - core.entity_view_mode.media.w50
     - core.entity_view_mode.media.w500
     - core.entity_view_mode.media.w533
     - core.entity_view_mode.media.w600
     - core.entity_view_mode.media.w700
+    - core.entity_view_mode.media.w75
     - core.entity_view_mode.media.w800
     - core.entity_view_mode.media.w900
   module:
     - blazy
     - embed_block
+    - entity_embed
     - linkit
     - media
     - slick
     - token_filter
     - url_embed
-    - wxt_ext_editor
-name: 'No Editor Full'
-format: no_editor_full
-weight: -7
+    - wxt_chart_stability
+    - wxt_ext_blocks
+name: Webform
+format: webform
+weight: -8
 filters:
   blazy_filter:
     id: blazy_filter
@@ -48,9 +58,33 @@ filters:
         img: img
         iframe: iframe
       use_data_uri: '0'
+  custom_modal_filter:
+    id: custom_modal_filter
+    provider: wxt_ext_blocks
+    status: true
+    weight: 0
+    settings: {  }
   embed_block:
     id: embed_block
     provider: embed_block
+    status: true
+    weight: 0
+    settings: {  }
+  entity_embed:
+    id: entity_embed
+    provider: entity_embed
+    status: true
+    weight: 100
+    settings: {  }
+  filter_align:
+    id: filter_align
+    provider: filter
+    status: true
+    weight: 0
+    settings: {  }
+  filter_caption:
+    id: filter_caption
+    provider: filter
     status: true
     weight: 0
     settings: {  }
@@ -60,7 +94,7 @@ filters:
     status: false
     weight: -10
     settings:
-      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol type start> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <a href hreflang data-entity-substitution data-entity-type data-entity-uuid title>'
+      allowed_html: ''
       filter_html_help: true
       filter_html_nofollow: false
   linkit:
@@ -76,41 +110,69 @@ filters:
     status: true
     weight: 100
     settings:
-      default_view_mode: default
+      default_view_mode: w200
       allowed_view_modes:
         default: default
-        embedded: embedded
-        full: full
-        linked: linked
         thumbnail: thumbnail
-        token: token
+        w100: w100
+        w1000: w1000
+        w1200: w1200
         w133: w133
+        w133r320: w133r320
+        w133r45: w133r45
+        w1400: w1400
+        w1600: w1600
+        w166: w166
+        w175: w175
+        w1900: w1900
         w200: w200
         w250: w250
         w300: w300
         w333: w333
         w400: w400
+        w50: w50
         w500: w500
         w533: w533
         w600: w600
         w700: w700
+        w75: w75
         w800: w800
         w900: w900
-      allowed_media_types: {  }
+      allowed_media_types:
+        audio: audio
+        audio_file: audio_file
+        document: document
+        image: image
+        remote_video: remote_video
+        video: video
+        video_file: video_file
   slick_filter:
     id: slick_filter
     provider: slick
     status: false
     weight: 4
     settings:
+      caption:
+        alt: '0'
+        title: '0'
       optionset: default
       layout: ''
+      admin_uri: '/en/admin/config/content/formats/manage/webform?destination=/en/admin/config/content/formats&ajax_form=1&_wrapper_format=drupal_ajax'
       background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_media_style: ''
+      loading: ''
       responsive_image_style: ''
+      box_style: ''
       image_style: ''
       media_switch: ''
       ratio: ''
       thumbnail_style: ''
+      grid: ''
+      grid_medium: ''
+      grid_small: ''
+      style: ''
       skin: ''
       overridables:
         arrows: '0'
@@ -127,10 +189,12 @@ filters:
       thumbnail_effect: ''
       thumbnail_position: ''
       override: false
+      preserve_keys: false
+      visible_items: null
   token_filter:
     id: token_filter
     provider: token_filter
-    status: false
+    status: true
     weight: 0
     settings:
       replace_empty: false
@@ -139,17 +203,14 @@ filters:
     provider: url_embed
     status: true
     weight: 0
-    settings: {  }
-  wxt_add_table_attribute_filter:
-    id: wxt_add_table_attribute_filter
-    provider: wxt_ext_editor
-    status: false
-    weight: 0
     settings:
-      responsive: true
-      replace_classes: true
-      replace_all_classes: true
-      classes: 'wb-tables table'
-      whitelist_classes: ''
-      add_datatable_attribute: false
-      datatable_options: ''
+      enable_responsive: true
+      default_ratio: '66.7'
+  wxt_chart_stability_compatibilityfilter:
+    id: wxt_chart_stability_compatibilityfilter
+    provider: wxt_chart_stability
+    status: true
+    weight: -99
+    settings:
+      clean: '<td>&nbsp;</td>'
+      desired: '<td></td>'
