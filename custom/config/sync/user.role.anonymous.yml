@@ -3,6 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entity_browser.browser.ckeditor_media_browser
+    - entity_browser.browser.image_browser
+    - entity_browser.browser.media_browser
+    - entity_browser.browser.otherbrowser
     - filter.format.rich_text
     - media.type.audio_file
     - media.type.document
