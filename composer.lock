@@ -8,7 +8,7 @@
     "packages": [
         {
             "name": "agrcms/agri_admin",
-            "version": "dev-11.1.x-wxt-6.1.x",
+            "version": "dev-feat-h1-fix",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/agri_admin",
@@ -24,7 +24,7 @@
         },
         {
             "name": "agrcms/agri_reports",
-            "version": "dev-11.1.x-wxt-6.1.x",
+            "version": "dev-feat-h1-fix",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/agri_reports",
@@ -40,7 +40,7 @@
         },
         {
             "name": "agrcms/config",
-            "version": "dev-11.1.x-wxt-6.1.x",
+            "version": "dev-feat-h1-fix",
             "dist": {
                 "type": "path",
                 "url": "custom/config",
@@ -56,7 +56,7 @@
         },
         {
             "name": "agrcms/grstheme_bootstrap",
-            "version": "dev-11.1.x-wxt-6.1.x",
+            "version": "dev-feat-h1-fix",
             "dist": {
                 "type": "path",
                 "url": "custom/themes/grstheme_bootstrap",
@@ -76,7 +76,7 @@
         },
         {
             "name": "agrcms/linkchecks",
-            "version": "dev-11.1.x-wxt-6.1.x",
+            "version": "dev-feat-h1-fix",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/linkchecks",
@@ -92,7 +92,7 @@
         },
         {
             "name": "agrcms/news_bulletin",
-            "version": "dev-11.1.x-wxt-6.1.x",
+            "version": "dev-feat-h1-fix",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/news_bulletin",
@@ -108,7 +108,7 @@
         },
         {
             "name": "agrcms/news_empl",
-            "version": "dev-11.1.x-wxt-6.1.x",
+            "version": "dev-feat-h1-fix",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/news_empl",
@@ -124,7 +124,7 @@
         },
         {
             "name": "agrcms/prefer_latest_content",
-            "version": "dev-11.1.x-wxt-6.1.x",
+            "version": "dev-feat-h1-fix",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/prefer_latest_content",
@@ -140,7 +140,7 @@
         },
         {
             "name": "agrcms/wxt_overrides",
-            "version": "dev-11.1.x-wxt-6.1.x",
+            "version": "dev-feat-h1-fix",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/wxt_overrides",
@@ -11836,12 +11836,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupalwxt/wxt.git",
-                "reference": "11a8a54b2f19722ef3fdae902518bbf5a7fc1969"
+                "reference": "28f53edd9c038d1c89a04f6cc8473c22e015a972"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupalwxt/wxt/zipball/11a8a54b2f19722ef3fdae902518bbf5a7fc1969",
-                "reference": "11a8a54b2f19722ef3fdae902518bbf5a7fc1969",
+                "url": "https://api.github.com/repos/drupalwxt/wxt/zipball/28f53edd9c038d1c89a04f6cc8473c22e015a972",
+                "reference": "28f53edd9c038d1c89a04f6cc8473c22e015a972",
                 "shasum": ""
             },
             "require": {
@@ -11956,6 +11956,7 @@
                         "Enter drupal/core patch #2893029 description here": "https://www.drupal.org/files/issues/2893029-9.patch",
                         "3016131 - Improved exception message developer experience": "https://www.drupal.org/files/issues/2020-05-26/drupal-3016131-23-useless-exception.patch",
                         "3107212 - views no results behavior on field level is not translateable": "https://www.drupal.org/files/issues/2023-01-23/d10-1-x--3107212-19.patch",
+                        "2938129 - PageTitle block is non-functional when not handled directly by BlockPageVariant": "https://www.drupal.org/files/issues/2025-01-28/drupal-PageTitle_block-2938129-43.patch",
                         "3359497 - Prevent warnings when library definitions have a license with no URL defined, contrib is not perfect here.": "https://www.drupal.org/files/issues/2023-10-07/fix-license-missing-url.patch"
                     },
                     "drupal/diff": {
@@ -12068,7 +12069,7 @@
                 "issues": "https://github.com/drupalwxt/wxt/issues",
                 "source": "https://github.com/drupalwxt/wxt/tree/6.1.x"
             },
-            "time": "2025-01-24T16:45:37+00:00"
+            "time": "2025-01-29T03:16:12+00:00"
         },
         {
             "name": "drupalwxt/wxt_bootstrap",
@@ -13578,7 +13579,7 @@
         },
         {
             "name": "junhuang/idol_feed_api",
-            "version": "dev-11.1.x-wxt-6.1.x",
+            "version": "dev-feat-h1-fix",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/idol_feed_api",
