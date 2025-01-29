@@ -13,10 +13,14 @@ dependencies:
   module:
     - content_lock
     - content_moderation
+    - csv_serialization
     - datetime
     - node
     - options
+    - rest
+    - serialization
     - user
+    - views_data_export
 id: content_revision
 label: Content-Revision
 module: views
@@ -31,7 +35,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: Content-Revision
+      title: 'Content-Revision updated'
       fields:
         nid:
           id: nid
@@ -239,7 +243,7 @@ display:
           entity_type: node
           entity_field: created
           plugin_id: field
-          label: Authored
+          label: "Authored\_\_\_"
           exclude: false
           alter:
             alter_text: false
@@ -283,7 +287,7 @@ display:
           click_sort_column: value
           type: timestamp
           settings:
-            date_format: medium
+            date_format: html_date
             custom_date_format: ''
             timezone: ''
             tooltip:
@@ -295,6 +299,7 @@ display:
               past_format: '@interval ago'
               granularity: 2
               refresh: 60
+              description: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -519,7 +524,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: 'Date Mod'
+          label: "Date\_Modified"
           exclude: false
           alter:
             alter_text: false
@@ -564,7 +569,7 @@ display:
           type: datetime_default
           settings:
             timezone_override: ''
-            format_type: medium
+            format_type: html_date
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -758,7 +763,7 @@ display:
           type: datetime_default
           settings:
             timezone_override: ''
-            format_type: medium
+            format_type: html_date
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -822,7 +827,7 @@ display:
           type: datetime_default
           settings:
             timezone_override: ''
-            format_type: medium
+            format_type: html_date
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1335,7 +1340,7 @@ display:
           type: datetime_default
           settings:
             timezone_override: ''
-            format_type: medium
+            format_type: html_date
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -2105,6 +2110,57 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - 'user.node_grants:view'
+        - user.roles
+      tags:
+        - 'config:field.storage.node.field_created_by'
+        - 'config:field.storage.node.field_dc_date_created'
+        - 'config:field.storage.node.field_issued'
+        - 'config:field.storage.node.field_modified'
+        - 'config:field.storage.node.field_peer_review'
+        - 'config:field.storage.node.field_tracking_number'
+        - 'config:workflow_list'
+  data_export_1:
+    id: data_export_1
+    display_title: 'Data export'
+    display_plugin: data_export
+    position: 2
+    display_options:
+      style:
+        type: data_export
+        options:
+          formats:
+            csv: csv
+          csv_settings:
+            delimiter: ','
+            enclosure: '"'
+            escape_char: \
+            strip_tags: true
+            trim: true
+            encoding: utf8
+            utf8_bom: '0'
+            use_serializer_encode_only: false
+      display_extenders:
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
+      path: admin/content_revision
+      displays:
+        page_1: page_1
+        default: '0'
+      filename: content_revision.csv
+      automatic_download: true
+      store_in_public_file_directory: false
+      custom_redirect_path: false
+      redirect_to_display: none
+      include_query_params: false
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - request_format
+        - url
         - 'user.node_grants:view'
         - user.roles
       tags:
