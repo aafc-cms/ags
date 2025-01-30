@@ -411,14 +411,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
       style:
-        type: html_list
+        type: default
         options:
           grouping: {  }
-          row_class: ''
+          row_class: item-list
           default_row_class: true
-          type: ul
-          wrapper_class: item-list
-          class: ''
       row:
         type: fields
         options:
@@ -910,7 +907,9 @@ display:
       display_description: ''
       rendering_language: '***LANGUAGE_entity_translation***'
       display_extenders:
-        metatag_display_extender: {  }
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
     cache_metadata:
       max-age: -1
       contexts:
