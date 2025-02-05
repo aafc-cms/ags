@@ -9,6 +9,7 @@ dependencies:
     - media.type.image
     - taxonomy.vocabulary.media_category
   module:
+    - better_exposed_filters
     - entity_browser
     - file
     - image
@@ -530,6 +531,7 @@ display:
         type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 50
           total_pages: null
           id: 0
@@ -547,9 +549,8 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
-          pagination_heading_level: h4
       exposed_form:
-        type: basic
+        type: bef
         options:
           submit_button: Filter
           reset_button: false
@@ -558,6 +559,29 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
+          text_input_required: 'Select any filter and click on Apply to see results'
+          text_input_required_format: null
+          bef:
+            general:
+              autosubmit: false
+              autosubmit_exclude_textfield: false
+              autosubmit_textfield_delay: 500
+              autosubmit_textfield_minimum_length: 3
+              autosubmit_hide: false
+              input_required: false
+              allow_secondary: false
+              secondary_label: 'Advanced options'
+              secondary_open: false
+              reset_button_always_show: false
+            sort:
+              plugin_id: default
+            filter:
+              name:
+                plugin_id: default
+              field_category_target_id:
+                plugin_id: default
+              changed:
+                plugin_id: default
       access:
         type: perm
         options:
@@ -1168,6 +1192,7 @@ display:
         type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 12
           total_pages: null
           id: 0
@@ -1185,7 +1210,6 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
-          pagination_heading_level: h4
       empty:
         area_text_custom:
           id: area_text_custom
@@ -1610,6 +1634,71 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        name:
+          id: name
+          table: media_field_data
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 100
+            word_boundary: false
+            ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: true
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         entity_browser_select:
           id: entity_browser_select
           table: file_managed
@@ -1623,7 +1712,7 @@ display:
           exclude: false
           alter:
             alter_text: false
-            text: ''
+            text: '{{ entity_browser_select }}'
             make_link: false
             path: ''
             absolute: false
@@ -1660,6 +1749,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
+          use_field_cardinality: false
       pager:
         type: infinite_scroll
         options:
@@ -1681,6 +1771,52 @@ display:
           views_infinite_scroll:
             button_text: 'Load More'
             automatically_load_content: false
+      exposed_form:
+        type: bef
+        options:
+          submit_button: Filter
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+          text_input_required: 'Select any filter and click on Apply to see results'
+          text_input_required_format: full_html
+          bef:
+            general:
+              autosubmit: false
+              autosubmit_exclude_textfield: false
+              autosubmit_textfield_delay: 500
+              autosubmit_textfield_minimum_length: 3
+              autosubmit_hide: false
+              input_required: false
+              allow_secondary: true
+              secondary_label: 'Advanced options'
+              secondary_open: false
+              reset_button_always_show: false
+            filter:
+              name:
+                plugin_id: default
+                advanced:
+                  collapsible: false
+                  collapsible_disable_automatic_open: false
+                  is_secondary: false
+                  hide_label: false
+              changed:
+                plugin_id: bef_datepicker
+                advanced:
+                  collapsible: false
+                  collapsible_disable_automatic_open: false
+                  is_secondary: false
+                  hide_label: true
+              changed_1:
+                plugin_id: bef_datepicker
+                advanced:
+                  collapsible: false
+                  collapsible_disable_automatic_open: false
+                  is_secondary: false
+                  hide_label: true
       empty:
         area_text_custom:
           id: area_text_custom
@@ -1761,10 +1897,16 @@ display:
             operator_id: name_op
             label: Keywords
             description: ''
-            use_operator: false
+            use_operator: true
             operator: name_op
-            operator_limit_selection: false
-            operator_list: {  }
+            operator_limit_selection: true
+            operator_list:
+              contains: contains
+              word: word
+              allwords: allwords
+              starts: starts
+              ends: ends
+              not: not
             identifier: keywords
             required: false
             remember: false
@@ -1773,13 +1915,16 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
-              page_creator: '0'
-              layout_manager: '0'
-              page_reviewer: '0'
-              landing_page_creator: '0'
-              landing_page_reviewer: '0'
-              media_creator: '0'
-              media_manager: '0'
+              creator: '0'
+              editor: '0'
+              reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
+              pab_admin: '0'
+              qa: '0'
+              ia: '0'
+              viewer: '0'
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -1809,13 +1954,13 @@ display:
           exposed: false
           expose:
             operator_id: bundle_op
-            label: Type
+            label: 'Media type'
             description: ''
             use_operator: false
             operator: bundle_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: type
+            identifier: bundle
             required: false
             remember: false
             multiple: false
@@ -1823,14 +1968,17 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
-              page_creator: '0'
-              layout_manager: '0'
-              page_reviewer: '0'
-              landing_page_creator: '0'
-              landing_page_reviewer: '0'
-              media_creator: '0'
-              media_manager: '0'
-            reduce: false
+              creator: '0'
+              editor: '0'
+              reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
+              pab_admin: '0'
+              qa: '0'
+              ia: '0'
+              viewer: '0'
+            argument: ''
+            reduce: true
           is_grouped: false
           group_info:
             label: ''
@@ -1857,18 +2005,29 @@ display:
           exposed: false
           expose:
             operator_id: ''
-            label: ''
+            label: 'Show in media library (field_media_in_library)'
             description: ''
             use_operator: false
-            operator: ''
+            operator: field_media_in_library_value_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: ''
-            required: false
+            identifier: field_media_in_library_value
+            required: true
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              creator: '0'
+              editor: '0'
+              reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
+              pab_admin: '0'
+              qa: '0'
+              ia: '0'
+              viewer: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -1882,27 +2041,33 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           accept_null: false
-        field_category_target_id:
-          id: field_category_target_id
-          table: media__field_category
-          field: field_category_target_id
-          relationship: none
+        changed:
+          id: changed
+          table: file_managed
+          field: changed
+          relationship: image_target_id
           group_type: group
           admin_label: ''
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value: {  }
+          entity_type: file
+          entity_field: changed
+          plugin_id: date
+          operator: between
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
           group: 1
           exposed: true
           expose:
-            operator_id: field_category_target_id_op
-            label: 'Media Category'
+            operator_id: changed_op
+            label: 'File changed'
             description: ''
             use_operator: false
-            operator: field_category_target_id_op
+            operator: changed_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_category_target_id
+            identifier: changed
             required: false
             remember: false
             multiple: false
@@ -1919,7 +2084,9 @@ display:
               qa: '0'
               ia: '0'
               viewer: '0'
-            reduce: false
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -1932,12 +2099,64 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          reduce_duplicates: false
-          vid: media_category
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: true
+        changed_1:
+          id: changed_1
+          table: media_field_data
+          field: changed
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: media
+          entity_field: changed
+          plugin_id: date
+          operator: between
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: changed_1_op
+            label: 'Media changed'
+            description: ''
+            use_operator: false
+            operator: changed_1_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: changed_1
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              creator: '0'
+              editor: '0'
+              reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
+              pab_admin: '0'
+              qa: '0'
+              ia: '0'
+              viewer: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -1960,6 +2179,7 @@ display:
         empty: false
         css_class: false
         pager: false
+        exposed_form: false
         style: false
         row: false
         relationships: false
@@ -1978,7 +2198,10 @@ display:
           required: true
       css_class: eb-media
       display_description: ''
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
     cache_metadata:
       max-age: -1
       contexts:
