@@ -59,3 +59,9 @@ Testing by Simon
 - https://ddev.readthedocs.io/en/stable/users/install/ddev-installation/#linux
 - The install for Debian/Ubuntu is a bit confusing, bunch of commands to get working.
 - Once installed, only three commands to get running. https://ddev.readthedocs.io/en/stable/users/project/
+
+## Passwords
+
+drush cset symfony_mailer_lite.symfony_mailer_lite_transport.smtp configuration.user 'NEW_USERNAME' -y
+drush cset symfony_mailer_lite.symfony_mailer_lite_transport.smtp configuration.pass 'NEW_PASSWORD' -y
+
