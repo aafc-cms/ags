@@ -20,5 +20,6 @@ default_value:
     value: '[current-user:field_first_name] [current-user:field_last_name]'
     format: rich_text
 default_value_callback: ''
-settings: {  }
+settings:
+  allowed_formats: {  }
 field_type: text
