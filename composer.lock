@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "07017bf0a2f55ac61ebc3ee6a57ff0d1",
+    "content-hash": "747ff0f149fc037066792b2231a27ffe",
     "packages": [
         {
             "name": "agrcms/agri_admin",
@@ -7256,17 +7256,11 @@
         },
         {
             "name": "drupal/key",
-            "version": "1.19.0",
+            "version": "dev-1.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/key.git",
-                "reference": "8.x-1.19"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/key-8.x-1.19.zip",
-                "reference": "8.x-1.19",
-                "shasum": "ee8f7b8f8babd381f1e4423dccede94b4eb5985c"
+                "reference": "4e0f58a324febd93b639db480379c01ad1e98ba1"
             },
             "require": {
                 "drupal/core": ">=8.9 <12"
@@ -7279,12 +7273,15 @@
             },
             "type": "drupal-module",
             "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
                 "drupal": {
-                    "version": "8.x-1.19",
-                    "datestamp": "1720053341",
+                    "version": "8.x-1.19+2-dev",
+                    "datestamp": "1734387456",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 },
                 "drush": {
@@ -19916,6 +19913,12 @@
     ],
     "aliases": [
         {
+            "package": "drupal/key",
+            "version": "1.9999999.9999999.9999999-dev",
+            "alias": "1.19",
+            "alias_normalized": "1.19.0.0"
+        },
+        {
             "package": "drupal/votingapi",
             "version": "4.0.9999999.9999999-dev",
             "alias": "3.0.1",
@@ -19924,6 +19927,7 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/key": 20,
         "drupal/votingapi": 20,
         "phpmd/phpmd": 0
     },
