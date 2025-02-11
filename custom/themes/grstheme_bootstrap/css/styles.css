@@ -12,9 +12,10 @@ fieldset.error .form-radios {
   display: inline-block; }
 
 .select-wrapper:after {
-  position: relative;
+  position: relative !important;
   margin-left: -20px !important;
-  top: 2px; }
+  top: 2px !important;
+}
 
 body.path-webform .btn-danger {
   margin-left: 5px; }
