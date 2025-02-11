@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a6b77bc57555f14621b4f84db6fc8e6c",
+    "content-hash": "9df22da4ca15b66d0c43b8bb439c11a3",
     "packages": [
         {
             "name": "agrcms/agri_admin",
@@ -156,16 +156,16 @@
         },
         {
             "name": "agrcmsx/dxbase",
-            "version": "11.1.1.10",
+            "version": "11.1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/agrcms/dxbase.git",
-                "reference": "bca430b8806c4c00730aa7cf0c87306633892d4f"
+                "reference": "f466e2e03ad5a061cb9161f892aea7b7b9474c1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=bca430b8806c4c00730aa7cf0c87306633892d4f",
-                "reference": "bca430b8806c4c00730aa7cf0c87306633892d4f",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=f466e2e03ad5a061cb9161f892aea7b7b9474c1a",
+                "reference": "f466e2e03ad5a061cb9161f892aea7b7b9474c1a",
                 "shasum": ""
             },
             "require": {
@@ -202,6 +202,7 @@
                 "drupal/formblock": "^2.0.0-beta2",
                 "drupal/git_status": "^1.2",
                 "drupal/honeypot": "^2.2",
+                "drupal/jquery_downgrade": "^1.0",
                 "drupal/jquery_ui_datepicker": "^2.1",
                 "drupal/jquery_ui_draggable": "^2.1",
                 "drupal/jquery_ui_resizable": "^2.1",
@@ -451,9 +452,9 @@
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
             "support": {
                 "issues": "https://gitlab.com/agrcms/dxbase/-/issues",
-                "source": "https://gitlab.com/agrcms/dxbase/-/tree/11.1.1.10"
+                "source": "https://gitlab.com/agrcms/dxbase/-/tree/11.1.2.0"
             },
-            "time": "2025-01-23T10:41:31+00:00"
+            "time": "2025-02-11T12:23:08+00:00"
         },
         {
             "name": "algolia/places",
@@ -697,16 +698,16 @@
         },
         {
             "name": "bower-asset/jquery",
-            "version": "3.6.4",
+            "version": "3.7.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:jquery/jquery-dist.git",
-                "reference": "91ef2d8836342875f2519b5815197ea0f23613cf"
+                "url": "https://github.com/jquery/jquery-dist.git",
+                "reference": "fde1f76e2799dd877c176abde0ec836553246991"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jquery/jquery-dist/zipball/91ef2d8836342875f2519b5815197ea0f23613cf",
-                "reference": "91ef2d8836342875f2519b5815197ea0f23613cf"
+                "url": "https://api.github.com/repos/jquery/jquery-dist/zipball/fde1f76e2799dd877c176abde0ec836553246991",
+                "reference": "fde1f76e2799dd877c176abde0ec836553246991"
             },
             "type": "bower-asset",
             "license": [
@@ -6777,6 +6778,50 @@
             }
         },
         {
+            "name": "drupal/jquery_downgrade",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/jquery_downgrade.git",
+                "reference": "1.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/jquery_downgrade-1.0.0.zip",
+                "reference": "1.0.0",
+                "shasum": "86d92887fe07f4b3fd37dd6bb12a81fd45485e32"
+            },
+            "require": {
+                "drupal/core": "^11 | ^12"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.0",
+                    "datestamp": "1739294429",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "joseph.olstad",
+                    "homepage": "https://www.drupal.org/user/1321830"
+                }
+            ],
+            "description": "Replaces jQuery 4 with jQuery 3 on specific pages.",
+            "homepage": "https://www.drupal.org/project/jquery_downgrade",
+            "support": {
+                "source": "https://git.drupalcode.org/project/jquery_downgrade"
+            }
+        },
+        {
             "name": "drupal/jquery_ui",
             "version": "1.7.0",
             "source": {
@@ -11024,17 +11069,17 @@
         },
         {
             "name": "drupal/views_bulk_operations",
-            "version": "4.3.2",
+            "version": "4.3.3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/views_bulk_operations.git",
-                "reference": "4.3.2"
+                "reference": "4.3.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/views_bulk_operations-4.3.2.zip",
-                "reference": "4.3.2",
-                "shasum": "b3d0ee06abb15520595b83324e93c5500d5dcef3"
+                "url": "https://ftp.drupal.org/files/projects/views_bulk_operations-4.3.3.zip",
+                "reference": "4.3.3",
+                "shasum": "60d83a18ef31fd1e85fb30137fd03a55cad275f3"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11"
@@ -11051,8 +11096,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "4.3.2",
-                    "datestamp": "1731070018",
+                    "version": "4.3.3",
+                    "datestamp": "1739278730",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -11080,9 +11125,9 @@
             "description": "Adds an ability to perform bulk operations on selected entities from view results. Provides an API to create such operations.",
             "homepage": "https://www.drupal.org/project/views_bulk_operations",
             "support": {
-                "source": "https://git.drupalcode.org/project/views_bulk_operations/-/tree/8.x-3.x",
-                "issues": "https://www.drupal.org/project/issues/views_bulk_operations?version=8.x",
-                "docs": "https://www.drupal.org/docs/8/modules/views-bulk-operations-vbo"
+                "source": "https://git.drupalcode.org/project/views_bulk_operations",
+                "issues": "https://www.drupal.org/project/issues/views_bulk_operations?version=any_4.",
+                "docs": "https://www.drupal.org/docs/contributed-modules/views-bulk-operations-vbo"
             }
         },
         {
@@ -13150,16 +13195,16 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v11.41.3",
+            "version": "v11.42.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
-                "reference": "80c85f81573cc4c024da05312119f9149a6b64c1"
+                "reference": "6fd628d32a0989211c4f2829bf0a6a6175b2f3fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/80c85f81573cc4c024da05312119f9149a6b64c1",
-                "reference": "80c85f81573cc4c024da05312119f9149a6b64c1",
+                "url": "https://api.github.com/repos/illuminate/collections/zipball/6fd628d32a0989211c4f2829bf0a6a6175b2f3fd",
+                "reference": "6fd628d32a0989211c4f2829bf0a6a6175b2f3fd",
                 "shasum": ""
             },
             "require": {
@@ -13202,11 +13247,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-01-24T15:40:32+00:00"
+            "time": "2025-02-05T10:23:21+00:00"
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v11.41.3",
+            "version": "v11.42.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -13252,16 +13297,16 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v11.41.3",
+            "version": "v11.42.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
-                "reference": "534b697fc1dd9fbdd9fbf2f33fc9dcbb943dea75"
+                "reference": "b350a3cd8450846325cb49e1cbc1293598b18898"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/534b697fc1dd9fbdd9fbf2f33fc9dcbb943dea75",
-                "reference": "534b697fc1dd9fbdd9fbf2f33fc9dcbb943dea75",
+                "url": "https://api.github.com/repos/illuminate/contracts/zipball/b350a3cd8450846325cb49e1cbc1293598b18898",
+                "reference": "b350a3cd8450846325cb49e1cbc1293598b18898",
                 "shasum": ""
             },
             "require": {
@@ -13296,11 +13341,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-01-10T20:57:00+00:00"
+            "time": "2025-02-10T14:20:57+00:00"
         },
         {
             "name": "illuminate/macroable",
-            "version": "v11.41.3",
+            "version": "v11.42.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
