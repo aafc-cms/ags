@@ -373,5 +373,9 @@ rm test-connection.txt;
 
 echo -e "cp build/wet-boew.js html/libraries/wet-boew/js/wet-boew.js  ${VERT}${BOLD}REPLACE v4.0.83 with v4.0.85-beta1${NC}"
       cp build/wet-boew.js html/libraries/wet-boew/js/wet-boew.js
-echo -e "cp build/wet-boew.js html/libraries/wet-boew/js/wet-boew.js  ${VERT}${BOLD}REPLACE v4.0.83 with v4.0.85-beta1${NC}"
+echo -e "cp build/wet-boew.js html/libraries/wet-boew/js/wet-boew.min.js  ${VERT}${BOLD}REPLACE v4.0.83 with v4.0.85-beta1${NC}"
       cp build/wet-boew.js html/libraries/wet-boew/js/wet-boew.min.js
+if [ ! -f "html/libraries/wet-boew/js/purify.js.map" ]; then
+  echo -e "${BOLD}touch${NC} html/libraries/wet-boew/js/${BOLD}purify.js.map${NC};"
+           touch html/libraries/wet-boew/js/purify.js.map
+fi

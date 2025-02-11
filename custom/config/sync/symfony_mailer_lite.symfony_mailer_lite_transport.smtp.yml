@@ -1,0 +1,18 @@
+uuid: 0dfc2995-eb4c-4880-8366-6a94c00a752c
+langcode: en
+status: true
+dependencies: {  }
+id: smtp
+label: SMTP
+plugin: smtp
+configuration:
+  user: PLACEHOLDER_USERNAME
+  pass: PLACEHOLDER_PASSWORD
+  host: email-smtp.ca-central-1.amazonaws.com
+  port: 587
+  query:
+    verify_peer: true
+    local_domain: ''
+    restart_threshold: null
+    restart_threshold_sleep: null
+    ping_threshold: null

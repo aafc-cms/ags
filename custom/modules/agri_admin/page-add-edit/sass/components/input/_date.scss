@@ -1,8 +1,13 @@
 body.node-edit, body.node-add {
-  .hidden-input-box .form-items-inline {
-    display: none;
-  }
-  .hidden-input-box input {
-    display: none;
+  .hidden-input-box {
+    .form-items-inline, input {
+      display: none;
+    }
+  }  
+}
+
+body.node-edit {
+  .layout-region--footer {
+    margin-left: 0px;
   }
 }

@@ -331,6 +331,10 @@
             "drupalwxt/wxt": {
                 "Allow split of password policy":
                 "build/wxt_split_password_policy.patch"
+            },
+            "drupalwxt/wxt_bootstrap": {
+                "Collapse js fix":
+                "build/wxt_bootstrap_collapse.js.patch"
             }
         },
         "patches-ignore": {
@@ -361,7 +365,8 @@
         "oomphinc/composer-installers-extender": "^1 || ^2",
         "wikimedia/composer-merge-plugin": "^2.1",
         "nnnick/chartjs": "^4.4",
-        "drupal/cache_control_override": "^2.0"
+        "drupal/cache_control_override": "^2.0",
+        "drupal/key": "1.x-dev as 1.19"
     },
     "authors": [
         {

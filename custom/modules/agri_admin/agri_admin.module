@@ -479,8 +479,8 @@ function agri_admin_node_presave(EntityInterface $entity) {
       ->condition('nfd.langcode', $langcode);
 
     $current_revision_id = $query->execute()->fetchField();
-    $current_revision = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($current_revision_id);
-    if (!is_null($current_revision)) {
+    if (isset($current_revision_id) && is_numeric($current_revision_id)) {
+      $current_revision = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($current_revision_id);
       $current_revision_log_message = $current_revision->get('revision_log')->getString();
 
       if ($current_revision->isPublished() && $moderation_state == 'draft') {
