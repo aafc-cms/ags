@@ -5,6 +5,7 @@ dependencies:
   config:
     - image.style.small
   module:
+    - agri_admin
     - file
     - image
     - node
@@ -12,17 +13,6 @@ label: UrlToDocument
 id: urltodocument
 description: ''
 matchers:
-  1930989e-6d71-4b03-8310-0f6474b1cdcf:
-    id: 'entity:node'
-    uuid: 1930989e-6d71-4b03-8310-0f6474b1cdcf
-    settings:
-      metadata: 'by [node:author] | [node:created:medium]'
-      bundles: {  }
-      group_by_bundle: true
-      substitution_type: canonical
-      limit: 100
-      include_unpublished: true
-    weight: 0
   f0629534-a4cb-4f2a-b1a7-086dbb835e68:
     id: 'entity:file'
     uuid: f0629534-a4cb-4f2a-b1a7-086dbb835e68
@@ -38,4 +28,15 @@ matchers:
         show_dimensions: false
         show_thumbnail: true
         thumbnail_image_style: small
-    weight: 0
+    weight: -8
+  ad81ce49-dc77-4878-984f-46329106affb:
+    id: filtered_node_matcher
+    uuid: ad81ce49-dc77-4878-984f-46329106affb
+    settings:
+      metadata: 'by [node:author] | [node:created:medium] | Node ID [node:nid]'
+      bundles: {  }
+      group_by_bundle: 1
+      substitution_type: canonical
+      limit: '100'
+      include_unpublished: 1
+    weight: -10
