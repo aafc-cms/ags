@@ -110,45 +110,6 @@
         {
             "type": "package",
             "package": {
-                "name": "drupaloverride/embed",
-                "version": "dev-master",
-                "type": "drupal-module",
-                "source": {
-                    "url": "https://git.drupalcode.org/issue/embed-3430097.git",
-                    "type": "git",
-                    "reference": "3430097-automated-drupal-11"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "drupaloverride/url_embed",
-                "version": "dev-master",
-                "type": "drupal-module",
-                "source": {
-                    "url": "https://git.drupalcode.org/issue/url_embed-3438709.git",
-                    "type": "git",
-                    "reference": "composer-workaround-d11"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "drupaloverride/entity_embed",
-                "version": "dev-master",
-                "type": "drupal-module",
-                "source": {
-                    "url": "https://git.drupalcode.org/issue/entity_embed-3430164.git",
-                    "type": "git",
-                    "reference": "3430164-d11-readiness"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
                 "name": "drupaloverride/layout_builder_st",
                 "version": "dev-master",
                 "type": "drupal-module",
@@ -331,10 +292,6 @@
             "drupalwxt/wxt": {
                 "Allow split of password policy":
                 "build/wxt_split_password_policy.patch"
-            },
-            "drupalwxt/wxt_bootstrap": {
-                "Collapse js fix":
-                "build/wxt_bootstrap_collapse.js.patch"
             }
         },
         "patches-ignore": {
