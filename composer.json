@@ -136,19 +136,6 @@
         {
             "type": "package",
             "package": {
-                "name": "drupaloverride/varnish_purge",
-                "version": "dev-master",
-                "type": "drupal-module",
-                "source": {
-                    "url": "https://git.drupalcode.org/issue/varnish_purge-3470751.git",
-                    "type": "git",
-                    "reference": "3470751-drupal-11-compatibility"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
                 "name": "drupaloverride/webform_revision_ui",
                 "version": "dev-master",
                 "type": "drupal-module",
@@ -325,7 +312,7 @@
         }
     },
     "require": {
-        "agrcmsx/dxbase": "11.1.2.0",
+        "agrcmsx/dxbase": "11.1.2.2",
         "agrcms/agri_admin": "*",
         "agrcms/agri_reports": "*",
         "agrcms/config": "*",
