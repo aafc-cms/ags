@@ -189,8 +189,22 @@
                     "composer/installers": "*"
                 }
             }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "fontawesome/fontawesome",
+                "version": "6.4.2",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "fontawesome"
+                },
+                "dist": {
+                    "url": "https://use.fontawesome.com/releases/v6.4.2/fontawesome-free-6.4.2-web.zip",
+                    "type": "zip"
+                }
+            }
         }
-
     ],
     "scripts": {
         "post-root-package-install": [
