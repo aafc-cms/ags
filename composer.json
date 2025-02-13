@@ -136,19 +136,6 @@
         {
             "type": "package",
             "package": {
-                "name": "drupaloverride/varnish_purge",
-                "version": "dev-master",
-                "type": "drupal-module",
-                "source": {
-                    "url": "https://git.drupalcode.org/issue/varnish_purge-3470751.git",
-                    "type": "git",
-                    "reference": "3470751-drupal-11-compatibility"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
                 "name": "drupaloverride/webform_revision_ui",
                 "version": "dev-master",
                 "type": "drupal-module",
@@ -317,15 +304,12 @@
                 },
                 "drupal/webform": {
                     "Enter drupal/webform patch #3212867 description here": "https://www.drupal.org/files/issues/2021-05-07/3212867-3.patch"
-                },
-                "drupaloverride/entity_embed": {
-                    "entity_embed-remove_image_attributes_from_div-3086162": "https://www.drupal.org/files/issues/2020-06-15/entity_embed-remove_image_attributes_from_div-3086162-13_0.patch"
                 }
             }
         }
     },
     "require": {
-        "agrcmsx/dxbase": "11.1.2.0",
+        "agrcmsx/dxbase": "11.1.2.2",
         "agrcms/agri_admin": "*",
         "agrcms/agri_reports": "*",
         "agrcms/config": "*",
