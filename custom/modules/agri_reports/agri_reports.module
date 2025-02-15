@@ -94,6 +94,7 @@ function agri_reports_preprocess_views_view_field(&$variables) {
  */
 
 function agri_reports_views_pre_view($view, $display_id, &$args) {
+/* remove setting the date picker defaults after first load.
   if ($view->id() == 'publish_activity_for_meta_tags' || $view->id() == 'publish_activity_new_agrisource') {
     $values = $view->getExposedInput();
     if (!empty($values)) {
@@ -104,7 +105,7 @@ function agri_reports_views_pre_view($view, $display_id, &$args) {
       }
     }
   }
-
+*/
   if ($view->id() == 'publish_activity_reporting') {
     $values = $view->getExposedInput();
     if (!empty($values)) {

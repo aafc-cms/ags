@@ -12,6 +12,7 @@ dependencies:
     - system.menu.admin
     - user.role.administrator
     - user.role.creator
+    - user.role.pab_admin
   module:
     - better_exposed_filters
     - content_lock
@@ -627,7 +628,7 @@ display:
         options:
           offset: 0
           pagination_heading_level: h4
-          items_per_page: 15
+          items_per_page: 25
           total_pages: null
           id: 0
           tags:
@@ -658,12 +659,12 @@ display:
               autosubmit: false
               autosubmit_exclude_textfield: false
               autosubmit_textfield_delay: 500
+              autosubmit_textfield_minimum_length: 3
               autosubmit_hide: false
               input_required: false
               allow_secondary: false
               secondary_label: 'Advanced options'
               secondary_open: false
-              autosubmit_textfield_minimum_length: 3
             sort:
               plugin_id: default
             filter:
@@ -675,6 +676,7 @@ display:
           role:
             administrator: administrator
             creator: creator
+            pab_admin: pab_admin
       cache:
         type: none
         options: {  }
@@ -829,8 +831,8 @@ display:
           plugin_id: datetime
           operator: between
           value:
-            min: ' -365 day'
-            max: ' +1 day'
+            min: ''
+            max: ''
             value: ''
             type: date
           group: 1
@@ -1779,7 +1781,7 @@ display:
         type: some
         options:
           offset: 0
-          items_per_page: 800
+          items_per_page: 4000
       style:
         type: data_export
         options:
@@ -1799,14 +1801,16 @@ display:
         fields: false
       display_description: ''
       display_extenders:
-        metatag_display_extender: {  }
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
       path: admin/publish_activity_new
       displays:
         page_1: page_1
         default: '0'
       filename: publish_activity_new.csv
       automatic_download: true
-      export_limit: 800
+      export_limit: 4000
       store_in_public_file_directory: true
       custom_redirect_path: false
       redirect_to_display: none
@@ -1846,13 +1850,13 @@ display:
               autosubmit: false
               autosubmit_exclude_textfield: false
               autosubmit_textfield_delay: 500
+              autosubmit_textfield_minimum_length: 3
               autosubmit_hide: false
               input_required: false
               allow_secondary: false
               secondary_label: 'Advanced options'
               secondary_open: false
               reset_button_always_show: false
-              autosubmit_textfield_minimum_length: 3
             filter:
               field_issued_value:
                 plugin_id: bef_datepicker
