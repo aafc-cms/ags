@@ -294,6 +294,10 @@
             "drupalwxt/wxt": {
                 "Allow split of password policy":
                 "build/wxt_split_password_policy.patch"
+            },
+            "drupal/linkchecker": {
+                "Check for null parent_entity_type_id":
+                "build/linkchecker.patch"
             }
         },
         "patches-ignore": {
