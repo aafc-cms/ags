@@ -35,8 +35,6 @@ dependencies:
   module:
     - access_unpublished
     - agri_admin
-    - block
-    - block_content
     - comment
     - contact
     - content_moderation
@@ -82,7 +80,6 @@ is_admin: null
 permissions:
   - 'access 403 page'
   - 'access administration pages'
-  - 'access block library'
   - 'access ckeditor_media_browser entity browser pages'
   - 'access comments'
   - 'access content overview'
@@ -97,15 +94,9 @@ permissions:
   - 'access shortcuts'
   - 'access site in maintenance mode'
   - 'access taxonomy overview'
-  - 'access tokens overview'
   - 'access toolbar'
   - 'access user contact forms'
   - 'access user profiles'
-  - 'access_unpublished block_content basic'
-  - 'access_unpublished block_content footer_french'
-  - 'access_unpublished block_content media_slideshow'
-  - 'access_unpublished block_content search'
-  - 'access_unpublished block_content text'
   - 'access_unpublished menu_link_content'
   - 'access_unpublished node landing_page'
   - 'access_unpublished node page'
@@ -116,9 +107,6 @@ permissions:
   - 'access_unpublished taxonomy_term intended_audience'
   - 'access_unpublished taxonomy_term media_category'
   - 'access_unpublished taxonomy_term news_type'
-  - 'administer block content'
-  - 'administer block types'
-  - 'administer blocks'
   - 'administer comments'
   - 'administer footer menu items'
   - 'administer footer-fr menu items'
@@ -157,7 +145,6 @@ permissions:
   - 'delete files override usage'
   - 'delete own files'
   - 'delete own webform'
-  - 'delete token'
   - 'dropzone upload files'
   - 'edit any audio_file media'
   - 'edit any document media'
@@ -202,13 +189,11 @@ permissions:
   - 'perform search and replace'
   - 'perform search only'
   - 'post comments'
-  - 'renew token'
   - 'replace files'
   - 'safedelete view orphans report'
   - 'skip comment approval'
   - 'translate aafc_type taxonomy_term'
   - 'translate any webform'
-  - 'translate block_content'
   - 'translate branch taxonomy_term'
   - 'translate category taxonomy_term'
   - 'translate empl node'
