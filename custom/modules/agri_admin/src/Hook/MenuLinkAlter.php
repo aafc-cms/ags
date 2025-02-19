@@ -14,7 +14,7 @@ class MenuLinkAlter {
     // Check if the specific menu link exists before attempting to modify it.
     if (isset($links['moderation_dashboard.settings'])) {
       // Set the desired weight for the menu link.
-      $links['moderation_dashboard.settings']['weight'] = 10;
+      $links['moderation_dashboard.settings']['weight'] = 999;
     }
   }
 
