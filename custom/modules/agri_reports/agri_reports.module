@@ -97,13 +97,15 @@ function agri_reports_views_pre_view($view, $display_id, &$args) {
   if ($view->id() == 'publish_activity_for_meta_tags' || $view->id() == 'publish_activity_new_agrisource') {
     $values = $view->getExposedInput();
     if (!empty($values)) {
-      if (!empty(trim($values["field_issued_value"]['min'])) && empty(trim($values["field_issued_value"]['max']))) {
-        $values["field_issued_value"]['max'] = '+1 day';
-        $view->setExposedInput($values);
-      }
-      if (empty(trim($values["field_issued_value"]['min'])) && !empty(trim($values["field_issued_value"]['max']))) {
-        $values["field_issued_value"]['min'] = '-36500 day';
-        $view->setExposedInput($values);
+      if(isset($values["field_issued_value"])) {
+        if (!empty(trim($values["field_issued_value"]['min'])) && empty(trim($values["field_issued_value"]['max']))) {
+          $values["field_issued_value"]['max'] = '+1 day';
+          $view->setExposedInput($values);
+        }
+        if (empty(trim($values["field_issued_value"]['min'])) && !empty(trim($values["field_issued_value"]['max']))) {
+          $values["field_issued_value"]['min'] = '-36500 day';
+          $view->setExposedInput($values);
+        }
       }
     }
   }
