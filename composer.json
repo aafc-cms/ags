@@ -149,19 +149,6 @@
         {
             "type": "package",
             "package": {
-                "name": "drupaloverride/bg_image_formatter",
-                "version": "dev-master",
-                "type": "drupal-module",
-                "source": {
-                    "url": "https://git.drupalcode.org/issue/bg_image_formatter-3450893.git",
-                    "type": "git",
-                    "reference": "3450893-automated-drupal-11"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
                 "name": "nnnick/chartjs",
                 "version": "v4.4.7",
                 "type": "drupal-library",
@@ -313,7 +300,7 @@
         }
     },
     "require": {
-        "agrcmsx/dxbase": "11.1.2.2",
+        "agrcmsx/dxbase": "11.1.2.3",
         "agrcms/agri_admin": "*",
         "agrcms/agri_reports": "*",
         "agrcms/config": "*",

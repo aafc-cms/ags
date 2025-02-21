@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "602b30aaf49faf8a8da2c5e6d627e494",
+    "content-hash": "b68fe0ae3c1645836850f679f4ee10c9",
     "packages": [
         {
             "name": "agrcms/agri_admin",
@@ -156,16 +156,16 @@
         },
         {
             "name": "agrcmsx/dxbase",
-            "version": "11.1.2.2",
+            "version": "11.1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/agrcms/dxbase.git",
-                "reference": "52b6a5a751a691d4e7334c772d5f0bee0d58e68c"
+                "reference": "9b9f3e333516e337f958b20ad3ae1f58e92b9942"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=52b6a5a751a691d4e7334c772d5f0bee0d58e68c",
-                "reference": "52b6a5a751a691d4e7334c772d5f0bee0d58e68c",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=9b9f3e333516e337f958b20ad3ae1f58e92b9942",
+                "reference": "9b9f3e333516e337f958b20ad3ae1f58e92b9942",
                 "shasum": ""
             },
             "require": {
@@ -175,6 +175,7 @@
                 "drupal/action": "^0.2",
                 "drupal/autologout": "^2.0",
                 "drupal/better_exposed_filters": "^7.0",
+                "drupal/bg_image_formatter": "1.18",
                 "drupal/bigmenu": "^2.1",
                 "drupal/ckeditor5_plugin_pack": "^1.2",
                 "drupal/clientside_validation": "^4.1",
@@ -248,7 +249,6 @@
                 "drupal/webform_views": "^5.5",
                 "drupal/workflow": "1.x-dev@dev",
                 "drupal/wxt_chart_stability": "^1.0@beta",
-                "drupaloverride/bg_image_formatter": "*",
                 "drupaloverride/webform_revision_ui": "*",
                 "drupalwxt/wxt": "6.1.x-dev",
                 "drush/drush": "^12 || ^13",
@@ -448,9 +448,9 @@
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
             "support": {
                 "issues": "https://gitlab.com/agrcms/dxbase/-/issues",
-                "source": "https://gitlab.com/agrcms/dxbase/-/tree/11.1.2.2"
+                "source": "https://gitlab.com/agrcms/dxbase/-/tree/11.1.2.3"
             },
-            "time": "2025-02-13T16:46:12+00:00"
+            "time": "2025-02-20T19:32:51+00:00"
         },
         {
             "name": "algolia/places",
@@ -2760,6 +2760,70 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/better_exposed_filters",
                 "issues": "https://www.drupal.org/project/issues/better_exposed_filters"
+            }
+        },
+        {
+            "name": "drupal/bg_image_formatter",
+            "version": "1.18.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/bg_image_formatter.git",
+                "reference": "8.x-1.18"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/bg_image_formatter-8.x-1.18.zip",
+                "reference": "8.x-1.18",
+                "shasum": "b3b28d339c3aa2b23f8645b3fa89e64ca6aa2583"
+            },
+            "require": {
+                "drupal/core": "^10.3 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.18",
+                    "datestamp": "1739549656",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "bburg",
+                    "homepage": "https://www.drupal.org/user/1867900"
+                },
+                {
+                    "name": "duaelfr",
+                    "homepage": "https://www.drupal.org/user/931394"
+                },
+                {
+                    "name": "garethhallnz",
+                    "homepage": "https://www.drupal.org/user/772766"
+                },
+                {
+                    "name": "joseph.olstad",
+                    "homepage": "https://www.drupal.org/user/1321830"
+                },
+                {
+                    "name": "phenaproxima",
+                    "homepage": "https://www.drupal.org/user/205645"
+                },
+                {
+                    "name": "pol",
+                    "homepage": "https://www.drupal.org/user/47194"
+                }
+            ],
+            "description": "Background Images Formatter provides an image formatter to display images in background with CSS.",
+            "homepage": "https://www.drupal.org/project/bg_image_formatter",
+            "support": {
+                "source": "https://git.drupalcode.org/project/bg_image_formatter"
             }
         },
         {
@@ -12142,16 +12206,6 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/wxt_chart_stability"
             }
-        },
-        {
-            "name": "drupaloverride/bg_image_formatter",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/issue/bg_image_formatter-3450893.git",
-                "reference": "3450893-automated-drupal-11"
-            },
-            "type": "drupal-module"
         },
         {
             "name": "drupaloverride/layout_builder_st",
