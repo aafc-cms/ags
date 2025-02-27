@@ -371,9 +371,9 @@ class NewsBulletinEmailController extends ControllerBase {
     // This grabs the rendered body so that we can get embedded images using media browser OR legacy img element.
     $render_array = $node->get('body')->view('full');
     $html_output = \Drupal::service('renderer')->renderRoot($render_array);
-    $regex_img = '/<img.*\B \/>/m';
+    $regex_img = '/<img\b[^>]*?>/m';
 
-    preg_match_all($regex_img, $html_output, $matches, PREG_SET_ORDER, 0);
+    preg_match_all($regex_img, $html_output->__toString(), $matches, PREG_SET_ORDER, 0);
     if (isset($matches[0][0])) {
       $image_element = $matches[0][0];
       $image_element = $this->stripWidthAndHeight($image_element);
