@@ -309,3 +309,24 @@ function agri_admin_update_8006() {
 
 }
 
+/**
+ * Clean up mismatched entity and or field definitions.
+ */
+function agri_admin_update_8007() {
+  $module = 'meaofd';
+  $moduleHandler = \Drupal::service('module_handler');
+  $moduleInstaller = \Drupal::service('module_installer');
+
+  // Check if the meaofd module is installed.
+  if (!$moduleHandler->moduleExists($module)) {
+    // Install the module.
+    $moduleInstaller->install([$module]);
+  }
+
+  // Ensure the module is now installed before calling the service.
+  if ($moduleHandler->moduleExists($module)) {
+    $fixer = \Drupal::service('meaofd.fixer');
+    $fixer->fix('node');
+    $fixer->fix('block_content');
+  }
+}
