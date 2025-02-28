@@ -309,3 +309,39 @@ function agri_admin_update_8006() {
 
 }
 
+/**
+ * Clean up mismatched entity and or field definitions.
+ */
+/**
+ * Implements hook_update_N().
+ */
+function agri_admin_update_8007() {
+  $module = 'meaofd';
+  $moduleHandler = \Drupal::service('module_handler');
+  $moduleInstaller = \Drupal::service('module_installer');
+
+  // Rebuild cache to ensure module discovery.
+  drupal_flush_all_caches();
+
+  // Ensure the module exists before attempting to install it.
+  $modulePath = \Drupal::service('extension.list.module')->getPath($module);
+  if (!$modulePath) {
+    \Drupal::logger('agri_admin')->error("The module {$module} is missing. Ensure it is installed in modules/contrib or modules/custom.");
+    return;
+  }
+
+  // Check if the module is installed.
+  if (!$moduleHandler->moduleExists($module)) {
+    // Install the module.
+    $moduleInstaller->install([$module]);
+  }
+
+  // Ensure the module is installed before calling the service.
+  if ($moduleHandler->moduleExists($module)) {
+    $fixer = \Drupal::service('meaofd.fixer');
+    $fixer->fix('node');
+    $fixer->fix('block_content');
+    $fixer->fix('user');
+  }
+}
+
