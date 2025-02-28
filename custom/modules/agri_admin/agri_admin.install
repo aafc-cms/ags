@@ -312,9 +312,6 @@ function agri_admin_update_8006() {
 /**
  * Clean up mismatched entity and or field definitions.
  */
-/**
- * Implements hook_update_N().
- */
 function agri_admin_update_8007() {
   $module = 'meaofd';
   $moduleHandler = \Drupal::service('module_handler');
