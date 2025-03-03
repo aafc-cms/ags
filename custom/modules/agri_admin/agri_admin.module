@@ -640,12 +640,12 @@ function _helper_locking_content($action, $entity_id, $bundle, NodeInterface $en
           $is_master = TRUE;
           $state = $latest->get('moderation_state')->getString();
           if ($state == 'draft' || $state == 'review_by_reviewer' || $state == 'author_reviewing') {
-            $lock_service->locking($entity_id, $latest->language()->getId(), 'edit', $current_user_id, $latest->getEntityTypeId());
+            $lock_service->locking($latest, 'edit', $current_user_id);
             // Finished processing.
             return;
           }
           else {
-            $lock_service->release($entity_id, $latest->language()->getId(), 'edit', $current_author_id, $latest->getEntityTypeId());
+            $lock_service->release($latest, 'edit', $current_author_id);
           }
         }
         if ($role == 'creator') {
@@ -656,18 +656,18 @@ function _helper_locking_content($action, $entity_id, $bundle, NodeInterface $en
             $peer_review_status = $latest->get('field_peer_review')->getString();
           }
           if ($state == 'draft' && empty($peer_review_status)) {
-            $lock_service->locking($entity_id, $latest->language()->getId(), 'edit', $current_user_id, $latest->getEntityTypeId());
+            $lock_service->locking($latest, 'edit', $current_user_id);
             // Finished processing.
             return;
           }
           else {
-            $lock_service->release($entity_id, $latest->language()->getId(), 'edit', $current_author_id, $latest->getEntityTypeId());
+            $lock_service->release($latest, 'edit', $current_author_id);
           }
         }
         if ($role == 'reviewer' && $state == 'with_reviewer') {
           $is_reviewer = TRUE;
           // Persist the lock for the reviewer.
-          $lock_service->locking($entity_id, $latest->language()->getId(), 'edit', $current_user_id, $latest->getEntityTypeId());
+          $lock_service->locking($latest, 'edit', $current_user_id);
           // Finished processing.
           return;
         }
@@ -680,13 +680,13 @@ function _helper_locking_content($action, $entity_id, $bundle, NodeInterface $en
       }
       if ($state == 'author_reviewing' && !$is_creator && !is_null($entity_obj)) {
         // Reviewer is rejecting, sends back to author_reviewing, re-assigns the lock to the $current_author_id.
-        $lock_service->locking($entity_id, $latest->language()->getId(), 'edit', $current_author_id, $latest->getEntityTypeId());
+        $lock_service->locking($latest, 'edit', $current_author_id);
         // @todo for Deepani - Call a function that sends an email to $current_author_id (get author email address) and send email.
       }
       elseif (!$is_creator) {
         // Is neither reviewer, nor creator, therefore release all locks.
-        $lock_service->release($entity_id, $latest->language()->getId(), 'edit', $current_user_id, $latest->getEntityTypeId());
-        $lock_service->release($entity_id, $latest->language()->getId(), 'edit', $current_author_id, $latest->getEntityTypeId());
+        $lock_service->release($latest, 'edit', $current_user_id);
+        $lock_service->release($latest, 'edit', $current_author_id);
       }
     }
   }
