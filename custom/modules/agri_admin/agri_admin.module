@@ -2168,3 +2168,37 @@ function agri_admin_media_predelete(EntityInterface $entity) {
     exit;
   }
 }
+
+//need to revalidate French time field like '03 h 15' as it fails webform validation which only accept English format '03:15'
+function agri_admin_form_webform_submission_photography_request_form_add_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  if ($lang === 'fr') {
+    $tmFields = AgriAdminHelper::getTimeFields($form);
+    if (count($tmFields) > 0) {
+      $form['submitted'][$tmFields[0]]['#element_validate'][]='agri_admin_validate_time';
+    }
+  }
+}
+
+//revalidation here
+function agri_admin_validate_time($element, FormStateInterface $form_state, $form) {
+  $errors = $form_state->getErrors();
+  $tmFields = AgriAdminHelper::getTimeFields($form);
+  
+  //remove error for '03 h 15'
+  foreach($tmFields as $tmField) {
+    if (array_key_exists($tmField, $errors)) {
+      $value = $form_state->getValue($tmField);
+      if (DateTimeImmutable::createFromFormat('H \h i', $value)) {
+          unset($errors[$tmField]);
+      }
+    }
+  }
+
+  $form_state->clearErrors();
+
+  // re-apply the remaining form error messages.
+  foreach ($errors as $name => $error_message) {
+    $form_state->setErrorByName($name, $error_message);
+  }
+}

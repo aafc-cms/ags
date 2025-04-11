@@ -78,6 +78,7 @@ elements: |-
     '#title': 'Photographer start time'
     '#required': true
     '#required_error': 'Start time is required'
+    '#timepicker': true
     '#time_format': 'g:i A'
     '#step': 900
   photographer_end_time:
@@ -85,6 +86,7 @@ elements: |-
     '#title': 'Photographer end time'
     '#required': true
     '#required_error': 'End time is required'
+    '#timepicker': true
     '#time_format': 'g:i A'
     '#step': 900
   additional_date_and_times_when_you_will_need_a_photographer_:
@@ -134,7 +136,7 @@ elements: |-
     '#title': 'Shot list'
     '#title_display': invisible
 css: ''
-javascript: ''
+javascript: "(function ($, Drupal) {\r\n  //set timepicker format like '03 h 15' for French\r\n  Drupal.behaviors.timepickerFrench = {\r\n    attach: function (context, settings) {\r\n\t  tmFields = $('.webform-time');\r\n\t  if (tmFields.length === 0) {\r\n\t\treturn;\r\n\t  }\r\n\r\n      const lang = drupalSettings.path.currentLanguage;\r\n      if (lang === 'fr') {\r\n        tmFields.each(function () {\r\n        //step attribute is 'any', pick it from data-msg-step\r\n        attr = $(this).attr('data-msg-step');\r\n        stp = 15;\r\n        if (attr != undefined) {\r\n          mt = attr.match(/\\d+/);\r\n          if (mt) {\r\n            stp = parseInt(mt[0])/60;\r\n          }\r\n        }\r\n        //set format\r\n        $(this).timepicker({\r\n          timeFormat: 'H \\\\h i',\r\n          step: stp,\r\n          scrollDefault: 'now'\r\n        });\r\n      });\r\n     }\r\n    }\r\n  };\r\n})(jQuery, Drupal);\r\n"
 settings:
   ajax: false
   ajax_scroll_top: form

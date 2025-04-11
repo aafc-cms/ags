@@ -1142,4 +1142,16 @@ class AgriAdminHelper {
     return $tablename;
   }
 
+  public static function getTimeFields($form) {
+    $tmFields = [];
+    foreach($form['elements'] as $key=>$val) {
+      if (strpos($key, '#') === 0) {
+        continue;
+      }
+      if ($val['#type'] && $val['#type'] === 'webform_time') {
+        $tmFields[] = $key;
+      }
+    }
+    return $tmFields;
+  }
 }
