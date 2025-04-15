@@ -78,6 +78,7 @@ elements: |-
     '#title': 'Photographer start time'
     '#required': true
     '#required_error': 'Start time is required'
+    '#timepicker': true
     '#time_format': 'g:i A'
     '#step': 900
   photographer_end_time:
@@ -85,6 +86,7 @@ elements: |-
     '#title': 'Photographer end time'
     '#required': true
     '#required_error': 'End time is required'
+    '#timepicker': true
     '#time_format': 'g:i A'
     '#step': 900
   additional_date_and_times_when_you_will_need_a_photographer_:

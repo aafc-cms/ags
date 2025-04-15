@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "56539e1ac3b49c55b3db60416618f8f5",
+    "content-hash": "91bb879e16f387880b6cc1301701f113",
     "packages": [
         {
             "name": "agrcms/agri_admin",
@@ -12022,6 +12022,55 @@
             }
         },
         {
+            "name": "drupal/webform_datetime_24h",
+            "version": "1.0.0-rc1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/webform_datetime_24h.git",
+                "reference": "1.0.0-rc1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/webform_datetime_24h-1.0.0-rc1.zip",
+                "reference": "1.0.0-rc1",
+                "shasum": "13c34b9b4253a59e17ec6f00aef83bb91d808226"
+            },
+            "require": {
+                "drupal/core": "^10 || ^11",
+                "drupal/webform": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.0-rc1",
+                    "datestamp": "1744682583",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "joseph.olstad",
+                    "homepage": "https://www.drupal.org/user/1321830"
+                },
+                {
+                    "name": "smulvih2",
+                    "homepage": "https://www.drupal.org/user/795442"
+                }
+            ],
+            "description": "Force 24-hour time format on Webforms for selected languages.",
+            "homepage": "https://www.drupal.org/project/webform_datetime_24h",
+            "support": {
+                "source": "https://git.drupalcode.org/project/webform_datetime_24h"
+            }
+        },
+        {
             "name": "drupal/webform_translation_permissions",
             "version": "dev-2.0.x",
             "source": {
@@ -20641,6 +20690,7 @@
     "stability-flags": {
         "drupal/key": 20,
         "drupal/votingapi": 20,
+        "drupal/webform_datetime_24h": 5,
         "phpmd/phpmd": 0
     },
     "prefer-stable": true,
