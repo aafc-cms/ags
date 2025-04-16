@@ -127,6 +127,24 @@ filters:
       thumbnail_effect: ''
       thumbnail_position: ''
       override: false
+  span_link_fix_filter:
+    id: span_link_fix_filter
+    provider: wxt_overrides
+    status: true
+    weight: 99
+    settings: {  }
+  p_video_remove_filter:
+    id: p_video_remove_filter
+    provider: wxt_overrides
+    status: true
+    weight: 100
+    settings: {  }
+  table_tfoot_fix_filter:
+    id: table_tfoot_fix_filter
+    provider: wxt_overrides
+    status: true
+    weight: 101
+    settings: {  }
   token_filter:
     id: token_filter
     provider: token_filter
