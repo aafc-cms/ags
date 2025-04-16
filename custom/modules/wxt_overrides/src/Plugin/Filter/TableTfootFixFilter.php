@@ -24,6 +24,14 @@ class TableTfootFixFilter extends FilterBase {
    * {@inheritdoc}
    */
   public function process($text, $langcode) {
+
+    // Match closing </tbody> followed by one or more <tr> elements not already wrapped.
+    $pattern = '#</tbody>\s*((?:<tr\b.*?</tr>\s*)+)(?!\s*</tfoot>)#is';
+
+    $text = preg_replace_callback($pattern, function ($matches) {
+      return '</tbody><tfoot>' . $matches[1] . '</tfoot>';
+    }, $text);
+
     // Process each <table> individually.
     return new FilterProcessResult(
       preg_replace_callback('#<table\b[^>]*>.*?</table>#is', function ($table_match) {
