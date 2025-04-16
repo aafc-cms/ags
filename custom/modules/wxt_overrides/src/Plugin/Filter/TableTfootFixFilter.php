@@ -24,27 +24,36 @@ class TableTfootFixFilter extends FilterBase {
    * {@inheritdoc}
    */
   public function process($text, $langcode) {
-    // Match each <table>...</table> block.
-    $text = preg_replace_callback('#<table\b[^>]*>.*?</table>#is', function ($table_match) {
-      $table = $table_match[0];
+    // Process each <table> individually.
+    return new FilterProcessResult(
+      preg_replace_callback('#<table\b[^>]*>.*?</table>#is', function ($table_match) {
+        $table = $table_match[0];
 
-      // Match the last <tbody>...</tbody> block.
-      $table = preg_replace_callback('#(<tbody\b[^>]*>.*?</tbody>)#is', function ($matches) {
-        static $count = 0;
-        $count++;
-        // Only replace the 2nd+ tbody (e.g. totals), assuming first tbody is data.
-        if ($count % 2 === 0) {
-          $replaced = preg_replace('#^<tbody\b([^>]*)>#i', '<tfoot$1>', $matches[0]);
-          $replaced = preg_replace('#</tbody>$#i', '</tfoot>', $replaced);
-          return $replaced;
+        // Match all <tbody> blocks inside the table.
+        preg_match_all('#<tbody\b[^>]*>.*?</tbody>#is', $table, $matches);
+
+        if (count($matches[0]) > 1) {
+          $last = array_pop($matches[0]);
+
+          // Replace last <tbody> with <tfoot>.
+          $last_tfoot = preg_replace([
+            '#^<tbody([^>]*)>#i',
+            '#</tbody>$#i'
+          ], [
+            '<tfoot$1>',
+            '</tfoot>'
+          ], $last);
+
+          // Replace the last occurrence in the table with <tfoot>.
+          $pos = strrpos($table, $last);
+          if ($pos !== false) {
+            $table = substr_replace($table, $last_tfoot, $pos, strlen($last));
+          }
         }
-        return $matches[0];
-      }, $table);
 
-      return $table;
-    }, $text);
-
-    return new FilterProcessResult($text);
+        return $table;
+      }, $text)
+    );
   }
 
 }
