@@ -199,6 +199,18 @@ filters:
         image: image
         video: video
         video_file: video_file
+  p_video_remove_filter:
+    id: p_video_remove_filter
+    provider: wxt_overrides
+    status: true
+    weight: 100
+    settings: {  }
+  table_tfoot_fix_filter:
+    id: table_tfoot_fix_filter
+    provider: wxt_overrides
+    status: true
+    weight: 101
+    settings: {  }
   slick_filter:
     id: slick_filter
     provider: slick
