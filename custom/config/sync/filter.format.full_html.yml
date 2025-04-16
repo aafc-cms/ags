@@ -45,6 +45,7 @@ dependencies:
     - wxt_chart_stability
     - wxt_ext_blocks
     - wxt_ext_editor
+    - wxt_overrides
 _core:
   default_config_hash: 7W86T86ZzsAmogcteSWPOQjG5FKmCksltV6_QgfGz1s
 name: 'Full HTML'
@@ -194,6 +195,12 @@ filters:
         w800: w800
         w900: w900
       allowed_media_types: {  }
+  span_link_fix_filter:
+    id: span_link_fix_filter
+    provider: wxt_overrides
+    status: true
+    weight: 99
+    settings: {  }
   p_video_remove_filter:
     id: p_video_remove_filter
     provider: wxt_overrides

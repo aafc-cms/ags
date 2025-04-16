@@ -45,6 +45,7 @@ dependencies:
     - wxt_chart_stability
     - wxt_ext_blocks
     - wxt_ext_editor
+    - wxt_overrides
 _core:
   default_config_hash: LQ7Z_f1qIeAP7aiyHGBwlgjdsAHzwISN1_6-Dvv_fVY
 name: 'Rich Text'
@@ -199,6 +200,12 @@ filters:
         image: image
         video: video
         video_file: video_file
+  span_link_fix_filter:
+    id: span_link_fix_filter
+    provider: wxt_overrides
+    status: true
+    weight: 99
+    settings: {  }
   p_video_remove_filter:
     id: p_video_remove_filter
     provider: wxt_overrides
