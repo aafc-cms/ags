@@ -80,6 +80,8 @@ elements: |-
     '#required_error': 'Start time is required'
     '#timepicker': true
     '#time_format': 'g:i A'
+    '#min': '06:00:00'
+    '#max': '18:00:00'
     '#step': 900
   photographer_end_time:
     '#type': webform_time
@@ -88,6 +90,8 @@ elements: |-
     '#required_error': 'End time is required'
     '#timepicker': true
     '#time_format': 'g:i A'
+    '#min': '06:00:00'
+    '#max': '18:00:00'
     '#step': 900
   additional_date_and_times_when_you_will_need_a_photographer_:
     '#type': textfield
