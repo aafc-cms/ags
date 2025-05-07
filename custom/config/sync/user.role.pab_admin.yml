@@ -42,6 +42,7 @@ dependencies:
     - entity_browser
     - file
     - file_delete
+    - file_replace
     - filebrowser
     - filehash_report
     - filter
@@ -140,6 +141,7 @@ permissions:
   - 'create video_file media'
   - 'create webform'
   - 'delete any empl content'
+  - 'delete any file'
   - 'delete any landing_page content'
   - 'delete any news content'
   - 'delete any page content'
@@ -192,6 +194,7 @@ permissions:
   - 'perform search and replace'
   - 'perform search only'
   - 'renew token'
+  - 'replace files'
   - 'revert all revisions'
   - 'revert empl revisions'
   - 'revert landing_page revisions'
