@@ -97,6 +97,12 @@ filters:
         w800: w800
         w900: w900
       allowed_media_types: {  }
+  p_video_remove_filter:
+    id: p_video_remove_filter
+    provider: wxt_overrides
+    status: true
+    weight: 100
+    settings: {  }
   slick_filter:
     id: slick_filter
     provider: slick
@@ -132,12 +138,6 @@ filters:
     provider: wxt_overrides
     status: true
     weight: 99
-    settings: {  }
-  p_video_remove_filter:
-    id: p_video_remove_filter
-    provider: wxt_overrides
-    status: true
-    weight: 100
     settings: {  }
   table_tfoot_fix_filter:
     id: table_tfoot_fix_filter

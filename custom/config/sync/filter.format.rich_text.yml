@@ -200,23 +200,11 @@ filters:
         image: image
         video: video
         video_file: video_file
-  span_link_fix_filter:
-    id: span_link_fix_filter
-    provider: wxt_overrides
-    status: true
-    weight: 99
-    settings: {  }
   p_video_remove_filter:
     id: p_video_remove_filter
     provider: wxt_overrides
     status: true
     weight: 100
-    settings: {  }
-  table_tfoot_fix_filter:
-    id: table_tfoot_fix_filter
-    provider: wxt_overrides
-    status: true
-    weight: 101
     settings: {  }
   slick_filter:
     id: slick_filter
@@ -263,6 +251,18 @@ filters:
       override: false
       preserve_keys: false
       visible_items: null
+  span_link_fix_filter:
+    id: span_link_fix_filter
+    provider: wxt_overrides
+    status: true
+    weight: 99
+    settings: {  }
+  table_tfoot_fix_filter:
+    id: table_tfoot_fix_filter
+    provider: wxt_overrides
+    status: true
+    weight: 101
+    settings: {  }
   token_filter:
     id: token_filter
     provider: token_filter
