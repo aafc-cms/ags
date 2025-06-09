@@ -1795,6 +1795,49 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        is_locked:
+          id: is_locked
+          table: content_lock
+          field: is_locked
+          relationship: nid
+          group_type: group
+          admin_label: ''
+          plugin_id: content_lock_filter
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'Is Locked'
+            description: null
+            use_operator: false
+            operator: is_locked_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: is_locked
+            required: true
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: true
+          group_info:
+            label: 'Is Locked'
+            description: ''
+            identifier: is_locked
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'True'
+                operator: '='
+                value: '1'
+          accept_null: false
         name_1:
           id: name_1
           table: users_field_data
