@@ -113,10 +113,12 @@ function agri_reports_views_pre_view($view, $display_id, &$args) {
   if ($view->id() == 'publish_activity_reporting') {
     $values = $view->getExposedInput();
     if (!empty($values)) {
-      if (empty(trim($values["created"]['min'])) || empty(trim($values["created"]['max']))) {
-        $values["created"]['min'] = ' ';
-        $values["created"]['max'] = ' ';
-        $view->setExposedInput($values);
+      if (isset($values["created"])) {
+        if (empty(trim($values["created"]['min'])) || empty(trim($values["created"]['max']))) {
+          $values["created"]['min'] = ' ';
+          $values["created"]['max'] = ' ';
+          $view->setExposedInput($values);
+        }
       }
     }
   }
