@@ -12,6 +12,7 @@ dependencies:
     - node.type.page
     - node.type.webform
     - taxonomy.vocabulary.aafc_type
+    - taxonomy.vocabulary.branch
     - taxonomy.vocabulary.category
     - taxonomy.vocabulary.employment_type
     - taxonomy.vocabulary.news_type
@@ -853,6 +854,7 @@ display:
               allow_secondary: false
               secondary_label: 'Advanced options'
               secondary_open: false
+              reset_button_always_show: false
             pager:
               plugin_id: default
               advanced:
@@ -926,6 +928,17 @@ display:
                   collapsible_disable_automatic_open: false
                   is_secondary: false
                   hide_label: false
+              field_branch_target_id:
+                plugin_id: default
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
+                  collapsible: false
+                  collapsible_disable_automatic_open: false
+                  is_secondary: false
+                  hide_label: false
               field_subject_target_id:
                 plugin_id: default
                 advanced:
@@ -967,6 +980,13 @@ display:
                   is_secondary: false
                   hide_label: false
               field_modified_value:
+                plugin_id: bef_datepicker
+                advanced:
+                  collapsible: false
+                  collapsible_disable_automatic_open: false
+                  is_secondary: false
+                  hide_label: false
+              field_date_closing_value:
                 plugin_id: bef_datepicker
                 advanced:
                   collapsible: false
@@ -2271,6 +2291,62 @@ display:
           hierarchy: false
           limit: true
           error_message: true
+        field_branch_target_id:
+          id: field_branch_target_id
+          table: node__field_branch
+          field: field_branch_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_branch_target_id_op
+            label: 'Emp_Opp Branch'
+            description: ''
+            use_operator: false
+            operator: field_branch_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_branch_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              creator: '0'
+              editor: '0'
+              reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
+              pab_admin: '0'
+              qa: '0'
+              ia: '0'
+              viewer: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: branch
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
         field_subject_target_id:
           id: field_subject_target_id
           table: node__field_subject
@@ -2541,6 +2617,62 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        field_date_closing_value:
+          id: field_date_closing_value
+          table: node__field_date_closing
+          field: field_date_closing_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: datetime
+          operator: between
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_date_closing_value_op
+            label: 'Emp_Opp Closing between'
+            description: ''
+            use_operator: false
+            operator: field_date_closing_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_date_closing_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              creator: '0'
+              editor: '0'
+              reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
+              pab_admin: '0'
+              qa: '0'
+              ia: '0'
+              viewer: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -2550,7 +2682,9 @@ display:
         filter_groups: false
       rendering_language: '***LANGUAGE_entity_translation***'
       display_extenders:
-        metatag_display_extender: {  }
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
       path: admin/content/node
       menu:
         type: 'default tab'

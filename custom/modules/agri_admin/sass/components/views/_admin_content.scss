@@ -2,7 +2,8 @@
 
 
 div#edit-revision-timestamp-wrapper > fieldset,
-div#edit-field-modified-value-wrapper > fieldset {
+div#edit-field-modified-value-wrapper > fieldset,
+div#edit-field-date-closing-value-wrapper > fieldset {
   padding-bottom: 20px !important;
 }
 
@@ -30,30 +31,34 @@ body.path-admin {
     }
     .form-item--revision-timestamp-min,
     .form-item--field-modified-value-min,
+    .form-item--field-date-closing-value-min,
     .form-item--changed-min {
-      margin: 0.75rem 0.5rem 0 0;
+      margin: 0.75rem 0.5rem 0rem 0rem;
       max-width: 135px;
     }
     .form-item--revision-timestamp-max,
     .form-item--field-modified-value-max,
+    .form-item--field-date-closing-value-max,
     .form-item--changed-max {
-      margin: 0.75rem 0.5rem 0 0;
-      max-width: 120px;
+      margin: 0.75rem 0.5rem 0rem 0.75rem;
+      max-width: 135px;
     }
     #edit-revision-timestamp-wrapper,
-    #edit-field-modified-value-wrapper {
+    #edit-field-modified-value-wrapper,
+    #edit-field-date-closing-value-wrapper {
       position: relative;
       margin-top: 2.35em;
       margin-right: 8px;
       padding-bottom: inherit;
       fieldset.form-wrapper.form-item {
         padding-bottom: 20px !important;
-	margin-top: 4px;
+	      margin-top: 4px;
       }
     }
 
     #edit-revision-timestamp-wrapper legend,
-    #edit-field-modified-value-wrapper legend {
+    #edit-field-modified-value-wrapper legend,
+    #edit-field-date-closing-value-wrapper legend {
       font-size: unset;
       span.fieldset__label {
         position: absolute;
@@ -64,7 +69,7 @@ body.path-admin {
     }
   }
   .view-filters {
-    #edit-revision-timestamp-wrapper, #edit-field-modified-value-wrapper, #edit-created-wrapper, #edit-field-issued-value-wrapper {
+    #edit-revision-timestamp-wrapper, #edit-field-modified-value-wrapper, #edit-created-wrapper, #edit-field-issued-value-wrapper, #edit-field-date-closing-value-wrapper {
       .form-item {
         float: left;
       }		
