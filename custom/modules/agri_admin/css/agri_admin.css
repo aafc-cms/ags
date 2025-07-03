@@ -463,7 +463,8 @@ body.role-is-editor table#taxonomy tr[data-drupal-selector*="blog-freetags"] {
 }
 
 div#edit-revision-timestamp-wrapper > fieldset,
-div#edit-field-modified-value-wrapper > fieldset {
+div#edit-field-modified-value-wrapper > fieldset,
+div#edit-field-date-closing-value-wrapper > fieldset {
   padding-bottom: 20px !important;
 }
 
@@ -490,40 +491,46 @@ body.path-admin .view-content .form-item--field-newstype-target-id {
 }
 body.path-admin .view-content .form-item--revision-timestamp-min,
 body.path-admin .view-content .form-item--field-modified-value-min,
+body.path-admin .view-content .form-item--field-date-closing-value-min,
 body.path-admin .view-content .form-item--changed-min {
-  margin: 0.75rem 0.5rem 0 0;
+  margin: 0.75rem 0.5rem 0rem 0rem;
   max-width: 135px;
 }
 body.path-admin .view-content .form-item--revision-timestamp-max,
 body.path-admin .view-content .form-item--field-modified-value-max,
+body.path-admin .view-content .form-item--field-date-closing-value-max,
 body.path-admin .view-content .form-item--changed-max {
-  margin: 0.75rem 0.5rem 0 0;
-  max-width: 120px;
+  margin: 0.75rem 0.5rem 0rem 0.75rem;
+  max-width: 135px;
 }
 body.path-admin .view-content #edit-revision-timestamp-wrapper,
-body.path-admin .view-content #edit-field-modified-value-wrapper {
+body.path-admin .view-content #edit-field-modified-value-wrapper,
+body.path-admin .view-content #edit-field-date-closing-value-wrapper {
   position: relative;
   margin-top: 2.35em;
   margin-right: 8px;
   padding-bottom: inherit;
 }
 body.path-admin .view-content #edit-revision-timestamp-wrapper fieldset.form-wrapper.form-item,
-body.path-admin .view-content #edit-field-modified-value-wrapper fieldset.form-wrapper.form-item {
+body.path-admin .view-content #edit-field-modified-value-wrapper fieldset.form-wrapper.form-item,
+body.path-admin .view-content #edit-field-date-closing-value-wrapper fieldset.form-wrapper.form-item {
   padding-bottom: 20px !important;
   margin-top: 4px;
 }
 body.path-admin .view-content #edit-revision-timestamp-wrapper legend,
-body.path-admin .view-content #edit-field-modified-value-wrapper legend {
+body.path-admin .view-content #edit-field-modified-value-wrapper legend,
+body.path-admin .view-content #edit-field-date-closing-value-wrapper legend {
   font-size: unset;
 }
 body.path-admin .view-content #edit-revision-timestamp-wrapper legend span.fieldset__label,
-body.path-admin .view-content #edit-field-modified-value-wrapper legend span.fieldset__label {
+body.path-admin .view-content #edit-field-modified-value-wrapper legend span.fieldset__label,
+body.path-admin .view-content #edit-field-date-closing-value-wrapper legend span.fieldset__label {
   position: absolute;
   top: -2.5em;
   font-size: unset;
   color: #222330;
 }
-body.path-admin .view-filters #edit-revision-timestamp-wrapper .form-item, body.path-admin .view-filters #edit-field-modified-value-wrapper .form-item, body.path-admin .view-filters #edit-created-wrapper .form-item, body.path-admin .view-filters #edit-field-issued-value-wrapper .form-item {
+body.path-admin .view-filters #edit-revision-timestamp-wrapper .form-item, body.path-admin .view-filters #edit-field-modified-value-wrapper .form-item, body.path-admin .view-filters #edit-created-wrapper .form-item, body.path-admin .view-filters #edit-field-issued-value-wrapper .form-item, body.path-admin .view-filters #edit-field-date-closing-value-wrapper .form-item {
   float: left;
 }
 
