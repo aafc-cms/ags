@@ -34,6 +34,8 @@ dependencies:
     - core.entity_view_mode.media.w900
   module:
     - blazy
+    - ckeditor5_label_fix
+    - ckeditor5_sup_fix
     - editor
     - embed_block
     - entity_embed
@@ -56,7 +58,7 @@ filters:
     id: blazy_filter
     provider: blazy
     status: false
-    weight: -35
+    weight: -28
     settings:
       media_switch: ''
       hybrid_style: ''
@@ -71,7 +73,7 @@ filters:
     id: custom_modal_filter
     provider: wxt_ext_blocks
     status: true
-    weight: 0
+    weight: -39
     settings: {  }
   editor_file_reference:
     id: editor_file_reference
@@ -83,13 +85,13 @@ filters:
     id: embed_block
     provider: embed_block
     status: true
-    weight: -41
+    weight: -40
     settings: {  }
   entity_embed:
     id: entity_embed
     provider: entity_embed
     status: true
-    weight: -44
+    weight: -43
     settings: {  }
   filter_align:
     id: filter_align
@@ -101,7 +103,7 @@ filters:
     id: filter_autop
     provider: filter
     status: false
-    weight: -37
+    weight: -30
     settings: {  }
   filter_caption:
     id: filter_caption
@@ -113,7 +115,7 @@ filters:
     id: filter_html
     provider: filter
     status: false
-    weight: -39
+    weight: -32
     settings:
       allowed_html: ''
       filter_html_help: true
@@ -122,19 +124,19 @@ filters:
     id: filter_html_escape
     provider: filter
     status: false
-    weight: -38
+    weight: -31
     settings: {  }
   filter_html_image_secure:
     id: filter_html_image_secure
     provider: filter
     status: false
-    weight: -34
+    weight: -27
     settings: {  }
   filter_htmlcorrector:
     id: filter_htmlcorrector
     provider: filter
     status: false
-    weight: -50
+    weight: -34
     settings: {  }
   filter_image_lazy_load:
     id: filter_image_lazy_load
@@ -146,9 +148,15 @@ filters:
     id: filter_url
     provider: filter
     status: false
-    weight: -40
+    weight: -33
     settings:
       filter_url_length: 128
+  label_link_fix_filter:
+    id: label_link_fix_filter
+    provider: ckeditor5_label_fix
+    status: true
+    weight: -35
+    settings: {  }
   linkit:
     id: linkit
     provider: linkit
@@ -160,7 +168,7 @@ filters:
     id: media_embed
     provider: media
     status: true
-    weight: -43
+    weight: -42
     settings:
       default_view_mode: default
       allowed_view_modes:
@@ -199,13 +207,13 @@ filters:
     id: p_video_remove_filter
     provider: wxt_overrides
     status: true
-    weight: 100
+    weight: -37
     settings: {  }
   slick_filter:
     id: slick_filter
     provider: slick
     status: false
-    weight: -32
+    weight: -25
     settings:
       caption:
         alt: '0'
@@ -250,26 +258,32 @@ filters:
     id: span_link_fix_filter
     provider: wxt_overrides
     status: true
-    weight: 99
+    weight: -38
+    settings: {  }
+  sup_link_fix_filter:
+    id: sup_link_fix_filter
+    provider: ckeditor5_sup_fix
+    status: false
+    weight: -24
     settings: {  }
   table_tfoot_fix_filter:
     id: table_tfoot_fix_filter
     provider: wxt_overrides
     status: true
-    weight: 101
+    weight: -36
     settings: {  }
   token_filter:
     id: token_filter
     provider: token_filter
     status: true
-    weight: -42
+    weight: -41
     settings:
       replace_empty: false
   url_embed:
     id: url_embed
     provider: url_embed
     status: true
-    weight: -45
+    weight: -44
     settings:
       enable_responsive: true
       default_ratio: '66.7'
@@ -277,14 +291,14 @@ filters:
     id: url_embed_convert_links
     provider: url_embed
     status: false
-    weight: -36
+    weight: -29
     settings:
       url_prefix: ''
   wxt_add_table_attribute_filter:
     id: wxt_add_table_attribute_filter
     provider: wxt_ext_editor
     status: false
-    weight: -33
+    weight: -26
     settings:
       responsive: true
       replace_classes: true
@@ -297,7 +311,7 @@ filters:
     id: wxt_chart_stability_compatibilityfilter
     provider: wxt_chart_stability
     status: true
-    weight: -99
+    weight: -50
     settings:
       clean: '<td>&nbsp;</td>'
       desired: '<td></td>'
