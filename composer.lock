@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "81aa83653e31edee6c649dcad304fa94",
+    "content-hash": "8ea1b9f65f2aa42bca8762a0c403835c",
     "packages": [
         {
             "name": "agrcms/agri_admin",
@@ -156,16 +156,16 @@
         },
         {
             "name": "agrcmsx/dxbase",
-            "version": "11.1.3.6",
+            "version": "11.1.3.7",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/agrcms/dxbase.git",
-                "reference": "624bff7d2c88b6671ab293874e650a0ea8c52b30"
+                "reference": "d824575e72db6417d9b545d766c4381621445375"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=624bff7d2c88b6671ab293874e650a0ea8c52b30",
-                "reference": "624bff7d2c88b6671ab293874e650a0ea8c52b30",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=d824575e72db6417d9b545d766c4381621445375",
+                "reference": "d824575e72db6417d9b545d766c4381621445375",
                 "shasum": ""
             },
             "require": {
@@ -255,7 +255,7 @@
                 "drupal/workflow": "1.x-dev@dev",
                 "drupal/wxt_chart_stability": "^1.0@beta",
                 "drupaloverride/webform_revision_ui": "*",
-                "drupalwxt/wxt": "6.1.x-dev",
+                "drupalwxt/wxt": "^6.1.1",
                 "drush/drush": "^12 || ^13",
                 "nnnick/chartjs": "^4.4",
                 "w8tcha/ckeditor-codemirror": "1.18.5"
@@ -453,9 +453,9 @@
             "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
             "support": {
                 "issues": "https://gitlab.com/agrcms/dxbase/-/issues",
-                "source": "https://gitlab.com/agrcms/dxbase/-/tree/11.1.3.6"
+                "source": "https://gitlab.com/agrcms/dxbase/-/tree/11.1.3.7"
             },
-            "time": "2025-06-02T22:20:14+00:00"
+            "time": "2025-07-14T15:45:50+00:00"
         },
         {
             "name": "algolia/places",
@@ -4346,16 +4346,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "11.1.7",
+            "version": "11.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "b0241948975ede8ca221971ecd3f71793447fded"
+                "reference": "971a839534a2792b3586c31712eb79c10bef0bea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/b0241948975ede8ca221971ecd3f71793447fded",
-                "reference": "b0241948975ede8ca221971ecd3f71793447fded",
+                "url": "https://api.github.com/repos/drupal/core/zipball/971a839534a2792b3586c31712eb79c10bef0bea",
+                "reference": "971a839534a2792b3586c31712eb79c10bef0bea",
                 "shasum": ""
             },
             "require": {
@@ -4508,9 +4508,9 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/11.1.7"
+                "source": "https://github.com/drupal/core/tree/11.1.8"
             },
-            "time": "2025-05-08T03:56:29+00:00"
+            "time": "2025-06-05T23:34:52+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
@@ -4564,16 +4564,16 @@
         },
         {
             "name": "drupal/core-recommended",
-            "version": "11.1.7",
+            "version": "11.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-recommended.git",
-                "reference": "bf6c2fcee9e0fd402f32af70632ed8094ced34a3"
+                "reference": "5e04aa85bb4b1c3da6abe2480c8f75dc401543a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/bf6c2fcee9e0fd402f32af70632ed8094ced34a3",
-                "reference": "bf6c2fcee9e0fd402f32af70632ed8094ced34a3",
+                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/5e04aa85bb4b1c3da6abe2480c8f75dc401543a7",
+                "reference": "5e04aa85bb4b1c3da6abe2480c8f75dc401543a7",
                 "shasum": ""
             },
             "require": {
@@ -4582,7 +4582,7 @@
                 "doctrine/annotations": "~2.0.2",
                 "doctrine/deprecations": "~1.1.3",
                 "doctrine/lexer": "~2.1.1",
-                "drupal/core": "11.1.7",
+                "drupal/core": "11.1.8",
                 "egulias/email-validator": "~4.0.2",
                 "guzzlehttp/guzzle": "~7.9.2",
                 "guzzlehttp/promises": "~2.0.4",
@@ -4644,9 +4644,9 @@
             ],
             "description": "Core and its dependencies with known-compatible minor versions. Require this project INSTEAD OF drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-recommended/tree/11.1.7"
+                "source": "https://github.com/drupal/core-recommended/tree/11.1.8"
             },
-            "time": "2025-05-08T03:56:29+00:00"
+            "time": "2025-06-05T23:34:52+00:00"
         },
         {
             "name": "drupal/core_context",
@@ -5085,17 +5085,17 @@
         },
         {
             "name": "drupal/diff",
-            "version": "1.8.0",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/diff.git",
-                "reference": "8.x-1.8"
+                "reference": "8.x-1.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/diff-8.x-1.8.zip",
-                "reference": "8.x-1.8",
-                "shasum": "a104bf731a282f06ff0d5a7fb861c01b5b933765"
+                "url": "https://ftp.drupal.org/files/projects/diff-8.x-1.9.zip",
+                "reference": "8.x-1.9",
+                "shasum": "4ef0126e983e4935a41ad8131faa00a2e28bcec0"
             },
             "require": {
                 "drupal/core": "^10 || ^11",
@@ -5103,7 +5103,7 @@
                 "php": "^8.1"
             },
             "require-dev": {
-                "jangregor/phpstan-prophecy": "dev-master",
+                "jangregor/phpstan-prophecy": "^1.0",
                 "mglaman/phpstan-drupal": "^1.2.10",
                 "phpstan/extension-installer": "^1.2",
                 "phpstan/phpstan": "^1.11",
@@ -5115,8 +5115,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.8",
-                    "datestamp": "1727892285",
+                    "version": "8.x-1.9",
+                    "datestamp": "1748990194",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -7214,17 +7214,17 @@
         },
         {
             "name": "drupal/jquery_downgrade",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/jquery_downgrade.git",
-                "reference": "1.0.1"
+                "reference": "1.0.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/jquery_downgrade-1.0.1.zip",
-                "reference": "1.0.1",
-                "shasum": "12c75f82cb8e2f0a706edff6a6e6c535ddff83ad"
+                "url": "https://ftp.drupal.org/files/projects/jquery_downgrade-1.0.2.zip",
+                "reference": "1.0.2",
+                "shasum": "252e7f587ceff484305df74decd8a37d7698cd38"
             },
             "require": {
                 "drupal/core": "^11 || ^12"
@@ -7232,11 +7232,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.1",
-                    "datestamp": "1739317048",
+                    "version": "1.0.2",
+                    "datestamp": "1752602542",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -7248,6 +7248,10 @@
                 {
                     "name": "joseph.olstad",
                     "homepage": "https://www.drupal.org/user/1321830"
+                },
+                {
+                    "name": "smulvih2",
+                    "homepage": "https://www.drupal.org/user/795442"
                 }
             ],
             "description": "Replaces jQuery 4 with jQuery 3 on specific pages.",
@@ -8331,17 +8335,17 @@
         },
         {
             "name": "drupal/linkit",
-            "version": "7.0.4",
+            "version": "7.0.7",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/linkit.git",
-                "reference": "7.0.4"
+                "reference": "7.0.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/linkit-7.0.4.zip",
-                "reference": "7.0.4",
-                "shasum": "cb112f26b1475f6857c9012880ec17f1636dd053"
+                "url": "https://ftp.drupal.org/files/projects/linkit-7.0.7.zip",
+                "reference": "7.0.7",
+                "shasum": "aa10493dfa34f4f8ce51313d47c66b21b9596f3e"
             },
             "require": {
                 "drupal/core": "^10.1 || ^11"
@@ -8353,8 +8357,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "7.0.4",
-                    "datestamp": "1745413700",
+                    "version": "7.0.7",
+                    "datestamp": "1752264962",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -11091,17 +11095,17 @@
         },
         {
             "name": "drupal/toc_filter",
-            "version": "2.3.0",
+            "version": "2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/toc_filter.git",
-                "reference": "8.x-2.3"
+                "reference": "8.x-2.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/toc_filter-8.x-2.3.zip",
-                "reference": "8.x-2.3",
-                "shasum": "d3147abcbca696ec05934a69d521b891b35e6209"
+                "url": "https://ftp.drupal.org/files/projects/toc_filter-8.x-2.4.zip",
+                "reference": "8.x-2.4",
+                "shasum": "986662a7226e8892b3eb332f02475603e9b9d940"
             },
             "require": {
                 "drupal/core": "^9.2 || ^10 || ^11",
@@ -11110,8 +11114,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.3",
-                    "datestamp": "1726109770",
+                    "version": "8.x-2.4",
+                    "datestamp": "1748176034",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -12583,16 +12587,16 @@
         },
         {
             "name": "drupalwxt/wxt",
-            "version": "6.1.x-dev",
+            "version": "6.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupalwxt/wxt.git",
-                "reference": "579544abe098a0217000a3ec2af7a9dd6909d4b0"
+                "reference": "6f3eac010ed96bb454612a0b5f07215fad9b812e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupalwxt/wxt/zipball/579544abe098a0217000a3ec2af7a9dd6909d4b0",
-                "reference": "579544abe098a0217000a3ec2af7a9dd6909d4b0",
+                "url": "https://api.github.com/repos/drupalwxt/wxt/zipball/6f3eac010ed96bb454612a0b5f07215fad9b812e",
+                "reference": "6f3eac010ed96bb454612a0b5f07215fad9b812e",
                 "shasum": ""
             },
             "require": {
@@ -12709,7 +12713,6 @@
                         "3359497 - Prevent warnings when library definitions have a license with no URL defined, contrib is not perfect here.": "https://www.drupal.org/files/issues/2023-10-07/fix-license-missing-url.patch"
                     },
                     "drupal/diff": {
-                        "Enter drupal/diff patch #2834253 description here": "https://www.drupal.org/files/issues/2024-05-09/diff-missing_column_headers-2834253-23.patch",
                         "Enter drupal/diff patch #2844337 description here": "https://www.drupal.org/files/issues/2024-04-15/2844337-array_to_string_conversion-29.patch",
                         "Enter drupal/diff patch #2882334 description here": "https://www.drupal.org/files/issues/2020-09-28/2882334-diff-missing_some_revisions-13.patch",
                         "Enter drupal/diff patch #3004705 description here": "https://git.drupalcode.org/project/diff/-/merge_requests/87.patch",
@@ -12727,7 +12730,7 @@
                         "Enter drupal/ctools patch #2924356 description here": "https://www.drupal.org/files/issues/2024-06-14/ctools-entity_field_rendered_twice-2924356-12.patch"
                     },
                     "drupal/linkit": {
-                        "3078075 - Detect and strip base URL from pasted URLs": "https://www.drupal.org/files/issues/2025-01-24/linkit-detect-strip-base-url-3078075-109.patch"
+                        "3078075 - Detect and strip base URL from pasted URLs": "https://www.drupal.org/files/issues/2025-07-02/linkit-detect-strip-base-url-3078075-118.patch"
                     },
                     "drupal/panels": {
                         "Enter drupal/panels patch #2910704 description here": "https://www.drupal.org/files/issues/panels-ipe-card-flip-ie-error-2910704.diff"
@@ -12737,9 +12740,6 @@
                     },
                     "drupal/paragraphs": {
                         "Enter drupal/paragraphs patch #2878615 description here": "https://www.drupal.org/files/issues/comments_entity_uri-2878615-6.patch"
-                    },
-                    "drupal/toc_filter": {
-                        "3518549 and 3520464 - toc_filter D11 bug fix": "https://www.drupal.org/files/issues/2025-04-24/toc-filter-3518549-13.patch"
                     },
                     "drupal/fontawesome": {
                         "3274028 - CKEditor 5 compatibility": "https://www.drupal.org/files/issues/2025-02-12/fontawesome-cke5-compatibility-3274028-58.patch"
@@ -12813,9 +12813,9 @@
             "description": "Project template for Drupal 10 sites built with the WxT distribution.",
             "support": {
                 "issues": "https://github.com/drupalwxt/wxt/issues",
-                "source": "https://github.com/drupalwxt/wxt/tree/6.1.x"
+                "source": "https://github.com/drupalwxt/wxt/tree/6.1.1"
             },
-            "time": "2025-05-15T01:49:25+00:00"
+            "time": "2025-07-03T02:31:11+00:00"
         },
         {
             "name": "drupalwxt/wxt_bootstrap",
