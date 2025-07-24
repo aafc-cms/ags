@@ -1,0 +1,12 @@
+diff --git a/src/ContentLock/ContentLock.php b/src/ContentLock/ContentLock.php
+index 85df362..4cf5200 100644
+--- a/src/ContentLock/ContentLock.php
++++ b/src/ContentLock/ContentLock.php
+@@ -365,6 +365,7 @@ class ContentLock implements ContentLockInterface {
+ 
+     $allowed = TRUE;
+     $this->moduleHandler->invokeAllWith('content_lock_entity_lockable', function (callable $hook) use (&$allowed, $entity, $config, $form_op) {
++      $config ??= [];
+       if ($allowed && $hook($entity, $config, $form_op) === FALSE) {
+         $allowed = FALSE;
+       }
