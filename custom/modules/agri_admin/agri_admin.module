@@ -651,11 +651,14 @@ function _helper_locking_content($action, $entity_id, $bundle, NodeInterface $en
         if ($role == 'creator') {
           $is_creator = TRUE;
           $state = $latest->get('moderation_state')->getString();
+/* Removing peer_review_status check since we now use hook_lock_entity_lockable() to allow editing of locked nodes with none empty peer_review_status.
           $peer_review_status = '';
           if ($content_type == 'page' || $content_type == 'landing_page') {
             $peer_review_status = $latest->get('field_peer_review')->getString();
           }
           if ($state == 'draft' && empty($peer_review_status)) {
+*/
+          if ($state == 'draft') {
             $lock_service->locking($latest, 'edit', $current_user_id);
             // Finished processing.
             return;
@@ -2167,4 +2170,23 @@ function agri_admin_media_predelete(EntityInterface $entity) {
     $response->send();
     exit;
   }
+}
+
+/**
+ * Implements hook_lock_entity_lockable().
+ */
+function agri_admin_content_lock_entity_lockable(EntityInterface $entity, array $config, string $form_op = NULL): bool {
+  $peer_review_status = '';
+  $content_type = $entity->bundle();
+  $entity_id = $entity->id();
+  if ($content_type == 'page' || $content_type == 'landing_page') {
+    $peer_review_status = $entity->get('field_peer_review')->getString();
+    if (empty($peer_review_status)) {
+      return TRUE;
+    }
+    else {
+      return FALSE;
+    }
+  }
+  return TRUE;
 }
