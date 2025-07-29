@@ -27,3 +27,9 @@ cp ../html/modules/contrib/search_api_solr/jump-start/solr9 . -pr
 `rm nouns_p* nouns_t* nouns_s* nouns_d* nouns_uk.txt nouns_a* nouns_b* nouns_c* nouns_el.txt nouns_es.txt nouns_fa.txt nouns_fi.txt nouns_h* nouns_n* nouns_i* nouns_r* nouns_et.txt`
 `cd ../config-set;`
 # Repeat rm of nouns step (above).
+
+
+# Manually remove configurations for languages other than _und _en _fr in schema_extra_fields.xml, schema_extra_types.xml and solrconfig_extra.xml.
+
+
+# In order to test the solr core you must map it to the expected folder in the solr container (normally docker-compose.yml).
