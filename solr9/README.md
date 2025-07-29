@@ -9,7 +9,7 @@ cp ../html/modules/contrib/search_api_solr/jump-start/solr9 . -pr
 # Repeat rm of synonyms step (above).
 # Now blast the stopwords for unsupported languages.
 `cd ../cloud-config-set;`
-`rm stopwords_p* stopwords_t* stopwords_s* stopwords_d* stopwords_uk.txt stopwords_a* stopwords_b* stopwords_c* stopwords_el.txt stopwords_es.txt stopwords_fa.txt stopwords_fi.txt stopwords_ga.txt stopwords_h* stopwords_n* stopwords_i* stopwords_l* stopwords_r* stopwords_et.txt`
+`rm stopwords_p* stopwords_t* stopwords_s* stopwords_d* stopwords_uk.txt stopwords_a* stopwords_b* stopwords_c* stopwords_el.txt stopwords_es.txt stopwords_fa.txt stopwords_fi.txt stopwords_ga.txt stopwords_h* stopwords_n* stopwords_i* stopwords_l* stopwords_r* stopwords_et.txt stoptags_ja.txt stopwords_ko.txt`
 `cd ../config-set;`
 # Repeat rm of stopwords step (above).
 # Now blast the protwords for unsupported languages.
