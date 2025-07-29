@@ -8,7 +8,13 @@ services:
       - ./cloud-config-set:/opt/solr/server/solr/configsets/agrisource/conf
     networks:
       default:
-        ipv4_address: 172.18.0.9
+        ipv4_address: 172.19.0.9
     environment:
       SOLR_MODULES: "extraction,langid,ltr,analysis-extras"
     command: bash -c "docker-entrypoint.sh solr start -c; solr create -c agrisource -d server/solr/configsets/agrisource/conf -n drupal; solr restart -c -f"
+networks:
+  default:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.19.0.0/24
