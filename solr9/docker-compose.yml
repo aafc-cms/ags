@@ -1,10 +1,14 @@
 services:
   solr9:
-    image: solr:9.8
+    image: solr:9.9
     ports:
       - "8983:8983"
+    container_name: agrisource_solr
     volumes:
-      - ./cloud-config-set:/opt/solr/server/solr/configsets/drupal/conf
+      - ./cloud-config-set:/opt/solr/server/solr/configsets/agrisource/conf
+    networks:
+      default:
+        ipv4_address: 172.18.0.9
     environment:
       SOLR_MODULES: "extraction,langid,ltr,analysis-extras"
-    command: bash -c "docker-entrypoint.sh solr start -c; solr create -c drupal -d server/solr/configsets/drupal/conf -n drupal; solr restart -c -f"
+    command: bash -c "docker-entrypoint.sh solr start -c; solr create -c agrisource -d server/solr/configsets/agrisource/conf -n drupal; solr restart -c -f"
