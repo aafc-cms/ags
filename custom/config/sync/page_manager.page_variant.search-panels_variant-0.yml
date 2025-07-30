@@ -10,7 +10,7 @@ dependencies:
     - views
 id: search-panels_variant-0
 label: Search
-weight: 0
+weight: -10
 variant: panels_variant
 variant_settings:
   id: panels_variant
@@ -54,7 +54,7 @@ variant_settings:
     layout:
       wrapper: div
       classes:
-        col-xs-1: col-xs-1
+        row: row
       add_layout_class: 1
       attributes: ''
     regions:
@@ -74,7 +74,7 @@ variant_settings:
       right:
         wrapper: div
         classes:
-          col-sm-6: col-sm-6
+          col-sm-9: col-sm-9
         add_region_classes: 1
         attributes: ''
       bottom:
