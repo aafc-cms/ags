@@ -1,0 +1,192 @@
+uuid: 69fc71f8-a50d-4ecb-9673-64ff9ad35d74
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - field.storage.node.field_classification
+    - field.storage.node.field_issued
+    - field.storage.node.field_newstype
+    - field.storage.node.field_open_to
+    - field.storage.node.field_type
+    - search_api.server.solr
+  module:
+    - node
+    - search_api_solr
+third_party_settings:
+  search_api_solr:
+    finalize: false
+    commit_before_finalize: false
+    commit_after_finalize: false
+    debug_finalize: false
+    highlighter:
+      maxAnalyzedChars: 51200
+      fragmenter: gap
+      usePhraseHighlighter: true
+      highlightMultiTerm: true
+      preserveMulti: false
+      regex:
+        slop: 0.5
+        pattern: blank
+        maxAnalyzedChars: 10000
+      highlight:
+        mergeContiguous: false
+        requireFieldMatch: false
+        snippets: 3
+        fragsize: 0
+    mlt:
+      mintf: 1
+      mindf: 1
+      maxdf: 0
+      maxdfpct: 0
+      minwl: 0
+      maxwl: 0
+      maxqt: 100
+      maxntp: 2000
+      boost: false
+      interestingTerms: none
+    term_modifiers:
+      slop: 3
+      fuzzy: 1
+      fuzzy_analyzer: true
+    advanced:
+      index_prefix: ''
+      collection: ''
+      timezone: America/Toronto
+    multilingual:
+      limit_to_content_language: false
+      include_language_independent: true
+      use_language_undefined_as_fallback_language: false
+      specific_languages:
+        en: en
+        fr: fr
+      use_universal_collation: false
+id: content
+name: Content
+description: ''
+read_only: false
+field_settings:
+  body:
+    label: Body
+    datasource_id: 'entity:node'
+    property_path: body
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.body
+  created:
+    label: 'Authored on'
+    datasource_id: 'entity:node'
+    property_path: created
+    type: date
+    dependencies:
+      module:
+        - node
+  field_classification:
+    label: 'Classification(s):'
+    datasource_id: 'entity:node'
+    property_path: field_classification
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_classification
+  field_issued:
+    label: 'dcterms:issued'
+    datasource_id: 'entity:node'
+    property_path: field_issued
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_issued
+  field_newstype:
+    label: Category
+    datasource_id: 'entity:node'
+    property_path: field_newstype
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_newstype
+  field_open_to:
+    label: 'Open to'
+    datasource_id: 'entity:node'
+    property_path: field_open_to
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_open_to
+  field_type:
+    label: 'Employment Opportunity Type(s):'
+    datasource_id: 'entity:node'
+    property_path: field_type
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_type
+  status:
+    label: Published
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    dependencies:
+      module:
+        - node
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
+    dependencies:
+      module:
+        - node
+  type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
+    dependencies:
+      module:
+        - node
+  uid:
+    label: 'Authored by'
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+    dependencies:
+      module:
+        - node
+  url:
+    label: URI
+    property_path: search_api_url
+    type: string
+    configuration:
+      absolute: true
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - empl
+        - landing_page
+        - news
+        - page
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  auto_aggregated_fulltext_field: {  }
+  custom_value: {  }
+  entity_type: {  }
+  language_with_fallback: {  }
+  rendered_item: {  }
+  solr_date_range: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 50
+  delete_on_fail: true
+  index_directly: true
+  track_changes_in_references: true
+server: solr
