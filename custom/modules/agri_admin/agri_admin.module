@@ -2180,6 +2180,9 @@ function agri_admin_content_lock_entity_lockable(EntityInterface $entity, array 
   $content_type = $entity->bundle();
   $entity_id = $entity->id();
   if ($content_type == 'page' || $content_type == 'landing_page') {
+    if (!$entity->get('field_peer_review')) {
+      return FALSE;
+    }
     $peer_review_status = $entity->get('field_peer_review')->getString();
     if (empty($peer_review_status)) {
       return TRUE;
