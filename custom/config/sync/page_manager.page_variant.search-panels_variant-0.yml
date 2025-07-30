@@ -1,0 +1,96 @@
+uuid: f2397f0a-2932-45dd-bd41-99ab25c6fb69
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.search
+    - views.view.search
+  module:
+    - panels
+    - views
+id: search-panels_variant-0
+label: Search
+weight: 0
+variant: panels_variant
+variant_settings:
+  id: panels_variant
+  label: null
+  weight: 0
+  uuid: dccb9a41-dd69-407b-95e8-aaae32565210
+  blocks:
+    1ee5cbae-c5e0-41da-a0d9-64359db0d8b9:
+      id: 'views_exposed_filter_block:search-block_1'
+      label: ''
+      label_display: '0'
+      provider: views
+      context_mapping: {  }
+      views_label: ''
+      region: left
+      weight: 0
+      uuid: 1ee5cbae-c5e0-41da-a0d9-64359db0d8b9
+      css_classes:
+        - ''
+      html_id: ''
+      css_styles: ''
+    e701b379-6d38-4247-9552-d0969709500e:
+      id: 'views_block:search-block_1'
+      label: ''
+      label_display: '0'
+      provider: views
+      context_mapping: {  }
+      views_label: ''
+      items_per_page: none
+      region: right
+      weight: 0
+      uuid: e701b379-6d38-4247-9552-d0969709500e
+      css_classes:
+        - ''
+      html_id: ''
+      css_styles: ''
+  page_title: ''
+  layout: bs_2col_stacked
+  layout_settings:
+    label: ''
+    layout:
+      wrapper: div
+      classes:
+        col-xs-1: col-xs-1
+      add_layout_class: 1
+      attributes: ''
+    regions:
+      top:
+        wrapper: div
+        classes:
+          col-sm-12: col-sm-12
+        add_region_classes: 1
+        attributes: ''
+      left:
+        wrapper: div
+        classes:
+          col-xs-12: col-xs-12
+          col-md-3: col-md-3
+        add_region_classes: 1
+        attributes: ''
+      right:
+        wrapper: div
+        classes:
+          col-sm-6: col-sm-6
+        add_region_classes: 1
+        attributes: ''
+      bottom:
+        wrapper: div
+        classes:
+          col-sm-12: col-sm-12
+        add_region_classes: 1
+        attributes: ''
+  builder: standard
+  storage_type: page_manager
+  storage_id: search-panels_variant-0
+  css_classes:
+    - ''
+  html_id: ''
+  css_styles: ''
+page: search
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }
