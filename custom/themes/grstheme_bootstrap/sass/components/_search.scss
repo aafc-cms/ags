@@ -1,8 +1,98 @@
 
+.facet-item {
+  input,
+  label {
+    cursor: pointer;
+  }
+}
+
+.facet-inactive,
+.facet-active {
+  margin-bottom: 2px;
+
+  summary {
+    background-color: #eee;
+    border-bottom: 1px solid #ddd;
+    padding: 5px 10px;
+
+    h2 {
+      font-size: 1em;
+    }
+  }
+}
+
+.block-facets-summary {
+  .facet-summary-item--facet {
+    border-radius: 15px;
+    background: #26374a;
+    margin-right: 5px;
+    padding: 1px 15px 3px 15px;
+    margin-bottom: 5px;
+    line-height: 1.2em;
+
+    a {
+      color: #fff;
+      padding: 0px;
+      text-decoration: none;
+
+      &:visited {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.block-facet-blockprogram,
+.block-facets-summary {
+  margin-bottom: 15px;
+  margin-top: 28px;
+
+  h2 {
+    margin-top: 0px;
+    font-size: 0.9em;
+  }
+}
+
+.block-views-blocksearch-block-1 {
+  margin-top: 25px;
+  font-size: 0.9em;
+
+  .view-content {
+    border-top: 1px solid #ccc;
+
+    .views-row {
+      border-bottom: 1px solid #ccc;
+      padding: 10px 0px;
+
+      .views-field-body {
+        line-height: 1.2em;
+        margin: 10px 0px;
+      }
+    }
+  }
+
+  .views-field-title {
+    a {
+      font-weight: bold;
+    }
+  }
+}
+
 #block-findacolleague {
   #Agrisource-qsBox {
     max-width: 207px;
     display: inline-block;
+  }
+}
+
+@media (max-width: 767px) {
+  section#wb-srch form.search-form div.js-form-type-select {
+    right: 50px;
+    padding-left: 0;
+  }
+
+  section#wb-srch form.search-form .select-wrapper select {
+    min-width: 264px;
   }
 }
 

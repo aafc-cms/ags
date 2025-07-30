@@ -714,23 +714,116 @@ body.role-is-anonymous.node-49 div#edit-group-newsposteddate--content label#edit
   }
 }
 /* line 3, ../sass/components/_search.scss */
+.facet-item input,
+.facet-item label {
+  cursor: pointer;
+}
+
+/* line 9, ../sass/components/_search.scss */
+.facet-inactive,
+.facet-active {
+  margin-bottom: 2px;
+}
+/* line 13, ../sass/components/_search.scss */
+.facet-inactive summary,
+.facet-active summary {
+  background-color: #eee;
+  border-bottom: 1px solid #ddd;
+  padding: 5px 10px;
+}
+/* line 18, ../sass/components/_search.scss */
+.facet-inactive summary h2,
+.facet-active summary h2 {
+  font-size: 1em;
+}
+
+/* line 25, ../sass/components/_search.scss */
+.block-facets-summary .facet-summary-item--facet {
+  border-radius: 15px;
+  background: #26374a;
+  margin-right: 5px;
+  padding: 1px 15px 3px 15px;
+  margin-bottom: 5px;
+  line-height: 1.2em;
+}
+/* line 33, ../sass/components/_search.scss */
+.block-facets-summary .facet-summary-item--facet a {
+  color: #fff;
+  padding: 0px;
+  text-decoration: none;
+}
+/* line 38, ../sass/components/_search.scss */
+.block-facets-summary .facet-summary-item--facet a:visited {
+  color: #fff;
+}
+
+/* line 45, ../sass/components/_search.scss */
+.block-facet-blockprogram,
+.block-facets-summary {
+  margin-bottom: 15px;
+  margin-top: 28px;
+}
+/* line 50, ../sass/components/_search.scss */
+.block-facet-blockprogram h2,
+.block-facets-summary h2 {
+  margin-top: 0px;
+  font-size: 0.9em;
+}
+
+/* line 56, ../sass/components/_search.scss */
+.block-views-blocksearch-block-1 {
+  margin-top: 25px;
+  font-size: 0.9em;
+}
+/* line 60, ../sass/components/_search.scss */
+.block-views-blocksearch-block-1 .view-content {
+  border-top: 1px solid #ccc;
+}
+/* line 63, ../sass/components/_search.scss */
+.block-views-blocksearch-block-1 .view-content .views-row {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0px;
+}
+/* line 67, ../sass/components/_search.scss */
+.block-views-blocksearch-block-1 .view-content .views-row .views-field-body {
+  line-height: 1.2em;
+  margin: 10px 0px;
+}
+/* line 75, ../sass/components/_search.scss */
+.block-views-blocksearch-block-1 .views-field-title a {
+  font-weight: bold;
+}
+
+/* line 82, ../sass/components/_search.scss */
 #block-findacolleague #Agrisource-qsBox {
   max-width: 207px;
   display: inline-block;
 }
 
+@media (max-width: 767px) {
+  /* line 89, ../sass/components/_search.scss */
+  section#wb-srch form.search-form div.js-form-type-select {
+    right: 50px;
+    padding-left: 0;
+  }
+
+  /* line 94, ../sass/components/_search.scss */
+  section#wb-srch form.search-form .select-wrapper select {
+    min-width: 264px;
+  }
+}
 @media screen and (min-width: 992px) {
-  /* line 11, ../sass/components/_search.scss */
+  /* line 101, ../sass/components/_search.scss */
   #block-findacolleague #Agrisource-qsBox {
     max-width: 76.5%;
   }
 }
 @media screen and (min-width: 1200px) {
-  /* line 19, ../sass/components/_search.scss */
+  /* line 109, ../sass/components/_search.scss */
   #block-findacolleague #Agrisource-qsBox {
     max-width: 80.5%;
   }
-  /* line 22, ../sass/components/_search.scss */
+  /* line 112, ../sass/components/_search.scss */
   #block-findacolleague button {
     float: right;
   }
