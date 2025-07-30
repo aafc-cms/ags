@@ -198,16 +198,16 @@ display:
             suffix: ''
             target: ''
             nl2br: false
-            max_length: 420
+            max_length: 600
             word_boundary: true
-            ellipsis: false
+            ellipsis: true
             more_link: false
             more_link_text: ''
             more_link_path: ''
             strip_tags: true
-            trim: false
-            preserve_tags: ''
-            html: false
+            trim: true
+            preserve_tags: '<em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <br> <b>'
+            html: true
           element_type: ''
           element_class: ''
           element_label_type: ''
@@ -241,6 +241,7 @@ display:
             use_highlighting: true
             multi_type: separator
             multi_separator: ', '
+            filter_type: xss
         url:
           id: url
           table: search_api_index_content
