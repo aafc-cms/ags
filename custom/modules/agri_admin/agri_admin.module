@@ -29,6 +29,38 @@ use Drupal\Core\Render\Markup;
 use Drupal\node\Entity\Node;
 
 /**
+ * Implements hook_facets_post_build_facet().
+ */
+function agri_admin_facets_post_build_facet(\Drupal\facets\FacetInterface $facet) {
+  if ($facet->getFieldIdentifier() !== 'language' && $facet->getFieldIdentifier() !== 'langcode') {
+    return;
+  }
+
+  $params = \Drupal::request()->query->all();
+  $hasLanguage = FALSE;
+
+  foreach ($params as $group) {
+    if (is_array($group)) {
+      foreach ($group as $value) {
+        if (is_string($value) && str_starts_with($value, 'language:')) {
+          $hasLanguage = TRUE;
+          break 2;
+        }
+      }
+    }
+  }
+
+  if (!$hasLanguage) {
+    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    foreach ($facet->getResults() as $result) {
+      if ($result->getRawValue() === $langcode) {
+        $result->setActiveState(TRUE);
+      }
+    }
+  }
+}
+
+/**
  * Implements hook_query_TAG_alter() to exclude archived nodes.
  */
 function agri_admin_query_linkit_filter_moderation_state_alter(AlterableInterface $query) {

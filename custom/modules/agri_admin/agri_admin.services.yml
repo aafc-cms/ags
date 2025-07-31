@@ -4,10 +4,3 @@ services:
     tags:
       - { name: path_processor_inbound, priority: 1000 }
       - { name: path_processor_outbound, priority: 1000 }
-  agri_admin.facet_langcode_default_subscriber:
-    class: Drupal\agri_admin\EventSubscriber\FacetLangcodeDefaultSubscriber
-    arguments:
-      - '@language_manager'
-      - '@logger.factory'
-    tags:
-      - { name: event_subscriber }
