@@ -5,13 +5,23 @@ services:
       - "8983:8983"
     container_name: agrisource_solr
     volumes:
+      # Configset mapping (schema files)
       - ./cloud-config-set:/opt/solr/server/solr/configsets/agrisource/conf
+      # NEW: Persistent data directory
+      - ./solr-data:/var/solr
     networks:
       default:
         ipv4_address: 172.19.0.9
     environment:
       SOLR_MODULES: "extraction,langid,ltr,analysis-extras"
-    command: bash -c "docker-entrypoint.sh solr start -c; solr create -c agrisource -d server/solr/configsets/agrisource/conf -n drupal; solr restart -c -f"
+    command: >
+      bash -c "
+      docker-entrypoint.sh solr start -c;
+      if [ ! -d /var/solr/data/agrisource ]; then
+        solr create -c agrisource -d server/solr/configsets/agrisource/conf -n drupal;
+      fi;
+      solr restart -c -f
+      "
 networks:
   default:
     driver: bridge
