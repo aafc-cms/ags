@@ -1,4 +1,4 @@
-uuid: d3f5e424-d9cb-47db-9934-238b8ca7c011
+uuid: 8e2ef9c0-f24a-40a8-bd9f-0a2eaf085042
 langcode: en
 status: true
 dependencies:
@@ -7,16 +7,16 @@ dependencies:
     - views.view.search
   module:
     - search_api
-id: type
-name: 'Content type'
+id: language
+name: Language
 weight: 0
 min_count: 1
 missing: false
 missing_label: others
-url_alias: type
+url_alias: language
 facet_source_id: 'search_api:views_block__search__block_1'
-field_identifier: type
-query_operator: or
+field_identifier: langcode
+query_operator: and
 hard_limit: 0
 exclude: false
 use_hierarchy: false
@@ -29,7 +29,7 @@ enable_parent_when_child_gets_disabled: true
 widget:
   type: checkbox
   config:
-    show_numbers: true
+    show_numbers: false
     soft_limit: 0
     show_reset_link: false
     reset_text: 'Show all'
@@ -54,11 +54,17 @@ processor_configs:
     weights:
       build: 100
     settings: {  }
-  translate_entity:
-    processor_id: translate_entity
+  list_item:
+    processor_id: list_item
     weights:
       build: 5
     settings: {  }
+  replace:
+    processor_id: replace
+    weights:
+      post_query: 50
+    settings:
+      replacements: "en|English\r\nfr|Français"
   url_processor_handler:
     processor_id: url_processor_handler
     weights:

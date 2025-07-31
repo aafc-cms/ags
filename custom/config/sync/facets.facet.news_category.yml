@@ -1,4 +1,4 @@
-uuid: d3f5e424-d9cb-47db-9934-238b8ca7c011
+uuid: 8153ea2b-a6e7-40a0-8071-6e839f6f9eb6
 langcode: en
 status: true
 dependencies:
@@ -7,15 +7,15 @@ dependencies:
     - views.view.search
   module:
     - search_api
-id: type
-name: 'Content type'
+id: news_category
+name: 'News type'
 weight: 0
 min_count: 1
 missing: false
 missing_label: others
-url_alias: type
+url_alias: ntype
 facet_source_id: 'search_api:views_block__search__block_1'
-field_identifier: type
+field_identifier: field_newstype
 query_operator: or
 hard_limit: 0
 exclude: false
