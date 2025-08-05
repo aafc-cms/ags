@@ -247,6 +247,10 @@
             "drupal/content_lock": {
                 "Our custom patch for content_lock agrcms/d8#902": "build/content_lock.patch"
             },
+            "drupal/facets": {
+                "3539037 - invokeAll facets_post_build_facet to set a default for language facet.":
+                "https://www.drupal.org/files/issues/2025-07-31/facets-hook_implements-3539037-02.patch"
+            },
             "drupal/filebrowser": {
                 "3512119 - Backwards/forwards compatibility fix with camel case property names in the latest Filebrowser class, prevents dynamic properties deprecated notice.":
                 "https://git.drupalcode.org/project/filebrowser/-/merge_requests/12.patch"
@@ -310,7 +314,10 @@
         "nnnick/chartjs": "^4.4",
         "drupal/cache_control_override": "^2.0",
         "drupal/ckeditor5_label_fix": "^1.0@beta",
-        "drupal/ckeditor5_sup_fix": "^1.0@beta"
+        "drupal/ckeditor5_sup_fix": "^1.0@beta",
+        "drupal/search_api_solr": "4.x-dev#fed1c8be",
+        "drupal/search_api_autocomplete": "^1.10",
+        "drupal/facets": "^3.0"
     },
     "authors": [
         {

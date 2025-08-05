@@ -1,0 +1,29 @@
+uuid: 505bab76-9285-4e7f-b327-faec966951db
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.news_category
+    - facets.facet.type
+    - search_api.index.content
+    - views.view.search
+  module:
+    - search_api
+id: search_summary
+name: 'Search summary'
+facet_source_id: 'search_api:views_block__search__block_1'
+only_visible_when_facet_source_is_visible: false
+processor_configs: {  }
+facets:
+  type:
+    checked: true
+    label: 'Content type'
+    separator: ', '
+    show_count: false
+    weight: -10
+  news_category:
+    checked: true
+    label: 'News type'
+    separator: ', '
+    show_count: false
+    weight: -9

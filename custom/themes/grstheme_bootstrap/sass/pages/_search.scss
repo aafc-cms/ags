@@ -1,0 +1,41 @@
+/* Search */
+
+.block-views-exposed-filter-blocksearch-block-1 {
+  #edit-submit-search {
+    margin-top: 5px;
+  }
+}
+
+#views-exposed-form-search-block-1 {
+  .form-group {
+    display: block;
+    float: none;
+  }
+}
+
+.view-search {
+  .views-row {
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #efefef;
+  }
+
+  .views-field-field-issued {
+    float: left;
+    margin-right:5px;
+
+    &:after {
+      content: ":";
+    }
+  }
+}
+
+body.i18n-en {
+  .view-search {
+    .views-field-field-issued {
+      &:after {
+        margin-left: -5px;
+      }
+    }
+  }
+}
