@@ -52,8 +52,15 @@ function agri_admin_facets_post_build_facet(\Drupal\facets\FacetInterface $facet
 
   if (!$hasLanguage) {
     $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    $other_langcode = 'fr';
+    if ($langcode == 'fr') {
+      $other_langcode == 'en';
+    }
     foreach ($facet->getResults() as $result) {
       if ($result->getRawValue() === $langcode) {
+        $result->setActiveState(TRUE);
+      }
+      if ($result->getRawValue() === $other_langcode) {
         $result->setActiveState(TRUE);
       }
     }
