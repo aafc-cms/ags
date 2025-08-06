@@ -1,4 +1,4 @@
-uuid: 8e2ef9c0-f24a-40a8-bd9f-0a2eaf085042
+uuid: e56faf67-cb63-4d87-b638-594457e1767c
 langcode: en
 status: true
 dependencies:
@@ -7,16 +7,16 @@ dependencies:
     - views.view.search
   module:
     - search_api
-id: language
-name: Language
+id: employment_type
+name: 'Opportunity Type(s):'
 weight: 0
 min_count: 1
 missing: false
 missing_label: others
-url_alias: language
+url_alias: employment_type
 facet_source_id: 'search_api:views_block__search__block_1'
-field_identifier: langcode
-query_operator: and
+field_identifier: field_type
+query_operator: or
 hard_limit: 0
 exclude: false
 use_hierarchy: false
@@ -54,21 +54,10 @@ processor_configs:
     weights:
       build: 100
     settings: {  }
-  list_item:
-    processor_id: list_item
+  translate_entity:
+    processor_id: translate_entity
     weights:
       build: 5
-    settings: {  }
-  replace:
-    processor_id: replace
-    weights:
-      post_query: 50
-    settings:
-      replacements: "en|English\r\nfr|Français"
-  show_only_deepest_level_items_processor:
-    processor_id: show_only_deepest_level_items_processor
-    weights:
-      build: 40
     settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler
