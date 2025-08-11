@@ -94,6 +94,8 @@ function agri_admin_page_attachments(array &$page) {
       $page['#attached']['library'][] = 'agri_admin/legacy-support';
       $page['#attached']['library'][] = 'agri_admin/content-plugins-changes';
       $page['#attached']['drupalSettings']['agrisource']['show_restricted_plugins_permissions'] = $user->hasPermission('agrisource show restricted plugins');
+    } else if ($current_route == 'entity.node.preview') {
+      $page['#attached']['library'][] = 'agri_admin/agri_preview';
     }
   }
 }
@@ -2189,4 +2191,14 @@ function agri_admin_content_lock_entity_lockable(EntityInterface $entity, array 
     }
   }
   return TRUE;
+}
+/**
+ * implement hook_library_info_alter() to remove node/node.preview.js, which installs dialog
+ * on almost all links. However it is not necessary for some links like language switch.
+ */
+function agri_admin_library_info_alter(&$libraries, $extension) {
+  if ($extension === 'node' && isset($libraries['drupal.node.preview'])) {
+    // Remove the JS file in the core preview library.
+    $libraries['drupal.node.preview']['js'] = [];
+  }
 }
