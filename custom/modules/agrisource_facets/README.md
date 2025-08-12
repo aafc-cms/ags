@@ -158,6 +158,3 @@ Other facet settings (typical):
 
 ---
 
-## License / ownership
-
-Custom code for the Pages (This label may change later) project. © Your org / client. Adjust as needed.
