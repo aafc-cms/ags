@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.body
     - field.storage.node.field_classification
     - field.storage.node.field_issued
+    - field.storage.node.field_modified
     - field.storage.node.field_newstype
     - field.storage.node.field_open_to
     - field.storage.node.field_type
@@ -98,6 +99,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_issued
+  field_modified:
+    label: 'dcterms:modified'
+    datasource_id: 'entity:node'
+    property_path: field_modified
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_modified
   field_newstype:
     label: Category
     datasource_id: 'entity:node'
@@ -200,6 +209,7 @@ processor_settings:
     weights:
       preprocess_query: -30
   custom_value: {  }
+  entity_status: {  }
   entity_type: {  }
   language_with_fallback: {  }
   rendered_item: {  }

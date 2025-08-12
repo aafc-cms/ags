@@ -43,6 +43,22 @@ only_visible_when_facet_source_is_visible: false
 show_only_one_result: false
 show_title: false
 processor_configs:
+  combine_type_values:
+    processor_id: combine_type_values
+    weights:
+      build: 12
+    settings:
+      facet_id: type
+      virtual_value: agrisource
+      virtual_label: Pages
+      source_values:
+        - page
+        - landing_page
+  agrisource_url_fix:
+    processor_id: agrisource_url_fix
+    weights:
+      build: 20
+    settings: {  }
   display_value_widget_order:
     processor_id: display_value_widget_order
     weights:
@@ -62,6 +78,5 @@ processor_configs:
   url_processor_handler:
     processor_id: url_processor_handler
     weights:
-      pre_query: 50
       build: 15
     settings: {  }
