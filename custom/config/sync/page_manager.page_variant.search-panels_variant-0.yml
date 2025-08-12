@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - facets.facet.employment_type
-    - facets.facet.language
     - facets.facet.news_category
     - facets.facet.type
     - facets_summary.facets_summary.search_summary
@@ -89,19 +88,6 @@ variant_settings:
       region: left
       weight: 1
       uuid: ed1913f0-7524-4d48-8de5-1285ade986d5
-      css_classes:
-        - ''
-      html_id: ''
-      css_styles: ''
-    669ecb57-94cb-45f3-8062-28d5d7379e13:
-      id: 'facet_block:language'
-      label: Language
-      label_display: visible
-      provider: facets
-      context_mapping: {  }
-      region: left
-      weight: 0
-      uuid: 669ecb57-94cb-45f3-8062-28d5d7379e13
       css_classes:
         - ''
       html_id: ''

@@ -1,0 +1,84 @@
+<?php
+
+use Drupal\search_api\Query\QueryInterface;
+use Drupal\search_api\Query\ConditionGroupInterface;
+use Drupal\search_api\Query\ConditionInterface;
+
+/**
+ * Ensure our alter runs last.
+ */
+function agrisource_facets_module_implements_alter(array &$implementations, $hook) {
+  if ($hook === 'search_api_query_alter' && isset($implementations['agrisource_facets'])) {
+    $self = $implementations['agrisource_facets'];
+    unset($implementations['agrisource_facets']);
+    $implementations['agrisource_facets'] = $self;
+  }
+}
+
+/**
+ * Implements hook_search_api_query_alter().
+ *
+ * Rewrites any condition "type = agrisource" in-place to:
+ *   type IN ["page","landing_page"]
+ * Works even if it's inside an OR group with other type conditions (e.g., News).
+ */
+function agrisource_facets_search_api_query_alter(QueryInterface $query) {
+  if ($query->getIndex()->id() !== 'content') {
+    return;
+  }
+
+  $root = $query->getConditionGroup();
+
+  // Debug before rewrite (optional).
+  // _agri_log_group('EXEC BEFORE', $root);
+
+  _agri_rewrite_agrisource_in_place($root);
+
+  // Debug after rewrite.
+  // _agri_log_group('EXEC AFTER', $root);
+}
+
+/**
+ * Recursively rewrites "type = agrisource" to "type IN ['page','landing_page']".
+ */
+function _agri_rewrite_agrisource_in_place(ConditionGroupInterface $group): void {
+  foreach ($group->getConditions() as $cond) {
+    if ($cond instanceof ConditionInterface) {
+      if ($cond->getField() === 'type'
+        && $cond->getOperator() === '='
+        && (string) $cond->getValue() === 'agrisource') {
+
+        // Mutate the existing condition object in place.
+        if (method_exists($cond, 'setOperator') && method_exists($cond, 'setValue')) {
+          $cond->setOperator('IN');
+          $cond->setValue(['page', 'landing_page']);
+        }
+      }
+    }
+    elseif ($cond instanceof ConditionGroupInterface) {
+      _agri_rewrite_agrisource_in_place($cond);
+    }
+  }
+}
+
+/** Minimal logging helpers. */
+function _agri_log_group(string $label, ConditionGroupInterface $group): void {
+  foreach (_agri_flatten($group) as $c) {
+    $v = is_array($c['value']) ? '["'.implode('","',$c['value']).'"]' : (string) $c['value'];
+    \Drupal::logger('agri_solr')->notice('@label COND: @f @op @v', [
+      '@label' => $label, '@f' => $c['field'], '@op' => $c['operator'], '@v' => $v,
+    ]);
+  }
+}
+function _agri_flatten(ConditionGroupInterface $group): array {
+  $out = [];
+  foreach ($group->getConditions() as $c) {
+    if ($c instanceof ConditionInterface) {
+      $out[] = ['field'=>(string)$c->getField(),'operator'=>(string)$c->getOperator(),'value'=>$c->getValue()];
+    } elseif ($c instanceof ConditionGroupInterface) {
+      $out = array_merge($out, _agri_flatten($c));
+    }
+  }
+  return $out;
+}
+

@@ -370,18 +370,18 @@ display:
             label: ''
             field_identifier: ''
           exposed: false
-        field_issued:
-          id: field_issued
+        field_modified:
+          id: field_modified
           table: search_api_index_content
-          field: field_issued
+          field: field_modified
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: search_api
           order: DESC
           expose:
-            label: 'Issued date'
-            field_identifier: field_issued
+            label: Modified
+            field_identifier: field_modified
           exposed: true
       arguments: {  }
       filters:
