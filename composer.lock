@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1931f08d73fad6fd09a454532418f0c3",
+    "content-hash": "20b431d8915f6107a1df9e322247424a",
     "packages": [
         {
             "name": "agrcms/agri_admin",
@@ -29,6 +29,22 @@
                 "type": "path",
                 "url": "custom/modules/agri_reports",
                 "reference": "cc905a22a9932e838a88e6025969d504b176bf61"
+            },
+            "require": {
+                "composer/installers": "*"
+            },
+            "type": "drupal-custom-module",
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "agrcms/agrisource_facets",
+            "version": "dev-11.1.x-wxt-6.1.x",
+            "dist": {
+                "type": "path",
+                "url": "custom/modules/agrisource_facets",
+                "reference": "a7eff6b8652aa7e414702f4ed6e370ca8ec8a701"
             },
             "require": {
                 "composer/installers": "*"
