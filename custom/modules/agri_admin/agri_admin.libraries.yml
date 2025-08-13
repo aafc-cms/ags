@@ -90,3 +90,14 @@ agri_moderated_content:
   dependencies:
     - core/jquery
     - core/drupalSettings
+
+agri_preview:
+  js:
+    js/agri_preview.js: {}
+  dependencies:
+    - core/once
+    - core/drupal
+    - core/drupal.dialog
+    - core/drupal.form
+    - core/jquery
+    - core/drupalSettings
