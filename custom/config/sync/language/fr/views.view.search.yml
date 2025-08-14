@@ -1,0 +1,38 @@
+display:
+  default:
+    display_options:
+      title: Recherche
+      pager:
+        options:
+          tags:
+            next: 'Suivant ›'
+            previous: '‹ Précédent'
+            first: '« Premier'
+            last: 'Dernier »'
+          expose:
+            items_per_page_label: 'Éléments par page'
+            items_per_page_options_all_label: '- Tout -'
+            offset_label: Décalage
+      exposed_form:
+        options:
+          submit_button: Recherche
+          reset_button_label: Réinitialiser
+          exposed_sorts_label: 'Trier par'
+          text_input_required: 'Sélectionnez un filtre et cliquez sur « Appliquer » pour voir les résultats'
+          bef:
+            general:
+              secondary_label: 'Options avancées'
+      sorts:
+        field_modified:
+          expose:
+            label: Modifié
+      filters:
+        search_api_fulltext:
+          expose:
+            label: 'Mots-clés de recherche'
+      header:
+        result:
+          content: "<div class=\"well col-xs-12\">\r\n  <p class=\"no-margin\">Affichage des résultats @start à @end sur un total de @total résultats.</p>\r\n</div>"
+  block_1:
+    display_title: Bloc
+label: Recherche
