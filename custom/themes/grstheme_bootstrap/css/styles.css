@@ -818,31 +818,35 @@ body.role-is-anonymous.node-49 div#edit-group-newsposteddate--content label#edit
 .block-views-exposed-filter-blocksearch-block-1 .input-group .ajax-progress {
   padding: 0;
 }
+/* line 109, ../sass/components/_search.scss */
+.block-views-exposed-filter-blocksearch-block-1 .search-api-autocomplete-suggestion .autocomplete-suggestion-user-input {
+  margin-right: 4px;
+}
 
 @media (max-width: 767px) {
-  /* line 112, ../sass/components/_search.scss */
+  /* line 115, ../sass/components/_search.scss */
   section#wb-srch form.search-form div.js-form-type-select {
     right: 50px;
     padding-left: 0;
   }
 
-  /* line 117, ../sass/components/_search.scss */
+  /* line 120, ../sass/components/_search.scss */
   section#wb-srch form.search-form .select-wrapper select {
     min-width: 264px;
   }
 }
 @media screen and (min-width: 992px) {
-  /* line 124, ../sass/components/_search.scss */
+  /* line 127, ../sass/components/_search.scss */
   #block-findacolleague #Agrisource-qsBox {
     max-width: 76.5%;
   }
 }
 @media screen and (min-width: 1200px) {
-  /* line 132, ../sass/components/_search.scss */
+  /* line 135, ../sass/components/_search.scss */
   #block-findacolleague #Agrisource-qsBox {
     max-width: 80.5%;
   }
-  /* line 135, ../sass/components/_search.scss */
+  /* line 138, ../sass/components/_search.scss */
   #block-findacolleague button {
     float: right;
   }
