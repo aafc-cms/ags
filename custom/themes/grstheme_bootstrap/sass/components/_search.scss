@@ -92,12 +92,17 @@
   }
 }
 
-.block-views-exposed-filter-blocksearch-block-1 .input-group {
-  input.form-text.form-autocomplete {
-    background-position-x: 97%;
+.block-views-exposed-filter-blocksearch-block-1 {
+  .form-item {
+    margin-bottom: 5px;
   }
-  .ajax-progress {
-    padding: 0;
+  .input-group {
+    input.form-text.form-autocomplete {
+      background-position-x: 97%;
+    }
+    .ajax-progress {
+      padding: 0;
+    }
   }
 }
 
