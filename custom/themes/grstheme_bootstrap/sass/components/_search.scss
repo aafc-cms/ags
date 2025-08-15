@@ -49,7 +49,7 @@
 
   h2 {
     margin-top: 0px;
-    font-size: 0.9em;
+    font-size: 1.3em;
   }
 }
 
@@ -83,19 +83,16 @@
   }
 }
 
-.no-margin {
-  margin: 0;
+.view-search {
+  .views-field-field-title {
+    margin-bottom: 2px;
+  }
+  .views-field-field-issued {
+    margin-top: 6px;
+  }
 }
 
-.block-facets-summary h2 {
-    font-size: 1.4em;
-}
-
-.view-search .views-field-field-issued {
-  margin-top: 6px;
-}
-
-.block-views block-views-exposed-filter-blocksearch-block-1 input.form-text {
+.block-views-exposed-filter-blocksearch-block-1 input.form-text {
   &.form-autocomplete {
     background-position-x: 97%;
   }
