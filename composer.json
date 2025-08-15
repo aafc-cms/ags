@@ -114,6 +114,19 @@
         {
             "type": "package",
             "package": {
+                "name": "drupaloverride/search_api_html_element_filter",
+                "version": "dev-master",
+                "type": "drupal-module",
+                "source": {
+                    "url": "https://git.drupalcode.org/issue/search_api_html_element_filter-3434382.git",
+                    "type": "git",
+                    "reference": "cbbf59a3"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
                 "name": "drupaloverride/webform_revision_ui",
                 "version": "dev-master",
                 "type": "drupal-module",
@@ -263,6 +276,10 @@
                 "ETUF workaround is temporary, figure this out, why agrisource no issue, but AAFC has issue?":
                 "build/etuf-why-this-cause-agrisource-no-issue.patch"
             },
+            "drupaloverride/search_api_html_element_filter": {
+                "3470568 - Adds option to disable postprocess query (performance optimization)":
+                "https://git.drupalcode.org/project/search_api_html_element_filter/-/merge_requests/3.diff"
+            },
             "drupalwxt/wxt": {
                 "Allow split of password policy":
                 "build/wxt_split_password_policy.patch"
@@ -312,7 +329,8 @@
         "drupal/ckeditor5_sup_fix": "^1.0@beta",
         "drupal/search_api_solr": "4.x-dev#fed1c8be",
         "drupal/search_api_autocomplete": "^1.10",
-        "drupal/facets": "^3.0"
+        "drupal/facets": "^3.0",
+        "drupaloverride/search_api_html_element_filter": "*"
     },
     "authors": [
         {
