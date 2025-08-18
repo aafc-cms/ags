@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\z_search_agrisource\Plugin\search_api\processor;
+namespace Drupal\agrisource_search_processors\Plugin\search_api\processor;
 
 use Drupal\Component\Render\MarkupInterface;
 use Drupal\search_api\Item\ItemInterface;
@@ -62,12 +62,18 @@ class StripStyleScriptBlocks extends FieldsProcessorPluginBase {
 
           if ($v !== $orig) { $values[$i] = $v; $changed = TRUE; }
         }
+        if ($item->getId() === 'entity:node/3275:en') {
+          \Drupal::logger('agrisource_search_TEST2')->notice('[debug-strip] @fid on @id', [
+            '@fid' => $field_id,
+            '@id'  => $item->getId(),
+          ]);
+        }
         if ($changed) {
           $field->setValues($values);
           $changed = FALSE;
-	  if (str_contains($item->getId(), '3275')) {
-            \Drupal::logger('z_search_agrisource')->notice('[strip] batch cleaned @f on @id', ['@f' => $field_id, '@id' => $item->getId()]);
-	  }
+          if (str_contains($item->getId(), '3275')) {
+            \Drupal::logger('agrisource_search_processors')->notice('[strip] batch cleaned @f on @id', ['@f' => $field_id, '@id' => $item->getId()]);
+          }
         }
       }
     }
