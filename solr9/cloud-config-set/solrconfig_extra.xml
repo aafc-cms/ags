@@ -1,142 +1,7 @@
 <searchComponent name="spellcheck" class="solr.SpellCheckComponent">
     <lst name="spellchecker">
-      <str name="name">ar</str>
-      <str name="field">spellcheck_ar</str>
-      <str name="classname">solr.DirectSolrSpellChecker</str>
-      <str name="distanceMeasure">internal</str>
-      <str name="accuracy">0.5</str>
-      <str name="maxEdits">2</str>
-      <str name="minPrefix">1</str>
-      <str name="maxInspections">5</str>
-      <str name="minQueryLength">4</str>
-      <str name="maxQueryFrequency">0.01</str>
-      <str name="thresholdTokenFrequency">.01</str>
-      <str name="onlyMorePopular">true</str>
-    </lst>
-  
-    <lst name="spellchecker">
-      <str name="name">bg</str>
-      <str name="field">spellcheck_bg</str>
-      <str name="classname">solr.DirectSolrSpellChecker</str>
-      <str name="distanceMeasure">internal</str>
-      <str name="accuracy">0.5</str>
-      <str name="maxEdits">2</str>
-      <str name="minPrefix">1</str>
-      <str name="maxInspections">5</str>
-      <str name="minQueryLength">4</str>
-      <str name="maxQueryFrequency">0.01</str>
-      <str name="thresholdTokenFrequency">.01</str>
-      <str name="onlyMorePopular">true</str>
-    </lst>
-  
-    <lst name="spellchecker">
-      <str name="name">ca</str>
-      <str name="field">spellcheck_ca</str>
-      <str name="classname">solr.DirectSolrSpellChecker</str>
-      <str name="distanceMeasure">internal</str>
-      <str name="accuracy">0.5</str>
-      <str name="maxEdits">2</str>
-      <str name="minPrefix">1</str>
-      <str name="maxInspections">5</str>
-      <str name="minQueryLength">4</str>
-      <str name="maxQueryFrequency">0.01</str>
-      <str name="thresholdTokenFrequency">.01</str>
-      <str name="onlyMorePopular">true</str>
-    </lst>
-  
-    <lst name="spellchecker">
-      <str name="name">hr</str>
-      <str name="field">spellcheck_hr</str>
-      <str name="classname">solr.DirectSolrSpellChecker</str>
-      <str name="distanceMeasure">internal</str>
-      <str name="accuracy">0.5</str>
-      <str name="maxEdits">2</str>
-      <str name="minPrefix">1</str>
-      <str name="maxInspections">5</str>
-      <str name="minQueryLength">4</str>
-      <str name="maxQueryFrequency">0.01</str>
-      <str name="thresholdTokenFrequency">.01</str>
-      <str name="onlyMorePopular">true</str>
-    </lst>
-  
-    <lst name="spellchecker">
-      <str name="name">cs</str>
-      <str name="field">spellcheck_cs</str>
-      <str name="classname">solr.DirectSolrSpellChecker</str>
-      <str name="distanceMeasure">internal</str>
-      <str name="accuracy">0.5</str>
-      <str name="maxEdits">2</str>
-      <str name="minPrefix">1</str>
-      <str name="maxInspections">5</str>
-      <str name="minQueryLength">4</str>
-      <str name="maxQueryFrequency">0.01</str>
-      <str name="thresholdTokenFrequency">.01</str>
-      <str name="onlyMorePopular">true</str>
-    </lst>
-  
-    <lst name="spellchecker">
-      <str name="name">da</str>
-      <str name="field">spellcheck_da</str>
-      <str name="classname">solr.DirectSolrSpellChecker</str>
-      <str name="distanceMeasure">internal</str>
-      <str name="accuracy">0.5</str>
-      <str name="maxEdits">2</str>
-      <str name="minPrefix">1</str>
-      <str name="maxInspections">5</str>
-      <str name="minQueryLength">4</str>
-      <str name="maxQueryFrequency">0.01</str>
-      <str name="thresholdTokenFrequency">.01</str>
-      <str name="onlyMorePopular">true</str>
-    </lst>
-  
-    <lst name="spellchecker">
-      <str name="name">nl</str>
-      <str name="field">spellcheck_nl</str>
-      <str name="classname">solr.DirectSolrSpellChecker</str>
-      <str name="distanceMeasure">internal</str>
-      <str name="accuracy">0.5</str>
-      <str name="maxEdits">2</str>
-      <str name="minPrefix">1</str>
-      <str name="maxInspections">5</str>
-      <str name="minQueryLength">4</str>
-      <str name="maxQueryFrequency">0.01</str>
-      <str name="thresholdTokenFrequency">.01</str>
-      <str name="onlyMorePopular">true</str>
-    </lst>
-  
-    <lst name="spellchecker">
       <str name="name">en</str>
       <str name="field">spellcheck_en</str>
-      <str name="classname">solr.DirectSolrSpellChecker</str>
-      <str name="distanceMeasure">internal</str>
-      <str name="accuracy">0.5</str>
-      <str name="maxEdits">2</str>
-      <str name="minPrefix">1</str>
-      <str name="maxInspections">5</str>
-      <str name="minQueryLength">4</str>
-      <str name="maxQueryFrequency">0.01</str>
-      <str name="thresholdTokenFrequency">.01</str>
-      <str name="onlyMorePopular">true</str>
-    </lst>
-  
-    <lst name="spellchecker">
-      <str name="name">et</str>
-      <str name="field">spellcheck_et</str>
-      <str name="classname">solr.DirectSolrSpellChecker</str>
-      <str name="distanceMeasure">internal</str>
-      <str name="accuracy">0.5</str>
-      <str name="maxEdits">2</str>
-      <str name="minPrefix">1</str>
-      <str name="maxInspections">5</str>
-      <str name="minQueryLength">4</str>
-      <str name="maxQueryFrequency">0.01</str>
-      <str name="thresholdTokenFrequency">.01</str>
-      <str name="onlyMorePopular">true</str>
-    </lst>
-  
-    <lst name="spellchecker">
-      <str name="name">fi</str>
-      <str name="field">spellcheck_fi</str>
       <str name="classname">solr.DirectSolrSpellChecker</str>
       <str name="distanceMeasure">internal</str>
       <str name="accuracy">0.5</str>
@@ -178,7 +43,6 @@
       <str name="thresholdTokenFrequency">.01</str>
       <str name="onlyMorePopular">true</str>
     </lst>
-  
   </searchComponent>
 <searchComponent name="suggest" class="solr.SuggestComponent">
     <lst name="suggester">
@@ -216,7 +80,6 @@
       <str name="buildOnCommit">false</str>
       <str name="buildOnStartup">false</str>
     </lst>
-  
   </searchComponent>
 <!--
   Autocomplete
