@@ -6,6 +6,7 @@ dependencies:
     - search_api.index.content
     - views.view.search
   module:
+    - search_api_solr_autocomplete
     - views
 id: search
 label: Search
@@ -13,11 +14,22 @@ index_id: content
 suggester_settings:
   server:
     fields: {  }
-suggester_weights: {  }
-suggester_limits: {  }
+  search_api_solr_spellcheck: {  }
+suggester_weights:
+  server: 0
+  search_api_solr_spellcheck: 0
+suggester_limits:
+  server: 5
+  search_api_solr_spellcheck: 5
 search_settings:
   'views:search':
     displays:
       default: true
       selected: {  }
-options: {  }
+options:
+  limit: 10
+  min_length: 2
+  show_count: false
+  delay: null
+  submit_button_selector: ':submit'
+  autosubmit: true

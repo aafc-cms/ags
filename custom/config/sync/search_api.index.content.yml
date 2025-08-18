@@ -12,6 +12,7 @@ dependencies:
     - field.storage.node.field_type
     - search_api.server.solr
   module:
+    - agrisource_search_processors
     - node
     - search_api_solr
 third_party_settings:
@@ -33,7 +34,7 @@ third_party_settings:
       highlight:
         mergeContiguous: false
         requireFieldMatch: false
-        snippets: 3
+        snippets: 5
         fragsize: 0
     mlt:
       mintf: 1
@@ -211,11 +212,41 @@ processor_settings:
   custom_value: {  }
   entity_status: {  }
   entity_type: {  }
+  highlight:
+    weights:
+      postprocess_query: 0
+    prefix: '<strong>'
+    suffix: '</strong>'
+    excerpt: true
+    excerpt_always: false
+    excerpt_length: 256
+    exclude_fields: {  }
+    highlight: always
+    highlight_partial: true
   language_with_fallback: {  }
   rendered_item: {  }
+  solr_boost_more_recent:
+    weights:
+      preprocess_query: 0
+    boosts: {  }
   solr_date_range:
     weights:
       preprocess_index: 0
+  strip_style_script_blocks:
+    weights:
+      preprocess_index: 50
+    all_fields: 0
+    fields:
+      - body
+  type_boost:
+    weights:
+      preprocess_index: 0
+    boosts:
+      'entity:node':
+        datasource_boost: 1.0
+        bundle_boosts:
+          landing_page: 1.1
+          page: 1.1
 tracker_settings:
   default:
     indexing_order: fifo
