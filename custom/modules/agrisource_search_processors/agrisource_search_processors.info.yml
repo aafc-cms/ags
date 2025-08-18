@@ -1,0 +1,7 @@
+name: 'Agrisource Search Processors'
+type: module
+description: 'Processors that filter content either before or after solr indexing.'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - search_api_solr:search_api_solr
