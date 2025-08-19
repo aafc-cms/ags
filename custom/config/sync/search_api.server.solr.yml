@@ -51,7 +51,7 @@ backend_config:
     index_timeout: 5
     optimize_timeout: 10
     finalize_timeout: 30
-    skip_schema_check: false
+    skip_schema_check: true
     solr_version: '9'
     http_method: AUTO
     commit_within: 1000
