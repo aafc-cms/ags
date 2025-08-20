@@ -15,6 +15,7 @@ dependencies:
     - media.type.video_file
     - node.type.empl
     - node.type.news
+    - search_api_autocomplete.search.search
     - workflows.workflow.editorial
     - workflows.workflow.publishing
   module:
@@ -29,6 +30,7 @@ dependencies:
     - like_and_dislike
     - media
     - node
+    - search_api_autocomplete
     - system
 _core:
   default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
@@ -68,6 +70,7 @@ permissions:
   - 'translate news node'
   - 'use editorial transition create_new_draft'
   - 'use publishing transition save_as_a_draft'
+  - 'use search_api_autocomplete for search'
   - 'use text format rich_text'
   - 'view media'
   - 'view own unpublished media'
