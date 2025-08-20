@@ -3,6 +3,10 @@ services:
     image: solr:9.9
     ports:
       - "8983:8983"
+    ulimits:
+      nofile:
+        soft: 65000
+        hard: 65000
     container_name: agrisource_solr
     volumes:
       # Configset mapping (schema files)
@@ -22,6 +26,7 @@ services:
       fi;
       solr restart -c -f
       "
+    restart: unless-stopped
 networks:
   default:
     driver: bridge
