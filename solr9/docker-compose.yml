@@ -18,14 +18,7 @@ services:
         ipv4_address: 172.19.0.9
     environment:
       SOLR_MODULES: "extraction,langid,ltr,analysis-extras"
-    command: >
-      bash -c "
-      docker-entrypoint.sh solr start -c;
-      if [ ! -d /var/solr/data/agrisource ]; then
-        solr create -c agrisource -d server/solr/configsets/agrisource/conf -n drupal;
-      fi;
-      solr restart -c -f
-      "
+    command: ["solr-precreate", "agrisource", "server/solr/configsets/agrisource/conf"]
     restart: unless-stopped
 networks:
   default:
