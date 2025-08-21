@@ -11,14 +11,18 @@ services:
     volumes:
       # Configset mapping (schema files)
       - ./cloud-config-set:/opt/solr/server/solr/configsets/agrisource/conf
-      # NEW: Persistent data directory
+      # Persistent data directory
       - ./solr-data:/var/solr
+      # Script
+      - ./init-cores.sh:/docker-init/init-cores.sh
     networks:
       default:
         ipv4_address: 172.19.0.9
     environment:
       SOLR_MODULES: "extraction,langid,ltr,analysis-extras"
-    command: ["solr-precreate", "agrisource", "server/solr/configsets/agrisource/conf"]
+      CORES: "agrisource core2 core3"
+      CONF_PATH: "/opt/solr/server/solr/configsets/agrisource/conf"
+    command: [ "bash", "/docker-init/init-cores.sh" ]
     restart: unless-stopped
 networks:
   default:
