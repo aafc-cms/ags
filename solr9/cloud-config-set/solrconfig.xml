@@ -39,8 +39,7 @@
        affect both how text is indexed and queried.
     -->
   <luceneMatchVersion>${solr.luceneMatchVersion:9.10.0}</luceneMatchVersion>
-  <!-- Include the *children* of <config> from the extra file -->
-  <xi:include href="solrconfig_extra.xml" xpointer="xpointer(/config/*)"/>
+
   <!-- <lib/> directives can be used to instruct Solr to load any Jars
        identified and use them to resolve any "plugins" specified in
        your solrconfig.xml or schema.xml (ie: Analyzers, Request
