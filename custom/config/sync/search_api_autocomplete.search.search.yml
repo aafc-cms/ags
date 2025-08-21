@@ -13,14 +13,22 @@ label: Search
 index_id: content
 suggester_settings:
   server:
-    fields: {  }
+    fields:
+      - autocomplete_body
+      - autocomplete_title
   search_api_solr_spellcheck: {  }
+  search_api_solr_suggester:
+    search_api_solr/site_hash: 1
+    search_api/index: content
+    drupal/langcode: any
 suggester_weights:
   server: 0
   search_api_solr_spellcheck: 0
+  search_api_solr_suggester: 0
 suggester_limits:
   server: 5
   search_api_solr_spellcheck: 5
+  search_api_solr_suggester: 10
 search_settings:
   'views:search':
     displays:
@@ -28,7 +36,7 @@ search_settings:
       selected: {  }
 options:
   limit: 10
-  min_length: 2
+  min_length: 3
   show_count: false
   delay: null
   submit_button_selector: ':submit'
