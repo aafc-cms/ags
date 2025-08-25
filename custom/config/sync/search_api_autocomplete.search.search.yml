@@ -22,13 +22,13 @@ suggester_settings:
     search_api/index: content
     drupal/langcode: any
 suggester_weights:
-  server: 0
+  server: 2
   search_api_solr_spellcheck: 0
-  search_api_solr_suggester: 0
+  search_api_solr_suggester: -2
 suggester_limits:
   server: 5
   search_api_solr_spellcheck: 5
-  search_api_solr_suggester: 10
+  search_api_solr_suggester: 8
 search_settings:
   'views:search':
     displays:
