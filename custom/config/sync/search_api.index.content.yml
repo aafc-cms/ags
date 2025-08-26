@@ -10,10 +10,12 @@ dependencies:
     - field.storage.node.field_newstype
     - field.storage.node.field_open_to
     - field.storage.node.field_type
+    - field.storage.paragraph.field_class_level
     - search_api.server.solr
   module:
     - agrisource_search_processors
     - node
+    - paragraphs
     - search_api_solr
 third_party_settings:
   search_api_solr:
@@ -81,6 +83,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: title
     type: solr_text_suggester
+    boost: 2.0
     dependencies:
       module:
         - node
@@ -92,6 +95,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.body
+  body_spellcheck:
+    label: 'Description » Processed text'
+    datasource_id: 'entity:node'
+    property_path: 'body:processed'
+    type: solr_text_spellcheck
+    dependencies:
+      config:
+        - field.storage.node.body
   created:
     label: 'Authored on'
     datasource_id: 'entity:node'
@@ -100,6 +111,17 @@ field_settings:
     dependencies:
       module:
         - node
+  field_class_level:
+    label: 'Classification(s) : » Paragraphe » Niveau :'
+    datasource_id: 'entity:node'
+    property_path: 'field_classification:entity:field_class_level'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_classification
+        - field.storage.paragraph.field_class_level
+      module:
+        - paragraphs
   field_classification:
     label: 'Classification(s):'
     datasource_id: 'entity:node'
@@ -182,6 +204,14 @@ field_settings:
     dependencies:
       module:
         - node
+  title_spellcheck:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: solr_text_spellcheck
+    dependencies:
+      module:
+        - node
   type:
     label: 'Content type'
     datasource_id: 'entity:node'
@@ -259,10 +289,6 @@ processor_settings:
       strong: 2
   language_with_fallback: {  }
   rendered_item: {  }
-  solr_boost_more_recent:
-    weights:
-      preprocess_query: 0
-    boosts: {  }
   solr_date_range:
     weights:
       preprocess_index: 0
