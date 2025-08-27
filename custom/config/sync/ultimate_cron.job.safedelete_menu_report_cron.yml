@@ -1,0 +1,29 @@
+uuid: 38a836ae-61c6-4efd-ade5-f1fe79bfdd03
+langcode: en
+status: true
+dependencies:
+  module:
+    - safedelete_menu_report
+title: 'Default cron handler'
+id: safedelete_menu_report_cron
+weight: 0
+module: safedelete_menu_report
+callback: 'safedelete_menu_report#cron'
+scheduler:
+  id: simple
+  configuration:
+    rules:
+      - '0+@ */12 * * *'
+launcher:
+  id: serial
+  configuration:
+    timeouts:
+      lock_timeout: 3600
+    launcher:
+      thread: 0
+logger:
+  id: database
+  configuration:
+    method: '3'
+    expire: 1209600
+    retain: 1000
