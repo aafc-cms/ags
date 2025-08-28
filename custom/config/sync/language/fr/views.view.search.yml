@@ -26,6 +26,9 @@ display:
         field_modified:
           expose:
             label: Modifié
+        field_issued:
+          expose:
+            label: Émission
       filters:
         search_api_fulltext:
           expose:
