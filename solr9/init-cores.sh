@@ -21,7 +21,7 @@ fi
 
 # Cores to create (space-separated). You can set CORES via environment.
 CORES=${CORES:-"agrisource"}
-CONF_PATH=${CONF_PATH:-/opt/solr/server/solr/configsets/agrisource/conf}
+CONF_PATH=${CONF_PATH:-/opt/solr/server/solr/configsets/agrisource}
 
 for core in $CORES; do
   if [ ! -d "/var/solr/data/$core" ]; then
