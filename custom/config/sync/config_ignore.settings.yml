@@ -31,6 +31,7 @@ ignored_config_entities:
   - ultimate_cron.job.password_policy_cron
   - 'varnish_purger.*'
   - warmer.settings
+  - 'webform.webform.*'
   - wxt_ext_password_policy
   - ~block.block.bootstrap_search
   - ~block.block.footer_fr
@@ -41,4 +42,6 @@ ignored_config_entities:
   - ~block.block.wxt_bootstrap_footer_contextual_fr
   - ~block.block.wxt_bootstrap_footer_top
   - ~block.block.wxt_bootstrap_footer_top_fr
+  - ~webform.webform.custom_gcweb_did_you_find
   - ~webform.webform.generic_test_form_
+  - ~webform.webform.settings
