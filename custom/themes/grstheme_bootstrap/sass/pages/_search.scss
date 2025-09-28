@@ -7,8 +7,11 @@
 }
 
 #views-exposed-form-search-block-1 {
-  .form-type-search-api-autocomplete label.control-label {
-    display:block;
+  .form-type-search-api-autocomplete {
+    label.control-label {
+      display:block;
+    }
+    margin-right: 20px;
   }
   div.form-type-select {
     display: inline-block;
