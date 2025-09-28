@@ -7,9 +7,16 @@
 }
 
 #views-exposed-form-search-block-1 {
-  .form-group {
-    display: block;
-    float: none;
+  .form-type-search-api-autocomplete label.control-label {
+    display:block;
+  }
+  div.form-type-select {
+    display: inline-block;
+    max-width: 8rem;
+  }
+  #edit-actions--2 {
+    margin-top: 7px;
+    width: 100%;
   }
 }
 
