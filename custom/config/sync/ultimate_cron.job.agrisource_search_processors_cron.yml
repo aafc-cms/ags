@@ -1,0 +1,29 @@
+uuid: 34dc2771-33f5-403d-be44-1d01f5e84465
+langcode: en
+status: true
+dependencies:
+  module:
+    - agrisource_search_processors
+title: 'Default cron handler'
+id: agrisource_search_processors_cron
+weight: 0
+module: agrisource_search_processors
+callback: 'agrisource_search_processors#cron'
+scheduler:
+  id: simple
+  configuration:
+    rules:
+      - '0+@ 0 * * *'
+launcher:
+  id: serial
+  configuration:
+    timeouts:
+      lock_timeout: 3600
+    launcher:
+      thread: 0
+logger:
+  id: database
+  configuration:
+    method: '3'
+    expire: 1209600
+    retain: 1000
