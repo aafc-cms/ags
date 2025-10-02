@@ -88,7 +88,7 @@ function agrisource_search_processors_update_block_bodies(): array {
   $expected = [];
   if ($en) {
     $en_front = $front_for_lang('en'); // e.g., '/', '/en'
-    $en_front_trimmed = rtrim($fr_front, '/');
+    $en_front_trimmed = rtrim($en_front, '/');
     // Ensure exactly one slash between <front> and the action path.
     $expected['en'] = <<<EOF
 <section class="visible-md visible-lg" id="wb-srch">
@@ -97,11 +97,9 @@ function agrisource_search_processors_update_block_bodies(): array {
     </h2>
     <form class="form-inline" action="{$en_front_trimmed}/search" id="q" method="get" role="search">
         <div class="form-group">
-            <label for="q">Search website</label>&nbsp;<input class="form-control" id="q" maxlength="150" name="query" size="27" type="search" value=""> <input id="sort_order" name="sort_order" type="hidden" value="DESC">
+            <label for="q">Search website</label>&nbsp;<input class="form-control" id="q" maxlength="150" name="query" size="20" type="search" value=""> <input id="sort_order" name="sort_order" type="hidden" value="DESC">
         </div>
-        <p>
-            <button class="btn btn-default" id="wb-srch-sub" type="submit">Search</button>
-        </p>
+        <button class="btn btn-default" id="wb-srch-sub" type="submit">Search</button>
     </form>
 </section>
 EOF;
@@ -116,14 +114,12 @@ EOF;
     </h2>
     <form class="form-inline" action="{$fr_front_trimmed}/search" id="q" method="get" role="search">
         <div class="form-group">
-            <label for="q">Recherche sur le site Web</label>&nbsp;<input class="form-control" id="q" maxlength="150" name="query" size="27" type="search" value=""> <input id="sort_order" name="sort_order" type="hidden" value="DESC">
+            <label for="q">Recherche sur le site Web</label>&nbsp;<input class="form-control" id="q" maxlength="150" name="query" size="20" type="search" value=""> <input id="sort_order" name="sort_order" type="hidden" value="DESC">
         </div>
-        <p>
-            <button class="btn btn-default" id="wb-srch-sub" type="submit">Search</button>
-        </p>
+        <button class="btn btn-default" id="wb-srch-sub" type="submit">Recherche</button>
     </form>
 </section>
-EOF
+EOF;
   }
 
   // Update per available translation.
