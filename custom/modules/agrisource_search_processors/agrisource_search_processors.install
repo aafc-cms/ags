@@ -1,0 +1,28 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @file
+ * Install/update hooks for agrisource_search_processors.
+ */
+
+/**
+ * Update hook: ensure Block Content #15 body matches expected EN/FR markup.
+ */
+function agrisource_search_processors_update_10001(): void {
+  if (!function_exists('agrisource_search_processors_update_block_bodies')) {
+    // Should not happen, but avoid a fatal if module file isn’t loaded.
+    // Drupal normally loads the .module automatically for updates.
+    return;
+  }
+
+  [, $messages] = agrisource_search_processors_update_block_bodies();
+
+  if ($messages) {
+    foreach ($messages as $msg) {
+      \Drupal::logger('agrisource_search_processors')->notice($msg);
+    }
+  }
+}
+

@@ -1,7 +1,178 @@
 <?php
 
+declare(strict_types=1);
+
+use Drupal\block_content\Entity\BlockContent;
+use Drupal\Core\Url;
+
 /**
  * @file
- * Primary module hooks for Agrisource Search Processors module.
+ * Runtime hooks for agrisource_search_processors.
  */
+
+/**
+ * Cron implementation: ensure block body matches expected markup.
+ */
+function agrisource_search_processors_cron(): void {
+  agrisource_search_processors_update_block_bodies();
+}
+
+/**
+ * Status page hook: run the same check/update each time the report is viewed.
+ *
+ * This both reports status and (only if needed) updates the block body content.
+ */
+function agrisource_search_processors_requirements(string $phase): array {
+  $requirements = [];
+
+  if ($phase === 'runtime') {
+    [$changed, $messages] = agrisource_search_processors_update_block_bodies();
+
+    $requirements['agrisource_search_processors.block_15_body_sync'] = [
+      'title' => t('Agrisource search block (ID 15) body sync'),
+      'value' => $changed ? t('Updated') : t('Already up to date'),
+      'severity' => $changed ? REQUIREMENT_WARNING : REQUIREMENT_OK,
+      'description' => $messages ? implode(' ', $messages) : t('Checked English and French translations.'),
+    ];
+  }
+
+  return $requirements;
+}
+
+/**
+ * Core worker that checks/updates the Block Content #15 body in EN/FR.
+ *
+ * - Loads block_content entity ID 15 (bundle "basic").
+ * - Computes language-aware <front> path for EN and FR.
+ * - Builds expected markup:
+ *   EN: <form class="form-inline" action="<front>/search" id="q" method="get" role="search"></form>
+ *   FR: <form class="form-inline" action="<front>/recherche" id="q" method="get" role="search"></form>
+ * - If the current body != expected, update it, preserving the field format.
+ *
+ * @return array{0: bool, 1: string[]}
+ *   Tuple: [whether any change was made, messages describing actions].
+ */
+function agrisource_search_processors_update_block_bodies(): array {
+  $changed = FALSE;
+  $messages = [];
+
+  /** @var \Drupal\block_content\BlockContentInterface|null $block */
+  $block = BlockContent::load(15);
+  if (!$block) {
+    $messages[] = t('Block Content entity with ID 15 was not found.');
+    return [$changed, $messages];
+  }
+
+  $language_manager = \Drupal::languageManager();
+  $en = $language_manager->getLanguage('en');
+  $fr = $language_manager->getLanguage('fr');
+
+  // Helper to compute the language-aware <front> path without scheme/host.
+  $front_for_lang = static function ($langcode) use ($language_manager): string {
+    $lang = $language_manager->getLanguage($langcode);
+    if (!$lang) {
+      return '/';
+    }
+    // Generate a relative URL for <front> in the target language.
+    $front = Url::fromRoute('<front>', [], [
+      'language' => $lang,
+      'absolute' => FALSE,
+    ])->toString();
+
+    // Normalize to path only, no trailing slash (except root).
+    $front = rtrim($front, '/');
+    return $front === '' ? '/' : $front;
+  };
+
+  // Build expected markup per language.
+  $expected = [];
+  if ($en) {
+    $en_front = $front_for_lang('en'); // e.g., '/', '/en'
+    $en_front_trimmed = rtrim($fr_front, '/');
+    // Ensure exactly one slash between <front> and the action path.
+    $expected['en'] = <<<EOF
+<section class="visible-md visible-lg" id="wb-srch">
+    <h2>
+        Search
+    </h2>
+    <form class="form-inline" action="{$en_front_trimmed}/search" id="q" method="get" role="search">
+        <div class="form-group">
+            <label for="q">Search website</label>&nbsp;<input class="form-control" id="q" maxlength="150" name="query" size="27" type="search" value=""> <input id="sort_order" name="sort_order" type="hidden" value="DESC">
+        </div>
+        <p>
+            <button class="btn btn-default" id="wb-srch-sub" type="submit">Search</button>
+        </p>
+    </form>
+</section>
+EOF;
+  }
+  if ($fr) {
+    $fr_front = $front_for_lang('fr'); // e.g., '/', '/fr'
+    $fr_front_trimmed = rtrim($fr_front, '/');
+    $expected['fr'] = <<<EOF
+<section class="visible-md visible-lg" id="wb-srch">
+    <h2>
+        Recherche
+    </h2>
+    <form class="form-inline" action="{$fr_front_trimmed}/search" id="q" method="get" role="search">
+        <div class="form-group">
+            <label for="q">Recherche sur le site Web</label>&nbsp;<input class="form-control" id="q" maxlength="150" name="query" size="27" type="search" value=""> <input id="sort_order" name="sort_order" type="hidden" value="DESC">
+        </div>
+        <p>
+            <button class="btn btn-default" id="wb-srch-sub" type="submit">Search</button>
+        </p>
+    </form>
+</section>
+EOF
+  }
+
+  // Update per available translation.
+  foreach (['en', 'fr'] as $langcode) {
+    if (!isset($expected[$langcode])) {
+      $messages[] = t('Language @lang not configured; skipping.', ['@lang' => $langcode]);
+      continue;
+    }
+
+    if (!$block->hasTranslation($langcode)) {
+      $messages[] = t('Block 15 has no @lang translation; skipping.', ['@lang' => $langcode]);
+      continue;
+    }
+
+    $trans = $block->getTranslation($langcode);
+    $field = $trans->get('body');
+
+    $current = '';
+    $format = 'full_html';
+    if (!$field->isEmpty()) {
+      /** @var array{value:string, format:string}|null $item */
+      $item = $field->first()?->toArray();
+      if ($item) {
+        $current = (string) ($item['value'] ?? '');
+        $format = (string) ($item['format'] ?? $format);
+      }
+    }
+
+    $want = $expected[$langcode];
+    // Strict string compare after a basic trim.
+    if (trim($current) !== trim($want)) {
+      $trans->set('body', [
+        'value' => $want,
+        'format' => $format,
+      ]);
+      $messages[] = t('Updated block 15 body for @lang.', ['@lang' => $langcode]);
+      $changed = TRUE;
+    }
+    else {
+      $messages[] = t('No change needed for @lang; already matches.', ['@lang' => $langcode]);
+    }
+  }
+
+  if ($changed) {
+    // Save once for all translation updates.
+    $block->save();
+    \Drupal::logger('agrisource_search_processors')->notice('Block 15 body updated for one or more languages.');
+  }
+
+  return [$changed, $messages];
+}
 
