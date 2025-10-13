@@ -3,6 +3,10 @@ display:
   default:
     display_title: Master
     display_options:
+      title: 'Tableau de bord de modération'
+      fields:
+        name:
+          separator: ', '
       exposed_form:
         options:
           submit_button: Appliquer
@@ -10,14 +14,10 @@ display:
           exposed_sorts_label: 'Trier par'
           sort_asc_label: Asc
           sort_desc_label: Desc
-      fields:
-        name:
-          separator: ', '
-      title: 'Tableau de bord de modération'
       arguments:
         uid:
           exception:
-            title: All
+            title: Tout
   page_1:
     display_title: Page
     display_options:

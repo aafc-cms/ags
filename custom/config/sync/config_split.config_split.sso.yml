@@ -10,7 +10,13 @@ stackable: false
 no_patching: false
 storage: folder
 folder: ../custom/config/splits/sso
-module: {  }
+module:
+  externalauth: 100
+  o365: 100
+  o365_profile: 100
+  o365_sso: 100
+  o365_sso_user: 100
+  oauth2_client: 100
 theme: {  }
 complete_list: {  }
 partial_list: {  }
