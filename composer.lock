@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "07ee493f43223a387a80f337970d5a9d",
+    "content-hash": "91f10d6d0b78a08200642c5f3b4b2e20",
     "packages": [
         {
             "name": "agrcms/agri_admin",
-            "version": "dev-11.1.x-wxt-6.1.x",
+            "version": "dev-feat-sso",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/agri_admin",
@@ -24,7 +24,7 @@
         },
         {
             "name": "agrcms/agri_reports",
-            "version": "dev-11.1.x-wxt-6.1.x",
+            "version": "dev-feat-sso",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/agri_reports",
@@ -40,7 +40,7 @@
         },
         {
             "name": "agrcms/agrisource_facets",
-            "version": "dev-11.1.x-wxt-6.1.x",
+            "version": "dev-feat-sso",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/agrisource_facets",
@@ -56,7 +56,7 @@
         },
         {
             "name": "agrcms/agrisource_search_processors",
-            "version": "dev-11.1.x-wxt-6.1.x",
+            "version": "dev-feat-sso",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/agrisource_search_processors",
@@ -72,7 +72,7 @@
         },
         {
             "name": "agrcms/config",
-            "version": "dev-11.1.x-wxt-6.1.x",
+            "version": "dev-feat-sso",
             "dist": {
                 "type": "path",
                 "url": "custom/config",
@@ -88,7 +88,7 @@
         },
         {
             "name": "agrcms/grstheme_bootstrap",
-            "version": "dev-11.1.x-wxt-6.1.x",
+            "version": "dev-feat-sso",
             "dist": {
                 "type": "path",
                 "url": "custom/themes/grstheme_bootstrap",
@@ -108,7 +108,7 @@
         },
         {
             "name": "agrcms/linkchecks",
-            "version": "dev-11.1.x-wxt-6.1.x",
+            "version": "dev-feat-sso",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/linkchecks",
@@ -124,7 +124,7 @@
         },
         {
             "name": "agrcms/news_bulletin",
-            "version": "dev-11.1.x-wxt-6.1.x",
+            "version": "dev-feat-sso",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/news_bulletin",
@@ -140,7 +140,7 @@
         },
         {
             "name": "agrcms/news_empl",
-            "version": "dev-11.1.x-wxt-6.1.x",
+            "version": "dev-feat-sso",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/news_empl",
@@ -156,7 +156,7 @@
         },
         {
             "name": "agrcms/prefer_latest_content",
-            "version": "dev-11.1.x-wxt-6.1.x",
+            "version": "dev-feat-sso",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/prefer_latest_content",
@@ -172,7 +172,7 @@
         },
         {
             "name": "agrcms/wxt_overrides",
-            "version": "dev-11.1.x-wxt-6.1.x",
+            "version": "dev-feat-sso",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/wxt_overrides",
@@ -6068,6 +6068,60 @@
             }
         },
         {
+            "name": "drupal/externalauth",
+            "version": "2.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/externalauth.git",
+                "reference": "2.0.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/externalauth-2.0.8.zip",
+                "reference": "2.0.8",
+                "shasum": "e9c1b41d6b59d0674b2756361ec729b046759387"
+            },
+            "require": {
+                "drupal/core": "^9.5 || ^10 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.8",
+                    "datestamp": "1743603496",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Sven Decabooter",
+                    "homepage": "https://www.drupal.org/u/svendecabooter",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "snufkin",
+                    "homepage": "https://www.drupal.org/user/58645"
+                },
+                {
+                    "name": "svendecabooter",
+                    "homepage": "https://www.drupal.org/user/35369"
+                }
+            ],
+            "description": "Helper module to authenticate users using an external site / service and storing identification details",
+            "homepage": "https://drupal.org/project/externalauth",
+            "support": {
+                "source": "https://git.drupalcode.org/project/externalauth",
+                "issues": "https://www.drupal.org/project/issues/externalauth"
+            }
+        },
+        {
             "name": "drupal/facets",
             "version": "3.0.1",
             "source": {
@@ -9706,6 +9760,210 @@
                 "source": "https://git.drupalcode.org/project/nouislider_js/-/tree/15.8.0"
             },
             "time": "2025-01-03T10:53:20+00:00"
+        },
+        {
+            "name": "drupal/o365",
+            "version": "6.0.0-beta2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/o365.git",
+                "reference": "6.0.0-beta2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/o365-6.0.0-beta2.zip",
+                "reference": "6.0.0-beta2",
+                "shasum": "bebccc9fcd0e9ece93654950106e2f97676370fb"
+            },
+            "require": {
+                "drupal/core": "^10 || ^11",
+                "drupal/externalauth": "^2.0",
+                "drupal/o365_sso": "*",
+                "drupal/oauth2_client": "^4.0",
+                "microsoft/microsoft-graph": "^1.40",
+                "php": ">=8.0",
+                "xantios/mimey": "^2.2"
+            },
+            "require-dev": {
+                "drupal/externalauth": "*",
+                "drupal/group": "^2 || ^3 || ^4",
+                "drupal/o365_profile": "*",
+                "drupal/o365_sso": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "6.0.0-beta2",
+                    "datestamp": "1755605972",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "batigolix",
+                    "homepage": "https://www.drupal.org/user/22175"
+                },
+                {
+                    "name": "bramtenhove",
+                    "homepage": "https://www.drupal.org/user/1549848"
+                },
+                {
+                    "name": "denysyukm@gmail.com",
+                    "homepage": "https://www.drupal.org/user/3579282"
+                },
+                {
+                    "name": "fabianderijk",
+                    "homepage": "https://www.drupal.org/user/278745"
+                },
+                {
+                    "name": "immoreel",
+                    "homepage": "https://www.drupal.org/user/1695422"
+                },
+                {
+                    "name": "mikechan",
+                    "homepage": "https://www.drupal.org/user/3719002"
+                },
+                {
+                    "name": "tomvv",
+                    "homepage": "https://www.drupal.org/user/2748021"
+                }
+            ],
+            "description": "Microsoft 365 Connector module",
+            "homepage": "https://www.drupal.org/project/o365",
+            "support": {
+                "source": "http://cgit.drupalcode.org/o365",
+                "issues": "https://www.drupal.org/project/issues/o365"
+            }
+        },
+        {
+            "name": "drupal/o365_sso",
+            "version": "6.0.0-beta2",
+            "require": {
+                "drupal/core": "^10.2 || ^11",
+                "drupal/externalauth": "*",
+                "drupal/o365": "^6"
+            },
+            "type": "metapackage",
+            "extra": {
+                "drupal": {
+                    "version": "6.0.0-beta2",
+                    "datestamp": "1755605972",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "batigolix",
+                    "homepage": "https://www.drupal.org/user/22175"
+                },
+                {
+                    "name": "bramtenhove",
+                    "homepage": "https://www.drupal.org/user/1549848"
+                },
+                {
+                    "name": "denysyukm@gmail.com",
+                    "homepage": "https://www.drupal.org/user/3579282"
+                },
+                {
+                    "name": "fabianderijk",
+                    "homepage": "https://www.drupal.org/user/278745"
+                },
+                {
+                    "name": "immoreel",
+                    "homepage": "https://www.drupal.org/user/1695422"
+                },
+                {
+                    "name": "mikechan",
+                    "homepage": "https://www.drupal.org/user/3719002"
+                },
+                {
+                    "name": "tomvv",
+                    "homepage": "https://www.drupal.org/user/2748021"
+                }
+            ],
+            "description": "Enable SSO with Office365",
+            "homepage": "https://www.drupal.org/project/o365",
+            "support": {
+                "source": "https://git.drupalcode.org/project/o365"
+            }
+        },
+        {
+            "name": "drupal/oauth2_client",
+            "version": "4.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/oauth2_client.git",
+                "reference": "4.1.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/oauth2_client-4.1.3.zip",
+                "reference": "4.1.3",
+                "shasum": "4d387aeb667c3bf8021ae6ab932f3bae86bb703e"
+            },
+            "require": {
+                "drupal/core": "^10.2 || ^11",
+                "league/oauth2-client": "^2.6",
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "drupal/key": "^1.17"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "4.1.3",
+                    "datestamp": "1738776277",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Shawn Duncan (FatherShawn)",
+                    "homepage": "https://www.drupal.org/u/fathershawn",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "dashohoxha",
+                    "homepage": "https://www.drupal.org/u/dashohoxha",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "perelesnyk",
+                    "homepage": "https://www.drupal.org/user/2605196"
+                },
+                {
+                    "name": "voleger",
+                    "homepage": "https://www.drupal.org/user/3260314"
+                }
+            ],
+            "description": "Provides OAuth2 client functionality.",
+            "homepage": "https://drupal.org/project/oauth2_client",
+            "support": {
+                "source": "https://cgit.drupalcode.org/oauth2_client",
+                "issues": "https://drupal.org/project/issues/oauth2_client"
+            }
         },
         {
             "name": "drupal/page_manager",
@@ -14655,7 +14913,7 @@
         },
         {
             "name": "junhuang/idol_feed_api",
-            "version": "dev-11.1.x-wxt-6.1.x",
+            "version": "dev-feat-sso",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/idol_feed_api",
@@ -15024,6 +15282,71 @@
             "time": "2025-03-28T06:52:04+00:00"
         },
         {
+            "name": "league/oauth2-client",
+            "version": "2.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/oauth2-client.git",
+                "reference": "9df2924ca644736c835fc60466a3a60390d334f9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/oauth2-client/zipball/9df2924ca644736c835fc60466a3a60390d334f9",
+                "reference": "9df2924ca644736c835fc60466a3a60390d334f9",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^6.5.8 || ^7.4.5",
+                "php": "^7.1 || >=8.0.0 <8.5.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.3.5",
+                "php-parallel-lint/php-parallel-lint": "^1.4",
+                "phpunit/phpunit": "^7 || ^8 || ^9 || ^10 || ^11",
+                "squizlabs/php_codesniffer": "^3.11"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "League\\OAuth2\\Client\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Bilbie",
+                    "email": "hello@alexbilbie.com",
+                    "homepage": "http://www.alexbilbie.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Woody Gilk",
+                    "homepage": "https://github.com/shadowhand",
+                    "role": "Contributor"
+                }
+            ],
+            "description": "OAuth 2.0 Client Library",
+            "keywords": [
+                "Authentication",
+                "SSO",
+                "authorization",
+                "identity",
+                "idp",
+                "oauth",
+                "oauth2",
+                "single sign on"
+            ],
+            "support": {
+                "issues": "https://github.com/thephpleague/oauth2-client/issues",
+                "source": "https://github.com/thephpleague/oauth2-client/tree/2.8.1"
+            },
+            "time": "2025-02-26T04:37:30+00:00"
+        },
+        {
             "name": "maennchen/zipstream-php",
             "version": "3.2.0",
             "source": {
@@ -15216,6 +15539,58 @@
                 "source": "https://github.com/mck89/peast/tree/v1.16.3"
             },
             "time": "2024-07-23T14:00:32+00:00"
+        },
+        {
+            "name": "microsoft/microsoft-graph",
+            "version": "1.110.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/microsoftgraph/msgraph-sdk-php.git",
+                "reference": "da45ea4a5d5dda97549313129748bd10fdb2930c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/microsoftgraph/msgraph-sdk-php/zipball/da45ea4a5d5dda97549313129748bd10fdb2930c",
+                "reference": "da45ea4a5d5dda97549313129748bd10fdb2930c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^6.5.8 || ^7.4.5",
+                "php": "^8.0 || ^7.3",
+                "psr/http-message": "^1.0 || ^2.0"
+            },
+            "require-dev": {
+                "guzzlehttp/promises": "^1.0 || ^2.0",
+                "mikey179/vfsstream": "^1.2",
+                "phpstan/phpstan": "^0.12.90 || ^1.0.0",
+                "phpunit/phpunit": "^8.0 || ^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Microsoft\\Graph\\": "src/",
+                    "Beta\\Microsoft\\Graph\\": "src/Beta/Microsoft/Graph/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Microsoft Graph Client Tooling",
+                    "email": "graphtooling@service.microsoft.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "The Microsoft Graph SDK for PHP",
+            "homepage": "https://developer.microsoft.com/en-us/graph",
+            "support": {
+                "issues": "https://github.com/microsoftgraph/msgraph-sdk-php/issues",
+                "source": "https://github.com/microsoftgraph/msgraph-sdk-php/tree/1.110.0"
+            },
+            "time": "2024-01-15T18:49:30+00:00"
         },
         {
             "name": "mkalkbrenner/php-htmldiff-advanced",
@@ -20536,6 +20911,54 @@
                 "source": "https://github.com/wikimedia/composer-merge-plugin/tree/v2.1.0"
             },
             "time": "2023-04-15T19:07:00+00:00"
+        },
+        {
+            "name": "xantios/mimey",
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Xantios/mimey.git",
+                "reference": "8cb6f0c29b8eadde38777ed947847f4253c00b60"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Xantios/mimey/zipball/8cb6f0c29b8eadde38777ed947847f4253c00b60",
+                "reference": "8cb6f0c29b8eadde38777ed947847f4253c00b60",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^2.4",
+                "phpunit/phpunit": "^9.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Mimey\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Xantios Krugor",
+                    "email": "git@xantios.nl"
+                },
+                {
+                    "name": "Ralph Khattar",
+                    "email": "ralph.khattar@gmail.com"
+                }
+            ],
+            "description": "PHP package for converting file extensions to MIME types and vice versa.",
+            "support": {
+                "issues": "https://github.com/Xantios/mimey/issues",
+                "source": "https://github.com/Xantios/mimey/tree/v2.2.0"
+            },
+            "time": "2021-06-12T14:33:14+00:00"
         }
     ],
     "packages-dev": [
@@ -21316,6 +21739,7 @@
     "stability-flags": {
         "drupal/ckeditor5_label_fix": 10,
         "drupal/ckeditor5_sup_fix": 10,
+        "drupal/o365": 10,
         "drupal/search_api_solr": 20,
         "drupal/votingapi": 20,
         "phpmd/phpmd": 0
