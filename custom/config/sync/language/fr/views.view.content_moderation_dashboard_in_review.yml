@@ -3,6 +3,19 @@ display:
   default:
     display_title: Master
     display_options:
+      title: 'My Content drafts'
+      fields:
+        title:
+          separator: ', '
+      pager:
+        options:
+          tags:
+            next: ››
+            previous: ‹‹
+          expose:
+            items_per_page_label: 'Éléments par page'
+            items_per_page_options_all_label: '- Tout -'
+            offset_label: Décalage
       exposed_form:
         options:
           submit_button: Appliquer
@@ -10,22 +23,9 @@ display:
           exposed_sorts_label: 'Trier par'
           sort_asc_label: Asc
           sort_desc_label: Desc
-      pager:
-        options:
-          tags:
-            previous: ‹‹
-            next: ››
-          expose:
-            items_per_page_label: 'Éléments par page'
-            items_per_page_options_all_label: '- Tout -'
-            offset_label: Décalage
-      fields:
-        title:
-          separator: ', '
       empty:
         area_text_custom:
           content: 'There is no content being reviewed by me.'
-      title: 'My Content drafts'
   block_1:
     display_title: 'En cours de révision'
   block_2:
@@ -35,11 +35,11 @@ display:
   block_3:
     display_title: 'Your drafts'
     display_options:
+      title: 'Your drafts'
       empty:
         area_text_custom:
           content: 'No draft content was found.'
-      title: 'Your drafts'
       arguments:
         uid:
           exception:
-            title: All
+            title: Tout
