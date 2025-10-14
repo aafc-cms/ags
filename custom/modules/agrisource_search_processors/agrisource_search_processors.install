@@ -7,6 +7,10 @@ declare(strict_types=1);
  * Install/update hooks for agrisource_search_processors.
  */
 
+function agrisource_search_processors_install(): void {
+  agrisource_search_processors_update_10001();
+}
+
 /**
  * Update hook: ensure Block Content #15 body matches expected EN/FR markup.
  */
