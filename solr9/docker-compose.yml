@@ -21,7 +21,7 @@ services:
     environment:
       SOLR_MODULES: "extraction,langid,ltr,analysis-extras"
       CORES: "agrisource core2 core3"
-      CONF_PATH: "/opt/solr/server/solr/configsets/agrisource/conf"
+      CONF_PATH: "/opt/solr/server/solr/configsets/agrisource/"
     command: [ "bash", "/docker-init/init-cores.sh" ]
     restart: unless-stopped
 networks:
