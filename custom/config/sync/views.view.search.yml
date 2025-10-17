@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_modified
     - search_api.index.content
+    - taxonomy.vocabulary.news_type
   module:
     - better_exposed_filters
     - datetime
@@ -299,7 +300,7 @@ display:
         type: bef
         options:
           submit_button: Search
-          reset_button: false
+          reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
@@ -312,12 +313,23 @@ display:
               autosubmit: false
               autosubmit_exclude_textfield: false
               autosubmit_textfield_delay: 500
+              autosubmit_textfield_minimum_length: 3
               autosubmit_hide: false
               input_required: false
               allow_secondary: false
               secondary_label: 'Advanced options'
               secondary_open: false
               reset_button_always_show: false
+            sort:
+              plugin_id: default
+              advanced:
+                combine: false
+                combine_rewrite: ''
+                reset: false
+                reset_label: ''
+                collapsible: false
+                collapsible_label: 'Sort options'
+                is_secondary: false
             filter:
               search_api_fulltext:
                 plugin_id: default
@@ -325,8 +337,22 @@ display:
                   placeholder_text: ''
                   rewrite:
                     filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
                   collapsible: false
+                  collapsible_disable_automatic_open: false
                   is_secondary: false
+                  hide_label: false
+              type:
+                plugin_id: default
+                advanced:
+                  sort_options: true
+                  rewrite:
+                    filter_rewrite_values: "Landing page|Agrisource\r\nlanding_page|agrisource\r\nEmployment Opportunity|Employment\r\nEmployment opportunity|Employment\r\nOpportunité d'emploi|Emploi"
+                    filter_rewrite_values_key: false
+                  collapsible: false
+                  collapsible_disable_automatic_open: false
+                  is_secondary: false
+                  hide_label: false
       access:
         type: none
         options: {  }
@@ -407,16 +433,17 @@ display:
               creator: '0'
               editor: '0'
               reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
               pab_admin: '0'
               qa: '0'
               ia: '0'
               viewer: '0'
-              gcds: '0'
-              gcdp: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: search_api_fulltext_searched_fields
-            value_maxlength: 128
+            value_maxlength: 192
+            value_max_words: null
           is_grouped: false
           group_info:
             label: ''
@@ -511,6 +538,117 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        type:
+          id: type
+          table: search_api_index_content
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_options
+          operator: or
+          value:
+            empl: empl
+            landing_page: landing_page
+            news: news
+          group: 1
+          exposed: true
+          expose:
+            operator_id: type_op
+            label: 'Content type'
+            description: ''
+            use_operator: false
+            operator: type_op
+            operator_limit_selection: false
+            operator_list:
+              or: or
+            identifier: type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              creator: '0'
+              editor: '0'
+              reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
+              pab_admin: '0'
+              qa: '0'
+              ia: '0'
+              viewer: '0'
+            reduce: true
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+        field_newstype:
+          id: field_newstype
+          table: search_api_index_content
+          field: field_newstype
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_newstype_op
+            label: Category
+            description: ''
+            use_operator: false
+            operator: field_newstype_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_newstype
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              creator: '0'
+              editor: '0'
+              reviewer: '0'
+              news_ccpub: '0'
+              empl_cspub: '0'
+              pab_admin: '0'
+              qa: '0'
+              ia: '0'
+              viewer: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: news_type
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
       style:
         type: default
       row:
@@ -550,9 +688,9 @@ display:
         - 'config:field.storage.node.field_modified'
         - 'config:search_api.index.content'
         - 'search_api_list:content'
-  block_1:
-    id: block_1
-    display_title: Block
+  search_block_solr:
+    id: search_block_solr
+    display_title: 'Search Block Solr'
     display_plugin: block
     position: 1
     display_options:
@@ -560,6 +698,7 @@ display:
         type: search_api_none
       defaults:
         cache: false
+      display_description: ''
       exposed_block: true
       display_extenders:
         metatag_display_extender:

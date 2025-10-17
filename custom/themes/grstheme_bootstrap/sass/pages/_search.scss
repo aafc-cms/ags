@@ -1,15 +1,32 @@
 /* Search */
 
-.block-views-exposed-filter-blocksearch-block-1 {
+.block-views-exposed-filter-blocksearch-block-search-solr {
   #edit-submit-search {
     margin-top: 5px;
   }
 }
 
-#views-exposed-form-search-block-1 {
+.bef-exposed-form .form--inline > .form-item {
+  float: unset;
+}
+.block-views-exposed-filter-blocksearch-search-block-solr {
+  div.form-type-select {
+//    max-width: 148px;
+  }
+  div.form-item-query label.control-label {
+    width: 100%;
+  }
+  button.btn-primary, button.btn-danger {
+    margin-top: 15px;
+  }
+  button.btn-primary {
+    margin-right: 7px;
+  }
+}
+#views-exposed-form-search-block-search-solr {
   .form-type-search-api-autocomplete {
     label.control-label {
-      display:block;
+      display: block;
     }
     margin-right: 20px;
   }
@@ -54,7 +71,7 @@
   }
 }
 
-.block-views-exposed-filter-blocksearch-block-1 {
+.block-views-exposed-filter-blocksearch-block-search-solr {
   .form-item {
     margin-bottom: 5px;
   }
