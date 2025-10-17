@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "91f10d6d0b78a08200642c5f3b4b2e20",
+    "content-hash": "7e76c41dcc9f49347ca5df0990260c46",
     "packages": [
         {
             "name": "agrcms/agri_admin",
-            "version": "dev-feat-sso",
+            "version": "dev-11.1.x-wxt-6.1.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/agri_admin",
@@ -24,7 +24,7 @@
         },
         {
             "name": "agrcms/agri_reports",
-            "version": "dev-feat-sso",
+            "version": "dev-11.1.x-wxt-6.1.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/agri_reports",
@@ -40,7 +40,7 @@
         },
         {
             "name": "agrcms/agrisource_facets",
-            "version": "dev-feat-sso",
+            "version": "dev-11.1.x-wxt-6.1.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/agrisource_facets",
@@ -56,7 +56,7 @@
         },
         {
             "name": "agrcms/agrisource_search_processors",
-            "version": "dev-feat-sso",
+            "version": "dev-11.1.x-wxt-6.1.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/agrisource_search_processors",
@@ -72,7 +72,7 @@
         },
         {
             "name": "agrcms/config",
-            "version": "dev-feat-sso",
+            "version": "dev-11.1.x-wxt-6.1.x",
             "dist": {
                 "type": "path",
                 "url": "custom/config",
@@ -88,7 +88,7 @@
         },
         {
             "name": "agrcms/grstheme_bootstrap",
-            "version": "dev-feat-sso",
+            "version": "dev-11.1.x-wxt-6.1.x",
             "dist": {
                 "type": "path",
                 "url": "custom/themes/grstheme_bootstrap",
@@ -108,7 +108,7 @@
         },
         {
             "name": "agrcms/linkchecks",
-            "version": "dev-feat-sso",
+            "version": "dev-11.1.x-wxt-6.1.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/linkchecks",
@@ -124,7 +124,7 @@
         },
         {
             "name": "agrcms/news_bulletin",
-            "version": "dev-feat-sso",
+            "version": "dev-11.1.x-wxt-6.1.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/news_bulletin",
@@ -140,7 +140,7 @@
         },
         {
             "name": "agrcms/news_empl",
-            "version": "dev-feat-sso",
+            "version": "dev-11.1.x-wxt-6.1.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/news_empl",
@@ -156,7 +156,7 @@
         },
         {
             "name": "agrcms/prefer_latest_content",
-            "version": "dev-feat-sso",
+            "version": "dev-11.1.x-wxt-6.1.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/prefer_latest_content",
@@ -172,7 +172,7 @@
         },
         {
             "name": "agrcms/wxt_overrides",
-            "version": "dev-feat-sso",
+            "version": "dev-11.1.x-wxt-6.1.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/wxt_overrides",
@@ -6123,17 +6123,11 @@
         },
         {
             "name": "drupal/facets",
-            "version": "3.0.1",
+            "version": "dev-3.0.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/facets.git",
-                "reference": "3.0.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/facets-3.0.1.zip",
-                "reference": "3.0.1",
-                "shasum": "50a2fa35b1fa145f3132b8bf7ef5ee3fcc7dfbc1"
+                "reference": "40d37cc785d027d86bf70ec3f0058a6e8c92b939"
             },
             "require": {
                 "drupal/core": "^10.1 || ^11"
@@ -6144,14 +6138,14 @@
             },
             "require-dev": {
                 "drupal/better_exposed_filters": "~7.0",
-                "drupal/default_content": "*",
+                "drupal/default_content": "~2.0@alpha",
                 "drupal/facets_exposed_filters": "*",
                 "drupal/jquery_ui_slider": "~2.1",
                 "drupal/jquery_ui_touch_punch": "~1.1",
                 "drupal/search_api": "1.x-dev",
                 "drupal/search_api_db": "*",
-                "drupal/views_ajax_history": "*",
-                "drupal/views_filters_summary": "*"
+                "drupal/views_ajax_history": "~1.8",
+                "drupal/views_filters_summary": "~3.2"
             },
             "suggest": {
                 "drupal/better_exposed_filters": "Required for AJAX support for facets rendered as views exposed filters",
@@ -6160,12 +6154,15 @@
             },
             "type": "drupal-module",
             "extra": {
+                "branch-alias": {
+                    "dev-3.0.x": "3.0.x-dev"
+                },
                 "drupal": {
-                    "version": "3.0.1",
-                    "datestamp": "1756314575",
+                    "version": "3.0.1+12-dev",
+                    "datestamp": "1760631236",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -10844,27 +10841,22 @@
         },
         {
             "name": "drupal/search_api",
-            "version": "1.38.0",
+            "version": "dev-1.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/search_api.git",
-                "reference": "8.x-1.38"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.38.zip",
-                "reference": "8.x-1.38",
-                "shasum": "d1c83ba74e553eca07d3ea4b15e5d9c7f009a496"
+                "reference": "557e56f4"
             },
             "require": {
-                "drupal/core": "^10.2 || ^11"
+                "drupal/core": "^10.3 || ^11"
             },
             "conflict": {
                 "drupal/search_api_solr": "2.* || 3.0 || 3.1"
             },
             "require-dev": {
-                "drupal/language_fallback_fix": "@dev",
-                "drupal/search_api_autocomplete": "@dev",
+                "drupal/config_readonly": "1.x-dev",
+                "drupal/language_fallback_fix": "1.x-dev",
+                "drupal/search_api_autocomplete": "1.x-dev",
                 "drupal/search_api_db": "*"
             },
             "suggest": {
@@ -10874,12 +10866,16 @@
             },
             "type": "drupal-module",
             "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev",
+                    "dev-8.x-1.x": "1.x-dev"
+                },
                 "drupal": {
-                    "version": "8.x-1.38",
-                    "datestamp": "1740298961",
+                    "version": "8.x-1.39+12-dev",
+                    "datestamp": "1760621450",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -10976,7 +10972,7 @@
                 "composer/semver": "^1.0|^3.0",
                 "consolidation/annotated-command": "^2.12|^4.1",
                 "drupal/core": "^10.2 || ^11.0",
-                "drupal/search_api": "^1.37|1.x-dev",
+                "drupal/search_api": "^1.39|1.x-dev",
                 "ext-dom": "*",
                 "ext-json": "*",
                 "ext-simplexml": "*",
@@ -11013,8 +11009,8 @@
                     "dev-4.x": "4.x-dev"
                 },
                 "drupal": {
-                    "version": "4.3.10+13-dev",
-                    "datestamp": "1751972129",
+                    "version": "4.3.10+18-dev",
+                    "datestamp": "1759416004",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -14913,7 +14909,7 @@
         },
         {
             "name": "junhuang/idol_feed_api",
-            "version": "dev-feat-sso",
+            "version": "dev-11.1.x-wxt-6.1.x",
             "dist": {
                 "type": "path",
                 "url": "custom/modules/idol_feed_api",
@@ -21729,6 +21725,12 @@
     ],
     "aliases": [
         {
+            "package": "drupal/search_api",
+            "version": "1.9999999.9999999.9999999-dev",
+            "alias": "1.39",
+            "alias_normalized": "1.39.0.0"
+        },
+        {
             "package": "drupal/votingapi",
             "version": "4.0.9999999.9999999-dev",
             "alias": "3.0.1",
@@ -21739,7 +21741,9 @@
     "stability-flags": {
         "drupal/ckeditor5_label_fix": 10,
         "drupal/ckeditor5_sup_fix": 10,
+        "drupal/facets": 20,
         "drupal/o365": 10,
+        "drupal/search_api": 20,
         "drupal/search_api_solr": 20,
         "drupal/votingapi": 20,
         "phpmd/phpmd": 0

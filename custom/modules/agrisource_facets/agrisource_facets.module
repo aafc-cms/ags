@@ -1,8 +1,37 @@
 <?php
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\search_api\Query\QueryInterface;
 use Drupal\search_api\Query\ConditionGroupInterface;
 use Drupal\search_api\Query\ConditionInterface;
+
+
+/**
+ * Implements hook_form_FORM_ID_alter() for views_exposed_form.
+ */
+function agrisource_facets_form_views_exposed_form_alter(array &$form, FormStateInterface $form_state, string $form_id) {
+  // Identify the specific view and display if necessary.
+  // Replace 'my_view_id' and 'my_display_id' with your actual View ID and Display ID.
+  $view = $form_state->getStorage()['view'];
+  if ($view->id() !== 'search') {
+    return;
+  }
+  if ($view->getDisplay()->display['id'] !== 'search_block_solr') {
+    return;
+  }
+
+  if (!isset($form['type']['#options'])) {
+    return;
+  }
+  $new_key = 'agrisource';
+  $old_key = 'landing_page';
+  $options = $form['type']['#options'];
+  $value = $options[$old_key]; // Get the value associated with the old key
+  unset($options[$old_key]); // Remove the old key-value pair
+  $options[$new_key] = $value; // Add the new key with the retrieved value
+
+  $form['type']['#options'] = $options;
+}
 
 /**
  * Ensure our alter runs last.
@@ -39,26 +68,56 @@ function agrisource_facets_search_api_query_alter(QueryInterface $query) {
 }
 
 /**
- * Recursively rewrites "type = agrisource" to "type IN ['page','landing_page']".
+ * Recursively rewrites any "type = agrisource" or "type IN [...agrisource...]" to
+ * "type IN ['page','landing_page']".
  */
 function _agri_rewrite_agrisource_in_place(ConditionGroupInterface $group): void {
+  $SOURCES = ['page', 'landing_page'];
   foreach ($group->getConditions() as $cond) {
     if ($cond instanceof ConditionInterface) {
-      if ($cond->getField() === 'type'
-        && $cond->getOperator() === '='
-        && (string) $cond->getValue() === 'agrisource') {
+      $field = (string) $cond->getField();
+      if (!_agri_matches_type_field($field)) {
+        continue;
+      }
 
-        // Mutate the existing condition object in place.
-        if (method_exists($cond, 'setOperator') && method_exists($cond, 'setValue')) {
-          $cond->setOperator('IN');
-          $cond->setValue(['page', 'landing_page']);
-        }
+      $op = (string) $cond->getOperator();
+      $val = $cond->getValue();
+
+      $has_agrisource = FALSE;
+
+      if (is_array($val)) {
+        // Example: IN ['agrisource'] or IN ['news','agrisource'].
+        $has_agrisource = in_array('agrisource', array_map('strval', $val), TRUE);
+      }
+      else {
+        // Example: = 'agrisource'
+        $has_agrisource = ((string) $val === 'agrisource');
+      }
+
+      if (!$has_agrisource) {
+        continue;
+      }
+
+      if (method_exists($cond, 'setOperator') && method_exists($cond, 'setValue')) {
+        $cond->setOperator('IN');
+        $cond->setValue($SOURCES);
       }
     }
     elseif ($cond instanceof ConditionGroupInterface) {
       _agri_rewrite_agrisource_in_place($cond);
     }
   }
+}
+
+/**
+ * Accept both "type" and datasource-qualified field ids that end with ":type".
+ */
+function _agri_matches_type_field(string $field): bool {
+  if ($field === 'type') {
+    return TRUE;
+  }
+  // Handles things like "search_api_datasource:entity:node:type"
+  return str_ends_with($field, ':type');
 }
 
 /** Minimal logging helpers. */

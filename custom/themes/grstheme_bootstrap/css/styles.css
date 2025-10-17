@@ -770,22 +770,22 @@ body.role-is-anonymous.node-49 div#edit-group-newsposteddate--content label#edit
 }
 
 /* line 58, ../sass/components/_search.scss */
-.block-views-blocksearch-block-1 .view-content {
+.block-views-blocksearch-block-search-solr .view-content {
   border-top: 1px solid #ccc;
 }
 /* line 61, ../sass/components/_search.scss */
-.block-views-blocksearch-block-1 .view-content .views-row {
+.block-views-blocksearch-block-search-solr .view-content .views-row {
   border-bottom: 1px solid #ccc;
   padding: 10px 0px;
 }
 /* line 65, ../sass/components/_search.scss */
-.block-views-blocksearch-block-1 .view-content .views-row .views-field-body, .block-views-blocksearch-block-1 .view-content .views-row .views-field-search-api-excerpt {
+.block-views-blocksearch-block-search-solr .view-content .views-row .views-field-body, .block-views-blocksearch-block-search-solr .view-content .views-row .views-field-search-api-excerpt {
   line-height: 1.2em;
   margin: 10px 0px;
   margin-top: 4px;
 }
 /* line 74, ../sass/components/_search.scss */
-.block-views-blocksearch-block-1 .views-field-title a {
+.block-views-blocksearch-block-search-solr .views-field-title a {
   font-weight: bold;
 }
 
@@ -953,32 +953,46 @@ body.user-logged-in.path-node.page-node-type-landing-page .bs-region--bottom #wb
 
 /* Search */
 /* line 4, ../sass/pages/_search.scss */
-.block-views-exposed-filter-blocksearch-block-1 #edit-submit-search {
+.block-views-exposed-filter-blocksearch-block-search-solr #edit-submit-search {
   margin-top: 5px;
 }
 
+.bef-exposed-form .form--inline > .form-item {
+  float: unset;
+}
+.block-views-exposed-filter-blocksearch-search-block-solr div.form-type-select {
+}
+.block-views-exposed-filter-blocksearch-search-block-solr div.form-item-query label.control-label {
+  width: 100%;
+}
+.block-views-exposed-filter-blocksearch-search-block-solr button.btn-primary, button.btn-danger {
+  margin-top: 15px;
+}
+.block-views-exposed-filter-blocksearch-search-block-solr button.btn-primary {
+  margin-right: 7px;
+}
 /* line 10, ../sass/pages/_search.scss */
-#views-exposed-form-search-block-1 .form-type-search-api-autocomplete {
+#views-exposed-form-search-block-search-solr .form-type-search-api-autocomplete {
   margin-right: 20px;
 }
 /* line 11, ../sass/pages/_search.scss */
-#views-exposed-form-search-block-1 .form-type-search-api-autocomplete label.control-label {
+#views-exposed-form-search-block-search-solr .form-type-search-api-autocomplete label.control-label {
   display: block;
 }
 /* line 16, ../sass/pages/_search.scss */
-#views-exposed-form-search-block-1 div.form-type-select {
+#views-exposed-form-search-block-search-solr div.form-type-select {
   display: inline-block;
   max-width: 8rem;
 }
 /* line 20, ../sass/pages/_search.scss */
-#views-exposed-form-search-block-1 #edit-actions--2 {
+#views-exposed-form-search-block-search-solr #edit-actions--2 {
   margin-top: 7px;
   width: 100%;
   float: none !important;
   display: inline-block;
 }
 /* line 26, ../sass/pages/_search.scss */
-#views-exposed-form-search-block-1 .bef-exposed-form .form--inline > .form-item {
+#views-exposed-form-search-block-search-solr .bef-exposed-form .form--inline > .form-item {
   float: inherit;
 }
 
@@ -1012,15 +1026,15 @@ body.user-logged-in.path-node.page-node-type-landing-page .bs-region--bottom #wb
 }
 
 /* line 58, ../sass/pages/_search.scss */
-.block-views-exposed-filter-blocksearch-block-1 .form-item {
+.block-views-exposed-filter-blocksearch-block-search-solr .form-item {
   margin-bottom: 5px;
 }
 /* line 62, ../sass/pages/_search.scss */
-.block-views-exposed-filter-blocksearch-block-1 .input-group input.form-text.form-autocomplete {
+.block-views-exposed-filter-blocksearch-block-search-solr .input-group input.form-text.form-autocomplete {
   background-position-x: 97%;
 }
 /* line 65, ../sass/pages/_search.scss */
-.block-views-exposed-filter-blocksearch-block-1 .input-group .ajax-progress {
+.block-views-exposed-filter-blocksearch-block-search-solr .input-group .ajax-progress {
   padding: 0;
 }
 
