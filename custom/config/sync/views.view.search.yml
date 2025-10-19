@@ -96,6 +96,59 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
+        parent_menu_title:
+          id: parent_menu_title
+          table: search_api_index_content
+          field: parent_menu_title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: '<span class="text-success">agriculture.canada.ca > {{ parent_menu_title }}</span>'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          link_to_item: false
+          use_highlighting: false
+          multi_type: separator
+          multi_separator: ', '
         field_modified:
           id: field_modified
           table: search_api_index_content
@@ -195,7 +248,7 @@ display:
             target: ''
             nl2br: false
             max_length: 400
-            word_boundary: false
+            word_boundary: true
             ellipsis: false
             more_link: false
             more_link_text: ''
@@ -221,59 +274,6 @@ display:
           multi_type: separator
           multi_separator: ', '
           filter_type: xss_admin
-        url:
-          id: url
-          table: search_api_index_content
-          field: url
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: div
-          element_wrapper_class: text-success
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          link_to_item: false
-          use_highlighting: false
-          multi_type: separator
-          multi_separator: ', '
       pager:
         type: full
         options:
