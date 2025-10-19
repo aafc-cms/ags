@@ -57,7 +57,7 @@
     margin-right:5px;
 
     &:after {
-      content: ":";
+      content: "-";
     }
   }
 
@@ -67,7 +67,7 @@
   }
   .views-field-field-issued, .views-field-field-modified {
     margin-top: 4px;
-    line-height: 1.2em;
+    line-height: 1em;
   }
 }
 
@@ -81,16 +81,6 @@
     }
     .ajax-progress {
       padding: 0;
-    }
-  }
-}
-
-body.i18n-en {
-  .view-search {
-    .views-field-field-issued, .views-field-field-modified {
-      &:after {
-        margin-left: -5px;
-      }
     }
   }
 }
