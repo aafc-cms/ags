@@ -22,13 +22,14 @@ dependencies:
     - core.entity_view_mode.media.w900
   module:
     - blazy
+    - ckeditor5_label_fix
     - embed_block
     - linkit
     - media
     - slick
-    - token_filter
     - url_embed
-    - wxt_ext_editor
+    - wxt_chart_stability
+    - wxt_overrides
 name: 'No Editor Full'
 format: no_editor_full
 weight: -7
@@ -63,6 +64,12 @@ filters:
       allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol type start> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <a href hreflang data-entity-substitution data-entity-type data-entity-uuid title>'
       filter_html_help: true
       filter_html_nofollow: false
+  label_link_fix_filter:
+    id: label_link_fix_filter
+    provider: ckeditor5_label_fix
+    status: true
+    weight: 101
+    settings: {  }
   linkit:
     id: linkit
     provider: linkit
@@ -70,6 +77,7 @@ filters:
     weight: 0
     settings:
       title: true
+      media_substitution: metadata
   media_embed:
     id: media_embed
     provider: media
@@ -109,14 +117,27 @@ filters:
     status: false
     weight: 4
     settings:
+      caption:
+        alt: '0'
+        title: '0'
       optionset: default
       layout: ''
+      admin_uri: '/en/admin/config/content/formats/manage/no_editor_full?destination=/en/admin/config/content/formats'
       background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_media_style: ''
+      loading: ''
       responsive_image_style: ''
+      box_style: ''
       image_style: ''
       media_switch: ''
       ratio: ''
       thumbnail_style: ''
+      grid: ''
+      grid_medium: ''
+      grid_small: ''
+      style: ''
       skin: ''
       overridables:
         arrows: '0'
@@ -133,6 +154,8 @@ filters:
       thumbnail_effect: ''
       thumbnail_position: ''
       override: false
+      preserve_keys: false
+      visible_items: null
   span_link_fix_filter:
     id: span_link_fix_filter
     provider: wxt_overrides
@@ -145,29 +168,19 @@ filters:
     status: true
     weight: 101
     settings: {  }
-  token_filter:
-    id: token_filter
-    provider: token_filter
-    status: false
-    weight: 0
-    settings:
-      replace_empty: false
   url_embed:
     id: url_embed
     provider: url_embed
     status: true
     weight: 0
-    settings: {  }
-  wxt_add_table_attribute_filter:
-    id: wxt_add_table_attribute_filter
-    provider: wxt_ext_editor
-    status: false
-    weight: 0
     settings:
-      responsive: true
-      replace_classes: true
-      replace_all_classes: true
-      classes: 'wb-tables table'
-      whitelist_classes: ''
-      add_datatable_attribute: false
-      datatable_options: ''
+      enable_responsive: true
+      default_ratio: '66.7'
+  wxt_chart_stability_compatibilityfilter:
+    id: wxt_chart_stability_compatibilityfilter
+    provider: wxt_chart_stability
+    status: false
+    weight: -99
+    settings:
+      clean: '<td>&nbsp;</td>'
+      desired: '<td></td>'

@@ -164,6 +164,7 @@ filters:
     weight: -49
     settings:
       title: false
+      media_substitution: metadata
   media_embed:
     id: media_embed
     provider: media
@@ -220,7 +221,7 @@ filters:
         title: '0'
       optionset: default
       layout: ''
-      admin_uri: '/en/admin/config/content/formats/manage/full_html?destination=/en/admin/config/content/formats&ajax_form=1&_wrapper_format=drupal_ajax'
+      admin_uri: '/en/admin/config/content/formats/manage/full_html?destination=/en/admin/config/content/formats'
       background: false
       box_caption: ''
       box_caption_custom: ''

@@ -30,6 +30,7 @@ dependencies:
     - core.entity_view_mode.media.w900
   module:
     - blazy
+    - ckeditor5_label_fix
     - embed_block
     - entity_embed
     - linkit
@@ -39,6 +40,7 @@ dependencies:
     - url_embed
     - wxt_chart_stability
     - wxt_ext_blocks
+    - wxt_overrides
 name: Webform
 format: webform
 weight: -8
@@ -97,6 +99,12 @@ filters:
       allowed_html: ''
       filter_html_help: true
       filter_html_nofollow: false
+  label_link_fix_filter:
+    id: label_link_fix_filter
+    provider: ckeditor5_label_fix
+    status: true
+    weight: 101
+    settings: {  }
   linkit:
     id: linkit
     provider: linkit
@@ -104,6 +112,7 @@ filters:
     weight: 0
     settings:
       title: true
+      media_substitution: metadata
   media_embed:
     id: media_embed
     provider: media
@@ -146,6 +155,12 @@ filters:
         remote_video: remote_video
         video: video
         video_file: video_file
+  p_video_remove_filter:
+    id: p_video_remove_filter
+    provider: wxt_overrides
+    status: true
+    weight: 100
+    settings: {  }
   slick_filter:
     id: slick_filter
     provider: slick
@@ -191,6 +206,18 @@ filters:
       override: false
       preserve_keys: false
       visible_items: null
+  span_link_fix_filter:
+    id: span_link_fix_filter
+    provider: wxt_overrides
+    status: true
+    weight: 100
+    settings: {  }
+  table_tfoot_fix_filter:
+    id: table_tfoot_fix_filter
+    provider: wxt_overrides
+    status: true
+    weight: 101
+    settings: {  }
   token_filter:
     id: token_filter
     provider: token_filter
