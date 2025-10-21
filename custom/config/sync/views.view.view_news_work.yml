@@ -7,6 +7,7 @@ dependencies:
     - field.storage.node.field_from
     - field.storage.node.field_newstype
     - node.type.news
+    - system.menu.main
     - taxonomy.vocabulary.news_type
   content:
     - 'block_content:basic:be4d3824-c613-4aef-8992-42ba10131caf'
@@ -884,10 +885,11 @@ display:
           tokenize: false
       path: news/newswork
       menu:
-        type: none
-        title: news@work_old
+        type: normal
+        title: news@work
         description: ''
         weight: -49
+        enabled: false
         expanded: false
         menu_name: main
         parent: 'menu_link_content:0e1b0de8-f138-4ba7-bb0a-b04cac201684'
