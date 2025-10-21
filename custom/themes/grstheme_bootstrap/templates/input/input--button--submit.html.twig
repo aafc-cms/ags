@@ -47,7 +47,9 @@
           <button{{ attributes.addClass(classes) }}>{{ label }}{{ icon }}</button>{{ children }}
         {% endif %}
       {% else %}
-        {% if attributes.id == 'edit-submit-search' %}
+        {% if attributes.id == 'edit-reset-search' %}
+          <button{{ attributes.addClass(classes).addClass('btn-danger') }}>{{ icon }}{{ label }}</button>{{ children }}
+        {% elseif attributes.id == 'edit-submit-search' %}
           <button{{ attributes.addClass(classes).addClass('btn-primary') }}>{{ icon }}{{ label }}</button>{{ children }}
         {% elseif attributes.id == 'edit-submit' or attributes.id == 'edit-actions-submit' %}
           <button{{ attributes.addClass(classes).addClass('btn-success').removeClass('btn-primary') }}>{{ icon }}{{ label }}</button>{{ children }}
