@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 function agrisource_search_processors_install(): void {
   agrisource_search_processors_update_10001();
+  agrisource_search_processors_update_10002();
 }
 
 /**
@@ -30,3 +31,31 @@ function agrisource_search_processors_update_10001(): void {
   }
 }
 
+/**
+ * Adds a French alias for the /search page.
+ */
+function agrisource_search_processors_update_10002() {
+  // Use the path_alias storage to ensure proper multilingual handling.
+  $storage = \Drupal::entityTypeManager()->getStorage('path_alias');
+
+  // Check if an alias already exists for this combination.
+  $existing = $storage->loadByProperties([
+    'path' => '/search',
+    'langcode' => 'fr',
+  ]);
+
+  if (empty($existing)) {
+    // Create the alias entity.
+    $alias = $storage->create([
+      'path' => '/search',
+      'alias' => '/recherche',
+      'langcode' => 'fr',
+    ]);
+    $alias->save();
+    \Drupal::logger('agrisource_search_processors')->notice('Added alias /recherche for /search (langcode=fr).');
+  }
+  else {
+    \Drupal::logger('agrisource_search_processors')->notice('Alias for /search (fr) already exists. No change made.');
+  }
+  agrisource_search_processors_update_10001();
+}

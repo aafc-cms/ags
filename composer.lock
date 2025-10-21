@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e76c41dcc9f49347ca5df0990260c46",
+    "content-hash": "1db7bddfb0cc6f2ef16afac592f44284",
     "packages": [
         {
             "name": "agrcms/agri_admin",
@@ -10842,11 +10842,17 @@
         },
         {
             "name": "drupal/search_api",
-            "version": "dev-1.x",
+            "version": "1.39.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/search_api.git",
-                "reference": "557e56f4"
+                "reference": "8.x-1.39"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.39.zip",
+                "reference": "8.x-1.39",
+                "shasum": "faaf441950b7357203d3fa9ce92f3e59b55c0837"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11"
@@ -10867,17 +10873,16 @@
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev",
-                    "dev-8.x-1.x": "1.x-dev"
-                },
                 "drupal": {
-                    "version": "8.x-1.39+12-dev",
-                    "datestamp": "1760621450",
+                    "version": "8.x-1.39",
+                    "datestamp": "1758968162",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "branch-alias": {
+                    "dev-8.x-1.x": "1.x-dev"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -21726,12 +21731,6 @@
     ],
     "aliases": [
         {
-            "package": "drupal/search_api",
-            "version": "1.9999999.9999999.9999999-dev",
-            "alias": "1.39",
-            "alias_normalized": "1.39.0.0"
-        },
-        {
             "package": "drupal/votingapi",
             "version": "4.0.9999999.9999999-dev",
             "alias": "3.0.1",
@@ -21744,7 +21743,6 @@
         "drupal/ckeditor5_sup_fix": 10,
         "drupal/facets": 20,
         "drupal/o365": 10,
-        "drupal/search_api": 20,
         "drupal/search_api_solr": 20,
         "drupal/votingapi": 20,
         "phpmd/phpmd": 0

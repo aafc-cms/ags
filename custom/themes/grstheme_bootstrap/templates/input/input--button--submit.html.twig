@@ -39,7 +39,7 @@
     {% else %}
 
       {% if icon_position == 'after' %}
-        {% if attributes.id == 'edit-submit' or attributes.id == 'edit-actions-submit' %}
+        {% if attributes.id == 'edit-submit' or attributes.id == 'edit-actions-submit' or attributes.id == 'edit-submit-search' %}
           <button{{ attributes.addClass(classes).addClass('btn-success').removeClass('btn-primary') }}>{{ label }}{{ icon }}</button>{{ children }}
         {% elseif attributes.id == 'edit-preview' %}
           <button{{ attributes.addClass(classes).addClass('btn-success').removeClass('btn-default') }}>{{ label }}{{ icon }}</button>{{ children }}
@@ -47,7 +47,9 @@
           <button{{ attributes.addClass(classes) }}>{{ label }}{{ icon }}</button>{{ children }}
         {% endif %}
       {% else %}
-        {% if attributes.id == 'edit-submit' or attributes.id == 'edit-actions-submit' %}
+        {% if attributes.id == 'edit-submit-search' %}
+          <button{{ attributes.addClass(classes).addClass('btn-primary') }}>{{ icon }}{{ label }}</button>{{ children }}
+        {% elseif attributes.id == 'edit-submit' or attributes.id == 'edit-actions-submit' %}
           <button{{ attributes.addClass(classes).addClass('btn-success').removeClass('btn-primary') }}>{{ icon }}{{ label }}</button>{{ children }}
         {% elseif attributes.id == 'edit-preview' %}
           <button{{ attributes.addClass(classes).addClass('btn-success').removeClass('btn-default') }}>{{ icon }}{{ label }}</button>{{ children }}

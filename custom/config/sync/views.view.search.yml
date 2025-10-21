@@ -347,7 +347,18 @@ display:
                 advanced:
                   sort_options: true
                   rewrite:
-                    filter_rewrite_values: "Landing page|Agrisource\r\nlanding_page|agrisource\r\nEmployment Opportunity|Employment\r\nEmployment opportunity|Employment\r\nOpportunité d'emploi|Emploi"
+                    filter_rewrite_values: "Landing page|Agrisource\r\nlanding_page|agrisource\r\nEmployment Opportunity|Employment\r\nEmployment opportunity|Employment\r\nOpportunité d'emploi|Emploi\r\nPage de destination|Agrisource"
+                    filter_rewrite_values_key: false
+                  collapsible: false
+                  collapsible_disable_automatic_open: false
+                  is_secondary: false
+                  hide_label: false
+              field_newstype:
+                plugin_id: default
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
                   collapsible_disable_automatic_open: false
@@ -359,7 +370,18 @@ display:
       cache:
         type: search_api_none
         options: {  }
-      empty: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text_custom
+          empty: true
+          content: "<h2 id=\"results\" class=\"wb-inv\">Results</h2>\r\n<div class=\"well col-xs-12\">\r\n  <p class=\"no-margin\">No results.</p>\r\n</div>"
+          tokenize: false
       sorts:
         search_api_relevance:
           id: search_api_relevance
@@ -384,7 +406,7 @@ display:
           plugin_id: search_api
           order: DESC
           expose:
-            label: Modified
+            label: 'Date modified'
             field_identifier: field_modified
           exposed: true
         field_issued:
@@ -397,7 +419,7 @@ display:
           plugin_id: search_api
           order: DESC
           expose:
-            label: Issued
+            label: 'Date issued'
             field_identifier: field_issued
           exposed: true
       arguments: {  }
@@ -555,7 +577,7 @@ display:
           exposed: true
           expose:
             operator_id: type_op
-            label: 'Content type'
+            label: Type
             description: ''
             use_operator: false
             operator: type_op
@@ -671,7 +693,7 @@ display:
           admin_label: ''
           plugin_id: result
           empty: false
-          content: "<h2 class=\"wb-inv\">Results</h2>\r\n<div class=\"well col-xs-12\">\r\n  <p class=\"no-margin\">Displaying results @start to @end of @total results.</p>\r\n</div>"
+          content: "<h2 id=\"results\" class=\"wb-inv\">Results</h2>\r\n<div class=\"well col-xs-12\">\r\n  <p class=\"no-margin\">Displaying results @start to @end of @total results.</p>\r\n</div>"
       footer: {  }
       display_extenders: {  }
     cache_metadata:
