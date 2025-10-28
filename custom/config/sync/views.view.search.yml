@@ -96,19 +96,19 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-        parent_menu_title:
-          id: parent_menu_title
+        langcode:
+          id: langcode
           table: search_api_index_content
-          field: parent_menu_title
+          field: langcode
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: search_api
+          plugin_id: search_api_field
           label: ''
-          exclude: false
+          exclude: true
           alter:
-            alter_text: true
-            text: '<span class="text-success">Agrisource > {{ parent_menu_title }}</span>'
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -141,9 +141,133 @@ display:
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: language
+          settings:
+            link_to_entity: false
+            native_language: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: false
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+        agrisource_parent_menu_title:
+          id: agrisource_parent_menu_title
+          table: search_api_index_content
+          field: agrisource_parent_menu_title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          link_to_item: false
+          use_highlighting: false
+          multi_type: separator
+          multi_separator: ', '
+        agrisource_parent_menu_title_fr:
+          id: agrisource_parent_menu_title_fr
+          table: search_api_index_content
+          field: agrisource_parent_menu_title_fr
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: "{% set lc = langcode|render|striptags|trim %}\r\n<span class=\"text-success\">Agrisource > {{ lc == 'fr'\r\n  ? agrisource_parent_menu_title_fr\r\n  : agrisource_parent_menu_title }}</span>"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
           empty: '<span class="text-success">Agrisource</span>'
           hide_empty: false
-          empty_zero: true
+          empty_zero: false
           hide_alter_empty: true
           link_to_item: false
           use_highlighting: false

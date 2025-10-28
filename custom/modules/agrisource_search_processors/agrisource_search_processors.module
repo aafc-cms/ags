@@ -1,14 +1,73 @@
 <?php
 
-declare(strict_types=1);
-
-use Drupal\block_content\Entity\BlockContent;
-use Drupal\Core\Url;
-
 /**
  * @file
  * Runtime hooks for agrisource_search_processors.
  */
+
+declare(strict_types=1);
+
+use Drupal\block_content\Entity\BlockContent;
+use Drupal\Core\Url;
+use Drupal\views\ViewExecutable;
+
+
+/**
+ * Implements hook_views_pre_render().
+ *
+ * Add a JS flag so the client knows whether there are results.
+ */
+function agrisource_search_processors_views_pre_render(ViewExecutable $view) : void {
+  if ($view->id() !== 'search') {
+    return;
+  }
+
+  $has_results = !empty($view->result);
+  $view->element['#attached']['drupalSettings']['agrisourceSearch']['hasResults'] = $has_results;
+  $view->element['#attached']['library'][] = 'agrisource_search_processors/search_hash';
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ *
+ * Attach library on the page manager route as well, in case the View is embedded.
+ */
+function agrisource_search_processors_page_attachments_alter(array &$attachments) {
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  if ($route_name === 'page_manager.page_view_search_search-panels_variant-0') {
+    $attachments['#attached']['library'][] = 'agrisource_search_processors/search_hash';
+  }
+}
+
+/**
+ * Implements hook_block_view_alter().
+ *
+ * Adjust language switcher URLs so they use the correct fragment.
+ */
+function agrisource_search_processors_block_view_alter(array &$build, \Drupal\Core\Block\BlockPluginInterface $block) {
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  if ($route_name !== 'page_manager.page_view_search_search-panels_variant-0') {
+    return;
+  }
+  if ($block->getPluginId() !== 'language_block:language_interface') {
+    return;
+  }
+
+  // Determine current language and whether the search has results.
+  $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $has_results = !empty(\Drupal::request()->attributes->get('_drupal_settings')['agrisourceSearch']['hasResults'])
+    || !empty(\Drupal::request()->query->all()['query']); // fallback heuristic.
+
+  $fragment = $has_results ? ($langcode === 'fr' ? '#resultats' : '#results') : '#edit-query';
+
+  foreach (\Drupal::service('language_manager')->getLanguages() as $target_langcode => $lang) {
+    if (isset($build['#links'][$target_langcode])) {
+      $url = $build['#links'][$target_langcode]['url'];
+      $url = $url->setOption('fragment', ltrim($fragment, '#'));
+      $build['#links'][$target_langcode]['url'] = $url;
+    }
+  }
+}
 
 /**
  * Cron implementation: ensure block body matches expected markup.

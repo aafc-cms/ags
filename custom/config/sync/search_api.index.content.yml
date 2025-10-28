@@ -70,6 +70,18 @@ name: Content
 description: ''
 read_only: false
 field_settings:
+  agrisource_parent_menu_title:
+    label: 'Agrisource parent menu title (EN)'
+    property_path: agrisource_parent_menu_title
+    type: string
+    configuration:
+      value: '[node:menu-link:parent:title]'
+  agrisource_parent_menu_title_fr:
+    label: 'Agrisource parent menu title (FR)'
+    property_path: agrisource_parent_menu_title_fr
+    type: string
+    configuration:
+      value: '[node:menu-link:parent:title]'
   autocomplete_body:
     label: 'Description » Processed text'
     datasource_id: 'entity:node'
@@ -185,12 +197,6 @@ field_settings:
     indexed_locked: true
     type_locked: true
     hidden: true
-  parent_menu_title:
-    label: 'Parent menu title'
-    property_path: custom_value
-    type: string
-    configuration:
-      value: '[node:menu-link:parent:title]'
   status:
     label: Published
     datasource_id: 'entity:node'
@@ -257,6 +263,7 @@ datasource_settings:
 processor_settings:
   add_url: {  }
   aggregated_field: {  }
+  agrisource_parent_menu_title: {  }
   auto_aggregated_fulltext_field: {  }
   content_access:
     weights:
@@ -288,11 +295,36 @@ processor_settings:
     title: true
     alt: true
     tags:
-      b: 2.0
-      h1: 5.0
-      h2: 3.0
-      h3: 2.0
-      strong: 2.0
+      b: 2
+      h1: 5
+      h2: 3
+      h3: 2
+      strong: 2
+  ignore_character:
+    weights:
+      preprocess_index: -10
+      preprocess_query: -10
+    all_fields: false
+    fields:
+      - autocomplete_body
+      - autocomplete_title
+      - body
+      - body_spellcheck
+      - field_class_level
+      - field_open_to
+      - langcode
+      - title
+      - title_spellcheck
+      - type
+    ignorable: "['¿¡!?,.:;]"
+    ignorable_classes:
+      - Me
+      - Mn
+      - Pe
+      - Pf
+      - Pi
+      - Ps
+      - Zp
   language_with_fallback: {  }
   rendered_item: {  }
   solr_date_range:
