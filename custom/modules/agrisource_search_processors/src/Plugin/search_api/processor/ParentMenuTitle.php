@@ -114,6 +114,9 @@ final class ParentMenuTitle extends ProcessorPluginBase {
 
     if ($en !== '') {
       foreach ($helper->filterForPropertyPath($item->getFields(), NULL, 'agrisource_parent_menu_title') as $field) {
+        if ($en == 'Newswork') {
+          $en = "news@work";
+        }
         $field->setValues([$en]);
       }
     }
@@ -121,9 +124,6 @@ final class ParentMenuTitle extends ProcessorPluginBase {
       foreach ($helper->filterForPropertyPath($item->getFields(), NULL, 'agrisource_parent_menu_title_fr') as $field) {
         if ($fr == 'Possibilites demploi a linterne') {
           $fr = "Possibilités d'emploi à l'interne";
-        }
-        if ($en == 'Newswork') {
-          $en = "news@work";
         }
         if ($fr == 'Nouvelleslouvrage') {
           $fr = "nouvelles@l'ouvrage";
