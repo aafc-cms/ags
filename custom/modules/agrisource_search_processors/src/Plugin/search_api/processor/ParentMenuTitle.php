@@ -122,8 +122,8 @@ final class ParentMenuTitle extends ProcessorPluginBase {
         if ($fr == 'Possibilites demploi a linterne') {
           $fr = "Possibilités d'emploi à l'interne";
         }
-        if ($fr == 'Newswork') {
-          $fr = "news@work";
+        if ($en == 'Newswork') {
+          $en = "news@work";
         }
         if ($fr == 'Nouvelleslouvrage') {
           $fr = "nouvelles@l'ouvrage";
