@@ -29,6 +29,9 @@ display:
         field_issued:
           expose:
             label: 'Date de parution'
+        search_api_relevance:
+          expose:
+            label: Pertinence
       filters:
         search_api_fulltext:
           expose:
