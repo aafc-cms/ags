@@ -114,6 +114,7 @@ final class ParentMenuTitle extends ProcessorPluginBase {
 
     if ($en !== '') {
       foreach ($helper->filterForPropertyPath($item->getFields(), NULL, 'agrisource_parent_menu_title') as $field) {
+        $en = str_replace('newswork', "news@work", $en);
         if ($en == 'Newswork') {
           $en = "news@work";
         }
@@ -125,6 +126,7 @@ final class ParentMenuTitle extends ProcessorPluginBase {
         if ($fr == 'Possibilites demploi a linterne') {
           $fr = "Possibilités d'emploi à l'interne";
         }
+        $fr = str_replace('nouvelleslouvrage', "nouvelles@l'ouvrage", $fr);
         if ($fr == 'Nouvelleslouvrage') {
           $fr = "nouvelles@l'ouvrage";
         }
