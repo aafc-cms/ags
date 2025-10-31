@@ -4,7 +4,65 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\search_api\Query\QueryInterface;
 use Drupal\search_api\Query\ConditionGroupInterface;
 use Drupal\search_api\Query\ConditionInterface;
+use Drupal\views\ViewExecutable;
 
+
+/**
+ * Implements hook_views_pre_view().
+ *
+ * On the search page (view=search, display=search_block_solr):
+ * If no keywords AND sort is still the default relevance (or absent),
+ * force sort to "field_modified DESC".
+ */
+function agrisource_facets_views_pre_view(ViewExecutable $view, $display_id, array &$args): void {
+  if ($view->id() !== 'search' || $display_id !== 'search_block_solr') {
+    return;
+  }
+
+  // What Views thinks is the current exposed input right now (may be empty on first load).
+  $input = $view->getExposedInput();
+
+  // Treat as "no keywords" when 'query' (or search_api_fulltext) is blank/missing.
+  $raw = $input['query'] ?? $input['search_api_fulltext'] ?? '';
+  if (is_array($raw)) {
+    $raw = implode(' ', $raw);
+  }
+  $has_keywords = trim((string) $raw) !== '';
+  if ($has_keywords) {
+    return; // user typed something — do nothing
+  }
+
+  // If user already picked a non-relevance sort, don't override.
+  $sort_by    = $input['sort_by']    ?? 'search_api_relevance';
+  $sort_order = $input['sort_order'] ?? 'DESC';
+  $combined   = $input['sort_bef_combine'] ?? '';
+
+  $is_relevance = (
+    strcasecmp($sort_by, 'search_api_relevance') === 0 ||
+    $sort_by === '' ||
+    // BEF combined variant like "search_api_relevance_DESC" or "search_api_relevance_ASC".
+    (is_string($combined) && str_starts_with($combined, 'search_api_relevance'))
+  );
+
+  if (!$is_relevance) {
+    return;
+  }
+
+  // Force Date modified (DESC). Use your exact sort key from the View/index.
+  $modified_key = 'field_modified';
+  $input['sort_by'] = $modified_key;
+  $input['sort_order'] = 'DESC';
+  $input['sort_bef_combine'] = $modified_key . '_DESC';
+
+  // Make Views use these as if they came from the request, BEFORE building handlers.
+  $view->setExposedInput($input);
+
+  // (Belt-and-suspenders) If the query object already exists, ensure it has the sort too.
+  if (isset($view->query) && method_exists($view->query, 'addSort')) {
+    // Do not try to "clear"; just add our sort so it wins.
+    $view->query->addSort($modified_key, 'DESC');
+  }
+}
 
 /**
  * Implements hook_form_FORM_ID_alter() for views_exposed_form.
