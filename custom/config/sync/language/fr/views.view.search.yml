@@ -26,9 +26,6 @@ display:
         field_modified:
           expose:
             label: 'Date de révision'
-        field_issued:
-          expose:
-            label: 'Date de parution'
         search_api_relevance:
           expose:
             label: Pertinence
@@ -38,7 +35,7 @@ display:
             label: 'Mots-clés de recherche'
         field_newstype:
           expose:
-            label: Catégorie
+            label: "nouvelles@l'ouvrage"
       header:
         result:
           content: "<h2 id=\"resultats\" class=\"wb-inv\">Résultats</h2>\r\n<div class=\"well col-xs-12\">\r\n  <p class=\"no-margin\">Affichage des résultats @start à @end sur un total de @total résultats.</p>\r\n</div>"

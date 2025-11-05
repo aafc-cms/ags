@@ -428,8 +428,8 @@ display:
           reset_button_label: 'Clear all'
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
+          sort_asc_label: oldest
+          sort_desc_label: newest
           text_input_required: 'Select any filter and click on Apply to see results'
           text_input_required_format: rich_text
           bef:
@@ -447,8 +447,8 @@ display:
             sort:
               plugin_id: default
               advanced:
-                combine: false
-                combine_rewrite: ''
+                combine: true
+                combine_rewrite: "Relevance newest|Relevance\r\nRelevance oldest|not_an_option\r\nDate modified oldest|Oldest first\r\nDate modified newest|Newest first\r\nPertinence oldest|not_an_option\r\nPertinence newest|Pertinence\r\nDate de révision newest|Plus récents d’abord\r\nDate de révision oldest|Plus anciens d’abord"
                 reset: false
                 reset_label: ''
                 collapsible: false
@@ -532,19 +532,6 @@ display:
           expose:
             label: 'Date modified'
             field_identifier: field_modified
-          exposed: true
-        field_issued:
-          id: field_issued
-          table: search_api_index_content
-          field: field_issued
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api
-          order: DESC
-          expose:
-            label: 'Date created'
-            field_identifier: field_issued
           exposed: true
       arguments: {  }
       filters:
@@ -753,7 +740,7 @@ display:
           exposed: true
           expose:
             operator_id: field_newstype_op
-            label: Category
+            label: 'news@work category'
             description: ''
             use_operator: false
             operator: field_newstype_op

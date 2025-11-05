@@ -33,12 +33,11 @@ function agrisource_facets_views_pre_view(ViewExecutable $view, $display_id, arr
   }
 
   // If user already picked a non-relevance sort, don't override.
-  $sort_by    = $input['sort_by']    ?? 'search_api_relevance';
-  $sort_order = $input['sort_order'] ?? 'DESC';
   $combined   = $input['sort_bef_combine'] ?? '';
+  $sort_by    = $combined;
 
   $is_relevance = (
-    strcasecmp($sort_by, 'search_api_relevance') === 0 ||
+    strcasecmp($sort_by, 'search_api_relevance_DESC') === 0 ||
     $sort_by === '' ||
     // BEF combined variant like "search_api_relevance_DESC" or "search_api_relevance_ASC".
     (is_string($combined) && str_starts_with($combined, 'search_api_relevance'))
@@ -51,7 +50,6 @@ function agrisource_facets_views_pre_view(ViewExecutable $view, $display_id, arr
   // Force Date modified (DESC). Use your exact sort key from the View/index.
   $modified_key = 'field_modified';
   $input['sort_by'] = $modified_key;
-  $input['sort_order'] = 'DESC';
   $input['sort_bef_combine'] = $modified_key . '_DESC';
 
   // Make Views use these as if they came from the request, BEFORE building handlers.
@@ -78,6 +76,29 @@ function agrisource_facets_form_views_exposed_form_alter(array &$form, FormState
     return;
   }
 
+  if (isset($form['sort_bef_combine']['#options'])) {
+    $options = $form['sort_bef_combine']['#options'];
+
+    // Remove the unwanted option by label.
+    $options = array_filter($options, static function ($label) {
+      return $label !== 'not_an_option' && $label !== 'Relevance oldest';
+    });
+
+    // Reorder by label: Relevance, Newest first, Oldest first; then anything else.
+    $desired = ['Relevance', 'Newest first', 'Oldest first'];
+    $reordered = [];
+    foreach ($desired as $want) {
+      foreach ($options as $k => $label) {
+        if ($label === $want) {
+          $reordered[$k] = $label;
+          unset($options[$k]);
+          break;
+        }
+      }
+    }
+    // Append any remaining options (if BEF adds more later).
+    $form['sort_bef_combine']['#options'] = $reordered + $options;
+  }
   if (!isset($form['type']['#options'])) {
     return;
   }
