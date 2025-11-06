@@ -232,7 +232,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% set lc = langcode|render|striptags|trim %}\r\n<span class=\"text-success\">Agrisource > {{ lc == 'fr'\r\n  ? agrisource_parent_menu_title_fr\r\n  : agrisource_parent_menu_title }}</span>"
+            text: "{% set lc = langcode|render|striptags|trim %}\r\n<span class=\"text-success\">AgriSource > {{ lc == 'fr'\r\n  ? agrisource_parent_menu_title_fr\r\n  : agrisource_parent_menu_title }}</span>"
             make_link: false
             path: ''
             absolute: false
