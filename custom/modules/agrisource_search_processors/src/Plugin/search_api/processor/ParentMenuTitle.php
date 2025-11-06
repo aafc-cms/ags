@@ -65,75 +65,146 @@ final class ParentMenuTitle extends ProcessorPluginBase {
       return;
     }
 
+    $bundle = $entity->bundle();
+    $max_levels = \in_array($bundle, ['news', 'empl'], TRUE) ? 1 : 2;
+
     $token = \Drupal::token();
     $alias_manager = \Drupal::service('path_alias.manager');
 
-    $pick_second_last = static function (string $alias): ?string {
-      $parts = array_values(array_filter(explode('/', trim($alias, '/')), 'strlen'));
-      $n = count($parts);
-      return $n >= 2 ? $parts[$n - 2] : ($n === 1 ? $parts[0] : NULL);
+    $explode_alias = static function (string $alias): array {
+      return array_values(array_filter(explode('/', trim($alias, '/')), 'strlen'));
     };
 
-    $prettify = static function (string $segment): string {
+    $prettify = static function (string $segment, string $lang): string {
       $clean = rawurldecode($segment);
       $clean = str_replace('-', ' ', $clean);
       $clean = Html::decodeEntities($clean);
-      return Unicode::ucfirst($clean);
+      $clean = Unicode::ucfirst($clean);
+
+      // Localize browse root.
+      if (\strcasecmp($clean, 'Browse') === 0 || \strcasecmp($clean, 'Parcourir') === 0) {
+        return $lang === 'fr' ? 'Parcourir' : 'Browse';
+      }
+
+      // Project-specific fixes.
+      if ($lang === 'en') {
+        $clean = str_replace('newswork', 'news@work', $clean);
+        if ($clean === 'Newswork') {
+          $clean = 'news@work';
+        }
+      }
+      else {
+        if ($clean === 'Possibilites demploi a linterne') {
+          $clean = "Possibilités d'emploi à l'interne";
+        }
+        $clean = str_replace('nouvelleslouvrage', "nouvelles@l'ouvrage", $clean);
+        if ($clean === 'Nouvelleslouvrage') {
+          $clean = "nouvelles@l'ouvrage";
+        }
+      }
+
+      return $clean;
     };
 
-    $resolve = static function (NodeInterface $node, string $lang) use ($token, $alias_manager, $pick_second_last, $prettify): string {
-      // 1) Menu parent title in requested lang; ignore unresolved literal token.
+    $parent_from_menu = static function (NodeInterface $node, string $lang) use ($token): string {
       $title = trim((string) $token->replace('[node:menu-link:parent:title]', ['node' => $node], ['langcode' => $lang]));
       if ($title !== '' && $title !== '[node:menu-link:parent:title]') {
         if ($lang === 'en' && strcasecmp($title, 'Parcourir') === 0) return 'Browse';
         if ($lang === 'fr' && strcasecmp($title, 'Browse') === 0) return 'Parcourir';
         return $title;
       }
+      return '';
+    };
 
-      // 2) Alias fallback: requested → neutral → not_specified → other lang.
+    $resolve_alias = static function (NodeInterface $node, string $lang) use ($alias_manager): ?string {
       $src = '/node/' . $node->id();
       foreach ([$lang, LanguageInterface::LANGCODE_NOT_APPLICABLE, LanguageInterface::LANGCODE_NOT_SPECIFIED, $lang === 'fr' ? 'en' : 'fr'] as $try) {
         $alias = $alias_manager->getAliasByPath($src, $try);
         if (is_string($alias) && $alias !== $src) {
-          $seg = $pick_second_last($alias);
-          if ($seg) {
-            if ($seg === 'browse' || $seg === 'parcourir') {
-              return $lang === 'fr' ? 'Parcourir' : 'Browse';
-            }
-            return $prettify($seg);
+          return $alias;
+        }
+      }
+      return NULL;
+    };
+
+    $build_lang_value = function (string $lang) use (
+      $entity,
+      $max_levels,
+      $parent_from_menu,
+      $resolve_alias,
+      $explode_alias,
+      $prettify
+    ): string {
+      $crumbs = [];
+
+      // Preferred "parent" comes from menu if available; otherwise alias second-last.
+      $menu_parent = $parent_from_menu($entity, $lang);
+      $alias = $resolve_alias($entity, $lang);
+      $parts = $alias ? $explode_alias($alias) : [];
+
+      // Alias parent (second-last) and grandparent (third-last) segments.
+      $alias_parent = '';
+      $alias_grandparent = '';
+      if (!empty($parts)) {
+        $n = count($parts);
+        // parent = second-last if present; else last if only one segment.
+        if ($n >= 2) {
+          $alias_parent = $parts[$n - 2];
+        }
+        elseif ($n === 1) {
+          $alias_parent = $parts[0];
+        }
+        // grandparent = third-last if present.
+        if ($n >= 3) {
+          $alias_grandparent = $parts[$n - 3];
+        }
+      }
+
+      // Determine the "parent" crumb.
+      $parent_label = $menu_parent !== '' ? $menu_parent : ($alias_parent !== '' ? $alias_parent : '');
+      if ($parent_label !== '') {
+        $crumbs[] = $prettify($parent_label, $lang);
+      }
+
+      // If we are allowed two levels, try to add the "grandparent".
+      if ($max_levels === 2) {
+        // If menu gave us a parent, grandparent comes from alias third-last (if any).
+        if ($alias_grandparent !== '') {
+          // Avoid duplicate browse/parcourir if already present.
+          $gp = $prettify($alias_grandparent, $lang);
+          if (empty($crumbs) || strcasecmp(end($crumbs), $gp) !== 0) {
+            array_unshift($crumbs, $gp); // grandparent before parent
           }
         }
       }
-      return '';
+
+      // Enforce maximum levels and normalize order: grandparent > parent.
+      $crumbs = array_values(array_filter($crumbs, 'strlen'));
+      if (count($crumbs) > $max_levels) {
+        $crumbs = array_slice($crumbs, -$max_levels);
+      }
+
+      // Join with " > " as requested.
+      return $crumbs ? implode(' > ', $crumbs) : '';
     };
 
-    $en = $resolve($entity, 'en');
-    $fr = $resolve($entity, 'fr');
+    $en = $build_lang_value('en');
+    $fr = $build_lang_value('fr');
 
     $helper = $this->getFieldsHelper();
 
     if ($en !== '') {
       foreach ($helper->filterForPropertyPath($item->getFields(), NULL, 'agrisource_parent_menu_title') as $field) {
-        $en = str_replace('newswork', "news@work", $en);
-        if ($en == 'Newswork') {
-          $en = "news@work";
-        }
         $field->setValues([$en]);
       }
     }
     if ($fr !== '') {
       foreach ($helper->filterForPropertyPath($item->getFields(), NULL, 'agrisource_parent_menu_title_fr') as $field) {
-        if ($fr == 'Possibilites demploi a linterne') {
-          $fr = "Possibilités d'emploi à l'interne";
-        }
-        $fr = str_replace('nouvelleslouvrage', "nouvelles@l'ouvrage", $fr);
-        if ($fr == 'Nouvelleslouvrage') {
-          $fr = "nouvelles@l'ouvrage";
-        }
         $field->setValues([$fr]);
       }
     }
   }
+
 
 }
 
