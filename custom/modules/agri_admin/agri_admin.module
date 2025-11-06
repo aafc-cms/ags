@@ -585,7 +585,7 @@ function agri_admin_node_presave(EntityInterface $entity) {
 
   foreach ($roles as $value) {
     $role = $value;
-    if (($role == 'creator' &&  empty($peer_review_status)) || $role == 'news_ccpub' || $role == 'empl_cspub') {
+    if ((($role == 'creator' || $role == 'pab_admin') &&  empty($peer_review_status)) || $role == 'news_ccpub' || $role == 'empl_cspub') {
       // AgriAdminHelper::addToLog('presave called for ' . $entity->language()->getId() . ' ' . $entity->id(), TRUE);.
       $langcode = $entity->language()->getId();
       if ($langcode == 'en') {
@@ -650,7 +650,7 @@ function _helper_locking_content($action, $entity_id, $bundle, NodeInterface $en
             $lock_service->release($latest, 'edit', $current_author_id);
           }
         }
-        if ($role == 'creator') {
+        if ($role == 'creator' || $role == 'pab_admin') {
           $is_creator = TRUE;
           $state = $latest->get('moderation_state')->getString();
 /* Removing peer_review_status check since we now use hook_lock_entity_lockable() to allow editing of locked nodes with none empty peer_review_status.
