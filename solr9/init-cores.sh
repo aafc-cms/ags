@@ -19,16 +19,25 @@ else
   done
 fi
 
-# Cores to create (space-separated). You can set CORES via environment.
 CORES=${CORES:-"agrisource"}
-CONF_PATH=${CONF_PATH:-/opt/solr/server/solr/configsets/agrisource/}
+# IMPORTANT: point to conf/ directly
+CONF_PATH=${CONF_PATH:-/opt/solr/server/solr/configsets/agrisource/conf}
 
 for core in $CORES; do
-  if [ ! -d "/var/solr/data/$core" ]; then
-    /opt/solr/bin/solr create -c "$core" -d "$CONF_PATH"
-    echo "Created core: $core"
+  CORE_DIR="/var/solr/data/$core"
+  if [ ! -d "$CORE_DIR" ]; then
+    # Use create_core and pass the conf dir
+    /opt/solr/bin/solr create_core -c "$core" -d "$CONF_PATH"
+    echo "Created core: $core using $CONF_PATH"
   else
     echo "Core already exists: $core"
+    # self-heal if conf/ is missing or empty
+    if [ ! -d "$CORE_DIR/conf" ] || [ -z "$(ls -A "$CORE_DIR/conf" 2>/dev/null || true)" ]; then
+      mkdir -p "$CORE_DIR/conf"
+      cp -a "$CONF_PATH"/. "$CORE_DIR/conf/"
+      echo "Repaired $core/conf from $CONF_PATH"
+      curl -s "http://localhost:8983/solr/admin/cores?action=RELOAD&core=$core" >/dev/null || true
+    fi
   fi
 done
 
