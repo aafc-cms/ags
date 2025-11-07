@@ -21,7 +21,7 @@ fi
 
 CORES=${CORES:-"agrisource"}
 # IMPORTANT: point to conf/ directly
-CONF_PATH=${CONF_PATH:-/opt/solr/server/solr/configsets/agrisource/conf}
+CONF_PATH=${CONF_PATH:-/opt/solr/server/solr/configsets/agrisource}
 
 for core in $CORES; do
   CORE_DIR="/var/solr/data/$core"
