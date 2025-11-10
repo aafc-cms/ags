@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_tracking_number
     - user.role.creator
+    - user.role.pab_admin
     - workflows.workflow.editorial
   module:
     - content_moderation
@@ -242,6 +243,7 @@ display:
         type: mini
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 15
           total_pages: null
           id: 1
@@ -256,7 +258,6 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          pagination_heading_level: h4
       exposed_form:
         type: basic
         options:
@@ -272,6 +273,7 @@ display:
         options:
           role:
             creator: creator
+            pab_admin: pab_admin
       cache:
         type: tag
         options: {  }
@@ -745,6 +747,7 @@ display:
         options:
           role:
             creator: creator
+            pab_admin: pab_admin
       empty:
         area_text_custom:
           id: area_text_custom
@@ -1023,7 +1026,9 @@ display:
       display_description: ''
       rendering_language: '***LANGUAGE_entity_translation***'
       display_extenders:
-        metatag_display_extender: {  }
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -1524,6 +1529,7 @@ display:
         options:
           role:
             creator: creator
+            pab_admin: pab_admin
       empty:
         area_text_custom:
           id: area_text_custom
@@ -1785,7 +1791,9 @@ display:
       display_description: ''
       rendering_language: '***LANGUAGE_entity_translation***'
       display_extenders:
-        metatag_display_extender: {  }
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -2082,6 +2090,7 @@ display:
         options:
           role:
             creator: creator
+            pab_admin: pab_admin
       empty:
         area_text_custom:
           id: area_text_custom
@@ -2304,7 +2313,9 @@ display:
       display_description: ''
       rendering_language: '***LANGUAGE_entity_translation***'
       display_extenders:
-        metatag_display_extender: {  }
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -2765,7 +2776,9 @@ display:
       display_description: ''
       rendering_language: '***LANGUAGE_entity_translation***'
       display_extenders:
-        metatag_display_extender: {  }
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
     cache_metadata:
       max-age: -1
       contexts:

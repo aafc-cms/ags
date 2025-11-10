@@ -6,6 +6,7 @@ dependencies:
     - user.role.creator
     - user.role.empl_cspub
     - user.role.news_ccpub
+    - user.role.pab_admin
     - workflows.workflow.editorial
   module:
     - content_lock
@@ -322,6 +323,7 @@ display:
             creator: creator
             news_ccpub: news_ccpub
             empl_cspub: empl_cspub
+            pab_admin: pab_admin
       cache:
         type: none
         options: {  }
@@ -1020,7 +1022,9 @@ display:
       display_description: ''
       rendering_language: '***LANGUAGE_entity_translation***'
       display_extenders:
-        metatag_display_extender: {  }
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
     cache_metadata:
       max-age: -1
       contexts:
