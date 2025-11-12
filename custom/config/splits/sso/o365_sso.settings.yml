@@ -2,11 +2,14 @@ _core:
   default_config_hash: 0MiFF0rKCc2zUjo88jfcc7UW6-YdWIYjDgWzTElziRE
 link_text: 'Login with @connector'
 link_position: 1
-hide_login_form: 0
+hide_login_form: 1
 auto_redirect: 0
 redirect_login_destination: 1
 hide_user_fields: 0
 only_existing_users: 0
 logout_office: 0
-update_username: 0
-username_attribute: displayName
+update_username: 1
+username_attribute: userPrincipalName
+email_property: userPrincipalName
+email_property_other: ''
+prompt: '<noprompt>'
