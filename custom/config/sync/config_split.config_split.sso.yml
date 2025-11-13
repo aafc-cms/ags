@@ -4,19 +4,63 @@ status: false
 dependencies: {  }
 id: sso
 label: SSO
-description: ''
-weight: 0
+description: "settings only to be deployed to environments configured as 'sso'.  \r\n"
+weight: -1
 stackable: false
 no_patching: false
 storage: folder
 folder: ../custom/config/splits/sso
 module:
+  autologout: 0
+  dblog: 0
   externalauth: 100
+  git_status: 0
+  mailsystem: 0
   o365: 100
   o365_profile: 100
   o365_sso: 100
   o365_sso_user: 100
   oauth2_client: 100
+  password_policy: 0
+  password_policy_character_types: 0
+  password_policy_characters: 0
+  password_policy_history: 0
+  password_policy_length: 0
+  purge: 0
+  purge_drush: 0
+  purge_processor_cron: 0
+  purge_processor_lateruntime: 0
+  purge_queuer_coretags: 0
+  purge_tokens: 0
+  purge_ui: 0
+  smtp: 0
+  varnish_purge_tags: 0
+  varnish_purger: 0
+  warmer: 0
+  warmer_cdn: 0
+  warmer_entity: 0
+  wxt_ext_password_policy: 0
 theme: {  }
-complete_list: {  }
+complete_list:
+  - autologout.role.administrator
+  - autologout.role.creator
+  - autologout.role.editor
+  - autologout.role.empl_cspub
+  - autologout.role.news_ccpub
+  - autologout.role.reviewer
+  - autologout.settings
+  - dblog.settings
+  - git_status.settings
+  - password_policy.password_policy.wxt_ism_policy_strong
+  - password_policy.settings
+  - purge.logger_channels
+  - purge.plugins
+  - purge_queuer_coretags.settings
+  - smtp.settings
+  - system.logging
+  - system.mail
+  - system.performance
+  - system.site
+  - varnish_purger.settings.47e333ca49
+  - warmer.settings
 partial_list: {  }
