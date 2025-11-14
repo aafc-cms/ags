@@ -14,20 +14,17 @@ index_id: content
 suggester_settings:
   server:
     fields:
+      - autocomplete_body
       - autocomplete_title
   search_api_solr_spellcheck: {  }
   search_api_solr_suggester:
     search_api_solr/site_hash: 1
     search_api/index: content
     drupal/langcode: multilingual
-  search_api_solr_terms:
-    fields:
-      - autocomplete_title
 suggester_weights:
   server: 2
   search_api_solr_spellcheck: 0
   search_api_solr_suggester: -2
-  search_api_solr_terms: 0
 suggester_limits:
   server: 5
   search_api_solr_spellcheck: 5
