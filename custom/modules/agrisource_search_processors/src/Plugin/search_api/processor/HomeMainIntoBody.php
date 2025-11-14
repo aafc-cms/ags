@@ -59,6 +59,15 @@ final class HomeMainIntoBody extends ProcessorPluginBase {
 
     // Render full page as SUB_REQUEST so regions/blocks are included.
     $request = $this->createSubRequest('/node/20');
+    \Drupal::logger('agrisource_search_processors')->notice(
+      "SUB_REQUEST DEBUG:\nURL=@url\nPath=@path\nServer=@server\nHeaders=@headers",
+       [
+        '@url'     => $request->getSchemeAndHttpHost() . $request->getRequestUri(),
+        '@path'    => $request->getPathInfo(),
+        '@server'  => json_encode($request->server->all(), JSON_PRETTY_PRINT),
+        '@headers' => json_encode($request->headers->all(), JSON_PRETTY_PRINT),
+      ]
+    );
     $response = $this->httpKernel->handle($request, HttpKernelInterface::SUB_REQUEST);
     $html = (string) $response->getContent();
     if ($html === '') {
