@@ -3,8 +3,9 @@
 namespace Drupal\agrisource_search_processors\Plugin\search_api\processor;
 
 use Drupal\Component\Utility\Html;
+use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\search_api\Item\ItemInterface;
-use Drupal\search_api\Processor\ProcessorPluginBase; // <-- your working base class
+use Drupal\search_api\Processor\ProcessorPluginBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
@@ -21,21 +22,29 @@ use Symfony\Component\HttpKernel\HttpKernelInterface;
  */
 final class HomeMainIntoBody extends ProcessorPluginBase {
 
+  /**
+   * Constructs the processor.
+   */
   public function __construct(
     array $configuration,
     $plugin_id,
     $plugin_definition,
-    private readonly HttpKernelInterface $httpKernel
+    private readonly HttpKernelInterface $httpKernel,
+    private readonly ConfigFactoryInterface $configFactory,
   ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition): self {
     return new self(
       $configuration,
       $plugin_id,
       $plugin_definition,
-      $container->get('http_kernel')
+      $container->get('http_kernel'),
+      $container->get('config.factory'),
     );
   }
 
@@ -49,17 +58,7 @@ final class HomeMainIntoBody extends ProcessorPluginBase {
     }
 
     // Render full page as SUB_REQUEST so regions/blocks are included.
-    $current = \Drupal::request();
-    $host = $current?->getHost() ?? 'localhost';
-    $scheme = $current?->getScheme() ?? 'http';
-
-    // If your real front path isn't /node/20, you can pull it from config:
-    // $path = \Drupal::config('system.site')->get('page.front') ?: '/';
-    $request = Request::create('/node/20', 'GET', [], [], [], [
-      'HTTP_HOST' => $host,
-      'HTTP_X_FORWARDED_PROTO' => $scheme,
-      'HTTPS' => $scheme === 'https' ? 'on' : 'off',
-    ]);
+    $request = $this->createSubRequest('/node/20');
     $response = $this->httpKernel->handle($request, HttpKernelInterface::SUB_REQUEST);
     $html = (string) $response->getContent();
     if ($html === '') {
@@ -89,6 +88,68 @@ final class HomeMainIntoBody extends ProcessorPluginBase {
         $field->setValues([$text]);
       }
     }
+  }
+
+  /**
+   * Build a sub-request to the given path, using linkchecker overrides if set.
+   */
+  private function createSubRequest(string $path): Request {
+    // Defaults from current request.
+    $current = \Drupal::request();
+    $scheme = $current?->getScheme() ?? 'http';
+    $host = $current?->getHost() ?? 'localhost';
+    $port = $current?->getPort() ?: null;
+
+    $is_cloud = TRUE;
+
+    if (stripos($host, 'pro') !== FALSE || stripos($host, 'ddev') !== FALSE) {
+      $is_cloud = FALSE;
+    }
+    // Try to reuse linkchecker.settings if present.
+    $config = $this->configFactory->get('linkchecker.settings');
+    if ($config && $is_cloud) {
+      $override_host_url = $config->get('localhost_url');
+      $override_host_port = $config->get('localhost_port_number');
+
+      if (!empty($override_host_url)) {
+        // localhost_url might be "http://web:8080" or just "web".
+        $parsed = @parse_url($override_host_url);
+        if ($parsed !== false) {
+          if (!empty($parsed['scheme'])) {
+            $scheme = $parsed['scheme'];
+          }
+          if (!empty($parsed['host'])) {
+            $host = $parsed['host'];
+          }
+          elseif (!empty($parsed['path'])) {
+            // If someone put "web" without scheme.
+            $host = $parsed['path'];
+          }
+          if (!empty($parsed['port'])) {
+            $port = $parsed['port'];
+          }
+        }
+        else {
+          // Fallback: treat whole string as host.
+          $host = $override_host_url;
+        }
+      }
+
+      if (!empty($override_host_port)) {
+        $port = $override_host_port;
+      }
+    }
+
+    // Build SERVER array for the sub-request.
+    $server = [
+      'HTTP_HOST' => $port && !in_array((int) $port, [80, 443], TRUE) ? $host . ':' . $port : $host,
+      'SERVER_NAME' => $host,
+      'SERVER_PORT' => $port ?: ($scheme === 'https' ? 443 : 80),
+      'HTTP_X_FORWARDED_PROTO' => $scheme,
+      'HTTPS' => $scheme === 'https' ? 'on' : 'off',
+    ];
+
+    return Request::create($path, 'GET', [], [], [], $server);
   }
 
 }
