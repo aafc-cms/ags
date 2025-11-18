@@ -10969,31 +10969,34 @@
         },
         {
             "name": "drupal/search_api_pinbyphrase",
-            "version": "1.0.0-alpha2",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/search_api_pinbyphrase.git",
-                "reference": "1.0.0-alpha2"
+                "reference": "1.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api_pinbyphrase-1.0.0-alpha2.zip",
-                "reference": "1.0.0-alpha2",
-                "shasum": "1648ccefbde7a09858abbe871dc304214e3907bb"
+                "url": "https://ftp.drupal.org/files/projects/search_api_pinbyphrase-1.0.0.zip",
+                "reference": "1.0.0",
+                "shasum": "796bba28b3feac4a12a2301ca51bc99352fd77bb"
             },
             "require": {
-                "drupal/core": "^10.3 || ^11",
-                "drupal/search_api": "*",
-                "drupal/search_api_solr": "*"
+                "drupal/core": "^10 || ^11",
+                "drupal/search_api": "^1.40",
+                "drupal/search_api_solr": "^4.3"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.0-alpha2",
-                    "datestamp": "1763426901",
+                    "version": "1.0.0",
+                    "datestamp": "1763478745",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
+                    },
+                    "extension": {
+                        "type": "module"
                     }
                 }
             },
@@ -11003,18 +11006,33 @@
             ],
             "authors": [
                 {
-                    "name": "joseph.olstad",
-                    "homepage": "https://www.drupal.org/user/1321830"
+                    "name": "Joseph Olstad (joseph.olstad)",
+                    "homepage": "https://www.drupal.org/u/joseph.olstad",
+                    "role": "Maintainer"
                 },
                 {
-                    "name": "smulvih2",
-                    "homepage": "https://www.drupal.org/user/795442"
+                    "name": "Stephen Mulvihill (smulvih2)",
+                    "homepage": "https://www.drupal.org/u/smulvih2",
+                    "role": "Maintainer"
                 }
             ],
             "description": "Pins a node to the top of the results when search query matches expected phrase and node id and specified language. None to many configurable sets of phrases with their corresponding node id and language code.",
-            "homepage": "https://www.drupal.org/project/search_api_pinbyphrase",
+            "homepage": "https://drupal.org/project/search_api_pinbyphrase",
+            "keywords": [
+                "drupal",
+                "phrase",
+                "pin",
+                "ranking",
+                "results",
+                "search",
+                "search_api",
+                "solr"
+            ],
             "support": {
-                "source": "https://git.drupalcode.org/project/search_api_pinbyphrase"
+                "source": "https://git.drupalcode.org/project/search_api_pinbyphrase",
+                "issues": "https://www.drupal.org/project/issues/search_api_pinbyphrase?version=1.0.x-dev",
+                "docs": "https://www.drupal.org/project/search_api_pinbyphrase",
+                "forum": "https://drupal.stackexchange.com/questions/tagged/search_api_pinbyphrase"
             }
         },
         {
