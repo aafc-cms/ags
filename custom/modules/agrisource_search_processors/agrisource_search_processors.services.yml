@@ -1,5 +1,0 @@
-services:
-  agrisource_search_processors.pin_item_subscriber:
-    class: Drupal\agrisource_search_processors\EventSubscriber\PinItemSubscriber
-    tags:
-      - { name: event_subscriber }
