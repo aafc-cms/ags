@@ -576,11 +576,11 @@ function agri_admin_node_presave(EntityInterface $entity) {
           $entity->set('field_modified', $date_posted);
           $entity->set('changed', strtotime($date_posted));
         }
-        else{
+        else {
           $entity->set('field_modified', $dt->format('Y-m-d'));
           $current_date = $dt->format('Y-m-d');
           $changed_date = gmdate("Y-m-d",$changed_time);
-          if($changed_date !== $current_date) {
+          if ($changed_date !== $current_date) {
             $entity->set('changed', strtotime($current_date));
           }
         }
