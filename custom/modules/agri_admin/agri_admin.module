@@ -571,11 +571,18 @@ function agri_admin_node_presave(EntityInterface $entity) {
         }
       }
       else {
-        $entity->set('field_modified', $dt->format('Y-m-d'));
-        $current_date = $dt->format('Y-m-d');
-        $changed_date = gmdate("Y-m-d",$changed_time);
-        if($changed_date !== $current_date) {
-          $entity->set('changed', strtotime($current_date));
+        if ($content_type == 'news') {
+          $date_posted = $entity->get('field_posted')->getString();
+          $entity->set('field_modified', $date_posted);
+          $entity->set('changed', strtotime($date_posted));
+        }
+        else {
+          $entity->set('field_modified', $dt->format('Y-m-d'));
+          $current_date = $dt->format('Y-m-d');
+          $changed_date = gmdate("Y-m-d",$changed_time);
+          if ($changed_date !== $current_date) {
+            $entity->set('changed', strtotime($current_date));
+          }
         }
       }
     }
