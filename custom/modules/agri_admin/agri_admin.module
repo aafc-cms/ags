@@ -997,8 +997,11 @@ function agri_admin_form_node_form_alter(&$form, FormStateInterface $form_state,
         $form['field_tracking_number']['widget'][0]['value']['#default_value'] = '';
       }
       elseif ($moderation_state == 'draft' &&  empty($peer_review_status)) {
-        // Do not enable peer reviewed.
-        $form['field_peer_review']['widget']['#options_attributes']['peer_reviewed']['disabled'] = 'disabled';
+        // Client wants the Peer Review Status field disabled at all times.
+        // Making the minimal change for this release in case client wants it enabled in the future.
+        $form['field_peer_review']['#disabled'] = TRUE;
+        // Disabling the peer_reviewed option below becomes redundant with disabling the field if empty. Hence, commenting...
+        // $form['field_peer_review']['widget']['#options_attributes']['peer_reviewed']['disabled'] = 'disabled';
       }
     } //End handle Peer_Review for page/landing_page only.
   }// End page/landing_page/news/empl.
@@ -2184,6 +2187,8 @@ function agri_admin_media_predelete(EntityInterface $entity) {
 /**
  * Implements hook_lock_entity_lockable().
  */
+/* Commenting out this function because we have now disabled the Peer Review functionality as per client request.
+   Leaving the code commented out in case client comes back and asks us to reinstate the functionality.
 function agri_admin_content_lock_entity_lockable(EntityInterface $entity, array $config, string $form_op = NULL): bool {
   $peer_review_status = '';
   $content_type = $entity->bundle();
@@ -2201,7 +2206,7 @@ function agri_admin_content_lock_entity_lockable(EntityInterface $entity, array 
     }
   }
   return TRUE;
-}
+} */
 /**
  * implement hook_library_info_alter() to remove node/node.preview.js, which installs dialog
  * on almost all links. However it is not necessary for some links like language switch.
