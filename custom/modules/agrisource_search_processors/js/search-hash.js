@@ -58,6 +58,40 @@
       resetBtn.addEventListener('mousedown', handler);
       resetBtn.addEventListener('click', handler);
     });
+
+    const tryAgain = context.querySelector('a.please-try-again, #please-try-again');
+    if (!tryAgain) {
+      return;
+    }
+
+    once('agrisource-please-try-again', tryAgain).forEach(() => {
+      // Shared handler for both mousedown and click.
+      const handler = function (e) {
+        // Only run the reset logic once per interaction: do it on click.
+        if (e.type !== 'click') {
+          return;
+        }
+        // Trigger the actual reset button’s mousedown logic.
+        // (This runs your reset logic exactly once.)
+        resetBtn.dispatchEvent(
+          new MouseEvent('mousedown', {
+            bubbles: true,
+            cancelable: true,
+            view: window
+          })
+        );
+
+        // Optional: also mimic click suppression on resetBtn.
+        resetBtn.dispatchEvent(
+          new MouseEvent('click', {
+            bubbles: true,
+            cancelable: true,
+            view: window
+          })
+        );
+      };
+      tryAgain.addEventListener('click', handler);
+    });
   }
 
   function normalizeLocationHash() {
