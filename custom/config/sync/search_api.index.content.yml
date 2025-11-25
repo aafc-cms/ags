@@ -86,7 +86,7 @@ field_settings:
     label: 'Description » Processed text'
     datasource_id: 'entity:node'
     property_path: 'body:processed'
-    type: solr_text_suggester
+    type: text
     dependencies:
       config:
         - field.storage.node.body
