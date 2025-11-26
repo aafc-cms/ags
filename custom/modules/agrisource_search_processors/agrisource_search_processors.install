@@ -59,3 +59,60 @@ function agrisource_search_processors_update_10002() {
   }
   agrisource_search_processors_update_10001();
 }
+
+/**
+ * Set a baseline configuration for search_api_pinbyphrase.
+ */
+function agrisource_search_processors_update_10003() {
+  $config = \Drupal::configFactory()->getEditable('search_api_pinbyphrase.settings');
+
+  // Do not overwrite if something is already configured.
+  if (!empty($config->get('pinned_items')) || !empty($config->get('allowed_views'))) {
+    return t('Existing search_api_pinbyphrase.settings configuration kept.');
+  }
+
+  $pinned_items = [
+    [
+      'phrase' => 'Human resource',
+      'nid' => 62,
+      'langcode' => 'en',
+    ],
+    [
+      'phrase' => 'Human resources',
+      'nid' => 62,
+      'langcode' => 'en',
+    ],
+    [
+      'phrase' => 'Ressources humaines',
+      'nid' => 62,
+      'langcode' => 'fr',
+    ],
+    [
+      'phrase' => 'Ressource humaine',
+      'nid' => 62,
+      'langcode' => 'fr',
+    ],
+    [
+      'phrase' => 'Ressources humaine',
+      'nid' => 62,
+      'langcode' => 'fr',
+    ],
+    [
+      'phrase' => 'Human resource overview',
+      'nid' => 62,
+      'langcode' => 'en',
+    ],
+    [
+      'phrase' => 'My HR Centre',
+      'nid' => 62,
+      'langcode' => 'en',
+    ],
+  ];
+
+  $config
+    ->set('pinned_items', $pinned_items)
+    ->set('allowed_views', ['search'])
+    ->save();
+
+  return t('Baseline search_api_pinbyphrase.settings configuration has been created.');
+}
