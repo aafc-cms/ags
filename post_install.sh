@@ -363,6 +363,8 @@ if grep -q "Connected" test-connection.txt; then
   echo "";
   echo "Connected to the database, setting up the db views now.";
   #Run Create or Replace View sql command
+  echo  "Dropping view: drush sql-query --file=../custom/dbviews/drop_views_in_db.sql 2>/dev/null";
+                        drush sql-query --file=../custom/dbviews/drop_views_in_db.sql 2>/dev/null;
   echo  "Creating view: drush sql-query --file=../custom/dbviews/search_node_url.sql 2>/dev/null";
                         drush sql-query --file=../custom/dbviews/search_node_url.sql 2>/dev/null;
 else
