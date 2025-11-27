@@ -37,11 +37,13 @@ then from_unixtime(`nr`.`revision_timestamp`,'%Y-%m-%d') else '' end
    WHEN (`np`.`revision_id` is not null) THEN
      CASE
        WHEN (`nb`.`body_summary` IS NULL OR `nb`.`body_summary` = '') THEN
-         replace(replace(replace(`nfdes`.`field_description_value`,char(10),''),char(13),''),'            ',' ')
+         replace(replace(`nfdes`.`field_description_value`,char(13,10),''),'            ',' ')
        WHEN (`nfdes`.`field_description_value` IS NULL OR `nfdes`.`field_description_value` = '') THEN
-         nb.body_summary
+         replace(replace(`nb`.`body_summary`,char(13,10),''),'            ',' ')
+       WHEN (`nb`.`body_summary` = `nfdes`.`field_description_value`) THEN
+         replace(replace(`nfdes`.`field_description_value`,char(13,10),''),'            ',' ')
        ELSE
-         CONCAT(replace(replace(replace(`nfdes`.`field_description_value`,char(10),''),char(13),''),'            ',' '), '; ', nb.body_summary)
+         CONCAT(replace(replace(`nfdes`.`field_description_value`,char(13,10),''),'            ',' '), '; ', replace(replace(`nb`.`body_summary`,char(13,10),''),'            ',' '))
      END
    ELSE ''
  END) AS `description`
