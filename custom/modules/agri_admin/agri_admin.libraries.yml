@@ -101,3 +101,9 @@ agri_preview:
     - core/drupal.form
     - core/jquery
     - core/drupalSettings
+
+agri_chatbot:
+  js:
+    js/agri_chatbot.js: {}
+  dependencies:
+    - core/drupal

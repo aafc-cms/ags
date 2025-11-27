@@ -97,6 +97,11 @@ function agri_admin_page_attachments(array &$page) {
     } else if ($current_route == 'entity.node.preview') {
       $page['#attached']['library'][] = 'agri_admin/agri_preview';
     }
+
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if ($node instanceof NodeInterface && $node->id() == 137) {
+      $page['#attached']['library'][] = 'agri_admin/agri_chatbot';
+    }
   }
 }
 
