@@ -61,7 +61,7 @@
       resetBtn.addEventListener('click', handler);
     });
 
-    const tryAgain = context.querySelector('a.please-try-again, #please-try-again');
+    const tryAgain = context.querySelector('a.please-try-again, #please-try-again, a.veuillez-reessayer, #veuillez-reessayer');
     if (!tryAgain) {
       return;
     }
