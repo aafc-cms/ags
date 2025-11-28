@@ -2,7 +2,7 @@
   'use strict';
 
   function desiredHash(lang, hasResults) {
-    // For some reason they always want focus on #results
+    // For some reason they always want focus on #results.
     if (0 && !hasResults) {
       return '#edit-query';
     }
