@@ -2,7 +2,8 @@
   'use strict';
 
   function desiredHash(lang, hasResults) {
-    if (!hasResults) {
+    // For some reason they always want focus on #results
+    if (0 && !hasResults) {
       return '#edit-query';
     }
     return lang === 'fr' ? '#resultats' : '#results';
@@ -22,10 +23,11 @@
         e.stopPropagation();
         e.stopImmediatePropagation();
 
-        // Only run the reset logic once per interaction: do it on mousedown.
-        if (e.type !== 'mousedown') {
+        // Only run the reset logic once per interaction: do it on click.
+        if (e.type !== 'click') {
           return;
         }
+        // A click event includes "enter key" or "touch" or "mouse click".
 
         const form = resetBtn.closest('form');
         if (!form) {
