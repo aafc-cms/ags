@@ -3,8 +3,8 @@
 
   function desiredHash(lang, hasResults) {
     // For some reason they always want focus on #results.
-    if (0 && !hasResults) {
-      return '#edit-query';
+    if (!hasResults) {
+      return lang === 'fr' ? '#veuillez-reessayer' : '#please-try-again';
     }
     return lang === 'fr' ? '#resultats' : '#results';
   }

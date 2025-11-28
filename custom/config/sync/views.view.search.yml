@@ -504,7 +504,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: "<h2 id=\"results\" class=\"wb-inv\">Results</h2>\r\n<div class=\"well col-xs-12\">\r\n  <p class=\"no-margin\">No results found — <a id=\"please-try-again\" href=\"#edit-query\">please try again.</a></p>\r\n</div>"
+          content: "<h2 id=\"results\" class=\"wb-inv\">Results</h2>\r\n<div class=\"well col-xs-12\">\r\n  <p class=\"no-margin\"><a id=\"please-try-again\" href=\"#edit-query\">No results found — please try again.</a></p>\r\n</div>"
           tokenize: false
       sorts:
         search_api_relevance:
