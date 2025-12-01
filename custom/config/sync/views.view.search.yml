@@ -804,7 +804,7 @@ display:
           admin_label: ''
           plugin_id: result
           empty: false
-          content: "<h2 id=\"results\" class=\"wb-inv\">Results</h2>\r\n<div class=\"well col-xs-12\">\r\n  <p class=\"no-margin\">Displaying results @start to @end of @total results.</p>\r\n</div>"
+          content: "<h2 id=\"results\" class=\"wb-inv\">Results</h2>\r\n<div class=\"well col-xs-12\">\r\n  <p class=\"no-margin\" tabindex=\"0\">Displaying results @start to @end of @total results.</p>\r\n</div>"
       footer: {  }
       display_extenders: {  }
     cache_metadata:
