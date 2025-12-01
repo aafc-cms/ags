@@ -37,13 +37,13 @@ then from_unixtime(`nr`.`revision_timestamp`,'%Y-%m-%d') else '' end
    WHEN (`np`.`revision_id` is not null) THEN
      CASE
        WHEN (`nb`.`body_summary` IS NULL OR `nb`.`body_summary` = '') THEN
-         replace(replace(`nfdes`.`field_description_value`,char(13,10),''),'            ',' ')
+         CONCAT('Field_description value (Summary text empty): ', replace(replace(`nfdes`.`field_description_value`,char(13,10),' '),'            ',' '))
        WHEN (`nfdes`.`field_description_value` IS NULL OR `nfdes`.`field_description_value` = '') THEN
-         replace(replace(`nb`.`body_summary`,char(13,10),''),'            ',' ')
-       WHEN (`nb`.`body_summary` = `nfdes`.`field_description_value`) THEN
-         replace(replace(`nfdes`.`field_description_value`,char(13,10),''),'            ',' ')
+         CONCAT('Summary text value (Field_description empty): ', replace(replace(`nb`.`body_summary`,char(13,10),' '),'            ',' '))
+       WHEN (replace(replace(`nb`.`body_summary`,char(13,10),' '),'            ',' ') = replace(replace(`nfdes`.`field_description_value`,char(13,10),' '),'            ',' ')) THEN
+         CONCAT('Field_description & Summary text same (showing one): ', replace(replace(`nfdes`.`field_description_value`,char(13,10),' '),'            ',' '))
        ELSE
-         CONCAT(replace(replace(`nfdes`.`field_description_value`,char(13,10),''),'            ',' '), '; ', replace(replace(`nb`.`body_summary`,char(13,10),''),'            ',' '))
+         CONCAT('Field_description & Summary text different (showing both separated by "; "): ', replace(replace(`nfdes`.`field_description_value`,char(13,10),' '),'            ',' '), '; ', replace(replace(`nb`.`body_summary`,char(13,10),' '),'            ',' '))
      END
    ELSE ''
  END) AS `description`
