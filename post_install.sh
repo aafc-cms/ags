@@ -4,8 +4,10 @@ printf "execute post_install.sh\n";
 
 trap "sudo configureSettingsFile" SIGINT SIGTERM
 
-RED='\033[0;31m'
-VERT='\033[0;32m'
+RED='\033[1;31m'
+VERT='\033[1;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[1;34m'
 BOLD='\033[1m' # BOLD
 NC='\033[0m' # No Color
 
@@ -98,6 +100,68 @@ configureSettingsFile () {
 
   # Fix previously configured environments.
   ./post_install_helper.php file_path="$settings_file" old_text="'modules/custom/config'" new_text="'modules/custom/config/sync'"
+
+  # Regex-safe representation of the entry we want
+  entry="host\\\.docker\\\.internal"
+
+  # 1) First check if trusted_host_patterns already exists as active code
+  if grep -q "^\s*\\\$settings\['trusted_host_patterns'\]" "$settings_file"; then
+    echo -e "${BOLD}Detected existing trusted_host_patterns block.${NC}"
+
+    # Check if host.docker.internal is already inside
+    if grep -q "$entry" "$settings_file"; then
+      echo -e "${BOLD}${YELLOW}trusted_host_patterns${NC}${BOLD} already contains ${VERT}host.docker.internal${NC}${BOLD} - nothing to do.${NC}"
+      return 0
+    fi
+
+    echo -e "${BOLD}Adding host.docker.internal to existing block.${NC}"
+
+    # Insert the new entry before the closing ];
+    chmod 775 html/sites/default;
+    chmod 664 $settings_file;
+    # Only modify the trusted_host_patterns block.
+    sed -i "/^[[:space:]]*\\\$settings\['trusted_host_patterns'\]/,/^[[:space:]]*];/ {
+  /^[[:space:]]*];/i\
+ \  '^host\\\.docker\\\.internal$', 
+}" $settings_file
+
+    echo -e "${BOLD}${VERT}Updated trusted host settings.${NC}"
+
+  # 2) Otherwise, find the *commented-out* example block and replace it with a real one.
+  elif grep -q "^\s*/\*\s*\\\$settings\['trusted_host_patterns'\]" "$settings_file"; then
+    echo -e "${BOLD}Found commented-out example trusted_host_patterns block.${NC}"
+
+    # Remove the entire commented block and replace it with real settings
+    # The block begins with "/* $settings['trusted_host_patterns']" and ends with "*/"
+    chmod 775 html/sites/default;
+    chmod 664 $settings_file;
+    sed -i "/\/\*.*trusted_host_patterns/,/\*\//c\\
+  \$settings['trusted_host_patterns'] = [\\
+    '^localhost$',\\
+    '^127\\.0\\.0\\.1$',\\
+    '^host\\.docker\\.internal$',\\
+  ];" "$settings_file"
+
+    echo -e "${YELLOW}Inserted active trusted_host_patterns block.${NC}"
+    return 0
+  else
+    # 3) If no block exists at all, append one at the end of the file
+    echo -e "${BOLD}No trusted_host_patterns block found - adding a new one at end of file.${NC}"
+    chmod 775 html/sites/default;
+    chmod 664 $settings_file;
+
+cat << 'EOF' >> "$settings_file"
+
+$settings['trusted_host_patterns'] = [
+  '^localhost$',
+  '^127\.0\.0\.1$',
+  '^host\.docker\.internal$',
+];
+EOF
+
+    echo -e "${YELLOW}Inserted trusted_host_patterns block.${NC}"
+  fi
+
 
 }
 
