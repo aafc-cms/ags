@@ -232,7 +232,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% set lc = langcode|render|striptags|trim %}\r\n<span class=\"text-success\">AgriSource > {{ lc == 'fr'\r\n  ? agrisource_parent_menu_title_fr\r\n  : agrisource_parent_menu_title }}</span>"
+            text: "{% set lc = langcode|render|striptags|trim %}\r\n<span class=\"text-success\">{{ lc == 'fr'\r\n  ? agrisource_parent_menu_title_fr\r\n  : agrisource_parent_menu_title }}</span>"
             make_link: false
             path: ''
             absolute: false
@@ -265,7 +265,7 @@ display:
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: false
-          empty: '<span class="text-success">Agrisource</span>'
+          empty: '<span class="text-success">AgriSource</span>'
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
@@ -471,7 +471,7 @@ display:
                 advanced:
                   sort_options: true
                   rewrite:
-                    filter_rewrite_values: "Landing page|Agrisource\r\nlanding_page|agrisource\r\nEmployment Opportunity|Employment\r\nEmployment opportunity|Employment\r\nOpportunité d'emploi|Emploi\r\nPage de destination|Agrisource"
+                    filter_rewrite_values: "Landing page|AgriSource\r\nlanding_page|agrisource\r\nEmployment Opportunity|Employment opportunities\r\nEmployment opportunity|Employment opportunities\r\nOpportunité d'emploi|Possibilités d'emploi\r\nPage de destination|AgriSource\r\nNews|News news@work\r\nNouvelle|Nouvelle nouvelles@l'ouvrage"
                     filter_rewrite_values_key: false
                   collapsible: false
                   collapsible_disable_automatic_open: false
