@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "94bea56f9b2599c472a88f399444b677",
+    "content-hash": "ca83321cfdada4e14938e4ab77ad7dff",
     "packages": [
         {
             "name": "agrcms/agri_admin",
@@ -11132,6 +11132,59 @@
             }
         },
         {
+            "name": "drupal/search_api_stats",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/search_api_stats.git",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/search_api_stats-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "d014ad560e21e7e621871b4f19b2762b48e3c20c"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10 || ^11",
+                "drupal/search_api": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1714466840",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "branana",
+                    "homepage": "https://www.drupal.org/user/758394"
+                },
+                {
+                    "name": "mandclu",
+                    "homepage": "https://www.drupal.org/user/52136"
+                },
+                {
+                    "name": "zterry95",
+                    "homepage": "https://www.drupal.org/user/1952394"
+                }
+            ],
+            "description": "Enabling the recording and presentation of statistics for the Search API module.",
+            "homepage": "https://www.drupal.org/project/search_api_stats",
+            "support": {
+                "source": "https://git.drupalcode.org/project/search_api_stats"
+            }
+        },
+        {
             "name": "drupal/sharedemail",
             "version": "3.2.0",
             "source": {
@@ -21893,17 +21946,17 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/votingapi": 20,
         "drupal/ckeditor5_label_fix": 10,
         "drupal/ckeditor5_sup_fix": 10,
+        "drupal/search_api_solr": 20,
         "drupal/o365": 10,
         "drupal/search_api_pinbyphrase": 15,
-        "drupal/search_api_solr": 20,
-        "drupal/votingapi": 20,
         "phpmd/phpmd": 0
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": {},
-    "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }
