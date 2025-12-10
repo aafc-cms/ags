@@ -15,9 +15,9 @@ safearchive: 1
 safeanchors: true
 safebaseurlother: 'https://agrisource.agr.gc.ca'
 safebaseurlother2: 'https://cms-dev.agr.gc.ca/d9dev'
-safeenableotherbaseurl: 1
-safeenableotherbaseurl2: 1
-safeenableprefix: 1
+safeenableotherbaseurl: 0
+safeenableotherbaseurl2: 0
+safeenableprefix: 0
 safeprefix: /d9dev
 orphanedpagedefinition:
   landing_page: landing_page
@@ -31,3 +31,4 @@ orphanedpagewithoutmenulink: landing_page
 enforce_bulk_publish_verify_checkpagepublished: true
 safebaseurl: ''
 safeenablebaseurl: 1
+check_published_only: true

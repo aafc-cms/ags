@@ -1,0 +1,316 @@
+diff --git a/safedelete.module b/safedelete.module
+index 50d1ba1..cb20806 100644
+--- a/safedelete.module
++++ b/safedelete.module
+@@ -412,6 +412,7 @@ function safedelete_form_alter(&$form, FormStateInterface $form_state, $form_id)
+       }
+     }
+   }
++
+   if (strpos($form_id, 'node') !== FALSE &&
+       strpos($form_id, 'delete_form') !== FALSE &&
+       $form_id != "node_type_delete_form") {
+@@ -435,7 +436,9 @@ function safedelete_form_alter(&$form, FormStateInterface $form_state, $form_id)
+       return;
+     }
+     AdminHelper::checkNodeReferencesMessage($nid, $bundle, $show_button, $markup, 'delete', $limit = 20);
+-    if ($show_button) {
++    AdminHelper::checkPublishedChildNodes($nid, $bundle, $show_button2, $msgdetail_hasPublishedChildNodes,'delete', 20);
++    $markup = $markup . $msgdetail_hasPublishedChildNodes;
++    if ($show_button && $show_button2) {
+       $form['description']['#markup'] = $markup;
+       $form['#attached']['library'][] = 'safedelete/safedelete';
+       $form['actions']['submit']['#access'] = $show_button ? TRUE : FALSE;
+@@ -446,6 +449,7 @@ function safedelete_form_alter(&$form, FormStateInterface $form_state, $form_id)
+       $form['actions']['submit']['#attributes'] = ['disabled' => $show_button ? 'enabled' : 'disabled'];
+     }
+   }
++
+   // This section must stay at the end of the form_alter.
+   // Handle form entity add/edit.
+   $form_object = $form_state->getFormObject();
+@@ -468,6 +472,7 @@ function safedelete_form_alter(&$form, FormStateInterface $form_state, $form_id)
+       }
+     }
+   }
++
+   if (!empty($entity) && $entity_type_id == 'block') {
+     // Disable this for now as it's not fully developped or tested.
+     // @todo ,finish this.
+@@ -523,6 +528,7 @@ function safedelete_entity_form_safe_anchors_validate(array &$form, FormStateInt
+     if ($validate) {
+       if ($entity->hasField('body') && !empty($entity->body) && isset($values['body'])) {
+         $show_button = TRUE;
++        $show_button2 = TRUE;
+         $archived_validation = FALSE;
+         $msgdetail_isArchived = NULL;
+         $body_field_val = '';
+@@ -537,10 +543,13 @@ function safedelete_entity_form_safe_anchors_validate(array &$form, FormStateInt
+           $nid = $entity->id();
+           $bundle = $entity->bundle();
+           $found_suspect_node = FALSE;
++
+           AdminHelper::checkNodeReferencesMessage($nid, $bundle, $show_button, $msgdetail_isPublished, 'archived_archived', 20);
+-          if (!$show_button) {
++          AdminHelper::checkPublishedChildNodes($nid, $bundle, $show_button2, $msgdetail_hasPublishedChildNodes,'archived_archived', 20);
++          $msgdetail_isPublished = $msgdetail_isPublished . $msgdetail_hasPublishedChildNodes;
++          if (!$show_button || !$show_button2) {
+             $found_suspect_node = TRUE;
+-            $error_message = t('Unable to archive due to published or draft content linking to this archive candidate node.  See warning message above');
++            $error_message = t('Unable to archive due to published or draft content linking to this archive candidate node and/or this node having published child nodes.  See warning messages above');
+             $ms = &$form['moderation_state']['widget'][0];
+             $key = isset($ms['state']) ? 'state' : (isset($ms['target_state']) ? 'target_state' : NULL);
+             if ($key) {
+@@ -942,9 +951,13 @@ function safedelete_moderated_content_bulk_publish_verify_archived($hookObject)
+   $markup = $hookObject->markup;
+   $error_message = $hookObject->error_message;
+   AdminHelper::checkNodeReferencesMessage($nid, $bundle, $show_button, $markup, $state, $limit);
++
++  AdminHelper::checkPublishedChildNodes($nid, $bundle, $show_button2, $msgdetail_hasPublishedChildNodes,'archived', 20);
++
+   // Pass references back.
+-  $hookObject->show_button = $show_button;
+-  $hookObject->markup = $markup;
++  $hookObject->show_button = $show_button && $show_button2;
++  $hookObject->markup = $markup . $msgdetail_hasPublishedChildNodes;
++
+   // Echo print_r($hookObject, TRUE);.
+   if (!$hookObject->show_button) {
+     $hookObject->error_message = t('Unable to archive due to other content linking to this content.  See warning message(s)');
+diff --git a/src/AdminHelper.php b/src/AdminHelper.php
+index c9f0897..e4ac669 100644
+--- a/src/AdminHelper.php
++++ b/src/AdminHelper.php
+@@ -454,6 +454,7 @@ EOT;
+    *
+    */
+   public static function checkNodeReferencesMessage($nid = NULL, &$bundle = 'page', &$show_button = TRUE, &$markup = '', $type = 'delete', $limit = 20) {
++
+     $root_nid = $nid;
+     $action_result = 'deleted';
+     if ($type == 'archived') {
+@@ -549,7 +550,7 @@ EOT;
+     // Begin logic here:
+     if (count($result) <= 0) {
+       $show_button = TRUE;
+-      $msg_type = t('Safe Delete verification check status');
++      $msg_type = t('Safe Delete verification check status for other nodes linking to this node:');
+       $message_ok = t('Other nodes were searched for uuid or linkit link with the node id in their body content, none were found.  Improperly referenced url aliases were verified (via linkit integration in the Safe Delete module).');
+       $markup = <<<EOT
+ <div role="contentinfo" aria-labelledby="message-status-title" class="messages-list__item messages messages--warning">
+@@ -566,7 +567,7 @@ EOT;
+     }
+     if (count($result) > 0) {
+       $show_button = FALSE;
+-      $msg_type = t('Safe Delete verification check status');
++      $msg_type = t('Safe Delete verification check status:');
+       if ($action_result == 'archived_archived') {
+         $temp = 'The %action candidate page "%root_entity_title" (node %nid) is linked from other pages.';
+         $markup = t($temp, [
+@@ -1477,4 +1478,206 @@ EOT;
+     $cleaned = str_replace($base_path, '', $path);
+     return $cleaned;
+   }
++
++/**
++ * Identify published child nodes under the menu link of a given node.
++*/
++  public static function checkPublishedChildNodes(int $parent_nid, &$bundle, &$show_button2=TRUE, &$markup='', $type = 'delete', $iterate_limit = 20) {
++    // some nodes link to 'sidebar' and the code fails if both are not used.
++    $menu_name1 = 'main';
++    $menu_name2 = 'sidebar';
++    $access_check = FALSE;
++    $nodes = [];
++
++    $etm = \Drupal::entityTypeManager();
++    $mlc_storage = $etm->getStorage('menu_link_content');
++
++    // 1) Parent menu link(s) for the given node.
++    $parent_ids = \Drupal::entityQuery('menu_link_content')
++      ->condition('menu_name', [$menu_name1, $menu_name2], 'IN')
++      ->condition('link.uri', 'entity:node/' . $parent_nid)
++      ->accessCheck($access_check)
++      ->execute();
++
++    $child_ids = [];
++    if ($parent_ids) {
++      $parents = $mlc_storage->loadMultiple($parent_ids);
++      $parent_plugin_ids = [];
++      foreach ($parents as $parent) {
++        $parent_plugin_ids[] = 'menu_link_content:' . $parent->uuid();
++      }
++      // 2) Child menu links that point to nodes.
++      $child_ids = \Drupal::entityQuery('menu_link_content')
++        ->condition('menu_name', [$menu_name1, $menu_name2], 'IN')
++        ->condition('parent', $parent_plugin_ids, 'IN')
++        ->condition('link.uri', 'entity:node/%', 'LIKE')
++        ->sort('weight', 'ASC')
++        ->sort('title', 'ASC')
++        ->accessCheck($access_check)
++        ->execute();
++    }
++
++    $nids = [];
++    if ($child_ids) {
++      $children = $mlc_storage->loadMultiple($child_ids);
++
++      // 3) Extract target NIDs.
++      foreach ($children as $child) {
++        $uri = $child->get('link')->uri;
++        if (str_starts_with($uri, 'entity:node/')) {
++          $nids[] = (int) substr($uri, strlen('entity:node/'));
++        }
++      }
++      $nids = array_values(array_unique($nids));
++    }
++
++    // 4) Only published nodes.
++    $published_nids = [];
++    if ($nids) {
++      $published_nids = \Drupal::entityQuery('node')
++        ->condition('nid', $nids, 'IN')
++        ->condition('status', 1)
++        ->accessCheck($access_check)
++        ->execute();
++    }
++
++    if ($published_nids) {
++      $nodes = $etm->getStorage('node')->loadMultiple($published_nids);
++      // Preserve menu order.
++      $order = [];
++      foreach ($children as $child) {
++        $uri = $child->get('link')->uri;
++        if (str_starts_with($uri, 'entity:node/')) {
++          $nid = (int) substr($uri, strlen('entity:node/'));
++          if (isset($nodes[$nid]) && !isset($order[$nid])) {
++            $order[$nid] = count($order);
++          }
++        }
++      }
++
++      uasort($nodes, function ($a, $b) use ($order) {
++        $oa = $order[$a->id()] ?? PHP_INT_MAX;
++        $ob = $order[$b->id()] ?? PHP_INT_MAX;
++        return $oa <=> $ob;
++      });
++    }
++
++    $action_result = 'deleted';
++    if ($type == 'archived') {
++      $action_result = $type;
++    }
++    if ($type == 'archived_archived') {
++      $action_result = $type;
++    }
++    if ($type == 'delete') {
++      $action_result = $type;
++    }
++    if (is_null($parent_nid) || empty($parent_nid)) {
++      $message = t('Error');
++      return;
++    }
++
++    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
++    $parent_node = Node::load($parent_nid);
++    if (!$parent_node instanceof NodeInterface) {
++      $message = t('Error: Safe Delete cannot check references for missing node with id %id.', ['%id' => $nid]);
++      self::addMessage($message);
++      return;
++    }
++    $entity_title = $parent_node->label();
++
++    if (count($nodes) <= 0) {
++      $show_button2 = TRUE;
++      $msg_type = t('Safe Delete verification check status for published child nodes of this node:');
++      $message_ok = t('No published child nodes found.');
++      $markup = <<<EOT
++<div role="contentinfo" aria-labelledby="message-status-title" class="messages-list__item messages messages--warning">
++  <div class="messages__header">
++    <h2 id="message-status-title" class="messages__title">
++      $msg_type
++    </h2>
++  </div>
++  <div class="messages__content">
++    $message_ok
++  </div>
++</div>
++EOT;
++    }
++    if (count($nodes) > 0) {
++      $show_button2 = FALSE;
++      $msg_type = t('Safe Delete verification check status for published child nodes of this node:');
++      if ($action_result == 'archived_archived') {
++        $temp = 'The page "%entity_title" (node %parent_nid) has published child nodes and cannot be %action.';
++        $markup = t($temp, [
++          '%entity_title' => $entity_title,
++          '%parent_nid' => $parent_nid,
++          '%action' => 'archived',
++        ]);
++      }
++      else {
++        $action = $action_result;
++        if ($action_result == 'delete') {
++          $action = 'deleted';
++        }
++        $temp = 'The page "%entity_title" (node %parent_nid) has published child nodes and cannot be %action.';
++        $markup = t($temp, [
++          '%entity_title' => $entity_title,
++          '%parent_nid' => $parent_nid,
++          '%action' => $action,
++        ]);
++      }
++      $list_count = 0;
++
++      // Render: published child nodes.
++      $render_section = function (array $nodes, string $header) use (&$markup, &$list_count, $iterate_limit) {
++        if (empty($nodes)) {
++          return;
++        }
++
++        // Only add the header if we still have room to render at least one item.
++        if ($list_count < $iterate_limit) {
++          $markup .= '<h6>' . $header . '</h6>';
++        }
++        else {
++          return;
++        }
++        $markup .= '<ul>';
++
++        foreach ($nodes as $entity_obj) {
++          if ($list_count >= $iterate_limit) {
++            break;
++          }
++          $markup .= '<li>' . Link::fromTextAndUrl(
++            $entity_obj->label(),
++            Url::fromUri('internal:/node/' . $entity_obj->id()),
++            ['attributes' => ['target' => '_blank']]
++          )->toString() . '</li>';
++          $list_count++;
++        }
++        $markup .= '</ul>';
++      };
++
++      // Published child nodes (only if any).
++      $render_section($nodes, '<strong>Published child nodes</strong> that need to find new parents:');
++
++      if ($list_count >= $iterate_limit) {
++        $markup .= '<h6>' . t("... only the first @limit results are displayed.", ['@limit' => $limit]) . '</h6>';
++      }
++      else {
++        $markup .= '<h6>' . t("... all @list_count results are displayed.", ['@list_count' => $list_count]) . '</h6>';
++      }
++      $markup = <<<EOT
++<div role="contentinfo" aria-labelledby="message-status-title" class="messages-list__item messages messages--warning">
++  <div class="messages__header">
++    <h2 id="message-status-title" class="messages__title">
++      $msg_type
++    </h2>
++  </div>
++  <div class="messages__content">
++    $markup
++  </div>
++</div>
++EOT;
++    }
++  }
+ }
