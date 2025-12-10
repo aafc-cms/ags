@@ -1,0 +1,33 @@
+uuid: 86d10b43-d67d-4f59-bc03-23f217d74d5d
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - search_api_stats_block
+    - system
+    - wxt_ext_blocks
+  theme:
+    - grstheme_bootstrap
+third_party_settings:
+  wxt_ext_blocks:
+    display_title_invisible: 0
+id: grstheme_bootstrap_searchapistatsblockcontent
+theme: grstheme_bootstrap
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'search_api_stats_block:content'
+settings:
+  id: 'search_api_stats_block:content'
+  label: 'Search API stats block: Content'
+  label_display: visible
+  provider: search_api_stats_block
+  num_phrases: '8'
+  path: /search
+  param_name: query
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /search
