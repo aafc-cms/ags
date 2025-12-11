@@ -2167,7 +2167,13 @@ function agri_admin_form_alter(&$form, FormStateInterface $form_state, $form_id)
       ];
     }
   }
+  // We want check published parent only.
+  if ($form_id == 'safedelete_settings') {
+    $config = \Drupal::service('config.factory')->getEditable('safedelete.settings');
+    $config->set('check_published_only', TRUE)->save();
 
+    $form['check_published_only']['#default_value'] = TRUE;
+  }
 }
 
 /**
