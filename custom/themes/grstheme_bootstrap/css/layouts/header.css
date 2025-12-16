@@ -1,0 +1,133 @@
+
+/* Move the header specific scss (sass/css) here.*/ 
+
+html[lang=en] nav#wb-sm.wb-menu { 
+  li:first-child {
+    ul.sm.open {
+      min-width: 17em !important;
+    }
+  }
+  li:nth-child(2), li:nth-child(3) {
+    ul.sm.open {
+      min-width: 19em !important;
+    }
+  }
+  li:nth-child(4) {
+    ul.sm.open {
+      min-width: 21em !important;
+    }
+  }
+  li:nth-child(5) {
+    ul.sm.open {
+      min-width: 18.5em !important;
+    }
+  }
+}
+
+html[lang=fr] nav#wb-sm.wb-menu { 
+  li:first-child {
+    ul.sm.open {
+      min-width: 16em !important;
+    }
+  }
+  li:nth-child(2) {
+    ul.sm.open {
+      min-width: 22em !important;
+    }
+  }
+  li:nth-child(4) {
+    ul.sm.open {
+      min-width: 22.5em !important;
+    }
+  }
+  li:nth-child(3) {
+    ul.sm.open {
+      min-width: 28em !important;
+    }
+  }
+  li:nth-child(5) {
+    ul.sm.open {
+      min-width: 20.9em !important;
+    }
+  }
+}
+
+html[lang=fr] nav#wb-sm {
+  li a[href*="gc.ca/eng"] {
+    display: none;
+  }
+  li a[href*="directInfo/eng"] {
+    display: none;
+  }
+  li a[href*="gc.ca/en/GCD"] {
+    display: none;
+  }
+  li a[href*="?lang=e"] {
+    display: none;
+  }
+  li a[href$=Lang\=E] {
+    display: none;
+  }
+  li a[href$="Lang\=en"] {
+    display: none;
+  }
+  li a[href$="setlang\=en"] {
+    display: none;
+  }
+}
+
+html[lang=en] nav#wb-sm {
+  li a[href*="gc.ca/fra"] {
+    display: none;
+  }
+  li a[href*="directInfo/fra"] {
+    display: none;
+  }
+  li a[href*="gc.ca/fr/GCA"] {
+    display: none;
+  }
+  li a[href*="?lang=f"] {
+    display: none;
+  }
+  li a[href$="Lang\=F"] {
+    display: none;
+  }
+  li a[href$="Lang\=fr"] {
+    display: none;
+  }
+  li a[href$="setlang\=fr"] {
+    display: none;
+  }
+}
+#wb-sm .container.nvbar {
+  border-right: 1px solid var(--agrisource-border-top);
+  border-left: 1px solid var(--agrisource-border-top);
+}
+
+#wb-sm .nvbar {
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#939394),to(var(--agrisource-menu-main-med)));
+  background-image: -webkit-linear-gradient(#959a9e,#8f9cab);
+  background-image: linear-gradient(#b9b09d,#59595b);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr="#FF2A79C5", endColorstr="#FF1B5A9F");
+  background-color: #878b8e;
+  border-bottom: 4px solid #ccc;
+  border-top: 1px solid #59595b;
+}
+
+#wb-sm a {
+  background-color: transparent;
+}
+
+#wb-menu.visible-md.visible-lg.wb-init.wb-menu-inited.wb-navcurr-inite {
+  height: 43.344px ;
+}
+
+#wb-sm .nvbar ul.menu > li > a.wb-navcurr, #wb-sm .sm a.wb-navcurr, #wb-sm .sm summary.wb-navcurr, #wb-sm .sm .slflnk a.wb-navcurr {
+  background: #58585a;
+  color: #fff;
+}
+
+nav#wb-sm div.pnl-strt.container.nvbar {
+  padding-left: 0px;
+  border-left-width: 0px;
+}

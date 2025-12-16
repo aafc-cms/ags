@@ -18,8 +18,6 @@ function news_empl_page_attachments(array &$page) {
     $node = \Drupal::routeMatch()->getParameter('node');
     $anonymous = \Drupal::currentUser()->isAnonymous();
     if ($node->bundle() == 'empl') {
-      // Not yet needed.
-      $page['#attached']['library'][] = 'news_empl/empl-node-css';
       // For IE11 support.
       $page['#attached']['library'][] = 'jquery_ui_datepicker/datepicker';
     }

@@ -1,6 +1,33 @@
 agri-admin:
   css:
     component:
+      css/global/language.css: {}
+      # Variables first.
+      css/global/variables.css: {}
+
+      # Early components.
+      css/components/breadcrumb.css: {}
+      css/components/draft-pending-views.css: {}
+      css/components/etuf.css: {}
+      css/components/jquery_date_picker.css: {}
+
+      # Media.
+      css/components/media/browser.css: {}
+      css/components/media/entity_embed_dialog.css: {}
+      css/components/media/image_display.css: {}
+
+      # Components.
+      css/components/menu.css: {}
+      css/components/node.css: {}
+      # Blog.
+      css/components/taxonomy/blog-freetags.css: {}
+      # Views.
+      css/components/views/admin_content.css: {}
+      css/components/views/admin_content_moderated.css: {}
+      # Pages.
+      css/pages/moderation-dashboard.css: {}
+      # Oddball.
+      css/components/ui-dialog-confirm-dialog.css: {}
       css/agri_admin.css: {}
   js:
     js/agri_admin.js: {}
@@ -38,7 +65,11 @@ agri-news-submit:
 agri-empl-news-submit_css:
   css:
     component:
-      news-empl-submit/css/news-empl-submit.css: {}
+      news-empl-submit/css/components/buttons.css: {}
+      news-empl-submit/css/components/node.css: {}
+      news-empl-submit/css/components/news_submission_form.css: {}
+      news-empl-submit/css/components/employmentopportunity_submission_form.css: {}
+      news-empl-submit/css/components/media-browser.css: {}
       ../../../core/themes/claro/css/theme/media-library.css: {}
 
 agri-empl-news-submit-simple:

@@ -1,0 +1,68 @@
+/* Green Primary Panel Heading to match theme (4a7333) - GY */
+.btn-primary {
+  background-color: var(--agrisource-button-color);
+  border-color: var(--agrisource-button-color);
+  color: #fff;
+  &:active {
+    background-color: var(--agrisource-button-color);
+    border-color: var(--agrisource-button-color);
+    color: #fff;
+  }
+  &:focus {
+    background-color: var(--agrisource-button-color);
+    border-color: var(--agrisource-button-color);
+    color: #fff;
+  }
+  &:hover {
+    background-color: var(--agrisource-button-color);
+    border-color: var(--agrisource-button-color);
+    color: #fff;
+  }
+}
+.btn-primary.active {
+  background-color: var(--agrisource-button-color);
+  border-color: var(--agrisource-button-color);
+  color: #fff;
+}
+.btn-primary.focus {
+  background-color: var(--agrisource-button-color);
+  border-color: var(--agrisource-button-color);
+  color: #fff;
+}
+.open {
+  >.btn-primary.dropdown-toggle {
+    background-color: var(--agrisource-button-color);
+    border-color: var(--agrisource-button-color);
+    color: #fff;
+  }
+}
+.panel-primary {
+  >.panel-heading {
+    background-color: var(--agrisource-button-color);
+    border-color: var(--agrisource-button-color);
+  }
+  border-color: var(--agrisource-button-color);
+}
+
+.breadcrumb > .active {
+  color: #333;
+
+}
+
+.error {
+  color: #a94442;
+}
+
+.customalertimagesize {
+  font-size: 200%;
+}
+
+.customalertheaderfont {
+  border-bottom: 1px solid #af3c43;
+  color: #333;
+}
+
+.customalertmsgfont {
+  color: #333;
+  padding-left: 50px;
+}
