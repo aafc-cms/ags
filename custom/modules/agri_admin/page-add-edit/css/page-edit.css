@@ -1,9 +1,13 @@
-body.node-edit .hidden-input-box .form-items-inline, body.node-edit .hidden-input-box input, body.node-add .hidden-input-box .form-items-inline, body.node-add .hidden-input-box input {
-  display: none;
+body.node-edit, body.node-add {
+  .hidden-input-box {
+    .form-items-inline, input {
+      display: none;
+    }
+  }  
 }
 
-body.node-edit .layout-region--footer {
-  margin-left: 0px;
+body.node-edit {
+  .layout-region--footer {
+    margin-left: 0px;
+  }
 }
-
-/*# sourceMappingURL=page-edit.css.map */

@@ -14,11 +14,6 @@ news-node-css:
     component:
       libraries/news-node/css/news-node.css: {}
 
-empl-node-css:
-  css:
-    component:
-      libraries/empl-node/css/empl-node.css: {}
-
 anonymous-news-node-css:
   css:
     component:
@@ -35,14 +30,6 @@ empl-opp:
   dependencies:
     - core/drupalSettings
     - core/jquery
-
-# Disable hack, do not use hacks like this.
-#news-empl-node-js:
-#  js:
-#    libraries/empl-node/js/temporary-hack-replace-with-php-breadcrumb-logic-instead.js: {}
-#  dependencies:
-#    - core/drupalSettings
-#    - core/jquery
 
 # Custom module library for general purposes.
 #news_empl:

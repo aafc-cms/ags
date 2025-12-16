@@ -6,7 +6,50 @@ framework:
 global-styling:
   css:
     theme:
-       css/styles.css: {}
+      # Required by the others.
+      css/global/variables.css: {}
+      # Global
+      css/global/forms.css: {}
+
+      # Layouts
+      css/layouts/header.css: {}
+      css/layouts/footer.css: {}
+      css/layouts/front.css: {}
+      css/layouts/sidebar.css: {}
+
+      # Components (draft-pending-views first)
+      css/components/draft-pending-views.css: {}
+      css/components/employment_opportunity_page.css: {}
+      css/components/blocks/blocks_global.css: {}
+      css/components/carousel.css: {}
+      css/components/blog.css: {}
+      css/components/iframe.css: {}
+      css/components/node.css: {}
+      css/components/news_page.css: {}
+      css/components/newsblock.css: {}
+      css/components/search.css: {}
+      css/components/socialmedia.css: {}
+      css/components/status_message.css: {}
+      css/components/video_embed.css: {}
+
+      # Pages
+      css/pages/all_pages.css: {}
+      css/pages/blog.css: {}
+      css/pages/landing_page.css: {}
+      css/pages/search.css: {}
+      css/pages/publishingcreativeservicerequest_page.css: {}
+      css/pages/videoproductionrequest_page.css: {}
+
+      # Anonymous
+      css/anonymous/restrictions.css: {}
+      # Legacy
+      css/legacy/classes.css: {}
+
+      # Views
+      css/views/employmentopportunities_view.css: {}
+      css/views/news@work_view.css: {}
+      # This file was after the above includes when it was sass/scss.
+      css/styles.css: {}
 
 drupal.grstheme_bootstrap:
   js:
