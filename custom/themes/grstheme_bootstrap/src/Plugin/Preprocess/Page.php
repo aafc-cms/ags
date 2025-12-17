@@ -62,7 +62,7 @@ class Page extends BootstrapPage {
     }
 
     // Footer Navigation (gcweb).
-    if ($wxt_active == 'gcweb' || $wxt_active == 'gcweb_legacy' || $wxt_active == 'gcwu_fegc' || $wxt_active == 'gc_intranet') {
+    if ($wxt_active == 'gcweb' || $wxt_active == 'gcweb_legacy' || $wxt_active == 'gcwu_fegc') {
       // CDN handling.
       $gcweb_cdn = $this->theme->getSetting('wxt_gcweb_cdn');
       $gcweb_cdn_url = $this->theme->getSetting('wxt_gcweb_cdn_cmm');
@@ -100,6 +100,8 @@ class Page extends BootstrapPage {
     elseif ($wxt_active == 'gc_intranet' || $wxt_active == 'gc_intranet_legacy') {
       $variables['logo_svg'] = $agrisource_theme_path . '/images/sig-' . $language . '.gif';
       $variables['logo_canada_svg'] = $agrisource_theme_path . '/images/logo-canada.svg';
+      $variables['logo_bottom_svg'] = $library_path . '/assets/wmms-blk' . '.png';
+      $variables['logo_bottom_svg'] = $library_path . '/assets/wmms-blk' . '.svg';
     }
 
     parent::preprocess($variables, $hook, $info);

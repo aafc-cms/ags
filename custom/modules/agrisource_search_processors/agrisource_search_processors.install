@@ -116,3 +116,10 @@ function agrisource_search_processors_update_10003() {
 
   return t('Baseline search_api_pinbyphrase.settings configuration has been created.');
 }
+
+/**
+ * Update hook: ensure Block Content #15 body matches expected EN/FR markup.
+ */
+function agrisource_search_processors_update_10004() {
+  agrisource_search_processors_update_10001();
+}

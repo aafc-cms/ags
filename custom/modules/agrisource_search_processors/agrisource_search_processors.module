@@ -158,7 +158,12 @@ function agrisource_search_processors_update_block_bodies(): array {
         <div class="form-group">
             <label for="q">Search website</label>&nbsp;<input class="form-control" id="q" maxlength="150" name="query" size="20" type="search" value=""> <input id="sort_order" name="sort_order" type="hidden" value="DESC">
         </div>
-        <button class="btn btn-default" id="wb-srch-sub" type="submit">Search</button>
+        <div class="submit form-group js-form-wrapper form-wrapper" data-drupal-selector="edit-submit-container" id="edit-submit-container">
+          <button class="btn-primary button js-form-submit form-submit btn icon-before" data-drupal-selector="wb-srch-sub" type="submit" id="wb-srch-sub" name="op" value="" title="Search">
+            <span class="icon glyphicon glyphicon-search" aria-hidden="true"></span>
+            <span class="wb-inv">Search</span>
+          </button>
+        </div>
     </form>
 </section>
 EOF;
@@ -175,7 +180,12 @@ EOF;
         <div class="form-group">
             <label for="q">Recherche sur le site Web</label>&nbsp;<input class="form-control" id="q" maxlength="150" name="query" size="20" type="search" value=""> <input id="sort_order" name="sort_order" type="hidden" value="DESC">
         </div>
-        <button class="btn btn-default" id="wb-srch-sub" type="submit">Recherche</button>
+        <div class="submit form-group js-form-wrapper form-wrapper" data-drupal-selector="edit-submit-container" id="edit-submit-container">
+          <button class="btn-primary button js-form-submit form-submit btn icon-before" data-drupal-selector="wb-srch-sub" type="submit" id="wb-srch-sub" name="op" value="" title="Recherche">
+            <span class="icon glyphicon glyphicon-search" aria-hidden="true"></span>
+            <span class="wb-inv">Recherche</span>
+          </button>
+        </div>
     </form>
 </section>
 EOF;
