@@ -42,7 +42,12 @@ function grstheme_bootstrap_preprocess_field__node__field_posted__news(&$variabl
   }
 }
 
-function grstheme_bootstrap_preprocess_html(&$variables) {
+function grstheme_bootstrap_preprocess_block(&$variables):void {
+  $base_path = \Drupal::request()->getBasePath();
+  $variables['base_path'] = $base_path;
+}
+
+function grstheme_bootstrap_preprocess_html(&$variables):void {
   $route_match = Utils::getRouteName();
   if ($route_match == 'email_template.content') {
     // Removes the json drupal settings that is added to the page.
