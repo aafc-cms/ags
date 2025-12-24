@@ -2,6 +2,7 @@
 
 use \Drupal\field\Entity\FieldStorageConfig;
 use \Drupal\field\Entity\FieldConfig;
+use Drupal\menu_link_content\Entity\MenuLinkContent;
 
 /**
  * @file
@@ -342,3 +343,273 @@ function agri_admin_update_8007() {
   }
 }
 
+/**
+ * Disable specific footer menu links by menu_link_content ID (mlid).
+ */
+function agri_admin_update_8008(): void {
+  $ids = [6, 8, 17, 19, 30, 35, 42, 47];
+
+  foreach ($ids as $id) {
+    /** @var \Drupal\menu_link_content\Entity\MenuLinkContent|null $link */
+    $link = MenuLinkContent::load($id);
+
+    if (!$link) {
+      // Link not found on this site; keep the update idempotent.
+      continue;
+    }
+
+    if (!$link->isEnabled()) {
+      // Already disabled; idempotent.
+      continue;
+    }
+
+    $link->set('enabled', 0);
+    $link->save();
+  }
+}
+
+/**
+ * Add a hidden "Footer" <nolink> item to the footer menu.
+ */
+function agri_admin_update_8009(): void {
+  // 1) Important notices -> /node/27 (with FR translation "Avis importants").
+  // Use internal: URI to avoid hardcoding scheme/host.
+  $notices_existing = \Drupal::entityQuery('menu_link_content')
+    ->condition('menu_name', 'footer')
+    ->condition('title', 'Important notices')
+    ->condition('link.uri', 'internal:/node/27')
+    ->accessCheck(FALSE)
+    ->execute();
+
+  if (empty($notices_existing)) {
+    $notices_link = MenuLinkContent::create([
+      'title' => 'Important notices',
+      'menu_name' => 'footer',
+      'link' => ['uri' => 'internal:/node/27'],
+      'enabled' => 1,
+      'expanded' => 0,
+      // Put it above the heavy "Footer" item; adjust as you like.
+      'weight' => 0,
+    ]);
+
+    // Add a French translation for the title.
+    // This assumes your site has 'fr' enabled.
+    if ($notices_link->hasTranslation('fr')) {
+      $fr = $notices_link->getTranslation('fr');
+      $fr->set('title', 'Avis importants');
+    }
+    else {
+      $notices_link->addTranslation('fr', ['title' => 'Avis importants']);
+    }
+
+    $notices_link->save();
+  }
+  // 2) Contact us -> /node/28 (with FR translation "Contactez-nous").
+  // Use internal: URI to avoid hardcoding scheme/host.
+  $contact_us_existing = \Drupal::entityQuery('menu_link_content')
+    ->condition('menu_name', 'footer')
+    ->condition('title', 'Contact Us')
+    ->condition('link.uri', 'internal:/node/28')
+    ->accessCheck(FALSE)
+    ->execute();
+
+  if (empty($contact_us_existing)) {
+    $contact_us_link = MenuLinkContent::create([
+      'title' => 'Contact Us',
+      'menu_name' => 'footer',
+      'link' => ['uri' => 'internal:/node/28'],
+      'enabled' => 1,
+      'expanded' => 0,
+      // Put it above the heavy "Footer" item; adjust as you like.
+      'weight' => 2,
+    ]);
+
+    // Add a French translation for the title.
+    // This assumes your site has 'fr' enabled.
+    if ($contact_us_link->hasTranslation('fr')) {
+      $fr = $contact_us_link->getTranslation('fr');
+      $fr->set('title', 'Contactez-nous');
+    }
+    else {
+      $contact_us_link->addTranslation('fr', ['title' => 'Contactez-nous']);
+    }
+
+    $contact_us_link->save();
+  }
+  // 3) Employee Assistance Program -> /node/5367 (with FR translation "Programme d’aide aux employés").
+  // Use internal: URI to avoid hardcoding scheme/host.
+  $employee_aide_existing = \Drupal::entityQuery('menu_link_content')
+    ->condition('menu_name', 'footer')
+    ->condition('title', 'Employee Assistance Program')
+    ->condition('link.uri', 'internal:/node/5367')
+    ->accessCheck(FALSE)
+    ->execute();
+
+  if (empty($employee_aide_existing)) {
+    $employee_aide_link = MenuLinkContent::create([
+      'title' => 'Employee Assistance Program',
+      'menu_name' => 'footer',
+      'link' => ['uri' => 'internal:/node/5367'],
+      'enabled' => 1,
+      'expanded' => 0,
+      // Put it above the heavy "Footer" item; adjust as you like.
+      'weight' => 3,
+    ]);
+
+    // Add a French translation for the title.
+    // This assumes your site has 'fr' enabled.
+    if ($employee_aide_link->hasTranslation('fr')) {
+      $fr = $employee_aide_link->getTranslation('fr');
+      $fr->set('title', 'Programme d’aide aux employés');
+    }
+    else {
+      $employee_aide_link->addTranslation('fr', ['title' => 'Programme d’aide aux employés']);
+    }
+
+    $employee_aide_link->save();
+  }
+
+  // 4) AAFC Home page).
+  // Use internal: URI to avoid hardcoding scheme/host.
+  $aafc_home_existing = \Drupal::entityQuery('menu_link_content')
+    ->condition('menu_name', 'footer')
+    ->condition('title', 'Agriculture.canada.ca')
+    ->condition('link.uri', 'https://agriculture.canada.ca/en')
+    ->accessCheck(FALSE)
+    ->execute();
+
+  if (empty($aafc_home_existing)) {
+    $aafc_home_link = MenuLinkContent::create([
+      'title' => 'Agriculture.canada.ca',
+      'menu_name' => 'footer',
+      'link' => ['uri' => 'https://agriculture.canada.ca/en'],
+      'enabled' => 1,
+      'expanded' => 0,
+      // Put it above the heavy "Footer" item; adjust as you like.
+      'weight' => 4,
+    ]);
+
+    $aafc_home_link->save();
+  }
+
+  // Now for the footer-fr menu.
+  // 1) Important notices -> /node/27 (with FR translation "Avis importants").
+  // Use internal: URI to avoid hardcoding scheme/host.
+  $notices_existing = \Drupal::entityQuery('menu_link_content')
+    ->condition('menu_name', 'footer-fr')
+    ->condition('title', 'Avis importants')
+    ->condition('link.uri', 'internal:/node/27')
+    ->accessCheck(FALSE)
+    ->execute();
+
+  if (empty($notices_existing)) {
+    $notices_link = MenuLinkContent::create([
+      'title' => 'Important notices',
+      'menu_name' => 'footer-fr',
+      'link' => ['uri' => 'internal:/node/27'],
+      'enabled' => 1,
+      'expanded' => 0,
+      // Put it above the heavy "Footer" item; adjust as you like.
+      'weight' => 0,
+    ]);
+
+    // Add a French translation for the title.
+    // This assumes your site has 'fr' enabled.
+    if ($notices_link->hasTranslation('fr')) {
+      $fr = $notices_link->getTranslation('fr');
+      $fr->set('title', 'Avis importants');
+    }
+    else {
+      $notices_link->addTranslation('fr', ['title' => 'Avis importants']);
+    }
+
+    $notices_link->save();
+  }
+  // 2) Contact us -> /node/28 (with FR translation "Contactez-nous").
+  // Use internal: URI to avoid hardcoding scheme/host.
+  $contact_us_existing = \Drupal::entityQuery('menu_link_content')
+    ->condition('menu_name', 'footer-fr')
+    ->condition('title', 'Contact Us')
+    ->condition('link.uri', 'internal:/node/28')
+    ->accessCheck(FALSE)
+    ->execute();
+
+  if (empty($contact_us_existing)) {
+    $contact_us_link = MenuLinkContent::create([
+      'title' => 'Contact Us',
+      'menu_name' => 'footer-fr',
+      'link' => ['uri' => 'internal:/node/28'],
+      'enabled' => 1,
+      'expanded' => 0,
+      // Put it above the heavy "Footer" item; adjust as you like.
+      'weight' => 2,
+    ]);
+
+    // Add a French translation for the title.
+    // This assumes your site has 'fr' enabled.
+    if ($contact_us_link->hasTranslation('fr')) {
+      $fr = $contact_us_link->getTranslation('fr');
+      $fr->set('title', 'Contactez-nous');
+    }
+    else {
+      $contact_us_link->addTranslation('fr', ['title' => 'Contactez-nous']);
+    }
+
+    $contact_us_link->save();
+  }
+  // 3) Employee Assistance Program -> /node/5367 (with FR translation "Programme d’aide aux employés").
+  // Use internal: URI to avoid hardcoding scheme/host.
+  $employee_aide_existing = \Drupal::entityQuery('menu_link_content')
+    ->condition('menu_name', 'footer-fr')
+    ->condition('title', 'Employee Assistance Program')
+    ->condition('link.uri', 'internal:/node/5367')
+    ->accessCheck(FALSE)
+    ->execute();
+
+  if (empty($employee_aide_existing)) {
+    $employee_aide_link = MenuLinkContent::create([
+      'title' => 'Employee Assistance Program',
+      'menu_name' => 'footer-fr',
+      'link' => ['uri' => 'internal:/node/5367'],
+      'enabled' => 1,
+      'expanded' => 0,
+      // Put it above the heavy "Footer" item; adjust as you like.
+      'weight' => 3,
+    ]);
+
+    // Add a French translation for the title.
+    // This assumes your site has 'fr' enabled.
+    if ($employee_aide_link->hasTranslation('fr')) {
+      $fr = $employee_aide_link->getTranslation('fr');
+      $fr->set('title', 'Programme d’aide aux employés');
+    }
+    else {
+      $employee_aide_link->addTranslation('fr', ['title' => 'Programme d’aide aux employés']);
+    }
+
+    $employee_aide_link->save();
+  }
+
+  // 4) AAFC Home page).
+  // Use internal: URI to avoid hardcoding scheme/host.
+  $aafc_home_existing = \Drupal::entityQuery('menu_link_content')
+    ->condition('menu_name', 'footer-fr')
+    ->condition('title', 'Agriculture.canada.ca')
+    ->condition('link.uri', 'https://agriculture.canada.ca/fr')
+    ->accessCheck(FALSE)
+    ->execute();
+
+  if (empty($aafc_home_existing)) {
+    $aafc_home_link = MenuLinkContent::create([
+      'title' => 'Agriculture.canada.ca',
+      'menu_name' => 'footer-fr',
+      'link' => ['uri' => 'https://agriculture.canada.ca/fr'],
+      'enabled' => 1,
+      'expanded' => 0,
+      // Put it above the heavy "Footer" item; adjust as you like.
+      'weight' => 4,
+    ]);
+
+    $aafc_home_link->save();
+  }
+}

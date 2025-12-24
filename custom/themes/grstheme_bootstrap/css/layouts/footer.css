@@ -1,2 +1,22 @@
 
 /* Move the footer specific scss (sass/css) here.*/ 
+.agrisource-footer {
+  background: var(--agrisource-bg-color) !important;
+}
+
+.footer-divider {
+  position: relative;
+}
+
+.footer-divider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60px;
+  right: -60px;
+  border-top: 3px solid var(--agrisource-border-top);
+}
+
+#tc-tctr a {
+  font-size: 1.1em;
+}
