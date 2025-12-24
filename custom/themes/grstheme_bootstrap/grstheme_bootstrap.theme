@@ -42,7 +42,7 @@ function grstheme_bootstrap_preprocess_field__node__field_posted__news(&$variabl
   }
 }
 
-function grstheme_bootstrap_preprocess_block(&$variables):void {
+function grstheme_bootstrap_preprocess_menu__footer__gc_intranet(&$variables):void {
   $base_path = \Drupal::request()->getBasePath();
   $variables['base_path'] = $base_path;
 }

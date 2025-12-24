@@ -37,7 +37,6 @@
   {{ title_prefix }}
   <h2{{ title_attributes.setAttribute('id', 'aboutThisSite').setAttribute('class', 'wb-inv') }}>{{ 'About this site'|t }}</h2>
   {{ title_suffix }}
-  <object id="agrisource-wmms" type="image/svg+xml" tabindex="-1" role="img" data="{{ base_path }}/{{ directory }}/images/logo-canada.svg" previous-data="{{ logo_canada_svg }}" aria-label="{{ 'Symbol of the Government of Canada'| t}}"></object>
   {% block content %}
     {{ content }}
   {% endblock %}
