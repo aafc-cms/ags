@@ -107,7 +107,7 @@ section.col-sm-3 ul.list-unstyled {
 }
 
 #wb-bnr {
-  background: var(--agrisource-button-color) !important;
+  background: var(--agrisource-bg-color) !important;
 }
 
 #agrisource-wmms {
@@ -120,6 +120,7 @@ section.col-sm-3 ul.list-unstyled {
   #wb-bnr {
     background-image: -webkit-linear-gradient(#77bc1f, #77bc1f, #007852) !important;
     background-image: linear-gradient(#77bc1f, #77bc1f, #007852) !important;
+    background-image: unset;
   }
   .region-banner {
     a.name.navbar-brand {
@@ -155,7 +156,7 @@ section.col-sm-3 ul.list-unstyled {
     top: -2.2em;
   }
   #wb-bnr {
-    background-color: var(--agrisource-button-color);
+    background-color: var(--agrisource-bg-color);
     background-image: none;
    .container .row.agri-banner-row {
       position: relative;
@@ -212,6 +213,7 @@ section.col-sm-3 ul.list-unstyled {
     background: -webkit-gradient(linear,right top,left top,from(#298019),color-stop(#31821d),to(#278019));
     background: -webkit-linear-gradient(right,#278019,#31821d,#278019);
     background: linear-gradient(to left,#007852,#77bc1f,#007852);
+    background: unset;
     position: relative;
   }
 
