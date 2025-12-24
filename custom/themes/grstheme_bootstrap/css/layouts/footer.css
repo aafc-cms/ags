@@ -2,6 +2,12 @@
 /* Move the footer specific scss (sass/css) here.*/ 
 .agrisource-footer {
   background: var(--agrisource-bg-color) !important;
+  .contextual-links {
+    top: -90px !important;
+  }
+  .pull-left {
+    padding-left: 0;
+  }
 }
 
 .footer-divider {
@@ -17,6 +23,14 @@
   border-top: 3px solid var(--agrisource-border-top);
 }
 
-#tc-tctr a {
-  font-size: 1.1em;
+#tc-tctr {
+  a {
+    font-size: 1.1em;
+  }
+}
+html[lang="en"] #tc-tctr > li:not(:last-child) {
+  margin-right: 5rem;
+}
+html[lang="fr"] #tc-tctr > li:not(:last-child) {
+  margin-right: 4rem;
 }
