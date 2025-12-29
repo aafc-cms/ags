@@ -1,3 +1,30 @@
+.region.region-search {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  #wb-srch {
+    input {
+      min-width: 18.25em;
+      background-color: var(--agrisource-color-search-input-bg);
+    }
+    button {
+      background-color: var(--agrisource-color-search-button);
+      min-width: 45px;
+      min-height: 37px;
+    }
+    margin-bottom: 15px;
+  }
+}
+
+.agri-banner-row img {
+  margin-right: 0;
+  margin-left
+  padding-right: 0;
+  padding-left: 0;
+  margin-top: 15px;
+  width: fit-content;
+}
 
 /* Move the header specific scss (sass/css) here.*/ 
 
