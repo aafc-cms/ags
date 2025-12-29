@@ -99,6 +99,7 @@ class Page extends BootstrapPage {
     }
     elseif ($wxt_active == 'gc_intranet' || $wxt_active == 'gc_intranet_legacy') {
       $variables['logo_svg'] = $agrisource_theme_path . '/images/sig-' . $language . '.gif';
+      $variables['logo2_svg'] = $agrisource_theme_path . '/images/sig2-' . $language . '.gif';
       $variables['logo_canada_svg'] = $agrisource_theme_path . '/images/logo-canada.svg';
       $variables['logo_bottom_svg'] = $library_path . '/assets/wmms-blk' . '.png';
       $variables['logo_bottom_svg'] = $library_path . '/assets/wmms-blk' . '.svg';
