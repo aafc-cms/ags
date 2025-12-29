@@ -131,3 +131,64 @@ nav#wb-sm div.pnl-strt.container.nvbar {
   padding-left: 0px;
   border-left-width: 0px;
 }
+
+#navbar {
+  #wb-sm {
+    background: unset;
+    .menu > li.sm-open > a > span.expicon::after {
+      transform: rotate(-135deg);
+      top: 1px;
+    }
+    .menu > li > a > span.expicon.glyphicon::before {
+      display: none;
+    }
+    .menu > li > a > span.expicon::after {
+      content: "";
+      display: inline-block;
+      width: 0.8em;
+      height: 0.8em;
+      margin-left: 0.4em;
+      border-right: 2px solid #777;
+      border-bottom: 2px solid #777;
+      transform: rotate(45deg);
+      position: relative;
+      top: -4px;
+    }
+    .nvbar {
+      background-color: darkseagreen !important;
+      background-image: unset;
+      border-bottom: none;
+      border-top: 4px solid var(--agrisource-button-color);
+      #block-grstheme-bootstrap-main-menu {
+        background: darkseagreen;
+      }
+    }
+    .menu {
+      text-shadow: 1px 1px 1px #777;
+    }
+    .menu .active {
+      background: var(--agrisource-button-color) !important
+    }
+    .menu>li,
+    .menu > li:nth-last-child(2),
+    .menu>li:last-child {
+      border-left: unset;
+      border-right: unset;
+    }
+    .menu>li {
+      a {
+        color: #333;
+        font-size: 1.3em;
+      }
+      a:hover {
+        color: #eee !important;
+        text-shadow: 1px 1px 1px #aaa;
+        background: unset !important;
+      }
+    }
+    .menu>li.sm-open > a:first-of-type {
+      color: #eee;
+      text-shadow: 1px 1px 1px #aaa;
+    }
+  }
+}
