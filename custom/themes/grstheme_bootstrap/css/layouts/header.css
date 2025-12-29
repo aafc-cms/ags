@@ -1,5 +1,24 @@
+.hero {
+  &.container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .region-banner {
+    margin-top: 20px;
+    margin-left: 40px;
+  }
+  .col-md-12 {
+    min-height: 180px;
+    background-image: url("/themes/custom/grstheme_bootstrap/images/manitoba.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+}
 .region.region-search {
-  margin-left: 0;
+  margin-left: 5px;
   margin-right: 0;
   padding-left: 0;
   padding-right: 0;
@@ -31,6 +50,9 @@
       margin-top: 15px;
       width: fit-content;
     }
+  }
+  section.language-switcher ul.pull-right {
+    margin-top: 7px;
   }
 }
 
