@@ -162,7 +162,9 @@ nav#wb-sm div.pnl-strt.container.nvbar {
     .menu {
       text-shadow: 1px 1px 1px var(--agrisource-color-menu-shadow-dk);
     }
-    .menu .active {
+    .menu .active,
+    ul.menu > li > a.wb-navcurr
+    {
       background: var(--agrisource-button-color) !important
     }
     .menu>li,
@@ -181,6 +183,10 @@ nav#wb-sm div.pnl-strt.container.nvbar {
         text-shadow: 1px 1px 1px var(--agrisource-color-menu-shadow-lt);
         background: unset !important;
       }
+    }
+    .menu>li > a:hover {
+      color: var(--agrisource-color-menu-shadow-dk);
+      text-shadow: 1px 1px 1px var(--agrisource-color-menu-shadow-lt);
     }
     .menu>li.sm-open > a:first-of-type {
       color: var(--agrisource-color-menu-hover);
