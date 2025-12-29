@@ -99,10 +99,6 @@ html[lang=en] nav#wb-sm {
     display: none;
   }
 }
-#wb-sm .container.nvbar {
-  border-right: 1px solid var(--agrisource-border-top);
-  border-left: 1px solid var(--agrisource-border-top);
-}
 
 #wb-sm .nvbar {
   background-image: -webkit-gradient(linear,left top,left bottom,from(#939394),to(var(--agrisource-menu-main-med)));
@@ -148,23 +144,23 @@ nav#wb-sm div.pnl-strt.container.nvbar {
       width: 0.8em;
       height: 0.8em;
       margin-left: 0.4em;
-      border-right: 2px solid #777;
-      border-bottom: 2px solid #777;
+      border-right: 2px solid var(--agrisource-color-menu-shadow-dk);
+      border-bottom: 2px solid var(--agrisource-color-menu-shadow-dk);
       transform: rotate(45deg);
       position: relative;
       top: -4px;
     }
     .nvbar {
-      background-color: darkseagreen !important;
+      background-color: var(--agrisource-color-menu-bg) !important;
       background-image: unset;
       border-bottom: none;
       border-top: 3px solid var(--agrisource-button-color);
       #block-grstheme-bootstrap-main-menu {
-        background: darkseagreen;
+        background: var(--agrisource-color-menu-bg);
       }
     }
     .menu {
-      text-shadow: 1px 1px 1px #777;
+      text-shadow: 1px 1px 1px var(--agrisource-color-menu-shadow-dk);
     }
     .menu .active {
       background: var(--agrisource-button-color) !important
@@ -177,18 +173,18 @@ nav#wb-sm div.pnl-strt.container.nvbar {
     }
     .menu>li {
       a {
-        color: #333;
+        color: var(--agrisource-color-menu-normal);
         font-size: 1.3em;
       }
       a:hover {
-        color: #eee !important;
-        text-shadow: 1px 1px 1px #aaa;
+        color: var(--agrisource-color-menu-hover) !important;
+        text-shadow: 1px 1px 1px var(--agrisource-color-menu-shadow-lt);
         background: unset !important;
       }
     }
     .menu>li.sm-open > a:first-of-type {
-      color: #eee;
-      text-shadow: 1px 1px 1px #aaa;
+      color: var(--agrisource-color-menu-hover);
+      text-shadow: 1px 1px 1px var(--agrisource-color-menu-shadow-lt);
     }
   }
 }
