@@ -9,12 +9,27 @@
     margin-top: 20px;
     margin-left: 40px;
   }
-  .col-md-12 {
+  > div.col-md-12 {
     min-height: 180px;
     background-image: url("/themes/custom/grstheme_bootstrap/images/manitoba.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+  }
+  .agrisource-brand-text {
+    background-color: var(--agrisource-color-brand-text);
+    padding-left: 50px;
+    padding-bottom: 10px;
+    padding-right: 0;
+    margin-top: 10px;
+  }
+  .region-banner .agrisource-brand-text a.name.navbar-brand {
+    font-size: 1.61em;
+  }
+  .slogan, .slogan:hover {
+    font-size: 1.3em;
+    margin-top: 10px;
+    color: #fff;
   }
 }
 .region.region-search {
