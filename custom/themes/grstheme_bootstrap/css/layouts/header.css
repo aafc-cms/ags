@@ -46,6 +46,9 @@
       background-color: var(--agrisource-color-search-button);
       min-width: 45px;
       min-height: 37px;
+      .glyphicon-search::before {
+        margin-left: 4px;
+      }
     }
     margin-bottom: 15px;
   }
