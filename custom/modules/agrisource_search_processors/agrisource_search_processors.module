@@ -154,7 +154,7 @@ function agrisource_search_processors_update_block_bodies(): array {
     <h2>
         Search
     </h2>
-    <form class="form-inline" action="{$en_front_trimmed}/search#results" id="q" method="get" role="search">
+    <form class="form-inline" action="{$en_front_trimmed}/search#results" id="agrisource-search" method="get" role="search">
         <div class="form-group">
             <label class="wb-inv" for="q">Search AgriSource</label>&nbsp;<input placeholder="Search AgriSource" class="form-control" id="q" maxlength="150" name="query" size="20" type="search" value=""> <input id="sort_order" name="sort_order" type="hidden" value="DESC">
         </div>
@@ -176,7 +176,7 @@ EOF;
     <h2>
         Recherche
     </h2>
-    <form class="form-inline" action="{$fr_front_trimmed}/search#resultats" id="q" method="get" role="search">
+    <form class="form-inline" action="{$fr_front_trimmed}/search#resultats" id="agrisource-search" method="get" role="search">
         <div class="form-group">
             <label class="wb-inv" for="q">Recherche sur AgriSource</label>&nbsp;<input placeholder="Recherche sur AgriSource" class="form-control" id="q" maxlength="150" name="query" size="20" type="search" value=""> <input id="sort_order" name="sort_order" type="hidden" value="DESC">
         </div>
