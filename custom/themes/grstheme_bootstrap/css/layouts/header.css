@@ -269,3 +269,16 @@ nav#wb-sm div.pnl-strt.container.nvbar {
     }
   }
 }
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+.region.region-search {
+  form[name="qsForm"] {
+    padding-right: 0;
+    margin-left: 10px;
+  }
+  #wb-srch {
+    input {
+      min-width: 15.25em;
+    }
+  }
+}
