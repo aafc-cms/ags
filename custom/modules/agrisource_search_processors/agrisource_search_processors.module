@@ -154,7 +154,7 @@ function agrisource_search_processors_update_block_bodies(): array {
   <h2 class="wb-inv">
     Find a colleague
   </h2>
-  <form class="form-inline col-xs-12 col-sm-6" action="http://directinfo.agr.gc.ca/directInfo/eng/index.php" method="get" name="qsForm" target="_self">
+  <form class="form-inline col-xs-12 col-sm-6" action="http://directinfo.agr.gc.ca/directInfo/eng/index.php" method="get" name="qsForm" target="_self" autocomplete="off">
     <div class="form-group">
       <label class="control-label sr-only" for="Agrisource-qsBox">Search</label>
         <input name="qsType" type="hidden" value="qsEmp">&nbsp;
@@ -192,7 +192,7 @@ EOF;
   <h2 class="wb-inv">
     Trouver un collègue
   </h2>
-  <form class="form-inline col-xs-12 col-sm-6" action="http://directinfo.agr.gc.ca/directInfo/fra/index.php" method="get" name="qsForm" target="_self">
+  <form class="form-inline col-xs-12 col-sm-6" action="http://directinfo.agr.gc.ca/directInfo/fra/index.php" method="get" name="qsForm" target="_self" autocomplete="off">
     <div class="form-group">
       <label class="control-label sr-only" for="Agrisource-qsBox">Rechercher</label>
         <input name="qsType" type="hidden" value="qsEmp">&nbsp;
