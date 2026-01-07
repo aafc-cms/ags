@@ -151,20 +151,36 @@ function agrisource_search_processors_update_block_bodies(): array {
     // Ensure exactly one slash between <front> and the action path.
     $expected['en'] = <<<EOF
 <section class="visible-md visible-lg" id="wb-srch">
-    <h2>
-        Search
-    </h2>
-    <form class="form-inline" action="{$en_front_trimmed}/search#results" id="agrisource-search" method="get" role="search">
-        <div class="form-group">
-            <label class="wb-inv" for="q">Search AgriSource</label>&nbsp;<input placeholder="Search AgriSource" class="form-control" id="q" maxlength="150" name="query" size="20" type="search" value=""> <input id="sort_order" name="sort_order" type="hidden" value="DESC">
-        </div>
-        <div class="submit form-group js-form-wrapper form-wrapper" data-drupal-selector="edit-submit-container" id="edit-submit-container">
-          <button class="btn-primary button js-form-submit form-submit btn icon-before" data-drupal-selector="wb-srch-sub" type="submit" id="wb-srch-sub" name="op" value="" title="Search">
-            <span class="icon glyphicon glyphicon-search" aria-hidden="true"></span>
-            <span class="wb-inv">Search</span>
-          </button>
-        </div>
-    </form>
+  <h2 class="wb-inv">
+    Find a colleague
+  </h2>
+  <form class="form-inline col-xs-12 col-sm-6" action="http://directinfo.agr.gc.ca/directInfo/eng/index.php" method="get" name="qsForm" target="_self">
+    <div class="form-group">
+      <label class="control-label sr-only" for="Agrisource-qsBox">Search</label>
+        <input name="qsType" type="hidden" value="qsEmp">&nbsp;
+        <input class="form-control" id="Agrisource-qsBox" name="qsBox" placeholder="Find a colleague in Directinfo" type="text" value=""><input name="fuseaction" type="hidden" value="agriInfo.qSearchResults">
+    </div>
+    <div class="submit form-group js-form-wrapper form-wrapper" data-drupal-selector="edit-submit-directinfo" id="edit-submit-directinfo">
+      <button class="btn btn-primary btn-small" name="qsBtn" type="submit">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        <span class="wb-inv">Search</span>
+      </button>
+    </div>
+  </form>
+  <h2>
+    Search
+  </h2>
+  <form class="form-inline" action="{$en_front_trimmed}/search#results" id="agrisource-search" method="get" role="search">
+    <div class="form-group">
+      <label class="wb-inv" for="q">Search AgriSource</label>&nbsp;<input placeholder="Search AgriSource" class="form-control" id="q" maxlength="150" name="query" size="20" type="search" value=""> <input id="sort_order" name="sort_order" type="hidden" value="DESC">
+    </div>
+    <div class="submit form-group js-form-wrapper form-wrapper" data-drupal-selector="edit-submit-container" id="edit-submit-container">
+      <button class="btn-primary button js-form-submit form-submit btn icon-before" data-drupal-selector="wb-srch-sub" type="submit" id="wb-srch-sub" name="op" value="" title="Search">
+        <span class="icon glyphicon glyphicon-search" aria-hidden="true"></span>
+          <span class="wb-inv">Search</span>
+        </button>
+      </div>
+  </form>
 </section>
 EOF;
   }
@@ -173,20 +189,36 @@ EOF;
     $fr_front_trimmed = rtrim($fr_front, '/');
     $expected['fr'] = <<<EOF
 <section class="visible-md visible-lg" id="wb-srch">
-    <h2>
-        Recherche
-    </h2>
-    <form class="form-inline" action="{$fr_front_trimmed}/search#resultats" id="agrisource-search" method="get" role="search">
-        <div class="form-group">
-            <label class="wb-inv" for="q">Recherche sur AgriSource</label>&nbsp;<input placeholder="Recherche sur AgriSource" class="form-control" id="q" maxlength="150" name="query" size="20" type="search" value=""> <input id="sort_order" name="sort_order" type="hidden" value="DESC">
-        </div>
-        <div class="submit form-group js-form-wrapper form-wrapper" data-drupal-selector="edit-submit-container" id="edit-submit-container">
-          <button class="btn-primary button js-form-submit form-submit btn icon-before" data-drupal-selector="wb-srch-sub" type="submit" id="wb-srch-sub" name="op" value="" title="Recherche">
-            <span class="icon glyphicon glyphicon-search" aria-hidden="true"></span>
-            <span class="wb-inv">Recherche</span>
-          </button>
-        </div>
-    </form>
+  <h2 class="wb-inv">
+    Trouver un collègue
+  </h2>
+  <form class="form-inline col-xs-12 col-sm-6" action="http://directinfo.agr.gc.ca/directInfo/fra/index.php" method="get" name="qsForm" target="_self">
+    <div class="form-group">
+      <label class="control-label sr-only" for="Agrisource-qsBox">Rechercher</label>
+        <input name="qsType" type="hidden" value="qsEmp">&nbsp;
+        <input class="form-control" id="Agrisource-qsBox" name="qsBox" placeholder="Trouver un collège dans Directinfo" type="text" value=""><input name="fuseaction" type="hidden" value="agriInfo.qSearchResults">
+    </div>
+    <div class="submit form-group js-form-wrapper form-wrapper" data-drupal-selector="edit-submit-directinfo" id="edit-submit-directinfo">
+      <button class="btn btn-primary btn-small" name="qsBtn" type="submit">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        <span class="wb-inv">Rechercher</span>
+      </button>
+    </div>
+  </form>
+  <h2>
+    Recherche
+  </h2>
+  <form class="form-inline" action="{$fr_front_trimmed}/search#resultats" id="agrisource-search" method="get" role="search">
+    <div class="form-group">
+      <label class="wb-inv" for="q">Recherche sur AgriSource</label>&nbsp;<input placeholder="Recherche sur AgriSource" class="form-control" id="q" maxlength="150" name="query" size="20" type="search" value=""> <input id="sort_order" name="sort_order" type="hidden" value="DESC">
+    </div>
+    <div class="submit form-group js-form-wrapper form-wrapper" data-drupal-selector="edit-submit-container" id="edit-submit-container">
+      <button class="btn-primary button js-form-submit form-submit btn icon-before" data-drupal-selector="wb-srch-sub" type="submit" id="wb-srch-sub" name="op" value="" title="Recherche">
+        <span class="icon glyphicon glyphicon-search" aria-hidden="true"></span>
+        <span class="wb-inv">Recherche</span>
+      </button>
+      </div>
+  </form>
 </section>
 EOF;
   }
