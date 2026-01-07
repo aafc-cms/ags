@@ -154,11 +154,12 @@ function agrisource_search_processors_update_block_bodies(): array {
   <h2 class="wb-inv">
     Find a colleague
   </h2>
-  <form class="form-inline col-xs-12 col-sm-6" action="http://directinfo.agr.gc.ca/directInfo/eng/index.php" method="get" name="qsForm" target="_self" autocomplete="off">
+  <form class="form-inline col-xs-12 col-sm-6" action="http://directinfo.agr.gc.ca/directInfo/eng/index.php" method="get" name="qsForm" target="_self" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
     <div class="form-group">
       <label class="control-label sr-only" for="Agrisource-qsBox">Search</label>
         <input name="qsType" type="hidden" value="qsEmp">&nbsp;
-        <input class="form-control" id="Agrisource-qsBox" name="qsBox" placeholder="Find a colleague in Directinfo" type="text" value=""><input name="fuseaction" type="hidden" value="agriInfo.qSearchResults">
+        <input class="form-control" id="Agrisource-qsBox" name="qsBox" placeholder="Find a colleague in Directinfo" type="text" value="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        <input name="fuseaction" type="hidden" value="agriInfo.qSearchResults">
     </div>
     <div class="submit form-group js-form-wrapper form-wrapper" data-drupal-selector="edit-submit-directinfo" id="edit-submit-directinfo">
       <button class="btn btn-primary btn-small" name="qsBtn" type="submit">
@@ -192,11 +193,12 @@ EOF;
   <h2 class="wb-inv">
     Trouver un collègue
   </h2>
-  <form class="form-inline col-xs-12 col-sm-6" action="http://directinfo.agr.gc.ca/directInfo/fra/index.php" method="get" name="qsForm" target="_self" autocomplete="off">
+  <form class="form-inline col-xs-12 col-sm-6" action="http://directinfo.agr.gc.ca/directInfo/fra/index.php" method="get" name="qsForm" target="_self" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
     <div class="form-group">
       <label class="control-label sr-only" for="Agrisource-qsBox">Rechercher</label>
         <input name="qsType" type="hidden" value="qsEmp">&nbsp;
-        <input class="form-control" id="Agrisource-qsBox" name="qsBox" placeholder="Trouver un collège dans Directinfo" type="text" value=""><input name="fuseaction" type="hidden" value="agriInfo.qSearchResults">
+        <input class="form-control" id="Agrisource-qsBox" name="qsBox" placeholder="Trouver un collègue dans Directinfo" type="search" value="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        <input name="fuseaction" type="hidden" value="agriInfo.qSearchResults">
     </div>
     <div class="submit form-group js-form-wrapper form-wrapper" data-drupal-selector="edit-submit-directinfo" id="edit-submit-directinfo">
       <button class="btn btn-primary btn-small" name="qsBtn" type="submit">
