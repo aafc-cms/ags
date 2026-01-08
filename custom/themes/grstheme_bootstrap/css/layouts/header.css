@@ -32,6 +32,26 @@
     color: #fff;
   }
 }
+#app-brand {
+  background-color: var(--agrisource-color-brand-text);
+  .app-name {
+    background-color: var(--agrisource-button-color);
+  }
+  .app-name::before {
+    border-left: 20px solid var(--agrisource-button-color);
+  }
+  #wb-glb-mn ul.chvrn {
+    background: unset;
+  }
+  #mb-pnl .modal-header {
+    background: var(--agrisource-button-color);
+    border-bottom: 1px solid var(--agrisource-button-color);
+  }
+  #mb-pnl .modal-header:before {
+    border-bottom: 1.45em solid var(--agrisource-button-color);
+    border-top: 1.45em solid var(--agrisource-button-color);
+  }
+}
 .app-brand {
   .col-xs-12.p-0 {
     background-color: var(--agrisource-bg-color);
@@ -279,6 +299,15 @@ nav#wb-sm div.pnl-strt.container.nvbar {
   }
 }
 
+#mb-pnl .srch-pnl form button {
+  background-color: var(--agrisource-button-color);
+  border-color: var(--agrisource-button-color);
+}
+
+#mb-pnl .modal-body {
+  background: var(--agrisource-color-light);
+}
+
 @media screen and (max-width: 479px) {
   #wb-glb-mn ul {
     min-width: 8em;
@@ -317,5 +346,12 @@ nav#wb-sm div.pnl-strt.container.nvbar {
 @media screen and (min-width: 992px) {
   #app-brand {
     min-height: 0;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  #mb-pnl #wb-srch-sub-imprt {
+    background: var(--agrisource-button-color);
+    border-color: var(--agrisource-button-color);
   }
 }
