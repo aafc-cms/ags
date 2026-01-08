@@ -32,12 +32,21 @@
     color: #fff;
   }
 }
+.app-brand {
+  .col-xs-12.p-0 {
+    background-color: var(--agrisource-bg-color);
+  }
+}
+#wb-bnr {
+  background-image: unset !important;
+}
 .region.region-search {
   margin-left: 5px;
   margin-right: 0;
   padding-left: 0;
   padding-right: 0;
   #wb-srch {
+    min-height: 40px;
     input {
       min-width: 18.25em;
       background-color: var(--agrisource-color-search-input-bg);
@@ -270,15 +279,43 @@ nav#wb-sm div.pnl-strt.container.nvbar {
   }
 }
 
-@media screen and (min-width: 992px) and (max-width: 1200px) {
-.region.region-search {
-  form[name="qsForm"] {
-    padding-right: 0;
-    margin-left: 10px;
+@media screen and (max-width: 479px) {
+  #wb-glb-mn ul {
+    min-width: 8em;
   }
-  #wb-srch {
-    input {
-      min-width: 15.25em;
+}
+@media screen and (max-width: 767px) {
+  #mb-pnl .srch-pnl form.agrisource,
+  #mb-pnl .srch-pnl form.directinfo {
+    div.first.form-group {
+      margin-top: -23px;
+      margin-bottom: 0;
     }
+    input.form-control {
+      width: 455px;
+    }
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .region.region-search {
+    .col-sm-6.agrisource {
+      margin-left: -10px;
+    }
+    form[name="qsForm"] {
+      padding-right: 0;
+      margin-left: 10px;
+    }
+    #wb-srch {
+      input {
+        min-width: 15.25em;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #app-brand {
+    min-height: 0;
   }
 }

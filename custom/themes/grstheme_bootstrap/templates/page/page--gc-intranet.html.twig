@@ -71,22 +71,31 @@
     %}
     <header{{ navbar_attributes.addClass(navbar_classes) }} id="navbar">
       <div id="wb-bnr">
-        <div id="wb-bar">
+        <div class="container app-brand">
+          <div class="row">
+            <div class="visible-sm visible-xs col-xs-12 p-0">
+              <img class="visible-sm visible-xs" id="gcwu-sig" src='{{ logo_svg }}' alt='{{ 'Agriculture and Agri-Food Canada'|t }}' />
+            </div>
+          </div>
+        </div>
+        <div id="app-brand">
           <div class="container">
             <div class="row">
-              <img class="visible-sm visible-xs" id="gcwu-sig" src='{{ logo_svg }}' alt='{{ 'Agriculture and Agri-Food Canada'|t }}' />
-              <section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+              <section class="visible-xs visible-sm col-sm-9 col-xs-8">
+                <div class="app-name"><a href="https://intranet.canada.ca/index-{{ lang_iso_639_2 }}.asp"><span><span class="bold-gc">GC</span> intranet</span></a></div>
+              </section>
+              <section class="wb-mb-links col-xs-4 col-sm-3 visible-sm visible-xs pull-right" id="wb-glb-mn">
                 <h2>{{ 'Search and menus'|t }}</h2>
-                <ul class="pnl-btn list-inline text-right">
-                <li>
-                  <a href="#mb-pnl" title="Search and menus" aria-controls="mb-pnl" class="overlay-lnk btn btn-sm btn-default" role="button">
-                    <span class="glyphicon glyphicon-search">
-                      <span class="glyphicon glyphicon-th-list">
-                        <span class="wb-inv">{{ 'Search and menus'|t }}</span>
+                <ul class="list-inline text-right chvrn">
+                  <li>
+                    <a href="#mb-pnl" title="{{ 'Search and menus'|t }}" aria-controls="mb-pnl" class="overlay-lnk" role="button">
+                      <span class="glyphicon glyphicon-search">
+                        <span class="glyphicon glyphicon-th-list">
+                          <span class="wb-inv">{{ 'Search and menus'|t }}</span>
+                        </span>
                       </span>
-                    </span>
-                  </a>
-                </li>
+                    </a>
+                  </li>
                 </ul>
                 <div id="mb-pnl"></div>
               </section>

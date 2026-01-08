@@ -154,8 +154,8 @@ function agrisource_search_processors_update_block_bodies(): array {
   <h2 class="wb-inv">
     Find a colleague
   </h2>
-  <form class="form-inline col-xs-12 col-sm-6" action="http://directinfo.agr.gc.ca/directInfo/eng/index.php" method="get" name="qsForm" target="_self" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-    <div class="form-group">
+  <form class="form-inline col-xs-12 col-sm-6 directinfo" action="http://directinfo.agr.gc.ca/directInfo/eng/index.php" method="get" name="qsForm" target="_self" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    <div class="first form-group">
       <label class="control-label sr-only" for="Agrisource-qsBox">Search</label>
         <input name="qsType" type="hidden" value="qsEmp">&nbsp;
         <input class="form-control" id="Agrisource-qsBox" name="qsBox" placeholder="Find a colleague in Directinfo" type="text" value="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
@@ -171,8 +171,8 @@ function agrisource_search_processors_update_block_bodies(): array {
   <h2>
     Search
   </h2>
-  <form class="form-inline" action="{$en_front_trimmed}/search#results" id="agrisource-search" method="get" role="search">
-    <div class="form-group">
+  <form class="form-inline col-xs-12 col-sm-6 agrisource" action="{$en_front_trimmed}/search#results" id="agrisource-search" method="get" role="search">
+    <div class="first form-group">
       <label class="wb-inv" for="q">Search AgriSource</label>&nbsp;<input placeholder="Search AgriSource" class="form-control" id="q" maxlength="150" name="query" size="20" type="search" value=""> <input id="sort_order" name="sort_order" type="hidden" value="DESC">
     </div>
     <div class="submit form-group js-form-wrapper form-wrapper" data-drupal-selector="edit-submit-container" id="edit-submit-container">
@@ -193,8 +193,8 @@ EOF;
   <h2 class="wb-inv">
     Trouver un collègue
   </h2>
-  <form class="form-inline col-xs-12 col-sm-6" action="http://directinfo.agr.gc.ca/directInfo/fra/index.php" method="get" name="qsForm" target="_self" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-    <div class="form-group">
+  <form class="form-inline col-xs-12 col-sm-6 directinfo" action="http://directinfo.agr.gc.ca/directInfo/fra/index.php" method="get" name="qsForm" target="_self" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    <div class="first form-group">
       <label class="control-label sr-only" for="Agrisource-qsBox">Rechercher</label>
         <input name="qsType" type="hidden" value="qsEmp">&nbsp;
         <input class="form-control" id="Agrisource-qsBox" name="qsBox" placeholder="Trouver un collègue dans Directinfo" type="search" value="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
@@ -210,8 +210,8 @@ EOF;
   <h2>
     Recherche
   </h2>
-  <form class="form-inline" action="{$fr_front_trimmed}/search#resultats" id="agrisource-search" method="get" role="search">
-    <div class="form-group">
+  <form class="form-inline col-xs-12 col-sm-6 agrisource" action="{$fr_front_trimmed}/search#resultats" id="agrisource-search" method="get" role="search">
+    <div class="first form-group">
       <label class="wb-inv" for="q">Recherche sur AgriSource</label>&nbsp;<input placeholder="Recherche sur AgriSource" class="form-control" id="q" maxlength="150" name="query" size="20" type="search" value=""> <input id="sort_order" name="sort_order" type="hidden" value="DESC">
     </div>
     <div class="submit form-group js-form-wrapper form-wrapper" data-drupal-selector="edit-submit-container" id="edit-submit-container">
