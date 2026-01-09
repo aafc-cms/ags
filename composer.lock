@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ca83321cfdada4e14938e4ab77ad7dff",
+    "content-hash": "a85cb917d65493f2a2c71a2f726435fb",
     "packages": [
         {
             "name": "agrcms/agri_admin",
@@ -188,16 +188,16 @@
         },
         {
             "name": "agrcmsx/dxbase",
-            "version": "11.1.3.8",
+            "version": "11.1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/agrcms/dxbase.git",
-                "reference": "fa42dd07db2bbd97845f5403a976239a9945488b"
+                "reference": "4d686c15eedcbd22c4e1c0d84ab37d312d610c2a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=fa42dd07db2bbd97845f5403a976239a9945488b",
-                "reference": "fa42dd07db2bbd97845f5403a976239a9945488b",
+                "url": "https://gitlab.com/api/v4/projects/agrcms%2Fdxbase/repository/archive.zip?sha=4d686c15eedcbd22c4e1c0d84ab37d312d610c2a",
+                "reference": "4d686c15eedcbd22c4e1c0d84ab37d312d610c2a",
                 "shasum": ""
             },
             "require": {
@@ -287,7 +287,7 @@
                 "drupal/workflow": "1.x-dev@dev",
                 "drupal/wxt_chart_stability": "^1.0@beta",
                 "drupaloverride/webform_revision_ui": "*",
-                "drupalwxt/wxt": "^6.1.1",
+                "drupalwxt/wxt": "^6.1.4",
                 "drush/drush": "^12 || ^13",
                 "nnnick/chartjs": "^4.4",
                 "w8tcha/ckeditor-codemirror": "1.18.5"
@@ -357,7 +357,8 @@
                     "drupal/linkchecker": {
                         "3426268 - Check on demand": "https://www.drupal.org/files/issues/2025-05-05/3426268-13_0.patch",
                         "3522806 - Check for null parent_entity_type_id": "https://www.drupal.org/files/issues/2025-05-05/3522806-04.patch",
-                        "3213210 use GET method as fallback if HEAD fails and 3334240 host and port substitution.": "https://www.drupal.org/files/issues/2025-08-01/linkchecker21x-3213210-and-3334240-combined-33.patch"
+                        "3213210 - use GET method as fallback if HEAD fails and 3334240 host and port substitution.": "https://www.drupal.org/files/issues/2025-08-01/linkchecker21x-3213210-and-3334240-combined-33.patch",
+                        "3525930 - Improve performance of LinkExtractorBatch & allow to skip unpublished moderated content": "https://www.drupal.org/files/issues/2025-05-22/3525930-01.patch"
                     },
                     "drupal/wxt_library": {
                         "part 1 When installing and enabling the Canada.ca theme, the footer is missing the menu and other elements. Stats Can provides a CDN for footer markup, but as far as I know Canada.ca doesn't provide this. It would be nice to have the footer complete on install.": "https://www.drupal.org/files/issues/2023-05-16/wxt-library-add-canada-ca-footer-twig-extension-3195014-31.patch"
@@ -381,7 +382,7 @@
                         "2979229 - Like only option.": "https://www.drupal.org/files/issues/2024-05-06/2979229-9-like-only-option-for-2.0.patch"
                     },
                     "drupal/layout_builder_st": {
-                        "3069964 - Null fix for moderation dashboard, otherwise WSOD on login": "https://www.drupal.org/files/issues/2025-01-02/3069964-null-fix.patch"
+                        "3069964 - Null fix for moderation dashboard, otherwise WSOD on login": "https://www.drupal.org/files/issues/2026-01-09/layout_builder_st-3069964-49.patch"
                     },
                     "drupal/views_data_export": {
                         "Save to predictable folder": "https://www.drupal.org/files/issues/2021-01-08/1875456-82.patch"
@@ -481,12 +482,12 @@
             "license": [
                 "GPL-2.0+"
             ],
-            "description": "WxT optimal base for Drupal 8/9 sites built with the WxT distribution.",
+            "description": "WxT optimal base for Drupal 11 sites built with the WxT distribution.",
             "support": {
                 "issues": "https://gitlab.com/agrcms/dxbase/-/issues",
-                "source": "https://gitlab.com/agrcms/dxbase/-/tree/11.1.3.8"
+                "source": "https://gitlab.com/agrcms/dxbase/-/tree/11.1.4.2"
             },
-            "time": "2025-08-08T12:55:01+00:00"
+            "time": "2026-01-09T21:43:02+00:00"
         },
         {
             "name": "algolia/places",
@@ -2342,29 +2343,29 @@
         },
         {
             "name": "drupal/admin_toolbar",
-            "version": "3.5.3",
+            "version": "3.6.3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/admin_toolbar.git",
-                "reference": "3.5.3"
+                "reference": "3.6.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/admin_toolbar-3.5.3.zip",
-                "reference": "3.5.3",
-                "shasum": "363cdd6e6ca47983900f40793edf9a8b26f132bb"
+                "url": "https://ftp.drupal.org/files/projects/admin_toolbar-3.6.3.zip",
+                "reference": "3.6.3",
+                "shasum": "9dfd1088a96464237998c3606b63c2d71644a1bf"
             },
             "require": {
                 "drupal/core": "^9.5 || ^10 || ^11"
             },
-            "require-dev": {
-                "drupal/admin_toolbar_tools": "*"
+            "conflict": {
+                "drupal/project_browser": "<2.1.0"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.5.3",
-                    "datestamp": "1740156799",
+                    "version": "3.6.3",
+                    "datestamp": "1767318997",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2398,8 +2399,9 @@
                     "role": "Maintainer"
                 },
                 {
-                    "name": "fethi.krout",
-                    "homepage": "https://www.drupal.org/user/3206765"
+                    "name": "David Suissa (DYdave)",
+                    "homepage": "https://www.drupal.org/u/dydave",
+                    "role": "Maintainer"
                 },
                 {
                     "name": "japerry",
@@ -8027,10 +8029,10 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/layout_builder_st.git",
-                "reference": "68f690c8fb7a679128deaa22bc3d5f0272caec18"
+                "reference": "d91b6e617ceec5fb570a61ccd256397f57293f30"
             },
             "require": {
-                "drupal/core": "^10 || ^11"
+                "drupal/core": "^10.2 || ^11"
             },
             "type": "drupal-module",
             "extra": {
@@ -8038,32 +8040,43 @@
                     "dev-2.0.x": "2.0.x-dev"
                 },
                 "drupal": {
-                    "version": "2.0.x-dev",
-                    "datestamp": "1745441903",
+                    "version": "2.0.0+2-dev",
+                    "datestamp": "1767967840",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0-or-later"
+                "GPL-2.0+"
             ],
             "authors": [
                 {
-                    "name": "phenaproxima",
-                    "homepage": "https://www.drupal.org/user/205645"
+                    "name": "Ted Bow",
+                    "homepage": "https://www.drupal.org/u/tedbow",
+                    "role": "Maintainer"
                 },
                 {
-                    "name": "tedbow",
-                    "homepage": "https://www.drupal.org/user/240860"
+                    "name": "Lucas Hedding",
+                    "homepage": "https://www.drupal.org/u/heddn",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://www.drupal.org/node/3060271/committers",
+                    "role": "Contributors"
                 }
             ],
             "description": "Allows translating Layout overrides",
             "homepage": "https://www.drupal.org/project/layout_builder_st",
+            "keywords": [
+                "Drupal"
+            ],
             "support": {
-                "source": "https://git.drupalcode.org/project/layout_builder_st"
+                "source": "https://git.drupalcode.org/project/layout_builder_st",
+                "issues": "https://www.drupal.org/project/issues/layout_builder_st"
             }
         },
         {
@@ -10406,17 +10419,17 @@
         },
         {
             "name": "drupal/redis",
-            "version": "1.9.0",
+            "version": "1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/redis.git",
-                "reference": "8.x-1.9"
+                "reference": "8.x-1.11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/redis-8.x-1.9.zip",
-                "reference": "8.x-1.9",
-                "shasum": "77e2e8ddb95be08f3fe9f74182c7ff0476e15674"
+                "url": "https://ftp.drupal.org/files/projects/redis-8.x-1.11.zip",
+                "reference": "8.x-1.11",
+                "shasum": "4a32e50b85523fd09500b6c6398cf18504bdc652"
             },
             "require": {
                 "drupal/core": "^9.3 || ^10 || ^11"
@@ -10429,8 +10442,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.9",
-                    "datestamp": "1737932099",
+                    "version": "8.x-1.11",
+                    "datestamp": "1762688846",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -13184,16 +13197,16 @@
         },
         {
             "name": "drupalwxt/wxt",
-            "version": "6.1.1",
+            "version": "6.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupalwxt/wxt.git",
-                "reference": "6f3eac010ed96bb454612a0b5f07215fad9b812e"
+                "reference": "34e6f21547d2ecad721c5b7496a313c345f93840"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupalwxt/wxt/zipball/6f3eac010ed96bb454612a0b5f07215fad9b812e",
-                "reference": "6f3eac010ed96bb454612a0b5f07215fad9b812e",
+                "url": "https://api.github.com/repos/drupalwxt/wxt/zipball/34e6f21547d2ecad721c5b7496a313c345f93840",
+                "reference": "34e6f21547d2ecad721c5b7496a313c345f93840",
                 "shasum": ""
             },
             "require": {
@@ -13257,7 +13270,7 @@
                 "drupal/password_policy": "^4.0",
                 "drupal/pathauto": "^1.13",
                 "drupal/redirect": "^1.10",
-                "drupal/redis": "^1.8",
+                "drupal/redis": "^1.10",
                 "drupal/search_api": "^1.37",
                 "drupal/simple_sitemap": "^4.2",
                 "drupal/slick_entityreference": "^3.0",
@@ -13271,8 +13284,8 @@
                 "drupal/views_bootstrap": "5.3.*",
                 "drupal/views_infinite_scroll": "^2.0",
                 "drupal/webform": "^6.3@alpha",
-                "drupalwxt/wxt_bootstrap": "11.1.x-dev",
-                "drupalwxt/wxt_library": "11.1.x-dev",
+                "drupalwxt/wxt_bootstrap": "11.1.*",
+                "drupalwxt/wxt_library": "11.1.*",
                 "ext-dom": "*",
                 "fontawesome/fontawesome": "^6.4",
                 "npm-asset/dropzone": "^5.7.4",
@@ -13304,6 +13317,7 @@
                         "Enter drupal/core patch #2857273 description here": "https://www.drupal.org/files/issues/2020-07-13/D91x-self_closing_correct-2857273-13.patch",
                         "Enter drupal/core patch #2885370 description here": "https://www.drupal.org/files/issues/systemmainblock_build-2885370-3.patch",
                         "Enter drupal/core patch #2893029 description here": "https://www.drupal.org/files/issues/2893029-9.patch",
+                        "3500238 - Rename tests to fix core phpunit kernel tests": "https://www.drupal.org/files/issues/2025-08-20/3500238-core-11.1.8--16.patch",
                         "3016131 - Improved exception message developer experience": "https://www.drupal.org/files/issues/2020-05-26/drupal-3016131-23-useless-exception.patch",
                         "3107212 - views no results behavior on field level is not translateable": "https://www.drupal.org/files/issues/2023-01-23/d10-1-x--3107212-19.patch",
                         "2938129 - PageTitle block is non-functional when not handled directly by BlockPageVariant": "https://www.drupal.org/files/issues/2025-01-28/drupal-PageTitle_block-2938129-43.patch",
@@ -13320,14 +13334,11 @@
                         "Enter drupal/group patch #2817109 description here": "https://www.drupal.org/files/issues/2022-11-02/2817109-2.0.x-how-to-redirect-30.patch"
                     },
                     "drupal/redis": {
-                        "3004561 - Enable ssl scheme": "https://www.drupal.org/files/issues/2021-11-19/redis-support_tls_on_predis-3004561-37.patch"
+                        "3004561 - Enable ssl scheme": "https://www.drupal.org/files/issues/2025-08-13/redis-support_tls_on_predis-3004561-49.patch"
                     },
                     "drupal/ctools": {
                         "Enter drupal/ctools patch #2667652 description here": "https://www.drupal.org/files/issues/ctools-option_to_expose-2667652-3.patch",
                         "Enter drupal/ctools patch #2924356 description here": "https://www.drupal.org/files/issues/2024-06-14/ctools-entity_field_rendered_twice-2924356-12.patch"
-                    },
-                    "drupal/linkit": {
-                        "3078075 - Detect and strip base URL from pasted URLs": "https://www.drupal.org/files/issues/2025-07-02/linkit-detect-strip-base-url-3078075-118.patch"
                     },
                     "drupal/panels": {
                         "Enter drupal/panels patch #2910704 description here": "https://www.drupal.org/files/issues/panels-ipe-card-flip-ie-error-2910704.diff"
@@ -13346,15 +13357,10 @@
                         "Enter drupal/page_manager patch #2752227 description here": "https://www.drupal.org/files/issues/2025-01-15/2752227-56.patch"
                     },
                     "drupal/entity_browser": {
-                        "2914385 - Fix PHP error": "https://www.drupal.org/files/issues/2023-10-10/2914385-25.patch",
                         "2843247 - Drupal ajax error of undefined method getFileUri() while selecting newly uploaded image": "https://www.drupal.org/files/issues/2025-02-13/entity-browser-2843247-16.patch"
                     },
                     "drupal/ckeditor_details": {
                         "3244311 - Allow <details> element to be placed without <div>": "https://www.drupal.org/files/issues/2024-11-15/3244311-9.patch"
-                    },
-                    "drupal/layout_builder_st": {
-                        "3411037 - Fix core removing contextual translation links": "https://git.drupalcode.org/project/layout_builder_st/-/merge_requests/5.patch",
-                        "3420063 - Call to a member function getConfig() OverridesSectionStorage.php": "https://git.drupalcode.org/project/layout_builder_st/-/merge_requests/6.diff"
                     },
                     "drupal/block_content_permissions": {
                         "2920739 - Allow accessing the 'Custom block library' page without 'Administer blocks' permission": "https://www.drupal.org/files/issues/2022-07-26/2920739-55.access_listing_page.patch"
@@ -13410,9 +13416,9 @@
             "description": "Project template for Drupal 10 sites built with the WxT distribution.",
             "support": {
                 "issues": "https://github.com/drupalwxt/wxt/issues",
-                "source": "https://github.com/drupalwxt/wxt/tree/6.1.1"
+                "source": "https://github.com/drupalwxt/wxt/tree/6.1.4"
             },
-            "time": "2025-07-03T02:31:11+00:00"
+            "time": "2025-11-16T03:54:16+00:00"
         },
         {
             "name": "drupalwxt/wxt_bootstrap",
