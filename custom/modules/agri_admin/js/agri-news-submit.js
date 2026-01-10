@@ -90,7 +90,7 @@ var AgriNewsSubmitHelper = function() {
   */
   function handlePreviewClickEvent(element, e) {
     console.log('handlePreview click');
-    formRequiredFieldsValidation();
+    //formRequiredFieldsValidation();
   }
 
 /**
@@ -99,7 +99,7 @@ var AgriNewsSubmitHelper = function() {
   */
   function handleSubmitClickEvent(element, e) {
     console.log('handleSubmit click');
-    formRequiredFieldsValidation();
+    //formRequiredFieldsValidation();
   }
 
 
