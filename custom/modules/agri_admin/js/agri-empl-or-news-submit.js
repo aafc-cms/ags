@@ -84,6 +84,9 @@ var AgriHelper = function() {
     validate news form and EO form
   */
   function formRequiredFieldsValidation() {
+    // Debug testing.
+    return;
+    // End debug testing.
     $('select[required="required"]').each(function(index, element) {
       if ($(element).hasClass('form-select')) {
         if ($(element).val() == '_none') {
