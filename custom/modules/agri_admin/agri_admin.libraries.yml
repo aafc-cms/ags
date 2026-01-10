@@ -40,10 +40,16 @@ agri-admin:
 agri-empl-news-submit:
   css:
     component:
-      news-empl-submit/css/news-empl-submit.css: {}
+      news-empl-submit/css/components/buttons.css: {}
+      news-empl-submit/css/components/node.css: {}
+      news-empl-submit/css/components/news_submission_form.css: {}
+      news-empl-submit/css/components/employmentopportunity_submission_form.css: {}
+      news-empl-submit/css/components/media-browser.css: {}
       ../../../core/themes/claro/css/theme/media-library.css: {}
   js:
     js/agri-empl-or-news-submit.js: {}
+    ../../../profiles/wxt/modules/custom/wxt_ext/wxt_ext_webform/js/webform_required_marker.js: {}
+    ../../../profiles/wxt/modules/custom/wxt_ext/wxt_ext_webform/js/webform_checkboxes_group.js: {}
   dependencies:
     - core/jquery
     - core/drupalSettings
