@@ -94,7 +94,8 @@ function agri_admin_page_attachments(array &$page) {
       $page['#attached']['library'][] = 'agri_admin/legacy-support';
       $page['#attached']['library'][] = 'agri_admin/content-plugins-changes';
       $page['#attached']['drupalSettings']['agrisource']['show_restricted_plugins_permissions'] = $user->hasPermission('agrisource show restricted plugins');
-    } else if ($current_route == 'entity.node.preview') {
+    }
+    else if ($current_route == 'entity.node.preview') {
       $page['#attached']['library'][] = 'agri_admin/agri_preview';
     }
 
@@ -902,8 +903,19 @@ function agri_admin_form_page_submit(array $form, FormStateInterface $form_state
  * Implements hook_form_node_form_alter().
  */
 function agri_admin_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  $entity = $form_state->getFormObject()->getEntity();
+  // WET-BOEW form validation wrapper for forms rendered on node 49/50 canonical pages only.
+  if (\Drupal::routeMatch()->getRouteName() === 'entity.node.canonical') {
+    $route_node = \Drupal::routeMatch()->getParameter('node');
+    if ($route_node instanceof NodeInterface) {
+      $nid = (int) $route_node->id();
+      if ($nid === 49 || $nid === 50) {
+        $form['#prefix'] = ($form['#prefix'] ?? '') . '<div class="wb-frmvld">';
+        $form['#suffix'] = '</div>' . ($form['#suffix'] ?? '');
+      }
+    }
+  }
 
+  $entity = $form_state->getFormObject()->getEntity();
   $content_type = $entity->bundle();
   if ($content_type == 'page' || $content_type == 'landing_page' || $content_type == 'empl' || $content_type == 'news') {
     $form['field_issued']['widget'][0]['#disabled'] = TRUE;
@@ -1542,9 +1554,9 @@ function agri_admin_preprocess_field_multiple_value_form(&$vars) {
  * Implements hook_preprocess_fieldset_HOOK().
  */
 function agri_admin_preprocess_fieldset(&$variables) {
-  unset($variables['attributes']['required']);
-  unset($variables['attributes']['aria-required']);
-  unset($variables['attributes']['aria-invalid']);
+#  unset($variables['attributes']['required']);
+#  unset($variables['attributes']['aria-required']);
+#  unset($variables['attributes']['aria-invalid']);
 }
 
 /**
